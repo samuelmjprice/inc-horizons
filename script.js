@@ -16,7 +16,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-brand";
+const APP_VERSION = "20260529-brand2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
