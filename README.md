@@ -91,6 +91,42 @@ Tracker tabs include:
 
 Note: Excel does not allow `/` in tab names, so `Image / Asset Updates` is named `Image + Asset Updates`.
 
+## Missing Info Questions Tracker
+
+The team-facing missing information workbook is:
+
+```txt
+data/HORIZONS_Missing_Info_Questions_Tracker.xlsx
+```
+
+A copy is also saved in the Desktop handoff folder:
+
+```txt
+/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_Missing_Info_Questions_Tracker.xlsx
+```
+
+Use this workbook to collect the answers still needed to finish the website and make the event information complete.
+
+It is different from `HORIZONS_Website_Update_Tracker.xlsx`:
+
+- `HORIZONS_Website_Update_Tracker.xlsx` is for requested website changes and approved update intake.
+- `HORIZONS_Missing_Info_Questions_Tracker.xlsx` is for questions, missing files, missing contact details, unclear schedule items, supplier confirmations, image needs, and CEO approvals.
+
+How to use it:
+
+1. Fill in `Answer / Final Info` or `Final Answer` where known.
+2. Add the right person under `Who Should Answer` or `Who Should Confirm`.
+3. Do not guess missing emails, phone numbers, files, timings, or approvals.
+4. Mark uncertain rows `Needs Confirmation`.
+5. Mark final rows `Answered` or `Approved`.
+6. Codex should only use `Answered` or `Approved` rows to update `content.json`.
+
+Website review notes are saved in:
+
+```txt
+WEBSITE_REVIEW_NOTES.md
+```
+
 ## Optional Import Helper
 
 The non-destructive helper is:
