@@ -4,9 +4,9 @@
     "subtitle": "Event Command Centre",
     "location": "Ibiza",
     "dates": "7-12 June 2026",
-    "lastUpdated": "28 May 2026, 13:45",
+    "lastUpdated": "28 May 2026, 18:00",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.",
-    "logo": "assets/logos/horizons-connect-black.png",
+    "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
     "wordmarkAvailable": false,
     "missingAssets": [
@@ -17,9 +17,14 @@
       "Menus",
       "Maps",
       "Seating plans",
-      "Room layouts"
+      "Room layouts",
+      "Flight numbers and final transfer timings",
+      "Presentation/speech documents",
+      "Additional visual setup images"
     ],
-    "studioLogo": "assets/logos/horizons-studio-main-logo-black.png"
+    "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
+    "updatedBy": "Codex / Chris Manoe review pass",
+    "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf"
   },
   "quickActions": [
     {
@@ -182,7 +187,7 @@
       "timeDisplay": "10:00",
       "period": "Morning",
       "title": "Check for snagging",
-      "shortDescription": "Chris Manoe to advise of any snagging issue. Be good to action with hotel | Needs Confirmation",
+      "shortDescription": "Chris Manoe to advise of any snagging issue. B Good to action with hotel | Needs Confirmation",
       "owner": "Chris Manoe",
       "support": "I.N.C",
       "location": "Six Senses Ibiza",
@@ -191,7 +196,7 @@
       "category": "Setup",
       "publicPrivate": "Team",
       "source": "XLSX Onsite Schedule: Sun 7 June row/page 5",
-      "notes": "Chris Manoe to advise of any snagging issue. Be good to action with hotel | Needs Confirmation",
+      "notes": "Chris Manoe to advise of any snagging issue. B Good to action with hotel | Needs Confirmation",
       "updateId": "schedule:sch_4ab5fa21",
       "department": "Leadership",
       "personInvolved": "Chris Manoe"
@@ -1709,7 +1714,7 @@
       "timeDisplay": "TBC",
       "period": "Afternoon",
       "title": "Starlink Installation",
-      "shortDescription": "TBC detail | Dean Whitehead; Samuel mentioned | CHECK: Samuel first-name-only. Confirm Samuel Hozie...",
+      "shortDescription": "TBC detail | Dean Whitehead | CHECK: Samuel first-name-only. Confirm Samuel Hozie...",
       "owner": "Chris Manoe",
       "support": "Joseph",
       "location": "HORIZONS House",
@@ -1718,7 +1723,7 @@
       "category": "Setup",
       "publicPrivate": "Leadership",
       "source": "XLSX Onsite Schedule: Tue 9 June row/page 8",
-      "notes": "TBC detail | Dean Whitehead; Samuel mentioned",
+      "notes": "TBC detail | Dean Whitehead",
       "updateId": "schedule:sch_cf8957a3",
       "department": "Leadership"
     },
@@ -1742,7 +1747,7 @@
       "source": "XLSX Onsite Schedule: Tue 9 June row/page 31",
       "notes": "Christina Hizon",
       "updateId": "schedule:sch_264c6520",
-      "department": "Leadership"
+      "department": "Entertainment"
     },
     {
       "id": "sch_d0f7cc74",
@@ -2072,7 +2077,7 @@
       "source": "XLSX Onsite Schedule: Tue 9 June row/page 43",
       "notes": "Christina Hizon",
       "updateId": "schedule:sch_f45495d9",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_ec03b165",
@@ -2182,7 +2187,7 @@
       "source": "XLSX Onsite Schedule: Tue 9 June row/page 50",
       "notes": "Exact time TBC — confirm with DR | TBC detail; Needs confirmation; Time needs locking | Christina Hizon",
       "updateId": "schedule:sch_c32f3dea",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_1051b37c",
@@ -2402,7 +2407,7 @@
       "source": "XLSX Onsite Schedule: Tue 9 June row/page 62",
       "notes": "Parris Taylor; Lyndsay Evans",
       "updateId": "schedule:sch_d558d559",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_43a4ccaa",
@@ -3219,7 +3224,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 25",
       "notes": "Christina Hizon",
       "updateId": "schedule:sch_7b1392f1",
-      "department": "Leadership"
+      "department": "Entertainment"
     },
     {
       "id": "sch_37226e77",
@@ -3285,7 +3290,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 28",
       "notes": "Sound check for lunch performance",
       "updateId": "schedule:sch_1e6b821f",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_b3506872",
@@ -3351,7 +3356,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 31",
       "notes": "Running all day. Podcast recordings separately at Cliffhanger Mansion 14:30–17:15 (see below). | Question mark / unclear | Christina Hizon",
       "updateId": "schedule:sch_2d242b32",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "sch_eb6242ed",
@@ -3461,7 +3466,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 33",
       "notes": "Classical pianist (Christina Hizon) Curated hotel ambient playlist",
       "updateId": "schedule:sch_20cbc2fc",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_a2398f91",
@@ -3505,7 +3510,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 36",
       "notes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. | Christina Hizon",
       "updateId": "schedule:sch_e5c10771",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "sch_4cb666e8",
@@ -3637,7 +3642,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 39",
       "notes": "",
       "updateId": "schedule:sch_bcd42d45",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_171fd600",
@@ -4099,7 +4104,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 55",
       "notes": "Christina Hizon",
       "updateId": "schedule:sch_441f3e61",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_fb9d6ea4",
@@ -4231,7 +4236,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 58",
       "notes": "Missing responsible owner",
       "updateId": "schedule:sch_455af3e0",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_6c4c4652",
@@ -4297,7 +4302,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 61",
       "notes": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean | Christina Hizon",
       "updateId": "schedule:sch_5d07c48a",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "sch_38f94154",
@@ -4319,7 +4324,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 64",
       "notes": "Violin for P&C & Aream group arrival | Missing responsible owner",
       "updateId": "schedule:sch_38f94154",
-      "department": "Leadership"
+      "department": "Entertainment"
     },
     {
       "id": "sch_60807225",
@@ -4341,7 +4346,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 63",
       "notes": "Missing responsible owner | Christina Hizon",
       "updateId": "schedule:sch_60807225",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_756ae78e",
@@ -4385,7 +4390,7 @@
       "source": "XLSX Onsite Schedule: Wed 10 June row/page 66",
       "notes": "",
       "updateId": "schedule:sch_57637a92",
-      "department": "Content"
+      "department": "Entertainment"
     },
     {
       "id": "sch_802186d9",
@@ -6060,7 +6065,7 @@
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 42",
       "notes": "Christina Hizon",
       "updateId": "schedule:sch_525e97dc",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "sch_8977b403",
@@ -6082,7 +6087,7 @@
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 44",
       "notes": "Closed set. No audience. | Christina Hizon",
       "updateId": "schedule:sch_8977b403",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "sch_58afc86e",
@@ -6183,7 +6188,7 @@
       "title": "Gala Dinner final setup - all spaces",
       "shortDescription": "Tables, AV, lighting, entertainment briefed.",
       "owner": "Clownfish Lead + B Good",
-      "support": "B Good / clownfish",
+      "support": "B Good / Clownfish",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
       "priority": "Watch",
@@ -6324,7 +6329,7 @@
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 53",
       "notes": "Conner Reeves",
       "updateId": "schedule:sch_6802be16",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_412d8017",
@@ -6346,7 +6351,7 @@
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 51",
       "notes": "Missing responsible owner | Christina Hizon; Conner Reeves",
       "updateId": "schedule:sch_412d8017",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_953a22a8",
@@ -6500,7 +6505,7 @@
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 60",
       "notes": "Alternative sets",
       "updateId": "schedule:sch_df7759c0",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "sch_c3210bc7",
@@ -6665,7 +6670,7 @@
       "timeDisplay": "21:00",
       "period": "Evening",
       "title": "Test highlight reel",
-      "shortDescription": "Chris Manoe; Tammy Hosier; Samuel mentioned | CHECK: Samuel first-name-only. Confirm Samuel Hosier...",
+      "shortDescription": "Chris Manoe; Tammy Hosier | CHECK: Samuel first-name-only. Confirm Samuel Hosier...",
       "owner": "Chris Manoe, TH, DW, Clownfish",
       "support": "I.N.C",
       "location": "HORIZONS Hall",
@@ -6674,7 +6679,7 @@
       "category": "Content Capture",
       "publicPrivate": "Leadership",
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 67",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "updateId": "schedule:sch_b6c133fa",
       "department": "Content",
       "personInvolved": "Chris Manoe"
@@ -6697,7 +6702,7 @@
       "category": "Setup",
       "publicPrivate": "Leadership",
       "source": "XLSX Onsite Schedule: Thu 11 June row/page 68",
-      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier; Samuel mentioned | CHEC...",
+      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier | CHEC...",
       "updateId": "schedule:sch_7a71d20f",
       "department": "Food & Beverage",
       "personInvolved": "Chris Manoe"
@@ -7946,7 +7951,7 @@
       "email": ""
     },
     {
-      "name": "Noelia Adelamanti",
+      "name": "Noelia Badalamenti",
       "group": "Hotel",
       "category": "Hotel",
       "role": "Main hotel point of contact",
@@ -8080,7 +8085,7 @@
       "action": "Check for snagging",
       "location": "Six Senses Ibiza",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe to advise of any snagging issue. Be good to action with hotel | Needs Confirmation",
+      "notes": "Chris Manoe to advise of any snagging issue. B Good to action with hotel | Needs Confirmation",
       "id": "task-3",
       "updateId": "task:task-3",
       "department": "Leadership",
@@ -8094,7 +8099,7 @@
       "action": "Check for snagging",
       "location": "Six Senses Ibiza",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe to advise of any snagging issue. Be good to action with hotel | Needs Confirmation",
+      "notes": "Chris Manoe to advise of any snagging issue. B Good to action with hotel | Needs Confirmation",
       "id": "task-4",
       "updateId": "task:task-4",
       "department": "Leadership",
@@ -9678,7 +9683,7 @@
       "action": "Starlink Installation",
       "location": "HORIZONS House",
       "status": "Needs Confirmation",
-      "notes": "TBC detail | Dean Whitehead; Samuel mentioned",
+      "notes": "TBC detail | Dean Whitehead",
       "id": "task-125",
       "updateId": "task:task-125",
       "department": "Leadership",
@@ -9691,7 +9696,7 @@
       "action": "Starlink Installation",
       "location": "HORIZONS House",
       "status": "Needs Confirmation",
-      "notes": "TBC detail | Dean Whitehead; Samuel mentioned",
+      "notes": "TBC detail | Dean Whitehead",
       "id": "task-126",
       "updateId": "task:task-126",
       "department": "Production",
@@ -9707,7 +9712,7 @@
       "notes": "Christina Hizon",
       "id": "task-127",
       "updateId": "task:task-127",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -9720,7 +9725,7 @@
       "notes": "Christina Hizon",
       "id": "task-128",
       "updateId": "task:task-128",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10136,7 +10141,7 @@
       "notes": "Christina Hizon",
       "id": "task-160",
       "updateId": "task:task-160",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10149,7 +10154,7 @@
       "notes": "Christina Hizon",
       "id": "task-161",
       "updateId": "task:task-161",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10240,7 +10245,7 @@
       "notes": "Exact time TBC — confirm with DR | TBC detail; Needs confirmation; Time needs locking | Christina Hizon",
       "id": "task-168",
       "updateId": "task:task-168",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10253,7 +10258,7 @@
       "notes": "Exact time TBC — confirm with DR | TBC detail; Needs confirmation; Time needs locking | Christina Hizon",
       "id": "task-169",
       "updateId": "task:task-169",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10409,7 +10414,7 @@
       "notes": "Parris Taylor; Lyndsay Evans",
       "id": "task-181",
       "updateId": "task:task-181",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -10422,7 +10427,7 @@
       "notes": "Parris Taylor; Lyndsay Evans",
       "id": "task-182",
       "updateId": "task:task-182",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11378,7 +11383,7 @@
       "notes": "Christina Hizon",
       "id": "task-255",
       "updateId": "task:task-255",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11391,7 +11396,7 @@
       "notes": "Christina Hizon",
       "id": "task-256",
       "updateId": "task:task-256",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11404,7 +11409,7 @@
       "notes": "Christina Hizon",
       "id": "task-257",
       "updateId": "task:task-257",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11417,7 +11422,7 @@
       "notes": "Sound check for lunch performance",
       "id": "task-258",
       "updateId": "task:task-258",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11430,7 +11435,7 @@
       "notes": "Sound check for lunch performance",
       "id": "task-259",
       "updateId": "task:task-259",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11586,7 +11591,7 @@
       "notes": "Running all day. Podcast recordings separately at Cliffhanger Mansion 14:30–17:15 (see below). | Question mark / unclear | Christina Hizon",
       "id": "task-271",
       "updateId": "task:task-271",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11729,7 +11734,7 @@
       "notes": "Classical pianist (Christina Hizon) Curated hotel ambient playlist",
       "id": "task-282",
       "updateId": "task:task-282",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11742,7 +11747,7 @@
       "notes": "Classical pianist (Christina Hizon) Curated hotel ambient playlist",
       "id": "task-283",
       "updateId": "task:task-283",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11755,7 +11760,7 @@
       "notes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. | Christina Hizon",
       "id": "task-284",
       "updateId": "task:task-284",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11768,7 +11773,7 @@
       "notes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. | Christina Hizon",
       "id": "task-285",
       "updateId": "task:task-285",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11963,7 +11968,7 @@
       "notes": "",
       "id": "task-300",
       "updateId": "task:task-300",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -11976,7 +11981,7 @@
       "notes": "",
       "id": "task-301",
       "updateId": "task:task-301",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -12717,7 +12722,7 @@
       "notes": "Christina Hizon",
       "id": "task-358",
       "updateId": "task:task-358",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -12730,7 +12735,7 @@
       "notes": "Christina Hizon",
       "id": "task-359",
       "updateId": "task:task-359",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -12743,7 +12748,7 @@
       "notes": "Christina Hizon",
       "id": "task-360",
       "updateId": "task:task-360",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13042,7 +13047,7 @@
       "notes": "Missing responsible owner",
       "id": "task-383",
       "updateId": "task:task-383",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13081,7 +13086,7 @@
       "notes": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean | Christina Hizon",
       "id": "task-386",
       "updateId": "task:task-386",
-      "department": "Health & Wellness",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13094,7 +13099,7 @@
       "notes": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean | Christina Hizon",
       "id": "task-387",
       "updateId": "task:task-387",
-      "department": "Health & Wellness",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13107,7 +13112,7 @@
       "notes": "Violin for P&C & Aream group arrival | Missing responsible owner",
       "id": "task-388",
       "updateId": "task:task-388",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13120,7 +13125,7 @@
       "notes": "Violin for P&C & Aream group arrival | Missing responsible owner",
       "id": "task-389",
       "updateId": "task:task-389",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13133,7 +13138,7 @@
       "notes": "Missing responsible owner | Christina Hizon",
       "id": "task-390",
       "updateId": "task:task-390",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13185,7 +13190,7 @@
       "notes": "",
       "id": "task-394",
       "updateId": "task:task-394",
-      "department": "Content",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13198,7 +13203,7 @@
       "notes": "",
       "id": "task-395",
       "updateId": "task:task-395",
-      "department": "Content",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13211,7 +13216,7 @@
       "notes": "",
       "id": "task-396",
       "updateId": "task:task-396",
-      "department": "Content",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -13224,7 +13229,7 @@
       "notes": "",
       "id": "task-397",
       "updateId": "task:task-397",
-      "department": "Content",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15348,7 +15353,7 @@
       "notes": "Christina Hizon",
       "id": "task-560",
       "updateId": "task:task-560",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15361,7 +15366,7 @@
       "notes": "Christina Hizon",
       "id": "task-561",
       "updateId": "task:task-561",
-      "department": "Leadership",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15374,7 +15379,7 @@
       "notes": "Closed set. No audience. | Christina Hizon",
       "id": "task-562",
       "updateId": "task:task-562",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15387,7 +15392,7 @@
       "notes": "Closed set. No audience. | Christina Hizon",
       "id": "task-563",
       "updateId": "task:task-563",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15400,7 +15405,7 @@
       "notes": "Closed set. No audience. | Christina Hizon",
       "id": "task-564",
       "updateId": "task:task-564",
-      "department": "Podcast",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15816,7 +15821,7 @@
       "notes": "Conner Reeves",
       "id": "task-596",
       "updateId": "task:task-596",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -15829,7 +15834,7 @@
       "notes": "Missing responsible owner | Christina Hizon; Conner Reeves",
       "id": "task-597",
       "updateId": "task:task-597",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -16024,7 +16029,7 @@
       "notes": "Alternative sets",
       "id": "task-612",
       "updateId": "task:task-612",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -16037,7 +16042,7 @@
       "notes": "Alternative sets",
       "id": "task-613",
       "updateId": "task:task-613",
-      "department": "Food & Beverage",
+      "department": "Entertainment",
       "priority": ""
     },
     {
@@ -16242,7 +16247,7 @@
       "action": "Test highlight reel",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "id": "task-629",
       "updateId": "task:task-629",
       "department": "Content",
@@ -16256,7 +16261,7 @@
       "action": "Test highlight reel",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "id": "task-630",
       "updateId": "task:task-630",
       "department": "Content",
@@ -16270,7 +16275,7 @@
       "action": "Test highlight reel",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "id": "task-631",
       "updateId": "task:task-631",
       "department": "Content",
@@ -16284,7 +16289,7 @@
       "action": "Test highlight reel",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "id": "task-632",
       "updateId": "task:task-632",
       "department": "Content",
@@ -16298,7 +16303,7 @@
       "action": "Affan Butt & Aream staff guide guests - Partal to HORIZONS Hall",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier; Samuel mentioned | CHEC...",
+      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier | CHEC...",
       "id": "task-633",
       "updateId": "task:task-633",
       "department": "Food & Beverage",
@@ -16312,7 +16317,7 @@
       "action": "Affan Butt & Aream staff guide guests - Partal to HORIZONS Hall",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier; Samuel mentioned | CHEC...",
+      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier | CHEC...",
       "id": "task-634",
       "updateId": "task:task-634",
       "department": "Food & Beverage",
@@ -16326,7 +16331,7 @@
       "action": "Affan Butt & Aream staff guide guests - Partal to HORIZONS Hall",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier; Samuel mentioned | CHEC...",
+      "notes": "Suggested Cava and Alcohol free welcome drink in HORIZONS Hall? | Question mark / unclear; Missing responsible owner | Chris Manoe; Tammy Hosier | CHEC...",
       "id": "task-635",
       "updateId": "task:task-635",
       "department": "Food & Beverage",
@@ -17618,6 +17623,98 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Sunday 7 June",
+          "arrival": "10:00",
+          "setup": "",
+          "active": "10:00",
+          "location": "Six Senses Ibiza",
+          "summary": "Check for snagging",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "17:00",
+          "setup": "",
+          "active": "17:00",
+          "location": "Six Senses Ibiza",
+          "summary": "ED and PL Arrive at Six Senses and check in",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "19:30",
+          "setup": "",
+          "active": "19:30",
+          "location": "Partel",
+          "summary": "Suggest Dinner - ED, PL, Chris Manoe & B Good",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "12:00",
+          "setup": "",
+          "active": "12:00",
+          "location": "TBC",
+          "summary": "BEC to airport?",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "12:00",
+          "setup": "",
+          "active": "12:00",
+          "location": "TBC",
+          "summary": "HORIZONS House tenancy begins",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "13:00",
+          "setup": "",
+          "active": "13:00",
+          "location": "HORIZONS House",
+          "summary": "Lunch - Chris Manoe, DW, PL, ED, BEC, CL, NM, RB, LM, LL",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "13:15",
+          "setup": "",
+          "active": "13:15",
+          "location": "Various Locations",
+          "summary": "RB arrive at Grupotel Ibiza Beach",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "13:30",
+          "setup": "",
+          "active": "13:30",
+          "location": "Various Locations",
+          "summary": "LL arrives at Grupotel Ibiza Beach",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "14:00",
+          "setup": "",
+          "active": "14:00",
+          "location": "HORIZONS House",
+          "summary": "Test check-in & onboarding - Aream staff as test guests",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "19:00",
+          "setup": "",
+          "active": "19:00",
+          "location": "HORIZONS House",
+          "summary": "Crew dinner & briefing",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -17652,7 +17749,8 @@
           "latestUpdate": "",
           "comments": []
         }
-      ]
+      ],
+      "timelineBlocks": []
     },
     {
       "id": "supplier_christina_hizon",
@@ -17670,7 +17768,7 @@
       "activeTime": "13:30 - 14:30, 10:00 - 11:30, 12:00",
       "location": "Six Senses Ibiza, Various Locations, Cliffhanger Mansion, Partel, HORIZONS Hall, HORIZONS House, The Situation Room, Orchard",
       "status": "Needs Confirmation",
-      "department": "Health & Wellness",
+      "department": "Entertainment",
       "openItems": [
         {
           "item": "Hike (20 Pax) - TBC. Afternoon Wellness (Optional) | TBC detail | Dawn Ramsden; Christina Hizon",
@@ -17819,11 +17917,103 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "12:00",
+          "setup": "12:00",
+          "active": "",
+          "location": "Six Senses Ibiza",
+          "summary": "Violinist (Christina Hizon) - arrival & sound check",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "17:00",
+          "setup": "17:00",
+          "active": "17:00",
+          "location": "Partel",
+          "summary": "Sound check - Classical pianist (Christina Hizon)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "18:30",
+          "setup": "18:30",
+          "active": "18:30",
+          "location": "Partel",
+          "summary": "Sound check - Christina Hizon (classical piano)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "20:00",
+          "setup": "",
+          "active": "20:00",
+          "location": "Partel",
+          "summary": "LIVE MUSIC - Classical pianist: Christina Hizon",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "10:30",
+          "setup": "10:30",
+          "active": "",
+          "location": "HORIZONS House",
+          "summary": "On site arrival - JG, FT",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "12:00",
+          "setup": "12:00",
+          "active": "12:00",
+          "location": "Partel",
+          "summary": "Christina Hizon sound check - classical piano (lunch)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "12:00",
+          "setup": "",
+          "active": "12:00",
+          "location": "HORIZONS House",
+          "summary": "HORIZONS House - 1:1 meetings & concierge??",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "13:00-14:30",
+          "setup": "",
+          "active": "13:00-14:30",
+          "location": "Partel",
+          "summary": "LUNCH - Partal & Pharmacy",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "13:15",
+          "setup": "13:15",
+          "active": "",
+          "location": "Cliffhanger Mansion",
+          "summary": "Presenter (Mishka Katkoff) & Subject 1 arrival - guest welcome & mic fitting",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "14:00",
+          "setup": "",
+          "active": "14:00",
+          "location": "Partel",
+          "summary": "LIVE - Classical pianist (Christina Hizon)",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
       "id": "supplier_clownfish",
-      "updateId": "supplier:clownfish",
+      "updateId": "supplier:Clownfish",
       "supplierName": "Clownfish",
       "type": "Supplier / Performer",
       "responsibility": "DE-RIG begins - all event spaces. Coordinated de-rig agreed with hotel. Sign-off with hotel facilities team. | De-rig complete - space handback by 12...",
@@ -17837,7 +18027,7 @@
       "activeTime": "15:00 - 16:00, 10:00-11:00, 11:15-12:00, 00:00-00:45, 12:45-13:30, 14:45-15:30, 16:00-16:45, 17:15-18:15, 18:15, 13:30-14:30, 15:45-16:00, 16:45, 17:00-18:30, 18:00, 19:30, 12:00, 23:00-01:00, 14:00, 09:00-09:45, 11:45-12:00, 21:30-22:30, 12:15, 15:30-16:00, 16:45-17:15",
       "location": "Various Locations, HORIZONS House, Six Senses Ibiza, Tommy’s Tunnel, Beach Caves, HORIZONS Hall, HORIZONS Studio, Cliffhanger Mansion, Partel, The Situation Room, Arcade, The Rocks, Orchard",
       "status": "Needs Confirmation",
-      "department": "Health & Wellness",
+      "department": "Entertainment",
       "openItems": [
         {
           "item": "DE-RIG begins - all event spaces. Coordinated de-rig agreed with hotel. Sign-off with hotel facilities team. | De-rig complete - space handback by 12...",
@@ -18085,7 +18275,7 @@
           "comments": []
         },
         {
-          "item": "Test highlight reel. Chris Manoe; Tammy Hosier; Samuel mentioned | Setup: 21:00",
+          "item": "Test highlight reel. Chris Manoe; Tammy Hosier | Setup: 21:00",
           "status": "Needs Confirmation",
           "owner": "TBC",
           "latestUpdate": "",
@@ -18336,6 +18526,98 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Monday 8 June",
+          "arrival": "08:00-12:30 or 15:45-19:00",
+          "setup": "",
+          "active": "08:00-12:30 or 15:45-19:00",
+          "location": "Various Locations",
+          "summary": "Screen graphics and Slido/voting call availability",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "13:30",
+          "setup": "",
+          "active": "13:30",
+          "location": "Six Senses Ibiza",
+          "summary": "Clownfish Team arrive",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "19:00",
+          "setup": "",
+          "active": "19:00",
+          "location": "HORIZONS House",
+          "summary": "Crew dinner & briefing",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "20:00",
+          "setup": "20:00",
+          "active": "",
+          "location": "Beach Caves",
+          "summary": "Clownfish truck arrival",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "TBC",
+          "setup": "",
+          "active": "TBC",
+          "location": "HORIZONS House",
+          "summary": "Senior team rehearsals (Time TBC)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "08:30",
+          "setup": "",
+          "active": "08:30",
+          "location": "HORIZONS House",
+          "summary": "Full team brief",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "10:30",
+          "setup": "",
+          "active": "10:30",
+          "location": "HORIZONS House",
+          "summary": "Clownfish Familiarisation",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "12:00",
+          "setup": "12:00",
+          "active": "12:00",
+          "location": "Various Locations",
+          "summary": "Cliff Hanger - podcast setup (mic, lighting, backdrop)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "12:00",
+          "setup": "12:00",
+          "active": "12:00",
+          "location": "HORIZONS Hall",
+          "summary": "Full build - HORIZONS Hall (stage, AV, lighting, trussing)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "14:00",
+          "setup": "14:00",
+          "active": "14:00",
+          "location": "HORIZONS Hall",
+          "summary": "Clownfish Set build",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -18354,7 +18636,7 @@
       "activeTime": "19:30-20:15, 20:00",
       "location": "Pool Deck, Partel, Six Senses Ibiza",
       "status": "Needs Confirmation",
-      "department": "Leadership",
+      "department": "Entertainment",
       "openItems": [
         {
           "item": "Confirm arrival, soundcheck and performance time.",
@@ -18426,6 +18708,98 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "17:30",
+          "setup": "",
+          "active": "17:30",
+          "location": "Six Senses Ibiza",
+          "summary": "Conner Reeves arrives",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "17:30",
+          "setup": "17:30",
+          "active": "17:30",
+          "location": "Partel",
+          "summary": "Sound check - Conner Reeves (piano & vocals, Baby Grand)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "20:00",
+          "setup": "",
+          "active": "20:00",
+          "location": "Partel",
+          "summary": "LIVE MUSIC - Conner Reeves: Piano & Vocal (Baby Grand)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "15:45-16:00",
+          "setup": "",
+          "active": "15:45-16:00",
+          "location": "Cliffhanger Mansion",
+          "summary": "Changeover - presenter break, AV check, camera card/battery checks, set reset",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "17:30",
+          "setup": "",
+          "active": "17:30",
+          "location": "TBC",
+          "summary": "Team brief - Gala Dinner & closing moment",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "18:00",
+          "setup": "18:00",
+          "active": "18:00",
+          "location": "Partel",
+          "summary": "Sound check - Christina Hizon (classical piano)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "18:00",
+          "setup": "18:00",
+          "active": "18:00",
+          "location": "Partel",
+          "summary": "Sound check - Christina Hizon (violin)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "18:00",
+          "setup": "18:00",
+          "active": "18:00",
+          "location": "Partel",
+          "summary": "Sound check - Conner Reeves (piano & vocals)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "19:30-20:00",
+          "setup": "",
+          "active": "19:30-20:00",
+          "location": "Pool Deck",
+          "summary": "Canapés & drinks reception",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "19:30-20:15",
+          "setup": "",
+          "active": "19:30-20:15",
+          "location": "Partel",
+          "summary": "ENTERTAINMENT - Violin & Piano: Christina Hizon / Conner Reeves",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -18460,6 +18834,17 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "21:00-23:00",
+          "setup": "",
+          "active": "21:00-23:00",
+          "location": "The Rocks",
+          "summary": "DJ Parris Taylor · DJ Lyndsay Evans (percussion) · Dan the Man (percussion)",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -18467,7 +18852,7 @@
       "updateId": "supplier:dj_lyndsay_evans",
       "supplierName": "DJ Lyndsay Evans",
       "type": "Supplier / Performer",
-      "responsibility": "DJ Lyndsay Evans set - Dawn, Dean, Joshua, Federico. Media Production | Chris Manoe; Dawn Ramsden; Tammy Hosier; Joshua Gavin; Samuel mentioned | CHE...",
+      "responsibility": "DJ Lyndsay Evans set - Dawn, Dean, Joshua, Federico. Media Production | Chris Manoe; Dawn Ramsden; Tammy Hosier; Joshua Gavin | CHE...",
       "internalOwner": "TBC",
       "contactPerson": "",
       "phone": "",
@@ -18481,7 +18866,7 @@
       "department": "Content",
       "openItems": [
         {
-          "item": "DJ Lyndsay Evans set - Dawn, Dean, Joshua, Federico. Media Production | Chris Manoe; Dawn Ramsden; Tammy Hosier; Joshua Gavin; Samuel mentioned | CHE... | Setup: 00:15 - 00:45 | Active: 00:15 - 00:45",
+          "item": "DJ Lyndsay Evans set - Dawn, Dean, Joshua, Federico. Media Production | Chris Manoe; Dawn Ramsden; Tammy Hosier; Joshua Gavin | CHE... | Setup: 00:15 - 00:45 | Active: 00:15 - 00:45",
           "status": "Needs Confirmation",
           "owner": "TBC",
           "latestUpdate": "",
@@ -18600,11 +18985,103 @@
           "comments": []
         },
         {
-          "item": "DJ Lyndsay Evans sound check Dawn. Media Production | Dean Whitehead; Samuel mentioned | CHECK: Samuel first-name-only. Confirm Samuel Hosier vs Samu... | Setup: 21:00 (Sunset 21:18ish)",
+          "item": "DJ Lyndsay Evans sound check Dawn. Media Production | Dean Whitehead | CHECK: Samuel first-name-only. Confirm Samuel Hosier vs Samu... | Setup: 21:00 (Sunset 21:18ish)",
           "status": "Needs Confirmation",
           "owner": "TBC",
           "latestUpdate": "",
           "comments": []
+        }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "17:00",
+          "setup": "17:00",
+          "active": "",
+          "location": "Six Senses Ibiza",
+          "summary": "DJ Lyndsay Evans - arrival",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "21:00-23:00",
+          "setup": "",
+          "active": "21:00-23:00",
+          "location": "The Rocks",
+          "summary": "DJ Parris Taylor · DJ Lyndsay Evans (percussion) · Dan the Man (percussion)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "21:00",
+          "setup": "21:00",
+          "active": "21:00",
+          "location": "Beach Caves",
+          "summary": "DJ Lyndsay Evans - sound check (Beach Caves)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "21:30-22:30",
+          "setup": "",
+          "active": "21:30-22:30",
+          "location": "Beach Caves",
+          "summary": "DJ LYNDSAY EVANS - Beach Caves",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "23:30-01:00",
+          "setup": "",
+          "active": "23:30-01:00",
+          "location": "Various Locations",
+          "summary": "DJ Lyndsay Evans & content coverage",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "23:30-01:00",
+          "setup": "",
+          "active": "23:30-01:00",
+          "location": "Various Locations",
+          "summary": "DJ Lyndsay Evans - Secret Bar",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "00:00-00:45",
+          "setup": "",
+          "active": "00:00-00:45",
+          "location": "HORIZONS House",
+          "summary": "DJ Lyndsay Evans - HORIZONS House",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "00:00-00:15",
+          "setup": "",
+          "active": "00:00-00:15",
+          "location": "HORIZONS House",
+          "summary": "DJ Lyndsay Evans assisting",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "00:15-00:45",
+          "setup": "",
+          "active": "00:15-00:45",
+          "location": "HORIZONS House",
+          "summary": "DJ Lyndsay Evans set",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "12:30",
+          "setup": "",
+          "active": "12:30",
+          "location": "Pool Deck",
+          "summary": "LIVE - DJ Lyndsay Evans (ground floor hotel balcony)",
+          "status": "Needs Confirmation"
         }
       ]
     },
@@ -18653,6 +19130,35 @@
           "owner": "TBC",
           "latestUpdate": "",
           "comments": []
+        }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "19:30",
+          "setup": "",
+          "active": "19:30",
+          "location": "Six Senses Ibiza",
+          "summary": "DJ Parris Taylor arrives",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "19:30",
+          "setup": "19:30",
+          "active": "19:30",
+          "location": "The Rocks",
+          "summary": "Sound check - DJ Parris Taylor",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "21:00-23:00",
+          "setup": "",
+          "active": "21:00-23:00",
+          "location": "The Rocks",
+          "summary": "DJ Parris Taylor · DJ Lyndsay Evans (percussion) · Dan the Man (percussion)",
+          "status": "Needs Confirmation"
         }
       ]
     },
@@ -18703,7 +19209,7 @@
           "comments": []
         },
         {
-          "item": "Yoga with Erin Dusek - Dawn. Morning Wellness | Dean Whitehead; Samuel mentioned | CHECK: Samuel first-name-only. Confirm Samuel Hosier vs Samuel Pri... | Setup: 07:30 - 08:30 | Active: 07:30 - 08:30",
+          "item": "Yoga with Erin Dusek - Dawn. Morning Wellness | Dean Whitehead | CHECK: Samuel first-name-only. Confirm Samuel Hosier vs Samuel Pri... | Setup: 07:30 - 08:30 | Active: 07:30 - 08:30",
           "status": "Needs Confirmation",
           "owner": "TBC",
           "latestUpdate": "",
@@ -18751,6 +19257,80 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Tuesday 9 June",
+          "arrival": "TBC",
+          "setup": "TBC",
+          "active": "TBC",
+          "location": "Beach Caves",
+          "summary": "Beach Caves & Arcade set up",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "07:00-09:00",
+          "setup": "",
+          "active": "07:00-09:00",
+          "location": "The Situation Room",
+          "summary": "CREW CATERING OPEN",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "07:30-08:30",
+          "setup": "",
+          "active": "07:30-08:30",
+          "location": "Various Locations",
+          "summary": "Yoga with Erin Dusek",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "16:30-17:45",
+          "setup": "",
+          "active": "16:30-17:45",
+          "location": "Various Locations",
+          "summary": "Breathwork & Sound Journey with Erin Dusek (90 mins)",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "16:30-17:30",
+          "setup": "",
+          "active": "16:30-17:30",
+          "location": "Various Locations",
+          "summary": "Paddle boarding - optional",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "23:30-01:00",
+          "setup": "",
+          "active": "23:30-01:00",
+          "location": "Various Locations",
+          "summary": "DJ Lyndsay Evans & content coverage",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "00:45",
+          "setup": "",
+          "active": "00:45",
+          "location": "HORIZONS House",
+          "summary": "Wind down / nightcap",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Thursday 11 June",
+          "arrival": "07:30-08:30",
+          "setup": "",
+          "active": "07:30-08:30",
+          "location": "Various Locations",
+          "summary": "Yoga with Erin Dusek",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -18792,7 +19372,8 @@
           "latestUpdate": "",
           "comments": []
         }
-      ]
+      ],
+      "timelineBlocks": []
     },
     {
       "id": "supplier_mobile_casino_poker",
@@ -18882,6 +19463,80 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "15:00-16:00",
+          "setup": "15:00-16:00",
+          "active": "15:00-16:00",
+          "location": "TBC",
+          "summary": "Poker setup load-in window",
+          "status": "Watch"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "15:00-16:00",
+          "setup": "15:00-16:00",
+          "active": "15:00-16:00",
+          "location": "Arcade",
+          "summary": "Poker table supplier setup window",
+          "status": "Watch"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "Before 15:00",
+          "setup": "",
+          "active": "Before 15:00",
+          "location": "TBC",
+          "summary": "Poker tables chair requirement",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "20:30",
+          "setup": "20:30",
+          "active": "",
+          "location": "Various Locations",
+          "summary": "Mobile Casino - arrival and table delivery",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "22:30",
+          "setup": "",
+          "active": "22:30",
+          "location": "Various Locations",
+          "summary": "CARLO announces poker tournament - Secret Bar",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "22:30",
+          "setup": "",
+          "active": "22:30",
+          "location": "Arcade",
+          "summary": "Carlo poker tournament",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "23:00-01:00",
+          "setup": "",
+          "active": "23:00-01:00",
+          "location": "Arcade",
+          "summary": "Arcade - open for those knocked out of poker",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "arrival": "Before setup",
+          "setup": "",
+          "active": "Before setup",
+          "location": "TBC",
+          "summary": "Confirm 33 poker chairs",
+          "status": "Needs Confirmation"
+        }
       ]
     },
     {
@@ -18916,7 +19571,8 @@
           "latestUpdate": "",
           "comments": []
         }
-      ]
+      ],
+      "timelineBlocks": []
     },
     {
       "id": "supplier_six_senses_hotel",
@@ -19279,6 +19935,98 @@
           "latestUpdate": "",
           "comments": []
         }
+      ],
+      "timelineBlocks": [
+        {
+          "day": "Sunday 7 June",
+          "arrival": "10:00",
+          "setup": "10:00",
+          "active": "",
+          "location": "Six Senses Ibiza",
+          "summary": "Chris Manoe - Arrival at Six Senses",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "10:00",
+          "setup": "",
+          "active": "10:00",
+          "location": "Six Senses Ibiza",
+          "summary": "Check for snagging",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "10:00",
+          "setup": "",
+          "active": "10:00",
+          "location": "Six Senses Ibiza",
+          "summary": "Swag deliveries",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "17:00",
+          "setup": "",
+          "active": "17:00",
+          "location": "Six Senses Ibiza",
+          "summary": "ED and PL Arrive at Six Senses and check in",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "17:00",
+          "setup": "17:00",
+          "active": "",
+          "location": "Six Senses Ibiza",
+          "summary": "PL & EB - Arrival at Six Senses",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Sunday 7 June",
+          "arrival": "22:00",
+          "setup": "",
+          "active": "22:00",
+          "location": "Six Senses Ibiza",
+          "summary": "Chris Manoe - Taxi home",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "09:30",
+          "setup": "",
+          "active": "09:30",
+          "location": "HORIZONS House",
+          "summary": "65-inch screen test (in-house) in situ on table for the week",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "09:30",
+          "setup": "",
+          "active": "09:30",
+          "location": "HORIZONS House",
+          "summary": "Aream & Co. snacks and toiletries",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "09:30",
+          "setup": "09:30",
+          "active": "",
+          "location": "Six Senses Ibiza",
+          "summary": "Chris Manoe - Arrival Six Senses",
+          "status": "Needs Confirmation"
+        },
+        {
+          "day": "Monday 8 June",
+          "arrival": "09:30",
+          "setup": "09:30",
+          "active": "",
+          "location": "HORIZONS House",
+          "summary": "Plants (Eva) and furniture delivery",
+          "status": "Needs Confirmation"
+        }
       ]
     }
   ],
@@ -19290,7 +20038,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19309,7 +20057,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19328,7 +20076,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19347,10 +20095,10 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
-      "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC. Fourth slot/renaming needs explicit confirmation.",
+      "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC. Fourth slot needs explicit confirmation.",
       "source": "Email Notes + Podcast PDF",
       "id": "podcast-4",
       "updateId": "podcast:podcast-4",
@@ -19366,7 +20114,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19385,7 +20133,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19404,7 +20152,7 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
       "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC.",
@@ -19423,10 +20171,10 @@
       "presenter": "Michail Katkoff",
       "guestSubject": "TBC",
       "productionLead": "Samuel Price",
-      "technicalTeam": "Federico Tamburini / Tammy Hosier / Dawn Ramsden",
+      "technicalTeam": "Tammy Hosier / Dawn Ramsden",
       "location": "Cliffhanger Mansion",
       "status": "Needs Confirmation",
-      "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC. Fourth slot/renaming needs explicit confirmation.",
+      "notes": "Email-note schedule shows four possible slots. Original Podcast PDF shows three recordings; guests TBC. Fourth slot needs explicit confirmation.",
       "source": "Email Notes + Podcast PDF",
       "id": "podcast-8",
       "updateId": "podcast:podcast-8",
@@ -20036,7 +20784,7 @@
       "status": "Needs Confirmation",
       "notes": "Running all day. Podcast recordings separately at Cliffhanger Mansion 14:30–17:15 (see below). | Question mark / unclear | Christina Hizon",
       "updateId": "content:cnt_d3382f96",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_272732f1",
@@ -20066,7 +20814,7 @@
       "status": "Needs Confirmation",
       "notes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. | Christina Hizon",
       "updateId": "content:cnt_a244d6dc",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_eab3352f",
@@ -20456,7 +21204,7 @@
       "status": "Needs Confirmation",
       "notes": "Missing responsible owner",
       "updateId": "content:cnt_cf345e23",
-      "department": "Food & Beverage"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_385ccbac",
@@ -20486,7 +21234,7 @@
       "status": "Needs Confirmation",
       "notes": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean | Christina Hizon",
       "updateId": "content:cnt_e6acf549",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_fb84f1c3",
@@ -20516,7 +21264,7 @@
       "status": "Needs Confirmation",
       "notes": "",
       "updateId": "content:cnt_77220362",
-      "department": "Content"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_c9287749",
@@ -20936,7 +21684,7 @@
       "status": "Needs Confirmation",
       "notes": "Christina Hizon",
       "updateId": "content:cnt_85471395",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_a98dc2f2",
@@ -20951,7 +21699,7 @@
       "status": "Needs Confirmation",
       "notes": "Closed set. No audience. | Christina Hizon",
       "updateId": "content:cnt_a98dc2f2",
-      "department": "Podcast"
+      "department": "Entertainment"
     },
     {
       "id": "cnt_410c5f96",
@@ -21006,7 +21754,7 @@
       "contentType": "Dinner",
       "priority": "Nice to Capture",
       "lead": "Samuel Hosier / Dean Whitehead",
-      "support": "B Good / clownfish",
+      "support": "B Good / Clownfish",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
       "notes": "Tables, AV, lighting, entertainment briefed.",
@@ -21204,7 +21952,7 @@
       "support": "I.N.C",
       "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
-      "notes": "Chris Manoe; Tammy Hosier; Samuel mentioned",
+      "notes": "Chris Manoe; Tammy Hosier",
       "updateId": "content:cnt_a3bad424",
       "department": "Content"
     },
@@ -21330,7 +22078,7 @@
     {
       "name": "Room Drops",
       "description": "Hotel-room drops and quality control for premium guest presentation.",
-      "owner": "Be Good / Six Senses",
+      "owner": "B Good / Six Senses",
       "status": "Needs Confirmation",
       "topOpenItems": [
         "Use gloves when handling",
@@ -21477,6 +22225,11 @@
           "src": "assets/logos/horizons-house-black.png",
           "caption": "Official HORIZONS House logo reference",
           "alt": "Official HORIZONS House logo"
+        },
+        {
+          "src": "assets/images/swag/swag-delivery-brief-page.png",
+          "alt": "HORIZONS swag delivery brief preview",
+          "caption": "Swag delivery brief reference preview. Use full PDF for detailed setup images."
         }
       ],
       "notes": "Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
@@ -21488,9 +22241,9 @@
       "id": "roomdrop-standard",
       "title": "Hotel Room Drops",
       "status": "Needs Confirmation",
-      "owner": "Be Good / Six Senses",
+      "owner": "B Good / Six Senses",
       "responsibleTeams": [
-        "Be Good",
+        "B Good",
         "Six Senses"
       ],
       "items": [
@@ -21498,7 +22251,7 @@
         "Printed notes or welcome materials",
         "Swag items confirmed by final runbook"
       ],
-      "deliveryNotes": "Be Good and Six Senses are responsible for hotel room drops. Confirm room list, delivery window, and sign-off owner before distribution.",
+      "deliveryNotes": "B Good and Six Senses are responsible for hotel room drops. Confirm room list, delivery window, and sign-off owner before distribution.",
       "handling": "Gloves must be worn when handling hotel room drops. Keep every drop clean, intentional, premium, and consistent.",
       "qualityChecklist": [
         "Gloves worn for handling",
@@ -21507,7 +22260,13 @@
         "No damaged packaging",
         "Final room checked by owner"
       ],
-      "referenceImages": [],
+      "referenceImages": [
+        {
+          "src": "assets/images/swag/swag-delivery-brief-page.png",
+          "alt": "Room drop and swag delivery reference preview",
+          "caption": "Swag delivery brief reference preview for room drops and guest items."
+        }
+      ],
       "updateId": "roomdrop:roomdrop-standard"
     }
   ],
@@ -21520,9 +22279,10 @@
       "quantity": "TBC",
       "status": "Needs Confirmation",
       "deliverySetupNotes": "Confirm final placement and quantities from updated runbook.",
-      "image": "",
-      "alt": "Notepad reference image to be added",
-      "updateId": "swag:swag-notepads"
+      "image": "assets/images/swag/swag-delivery-brief-page.png",
+      "alt": "Notepads reference from swag delivery brief",
+      "updateId": "swag:swag-notepads",
+      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
     },
     {
       "id": "swag-lanyards",
@@ -21532,21 +22292,23 @@
       "quantity": "TBC",
       "status": "Needs Confirmation",
       "deliverySetupNotes": "Keep check-in supply neat, visible, and easy for team to access.",
-      "image": "",
-      "alt": "Lanyard reference image to be added",
-      "updateId": "swag:swag-lanyards"
+      "image": "assets/images/swag/swag-delivery-brief-page.png",
+      "alt": "Lanyards reference from swag delivery brief",
+      "updateId": "swag:swag-lanyards",
+      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
     },
     {
       "id": "swag-guest-gifts",
       "itemName": "Guest Gifts",
       "location": "Hotel room drops",
-      "owner": "Be Good / Six Senses",
+      "owner": "B Good / Six Senses",
       "quantity": "Per room list",
       "status": "Needs Confirmation",
       "deliverySetupNotes": "Use gloves. Present consistently in each room.",
-      "image": "",
-      "alt": "Guest gift reference image to be added",
-      "updateId": "swag:swag-guest-gifts"
+      "image": "assets/images/swag/swag-delivery-brief-page.png",
+      "alt": "Guest Gifts reference from swag delivery brief",
+      "updateId": "swag:swag-guest-gifts",
+      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
     },
     {
       "id": "swag-display-cabinet",
@@ -21556,9 +22318,10 @@
       "quantity": "TBC",
       "status": "Watch",
       "deliverySetupNotes": "Display cabinet includes swag. Keep spacing premium and uncluttered.",
-      "image": "",
-      "alt": "Display cabinet swag reference image to be added",
-      "updateId": "swag:swag-display-cabinet"
+      "image": "assets/images/swag/swag-delivery-brief-page.png",
+      "alt": "Display Cabinet Swag reference from swag delivery brief",
+      "updateId": "swag:swag-display-cabinet",
+      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
     }
   ],
   "horizonsStudio": [
@@ -21594,7 +22357,9 @@
       "recommendation": "Confirm slot count and guest list in writing before publishing.",
       "status": "Decision Needed",
       "relatedWorkstream": "Podcast",
-      "updateId": "decision:decision-podcast"
+      "updateId": "decision:decision-podcast",
+      "approver": "Chris Manoe / Leadership",
+      "latestUpdate": "Needs final leadership confirmation."
     },
     {
       "id": "decision-poker-setup",
@@ -21609,7 +22374,9 @@
       "recommendation": "Lock a single arrival, setup, and active-time line with hotel access included.",
       "status": "Decision Needed",
       "relatedWorkstream": "Suppliers",
-      "updateId": "decision:decision-poker-setup"
+      "updateId": "decision:decision-poker-setup",
+      "approver": "Chris Manoe / Leadership",
+      "latestUpdate": "Needs final leadership confirmation."
     },
     {
       "id": "decision-poker-chairs",
@@ -21625,7 +22392,9 @@
       "recommendation": "Assign one owner for the final chair count and floor layout.",
       "status": "Needs Confirmation",
       "relatedWorkstream": "Suppliers",
-      "updateId": "decision:decision-poker-chairs"
+      "updateId": "decision:decision-poker-chairs",
+      "approver": "Chris Manoe / Leadership",
+      "latestUpdate": "Needs final leadership confirmation."
     },
     {
       "id": "decision-screen-content",
@@ -21641,7 +22410,9 @@
       "recommendation": "Confirm content owner and delivery format for each screen.",
       "status": "Needs Confirmation",
       "relatedWorkstream": "Production + Content",
-      "updateId": "decision:decision-screen-content"
+      "updateId": "decision:decision-screen-content",
+      "approver": "Chris Manoe / Leadership",
+      "latestUpdate": "Needs final leadership confirmation."
     }
   ],
   "documents": [
@@ -21812,6 +22583,42 @@
       "owner": "Operations",
       "status": "File Needed",
       "link": ""
+    },
+    {
+      "id": "doc-swag-delivery-brief",
+      "title": "HORIZONS Swag Delivery Brief",
+      "category": "Swag",
+      "day": "All days",
+      "description": "Reference document containing swag, room drop, delivery and guest-experience visual guidance.",
+      "type": "PDF",
+      "owner": "Chris Manoe / B Good",
+      "status": "On Track",
+      "link": "assets/documents/horizons-swag-delivery-brief.pdf",
+      "updateId": "document:doc-swag-delivery-brief"
+    },
+    {
+      "id": "doc-presentations-speeches",
+      "title": "Presentations / Speeches Folder",
+      "category": "Presentations / Speeches",
+      "day": "All days",
+      "description": "Speaker decks, speech notes, session content, and guest-facing presentation files.",
+      "type": "Folder",
+      "owner": "Leadership / Content",
+      "status": "File Needed",
+      "link": "",
+      "updateId": "document:doc-presentations-speeches"
+    },
+    {
+      "id": "doc-event-content-documents",
+      "title": "Event Content Documents",
+      "category": "Event Content Documents",
+      "day": "All days",
+      "description": "Internal content plans, speaker notes, session documents, and production content references.",
+      "type": "Folder",
+      "owner": "Content / Production",
+      "status": "File Needed",
+      "link": "",
+      "updateId": "document:doc-event-content-documents"
     }
   ],
   "completed": [
@@ -21959,6 +22766,772 @@
       "githubPages": "https://samuelmjprice.github.io/inc-horizons/",
       "customDomain": "http://inc-horizons.com/",
       "httpsStatus": "Pending GitHub Pages certificate issuance"
+    },
+    "supplierUpdateTopics": [
+      "Arrival time",
+      "Setup time",
+      "Contact details",
+      "Delivery",
+      "Payment",
+      "Location",
+      "Open question",
+      "Issue",
+      "Resolved",
+      "General update"
+    ],
+    "contentUpdateTopics": [
+      "Capture idea",
+      "Timing",
+      "Location",
+      "Assigned person",
+      "Status update",
+      "Captured",
+      "Issue",
+      "General note"
+    ],
+    "captureSuggestionStatuses": [
+      "Suggested",
+      "Needs Review",
+      "Approved to Capture",
+      "Captured",
+      "Not Captured",
+      "Not Needed"
+    ]
+  },
+  "travel": [
+    {
+      "id": "travel-1",
+      "updateId": "travel:travel-1",
+      "person": "Chris Manoe",
+      "team": "Chris Manoe",
+      "arrivalDate": "Sunday 7 June",
+      "arrivalTime": "10:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Pre-production day",
+      "transportOwner": "Chris Manoe",
+      "status": "On Track",
+      "notes": "Chris Manoe - Arrival at Six Senses"
+    },
+    {
+      "id": "travel-2",
+      "updateId": "travel:travel-2",
+      "person": "ED and PL",
+      "team": "Aream",
+      "arrivalDate": "Sunday 7 June",
+      "arrivalTime": "15:25",
+      "arrivalAirport": "IBZ",
+      "arrivalFlight": "ED and PL Flight from LHR BA450 arrives IBZ",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "Aream",
+      "status": "Needs Confirmation",
+      "notes": "ED and PL Flight from LHR BA450 arrives IBZ"
+    },
+    {
+      "id": "travel-3",
+      "updateId": "travel:travel-3",
+      "person": "ED and PL",
+      "team": "BEC",
+      "arrivalDate": "Sunday 7 June",
+      "arrivalTime": "17:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "B Good to check rooms",
+      "transportOwner": "BEC",
+      "status": "On Track",
+      "notes": "ED and PL Arrive at Six Senses and check in"
+    },
+    {
+      "id": "travel-4",
+      "updateId": "travel:travel-4",
+      "person": "PL & EB",
+      "team": "I.N.C",
+      "arrivalDate": "Sunday 7 June",
+      "arrivalTime": "17:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "I.N.C",
+      "status": "Needs Confirmation",
+      "notes": "PL & EB - Arrival at Six Senses"
+    },
+    {
+      "id": "travel-5",
+      "updateId": "travel:travel-5",
+      "person": "Chris Manoe",
+      "team": "Chris Manoe",
+      "arrivalDate": "",
+      "arrivalTime": "",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "Sunday 7 June",
+      "departureTime": "22:00",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Transfer notes needed",
+      "transportOwner": "Chris Manoe",
+      "status": "On Track",
+      "notes": "Chris Manoe - Taxi home"
+    },
+    {
+      "id": "travel-6",
+      "updateId": "travel:travel-6",
+      "person": "Chris Manoe",
+      "team": "Chris Manoe",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "09:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "No drone today",
+      "transportOwner": "Chris Manoe",
+      "status": "On Track",
+      "notes": "Chris Manoe - Arrival Six Senses"
+    },
+    {
+      "id": "travel-7",
+      "updateId": "travel:travel-7",
+      "person": "BEC to airport?",
+      "team": "B Good",
+      "arrivalDate": "",
+      "arrivalTime": "",
+      "arrivalAirport": "IBZ",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "Monday 8 June",
+      "departureTime": "12:00",
+      "departureAirport": "IBZ",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Question mark / unclear; Missing location; Missing responsible owner",
+      "transportOwner": "B Good",
+      "status": "Needs Confirmation",
+      "notes": "BEC to airport?"
+    },
+    {
+      "id": "travel-8",
+      "updateId": "travel:travel-8",
+      "person": "DW",
+      "team": "Dean Whitehead",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "13:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Transfer notes needed",
+      "transportOwner": "Dean Whitehead",
+      "status": "On Track",
+      "notes": "DW - Arrival Six Senses"
+    },
+    {
+      "id": "travel-9",
+      "updateId": "travel:travel-9",
+      "person": "RB",
+      "team": "B Good",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "13:15",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "B Good",
+      "status": "Needs Confirmation",
+      "notes": "RB arrive at Grupotel Ibiza Beach"
+    },
+    {
+      "id": "travel-10",
+      "updateId": "travel:travel-10",
+      "person": "Anjan Sarangi",
+      "team": "Aream",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "13:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Will HORIZONS House be ready for check in? | Question mark / unclear; Missing responsible owner",
+      "transportOwner": "Aream",
+      "status": "Needs Confirmation",
+      "notes": "Anjan Sarangi arrives at Six Senses"
+    },
+    {
+      "id": "travel-11",
+      "updateId": "travel:travel-11",
+      "person": "Clownfish Team",
+      "team": "Clownfish",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "13:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "Clownfish",
+      "status": "Needs Confirmation",
+      "notes": "Clownfish Team arrive"
+    },
+    {
+      "id": "travel-12",
+      "updateId": "travel:travel-12",
+      "person": "LL",
+      "team": "B Good",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "13:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "B Good",
+      "status": "Needs Confirmation",
+      "notes": "LL arrives at Grupotel Ibiza Beach"
+    },
+    {
+      "id": "travel-13",
+      "updateId": "travel:travel-13",
+      "person": "Test check-in & onboarding - Aream staff as test guests",
+      "team": "B Good Lead",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "14:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Soft opening. Test guest flow and environment.",
+      "transportOwner": "B Good Lead",
+      "status": "On Track",
+      "notes": "Test check-in & onboarding - Aream staff as test guests"
+    },
+    {
+      "id": "travel-14",
+      "updateId": "travel:travel-14",
+      "person": "Carlo, Julian, Simon & Irem",
+      "team": "Aream",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "15:30",
+      "arrivalAirport": "IBZ",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "May arrive separately as on two different flights | Missing responsible owner",
+      "transportOwner": "Aream",
+      "status": "Needs Confirmation",
+      "notes": "Carlo, Julian, Simon & Irem arrive at Six Senses"
+    },
+    {
+      "id": "travel-15",
+      "updateId": "travel:travel-15",
+      "person": "SH, TH, PL, JG & DR",
+      "team": "I.N.C",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "18:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "I.N.C",
+      "status": "Needs Confirmation",
+      "notes": "SH, TH, PL, JG & DR - Arrival Six Senses"
+    },
+    {
+      "id": "travel-16",
+      "updateId": "travel:travel-16",
+      "person": "Affan Butt, Michel Katz, Sergei Evdokimov",
+      "team": "Affan, Aream",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "18:15",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner | Affan Butt",
+      "transportOwner": "Affan, Aream",
+      "status": "Needs Confirmation",
+      "notes": "Affan Butt, Michel Katz, Sergei Evdokimov arrive at Six Senses"
+    },
+    {
+      "id": "travel-17",
+      "updateId": "travel:travel-17",
+      "person": "Kartik Prabhakara",
+      "team": "Aream",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "19:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "Aream",
+      "status": "Needs Confirmation",
+      "notes": "Kartik Prabhakara arrive at Six Senses"
+    },
+    {
+      "id": "travel-18",
+      "updateId": "travel:travel-18",
+      "person": "Matthew Short",
+      "team": "Aream",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "19:45",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner | Matthew Short",
+      "transportOwner": "Aream",
+      "status": "Needs Confirmation",
+      "notes": "Matthew Short Arrives at Six Senses"
+    },
+    {
+      "id": "travel-19",
+      "updateId": "travel:travel-19",
+      "person": "Clownfish truck",
+      "team": "AH",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "20:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "3 games to be placed in Nightclub? Agreed with Chris Manoe /Hotel | Question mark / unclear",
+      "transportOwner": "AH",
+      "status": "Needs Confirmation",
+      "notes": "Clownfish truck arrival"
+    },
+    {
+      "id": "travel-20",
+      "updateId": "travel:travel-20",
+      "person": "Check-in",
+      "team": "BEC",
+      "arrivalDate": "Monday 8 June",
+      "arrivalTime": "22:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "BEC to notify Barcelo of late check in",
+      "transportOwner": "BEC",
+      "status": "On Track",
+      "notes": "Check-in"
+    },
+    {
+      "id": "travel-21",
+      "updateId": "travel:travel-21",
+      "person": "Wrapped - transfer to hotel (cabs)",
+      "team": "Hotel",
+      "arrivalDate": "",
+      "arrivalTime": "",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "Monday 8 June",
+      "departureTime": "22:30",
+      "departureAirport": "IBZ",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "Hotel",
+      "status": "Needs Confirmation",
+      "notes": "Wrapped - transfer to hotel (cabs)"
+    },
+    {
+      "id": "travel-22",
+      "updateId": "travel:travel-22",
+      "person": "HORIZONS House Guest ready",
+      "team": "All Parties",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "10:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "CLARIFY - Current guidance for guests, they can arrive from 11am? | Question mark / unclear; Missing responsible owner",
+      "transportOwner": "All Parties",
+      "status": "Needs Confirmation",
+      "notes": "HORIZONS House Guest ready"
+    },
+    {
+      "id": "travel-23",
+      "updateId": "travel:travel-23",
+      "person": "On site",
+      "team": "I.N.C",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "11:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "I.N.C",
+      "status": "Needs Confirmation",
+      "notes": "On site arrival - DW, DR, SH, TH, PL, JG, FT"
+    },
+    {
+      "id": "travel-24",
+      "updateId": "travel:travel-24",
+      "person": "Welcome reception - all afternoon",
+      "team": "B Good Team",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "12:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "F&B: cold towels · grapefruit or mint welcome drink · No alcohol on arrival, bar available. Drone & vox pops by INC.",
+      "transportOwner": "B Good Team",
+      "status": "On Track",
+      "notes": "Welcome reception - all afternoon"
+    },
+    {
+      "id": "travel-25",
+      "updateId": "travel:travel-25",
+      "person": "8 Aream & Co. staff arriving",
+      "team": "B Good, Aream",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "12:45",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "B Good, Aream",
+      "status": "Needs Confirmation",
+      "notes": "8 Aream & Co. staff arriving"
+    },
+    {
+      "id": "travel-26",
+      "updateId": "travel:travel-26",
+      "person": "DJ Lyndsay Evans",
+      "team": "Dawn Ramsden",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "17:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Lyndsay Evans",
+      "transportOwner": "Dawn Ramsden",
+      "status": "On Track",
+      "notes": "DJ Lyndsay Evans - arrival"
+    },
+    {
+      "id": "travel-27",
+      "updateId": "travel:travel-27",
+      "person": "Conner Reeves",
+      "team": "Dawn Ramsden",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "17:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Conner Reeves",
+      "transportOwner": "Dawn Ramsden",
+      "status": "On Track",
+      "notes": "Conner Reeves arrives"
+    },
+    {
+      "id": "travel-28",
+      "updateId": "travel:travel-28",
+      "person": "I.N.C Staff check-in",
+      "team": "I.N.C",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "17:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "I.N.C",
+      "status": "Needs Confirmation",
+      "notes": "I.N.C Staff check-in"
+    },
+    {
+      "id": "travel-29",
+      "updateId": "travel:travel-29",
+      "person": "HORIZONS House closes",
+      "team": "B Good",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "18:45",
+      "arrivalAirport": "IBZ",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Currently 11 pax arriving post 17:00 at IBZ | Missing responsible owner",
+      "transportOwner": "B Good",
+      "status": "Needs Confirmation",
+      "notes": "HORIZONS House closes"
+    },
+    {
+      "id": "travel-30",
+      "updateId": "travel:travel-30",
+      "person": "10 Aream & Co. staff arriving",
+      "team": "B Good, Aream",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "19:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Missing responsible owner",
+      "transportOwner": "B Good, Aream",
+      "status": "Needs Confirmation",
+      "notes": "10 Aream & Co. staff arriving"
+    },
+    {
+      "id": "travel-31",
+      "updateId": "travel:travel-31",
+      "person": "DJ Parris Taylor",
+      "team": "Dawn Ramsden",
+      "arrivalDate": "Tuesday 9 June",
+      "arrivalTime": "19:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Parris Taylor",
+      "transportOwner": "Dawn Ramsden",
+      "status": "On Track",
+      "notes": "DJ Parris Taylor arrives"
+    },
+    {
+      "id": "travel-32",
+      "updateId": "travel:travel-32",
+      "person": "On site",
+      "team": "I.N.C",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "08:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Drone activation all day | Missing responsible owner",
+      "transportOwner": "I.N.C",
+      "status": "Needs Confirmation",
+      "notes": "On site arrival - Chris Manoe, DW, DR, SH, TH"
+    },
+    {
+      "id": "travel-33",
+      "updateId": "travel:travel-33",
+      "person": "On site",
+      "team": "Pili Lopez",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "09:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Transfer notes needed",
+      "transportOwner": "Pili Lopez",
+      "status": "On Track",
+      "notes": "On site arrival - PL"
+    },
+    {
+      "id": "travel-34",
+      "updateId": "travel:travel-34",
+      "person": "On site",
+      "team": "JG, FT",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "10:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Christina Hizon",
+      "transportOwner": "JG, FT",
+      "status": "On Track",
+      "notes": "On site arrival - JG, FT"
+    },
+    {
+      "id": "travel-35",
+      "updateId": "travel:travel-35",
+      "person": "Presenter (Mishka Katkoff) & Subject 1",
+      "team": "Dawn Ramsden",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "13:15",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. | Christina Hizon",
+      "transportOwner": "Dawn Ramsden",
+      "status": "On Track",
+      "notes": "Presenter (Mishka Katkoff) & Subject 1 arrival - guest welcome & mic fitting"
+    },
+    {
+      "id": "travel-36",
+      "updateId": "travel:travel-36",
+      "person": "Subject 2",
+      "team": "Dawn Ramsden",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "14:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "DR responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality.",
+      "transportOwner": "Dawn Ramsden",
+      "status": "On Track",
+      "notes": "Subject 2 arrival - guest welcome & mic fitting"
+    },
+    {
+      "id": "travel-37",
+      "updateId": "travel:travel-37",
+      "person": "Subject 3",
+      "team": "DR Ramsden (INC)",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "15:15",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Transfer notes needed",
+      "transportOwner": "DR Ramsden (INC)",
+      "status": "On Track",
+      "notes": "Subject 3 arrival - guest welcome, mic fitting & holding"
+    },
+    {
+      "id": "travel-38",
+      "updateId": "travel:travel-38",
+      "person": "Subject 4",
+      "team": "INC",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "16:45-17:15",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Refreshments replenished.",
+      "transportOwner": "INC",
+      "status": "On Track",
+      "notes": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload"
+    },
+    {
+      "id": "travel-39",
+      "updateId": "travel:travel-39",
+      "person": "Christina Hizon - violin on",
+      "team": "Clownfish, Aream",
+      "arrivalDate": "Wednesday 10 June",
+      "arrivalTime": "19:00-20:00",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Violin for P&C & Aream group arrival | Missing responsible owner",
+      "transportOwner": "Clownfish, Aream",
+      "status": "Needs Confirmation",
+      "notes": "Christina Hizon - violin on arrival (P&C)"
+    },
+    {
+      "id": "travel-40",
+      "updateId": "travel:travel-40",
+      "person": "On site",
+      "team": "Chris Manoe, TH, DW",
+      "arrivalDate": "Thursday 11 June",
+      "arrivalTime": "08:30",
+      "arrivalAirport": "Arrival location needed",
+      "arrivalFlight": "Flight info needed",
+      "departureDate": "",
+      "departureTime": "",
+      "departureAirport": "Departure airport needed",
+      "departureFlight": "Flight info needed",
+      "hotelTransferNotes": "Transfer notes needed",
+      "transportOwner": "Chris Manoe, TH, DW",
+      "status": "On Track",
+      "notes": "On site arrival - TH, DW / D.I.T"
     }
-  }
+  ],
+  "captureSuggestions": [
+    {
+      "id": "capture-suggestion-1",
+      "updateId": "capture-suggestion:1",
+      "name": "Team",
+      "idea": "Add live capture ideas here during the event if an important moment appears.",
+      "suggestedTime": "Live / as needed",
+      "location": "Location needed",
+      "priority": "Suggested",
+      "status": "Needs Review",
+      "assignedTo": "Content lead",
+      "notes": "Local-only until shared update storage is connected."
+    }
+  ]
 }

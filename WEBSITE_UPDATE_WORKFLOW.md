@@ -41,6 +41,25 @@ This means:
 
 For real shared event comments, connect Firebase Firestore, Supabase, Airtable, or Google Sheets before event use. Shared comments should capture name, comment, timestamp, status, related item ID, and approval/review status.
 
+Supplier updates now also support an `Update Topic` field such as `Arrival time`, `Setup time`, `Contact details`, `Delivery`, `Location`, `Issue`, or `Resolved`.
+
+Content Capture updates now support topics such as `Capture idea`, `Timing`, `Location`, `Assigned person`, `Captured`, or `General note`.
+
+Live Capture Suggestions are also local-only until shared storage is connected. They should be reviewed before being turned into official `content.json` data.
+
+## New Data Areas
+
+Use the same approval flow for:
+
+- Flights / Travel updates.
+- Now / Next schedule timing corrections.
+- Supplier day/time grouping corrections.
+- Content Capture Suggestions.
+- Visual setup image references.
+- Presentation, speech, and event content document links.
+
+If the answer is missing, add it to `HORIZONS_Missing_Info_Questions_Tracker.xlsx` and mark the row `Needs Confirmation`.
+
 ## Approved Comments To Official Updates
 
 1. A team member adds a comment/update on the website.

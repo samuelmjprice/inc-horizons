@@ -2,7 +2,7 @@
 
 This is the internal static website for the HORIZONS Ibiza 2026 event team.
 
-It is a calm operating hub for schedules, priorities, red flags, tasks, contacts, suppliers, podcast, content capture, HORIZONS House, room drops, swag, HORIZONS Studio, decisions, maps, documents, and live team updates.
+It is a calm operating hub for schedules, priorities, red flags, flights/travel, tasks, contacts, suppliers, podcast, content capture, HORIZONS House, room drops, swag, HORIZONS Studio, decisions, maps, documents, and live team updates.
 
 Live site:
 
@@ -35,6 +35,16 @@ Use:
 - Website comments for live discussion and feedback.
 
 The website should not directly depend on a messy Excel workbook or unapproved comments.
+
+Current live features include:
+
+- Flights / Travel cards for arrivals, departures, transfer notes, missing flight details, and transport ownership.
+- Ibiza-time Now / Next schedule awareness.
+- Supplier timing blocks grouped by day.
+- Supplier update topic tagging.
+- Content Capture Suggestions for live capture ideas from the team.
+- Section progress navigation and active top navigation.
+- Document categories for `Presentations / Speeches` and `Event Content Documents`.
 
 ## Update Workflow
 
@@ -165,6 +175,21 @@ Suggested use:
 5. Test, commit, and deploy.
 
 The script does not overwrite `content.json`.
+
+## Common Content Updates
+
+- Change event dates: edit `event.dates`.
+- Change last updated text: edit `event.lastUpdated`.
+- Change last updated owner/source: edit `event.updatedBy`.
+- Add a contact: add a new object to `contacts`.
+- Add a task: add a new object to `tasks`.
+- Add a travel item: add a new object to `travel`.
+- Add a supplier question: add it under that supplier's `openItems`.
+- Add supplier day/time detail: add or update that supplier's `timelineBlocks`.
+- Add a presentation or speech file: add a document with category `Presentations / Speeches`.
+- Add event content files: add a document with category `Event Content Documents`.
+- Add an image: place it in `assets/images/` and reference the path in `content.json`.
+- Add a live capture seed item: add it under `captureSuggestions`.
 
 ## Comments And Status Updates
 

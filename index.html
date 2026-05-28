@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
-    <link rel="icon" href="assets/logos/horizons-connect-black.png">
+    <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -23,6 +23,7 @@
           <a href="#today">Today</a>
           <a href="#red-flags">Red Flags</a>
           <a href="#schedule">Schedule</a>
+          <a href="#flights">Flights</a>
           <a href="#tasks">Tasks</a>
           <a href="#locations">Locations</a>
           <a href="#contacts">Contacts</a>
@@ -39,7 +40,7 @@
       <section id="overview" class="hero section">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <img class="hero-logo" data-event-logo src="assets/logos/horizons-connect-black.png" alt="Official HORIZONS logo">
+            <img class="hero-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
             <p class="eyebrow">Internal live event hub</p>
             <h1 data-event-title>HORIZONS Ibiza 2026</h1>
             <p class="hero-subtitle" data-event-subtitle>Event Command Centre</p>
@@ -47,7 +48,7 @@
             <div class="meta-strip" aria-label="Event information">
               <span data-event-location></span>
               <span data-event-dates></span>
-              <span>Updated <time data-event-updated></time></span>
+              <span>Last updated: <time data-event-updated></time></span>
             </div>
             <div class="countdown" data-countdown aria-label="Countdown to HORIZONS arrival">
               <p class="eyebrow">Countdown to HORIZONS arrival</p>
@@ -68,7 +69,7 @@
         </div>
       </section>
 
-      <section class="section utility-band" aria-label="Search and filters">
+      <section class="utility-band" aria-label="Search and filters">
         <div class="container utility-grid">
           <label class="search-control">
             <span>Search the hub</span>
@@ -131,7 +132,29 @@
             <p>Use day tabs to keep the timeline focused. Details stay tucked away until needed.</p>
           </div>
           <div class="tabs" data-schedule-tabs role="tablist" aria-label="Schedule days"></div>
+          <div class="now-next" data-now-next></div>
           <div class="timeline" data-schedule></div>
+        </div>
+      </section>
+
+      <section id="flights" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Arrivals + departures</p>
+              <h2>Flights / Travel</h2>
+              <p>Team travel, transfer notes, missing flight information, and transport ownership.</p>
+            </div>
+            <p class="result-count" data-travel-count></p>
+          </div>
+          <div class="section-controls">
+            <label><span>Person</span><select data-travel-filter="person"></select></label>
+            <label><span>Arrival day</span><select data-travel-filter="arrivalDay"></select></label>
+            <label><span>Departure day</span><select data-travel-filter="departureDay"></select></label>
+            <label><span>Team/company</span><select data-travel-filter="team"></select></label>
+            <label><span>Status</span><select data-travel-filter="status"></select></label>
+          </div>
+          <div class="cards-grid compact-grid" data-travel></div>
         </div>
       </section>
 
@@ -256,6 +279,24 @@
             <label><span>Priority</span><select data-content-filter="priority"></select></label>
             <label><span>Status</span><select data-content-filter="status"></select></label>
           </div>
+          <div class="capture-suggestions">
+            <div class="section-heading">
+              <p class="eyebrow">Live notes</p>
+              <h2>Capture Suggestions</h2>
+              <p>Quick live ideas for the content team. These are saved locally until shared storage is connected.</p>
+            </div>
+            <div class="cards-grid compact-grid" data-capture-suggestions></div>
+            <form class="suggestion-form" data-capture-suggestion-form>
+              <label><span>Name</span><input name="name" required placeholder="Your name"></label>
+              <label><span>Capture idea / moment</span><textarea name="idea" required placeholder="What should the team capture?"></textarea></label>
+              <label><span>Suggested day/time</span><input name="time" placeholder="Wednesday, 14:30"></label>
+              <label><span>Location</span><input name="location" placeholder="HORIZONS House"></label>
+              <label><span>Priority</span><select name="priority"><option>Suggested</option><option>Needs Review</option><option>Approved to Capture</option><option>Captured</option><option>Not Captured</option><option>Not Needed</option></select></label>
+              <label><span>Assigned to</span><input name="assignedTo" placeholder="Content lead"></label>
+              <label><span>Notes</span><textarea name="notes" placeholder="Any useful context"></textarea></label>
+              <button class="button button-secondary" type="submit">Add capture suggestion</button>
+            </form>
+          </div>
           <div class="cards-grid compact-grid" data-content-capture></div>
         </div>
       </section>
@@ -356,6 +397,8 @@
         </div>
       </section>
     </main>
+
+    <nav class="section-progress" data-section-progress aria-label="Section progress"></nav>
 
     <footer class="site-footer">
       <div class="container footer-grid">

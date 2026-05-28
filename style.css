@@ -385,7 +385,7 @@ h3 {
 }
 
 .utility-band {
-  padding: 22px 0;
+  padding: 14px 0 18px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: rgba(255, 253, 247, 0.7);
@@ -626,6 +626,51 @@ select {
   color: #fffaf0;
 }
 
+.tab-button span {
+  display: inline-flex;
+  margin-left: 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.18);
+  padding: 0.05rem 0.35rem;
+  font-size: 0.68rem;
+}
+
+.tab-button.is-current-day:not([aria-selected="true"]) {
+  border-color: rgba(138, 107, 66, 0.7);
+  color: var(--bronze-dark);
+}
+
+.now-next {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0.1rem 0 1rem;
+}
+
+.now-next > div,
+.supplier-time-block,
+.capture-suggestions {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 247, 0.72);
+  padding: 0.9rem;
+}
+
+.now-next strong,
+.travel-grid strong,
+.supplier-time-block strong {
+  display: block;
+  color: var(--text);
+}
+
+.now-next p,
+.travel-grid p,
+.supplier-time-block p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .timeline {
   display: grid;
   gap: 0.8rem;
@@ -636,6 +681,15 @@ select {
   grid-template-columns: 128px minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem;
+}
+
+.timeline-item.is-now {
+  border-color: rgba(52, 76, 52, 0.45);
+  background: rgba(231, 238, 226, 0.5);
+}
+
+.timeline-item.is-next {
+  border-color: rgba(138, 107, 66, 0.4);
 }
 
 .timeline-time {
@@ -817,6 +871,108 @@ summary::-webkit-details-marker {
   width: max-content;
 }
 
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.travel-grid > div,
+.supplier-timeline {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.supplier-time-block {
+  display: grid;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.capture-suggestions {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 1.4rem;
+}
+
+.capture-suggestions .section-heading {
+  margin-bottom: 0;
+}
+
+.suggestion-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.suggestion-form textarea {
+  min-height: 86px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.75rem;
+  font: inherit;
+}
+
+.suggestion-form .button {
+  align-self: end;
+  width: max-content;
+}
+
+.section-progress {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  z-index: 16;
+  display: grid;
+  gap: 0.45rem;
+  transform: translateY(-50%);
+}
+
+.section-progress a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.section-progress span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid var(--bronze);
+  border-radius: 999px;
+  background: var(--bg-soft);
+}
+
+.section-progress em {
+  position: absolute;
+  right: 1rem;
+  width: max-content;
+  max-width: 160px;
+  opacity: 0;
+  transform: translateX(0.3rem);
+  color: var(--bronze-dark);
+  font-size: 0.72rem;
+  font-style: normal;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.section-progress a:hover em,
+.section-progress a.is-active em {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-progress a.is-active span {
+  background: var(--bronze-dark);
+}
+
 .contact-actions a {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -947,6 +1103,7 @@ summary::-webkit-details-marker {
 
   .utility-grid,
   .section-controls,
+  .suggestion-form,
   .cards-grid,
   .compact-grid,
   .contacts-grid {
@@ -1015,6 +1172,7 @@ summary::-webkit-details-marker {
 
   .utility-grid,
   .section-controls,
+  .suggestion-form,
   .cards-grid,
   .compact-grid,
   .contacts-grid,
@@ -1031,6 +1189,15 @@ summary::-webkit-details-marker {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 0.65rem;
+  }
+
+  .now-next,
+  .travel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-progress {
+    display: none;
   }
 
   [data-schedule-tabs] {

@@ -7,8 +7,10 @@ const state = {
   activeSwagSchedule: "",
   filters: { query: "", status: "", day: "", owner: "", location: "", department: "" },
   taskFilters: { department: "", owner: "", day: "", status: "", location: "" },
+  travelFilters: { person: "", arrivalDay: "", departureDay: "", team: "", status: "" },
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
+  captureSuggestions: [],
   updates: {}
 };
 
@@ -51,6 +53,17 @@ const updateStore = {
   }
 };
 
+const suggestionStore = {
+  key: "horizons-capture-suggestions-v1",
+  load() {
+    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
+    catch { return []; }
+  },
+  save(value) {
+    localStorage.setItem(this.key, JSON.stringify(value));
+  }
+};
+
 const statusClass = (value = "") => {
   const normalized = slug(normalizeLabel(value));
   if (normalized.includes("problem") || normalized.includes("urgent") || normalized.includes("risk") || normalized.includes("critical")) return "tag-critical";
@@ -82,11 +95,17 @@ const buildOptions = (select, values, label) => {
 
 const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
 
-const updateModule = (id) => {
+const topicOptions = (topics = []) => topics.length ? `
+  <label><span>Update topic</span><select name="topic">
+    ${topics.map((topic) => `<option>${escapeHtml(topic)}</option>`).join("")}
+  </select></label>` : "";
+
+const updateModule = (id, topics = []) => {
   if (!id) return "";
   const updates = getUpdates(id);
   const latest = updates.at(-1);
-  const summary = latest ? `${updates.length} update${updates.length === 1 ? "" : "s"} · Latest: ${latest.status}` : "Add update";
+  const topicLabel = latest?.topic ? ` · ${latest.topic}` : "";
+  const summary = latest ? `${updates.length} update${updates.length === 1 ? "" : "s"} · Latest: ${latest.status}${topicLabel}` : "Add update";
   return `
     <details class="updates-module" data-update-module="${escapeHtml(id)}">
       <summary><span>${escapeHtml(summary)}</span>${latest ? tag(latest.status) : ""}</summary>
@@ -96,6 +115,7 @@ const updateModule = (id) => {
             <div class="update-meta">
               <strong>${escapeHtml(item.name)}</strong>
               <time>${escapeHtml(item.timestamp)}</time>
+              ${item.topic ? `<span class="tag">${escapeHtml(item.topic)}</span>` : ""}
               ${tag(item.status)}
             </div>
             <p>${escapeHtml(item.comment)}</p>
@@ -104,6 +124,7 @@ const updateModule = (id) => {
       </div>
       <form class="update-form" data-update-form="${escapeHtml(id)}">
         <label><span>Name</span><input required name="name" placeholder="Your name"></label>
+        ${topicOptions(topics)}
         <label><span>Status</span><select name="status">${options().map((status) => `<option>${escapeHtml(status)}</option>`).join("")}</select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
         <button class="button button-secondary" type="submit">Save update</button>
@@ -112,7 +133,7 @@ const updateModule = (id) => {
   `;
 };
 
-const card = ({ title, status, department, body = "", metadata = "", footer = "", className = "", updateId = "" }) => {
+const card = ({ title, status, department, body = "", metadata = "", footer = "", className = "", updateId = "", updateTopics = [] }) => {
   const latest = latestUpdate(updateId);
   return `
     <article class="card ${className}">
@@ -124,7 +145,7 @@ const card = ({ title, status, department, body = "", metadata = "", footer = ""
       ${body}
       ${metadata ? `<div class="meta-list">${metadata}</div>` : ""}
       ${footer}
-      ${updateModule(updateId)}
+      ${updateModule(updateId, updateTopics)}
     </article>
   `;
 };
@@ -150,6 +171,7 @@ async function init() {
   const response = await fetch("content.json");
   state.data = await response.json();
   state.updates = updateStore.load();
+  state.captureSuggestions = suggestionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
   state.activeSwagSchedule = state.data.swagQueensSchedule?.[0]?.day || "";
   renderEvent();
@@ -157,6 +179,8 @@ async function init() {
   renderAll();
   bindEvents();
   startCountdown();
+  startNowNext();
+  setupSectionNavigation();
 }
 
 function renderEvent() {
@@ -168,6 +192,10 @@ function renderEvent() {
   $("[data-event-dates]").textContent = event.dates;
   $("[data-event-updated]").textContent = event.lastUpdated;
   $("[data-footer-updated]").textContent = event.lastUpdated;
+  if (event.updatedBy) {
+    $("[data-event-updated]").setAttribute("title", `Updated by ${event.updatedBy}`);
+    $("[data-footer-updated]").setAttribute("title", `Updated by ${event.updatedBy}`);
+  }
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
   setHtml("[data-quick-actions]", quickActions.map((action, index) => `<a class="button ${index === 0 ? "button-primary" : "button-secondary"}" href="${action.target}">${escapeHtml(action.label)}</a>`).join(""));
   const startCards = [
@@ -183,10 +211,10 @@ function renderEvent() {
 
 function renderFilters() {
   const d = state.data;
-  const statusValues = unique([...d.schedule, ...d.tasks, ...d.suppliers, ...d.contentCapture, ...d.decisions].map((x) => x.status));
-  const dayValues = unique([...d.dailyRunSheets.map((x) => x.day), ...d.schedule.map((x) => x.dayLabel || x.date), ...d.tasks.map((x) => x.day), ...d.suppliers.map((x) => x.day), ...d.contentCapture.map((x) => x.day)]);
-  const ownerValues = unique([...d.schedule.map((x) => x.owner), ...d.tasks.map((x) => x.person), ...d.suppliers.map((x) => x.internalOwner), ...d.contentCapture.map((x) => x.lead), ...d.contacts.map((x) => x.name)]).slice(0, 160);
-  const locationValues = unique([...d.schedule.map((x) => x.location), ...d.tasks.map((x) => x.location), ...d.suppliers.map((x) => x.location), ...d.locations.map((x) => x.locationName), ...d.contentCapture.map((x) => x.location)]);
+  const statusValues = unique([...d.schedule, ...d.tasks, ...d.suppliers, ...d.contentCapture, ...d.decisions, ...(d.travel || [])].map((x) => x.status));
+  const dayValues = unique([...d.dailyRunSheets.map((x) => x.day), ...d.schedule.map((x) => x.dayLabel || x.date), ...d.tasks.map((x) => x.day), ...d.suppliers.map((x) => x.day), ...d.contentCapture.map((x) => x.day), ...(d.travel || []).map((x) => x.arrivalDate || x.departureDate)]);
+  const ownerValues = unique([...d.schedule.map((x) => x.owner), ...d.tasks.map((x) => x.person), ...d.suppliers.map((x) => x.internalOwner), ...d.contentCapture.map((x) => x.lead), ...d.contacts.map((x) => x.name), ...(d.travel || []).map((x) => x.person)]).slice(0, 160);
+  const locationValues = unique([...d.schedule.map((x) => x.location), ...d.tasks.map((x) => x.location), ...d.suppliers.map((x) => x.location), ...d.locations.map((x) => x.locationName), ...d.contentCapture.map((x) => x.location), ...(d.travel || []).map((x) => x.arrivalAirport), ...(d.travel || []).map((x) => x.departureAirport)]);
   const departmentValues = unique(d.meta.departments || [...d.schedule, ...d.tasks, ...d.suppliers, ...d.contentCapture].map((x) => x.department));
   buildOptions($('[data-filter="status"]'), statusValues, "statuses");
   buildOptions($('[data-filter="day"]'), dayValues, "days");
@@ -198,6 +226,11 @@ function renderFilters() {
   buildOptions($('[data-task-filter="day"]'), dayValues, "days");
   buildOptions($('[data-task-filter="status"]'), statusValues, "statuses");
   buildOptions($('[data-task-filter="location"]'), locationValues, "locations");
+  buildOptions($('[data-travel-filter="person"]'), unique((d.travel || []).map((x) => x.person)), "people");
+  buildOptions($('[data-travel-filter="arrivalDay"]'), unique((d.travel || []).map((x) => x.arrivalDate)), "arrival days");
+  buildOptions($('[data-travel-filter="departureDay"]'), unique((d.travel || []).map((x) => x.departureDate)), "departure days");
+  buildOptions($('[data-travel-filter="team"]'), unique((d.travel || []).map((x) => x.team)), "teams");
+  buildOptions($('[data-travel-filter="status"]'), unique((d.travel || []).map((x) => x.status)), "statuses");
   buildOptions($('[data-podcast-filter="day"]'), unique(d.podcast.map((x) => x.day || x.date)), "days");
   buildOptions($('[data-podcast-filter="guest"]'), unique(d.podcast.map((x) => x.guest || x.guestSubject)), "guests");
   buildOptions($('[data-podcast-filter="status"]'), unique(d.podcast.map((x) => x.status)), "statuses");
@@ -215,6 +248,8 @@ function renderAll() {
   renderRedFlags();
   renderScheduleTabs();
   renderSchedule();
+  renderNowNext();
+  renderTravel();
   renderDepartmentTabs();
   renderDepartmentFocus();
   renderDailyRuns();
@@ -225,6 +260,7 @@ function renderAll() {
   renderSuppliers();
   renderPodcast();
   renderContentCapture();
+  renderCaptureSuggestions();
   renderWorkstreams();
   renderHorizonsHouse();
   renderRoomDrops();
@@ -269,8 +305,71 @@ function renderRedFlags() {
 function renderScheduleTabs() {
   setHtml("[data-schedule-tabs]", state.data.dailyRunSheets.map((day, index) => {
     const label = day.day.split(" ")[0] || `Day ${index + 1}`;
-    return `<button class="tab-button" type="button" role="tab" aria-selected="${day.day === state.activeDay}" data-day-tab="${escapeHtml(day.day)}">${escapeHtml(label)}</button>`;
+    const current = getCurrentEventDay() === day.day;
+    return `<button class="tab-button ${current ? "is-current-day" : ""}" type="button" role="tab" aria-selected="${day.day === state.activeDay}" data-day-tab="${escapeHtml(day.day)}">${escapeHtml(label)}${current ? `<span>Today</span>` : ""}</button>`;
   }).join(""));
+}
+
+const dayDateMap = {
+  "Sunday 7 June": "2026-06-07",
+  "Monday 8 June": "2026-06-08",
+  "Tuesday 9 June": "2026-06-09",
+  "Wednesday 10 June": "2026-06-10",
+  "Thursday 11 June": "2026-06-11",
+  "Friday 12 June": "2026-06-12"
+};
+
+const madridNow = () => new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
+const parseTimeMinutes = (value = "") => {
+  const match = text(value).match(/(\d{1,2})(?::(\d{2}))?/);
+  if (!match) return null;
+  return Number(match[1]) * 60 + Number(match[2] || 0);
+};
+const getCurrentEventDay = () => {
+  const now = madridNow();
+  const iso = now.toISOString().slice(0, 10);
+  return Object.entries(dayDateMap).find(([, date]) => date === iso)?.[0] || "";
+};
+const schedulePosition = (day = state.activeDay) => {
+  const now = madridNow();
+  const today = getCurrentEventDay();
+  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+  const items = state.data.schedule
+    .filter((item) => (item.dayLabel || item.date) === day)
+    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeDisplay || item.timeStart) }))
+    .filter((item) => item.startMinutes !== null)
+    .sort((a, b) => a.startMinutes - b.startMinutes);
+  if (day !== today) return { today, now, current: null, next: items[0], eventLive: Boolean(today) };
+  let current = null;
+  let next = null;
+  for (const item of items) {
+    if (item.startMinutes <= nowMinutes) current = item;
+    if (item.startMinutes > nowMinutes) { next = item; break; }
+  }
+  return { today, now, current, next, eventLive: Boolean(today) };
+};
+
+function renderNowNext() {
+  const position = schedulePosition(state.activeDay);
+  const nowLabel = position.now.toLocaleString("en-GB", { weekday: "long", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" });
+  const fallback = !position.eventLive ? "Event has not started yet. Showing the selected event day." : "Showing selected day.";
+  setHtml("[data-now-next]", `
+    <div>
+      <span class="eyebrow">Ibiza time</span>
+      <strong>${escapeHtml(nowLabel)}</strong>
+      <p>${position.eventLive ? `Current event day: ${escapeHtml(position.today)}` : fallback}</p>
+    </div>
+    <div>
+      <span class="eyebrow">Now</span>
+      <strong>${escapeHtml(position.current?.title || (position.eventLive ? "Between scheduled moments" : "Event countdown active"))}</strong>
+      <p>${escapeHtml(position.current ? `${position.current.timeDisplay || position.current.timeStart} · ${position.current.location || "Location TBC"}` : "Use the day tabs to review the full run sheet.")}</p>
+    </div>
+    <div>
+      <span class="eyebrow">Coming up next</span>
+      <strong>${escapeHtml(position.next?.title || "No later items listed")}</strong>
+      <p>${escapeHtml(position.next ? `${position.next.timeDisplay || position.next.timeStart} · ${position.next.location || "Location TBC"}` : "Check the next day tab.")}</p>
+    </div>
+  `);
 }
 
 function renderSchedule() {
@@ -279,7 +378,7 @@ function renderSchedule() {
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
     .slice(0, 80);
   setHtml("[data-schedule]", items.map((item) => `
-    <article class="timeline-item">
+    <article class="timeline-item ${item.updateId === schedulePosition(state.activeDay).current?.updateId ? "is-now" : ""} ${item.updateId === schedulePosition(state.activeDay).next?.updateId ? "is-next" : ""}">
       <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
       <div>
         <div class="card-header"><h3>${escapeHtml(item.title)}</h3><div class="tag-stack">${tag(latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
@@ -347,6 +446,32 @@ function renderTasks() {
   })).join("") || empty("No tasks match the current filters."));
 }
 
+function renderTravel() {
+  const items = (state.data.travel || [])
+    .filter((item) => passesGlobal(item, { status: item.status, day: item.arrivalDate || item.departureDate, owner: item.person, location: item.arrivalAirport || item.departureAirport, updateId: item.updateId }))
+    .filter((item) => passesLocal(item, state.travelFilters, {
+      person: "person",
+      arrivalDay: "arrivalDate",
+      departureDay: "departureDate",
+      team: "team",
+      status: "status"
+    }))
+    .slice(0, 60);
+  const count = $("[data-travel-count]");
+  if (count) count.textContent = `${items.length} showing`;
+  setHtml("[data-travel]", items.map((item) => card({
+    title: item.person,
+    status: item.status,
+    department: item.team,
+    body: `<div class="travel-grid">
+      <div><span class="eyebrow">Arrival</span><strong>${escapeHtml(item.arrivalDate || "Arrival date needed")}</strong><p>${escapeHtml(item.arrivalTime || "Arrival time needed")}</p><p>${escapeHtml(item.arrivalAirport || "Arrival airport needed")}</p><p>${escapeHtml(item.arrivalFlight || "Flight info needed")}</p></div>
+      <div><span class="eyebrow">Departure</span><strong>${escapeHtml(item.departureDate || "Departure date needed")}</strong><p>${escapeHtml(item.departureTime || "Departure time needed")}</p><p>${escapeHtml(item.departureAirport || "Departure airport needed")}</p><p>${escapeHtml(item.departureFlight || "Flight info needed")}</p></div>
+    </div>`,
+    metadata: meta("Team/company", item.team) + meta("Transfer notes", item.hotelTransferNotes) + meta("Transport owner", item.transportOwner) + meta("Notes", item.notes),
+    updateId: item.updateId
+  })).join("") || empty("No travel items match the filters."));
+}
+
 function renderContactTabs() {
   const categories = ["All", "Leadership", "Production", "Content", "Hotel", "Suppliers", "I.N.C", "Clownfish", "B Good", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
@@ -387,10 +512,33 @@ function renderSuppliers() {
     title: item.supplierName,
     status: item.status,
     department: item.department,
-    body: item.openItems?.length ? `<details class="details"><summary><span>${item.openItems.length} open item${item.openItems.length === 1 ? "" : "s"}</span></summary><div class="details-content">${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}</div></details>` : "",
-    metadata: meta("Responsibility", item.responsibility) + meta("Owner", item.internalOwner) + meta("Contact", item.contactPerson) + meta("Day(s)", item.day) + meta("Arrival/setup", [item.arrivalTime, item.setupTime].filter(Boolean).join(" / ")) + meta("Active", item.activeTime) + meta("Location", item.location),
-    updateId: item.updateId
+    body: `${supplierTimeline(item)}${item.openItems?.length ? `<details class="details"><summary><span>${item.openItems.length} open item${item.openItems.length === 1 ? "" : "s"}</span></summary><div class="details-content">${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}</div></details>` : ""}`,
+    metadata: meta("Responsibility", item.responsibility) + meta("Owner", item.internalOwner) + meta("Contact", item.contactPerson),
+    updateId: item.updateId,
+    updateTopics: state.data.meta?.supplierUpdateTopics || []
   })).join("") || empty("No suppliers match the current filters."));
+}
+
+function supplierTimeline(item) {
+  const blocks = item.timelineBlocks || [];
+  if (!blocks.length) {
+    return `<div class="supplier-timeline">${meta("Day(s)", item.day)}${meta("Arrival/setup", [item.arrivalTime, item.setupTime].filter(Boolean).join(" / "))}${meta("Active", item.activeTime)}${meta("Location", item.location)}</div>`;
+  }
+  return `<div class="supplier-timeline">
+    ${blocks.slice(0, 8).map((block) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml(block.day || "Day needed")}</strong>
+        <p>${escapeHtml(block.summary || "Supplier moment")}</p>
+        <div class="meta-list">
+          ${meta("Arrival", block.arrival)}
+          ${meta("Setup", block.setup)}
+          ${meta("Active", block.active)}
+          ${meta("Location", block.location)}
+          ${meta("Status", normalizeLabel(block.status))}
+        </div>
+      </div>
+    `).join("")}
+  </div>`;
 }
 
 function renderPodcast() {
@@ -418,8 +566,23 @@ function renderContentCapture() {
     status: item.status,
     department: item.department,
     metadata: meta("Day", item.day) + meta("Time", item.time) + meta("Type", item.contentType) + meta("Lead", item.lead) + meta("Support", item.support) + meta("Location", item.location) + meta("Priority", item.priority) + meta("Status", normalizeLabel(item.status)) + meta("Notes", item.notes),
-    updateId: item.updateId
+    updateId: item.updateId,
+    updateTopics: state.data.meta?.contentUpdateTopics || []
   })).join("") || empty("No content moments match the filters."));
+}
+
+function renderCaptureSuggestions() {
+  const base = state.data.captureSuggestions || [];
+  const local = state.captureSuggestions || [];
+  const items = [...base, ...local].slice(-12);
+  setHtml("[data-capture-suggestions]", items.map((item) => card({
+    title: item.idea,
+    status: item.status || item.priority,
+    department: "Content",
+    metadata: meta("Added by", item.name) + meta("Suggested day/time", item.suggestedTime) + meta("Location", item.location) + meta("Priority", item.priority) + meta("Assigned to", item.assignedTo) + meta("Notes", item.notes),
+    updateId: item.updateId,
+    updateTopics: state.data.meta?.contentUpdateTopics || []
+  })).join("") || empty("No live capture suggestions yet."));
 }
 
 function renderWorkstreams() {
@@ -443,7 +606,7 @@ function renderHorizonsHouse() {
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.notes)}</p><h3>Setup instructions</h3>${list(item.setupInstructions)}<h3>Checklist</h3>${list(item.checklist)}`, metadata: meta("Owner", item.owner), updateId: item.updateId })}
       <div class="reference-grid">
         ${item.referenceImages.map((image) => `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`).join("")}
-        <div class="image-placeholder"><strong>File needed</strong><span>HORIZONS test reception display, reception display, and display cabinet reference images.</span></div>
+        ${item.referenceImages?.length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>HORIZONS test reception display, reception display, and display cabinet reference images.</span></div>`}
       </div>
     </div>
   `).join(""));
@@ -453,7 +616,10 @@ function renderRoomDrops() {
   setHtml("[data-room-drops]", state.data.roomDrops.map((item) => `
     <div class="visual-block">
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p><h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
-      <div class="image-placeholder"><strong>File needed</strong><span>Room-drop and guest-gift reference images.</span></div>
+      <div class="reference-grid">
+        ${(item.referenceImages || []).map((image) => `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`).join("")}
+        ${(item.referenceImages || []).length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>Room-drop and guest-gift reference images.</span></div>`}
+      </div>
     </div>
   `).join(""));
 }
@@ -475,7 +641,7 @@ function renderSwag() {
   setHtml("[data-swag]", state.data.swag.map((item) => card({
     title: item.itemName,
     status: item.status,
-    body: item.image ? `<img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy">` : `<div class="image-placeholder"><strong>File needed</strong><span>Reference image needed.</span></div>`,
+    body: item.image ? `<figure class="reference-card"><img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy"><figcaption>${escapeHtml(item.imageCaption || "Reference image")}</figcaption></figure>` : `<div class="image-placeholder"><strong>Image needed</strong><span>Reference image needed.</span></div>`,
     metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity) + meta("Delivery/setup", item.deliverySetupNotes),
     updateId: item.updateId
   })).join(""));
@@ -505,13 +671,13 @@ function renderDecisions() {
     title: item.decisionNeeded,
     status: item.status,
     body: `<p>${escapeHtml(item.whyItMatters)}</p><h3>Options</h3>${list(item.options)}<h3>Recommendation</h3><p>${escapeHtml(item.recommendation)}</p>`,
-    metadata: meta("Owner", item.owner) + meta("Deadline", item.deadline) + meta("Workstream", item.relatedWorkstream),
+    metadata: meta("Owner", item.owner) + meta("Approver", item.approver) + meta("Deadline", item.deadline) + meta("Latest update", item.latestUpdate) + meta("Workstream", item.relatedWorkstream),
     updateId: item.updateId
   })).join(""));
 }
 
 function renderDocumentTabs() {
-  const categories = ["All", "Menus", "Maps", "Site Map", "Seating Plans", "Room Layouts", "Brand Files", "Supplier Documents", "Runbooks", "Production Documents", "Guest Experience", "HORIZONS House", "Room Drops", "Swag", "Other"];
+  const categories = ["All", "Menus", "Maps", "Site Map", "Seating Plans", "Room Layouts", "Brand Files", "Supplier Documents", "Runbooks", "Production Documents", "Guest Experience", "HORIZONS House", "Room Drops", "Swag", "Podcast", "Content Capture", "Presentations / Speeches", "Event Content Documents", "Other"];
   setHtml("[data-document-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeDocumentCategory}" data-document-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
@@ -556,6 +722,52 @@ function startCountdown() {
   setInterval(update, 1000);
 }
 
+function startNowNext() {
+  renderNowNext();
+  setInterval(() => {
+    renderNowNext();
+    renderScheduleTabs();
+    renderSchedule();
+  }, 60000);
+}
+
+function setupSectionNavigation() {
+  const sections = [
+    ["overview", "Overview"],
+    ["today", "Today"],
+    ["red-flags", "Red Flags"],
+    ["schedule", "Schedule"],
+    ["flights", "Flights"],
+    ["tasks", "Tasks"],
+    ["contacts", "Contacts"],
+    ["locations", "Locations"],
+    ["suppliers", "Suppliers"],
+    ["podcast", "Podcast"],
+    ["content", "Content"],
+    ["workstreams", "Workstreams"],
+    ["horizons-house", "Visual Setup"],
+    ["decisions", "Decisions"],
+    ["documents", "Documents"]
+  ];
+  const progress = $("[data-section-progress]");
+  if (progress) {
+    progress.innerHTML = sections.map(([id, label]) => `<a href="#${id}" data-progress-link="${id}"><span></span><em>${escapeHtml(label)}</em></a>`).join("");
+  }
+  const navLinks = $$("[data-nav] a");
+  const setActive = (id) => {
+    navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
+    $$("[data-progress-link]").forEach((link) => link.classList.toggle("is-active", link.dataset.progressLink === id));
+  };
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible?.target?.id) setActive(visible.target.id);
+  }, { rootMargin: "-30% 0px -55% 0px", threshold: [0.08, 0.2, 0.45] });
+  sections.forEach(([id]) => {
+    const element = document.getElementById(id);
+    if (element) observer.observe(element);
+  });
+}
+
 function bindEvents() {
   $("[data-menu-toggle]").addEventListener("click", (event) => {
     const open = !document.body.classList.contains("nav-open");
@@ -569,20 +781,22 @@ function bindEvents() {
   $("[data-global-search]").addEventListener("input", (event) => { state.filters.query = event.target.value.trim(); renderAll(); });
   $$("[data-filter]").forEach((select) => select.addEventListener("change", (event) => { state.filters[event.target.dataset.filter] = event.target.value; renderAll(); }));
   $$("[data-task-filter]").forEach((select) => select.addEventListener("change", (event) => { state.taskFilters[event.target.dataset.taskFilter] = event.target.value; renderTasks(); }));
+  $$("[data-travel-filter]").forEach((select) => select.addEventListener("change", (event) => { state.travelFilters[event.target.dataset.travelFilter] = event.target.value; renderTravel(); }));
   $$("[data-podcast-filter]").forEach((select) => select.addEventListener("change", (event) => { state.podcastFilters[event.target.dataset.podcastFilter] = event.target.value; renderPodcast(); }));
   $$("[data-content-filter]").forEach((select) => select.addEventListener("change", (event) => { state.contentFilters[event.target.dataset.contentFilter] = event.target.value; renderContentCapture(); }));
   $("[data-reset-filters]").addEventListener("click", () => {
     state.filters = { query: "", status: "", day: "", owner: "", location: "", department: "" };
     state.taskFilters = { department: "", owner: "", day: "", status: "", location: "" };
+    state.travelFilters = { person: "", arrivalDay: "", departureDay: "", team: "", status: "" };
     state.podcastFilters = { day: "", guest: "", status: "", location: "" };
     state.contentFilters = { owner: "", day: "", department: "", location: "", priority: "", status: "" };
     $("[data-global-search]").value = "";
-    $$("[data-filter], [data-task-filter], [data-podcast-filter], [data-content-filter]").forEach((select) => select.value = "");
+    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter]").forEach((select) => select.value = "");
     renderAll();
   });
   document.addEventListener("click", (event) => {
     const dayTab = event.target.closest("[data-day-tab]");
-    if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
+    if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
     const departmentTab = event.target.closest("[data-department-tab]");
     if (departmentTab) { state.activeDepartment = departmentTab.dataset.departmentTab; renderDepartmentTabs(); renderDepartmentFocus(); return; }
     const contactTab = event.target.closest("[data-contact-tab]");
@@ -593,6 +807,30 @@ function bindEvents() {
     if (swagTab) { state.activeSwagSchedule = swagTab.dataset.swagTab; renderSwagSchedule(); }
   });
   document.addEventListener("submit", (event) => {
+    const suggestionForm = event.target.closest("[data-capture-suggestion-form]");
+    if (suggestionForm) {
+      event.preventDefault();
+      const data = new FormData(suggestionForm);
+      const item = {
+        id: `local-capture-${Date.now()}`,
+        updateId: `capture-suggestion:local-${Date.now()}`,
+        name: text(data.get("name"), "Anonymous"),
+        idea: text(data.get("idea")),
+        suggestedTime: text(data.get("time"), "Time needed"),
+        location: text(data.get("location"), "Location needed"),
+        priority: text(data.get("priority"), "Suggested"),
+        status: text(data.get("priority"), "Suggested"),
+        assignedTo: text(data.get("assignedTo"), "Assignment needed"),
+        notes: text(data.get("notes")),
+        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
+      };
+      if (!item.idea) return;
+      state.captureSuggestions = [...state.captureSuggestions, item];
+      suggestionStore.save(state.captureSuggestions);
+      suggestionForm.reset();
+      renderCaptureSuggestions();
+      return;
+    }
     const form = event.target.closest("[data-update-form]");
     if (!form) return;
     event.preventDefault();
@@ -600,6 +838,7 @@ function bindEvents() {
     const data = new FormData(form);
     const update = {
       name: text(data.get("name"), "Anonymous"),
+      topic: text(data.get("topic")),
       status: text(data.get("status"), "Still To Be Resolved"),
       comment: text(data.get("comment")),
       timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })

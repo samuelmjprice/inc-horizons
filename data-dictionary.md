@@ -121,6 +121,16 @@ Required fields: `date` or `dayLabel`, `timeDisplay`, `title`, `location`, `owne
 
 Optional fields: `personInvolved`, `support`, `department`, `category`, `priority`, `notes`, `source`.
 
+### `travel`
+
+Flight, arrival, departure, airport, and transfer cards.
+
+Required fields: `person`, `team`, `status`, `updateId`.
+
+Optional fields: `arrivalDate`, `arrivalTime`, `arrivalAirport`, `arrivalFlight`, `departureDate`, `departureTime`, `departureAirport`, `departureFlight`, `hotelTransferNotes`, `transportOwner`, `notes`.
+
+If details are missing, use `Flight info needed`, `Arrival time needed`, `Departure time needed`, `Transfer notes needed`, or `Owner needed`.
+
 ### `tasks`
 
 Owner-focused actions.
@@ -153,6 +163,10 @@ Required fields: `supplierName`, `responsibility`, `internalOwner`, `status`, `o
 
 Each `openItems` entry should include `item`, `owner`, `status`, and optional `latestUpdate`.
 
+Use `timelineBlocks` when a supplier has more than one relevant day/time. Each block should keep `day`, `arrival`, `setup`, `active`, `location`, `summary`, and `status` together.
+
+Supplier update topics should use: `Arrival time`, `Setup time`, `Contact details`, `Delivery`, `Payment`, `Location`, `Open question`, `Issue`, `Resolved`, or `General update`.
+
 ### `podcast`
 
 Podcast recording schedule.
@@ -167,6 +181,18 @@ Photo, video, interview, social, and production capture plan.
 
 Required fields: `moment`, `day`, `time`, `contentType`, `lead`, `location`, `priority`, `status`, `updateId`.
 
+### `captureSuggestions`
+
+Live capture ideas for the production/content team.
+
+Required fields: `idea`, `name`, `status`, `updateId`.
+
+Optional fields: `suggestedTime`, `location`, `priority`, `assignedTo`, `notes`.
+
+Accepted suggestion statuses: `Suggested`, `Needs Review`, `Approved to Capture`, `Captured`, `Not Captured`, `Not Needed`.
+
+Content update topics should use: `Capture idea`, `Timing`, `Location`, `Assigned person`, `Status update`, `Captured`, `Issue`, or `General note`.
+
 ### `workstreams`
 
 Operating groups that connect people, tasks, schedule items, supplier notes, and decisions.
@@ -180,6 +206,8 @@ Document/link cards.
 Required fields: `title`, `category`, `description`, `owner`, `status`, `updateId`.
 
 If no file exists, leave `link` blank and use `File Needed`.
+
+Document categories include `Menus`, `Maps`, `Site Map`, `Seating Plans`, `Room Layouts`, `Brand Files`, `Supplier Documents`, `Runbooks`, `Production Documents`, `Guest Experience`, `HORIZONS House`, `Room Drops`, `Swag`, `Podcast`, `Content Capture`, `Presentations / Speeches`, and `Event Content Documents`.
 
 ### `roomDrops`, `swag`, `horizonsHouse`, `horizonsStudio`
 
