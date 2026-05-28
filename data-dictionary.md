@@ -234,3 +234,13 @@ Swag reference images live in `assets/images/swag/`. Each `swag` item should inc
 Comments are updates and discussion. They are not official display data until reviewed and approved.
 
 Approved comments should be applied to `content.json`, then committed and deployed through GitHub Pages.
+
+## Brand Data Rules
+
+- `event.logo` should point to `assets/logos/horizons-main-logo-black.png` unless an approved replacement official logo file is supplied.
+- Do not create logo text in data fields. The website should render official logo image files only.
+- Use official section names and brand wording exactly: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, and `HORIZONS Studio`.
+- Keep status values plain and clean, such as `Needs Confirmation`, `Confirmed`, `On Track`, `Watch`, `Problem`, `Waiting`, `Resolved`, `Decision Needed`, `File Needed`, and `Info Needed`.
+- Avoid raw spreadsheet labels like `Yellow - Needs Confirmation` or `Green - Confirmed`; the UI supplies the colour treatment.
+- Brand colours are managed in `style.css` through CSS variables. Content data should not contain colour values unless a future approved design need requires it.
+- New document, schedule, supplier, or capture items should use concise summary fields first, with longer notes saved for expandable details.

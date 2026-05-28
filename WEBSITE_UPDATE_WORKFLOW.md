@@ -117,3 +117,12 @@ Codex should only apply comments marked `Approved Change` or tracker rows marked
 - Use `assets/logos/horizons-main-logo-black.png` as the official main hero/header logo.
 - Suppliers should appear once; open questions belong inside the supplier card.
 - Use `File needed`, `Email needed`, `Phone needed`, `Time needed`, or `Needs Confirmation` when information is missing.
+
+## Brand Implementation Notes
+
+- Keep the live site aligned with the HORIZONS presentation style guide: warm Mediterranean canvas, refined spacing, minimal typography, and quiet operational clarity.
+- Use Soleil for headings, navigation, labels, and buttons; use Gill Sans Nova for body and UI text. Do not introduce unrelated fonts.
+- Use the official palette in `style.css`: warm ivory `#F3EAE1`, blush `#E1C4AF`, bronze `#C28952`, soft greens, soft blues, and pale sand.
+- New status treatments should be small pills/tags using soft brand colours. Do not use aggressive full-card colour fills.
+- Interface icons should be simple line-style controls or CSS chevrons. Avoid emoji and mismatched icon styles.
+- New sections should reuse existing card, tab, details, and filter patterns so the page remains spacious and easy to scan on mobile.

@@ -251,6 +251,16 @@ Common updates in `content.json`:
 - Suppliers should appear once, with open questions grouped under `openItems`.
 - HORIZONS Studio must be written as `HORIZONS Studio`.
 
+## Brand Implementation Notes
+
+- Main logo path: `assets/logos/horizons-main-logo-black.png`. Use this official file for the hero/header mark and do not redraw, recolour, crop, stretch, or recreate it with typed text.
+- Fonts: the site loads Soleil Book, Soleil Light, and Soleil Bold for headings, buttons, labels, and navigation. It loads Gill Sans Nova Book and Medium for readable body/UI text. Ivy Journal Light remains available only as an optional editorial accent.
+- Font fallbacks: if a font file fails to load, the browser falls back to clean sans-serif fonts through `Arial, sans-serif`.
+- Palette: key CSS variables use the official HORIZONS colours, including `#F3EAE1`, `#E1C4AF`, `#C28952`, `#A8C1B0`, `#5E7D6A`, `#C7D7E6`, `#B7CBDC`, `#88B2AD`, `#6D8BAA`, and `#EBD9B7`.
+- Icons: keep icons simple, thin, and consistent. Accordions use CSS chevrons, the mobile menu uses a minimal line icon, and emoji icons should not be used for interface controls.
+- Status colours: use small text pills, never full loud card fills. Colour should support the written status label, not replace it.
+- Future sections: use the existing `section`, `section-heading`, `cards-grid`, `card`, `tag`, `tabs`, and `details` patterns so new areas stay calm, spacious, and HORIZONS-aligned.
+
 ## Documents And Images
 
 Document categories include:

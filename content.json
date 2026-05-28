@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Ibiza",
     "dates": "7-12 June 2026",
-    "lastUpdated": "28 May 2026, 23:58",
+    "lastUpdated": "29 May 2026, 00:27",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,7 +22,7 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex / Chris Manoe round-two review pass",
+    "updatedBy": "HORIZONS brand refinement pass",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf"
   },
   "quickActions": [
@@ -107,17 +107,6 @@
       "notes": "",
       "id": "redflag-3",
       "updateId": "redflag:redflag-3"
-    },
-    {
-      "priority": "Critical",
-      "issue": "Samuel naming",
-      "whyItMatters": "Samuel Price and Samuel Hosier must remain separate.",
-      "owner": "Chris Manoe / Samuel Price / Samuel Hosier",
-      "decisionNeeded": "Clarify first-name-only Samuel rows.",
-      "status": "Watch",
-      "notes": "Samuel Price = podcast; Samuel Hosier = content.",
-      "id": "redflag-4",
-      "updateId": "redflag:redflag-4"
     },
     {
       "priority": "Watch",

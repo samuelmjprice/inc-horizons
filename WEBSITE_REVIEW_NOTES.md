@@ -125,3 +125,23 @@ Items still needing team confirmation:
 - Final travel flight numbers and transfer details.
 - Final supplier timing confirmations where source data is still marked `Needs Confirmation`.
 - Additional reception display, venue, room layout, menu, map, and presentation/speech files.
+
+## Brand Guide Refinement Notes
+
+The latest refinement pass applies the HORIZONS presentation style guide more consistently across the live command centre:
+
+- The official main HORIZONS logo remains the only hero/header logo source: `assets/logos/horizons-main-logo-black.png`.
+- The visible countdown markup no longer defaults to zero before JavaScript loads, and the deployed script/content paths now use a fresh cache-busting version.
+- Live-facing developer copy has been removed from the website UI; update instructions stay in the README and workflow documents.
+- Soleil is used for headings, navigation, labels, buttons, countdown numerals, and brand-style section typography.
+- Gill Sans Nova is used for the body/UI reading layer to keep dense operational content legible.
+- The CSS palette now follows the official guide more closely: warm ivory, blush, bronze, soft greens, soft blues, and pale sand.
+- Cards, call sheet rows, schedule items, travel cards, supplier cards, content capture cards, document cards, and status tags now use softer surfaces, borders, and spacing.
+- Accordion and menu controls use simple line-style UI, not emoji or browser-default disclosure icons.
+- The footer copy is non-technical and uses the official logo image rather than typed brand text.
+
+Remaining brand/watch items:
+
+- Keep checking live cache after deploys; if the old logo, script, or countdown appears, hard refresh or confirm the version query in `index.html`.
+- Do not introduce new fonts, loud dashboard colours, emoji icons, or full-card status colour fills in future updates.
+- Any new section should reuse existing card, tag, tab, filter, details, and section-heading patterns.
