@@ -21,6 +21,24 @@ const includes = (item, query) => JSON.stringify(item).toLowerCase().includes(qu
 const unique = (values) => [...new Set(values.map((value) => text(value)).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 const getUpdates = (id) => state.updates[id] || [];
 const latestUpdate = (id) => getUpdates(id).at(-1);
+const normalizeLabel = (value = "") => {
+  const raw = text(value);
+  const normalized = raw.toLowerCase();
+  if (!raw) return "";
+  if (normalized.includes("yellow") || normalized === "needs confirmation if timings remain unclear") return "Needs Confirmation";
+  if (normalized.includes("red") || normalized.includes("problem")) return "Problem";
+  if (normalized.includes("working source") || normalized === "reference" || normalized === "in progress") return "On Track";
+  if (normalized.includes("at risk")) return "Watch";
+  return raw;
+};
+const normalizePriority = (value = "") => {
+  const raw = text(value);
+  const normalized = raw.toLowerCase();
+  if (!raw) return "";
+  if (normalized.includes("red")) return "Critical";
+  if (normalized.includes("yellow")) return "Watch";
+  return raw;
+};
 
 const updateStore = {
   key: "horizons-card-updates-v1",
@@ -34,7 +52,7 @@ const updateStore = {
 };
 
 const statusClass = (value = "") => {
-  const normalized = slug(value);
+  const normalized = slug(normalizeLabel(value));
   if (normalized.includes("problem") || normalized.includes("urgent") || normalized.includes("risk") || normalized.includes("critical")) return "tag-critical";
   if (normalized.includes("decision") || normalized.includes("still-to-be-resolved")) return "tag-decision-needed";
   if (normalized.includes("confirmation") || normalized.includes("confirm") || normalized.includes("watch")) return "tag-needs-confirmation";
@@ -43,12 +61,19 @@ const statusClass = (value = "") => {
   return "";
 };
 
-const tag = (value, extraClass = "") => value ? `<span class="tag ${statusClass(value)} ${extraClass}">${escapeHtml(value)}</span>` : "";
+const tag = (value, extraClass = "") => value ? `<span class="tag ${statusClass(value)} ${extraClass}">${escapeHtml(normalizeLabel(value))}</span>` : "";
 const departmentTag = (value) => value ? tag(value, `department-tag department-${slug(value)}`) : "";
 const meta = (label, value) => value ? `<div><span>${escapeHtml(label)}:</span> ${escapeHtml(value)}</div>` : "";
 const list = (items = []) => items.filter(Boolean).length ? `<ul>${items.filter(Boolean).slice(0, 8).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
 const empty = (message = "No matching items.") => `<div class="empty-state">${escapeHtml(message)}</div>`;
 const setHtml = (selector, html) => { const element = $(selector); if (element) element.innerHTML = html; };
+const detailRows = (rows = []) => rows.filter(([, value]) => text(value)).map(([label, value]) => meta(label, value)).join("");
+const detailsBlock = (summary, rows = [], extra = "") => {
+  const content = `${detailRows(rows)}${extra}`;
+  if (!content.trim()) return "";
+  return `<details class="details"><summary><span>${escapeHtml(summary)}</span></summary><div class="details-content">${content}</div></details>`;
+};
+const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
 
 const buildOptions = (select, values, label) => {
   if (!select) return;
@@ -146,12 +171,12 @@ function renderEvent() {
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
   setHtml("[data-quick-actions]", quickActions.map((action, index) => `<a class="button ${index === 0 ? "button-primary" : "button-secondary"}" href="${action.target}">${escapeHtml(action.label)}</a>`).join(""));
   const startCards = [
-    ["Today at a Glance", "Current focus, priorities, and watch-outs", "#today"],
-    ["Red Flags", "Urgent risks and open confirmations", "#red-flags"],
-    ["Schedule", "Sticky day tabs and timeline", "#schedule"],
-    ["Team Contacts", "Call, WhatsApp, or email from mobile", "#contacts"],
-    ["My Tasks", "Owner and department-filtered responsibilities", "#tasks"],
-    ["Decisions Needed", "Leadership choices still open", "#decisions"]
+    ["What matters now...", state.data.today?.focus || "Current event-day priorities", "#today"],
+    ["Top red flag", state.data.redFlags?.[0]?.issue || "No critical red flag listed", "#red-flags"],
+    ["Next schedule moment", state.data.schedule?.find((item) => (item.dayLabel || item.date) === state.activeDay)?.title || "Open the run sheet", "#schedule"],
+    ["Key decision", state.data.decisions?.[0]?.decisionNeeded || "No open decision listed", "#decisions"],
+    ["Quick contacts", state.data.contacts?.filter((c) => c.category === "Leadership").slice(0, 3).map((c) => c.name).join(", ") || "Open team contacts", "#contacts"],
+    ["Documents", "Menus, maps, room layouts, runbooks, and brand files", "#documents"]
   ];
   setHtml("[data-start-grid]", startCards.map(([title, detail, href]) => `<a class="start-card" href="${href}"><strong>${title}</strong><span>${detail}</span></a>`).join(""));
 }
@@ -257,11 +282,11 @@ function renderSchedule() {
     <article class="timeline-item">
       <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
       <div>
-        <div class="card-header"><h3>${escapeHtml(item.title)}</h3><div class="tag-stack">${departmentTag(item.department)}${tag(latestUpdate(item.updateId)?.status || item.status || item.priority)}</div></div>
+        <div class="card-header"><h3>${escapeHtml(item.title)}</h3><div class="tag-stack">${tag(latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
         ${latestUpdate(item.updateId) ? `<p><strong>Latest update:</strong> ${escapeHtml(latestUpdate(item.updateId).comment)}</p>` : ""}
-        <p>${escapeHtml(item.shortDescription || item.notes || item.category)}</p>
-        <div class="meta-list">${meta("Category", item.category)}${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Support", item.support)}${meta("Priority", item.priority)}</div>
-        ${item.notes ? `<details class="details"><summary>More details</summary><div class="details-content">${escapeHtml(item.notes)}</div></details>` : ""}
+        <p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>
+        <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}</div>
+        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : "")}
         ${updateModule(item.updateId)}
       </div>
     </article>
@@ -297,7 +322,7 @@ function renderDailyRuns() {
       <summary><span><strong>${escapeHtml(day.day)}</strong><br><span class="summary-hint">${escapeHtml(day.summary)}</span></span>${tag(day.watchOut ? "Watch" : "")}</summary>
       <div class="accordion-body">
         ${card({ title: "Focus", body: `<p>${escapeHtml(day.summary)}</p>`, metadata: meta("Locations", day.mainLocations) + meta("Watch-out", day.watchOut), updateId: `${day.updateId}:focus` })}
-        ${card({ title: "Team responsibilities", body: list(day.teamResponsibilities) || "<p>Update owner notes in content.json.</p>", updateId: `${day.updateId}:team` })}
+        ${card({ title: "Team responsibilities", body: list(day.teamResponsibilities) || "<p>No team responsibility notes listed yet.</p>", updateId: `${day.updateId}:team` })}
         ${card({ title: "Critical notes", status: day.criticalNotes.length ? "Watch" : "", body: list(day.criticalNotes) || "<p>No critical notes listed.</p>", updateId: `${day.updateId}:critical` })}
         ${card({ title: "Supplier moments", body: list(day.supplierMoments) || "<p>No supplier moments listed.</p>", updateId: `${day.updateId}:supplier` })}
         ${card({ title: "Content capture", body: list(day.contentCaptureMoments) || "<p>No content moments listed.</p>", updateId: `${day.updateId}:content` })}
@@ -317,19 +342,19 @@ function renderTasks() {
     title: item.action,
     status: item.status,
     department: item.department,
-    metadata: meta("Person", item.person) + meta("Day", item.day) + meta("Time", item.time) + meta("Location", item.location) + meta("Support", item.support) + meta("Notes", item.notes),
+    metadata: meta("Person", item.person) + meta("Person involved", item.personInvolved) + meta("Day", item.day) + meta("Time", item.time) + meta("Location", item.location) + meta("Status", normalizeLabel(item.status)) + meta("Priority", normalizePriority(item.priority)) + meta("Support", item.support) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No tasks match the current filters."));
 }
 
 function renderContactTabs() {
-  const categories = ["All", "Leadership", "Production", "Content", "Hotel", "Suppliers", "Irene", "INC / International Collective", "Clownfish", "B Good", "Remote"];
+  const categories = ["All", "Leadership", "Production", "Content", "Hotel", "Suppliers", "I.N.C", "Clownfish", "B Good", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
 function renderContacts() {
   const items = state.data.contacts
-    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory)
+    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "I.N.C" && /I\\.N\\.C|International Collective/.test(`${item.category} ${item.group}`)))
     .filter((item) => passesGlobal(item, { owner: item.name, department: item.category, updateId: item.updateId }));
   setHtml("[data-contacts]", items.map((item) => {
     const phoneHref = item.phone ? `tel:${item.phone.replace(/[^+0-9]/g, "")}` : "";
@@ -362,7 +387,7 @@ function renderSuppliers() {
     title: item.supplierName,
     status: item.status,
     department: item.department,
-    body: item.openItems?.length ? `<details class="details"><summary>${item.openItems.length} open item${item.openItems.length === 1 ? "" : "s"}</summary><div class="details-content">${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>`).join("")}</div></details>` : "",
+    body: item.openItems?.length ? `<details class="details"><summary><span>${item.openItems.length} open item${item.openItems.length === 1 ? "" : "s"}</span></summary><div class="details-content">${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}</div></details>` : "",
     metadata: meta("Responsibility", item.responsibility) + meta("Owner", item.internalOwner) + meta("Contact", item.contactPerson) + meta("Day(s)", item.day) + meta("Arrival/setup", [item.arrivalTime, item.setupTime].filter(Boolean).join(" / ")) + meta("Active", item.activeTime) + meta("Location", item.location),
     updateId: item.updateId
   })).join("") || empty("No suppliers match the current filters."));
@@ -390,9 +415,9 @@ function renderContentCapture() {
   $("[data-content-count]").textContent = `${items.length} showing`;
   setHtml("[data-content-capture]", items.map((item) => card({
     title: item.moment,
-    status: item.priority || item.status,
+    status: item.status,
     department: item.department,
-    metadata: meta("Day", item.day) + meta("Time", item.time) + meta("Type", item.contentType) + meta("Lead", item.lead) + meta("Support", item.support) + meta("Location", item.location) + meta("Status", item.status) + meta("Notes", item.notes),
+    metadata: meta("Day", item.day) + meta("Time", item.time) + meta("Type", item.contentType) + meta("Lead", item.lead) + meta("Support", item.support) + meta("Location", item.location) + meta("Priority", item.priority) + meta("Status", normalizeLabel(item.status)) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No content moments match the filters."));
 }
@@ -418,7 +443,7 @@ function renderHorizonsHouse() {
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.notes)}</p><h3>Setup instructions</h3>${list(item.setupInstructions)}<h3>Checklist</h3>${list(item.checklist)}`, metadata: meta("Owner", item.owner), updateId: item.updateId })}
       <div class="reference-grid">
         ${item.referenceImages.map((image) => `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`).join("")}
-        <div class="image-placeholder">Missing reference images: HORIZONS test reception display, reception display, display cabinet. Add them to <code>assets/images/horizons-house/</code>.</div>
+        <div class="image-placeholder"><strong>File needed</strong><span>HORIZONS test reception display, reception display, and display cabinet reference images.</span></div>
       </div>
     </div>
   `).join(""));
@@ -428,7 +453,7 @@ function renderRoomDrops() {
   setHtml("[data-room-drops]", state.data.roomDrops.map((item) => `
     <div class="visual-block">
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p><h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
-      <div class="image-placeholder">Missing room-drop and guest-gift reference images. Add them to <code>assets/images/room-drops/</code>.</div>
+      <div class="image-placeholder"><strong>File needed</strong><span>Room-drop and guest-gift reference images.</span></div>
     </div>
   `).join(""));
 }
@@ -450,7 +475,7 @@ function renderSwag() {
   setHtml("[data-swag]", state.data.swag.map((item) => card({
     title: item.itemName,
     status: item.status,
-    body: item.image ? `<img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy">` : `<div class="image-placeholder">Missing reference image. Add to <code>assets/images/swag/</code>.</div>`,
+    body: item.image ? `<img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy">` : `<div class="image-placeholder"><strong>File needed</strong><span>Reference image needed.</span></div>`,
     metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity) + meta("Delivery/setup", item.deliverySetupNotes),
     updateId: item.updateId
   })).join(""));
@@ -468,7 +493,7 @@ function renderStudio() {
             <figcaption>${escapeHtml(image.caption)}</figcaption>
           </figure>
         `).join("")}
-        <div class="image-placeholder">Add HORIZONS Studio setup/reference images to <code>assets/images/production/</code> when available.</div>
+        <div class="image-placeholder"><strong>File needed</strong><span>HORIZONS Studio setup/reference images.</span></div>
       </div>`,
     metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Setup notes", item.setupNotes) + meta("Production notes", item.productionNotes),
     updateId: item.updateId
@@ -486,7 +511,7 @@ function renderDecisions() {
 }
 
 function renderDocumentTabs() {
-  const categories = ["All", "Menus", "Maps", "Seating Plans", "Room Layouts", "Brand Files", "Supplier Documents", "Runbooks", "Production Documents", "Guest Experience", "Other"];
+  const categories = ["All", "Menus", "Maps", "Site Map", "Seating Plans", "Room Layouts", "Brand Files", "Supplier Documents", "Runbooks", "Production Documents", "Guest Experience", "HORIZONS House", "Room Drops", "Swag", "Other"];
   setHtml("[data-document-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeDocumentCategory}" data-document-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
@@ -588,5 +613,5 @@ function bindEvents() {
 
 init().catch((error) => {
   console.error(error);
-  document.body.insertAdjacentHTML("afterbegin", `<div class="empty-state">The command centre could not load <code>content.json</code>. Start a local server or check that the file exists.</div>`);
+  document.body.insertAdjacentHTML("afterbegin", `<div class="empty-state">The command centre could not load the latest event data. Please refresh or contact the site owner.</div>`);
 });

@@ -2,246 +2,13 @@
 
 This is the internal static website for the HORIZONS Ibiza 2026 event team.
 
-It is designed as a calm, premium live operating hub for schedules, red flags, responsibilities, contacts, suppliers, podcast, content capture, HORIZONS House, room drops, swag, HORIZONS Studio, decisions, maps, documents, and updates.
+It is a calm operating hub for schedules, priorities, red flags, tasks, contacts, suppliers, podcast, content capture, HORIZONS House, room drops, swag, HORIZONS Studio, decisions, maps, documents, and live team updates.
 
-## Important Note About Comments And Status Updates
+Live site:
 
-The site is currently a static GitHub Pages-ready website.
-
-Comments and status updates are implemented as a working prototype using browser `localStorage`.
-
-That means:
-
-- Updates save only on the current device and browser.
-- Updates are not yet shared with the whole team.
-- The UI is built so it can later be connected to Firebase, Supabase, or another shared backend without rebuilding the interface.
-
-Do not treat local comments as globally shared until a backend is connected.
-
-The storage adapter lives in `script.js` as `updateStore`.
-
-## Main Files
-
-- `index.html` controls the page structure.
-- `style.css` controls the visual design.
-- `script.js` renders content, filters, countdown, tabs, and local updates.
-- `content.json` contains the editable event data.
-- `assets/` contains logos, fonts, documents, and image folders.
-
-Most content updates should happen in `content.json`.
-
-## How To Update Event Details
-
-Open `content.json` and edit the `event` object.
-
-Common updates:
-
-- Change event dates: edit `event.dates`.
-- Change the last updated label: edit `event.lastUpdated`.
-- Change the countdown target: edit `event.countdownTarget`.
-- Change hero copy: edit `event.description`.
-
-Countdown target is currently set to 8 June 2026.
-
-## How To Update Contacts
-
-Edit the `contacts` array in `content.json`.
-
-Each contact can include:
-
-- `name`
-- `category`
-- `group`
-- `role`
-- `responsibility`
-- `phone`
-- `whatsappLink`
-- `email`
-- `notes`
-
-Email buttons only appear when an email is provided. Do not invent missing emails.
-
-Current contact categories include:
-
-- Leadership
-- Production
-- Content
-- Hotel
-- Suppliers
-- Irene
-- INC / International Collective
-- Clownfish
-- B Good
-- Remote
-
-## How To Update Tasks
-
-Edit the `tasks` array.
-
-Each task can include:
-
-- `action`
-- `day`
-- `time`
-- `person`
-- `support`
-- `department`
-- `location`
-- `status`
-- `notes`
-
-To mark a task complete, change `status` to `Resolved` or `Complete`.
-
-## How To Update The Schedule
-
-Edit the `schedule` array.
-
-Each schedule item can include:
-
-- `dayLabel`
-- `timeDisplay`
-- `title`
-- `shortDescription`
-- `owner`
-- `support`
-- `department`
-- `location`
-- `status`
-- `priority`
-- `category`
-- `notes`
-
-The schedule day tabs are sticky in the Schedule section.
-
-## How To Update Supplier Open Items
-
-Edit the `suppliers` array.
-
-Supplier cards are grouped so each supplier appears once.
-
-Each supplier can include:
-
-- `supplierName`
-- `responsibility`
-- `internalOwner`
-- `contactPerson`
-- `phone`
-- `email`
-- `day`
-- `arrivalTime`
-- `setupTime`
-- `activeTime`
-- `location`
-- `status`
-- `openItems`
-
-Each `openItems` entry can include:
-
-- `item`
-- `status`
-- `owner`
-- `latestUpdate`
-- `comments`
-
-Use status labels such as `Resolved`, `Problem`, `Needs Confirmation`, `Waiting`, or `On Track`.
-
-## How To Update Podcast
-
-Edit the `podcast` array.
-
-Podcast timing is currently marked `Needs Confirmation` where final timing is not locked.
-
-Each podcast card can include:
-
-- `day`
-- `date`
-- `time`
-- `slot`
-- `guest`
-- `presenter`
-- `productionLead`
-- `technicalTeam`
-- `location`
-- `productionNeeds`
-- `status`
-- `notes`
-
-## How To Update Content Capture
-
-Edit the `contentCapture` array.
-
-Each item can include:
-
-- `day`
-- `time`
-- `moment`
-- `contentType`
-- `priority`
-- `lead`
-- `support`
-- `department`
-- `location`
-- `status`
-- `notes`
-
-Priority labels include `Must Capture`, `Important`, `Nice to Capture`, and `Needs Confirmation`.
-
-## How To Add Documents, Menus, Maps, And Seating Plans
-
-Edit the `documents` array.
-
-Each document can include:
-
-- `title`
-- `category`
-- `day`
-- `description`
-- `type`
-- `owner`
-- `status`
-- `link`
-
-Document categories include:
-
-- Menus
-- Maps
-- Seating Plans
-- Room Layouts
-- Brand Files
-- Supplier Documents
-- Runbooks
-- Production Documents
-- Guest Experience
-- Other
-
-If a file is missing, leave `link` blank and set `status` to `File Needed`.
-
-Put hosted files in `assets/documents/`.
-
-## How To Add Images
-
-Use these folders:
-
-- `assets/images/swag/`
-- `assets/images/room-drops/`
-- `assets/images/horizons-house/`
-- `assets/images/venue/`
-- `assets/images/production/`
-
-Reference images should help the team understand setup, room drops, swag, display cabinet, venue notes, or production needs.
-
-Current missing image/reference needs are listed in `content.json` under `referenceImageNeeds`.
-
-## GitHub Publishing
-
-When connected to GitHub:
-
-1. Commit changes.
-2. Push to the `main` branch.
-3. In GitHub, open repository settings.
-4. Go to Pages.
-5. Set source to `main` and folder to `/root`.
-6. Save.
+```txt
+http://inc-horizons.com/
+```
 
 GitHub Pages URL:
 
@@ -249,42 +16,207 @@ GitHub Pages URL:
 https://samuelmjprice.github.io/inc-horizons/
 ```
 
-Custom domain URL:
-
-```txt
-http://inc-horizons.com/
-```
-
-HTTPS status: pending GitHub Pages certificate issuance. Once GitHub marks the certificate as issued in Settings > Pages, enable "Enforce HTTPS" and use:
+HTTPS is pending GitHub Pages certificate issuance. Once GitHub marks the certificate as issued in Settings > Pages, enable **Enforce HTTPS** and use:
 
 ```txt
 https://inc-horizons.com/
 ```
 
-## DNS Notes
+## How The Site Gets Its Data
 
-Custom domain connected: `inc-horizons.com`.
-
-GitHub Pages is configured from the `main` branch at repository root.
-
-GoDaddy DNS has been configured with these apex/root A records:
-
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
-
-The `www` CNAME is configured as:
+The live website displays official, cleaned event data from:
 
 ```txt
-samuelmjprice.github.io
+content.json
 ```
 
-Do not guess or delete existing DNS records without confirming the actual domain and any conflicts.
+The team should not edit HTML, CSS, or JavaScript for normal updates.
+
+Use:
+
+- `content.json` for official approved website data.
+- `HORIZONS_Website_Update_Tracker.xlsx` for proposed changes, missing information, questions, approvals, and update intake.
+- Website comments for live discussion and feedback.
+
+The website should not directly depend on a messy Excel workbook or unapproved comments.
+
+## Update Workflow
+
+1. Team adds updates to `HORIZONS_Website_Update_Tracker.xlsx`.
+2. Team adds website comments if discussion is needed.
+3. Project lead marks rows/comments as `Approved`, `Ready for Codex`, or `Approved Change`.
+4. Codex reviews approved tracker rows and approved comments.
+5. Codex updates `content.json`.
+6. Codex tests locally.
+7. Codex commits and pushes to GitHub.
+8. GitHub Pages redeploys.
+9. Team reviews the live site.
+
+Full SOP:
+
+```txt
+WEBSITE_UPDATE_WORKFLOW.md
+```
+
+Data rules:
+
+```txt
+data-dictionary.md
+```
+
+## Excel Update Tracker
+
+The tracker is:
+
+```txt
+HORIZONS_Website_Update_Tracker.xlsx
+```
+
+It is an update intake system, not the live source of truth.
+
+Use one row per update. Only rows marked `Approved` or `Ready for Codex` should normally be applied to the website.
+
+Tracker tabs include:
+
+- START HERE
+- Website Change Requests
+- Missing Information
+- Questions To Answer
+- Schedule Updates
+- Task Updates
+- Contact Updates
+- Supplier Updates
+- Podcast Updates
+- Content Capture Updates
+- Documents + Links
+- Red Flags + Decisions
+- Image + Asset Updates
+- Completed Website Updates
+
+Note: Excel does not allow `/` in tab names, so `Image / Asset Updates` is named `Image + Asset Updates`.
+
+## Optional Import Helper
+
+The non-destructive helper is:
+
+```txt
+tools/import-updates.py
+```
+
+Suggested use:
+
+1. Place the latest tracker in `data/input/`.
+2. Run `tools/import-updates.py`.
+3. Review `data/output/approved-updates.json`.
+4. Manually apply approved updates to `content.json`.
+5. Test, commit, and deploy.
+
+The script does not overwrite `content.json`.
+
+## Comments And Status Updates
+
+The current website comments are a local-only prototype using browser `localStorage`.
+
+This means:
+
+- Comments save only on the current device/browser.
+- Other team members cannot see them.
+- They are useful for UI testing and personal notes only.
+
+Before event use, connect shared storage such as Firebase Firestore, Supabase, Airtable, or Google Sheets if the team needs shared comments.
+
+Local comments can be exported from the browser console:
+
+```js
+copy(localStorage.getItem("horizons-card-updates-v1"))
+```
+
+Do not treat local comments as official data. Approved comments must be reviewed and applied to `content.json`.
+
+## Main Files
+
+- `index.html`: page structure.
+- `style.css`: visual design.
+- `script.js`: rendering, filters, countdown, tabs, accordions, and local update UI.
+- `content.json`: official website display data.
+- `HORIZONS_Website_Update_Tracker.xlsx`: team update intake tracker.
+- `WEBSITE_UPDATE_WORKFLOW.md`: update process.
+- `data-dictionary.md`: data rules and field guidance.
+- `assets/`: logos, fonts, documents, and image folders.
+
+## Content Updates
+
+Common updates in `content.json`:
+
+- Change event dates: edit `event.dates`.
+- Change active live day: edit `today.date`.
+- Change last updated label: edit `event.lastUpdated`.
+- Change countdown target: edit `event.countdownTarget`.
+- Add a contact: add an object to `contacts`.
+- Mark a task resolved: change `status` to `Resolved`.
+- Add a supplier issue: add it to the supplier’s `openItems`.
+- Add a map or menu: place the file in `assets/documents/` and add a document card.
+- Add an image: place it in the right `assets/images/` folder and reference it in `content.json`.
+
+## Data Rules
+
+- There is only one Chris: `Chris Manoe`.
+- Use `HORIZONS Hall`, not `Farmers Market Stage`.
+- Use `B Good` consistently.
+- Use `Clownfish` consistently.
+- Do not invent emails, phone numbers, times, spellings, files, or approvals.
+- Missing files should use `File Needed`.
+- Missing contact details should be left blank or noted as `Email needed` / `Phone needed`.
+- Suppliers should appear once, with open questions grouped under `openItems`.
+- HORIZONS Studio must be written as `HORIZONS Studio`.
+
+## Documents And Images
+
+Document categories include:
+
+- Menus
+- Maps
+- Site Map
+- Seating Plans
+- Room Layouts
+- Brand Files
+- Supplier Documents
+- Runbooks
+- Production Documents
+- Guest Experience
+- HORIZONS House
+- Room Drops
+- Swag
+
+Image folders:
+
+- `assets/images/swag/`
+- `assets/images/room-drops/`
+- `assets/images/horizons-house/`
+- `assets/images/venue/`
+- `assets/images/production/`
+
+Images should be practical references, not decoration.
+
+## Deployment
+
+1. Test locally.
+2. Commit changes.
+3. Push to `main`.
+4. GitHub Pages deploys from `main` at repository root.
+5. Confirm the live domain loads.
+
+GoDaddy DNS for `inc-horizons.com`:
+
+- `A @ 185.199.108.153`
+- `A @ 185.199.109.153`
+- `A @ 185.199.110.153`
+- `A @ 185.199.111.153`
+- `CNAME www samuelmjprice.github.io`
+
+Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 
 ## Files To Avoid Editing Unless Necessary
-
-Most editors should avoid changing:
 
 - `index.html`
 - `style.css`
@@ -293,13 +225,3 @@ Most editors should avoid changing:
 - official logo files in `assets/logos/`
 
 Do not redraw, recolour, distort, stretch, modify, or recreate official HORIZONS logos.
-
-## Common Updates
-
-- Change event dates: edit `event.dates`.
-- Change active live day: edit `today.date`.
-- Add a contact: add an object to `contacts`.
-- Mark a task resolved: change `status` to `Resolved`.
-- Add a supplier issue: add it to that supplier’s `openItems`.
-- Add a map: place the file in `assets/documents/` and add a document card with category `Maps`.
-- Add an image: place it in the correct `assets/images/` folder and reference it in `content.json`.

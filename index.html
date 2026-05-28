@@ -15,10 +15,8 @@
       <div class="nav-shell">
         <a class="brand-mark brand-word" href="#overview" aria-label="HORIZONS overview">HORIZONS</a>
         <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
-          <span></span>
-          <span></span>
-          <span></span>
-          Menu
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="menu-label">Menu</span>
         </button>
         <nav id="site-nav" class="site-nav" data-nav>
           <a href="#overview">Overview</a>
@@ -105,7 +103,7 @@
           <div class="section-heading">
             <p class="eyebrow">Today at a glance</p>
             <h2>What matters now...</h2>
-            <p>Only the most important live items belong here. Update the current day in <code>content.json</code>.</p>
+            <p>Key focus, urgent items, and priority movements for the current event day.</p>
           </div>
           <div class="cards-grid priority-grid" data-today></div>
         </div>
@@ -362,7 +360,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <strong class="footer-word">HORIZONS</strong>
-        <p>Internal HORIZONS event command centre. Update live content in <code>content.json</code>.</p>
+        <p>Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.</p>
         <p>Last updated <time data-footer-updated></time></p>
       </div>
     </footer>
