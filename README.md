@@ -7,7 +7,7 @@ It is a calm operating hub for schedules, priorities, red flags, tasks, contacts
 Live site:
 
 ```txt
-http://inc-horizons.com/
+https://inc-horizons.com/
 ```
 
 GitHub Pages URL:
@@ -16,11 +16,7 @@ GitHub Pages URL:
 https://samuelmjprice.github.io/inc-horizons/
 ```
 
-HTTPS is pending GitHub Pages certificate issuance. Once GitHub marks the certificate as issued in Settings > Pages, enable **Enforce HTTPS** and use:
-
-```txt
-https://inc-horizons.com/
-```
+HTTPS is enabled through GitHub Pages. If `http://inc-horizons.com/` does not redirect immediately after a deployment, wait for the GitHub Pages CDN cache to refresh.
 
 ## How The Site Gets Its Data
 
