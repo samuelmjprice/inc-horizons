@@ -246,18 +246,20 @@ When connected to GitHub:
 GitHub Pages URL:
 
 ```txt
-Not connected yet
+https://samuelmjprice.github.io/inc-horizons/
 ```
 
 Custom domain URL:
 
 ```txt
-Not connected yet
+https://inc-horizons.com/
 ```
 
 ## DNS Notes
 
-No GoDaddy DNS changes have been made yet.
+Custom domain requested: `inc-horizons.com`.
+
+GitHub Pages is configured from the `main` branch at repository root.
 
 For an apex/root domain, GitHub Pages typically uses these A records:
 
