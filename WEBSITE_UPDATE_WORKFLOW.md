@@ -53,6 +53,7 @@ Use the same approval flow for:
 
 - Flights / Travel updates.
 - Now / Next schedule timing corrections.
+- Daily Call Sheet updates. These should normally be entered as schedule updates because the Call Sheet is rendered from approved schedule data.
 - Supplier day/time grouping corrections.
 - Content Capture Suggestions.
 - Visual setup image references.
@@ -112,5 +113,7 @@ Codex should only apply comments marked `Approved Change` or tracker rows marked
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
+- Use `B Good` and `Clownfish` exactly.
+- Use `assets/logos/horizons-main-logo-black.png` as the official main hero/header logo.
 - Suppliers should appear once; open questions belong inside the supplier card.
 - Use `File needed`, `Email needed`, `Phone needed`, `Time needed`, or `Needs Confirmation` when information is missing.

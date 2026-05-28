@@ -6,14 +6,16 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260528-round2">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" data-header>
       <div class="nav-shell">
-        <a class="brand-mark brand-word" href="#overview" aria-label="HORIZONS overview">HORIZONS</a>
+        <a class="brand-mark" href="#overview" aria-label="HORIZONS overview">
+          <img data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+        </a>
         <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
           <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="menu-label">Menu</span>
@@ -23,6 +25,7 @@
           <a href="#today">Today</a>
           <a href="#red-flags">Red Flags</a>
           <a href="#schedule">Schedule</a>
+          <a href="#call-sheet">Call Sheet</a>
           <a href="#flights">Flights</a>
           <a href="#tasks">Tasks</a>
           <a href="#locations">Locations</a>
@@ -167,7 +170,24 @@
           </div>
           <div class="tabs department-tabs" data-department-tabs role="tablist" aria-label="Department focus"></div>
           <div class="cards-grid" data-department-focus></div>
+          <div class="daily-actions">
+            <button class="button button-secondary" type="button" data-open-today>Open today</button>
+            <button class="button button-secondary" type="button" data-collapse-days>Collapse all</button>
+          </div>
           <div class="accordion-list" data-daily-runs></div>
+        </div>
+      </section>
+
+      <section id="call-sheet" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Daily call sheets</p>
+            <h2>Call Sheet</h2>
+            <p>Hour-by-hour rundown for each event day, with current and next moments highlighted when the event is live.</p>
+          </div>
+          <div class="tabs" data-call-sheet-tabs role="tablist" aria-label="Call sheet days"></div>
+          <div class="now-next" data-call-sheet-now-next></div>
+          <div class="call-sheet-list" data-call-sheet></div>
         </div>
       </section>
 
@@ -279,6 +299,7 @@
             <label><span>Priority</span><select data-content-filter="priority"></select></label>
             <label><span>Status</span><select data-content-filter="status"></select></label>
           </div>
+          <div class="tabs" data-content-day-tabs role="tablist" aria-label="Content capture days"></div>
           <div class="capture-suggestions">
             <div class="section-heading">
               <p class="eyebrow">Live notes</p>
@@ -408,6 +429,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260528-round2"></script>
   </body>
 </html>

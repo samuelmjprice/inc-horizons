@@ -40,6 +40,7 @@ Current live features include:
 
 - Flights / Travel cards for arrivals, departures, transfer notes, missing flight details, and transport ownership.
 - Ibiza-time Now / Next schedule awareness.
+- Daily Call Sheets derived from approved schedule data, with day tabs and Now / Next highlighting.
 - Supplier timing blocks grouped by day.
 - Supplier update topic tagging.
 - Content Capture Suggestions for live capture ideas from the team.
@@ -184,11 +185,12 @@ The script does not overwrite `content.json`.
 - Add a contact: add a new object to `contacts`.
 - Add a task: add a new object to `tasks`.
 - Add a travel item: add a new object to `travel`.
+- Update the Call Sheet: update the matching item in `schedule`; the Call Sheet is rendered from approved schedule data.
 - Add a supplier question: add it under that supplier's `openItems`.
 - Add supplier day/time detail: add or update that supplier's `timelineBlocks`.
 - Add a presentation or speech file: add a document with category `Presentations / Speeches`.
 - Add event content files: add a document with category `Event Content Documents`.
-- Add an image: place it in `assets/images/` and reference the path in `content.json`.
+- Add a swag image: place it in `assets/images/swag/` and reference the path in the matching `swag`, `roomDrops`, or `horizonsHouse` item in `content.json`.
 - Add a live capture seed item: add it under `captureSuggestions`.
 
 ## Comments And Status Updates
@@ -242,6 +244,7 @@ Common updates in `content.json`:
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
 - Use `B Good` consistently.
 - Use `Clownfish` consistently.
+- Use the official main HORIZONS logo at `assets/logos/horizons-main-logo-black.png` for the hero/header logo. Do not recreate it with text.
 - Do not invent emails, phone numbers, times, spellings, files, or approvals.
 - Missing files should use `File Needed`.
 - Missing contact details should be left blank or noted as `Email needed` / `Phone needed`.
@@ -275,6 +278,8 @@ Image folders:
 - `assets/images/production/`
 
 Images should be practical references, not decoration.
+
+Current swag references include tote bag, notebook, bottle, foldable charger, Nord fragrances, silk eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
 
 ## Deployment
 

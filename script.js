@@ -1,10 +1,12 @@
 const state = {
   data: null,
   activeDay: "",
+  activeCallSheetDay: "",
   activeDepartment: "All",
   activeContactCategory: "All",
   activeDocumentCategory: "All",
   activeSwagSchedule: "",
+  activeContentDay: "",
   filters: { query: "", status: "", day: "", owner: "", location: "", department: "" },
   taskFilters: { department: "", owner: "", day: "", status: "", location: "" },
   travelFilters: { person: "", arrivalDay: "", departureDay: "", team: "", status: "" },
@@ -14,6 +16,7 @@ const state = {
   updates: {}
 };
 
+const APP_VERSION = "20260528-round2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -168,11 +171,13 @@ const passesLocal = (item, filters, fieldMap) => Object.entries(filters).every((
 });
 
 async function init() {
-  const response = await fetch("content.json");
+  const response = await fetch(`content.json?v=${APP_VERSION}`);
   state.data = await response.json();
   state.updates = updateStore.load();
   state.captureSuggestions = suggestionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
+  state.activeCallSheetDay = state.activeDay;
+  state.activeContentDay = state.activeDay;
   state.activeSwagSchedule = state.data.swagQueensSchedule?.[0]?.day || "";
   renderEvent();
   renderFilters();
@@ -249,6 +254,8 @@ function renderAll() {
   renderScheduleTabs();
   renderSchedule();
   renderNowNext();
+  renderCallSheetTabs();
+  renderCallSheet();
   renderTravel();
   renderDepartmentTabs();
   renderDepartmentFocus();
@@ -259,6 +266,7 @@ function renderAll() {
   renderLocations();
   renderSuppliers();
   renderPodcast();
+  renderContentDayTabs();
   renderContentCapture();
   renderCaptureSuggestions();
   renderWorkstreams();
@@ -339,14 +347,14 @@ const schedulePosition = (day = state.activeDay) => {
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeDisplay || item.timeStart) }))
     .filter((item) => item.startMinutes !== null)
     .sort((a, b) => a.startMinutes - b.startMinutes);
-  if (day !== today) return { today, now, current: null, next: items[0], eventLive: Boolean(today) };
+  if (day !== today) return { today, now, current: null, next: items[0], nextItems: items.slice(0, 3), eventLive: Boolean(today) };
   let current = null;
   let next = null;
   for (const item of items) {
     if (item.startMinutes <= nowMinutes) current = item;
     if (item.startMinutes > nowMinutes) { next = item; break; }
   }
-  return { today, now, current, next, eventLive: Boolean(today) };
+  return { today, now, current, next, nextItems: items.filter((item) => item.startMinutes > nowMinutes).slice(0, 3), eventLive: Boolean(today) };
 };
 
 function renderNowNext() {
@@ -367,7 +375,24 @@ function renderNowNext() {
     <div>
       <span class="eyebrow">Coming up next</span>
       <strong>${escapeHtml(position.next?.title || "No later items listed")}</strong>
-      <p>${escapeHtml(position.next ? `${position.next.timeDisplay || position.next.timeStart} · ${position.next.location || "Location TBC"}` : "Check the next day tab.")}</p>
+      ${position.nextItems?.length ? `<ul class="mini-list">${position.nextItems.map((item) => `<li>${escapeHtml(item.timeDisplay || item.timeStart || "TBC")} · ${escapeHtml(item.title)}${item.location ? ` · ${escapeHtml(item.location)}` : ""}</li>`).join("")}</ul>` : `<p>Check the next day tab.</p>`}
+    </div>
+  `);
+  setHtml("[data-call-sheet-now-next]", `
+    <div>
+      <span class="eyebrow">Ibiza time</span>
+      <strong>${escapeHtml(nowLabel)}</strong>
+      <p>${position.eventLive ? `Current event day: ${escapeHtml(position.today)}` : fallback}</p>
+    </div>
+    <div>
+      <span class="eyebrow">Now</span>
+      <strong>${escapeHtml(position.current?.title || (position.eventLive ? "Between scheduled moments" : "Event countdown active"))}</strong>
+      <p>${escapeHtml(position.current ? `${position.current.timeDisplay || position.current.timeStart} · ${position.current.location || "Location TBC"}` : "Use the call sheet day tabs to review the rundown.")}</p>
+    </div>
+    <div>
+      <span class="eyebrow">Next</span>
+      <strong>${escapeHtml(position.next?.title || "No later items listed")}</strong>
+      ${position.nextItems?.length ? `<ul class="mini-list">${position.nextItems.map((item) => `<li>${escapeHtml(item.timeDisplay || item.timeStart || "TBC")} · ${escapeHtml(item.title)}${item.location ? ` · ${escapeHtml(item.location)}` : ""}</li>`).join("")}</ul>` : `<p>Check the next event day.</p>`}
     </div>
   `);
 }
@@ -390,6 +415,54 @@ function renderSchedule() {
       </div>
     </article>
   `).join("") || empty("No schedule items match the current filters for this day."));
+}
+
+function renderCallSheetTabs() {
+  setHtml("[data-call-sheet-tabs]", state.data.dailyRunSheets.map((day, index) => {
+    const label = day.day.split(" ")[0] || `Day ${index + 1}`;
+    const current = getCurrentEventDay() === day.day;
+    return `<button class="tab-button ${current ? "is-current-day" : ""}" type="button" role="tab" aria-selected="${day.day === state.activeCallSheetDay}" data-call-sheet-tab="${escapeHtml(day.day)}">${escapeHtml(label)}${current ? `<span>Today</span>` : ""}</button>`;
+  }).join(""));
+}
+
+function renderCallSheet() {
+  const position = schedulePosition(state.activeCallSheetDay);
+  const nowMinutes = position.now.getHours() * 60 + position.now.getMinutes();
+  const isToday = position.today === state.activeCallSheetDay;
+  const items = state.data.schedule
+    .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
+    .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
+    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeDisplay || item.timeStart) }))
+    .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999))
+    .slice(0, 120);
+  setHtml("[data-call-sheet]", items.map((item) => {
+    const past = isToday && item.startMinutes !== null && item.startMinutes < nowMinutes && item.updateId !== position.current?.updateId;
+    const current = item.updateId === position.current?.updateId;
+    const next = item.updateId === position.next?.updateId;
+    return `
+      <article class="call-sheet-item ${past ? "is-past" : ""} ${current ? "is-now" : ""} ${next ? "is-next" : ""}">
+        <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
+        <div>
+          <div class="card-header">
+            <h3>${escapeHtml(item.title)}</h3>
+            <div class="tag-stack">${current ? tag("Now") : ""}${next ? tag("Next") : ""}${tag(item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div>
+          </div>
+          <div class="meta-list compact-meta">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Department", item.department || item.category)}</div>
+          ${detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]])}
+          ${updateModule(item.updateId)}
+        </div>
+      </article>
+    `;
+  }).join("") || empty("No call sheet items match the current filters for this day."));
+}
+
+function renderContentDayTabs() {
+  const days = ["All", ...unique(state.data.contentCapture.map((item) => item.day))];
+  if (!days.includes(state.activeContentDay)) state.activeContentDay = "All";
+  setHtml("[data-content-day-tabs]", days.map((day) => {
+    const label = day === "All" ? "All" : day.split(" ")[0];
+    return `<button class="tab-button" type="button" role="tab" aria-selected="${day === state.activeContentDay}" data-content-day-tab="${escapeHtml(day)}">${escapeHtml(label)}</button>`;
+  }).join(""));
 }
 
 function renderDepartmentTabs() {
@@ -463,11 +536,9 @@ function renderTravel() {
     title: item.person,
     status: item.status,
     department: item.team,
-    body: `<div class="travel-grid">
-      <div><span class="eyebrow">Arrival</span><strong>${escapeHtml(item.arrivalDate || "Arrival date needed")}</strong><p>${escapeHtml(item.arrivalTime || "Arrival time needed")}</p><p>${escapeHtml(item.arrivalAirport || "Arrival airport needed")}</p><p>${escapeHtml(item.arrivalFlight || "Flight info needed")}</p></div>
-      <div><span class="eyebrow">Departure</span><strong>${escapeHtml(item.departureDate || "Departure date needed")}</strong><p>${escapeHtml(item.departureTime || "Departure time needed")}</p><p>${escapeHtml(item.departureAirport || "Departure airport needed")}</p><p>${escapeHtml(item.departureFlight || "Flight info needed")}</p></div>
-    </div>`,
-    metadata: meta("Team/company", item.team) + meta("Transfer notes", item.hotelTransferNotes) + meta("Transport owner", item.transportOwner) + meta("Notes", item.notes),
+    body: `<p>${escapeHtml(firstMeaningful(item.arrivalDate, item.departureDate, "Travel date needed"))} · ${escapeHtml(firstMeaningful(item.arrivalAirport, item.departureAirport, "Airport needed"))}</p>
+      ${detailsBlock("Travel details", [["Team/company", item.team], ["Arrival date", item.arrivalDate || "Arrival date needed"], ["Arrival time", item.arrivalTime || "Arrival time needed"], ["Arrival airport", item.arrivalAirport || "Arrival airport needed"], ["Arrival flight", item.arrivalFlight || "Flight info needed"], ["Departure date", item.departureDate || "Departure date needed"], ["Departure time", item.departureTime || "Departure time needed"], ["Departure airport", item.departureAirport || "Departure airport needed"], ["Departure flight", item.departureFlight || "Flight info needed"], ["Transfer notes", item.hotelTransferNotes], ["Transport owner", item.transportOwner], ["Notes", item.notes]])}`,
+    metadata: meta("Team/company", item.team),
     updateId: item.updateId
   })).join("") || empty("No travel items match the filters."));
 }
@@ -512,8 +583,10 @@ function renderSuppliers() {
     title: item.supplierName,
     status: item.status,
     department: item.department,
-    body: `${supplierTimeline(item)}${item.openItems?.length ? `<details class="details"><summary><span>${item.openItems.length} open item${item.openItems.length === 1 ? "" : "s"}</span></summary><div class="details-content">${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}</div></details>` : ""}`,
-    metadata: meta("Responsibility", item.responsibility) + meta("Owner", item.internalOwner) + meta("Contact", item.contactPerson),
+    body: `<p>${escapeHtml(firstMeaningful(item.responsibility, item.supplierType, "Supplier responsibility needed"))}</p>
+      <div class="meta-list compact-meta">${meta("Key day/location", [item.day, item.location].filter(Boolean).join(" · "))}${meta("Internal owner", item.internalOwner)}${meta("Open items", item.openItems?.length ? `${item.openItems.length}` : "")}</div>
+      ${detailsBlock("Supplier details", [["Supplier type", item.supplierType], ["Contact", item.contactPerson], ["Phone", item.phone], ["Email", item.email], ["Responsibility", item.responsibility], ["Day(s)", item.day], ["Location", item.location], ["Arrival", item.arrivalTime], ["Setup", item.setupTime], ["Active", item.activeTime], ["Notes", item.notes]], `${supplierTimeline(item)}${item.openItems?.length ? `<h3>Open items</h3>${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}` : ""}`)}`,
+    metadata: "",
     updateId: item.updateId,
     updateTopics: state.data.meta?.supplierUpdateTopics || []
   })).join("") || empty("No suppliers match the current filters."));
@@ -558,6 +631,7 @@ function renderPodcast() {
 function renderContentCapture() {
   const items = state.data.contentCapture
     .filter((item) => passesGlobal(item, { status: item.status, day: item.day, owner: item.lead, location: item.location, department: item.department, updateId: item.updateId }))
+    .filter((item) => state.activeContentDay === "All" || item.day === state.activeContentDay)
     .filter((item) => passesLocal(item, state.contentFilters, { owner: "lead" }))
     .slice(0, 48);
   $("[data-content-count]").textContent = `${items.length} showing`;
@@ -565,7 +639,10 @@ function renderContentCapture() {
     title: item.moment,
     status: item.status,
     department: item.department,
-    metadata: meta("Day", item.day) + meta("Time", item.time) + meta("Type", item.contentType) + meta("Lead", item.lead) + meta("Support", item.support) + meta("Location", item.location) + meta("Priority", item.priority) + meta("Status", normalizeLabel(item.status)) + meta("Notes", item.notes),
+    body: `<p>${escapeHtml([item.day, item.time].filter(Boolean).join(" · ") || "Time needed")}</p>
+      <div class="meta-list compact-meta">${meta("Type", item.contentType)}${meta("Lead", item.lead)}${meta("Location", item.location)}</div>
+      ${detailsBlock("Capture details", [["Support", item.support], ["Department", item.department], ["Priority", item.priority], ["Status", normalizeLabel(item.status)], ["Notes", item.notes], ["Related schedule", item.relatedSchedule], ["Suggested shots", item.suggestedShots]])}`,
+    metadata: "",
     updateId: item.updateId,
     updateTopics: state.data.meta?.contentUpdateTopics || []
   })).join("") || empty("No content moments match the filters."));
@@ -728,6 +805,7 @@ function startNowNext() {
     renderNowNext();
     renderScheduleTabs();
     renderSchedule();
+    renderCallSheet();
   }, 60000);
 }
 
@@ -737,6 +815,7 @@ function setupSectionNavigation() {
     ["today", "Today"],
     ["red-flags", "Red Flags"],
     ["schedule", "Schedule"],
+    ["call-sheet", "Call Sheet"],
     ["flights", "Flights"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
@@ -745,27 +824,44 @@ function setupSectionNavigation() {
     ["podcast", "Podcast"],
     ["content", "Content"],
     ["workstreams", "Workstreams"],
-    ["horizons-house", "Visual Setup"],
+    ["horizons-house", "HORIZONS House"],
+    ["room-drops", "Room Drops"],
+    ["swag", "Swag"],
+    ["horizons-studio", "HORIZONS Studio"],
     ["decisions", "Decisions"],
     ["documents", "Documents"]
-  ];
+  ].filter(([id]) => document.getElementById(id));
   const progress = $("[data-section-progress]");
   if (progress) {
     progress.innerHTML = sections.map(([id, label]) => `<a href="#${id}" data-progress-link="${id}"><span></span><em>${escapeHtml(label)}</em></a>`).join("");
   }
   const navLinks = $$("[data-nav] a");
+  let ticking = false;
   const setActive = (id) => {
     navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
     $$("[data-progress-link]").forEach((link) => link.classList.toggle("is-active", link.dataset.progressLink === id));
   };
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible?.target?.id) setActive(visible.target.id);
-  }, { rootMargin: "-30% 0px -55% 0px", threshold: [0.08, 0.2, 0.45] });
-  sections.forEach(([id]) => {
-    const element = document.getElementById(id);
-    if (element) observer.observe(element);
-  });
+  const updateActive = () => {
+    ticking = false;
+    const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 16;
+    const probeLine = headerOffset + window.innerHeight * 0.28;
+    let active = sections[0]?.[0] || "";
+    sections.forEach(([id]) => {
+      const element = document.getElementById(id);
+      if (!element) return;
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= probeLine && rect.bottom > headerOffset) active = id;
+    });
+    if (active) setActive(active);
+  };
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateActive);
+  };
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  requestUpdate();
 }
 
 function bindEvents() {
@@ -797,6 +893,27 @@ function bindEvents() {
   document.addEventListener("click", (event) => {
     const dayTab = event.target.closest("[data-day-tab]");
     if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
+    const callSheetTab = event.target.closest("[data-call-sheet-tab]");
+    if (callSheetTab) { state.activeCallSheetDay = callSheetTab.dataset.callSheetTab; renderCallSheetTabs(); renderNowNext(); renderCallSheet(); return; }
+    const contentDayTab = event.target.closest("[data-content-day-tab]");
+    if (contentDayTab) { state.activeContentDay = contentDayTab.dataset.contentDayTab; renderContentDayTabs(); renderContentCapture(); return; }
+    const openToday = event.target.closest("[data-open-today]");
+    if (openToday) {
+      const today = getCurrentEventDay() || state.data.today?.date || state.activeDay;
+      state.activeDay = today;
+      state.activeCallSheetDay = today;
+      renderScheduleTabs();
+      renderCallSheetTabs();
+      renderNowNext();
+      renderSchedule();
+      renderCallSheet();
+      renderDepartmentFocus();
+      renderDailyRuns();
+      document.getElementById("daily")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    const collapseDays = event.target.closest("[data-collapse-days]");
+    if (collapseDays) { $$("[data-daily-runs] details").forEach((detail) => { detail.open = false; }); return; }
     const departmentTab = event.target.closest("[data-department-tab]");
     if (departmentTab) { state.activeDepartment = departmentTab.dataset.departmentTab; renderDepartmentTabs(); renderDepartmentFocus(); return; }
     const contactTab = event.target.closest("[data-contact-tab]");

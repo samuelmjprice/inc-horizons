@@ -26,6 +26,10 @@ Do not use:
 
 Suppliers should appear once. Multiple questions, timings, or unresolved notes should be grouped as `openItems` under the supplier.
 
+### Brand Spelling Rule
+
+Use `B Good` and `Clownfish` exactly. Do not use `Be Good`, `BGood`, `B good`, `Clown Fish`, `Clown fish`, or `ClownFish`.
+
 ### Missing Info Rule
 
 Use clear missing-info labels:
@@ -121,6 +125,12 @@ Required fields: `date` or `dayLabel`, `timeDisplay`, `title`, `location`, `owne
 
 Optional fields: `personInvolved`, `support`, `department`, `category`, `priority`, `notes`, `source`.
 
+### `callSheet`
+
+The website's Daily Call Sheet view is rendered from approved `schedule` items. To update a call sheet item, update the matching `schedule` object rather than creating a separate duplicate.
+
+Recommended schedule fields for call sheet clarity: `timeDisplay`, `title`, `location`, `owner`, `support`, `department`, `category`, `status`, `notes`, `relatedSupplier`, and `relatedContentCapture`.
+
 ### `travel`
 
 Flight, arrival, departure, airport, and transfer cards.
@@ -214,6 +224,10 @@ Document categories include `Menus`, `Maps`, `Site Map`, `Seating Plans`, `Room 
 Visual operational sections for guest experience and setup.
 
 Use official HORIZONS logos only. Do not alter or recreate logos.
+
+The primary hero/header logo is `assets/logos/horizons-main-logo-black.png`.
+
+Swag reference images live in `assets/images/swag/`. Each `swag` item should include `image`, `alt`, and `imageCaption` when an approved reference image exists. Practical reference images can also be reused in `roomDrops.referenceImages` and `horizonsHouse.referenceImages`.
 
 ## Comments And Official Data
 

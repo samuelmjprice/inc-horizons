@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Ibiza",
     "dates": "7-12 June 2026",
-    "lastUpdated": "28 May 2026, 18:00",
+    "lastUpdated": "28 May 2026, 23:58",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -12,18 +12,17 @@
     "missingAssets": [
       "Simple HORIZONS type logo / wordmark",
       "Reception display reference images",
-      "Room drop reference images",
-      "Swag reference images",
       "Menus",
       "Maps",
       "Seating plans",
       "Room layouts",
       "Flight numbers and final transfer timings",
       "Presentation/speech documents",
-      "Additional visual setup images"
+      "Additional visual setup images",
+      "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex / Chris Manoe review pass",
+    "updatedBy": "Codex / Chris Manoe round-two review pass",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf"
   },
   "quickActions": [
@@ -22223,13 +22222,33 @@
       "referenceImages": [
         {
           "src": "assets/logos/horizons-house-black.png",
-          "caption": "Official HORIZONS House logo reference",
-          "alt": "Official HORIZONS House logo"
+          "alt": "Official HORIZONS House logo",
+          "caption": "Official HORIZONS House logo reference."
         },
         {
-          "src": "assets/images/swag/swag-delivery-brief-page.png",
-          "alt": "HORIZONS swag delivery brief preview",
-          "caption": "Swag delivery brief reference preview. Use full PDF for detailed setup images."
+          "src": "assets/images/swag/hats.jpeg",
+          "alt": "Stone and black caps",
+          "caption": "Caps for HORIZONS House display."
+        },
+        {
+          "src": "assets/images/swag/hats-2.jpeg",
+          "alt": "Olive cap mockup",
+          "caption": "Olive cap display reference."
+        },
+        {
+          "src": "assets/images/swag/fan.jpeg",
+          "alt": "Black HORIZONS fan",
+          "caption": "Fan display reference."
+        },
+        {
+          "src": "assets/images/swag/lanyard-oatmeal.jpeg",
+          "alt": "Oatmeal lanyard",
+          "caption": "Oatmeal lanyard check-in reference."
+        },
+        {
+          "src": "assets/images/swag/massage-gun.jpeg",
+          "alt": "Pulsio massager",
+          "caption": "Pulsio massager display reference."
         }
       ],
       "notes": "Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
@@ -22262,9 +22281,39 @@
       ],
       "referenceImages": [
         {
-          "src": "assets/images/swag/swag-delivery-brief-page.png",
-          "alt": "Room drop and swag delivery reference preview",
-          "caption": "Swag delivery brief reference preview for room drops and guest items."
+          "src": "assets/images/swag/bag.jpeg",
+          "alt": "Black HORIZONS tote bag",
+          "caption": "Tote bag for room drops."
+        },
+        {
+          "src": "assets/images/swag/book.jpeg",
+          "alt": "Cream HORIZONS notebook",
+          "caption": "Notebook room-drop reference."
+        },
+        {
+          "src": "assets/images/swag/bottle.jpeg",
+          "alt": "Black HORIZONS bottle",
+          "caption": "Bottle room-drop reference."
+        },
+        {
+          "src": "assets/images/swag/charger.jpeg",
+          "alt": "Black foldable charger",
+          "caption": "Foldable charger room-drop reference."
+        },
+        {
+          "src": "assets/images/swag/cent-2.jpeg",
+          "alt": "Light Nord fragrance with ampersand",
+          "caption": "Nord day fragrance reference."
+        },
+        {
+          "src": "assets/images/swag/cent.jpeg",
+          "alt": "Dark Nord fragrance with ampersand",
+          "caption": "Nord night fragrance reference."
+        },
+        {
+          "src": "assets/images/swag/eye-mask-1.jpeg",
+          "alt": "Silk eye mask packaging",
+          "caption": "Silk eye mask packaging reference."
         }
       ],
       "updateId": "roomdrop:roomdrop-standard"
@@ -22272,56 +22321,199 @@
   ],
   "swag": [
     {
-      "id": "swag-notepads",
-      "itemName": "Notepads",
-      "location": "HORIZONS House / guest areas",
-      "owner": "Chris Manoe / B Good",
+      "id": "swag-tote-bag",
+      "itemName": "Tote Bag",
+      "location": "Room drops / HORIZONS House",
+      "owner": "B Good / Six Senses",
       "quantity": "TBC",
       "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm final placement and quantities from updated runbook.",
-      "image": "assets/images/swag/swag-delivery-brief-page.png",
-      "alt": "Notepads reference from swag delivery brief",
-      "updateId": "swag:swag-notepads",
-      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
+      "deliverySetupNotes": "Use for welcome hotel room drops and display cabinet references.",
+      "image": "assets/images/swag/bag.jpeg",
+      "alt": "Black HORIZONS tote bag",
+      "imageCaption": "Tote bag reference",
+      "updateId": "swag:swag-tote-bag"
     },
     {
-      "id": "swag-lanyards",
-      "itemName": "Lanyards",
+      "id": "swag-notebook",
+      "itemName": "Notebook",
+      "location": "Room drops / HORIZONS House",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Keep notebook placement clean and aligned in guest drops or display.",
+      "image": "assets/images/swag/book.jpeg",
+      "alt": "Cream HORIZONS notebook",
+      "imageCaption": "Notebook reference",
+      "updateId": "swag:swag-notebook"
+    },
+    {
+      "id": "swag-bottle",
+      "itemName": "LARQ Bottle",
+      "location": "Room drops",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Confirm quantities and room-drop placement.",
+      "image": "assets/images/swag/bottle.jpeg",
+      "alt": "Black HORIZONS bottle",
+      "imageCaption": "Bottle reference",
+      "updateId": "swag:swag-bottle"
+    },
+    {
+      "id": "swag-foldable-charger",
+      "itemName": "Foldable Charger",
+      "location": "Room drops",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Confirm charging unit count and packaging condition before drops.",
+      "image": "assets/images/swag/charger.jpeg",
+      "alt": "Black foldable charger with HORIZONS mark",
+      "imageCaption": "Foldable charger reference",
+      "updateId": "swag:swag-foldable-charger"
+    },
+    {
+      "id": "swag-nord-day-fragrance",
+      "itemName": "Nord Day Fragrance",
+      "location": "Room drops / display cabinet",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Use as room-drop and display reference; confirm day/night split if applicable.",
+      "image": "assets/images/swag/cent-2.jpeg",
+      "alt": "Light Nord fragrance item with ampersand mark",
+      "imageCaption": "Nord day fragrance reference",
+      "updateId": "swag:swag-nord-day-fragrance"
+    },
+    {
+      "id": "swag-nord-night-fragrance",
+      "itemName": "Nord Night Fragrance",
+      "location": "Room drops / display cabinet",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Use as room-drop and display reference; confirm day/night split if applicable.",
+      "image": "assets/images/swag/cent.jpeg",
+      "alt": "Dark Nord fragrance item with ampersand mark",
+      "imageCaption": "Nord night fragrance reference",
+      "updateId": "swag:swag-nord-night-fragrance"
+    },
+    {
+      "id": "swag-silk-eye-mask",
+      "itemName": "Silk Eye Mask",
+      "location": "Room drops",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Confirm final packaging and handling standard.",
+      "image": "assets/images/swag/eye-mask-2.jpeg",
+      "alt": "Black silk eye mask with HORIZONS wordmark",
+      "imageCaption": "Silk eye mask reference",
+      "updateId": "swag:swag-silk-eye-mask"
+    },
+    {
+      "id": "swag-silk-eye-mask-packaging",
+      "itemName": "Silk Eye Mask Packaging",
+      "location": "Room drops",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Use packaging reference for quality control and premium placement.",
+      "image": "assets/images/swag/eye-mask-1.jpeg",
+      "alt": "SilkAddict box with branded wrapper",
+      "imageCaption": "Silk eye mask packaging reference",
+      "updateId": "swag:swag-silk-eye-mask-packaging"
+    },
+    {
+      "id": "swag-fan",
+      "itemName": "Fan",
+      "location": "HORIZONS House / guest experience",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Confirm location and quantity before final display.",
+      "image": "assets/images/swag/fan.jpeg",
+      "alt": "Black fan with ampersand mark",
+      "imageCaption": "Fan reference",
+      "updateId": "swag:swag-fan"
+    },
+    {
+      "id": "swag-caps-stone-black",
+      "itemName": "Caps - Stone / Black",
+      "location": "HORIZONS House / display cabinet",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Use as physical cap reference for display and gifting.",
+      "image": "assets/images/swag/hats.jpeg",
+      "alt": "Stone HORIZONS cap with black caps behind",
+      "imageCaption": "Caps stone and black reference",
+      "updateId": "swag:swag-caps-stone-black"
+    },
+    {
+      "id": "swag-cap-olive",
+      "itemName": "Cap Mockup - Olive",
+      "location": "HORIZONS House / display cabinet",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Mockup reference only; confirm final cap colourways.",
+      "image": "assets/images/swag/hats-2.jpeg",
+      "alt": "Olive cap mockup with HORIZONS wordmark and ampersand",
+      "imageCaption": "Olive cap mockup",
+      "updateId": "swag:swag-cap-olive"
+    },
+    {
+      "id": "swag-cap-black",
+      "itemName": "Cap Mockup - Black",
+      "location": "HORIZONS House / display cabinet",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Mockup reference only; confirm final cap colourways.",
+      "image": "assets/images/swag/hats-3.jpeg",
+      "alt": "Black cap mockup with HORIZONS wordmark and ampersand",
+      "imageCaption": "Black cap mockup",
+      "updateId": "swag:swag-cap-black"
+    },
+    {
+      "id": "swag-pulsio-massager",
+      "itemName": "Pulsio Massager",
+      "location": "Display cabinet / guest gifts",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Confirm whether this is display-only or included in guest gifts.",
+      "image": "assets/images/swag/massage-gun.jpeg",
+      "alt": "Black Pulsio massager with HORIZONS branding",
+      "imageCaption": "Pulsio massager reference",
+      "updateId": "swag:swag-pulsio-massager"
+    },
+    {
+      "id": "swag-bamboo-pen",
+      "itemName": "Bamboo Pen",
+      "location": "HORIZONS House / room drops",
+      "owner": "B Good / Six Senses",
+      "quantity": "TBC",
+      "status": "Needs Confirmation",
+      "deliverySetupNotes": "Pair with notebook where relevant; confirm final quantity.",
+      "image": "assets/images/swag/pen.jpeg",
+      "alt": "Bamboo pen reference",
+      "imageCaption": "Pen reference",
+      "updateId": "swag:swag-bamboo-pen"
+    },
+    {
+      "id": "swag-lanyard-oatmeal",
+      "itemName": "Lanyard - Oatmeal",
       "location": "Check-in / HORIZONS House",
       "owner": "B Good / Six Senses",
       "quantity": "TBC",
       "status": "Needs Confirmation",
-      "deliverySetupNotes": "Keep check-in supply neat, visible, and easy for team to access.",
-      "image": "assets/images/swag/swag-delivery-brief-page.png",
-      "alt": "Lanyards reference from swag delivery brief",
-      "updateId": "swag:swag-lanyards",
-      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
-    },
-    {
-      "id": "swag-guest-gifts",
-      "itemName": "Guest Gifts",
-      "location": "Hotel room drops",
-      "owner": "B Good / Six Senses",
-      "quantity": "Per room list",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use gloves. Present consistently in each room.",
-      "image": "assets/images/swag/swag-delivery-brief-page.png",
-      "alt": "Guest Gifts reference from swag delivery brief",
-      "updateId": "swag:swag-guest-gifts",
-      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
-    },
-    {
-      "id": "swag-display-cabinet",
-      "itemName": "Display Cabinet Swag",
-      "location": "HORIZONS House and reception display",
-      "owner": "Chris Manoe / B Good",
-      "quantity": "TBC",
-      "status": "Watch",
-      "deliverySetupNotes": "Display cabinet includes swag. Keep spacing premium and uncluttered.",
-      "image": "assets/images/swag/swag-delivery-brief-page.png",
-      "alt": "Display Cabinet Swag reference from swag delivery brief",
-      "updateId": "swag:swag-display-cabinet",
-      "imageCaption": "Reference preview from HORIZONS Swag Delivery Brief. Confirm final item-specific image if needed."
+      "deliverySetupNotes": "Oatmeal lanyard reference; confirm final colour selection.",
+      "image": "assets/images/swag/lanyard-oatmeal.jpeg",
+      "alt": "Oatmeal lanyard reference",
+      "imageCaption": "Oatmeal lanyard reference",
+      "updateId": "swag:swag-lanyard-oatmeal"
     }
   ],
   "horizonsStudio": [

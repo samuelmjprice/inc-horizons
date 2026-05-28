@@ -10,6 +10,8 @@
 8. Do not guess. Use `Needs Confirmation` if unsure.
 9. Send the file back when done.
 
+For Daily Call Sheet updates, use `Call Sheet Questions` if the row exists. If not, use `Schedule Questions` and include the time, location, owner, support team, supplier, and content capture need. Approved schedule answers are what Codex uses to update the live Call Sheet.
+
 ## Example
 
 If the tracker asks for a final setup time, write the confirmed time in `Answer / Final Info`, add the person who confirmed it in `Who Should Answer` or `Notes`, then set `Status` to `Approved` only when it is ready to be added to the live website.

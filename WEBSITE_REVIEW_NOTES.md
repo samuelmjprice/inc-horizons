@@ -103,3 +103,25 @@ The workbook includes:
 5. Test locally on desktop, iPhone width, and Android width.
 6. Commit and push.
 7. Confirm the live site reflects the approved answers.
+
+## Round Two Review Notes
+
+Latest review items now reflected in the website and trackers:
+
+- Side section progress tracking was reworked so the active section updates while scrolling down and back up.
+- The live countdown remains pointed at `8 June 2026` using the event timezone.
+- Flights / Travel cards are now compact by default, with full details inside an expandable panel.
+- Day-Specific Focus spacing has been opened up, and simple `Open today` / `Collapse all` controls were added.
+- A Daily Call Sheet view was added and is rendered from approved schedule data.
+- Supplier cards are compact by default, with timing blocks, contacts, open items, and updates inside expandable details.
+- Content Capture cards are compact by default and can be filtered by day.
+- The official main HORIZONS logo is used for the header/hero source: `assets/logos/horizons-main-logo-black.png`.
+- New swag reference images were added for tote bag, notebook, bottle, charger, Nord fragrances, eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard.
+- `B Good` and `Clownfish` spelling rules were rechecked across text source files.
+
+Items still needing team confirmation:
+
+- Final call sheet owner/support details for any TBC schedule rows.
+- Final travel flight numbers and transfer details.
+- Final supplier timing confirmations where source data is still marked `Needs Confirmation`.
+- Additional reception display, venue, room layout, menu, map, and presentation/speech files.
