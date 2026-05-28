@@ -105,7 +105,22 @@ A copy is also saved in the Desktop handoff folder:
 /Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_Missing_Info_Questions_Tracker.xlsx
 ```
 
+The editable team copy is also saved in:
+
+```txt
+/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/LIVE DOC/HORIZONS_Missing_Info_Questions_Tracker.xlsx
+```
+
 Use this workbook to collect the answers still needed to finish the website and make the event information complete.
+
+The tracker has been formatted for team use:
+
+- `TEAM VIEW` is the simplest place to start.
+- Green columns are for team answers and confirmations.
+- Grey columns are reference-only and should usually be left alone.
+- Status dropdowns show whether a row is missing, waiting, answered, approved, already added, or not needed.
+- Only rows marked `Approved` should be used for website updates.
+- Rows marked `EXAMPLE - DO NOT IMPORT` are examples only and should never be imported into the website.
 
 It is different from `HORIZONS_Website_Update_Tracker.xlsx`:
 
@@ -125,6 +140,12 @@ Website review notes are saved in:
 
 ```txt
 WEBSITE_REVIEW_NOTES.md
+```
+
+Short team instructions are saved in:
+
+```txt
+TEAM_TRACKER_INSTRUCTIONS.md
 ```
 
 ## Optional Import Helper
