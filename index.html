@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
+    <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
+    <link rel="icon" href="assets/logos/horizons-connect-black.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="brand-mark brand-word" href="#overview" aria-label="HORIZONS overview">HORIZONS</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" data-nav>
+          <a href="#overview">Overview</a>
+          <a href="#today">Today</a>
+          <a href="#red-flags">Red Flags</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#tasks">Tasks</a>
+          <a href="#locations">Locations</a>
+          <a href="#contacts">Contacts</a>
+          <a href="#suppliers">Suppliers</a>
+          <a href="#podcast">Podcast</a>
+          <a href="#content">Content</a>
+          <a href="#decisions">Decisions</a>
+          <a href="#documents">Documents</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="overview" class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <img class="hero-logo" data-event-logo src="assets/logos/horizons-connect-black.png" alt="Official HORIZONS logo">
+            <p class="eyebrow">Internal live event hub</p>
+            <h1 data-event-title>HORIZONS Ibiza 2026</h1>
+            <p class="hero-subtitle" data-event-subtitle>Event Command Centre</p>
+            <p class="hero-description" data-event-description></p>
+            <div class="meta-strip" aria-label="Event information">
+              <span data-event-location></span>
+              <span data-event-dates></span>
+              <span>Updated <time data-event-updated></time></span>
+            </div>
+            <div class="countdown" data-countdown aria-label="Countdown to HORIZONS arrival">
+              <p class="eyebrow">Countdown to HORIZONS arrival</p>
+              <div class="countdown-grid">
+                <span><strong data-countdown-days>0</strong>Days</span>
+                <span><strong data-countdown-hours>0</strong>Hours</span>
+                <span><strong data-countdown-minutes>0</strong>Minutes</span>
+                <span><strong data-countdown-seconds>0</strong>Seconds</span>
+              </div>
+            </div>
+            <div class="quick-actions" data-quick-actions></div>
+          </div>
+          <aside class="start-panel" aria-labelledby="start-title">
+            <p class="eyebrow">Start here</p>
+            <h2 id="start-title">Find the live answer fast.</h2>
+            <div class="start-grid" data-start-grid></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section utility-band" aria-label="Search and filters">
+        <div class="container utility-grid">
+          <label class="search-control">
+            <span>Search the hub</span>
+            <input type="search" data-global-search placeholder="Search tasks, contacts, suppliers, locations">
+          </label>
+          <label>
+            <span>Status</span>
+            <select data-filter="status"></select>
+          </label>
+          <label>
+            <span>Day</span>
+            <select data-filter="day"></select>
+          </label>
+          <label>
+            <span>Owner</span>
+            <select data-filter="owner"></select>
+          </label>
+          <label>
+            <span>Location</span>
+            <select data-filter="location"></select>
+          </label>
+          <label>
+            <span>Department</span>
+            <select data-filter="department"></select>
+          </label>
+          <button class="button button-secondary" type="button" data-reset-filters>Reset filters</button>
+        </div>
+      </section>
+
+      <section id="today" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Today at a glance</p>
+            <h2>What matters now...</h2>
+            <p>Only the most important live items belong here. Update the current day in <code>content.json</code>.</p>
+          </div>
+          <div class="cards-grid priority-grid" data-today></div>
+        </div>
+      </section>
+
+      <section id="red-flags" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">High priority</p>
+              <h2>Red Flags</h2>
+              <p>Visible leadership issues, unresolved confirmations, and timing conflicts.</p>
+            </div>
+            <a class="button button-primary" href="#decisions">Open decisions</a>
+          </div>
+          <div class="cards-grid" data-red-flags></div>
+        </div>
+      </section>
+
+      <section id="schedule" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Timeline</p>
+            <h2>Schedule / Run Sheet</h2>
+            <p>Use day tabs to keep the timeline focused. Details stay tucked away until needed.</p>
+          </div>
+          <div class="tabs" data-schedule-tabs role="tablist" aria-label="Schedule days"></div>
+          <div class="timeline" data-schedule></div>
+        </div>
+      </section>
+
+      <section id="daily" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Daily run sheets</p>
+            <h2>Day-specific focus</h2>
+            <p>Each day has a compact operating view for focus, locations, watch-outs, and owner moments.</p>
+          </div>
+          <div class="tabs department-tabs" data-department-tabs role="tablist" aria-label="Department focus"></div>
+          <div class="cards-grid" data-department-focus></div>
+          <div class="accordion-list" data-daily-runs></div>
+        </div>
+      </section>
+
+      <section id="tasks" class="section">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Owner view</p>
+              <h2>My Tasks</h2>
+              <p>Filter by owner, day, status, priority, location, or workstream to answer: what am I responsible for?</p>
+            </div>
+            <p class="result-count" data-task-count></p>
+          </div>
+          <div class="section-controls" data-task-local-filters>
+            <label>
+              <span>Department</span>
+              <select data-task-filter="department"></select>
+            </label>
+            <label>
+              <span>Name</span>
+              <select data-task-filter="owner"></select>
+            </label>
+            <label>
+              <span>Day</span>
+              <select data-task-filter="day"></select>
+            </label>
+            <label>
+              <span>Status</span>
+              <select data-task-filter="status"></select>
+            </label>
+            <label>
+              <span>Location</span>
+              <select data-task-filter="location"></select>
+            </label>
+          </div>
+          <div class="cards-grid compact-grid" data-tasks></div>
+        </div>
+      </section>
+
+      <section id="contacts" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Phone-ready</p>
+            <h2>Team Contacts</h2>
+            <p>Fast call, WhatsApp, and email actions for on-site use.</p>
+          </div>
+          <div class="tabs contact-tabs" data-contact-tabs role="tablist" aria-label="Contact categories"></div>
+          <div class="cards-grid contacts-grid" data-contacts></div>
+        </div>
+      </section>
+
+      <section id="locations" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Venue map</p>
+            <h2>Locations</h2>
+            <p>What happens here, when it matters, who owns it, and what needs attention.</p>
+          </div>
+          <div class="cards-grid" data-locations></div>
+        </div>
+      </section>
+
+      <section id="suppliers" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">External teams</p>
+            <h2>Suppliers</h2>
+            <p>Supplier cards show setup, active times, location, owner, and current status.</p>
+            </div>
+            <p class="result-count" data-supplier-count></p>
+          </div>
+          <div class="cards-grid compact-grid" data-suppliers></div>
+        </div>
+      </section>
+
+      <section id="podcast" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Needs confirmation</p>
+            <h2>Podcast</h2>
+            <p>Recording slots, guests, crew, location, and unresolved schedule conflicts.</p>
+          </div>
+          <div class="section-controls">
+            <label><span>Podcast day</span><select data-podcast-filter="day"></select></label>
+            <label><span>Guest</span><select data-podcast-filter="guest"></select></label>
+            <label><span>Status</span><select data-podcast-filter="status"></select></label>
+            <label><span>Location</span><select data-podcast-filter="location"></select></label>
+          </div>
+          <div class="cards-grid" data-podcast></div>
+        </div>
+      </section>
+
+      <section id="content" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Production</p>
+              <h2>Content Capture</h2>
+              <p>Must-capture and nice-to-capture moments for photo, video, drone, interviews, and social.</p>
+            </div>
+            <p class="result-count" data-content-count></p>
+          </div>
+          <div class="section-controls">
+            <label><span>Person</span><select data-content-filter="owner"></select></label>
+            <label><span>Day</span><select data-content-filter="day"></select></label>
+            <label><span>Department</span><select data-content-filter="department"></select></label>
+            <label><span>Location</span><select data-content-filter="location"></select></label>
+            <label><span>Priority</span><select data-content-filter="priority"></select></label>
+            <label><span>Status</span><select data-content-filter="status"></select></label>
+          </div>
+          <div class="cards-grid compact-grid" data-content-capture></div>
+        </div>
+      </section>
+
+      <section id="workstreams" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Operating groups</p>
+            <h2>Workstreams</h2>
+            <p>Grouped responsibilities prevent the site from feeling like one giant task list.</p>
+          </div>
+          <div class="cards-grid" data-workstreams></div>
+        </div>
+      </section>
+
+      <section id="horizons-house" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Visual setup</p>
+            <h2>HORIZONS House / Reception Display</h2>
+            <p>Reception display, display cabinet, and swag display notes in one clear operational view.</p>
+          </div>
+          <div data-horizons-house></div>
+        </div>
+      </section>
+
+      <section id="room-drops" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Guest rooms</p>
+            <h2>Room Drops</h2>
+            <p>Hotel room-drop responsibilities, handling instructions, and quality control.</p>
+          </div>
+          <div data-room-drops></div>
+        </div>
+      </section>
+
+      <section id="swag" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Guest experience</p>
+            <h2>Swag + Guest Experience</h2>
+            <p>Visual reference cards for guest gifts, lanyards, notepads, room drops, and display cabinet swag.</p>
+          </div>
+          <div class="tabs" data-swag-schedule-tabs role="tablist" aria-label="Swag and Queens schedule days"></div>
+          <div class="cards-grid" data-swag-queens></div>
+          <div class="cards-grid" data-swag></div>
+        </div>
+      </section>
+
+      <section id="horizons-studio" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Operational section</p>
+            <h2>HORIZONS Studio</h2>
+            <p>Purpose, setup notes, owner, status, and production requirements for HORIZONS Studio.</p>
+          </div>
+          <div class="cards-grid" data-horizons-studio></div>
+        </div>
+      </section>
+
+      <section id="decisions" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Leadership</p>
+            <h2>Decisions Needed</h2>
+            <p>Unresolved decisions surfaced clearly without turning the page into a stress board.</p>
+          </div>
+          <div class="cards-grid" data-decisions></div>
+        </div>
+      </section>
+
+      <section id="documents" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Reference</p>
+            <h2>Documents / Links</h2>
+            <p>Runbook, brand files, source documents, supplier documents, artwork links, and shared folders.</p>
+          </div>
+          <div class="tabs" data-document-tabs role="tablist" aria-label="Document categories"></div>
+          <div class="cards-grid" data-site-maps></div>
+          <div class="cards-grid" data-documents></div>
+        </div>
+      </section>
+
+      <section id="completed" class="section section-tint">
+        <div class="container">
+          <details class="archive-block">
+            <summary>
+              <span>
+                <span class="eyebrow">Archive</span>
+                <strong>Completed / Sent</strong>
+              </span>
+              <span class="summary-hint">Open archive</span>
+            </summary>
+            <div class="cards-grid compact-grid" data-completed></div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <strong class="footer-word">HORIZONS</strong>
+        <p>Internal HORIZONS event command centre. Update live content in <code>content.json</code>.</p>
+        <p>Last updated <time data-footer-updated></time></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
