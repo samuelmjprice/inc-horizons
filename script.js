@@ -460,7 +460,16 @@ function renderStudio() {
   setHtml("[data-horizons-studio]", state.data.horizonsStudio.map((item) => card({
     title: "HORIZONS Studio",
     status: item.status,
-    body: `<p>${escapeHtml(item.purpose)}</p><div class="image-placeholder">Missing HORIZONS Studio reference images. Add them to <code>assets/images/production/</code>.</div>`,
+    body: `<p>${escapeHtml(item.purpose)}</p>
+      <div class="studio-logo-card">
+        ${(item.referenceImages || []).map((image) => `
+          <figure class="reference-card">
+            <img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy">
+            <figcaption>${escapeHtml(image.caption)}</figcaption>
+          </figure>
+        `).join("")}
+        <div class="image-placeholder">Add HORIZONS Studio setup/reference images to <code>assets/images/production/</code> when available.</div>
+      </div>`,
     metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Setup notes", item.setupNotes) + meta("Production notes", item.productionNotes),
     updateId: item.updateId
   })).join(""));

@@ -6,6 +6,12 @@
 
 @font-face {
   font-family: "Soleil";
+  src: url("assets/fonts/SoleilLight.otf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Soleil";
   src: url("assets/fonts/SoleilBold.otf") format("opentype");
   font-weight: 700;
 }
@@ -14,6 +20,19 @@
   font-family: "Ivy Journal";
   src: url("assets/fonts/IvyJournalLight.otf") format("opentype");
   font-weight: 300;
+}
+
+@font-face {
+  font-family: "Ivy Journal";
+  src: url("assets/fonts/IvyJournalSemiBold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Ivy Journal";
+  src: url("assets/fonts/IvyJournalSemiBoldItalic.otf") format("opentype");
+  font-style: italic;
+  font-weight: 600;
 }
 
 :root {
@@ -791,6 +810,11 @@ summary {
   color: var(--muted);
   text-align: center;
   padding: 1rem;
+}
+
+.studio-logo-card {
+  display: grid;
+  gap: 1rem;
 }
 
 .archive-block {

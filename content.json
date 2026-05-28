@@ -18,7 +18,8 @@
       "Maps",
       "Seating plans",
       "Room layouts"
-    ]
+    ],
+    "studioLogo": "assets/logos/horizons-studio-main-logo-black.png"
   },
   "quickActions": [
     {
@@ -20824,7 +20825,14 @@
       "owner": "Joshua / Dean",
       "productionNotes": "Use official wording HORIZONS Studio. Keep all notes live-team friendly and remove legacy wording from final data.",
       "status": "Needs Confirmation",
-      "updateId": "studio:studio-main"
+      "updateId": "studio:studio-main",
+      "referenceImages": [
+        {
+          "src": "assets/logos/horizons-studio-main-logo-black.png",
+          "caption": "Official HORIZONS Studio main logo reference",
+          "alt": "Official HORIZONS Studio main logo"
+        }
+      ]
     }
   ],
   "decisions": [
