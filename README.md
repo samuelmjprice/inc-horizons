@@ -252,26 +252,32 @@ https://samuelmjprice.github.io/inc-horizons/
 Custom domain URL:
 
 ```txt
+http://inc-horizons.com/
+```
+
+HTTPS status: pending GitHub Pages certificate issuance. Once GitHub marks the certificate as issued in Settings > Pages, enable "Enforce HTTPS" and use:
+
+```txt
 https://inc-horizons.com/
 ```
 
 ## DNS Notes
 
-Custom domain requested: `inc-horizons.com`.
+Custom domain connected: `inc-horizons.com`.
 
 GitHub Pages is configured from the `main` branch at repository root.
 
-For an apex/root domain, GitHub Pages typically uses these A records:
+GoDaddy DNS has been configured with these apex/root A records:
 
 - `185.199.108.153`
 - `185.199.109.153`
 - `185.199.110.153`
 - `185.199.111.153`
 
-For a subdomain, use a CNAME pointing to the GitHub Pages host, usually:
+The `www` CNAME is configured as:
 
 ```txt
-USERNAME.github.io
+samuelmjprice.github.io
 ```
 
 Do not guess or delete existing DNS records without confirming the actual domain and any conflicts.
