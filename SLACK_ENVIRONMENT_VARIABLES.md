@@ -1,6 +1,8 @@
 # Slack Environment Variables
 
-Slack is prepared but not live. Human admin setup required.
+Slack test posting is live through `SLACK_WEBHOOK_TEST`.
+
+Live production channel webhooks are still pending approval and should be added only after the team confirms routing and noise levels.
 
 Do not commit webhook URLs, bot tokens, signing secrets, or workspace IDs.
 
@@ -26,4 +28,10 @@ Optional future variables:
 - `SLACK_APP_ID`
 - `SLACK_WORKSPACE_ID`
 
-Use `SLACK_WEBHOOK_TEST` first. Do not enable live channels until `#horizons-test` passes.
+Current configured Vercel variables:
+
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `SLACK_WEBHOOK_TEST`
+
+Use `SLACK_WEBHOOK_TEST` first. Do not enable live channels until `#horizons-test` passes and Samuel/Chris approve broader Slack posting.

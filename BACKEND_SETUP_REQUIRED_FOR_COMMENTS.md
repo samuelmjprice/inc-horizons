@@ -1,8 +1,8 @@
-# Backend Setup Required For Comments
+# Backend Setup Status For Comments
 
-The current GitHub Pages frontend includes a backend-ready update form, but shared comments are not live until a database/API is connected.
+Shared comments are now connected to a Vercel API backed by Supabase Postgres.
 
-Shared updates must not rely on `localStorage` as source of truth. `localStorage` may only be used as a draft/offline fallback.
+`localStorage` remains only as a draft/offline fallback if the backend cannot be reached.
 
 Required routes:
 
@@ -15,7 +15,10 @@ Required routes:
 - `PATCH /api/updates/:id/archive`
 - `POST /api/updates/:id/send-to-slack`
 
-Required database table: `record_updates`
+Database tables created:
+
+- `record_updates`
+- `slack_activity_log`
 
 Required fields:
 
@@ -41,11 +44,8 @@ Required fields:
 - `archived_at`
 - `source`
 
-Recommended database options:
+Backend API base:
 
-- Supabase Postgres with Row Level Security.
-- Firebase/Firestore.
-- Airtable for a fast non-engineering admin layer.
-- A small Postgres database behind Vercel/Netlify/Cloudflare functions.
+- `https://inc-horizons.vercel.app`
 
-Until this backend exists, the website must show shared updates as pending backend connection.
+The live site at `https://inc-horizons.com` loads `meta.backendApiBase` from `content.json` and posts team updates to `/api/updates`.
