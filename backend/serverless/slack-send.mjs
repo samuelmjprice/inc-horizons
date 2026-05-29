@@ -1,5 +1,22 @@
-import channelMap from "../../slack-channel-map.json" assert { type: "json" };
 import { createSlackActivity } from "./storage-adapter.mjs";
+
+const channelMap = {
+  red_flag_created: "SLACK_WEBHOOK_RED_FLAGS",
+  red_flag_resolved: "SLACK_WEBHOOK_RED_FLAGS",
+  schedule_changed: "SLACK_WEBHOOK_SCHEDULE",
+  call_sheet_published: "SLACK_WEBHOOK_PRODUCTION",
+  location_changed: "SLACK_WEBHOOK_LOCATIONS",
+  supplier_changed: "SLACK_WEBHOOK_SUPPLIERS",
+  podcast_changed: "SLACK_WEBHOOK_PODCAST",
+  entertainment_changed: "SLACK_WEBHOOK_ENTERTAINMENT",
+  content_capture_changed: "SLACK_WEBHOOK_CONTENT",
+  document_missing: "SLACK_WEBHOOK_DOCUMENTS",
+  document_uploaded: "SLACK_WEBHOOK_DOCUMENTS",
+  decision_needed: "SLACK_WEBHOOK_DECISIONS",
+  cvent_conflict_found: "SLACK_WEBHOOK_RED_FLAGS",
+  comment_update: "SLACK_WEBHOOK_MAIN",
+  test_message: "SLACK_WEBHOOK_TEST"
+};
 
 const allowedEventTypes = new Set(Object.keys(channelMap));
 

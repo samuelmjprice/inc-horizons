@@ -138,6 +138,96 @@ const slackChannelFor = (id = "") => {
   return routing[prefix] || routing.default || "#horizons-main";
 };
 
+const backendApiBase = () => text(state.data?.meta?.backendApiBase || window.HORIZONS_API_BASE || "").replace(/\/$/, "");
+const parentTypeFor = (id = "") => {
+  const prefix = text(id).split(":")[0] || "default";
+  return {
+    redflag: "red_flag",
+    schedule: "schedule_item",
+    callSheet: "call_sheet_item",
+    call: "call_sheet_item",
+    location: "location",
+    restaurant: "restaurant",
+    podcast: "podcast",
+    supplier: "supplier",
+    entertainment: "entertainment",
+    content: "content_capture",
+    document: "document",
+    doc: "document",
+    missing: "missing_file",
+    decision: "decision",
+    speaker: "speaker_content",
+    rehearsal: "rehearsal",
+    signage: "signage",
+    material: "guest_material",
+    cvent: "cvent_comparison"
+  }[prefix] || prefix || "default";
+};
+
+const frontendUpdateFromRecord = (record = {}) => ({
+  id: record.id,
+  name: record.author_name || "Team update",
+  topic: record.title || "",
+  status: record.status || "Still To Be Resolved",
+  priority: record.priority || "Normal",
+  visibility: record.visibility || "Team",
+  comment: record.body || "",
+  notifySlack: Boolean(record.notify_slack),
+  slackChannel: record.slack_channel || slackChannelFor(record.parent_id),
+  slackStatus: record.slack_sent_at ? "Sent" : record.slack_error ? "Slack failed" : record.notify_slack ? "Queued" : "",
+  timestamp: record.created_at ? new Date(record.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "",
+  source: "backend"
+});
+
+async function loadSharedUpdates() {
+  const base = backendApiBase();
+  if (!base) return false;
+  try {
+    const response = await fetch(`${base}/api/updates`);
+    if (!response.ok) throw new Error(`Updates API returned ${response.status}`);
+    const result = await response.json();
+    if (!result.ok || !Array.isArray(result.updates)) return false;
+    const grouped = result.updates.reduce((acc, record) => {
+      const id = record.parent_id;
+      if (!id) return acc;
+      acc[id] = [...(acc[id] || []), frontendUpdateFromRecord(record)];
+      return acc;
+    }, {});
+    state.updates = { ...state.updates, ...grouped };
+    updateStore.save(state.updates);
+    return true;
+  } catch (error) {
+    console.warn("Shared updates are not available yet.", error);
+    return false;
+  }
+}
+
+async function saveSharedUpdate(parentId, update) {
+  const base = backendApiBase();
+  if (!base) throw new Error("Shared backend pending setup");
+  const payload = {
+    parent_type: parentTypeFor(parentId),
+    parent_id: parentId,
+    title: update.topic,
+    body: update.comment,
+    author_name: update.name,
+    status: update.status,
+    visibility: update.visibility,
+    priority: update.priority,
+    notify_slack: update.notifySlack,
+    slack_channel: update.slackChannel,
+    website_link: `${location.origin}${location.pathname}#${parentId}`
+  };
+  const response = await fetch(`${base}/api/updates`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || !result.ok) throw new Error(result.error || `Updates API returned ${response.status}`);
+  return result;
+}
+
 const shouldAutoNotifySlack = (update = {}, id = "") => {
   const status = `${update.status} ${update.priority} ${id}`.toLowerCase();
   return /redflag|urgent|at risk|decision needed|critical|schedule timing|podcast timing|supplier timing|entertainment timing|cvent|weather warning|call sheet/.test(status);
@@ -223,6 +313,7 @@ async function init() {
   const response = await fetch(`content.json?v=${APP_VERSION}`);
   state.data = await response.json();
   state.updates = updateStore.load();
+  await loadSharedUpdates();
   state.captureSuggestions = suggestionStore.load();
   state.dismissedCaptureSuggestions = dismissedSuggestionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
@@ -1468,7 +1559,7 @@ function bindEvents() {
       return;
     }
   });
-  document.addEventListener("submit", (event) => {
+  document.addEventListener("submit", async (event) => {
     const suggestionForm = event.target.closest("[data-capture-suggestion-form]");
     if (suggestionForm) {
       event.preventDefault();
@@ -1512,25 +1603,40 @@ function bindEvents() {
     };
     if (!update.comment) return;
     const shouldNotify = update.notifySlack || shouldAutoNotifySlack(update, id);
-    if (shouldNotify && !/private|admin/i.test(update.visibility)) {
-      update.slackStatus = "Pending backend setup";
-      const log = slackActivityStore.load();
-      slackActivityStore.save([...log, {
-        id: `slack-local-${Date.now()}`,
-        updateId: id,
-        parentType: id.split(":")[0] || "default",
-        parentId: id,
-        channel: update.slackChannel,
-        messagePreview: update.comment.slice(0, 180),
-        sentBy: update.name,
-        sentAt: update.timestamp,
-        status: "Queued",
-        errorMessage: "Static site stub: add webhook-backed backend before live Slack posting."
-      }]);
-    } else if (shouldNotify) {
+    if (shouldNotify && /private|admin/i.test(update.visibility)) {
       update.slackStatus = "Blocked by visibility";
     }
-    state.updates[id] = [...getUpdates(id), update];
+
+    try {
+      const result = await saveSharedUpdate(id, update);
+      if (result?.update) {
+        const savedUpdate = frontendUpdateFromRecord(result.update);
+        const slack = result.slack || {};
+        savedUpdate.slackStatus = slack.sent ? "Sent" : slack.error ? "Slack failed" : shouldNotify ? "Queued" : "";
+        state.updates[id] = [...getUpdates(id), savedUpdate];
+      } else {
+        state.updates[id] = [...getUpdates(id), update];
+      }
+    } catch (error) {
+      if (shouldNotify && !update.slackStatus) update.slackStatus = "Pending backend setup";
+      const log = slackActivityStore.load();
+      if (shouldNotify) {
+        slackActivityStore.save([...log, {
+          id: `slack-local-${Date.now()}`,
+          updateId: id,
+          parentType: parentTypeFor(id),
+          parentId: id,
+          channel: update.slackChannel,
+          messagePreview: update.comment.slice(0, 180),
+          sentBy: update.name,
+          sentAt: update.timestamp,
+          status: "Queued",
+          errorMessage: `Shared backend unavailable: ${error.message}`
+        }]);
+      }
+      update.source = "local-fallback";
+      state.updates[id] = [...getUpdates(id), update];
+    }
     updateStore.save(state.updates);
     renderAll();
   });

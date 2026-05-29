@@ -6,8 +6,12 @@ import {
   handleResolveUpdate,
   handleSendUpdateToSlack
 } from "../../backend/serverless/updates.mjs";
+import { applyCors, handleOptions } from "../_cors.js";
 
 export default async function handler(request, response) {
+  if (handleOptions(request, response)) return;
+  applyCors(request, response);
+
   const id = request.query?.id || request.body?.id;
   const action = request.query?.action || request.body?.action;
 

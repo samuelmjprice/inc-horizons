@@ -1,6 +1,10 @@
 import { handleCreateUpdate, handleListUpdates } from "../../backend/serverless/updates.mjs";
+import { applyCors, handleOptions } from "../_cors.js";
 
 export default async function handler(request, response) {
+  if (handleOptions(request, response)) return;
+  applyCors(request, response);
+
   if (request.method === "GET") {
     const result = await handleListUpdates(request.query || {});
     response.status(200).json(result);
