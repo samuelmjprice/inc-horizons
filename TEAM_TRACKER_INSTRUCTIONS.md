@@ -38,3 +38,21 @@ Rows marked `EXAMPLE - DO NOT IMPORT` are only there to show the team how to fil
 - Use the official spelling and styling: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, `HORIZONS Studio`, `BeGood`, and `Clownfish`.
 - The official main logo has been provided and should be used as an image file only. Do not recreate it with typed text or alter its colour/proportions.
 - If you are adding a new image, document, menu, map, presentation, or visual reference, include the final file link/location and mark the row `Approved` only when it is ready for the live site.
+
+## Chris / Samuel Review Intake
+
+Add missing-info rows for these latest review items and keep them open until confirmed:
+
+- Eve Dusek name, role, and contact confirmation.
+- Health & Safety contact ownership and emergency escalation process.
+- Venue map, internal exact pins, room layouts, seating plans, and Google Maps links.
+- Weather location confirmation for the final Six Senses Ibiza / event hotel pin.
+- HORIZONS House display cabinet image.
+- Hand fan and Pulsio/Poltio room-drop naming and placement.
+- Notepads and pens placement in HORIZONS Hall.
+- Crew shirts data/image confirmation.
+- Speaker content by HORIZONS Hall, HORIZONS Studio, and HORIZONS Podcast.
+- HORIZONS Hall / HORIZONS Studio / HORIZONS Podcast logo assets where used as section screens.
+- HORIZONS Studio rehearsals on 8 June, including final time, owner, and required people.
+- Wayfinding artwork, A1 easel board files, three natural totem locations, two wall foam board locations, and signage placement map.
+- Staff list corrections, Cvent export, final menus, and Slack production routing approval.

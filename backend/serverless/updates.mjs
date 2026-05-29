@@ -61,6 +61,7 @@ export async function handleCreateUpdate(payload, env = process.env) {
       message: update.body,
       related_item_id: update.parent_id,
       website_link: payload.website_link || "",
+      channel: update.slack_channel,
       force_test_channel: Boolean(payload.force_test_channel)
     }, env);
     slack = { sent: result.ok, ...result };
@@ -128,6 +129,7 @@ export async function handleSendUpdateToSlack(id, env = process.env) {
     status: update.status,
     message: update.body,
     related_item_id: update.parent_id,
+    channel: update.slack_channel,
     force_test_channel: Boolean(update.force_test_channel)
   }, env);
 }

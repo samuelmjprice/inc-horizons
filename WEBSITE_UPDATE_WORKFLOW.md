@@ -185,10 +185,23 @@ Use the missing-info tracker for:
 4. Add Google Maps URLs to `locations.googleMapsUrl`; use `Google Maps Link Needed` when unknown.
 5. Weather is loaded from Open-Meteo in the browser and cached locally. Do not add API keys.
 6. Print the Call Sheet from the dedicated `#call-sheet` page.
-7. Slack buttons/copy actions are safe stubs until a backend webhook endpoint is added.
+7. Slack buttons/copy actions route through the backend. Production channel webhooks stay disabled until Samuel/Chris approve them.
 
 ## Audit / Deduplication Workflow
 
 - Use Data Health Dashboard to check missing owners, TBC times, unknown initials, missing files, and open red flags.
 - Use Duplicate Review for possible duplicate records. Do not delete or merge uncertain records without human review.
 - Use Site Data & UX Audit to track layout, source, navigation, mobile, and density issues from each revision pass.
+
+## Onsite UX Review Workflow
+
+For Chris/Samuel review passes, apply the same source-of-truth rule:
+
+1. Keep operational data in `content.json`.
+2. Show each record in the most useful view rather than duplicating conflicting rows.
+3. Use summary-first cards and grouped expandable details for mobile.
+4. Move admin/developer tooling lower in the navigation unless leadership specifically needs it live.
+5. Mark unresolved data as `Needs Confirmation`, `File Needed`, `Info Needed`, or `Map Needed`.
+6. Do not remove HORIZONS Studio from source records when hiding the standalone operational section.
+7. Keep Entertainment for live performers; keep Curated Playlists for background/ambient music.
+8. Use Eve Dusek as the current display name and `COO of Aream & Co.` as the tracked role until final contact confirmation is supplied.

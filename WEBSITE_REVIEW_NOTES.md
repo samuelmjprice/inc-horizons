@@ -13,7 +13,7 @@ Live site: https://inc-horizons.com/
 - Schedule day tabs, mobile menu, and chevron accordions are working.
 - Schedule cards are easier to scan, with extra detail tucked away.
 - Comments/update UI exists across key cards.
-- The comments system is clearly documented as local-only until a shared backend is connected.
+- The comments system is connected to the shared Vercel/Supabase backend, with browser storage retained only as a draft/offline fallback.
 - Supplier cards are grouped by supplier name rather than duplicated per note.
 
 ## Confirmed Fixed
@@ -28,11 +28,11 @@ Live site: https://inc-horizons.com/
 - Schedule card density: improved.
 - Supplier grouping: fixed at the supplier-card level.
 - Documents section: present, but several document cards still need files.
-- Comments/update workflow: documented and functional as a local-only prototype.
+- Comments/update workflow: shared backend save/read verified, with resolve/archive actions and Slack test-mode notification support.
 
 ## What Still Needs Improvement
 
-- Shared comment storage is not connected yet. Current comments save only to the user’s browser.
+- A branded Slack confirmation/resend modal is still a polish item; the current flow uses a native browser confirmation.
 - Image/reference folders are still empty for HORIZONS House, reception display, room drops, swag, venue, and production.
 - Several document cards are marked `File Needed`.
 - Many schedule, task, supplier, podcast, and content capture items still need final confirmation.
@@ -200,7 +200,7 @@ Implemented in this pass:
 - Emergency medical location added to Locations and Call Sheet as `Nearest Hospital — Needs Confirmation`.
 - Major locations now support Google Maps links or explicit `Google Maps Link Needed` placeholders.
 - Data Health Dashboard, Duplicate Review, and Site Data & UX Audit admin sections added.
-- Comment/update forms now include priority, visibility, Notify Slack, and Slack-channel preview fields. Live Slack posting remains pending backend/webhook setup.
+- Comment/update forms now include priority, visibility, Notify Slack, Slack-channel preview/selection, and resolve/archive actions. Production Slack posting remains disabled until webhooks and approval are in place.
 
 Still needs confirmation:
 
@@ -223,3 +223,36 @@ Remaining polish:
 
 - Replace the native confirm dialog with a branded confirmation modal and explicit resend warning.
 - Add an admin-visible Slack activity viewer if the team wants to review Slack logs inside the website rather than Supabase.
+
+## Chris / Samuel Onsite UX Review - 29 May 2026
+
+Implemented:
+
+- Removed the repeated visible `HORIZONS Ibiza 2026` hero title under the official logo.
+- Centred hero copy, event command centre text, countdown, and start actions more strongly.
+- Reordered navigation so leadership-critical sections sit earlier: Today, Red Flags, Decisions, Who Do I Call, and Call Sheet.
+- Moved admin/developer-heavy sections lower in the navigation.
+- Hid the standalone HORIZONS Studio operations section while keeping HORIZONS Studio in locations, schedules, speakers, rehearsals, podcast/source data, and assets.
+- Added day/date labels to schedule and call sheet tabs.
+- Added resolve/archive/reopen actions to shared update threads.
+- Added a Slack channel selector and urgent preview copy to the update form.
+- Grouped Location Schedules and Restaurant Schedules by day inside expanded records.
+- Reworked Podcast into day groups and episode cards with presenter, guest, duration, production, technical, prep, microphone, makeup/powder, and Slack update fields.
+- Split Speaker Content by HORIZONS Hall, HORIZONS Studio, and HORIZONS Podcast, then by day.
+- Added HORIZONS Studio rehearsal placeholder for 8 June with `Time needed` and `Needs Confirmation`.
+- Separated live Entertainment from background Curated Playlists.
+- Added signage placeholders for wayfinding map, three natural totems, and two wall foam boards.
+- Moved hand fan and Pulsio/Poltio into Room Drops; associated notepads and pens with HORIZONS Hall.
+- Flagged crew shirts data/image as needing confirmation.
+- Updated Eve display name to Eve Dusek and role to COO of Aream & Co.
+
+Still needing confirmation:
+
+- Exact weather/event hotel pin and final weather location sign-off.
+- Health & Safety owner and emergency escalation contact.
+- Exact venue Google Maps pins, venue map, seating plans, room layouts, and internal wayfinding placement map.
+- Display cabinet image for HORIZONS House / Reception Display.
+- Whether the product name should be Pulsio, Poltio, or another approved label.
+- Crew shirts data/image accuracy.
+- Final podcast guests, companies, guest runners, and guest prep ownership.
+- Final speaker content, rehearsal timings, Cvent export, staff corrections, entertainment riders, playlist links, menus, and Slack production routing approval.

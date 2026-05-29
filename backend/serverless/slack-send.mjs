@@ -19,6 +19,20 @@ const channelMap = {
 };
 
 const allowedEventTypes = new Set(Object.keys(channelMap));
+const channelEnvMap = {
+  "#horizons-main": "SLACK_WEBHOOK_MAIN",
+  "#horizons-red-flags": "SLACK_WEBHOOK_RED_FLAGS",
+  "#horizons-schedule": "SLACK_WEBHOOK_SCHEDULE",
+  "#horizons-production": "SLACK_WEBHOOK_PRODUCTION",
+  "#horizons-content": "SLACK_WEBHOOK_CONTENT",
+  "#horizons-podcast": "SLACK_WEBHOOK_PODCAST",
+  "#horizons-suppliers": "SLACK_WEBHOOK_SUPPLIERS",
+  "#horizons-entertainment": "SLACK_WEBHOOK_ENTERTAINMENT",
+  "#horizons-locations": "SLACK_WEBHOOK_LOCATIONS",
+  "#horizons-documents": "SLACK_WEBHOOK_DOCUMENTS",
+  "#horizons-decisions": "SLACK_WEBHOOK_DECISIONS",
+  "#horizons-test": "SLACK_WEBHOOK_TEST"
+};
 
 function slackText(payload) {
   const title = payload.title || "HORIZONS website update";
@@ -40,9 +54,10 @@ export async function sendSlackAlert(payload, env = process.env) {
   }
 
   const testMode = env.SLACK_TEST_MODE === "true" || payload.force_test_channel === true;
-  const envName = testMode ? "SLACK_WEBHOOK_TEST" : channelMap[eventType];
+  const requestedChannel = payload.channel || "";
+  const envName = testMode ? "SLACK_WEBHOOK_TEST" : (channelEnvMap[requestedChannel] || channelMap[eventType]);
   const webhookUrl = env[envName];
-  const channel = testMode ? "#horizons-test" : (payload.channel || envName);
+  const channel = testMode ? "#horizons-test" : (requestedChannel || envName);
   const preview = slackText(payload);
 
   if (!webhookUrl) {

@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-commenttest2";
+const APP_VERSION = "20260529-onsiteux1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -58,7 +58,7 @@ const updateStore = {
 };
 
 const weatherStore = {
-  key: "horizons-weather-cache-v1",
+  key: "horizons-weather-cache-v2",
   load() {
     try { return JSON.parse(localStorage.getItem(this.key) || "null"); }
     catch { return null; }
@@ -125,6 +125,17 @@ const detailsBlock = (summary, rows = [], extra = "") => {
   return `<details class="details"><summary><span>${escapeHtml(summary)}</span></summary><div class="details-content">${content}</div></details>`;
 };
 const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
+const groupBy = (items = [], keyFn = (item) => item.day || "Unscheduled") => items.reduce((acc, item) => {
+  const key = text(keyFn(item), "Unscheduled");
+  acc[key] = [...(acc[key] || []), item];
+  return acc;
+}, {});
+
+const dayLabelShort = (value = "") => {
+  const raw = text(value);
+  const match = raw.match(/^(Saturday|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday)\s+(\d+)\s+(\w+)/i);
+  return match ? `${match[1]} ${match[2]} ${match[3]}` : raw;
+};
 
 const buildOptions = (select, values, label) => {
   if (!select) return;
@@ -138,6 +149,8 @@ const slackChannelFor = (id = "") => {
   const prefix = text(id).split(":")[0] || "default";
   return routing[prefix] || routing.default || "#horizons-main";
 };
+const slackChannelsForSelect = (suggested = "#horizons-main") => unique([suggested, ...(state.data?.meta?.slackChannels || []).map((item) => item.channel), "#horizons-test"]).filter(Boolean);
+const slackUrgencyLabel = (update = {}) => /urgent|critical|at risk|problem|decision/i.test(`${update.priority} ${update.status}`) ? "URGENT / AT RISK" : "Normal update";
 
 const backendApiBase = () => text(state.data?.meta?.backendApiBase || window.HORIZONS_API_BASE || "").replace(/\/$/, "");
 const parentTypeFor = (id = "") => {
@@ -243,25 +256,34 @@ const topicOptions = (topics = []) => topics.length ? `
 const updateModule = (id, topics = []) => {
   if (!id) return "";
   const updates = getUpdates(id);
-  const latest = updates.at(-1);
+  const activeUpdates = updates.filter((item) => !/resolved|archived|complete/i.test(item.status || ""));
+  const archivedUpdates = updates.filter((item) => /resolved|archived|complete/i.test(item.status || ""));
+  const latest = activeUpdates.at(-1) || updates.at(-1);
   const topicLabel = latest?.topic ? ` · ${latest.topic}` : "";
-  const summary = latest ? `${updates.length} team update${updates.length === 1 ? "" : "s"} · Latest: ${latest.status}${topicLabel}` : "Add Team Update";
+  const summary = latest ? `${activeUpdates.length || updates.length} active update${(activeUpdates.length || updates.length) === 1 ? "" : "s"} · Latest: ${latest.status}${topicLabel}` : "Add Team Update";
+  const suggestedChannel = slackChannelFor(id);
+  const channelOptions = slackChannelsForSelect(suggestedChannel).map((channel) => `<option value="${escapeHtml(channel)}" ${channel === suggestedChannel ? "selected" : ""}>${escapeHtml(channel)}</option>`).join("");
+  const renderUpdate = (item, archived = false) => `
+    <article class="update-item ${archived ? "is-archived" : ""}">
+      <div class="update-meta">
+        <strong>${escapeHtml(item.name)}</strong>
+        <time>${escapeHtml(item.timestamp)}</time>
+        ${item.topic ? `<span class="tag">${escapeHtml(item.topic)}</span>` : ""}
+        ${tag(item.status)}
+        ${item.slackChannel ? `<span class="tag">${escapeHtml(item.slackStatus || "Slack pending")}: ${escapeHtml(item.slackChannel)}</span>` : ""}
+      </div>
+      <p>${escapeHtml(item.comment)}</p>
+      ${item.id ? `<div class="contact-actions update-actions">
+        ${archived ? `<button type="button" data-update-action="reopen" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Reopen</button>` : `<button type="button" data-update-action="resolve" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Mark Resolved</button><button type="button" data-update-action="archive" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Archive</button>`}
+      </div>` : ""}
+    </article>
+  `;
   return `
     <details class="updates-module" data-update-module="${escapeHtml(id)}">
       <summary><span>${escapeHtml(summary)}</span>${latest ? tag(latest.status) : ""}</summary>
       <div class="updates-list">
-        ${updates.length ? updates.map((item) => `
-          <article class="update-item">
-            <div class="update-meta">
-              <strong>${escapeHtml(item.name)}</strong>
-              <time>${escapeHtml(item.timestamp)}</time>
-              ${item.topic ? `<span class="tag">${escapeHtml(item.topic)}</span>` : ""}
-              ${tag(item.status)}
-              ${item.slackChannel ? `<span class="tag">${escapeHtml(item.slackStatus || "Slack pending")}: ${escapeHtml(item.slackChannel)}</span>` : ""}
-            </div>
-            <p>${escapeHtml(item.comment)}</p>
-          </article>
-        `).join("") : `<p class="summary-hint">Shared updates are pending backend connection. Draft updates are temporarily saved in this browser until the backend is connected.</p>`}
+        ${activeUpdates.length ? activeUpdates.map((item) => renderUpdate(item)).join("") : `<p class="summary-hint">No active updates. Add a team update or open resolved history.</p>`}
+        ${archivedUpdates.length ? `<details class="archive-block mini-archive"><summary><span>Resolved / archived history</span><span class="summary-hint">${archivedUpdates.length}</span></summary>${archivedUpdates.map((item) => renderUpdate(item, true)).join("")}</details>` : ""}
       </div>
       <form class="update-form" data-update-form="${escapeHtml(id)}">
         <label><span>Name</span><input required name="name" placeholder="Your name"></label>
@@ -270,7 +292,8 @@ const updateModule = (id, topics = []) => {
         <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option><option>Critical</option></select></label>
         <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Test mode: this posts only to ${escapeHtml(slackChannelFor(id))}.` : `This will post to ${escapeHtml(slackChannelFor(id))} once backend webhooks are configured.`}</em></span></label>
+        <label><span>Notify Slack channel</span><select name="slackChannel">${channelOptions}</select></label>
+        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Test mode: this posts only to ${escapeHtml(suggestedChannel)}.` : `Suggested channel: ${escapeHtml(suggestedChannel)}. You can change this before sending.`}</em></span></label>
         <button class="button button-secondary" type="submit">Save Team Update</button>
       </form>
     </details>
@@ -334,7 +357,8 @@ async function init() {
 
 function renderEvent() {
   const { event, quickActions } = state.data;
-  $("[data-event-title]").textContent = event.name;
+  const eventTitle = $("[data-event-title]");
+  if (eventTitle) eventTitle.textContent = event.name;
   $("[data-event-subtitle]").textContent = event.subtitle;
   $("[data-event-description]").textContent = event.description;
   $("[data-event-location]").textContent = event.location;
@@ -434,7 +458,6 @@ function renderAll() {
   renderDataHealth();
   renderDuplicateReview();
   renderSiteAudit();
-  renderStudio();
   renderDecisions();
   renderDocumentTabs();
   renderDocuments();
@@ -490,7 +513,7 @@ function renderRedFlags() {
 
 function renderScheduleTabs() {
   setHtml("[data-schedule-tabs]", state.data.dailyRunSheets.map((day, index) => {
-    const label = day.day.split(" ")[0] || `Day ${index + 1}`;
+    const label = dayLabelShort(day.day) || `Day ${index + 1}`;
     const current = getCurrentEventDay() === day.day;
     return `<button class="tab-button ${current ? "is-current-day" : ""}" type="button" role="tab" aria-selected="${day.day === state.activeDay}" data-day-tab="${escapeHtml(day.day)}">${escapeHtml(label)}${current ? `<span>Today</span>` : ""}</button>`;
   }).join(""));
@@ -700,7 +723,7 @@ function renderCallSheetTabs() {
   const today = getCurrentEventDay() || getNextEventDay() || state.activeCallSheetDay;
   const todayButton = `<button class="tab-button call-sheet-today" type="button" role="tab" aria-selected="${today === state.activeCallSheetDay}" data-call-sheet-tab="${escapeHtml(today)}">Today <span>${escapeHtml(today.split(" ")[0] || "")}</span></button>`;
   setHtml("[data-call-sheet-tabs]", todayButton + state.data.dailyRunSheets.map((day, index) => {
-    const label = day.day.split(" ")[0] || `Day ${index + 1}`;
+    const label = dayLabelShort(day.day) || `Day ${index + 1}`;
     const current = getCurrentEventDay() === day.day;
     return `<button class="tab-button ${current ? "is-current-day" : ""}" type="button" role="tab" aria-selected="${day.day === state.activeCallSheetDay}" data-call-sheet-tab="${escapeHtml(day.day)}">${escapeHtml(label)}${current ? `<span>Today</span>` : ""}</button>`;
   }).join(""));
@@ -748,18 +771,13 @@ function renderCallSheet() {
     ["Transport notes", sheet.transportNotes],
     ["Food / meal notes", sheet.mealNotes],
     ["Location notes", sheet.locationNotes]
-  ].map(([title, value]) => card({
-    title,
-    status: /needed|confirmation|tbc/i.test(value || "") ? "Needs Confirmation" : "Reference",
-    body: `<p>${escapeHtml(value || "Notes needed")}</p>`,
-    updateId: `call-sheet-note:${slug(state.activeCallSheetDay)}:${slug(title)}`
-  })).join(""));
+  ].map(([title, value]) => `<details class="details note-detail"><summary><span>${escapeHtml(title)}</span>${tag(/needed|confirmation|tbc/i.test(value || "") ? "Needs Confirmation" : "Reference")}</summary><div class="details-content"><p>${escapeHtml(value || "Notes needed")}</p>${updateModule(`call-sheet-note:${slug(state.activeCallSheetDay)}:${slug(title)}`)}</div></details>`).join(""));
   setHtml("[data-call-sheet-links]", [
     card({ title: "Documents / links", status: sheet.documents?.length ? "Reference" : "File Needed", body: list(sheet.documents) || "<p>Call sheet documents still need linking.</p>", updateId: `call-sheet-docs:${slug(state.activeCallSheetDay)}` }),
     card({ title: "Red flags for this day", status: sheet.redFlags?.length ? "Watch" : "On Track", body: list(sheet.redFlags) || "<p>No day-specific red flags listed.</p>", updateId: `call-sheet-redflags:${slug(state.activeCallSheetDay)}` }),
     card({ title: "Missing files for this day", status: sheet.missingFiles?.length ? "File Needed" : "On Track", body: list(sheet.missingFiles) || "<p>No day-specific missing files listed.</p>", updateId: `call-sheet-missing:${slug(state.activeCallSheetDay)}` })
   ].join(""));
-  setHtml("[data-call-sheet]", items.map((item) => {
+  setHtml("[data-call-sheet]", `${isToday ? `<div class="now-line"><span>Now · ${escapeHtml(position.now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" }))}</span></div>` : ""}${items.map((item) => {
     const past = isToday && item.startMinutes !== null && item.startMinutes < nowMinutes && item.updateId !== position.current?.updateId;
     const current = item.updateId === position.current?.updateId;
     const next = item.updateId === position.next?.updateId;
@@ -777,7 +795,7 @@ function renderCallSheet() {
         </div>
       </article>
     `;
-  }).join("") || empty("No call sheet items match the current filters for this day."));
+  }).join("") || empty("No call sheet items match the current filters for this day.")}`);
 }
 
 function renderLocationSchedules() {
@@ -785,20 +803,29 @@ function renderLocationSchedules() {
   setHtml("[data-location-schedules]", (state.data.locations || []).map((location) => {
     const items = schedules
       .filter((item) => item.locationId === location.id || item.locationName === location.locationName || includes(item, location.locationName))
-      .slice(0, 18);
-    const details = items.length ? `<div class="location-schedule">${items.map((item) => `
-      <div class="supplier-time-block">
-        <strong>${escapeHtml([item.day, item.timeDisplay || item.timeStart].filter(Boolean).join(" · ") || "Time needed")}</strong>
-        <p>${escapeHtml(item.activity)}</p>
-        <div class="meta-list compact-meta">
-          ${meta("Who is present", item.whoIsPresent)}
-          ${meta("Owner", item.owner)}
-          ${meta("Content / topic", item.contentTopic)}
-          ${meta("Setup", item.setupRequirements)}
-          ${meta("Status", item.status)}
+      .slice(0, 36);
+    const grouped = groupBy(items, (item) => item.day);
+    const details = items.length ? `<div class="location-schedule grouped-schedule">${Object.entries(grouped).map(([day, rows]) => `
+      <details class="details schedule-day-group" open>
+        <summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length} item${rows.length === 1 ? "" : "s"}</span></summary>
+        <div class="details-content">
+          ${rows.map((item) => `
+            <div class="supplier-time-block">
+              <strong>${escapeHtml(item.timeDisplay || item.timeStart || "Time needed")}</strong>
+              <p>${escapeHtml(item.activity)}</p>
+              <div class="meta-list compact-meta">
+                ${meta("Who is present", item.whoIsPresent)}
+                ${meta("Owner", item.owner)}
+                ${meta("Content / topic", item.contentTopic)}
+                ${meta("Setup", item.setupRequirements)}
+                ${meta("Status", item.status)}
+              </div>
+              ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
+              ${updateModule(item.updateId)}
+            </div>
+          `).join("")}
         </div>
-        ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
-      </div>
+      </details>
     `).join("")}</div>` : `<div class="image-placeholder"><strong>Schedule needed</strong><span>No location-specific schedule items have been confirmed for this space yet.</span></div>`;
     return card({
       title: location.locationName,
@@ -814,20 +841,29 @@ function renderLocationSchedules() {
 function renderRestaurants() {
   const schedules = state.data.restaurantSchedules || [];
   setHtml("[data-restaurants]", (state.data.restaurants || []).map((restaurant) => {
-    const items = schedules.filter((item) => item.restaurantName === restaurant.restaurantName || includes(item, restaurant.restaurantName)).slice(0, 14);
-    const detail = items.length ? `<div class="location-schedule">${items.map((item) => `
-      <div class="supplier-time-block">
-        <strong>${escapeHtml([item.day, item.timeDisplay || item.timeStart, item.meal].filter(Boolean).join(" · "))}</strong>
-        <p>${escapeHtml(item.groupAttending || "Group attending TBC")}</p>
-        <div class="meta-list compact-meta">
-          ${meta("Entertainment", item.entertainment)}
-          ${meta("Owner", item.owner)}
-          ${meta("Content capture", item.contentCapture)}
-          ${meta("Menu", item.menuFile)}
-          ${meta("Status", item.status)}
+    const items = schedules.filter((item) => item.restaurantName === restaurant.restaurantName || includes(item, restaurant.restaurantName)).slice(0, 32);
+    const grouped = groupBy(items, (item) => item.day);
+    const detail = items.length ? `<div class="location-schedule grouped-schedule">${Object.entries(grouped).map(([day, rows]) => `
+      <details class="details schedule-day-group" open>
+        <summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length} meal moment${rows.length === 1 ? "" : "s"}</span></summary>
+        <div class="details-content">
+          ${rows.map((item) => `
+            <div class="supplier-time-block">
+              <strong>${escapeHtml([item.timeDisplay || item.timeStart, item.meal].filter(Boolean).join(" · ") || "Time needed")}</strong>
+              <p>${escapeHtml(item.groupAttending || "Group attending TBC")}</p>
+              <div class="meta-list compact-meta">
+                ${meta("Entertainment", item.entertainment)}
+                ${meta("Owner", item.owner)}
+                ${meta("Content capture", item.contentCapture)}
+                ${meta("Menu", item.menuFile)}
+                ${meta("Status", item.status)}
+              </div>
+              ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
+              ${updateModule(item.updateId)}
+            </div>
+          `).join("")}
         </div>
-        ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
-      </div>
+      </details>
     `).join("")}</div>` : `<div class="image-placeholder"><strong>Restaurant schedule needed</strong><span>Add meal, menu, group, entertainment, and owner details.</span></div>`;
     return card({
       title: restaurant.restaurantName,
@@ -1021,18 +1057,32 @@ function renderPodcast() {
   const items = state.data.podcast
     .filter((item) => passesGlobal(item, { status: item.status, day: item.day || item.date, owner: item.productionLead, location: item.location, department: "Podcast", updateId: item.updateId }))
     .filter((item) => passesLocal(item, state.podcastFilters, { guest: (x) => x.guest || x.guestSubject }));
-  setHtml("[data-podcast]", items.map((item) => card({
-    title: item.slot,
-    status: item.status,
-    department: "Podcast",
-    body: `<p>${escapeHtml(item.guest || item.guestSubject || "Guest TBC")}</p>`,
-    metadata: meta("Date/day", item.day || item.date) + meta("Time", item.time) + meta("Host", item.presenter) + meta("Production lead", item.productionLead) + meta("Crew", item.technicalTeam) + meta("Location", item.location) + meta("Production needs", item.productionNeeds) + meta("Notes", item.notes),
-    updateId: item.updateId
-  })).join("") || empty("No podcast slots match the filters."));
+  let episode = 0;
+  const grouped = groupBy(items, (item) => item.day || item.date || "Day needed");
+  setHtml("[data-podcast]", Object.entries(grouped).map(([day, rows]) => `
+    <article class="card section-card">
+      <div class="card-header"><h3 class="card-title">${escapeHtml(dayLabelShort(day))}</h3><div class="tag-stack">${tag(`${rows.length} podcast item${rows.length === 1 ? "" : "s"}`)}</div></div>
+      <div class="location-schedule grouped-schedule">
+        ${rows.map((item) => {
+          episode += 1;
+          return card({
+            title: item.episodeNumber || `Podcast ${episode}: ${item.slot || item.guest || "Slot TBC"}`,
+            status: item.status,
+            department: "Podcast",
+            body: `<p>${escapeHtml(item.guest || item.guestSubject || "Guest TBC")}</p>`,
+            metadata: meta("Day/time", [item.day || item.date, item.time].filter(Boolean).join(" · ")) + meta("Presenter", item.presenter) + meta("Guest company", item.guestCompany || "Needs Confirmation") + meta("Guests", item.guestCount || "Needs Confirmation") + meta("Duration", item.duration || "Needs Confirmation") + meta("Location", item.location) + meta("Production lead", item.productionLead) + meta("Technical team", item.technicalTeam),
+            footer: detailsBlock("Guest prep / production checklist", [["Guest runner", item.guestRunner || "Needs Confirmation"], ["Guest prep owner", item.guestPrepOwner || "Needs Confirmation"], ["Guest prep checklist", item.guestPrepChecklist || "Needs Confirmation"], ["Microphone check", item.microphoneCheck || "Needs Confirmation"], ["Powder / makeup check", item.powderMakeupCheck || "If applicable / Needs Confirmation"], ["Production needs", item.productionNeeds], ["Notes", item.notes]]),
+            updateId: item.updateId
+          });
+        }).join("")}
+      </div>
+    </article>
+  `).join("") || empty("No podcast slots match the filters."));
 }
 
 function renderEntertainment() {
-  setHtml("[data-entertainment]", (state.data.entertainment || []).map((item) => {
+  const performers = (state.data.entertainment || []).filter((item) => !/playlist|background|ambient|curated music/i.test(`${item.performerName} ${item.type}`));
+  setHtml("[data-entertainment]", performers.map((item) => {
     const schedule = item.scheduleItems?.length ? `<div class="location-schedule">${item.scheduleItems.map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml([row.day, row.time].filter(Boolean).join(" · ") || "Time needed")}</strong>
@@ -1053,10 +1103,11 @@ function renderEntertainment() {
 }
 
 function renderPlaylists() {
-  setHtml("[data-playlists]", (state.data.curatedPlaylists || []).map((item) => card({
+  const items = (state.data.curatedPlaylists || []).filter((item) => !/dj |violin|pianist|vocal|performer/i.test(`${item.playlistName} ${item.notes}`));
+  setHtml("[data-playlists]", items.map((item) => card({
     title: item.playlistName,
     status: item.status,
-    department: "Entertainment",
+    department: "Curated Playlist",
     body: `<p>${escapeHtml([item.day, item.time, item.location].filter(Boolean).join(" · "))}</p>`,
     metadata: meta("Playlist link", item.playlistLink) + meta("Owner", item.owner) + meta("Start/stop responsibility", item.startStopResponsibility) + meta("Notes", item.notes),
     updateId: item.updateId
@@ -1119,7 +1170,9 @@ function renderHorizonsHouse() {
     <div class="visual-block">
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.notes)}</p><h3>Setup instructions</h3>${list(item.setupInstructions)}<h3>Checklist</h3>${list(item.checklist)}`, metadata: meta("Owner", item.owner), updateId: item.updateId })}
       <div class="reference-grid">
-        ${item.referenceImages.map((image) => `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`).join("")}
+        ${(item.referenceImages || []).map((image) => image.src
+          ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`
+          : `<div class="image-placeholder"><strong>${escapeHtml(image.alt || "Image needed")}</strong><span>${escapeHtml(image.caption || "Reference image needed.")}</span></div>`).join("")}
         ${item.referenceImages?.length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>HORIZONS test reception display, reception display, and display cabinet reference images.</span></div>`}
       </div>
     </div>
@@ -1131,7 +1184,9 @@ function renderRoomDrops() {
     <div class="visual-block">
       ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p><h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
       <div class="reference-grid">
-        ${(item.referenceImages || []).map((image) => `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`).join("")}
+        ${(item.referenceImages || []).map((image) => image.src
+          ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`
+          : `<div class="image-placeholder"><strong>${escapeHtml(image.alt || "Image needed")}</strong><span>${escapeHtml(image.caption || "Reference image needed.")}</span></div>`).join("")}
         ${(item.referenceImages || []).length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>Room-drop and guest-gift reference images.</span></div>`}
       </div>
     </div>
@@ -1163,26 +1218,47 @@ function renderSwag() {
 }
 
 function renderSpeakers() {
-  setHtml("[data-speakers]", (state.data.speakers || []).map((item) => card({
-    title: item.sessionTitle || item.speakerName,
-    status: item.status,
-    department: "Speaker Content",
-    body: `<p>${escapeHtml(item.sessionDescription || "Session description needed")}</p>`,
-    metadata: meta("Speaker", item.speakerName) + meta("Day/time", [item.day, item.time].filter(Boolean).join(" · ")) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Visibility", item.visibility) + meta("Source file", item.sourceFile),
-    footer: detailsBlock("Speaker content details", [["Deck copy", item.deckCopy], ["Speaker notes", item.speakerNotes], ["Status", item.status]]),
-    updateId: item.updateId
-  })).join("") || empty("No speaker content records available yet."));
+  const groups = {
+    "HORIZONS Hall": [],
+    "HORIZONS Studio": [],
+    "HORIZONS Podcast": []
+  };
+  (state.data.speakers || []).forEach((item) => {
+    const key = /podcast|cliffhanger/i.test(item.location || item.sessionTitle || "") ? "HORIZONS Podcast" : /studio/i.test(item.location || "") ? "HORIZONS Studio" : "HORIZONS Hall";
+    groups[key].push(item);
+  });
+  setHtml("[data-speakers]", Object.entries(groups).map(([location, items]) => {
+    const byDay = groupBy(items, (item) => item.day || "Day needed");
+    const logo = location === "HORIZONS Studio" ? state.data.event?.studioLogo : location === "HORIZONS Hall" ? "assets/logos/horizons-hall-black.png" : "assets/logos/horizons-main-logo-black.png";
+    return `<article class="card section-card">
+      <div class="brand-logo-wrapper mini-brand"><img class="brand-logo" src="${escapeHtml(logo)}" alt="${escapeHtml(location)} logo" loading="lazy"></div>
+      <div class="card-header"><h3 class="card-title">${escapeHtml(location)}</h3><div class="tag-stack">${tag(items.length ? `${items.length} records` : "Content Needed")}</div></div>
+      ${items.length ? Object.entries(byDay).map(([day, rows]) => `<details class="details schedule-day-group" open><summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content">${rows.map((item) => card({
+        title: item.sessionTitle || item.speakerName,
+        status: item.status,
+        department: "Speaker Content",
+        body: `<p>${escapeHtml(item.sessionDescription || "Session description needed")}</p>`,
+        metadata: meta("Speaker", item.speakerName) + meta("Time", item.time) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Visibility", item.visibility) + meta("Source file", item.sourceFile),
+        footer: detailsBlock("Speaker content details", [["Deck copy", item.deckCopy], ["Speaker notes", item.speakerNotes], ["Podcast clash check", item.podcastClash || "Needs Confirmation"], ["Status", item.status]]),
+        updateId: item.updateId
+      })).join("")}</div></details>`).join("") : `<div class="image-placeholder"><strong>Content needed</strong><span>${escapeHtml(location)} speaker/session content still needs upload.</span></div>`}
+    </article>`;
+  }).join(""));
 }
 
 function renderRehearsals() {
-  setHtml("[data-rehearsals]", (state.data.rehearsals || []).map((item) => card({
-    title: item.rehearsalName,
-    status: item.status,
-    department: "Rehearsal",
-    body: `<p>${escapeHtml([item.day, item.time, item.location].filter(Boolean).join(" · "))}</p>`,
-    metadata: meta("Required people", item.requiredPeople) + meta("Owner", item.owner) + meta("Notes", item.notes),
-    updateId: item.updateId
-  })).join("") || empty("No rehearsal records available yet."));
+  const grouped = groupBy((state.data.rehearsals || []), (item) => item.day || "Day needed");
+  setHtml("[data-rehearsals]", Object.entries(grouped).map(([day, rows]) => `<article class="card section-card">
+    <div class="card-header"><h3 class="card-title">${escapeHtml(dayLabelShort(day))}</h3><div class="tag-stack">${tag(`${rows.length} rehearsal${rows.length === 1 ? "" : "s"}`)}</div></div>
+    <div class="location-schedule grouped-schedule">${rows.map((item) => card({
+      title: item.rehearsalName,
+      status: item.status,
+      department: "Rehearsal",
+      body: `<p><strong>${escapeHtml(item.time || "Time needed")}</strong></p>`,
+      metadata: meta("Location", item.location) + meta("Required people", item.requiredPeople) + meta("Owner", item.owner) + meta("Notes", item.notes),
+      updateId: item.updateId
+    })).join("")}</div>
+  </article>`).join("") || empty("No rehearsal records available yet."));
 }
 
 function renderArtwork() {
@@ -1190,8 +1266,8 @@ function renderArtwork() {
     title: item.itemName,
     status: item.status,
     department: item.type,
-    body: `<p>${escapeHtml(item.positioningNotes || "Placement details needed.")}</p>`,
-    metadata: meta("Artwork file", item.artworkFile) + meta("Print size", item.printSize) + meta("Location placement", item.locationPlacement) + meta("Owner", item.owner) + meta("Supplier / setup team", item.supplierSetupTeam) + meta("Notes", item.notes),
+    body: `${item.referenceImage || (item.artworkFile || "").match(/\.(png|jpe?g|webp)$/i) ? `<figure class="reference-card"><img src="${escapeHtml(item.referenceImage || item.artworkFile)}" alt="${escapeHtml(item.itemName)} reference" loading="lazy"><figcaption>${escapeHtml(item.type || "Artwork reference")}</figcaption></figure>` : `<div class="image-placeholder"><strong>${escapeHtml(item.artworkFile || "File Needed")}</strong><span>Artwork preview / reference image needed.</span></div>`}<p>${escapeHtml(item.positioningNotes || item.placementDescription || "Placement details needed.")}</p>`,
+    metadata: meta("Artwork file", item.artworkFile) + meta("Print size", item.printSize) + meta("Exact location", item.exactLocation || item.locationPlacement) + meta("Placement", item.placementDescription || item.positioningNotes) + meta("Who installs", item.installer || item.supplierSetupTeam) + meta("Install timing", item.installTiming) + meta("Owner", item.owner) + meta("Supplier / setup team", item.supplierSetupTeam) + meta("Reference image", item.referenceImage) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No artwork or signage records available yet."));
 }
@@ -1296,25 +1372,6 @@ function renderSiteAudit() {
   })).join("") || empty("No site audit records available."));
 }
 
-function renderStudio() {
-  setHtml("[data-horizons-studio]", state.data.horizonsStudio.map((item) => card({
-    title: "HORIZONS Studio",
-    status: item.status,
-    body: `<p>${escapeHtml(item.purpose)}</p>
-      <div class="studio-logo-card">
-        ${(item.referenceImages || []).map((image) => `
-          <figure class="reference-card">
-            <img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy">
-            <figcaption>${escapeHtml(image.caption)}</figcaption>
-          </figure>
-        `).join("")}
-        <div class="image-placeholder"><strong>File needed</strong><span>HORIZONS Studio setup/reference images.</span></div>
-      </div>`,
-    metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Setup notes", item.setupNotes) + meta("Production notes", item.productionNotes),
-    updateId: item.updateId
-  })).join(""));
-}
-
 function renderDecisions() {
   setHtml("[data-decisions]", state.data.decisions.map((item) => card({
     title: firstMeaningful(item.decisionNeeded, item.decision, item.issue, "Decision needed"),
@@ -1386,38 +1443,37 @@ function setupSectionNavigation() {
     ["overview", "Overview"],
     ["today", "Today"],
     ["red-flags", "Red Flags"],
+    ["decisions", "Decisions"],
+    ["who-do-i-call", "Who Do I Call"],
+    ["call-sheet", "Call Sheet"],
     ["schedule", "Schedule"],
     ["flights", "Flights"],
     ["daily", "Daily Focus"],
-    ["call-sheet", "Call Sheet"],
     ["location-schedules", "Location Schedules"],
     ["restaurants", "Restaurants"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
-    ["who-do-i-call", "Who Do I Call"],
-    ["locations", "Locations"],
+    ["staff", "Staff"],
     ["suppliers", "Suppliers"],
+    ["locations", "Locations"],
     ["podcast", "Podcast"],
+    ["speakers", "Speakers"],
     ["entertainment", "Entertainment"],
     ["playlists", "Playlists"],
+    ["rehearsals", "Rehearsals"],
     ["content", "Content"],
     ["workstreams", "Workstreams"],
-    ["horizons-house", "HORIZONS House"],
-    ["room-drops", "Room Drops"],
     ["swag", "Materials"],
-    ["speakers", "Speakers"],
-    ["rehearsals", "Rehearsals"],
+    ["room-drops", "Room Drops"],
+    ["horizons-house", "HORIZONS House"],
     ["artwork", "Signage"],
-    ["staff", "Staff"],
+    ["documents", "Documents"],
     ["cvent", "Cvent"],
     ["missing-files", "Missing Files"],
     ["slack", "Slack"],
     ["data-health", "Data Health"],
     ["duplicate-review", "Duplicate Review"],
-    ["site-audit", "Site Audit"],
-    ["horizons-studio", "HORIZONS Studio"],
-    ["decisions", "Decisions"],
-    ["documents", "Documents"]
+    ["site-audit", "Site Audit"]
   ].filter(([id]) => document.getElementById(id));
   const progress = $("[data-section-progress]");
   if (progress) {
@@ -1479,7 +1535,7 @@ function bindEvents() {
     $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter]").forEach((select) => select.value = "");
     renderAll();
   });
-  document.addEventListener("click", (event) => {
+  document.addEventListener("click", async (event) => {
     const dayTab = event.target.closest("[data-day-tab]");
     if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
     const callSheetTab = event.target.closest("[data-call-sheet-tab]");
@@ -1560,6 +1616,30 @@ function bindEvents() {
       renderCaptureSuggestions();
       return;
     }
+    const updateAction = event.target.closest("[data-update-action]");
+    if (updateAction) {
+      const updateId = updateAction.dataset.updateId;
+      const parentId = updateAction.dataset.parentId;
+      const action = updateAction.dataset.updateAction;
+      const actionLabel = action === "resolve" ? "Resolved" : action === "archive" ? "Archived" : "Still To Be Resolved";
+      try {
+        const base = backendApiBase();
+        if (!base) throw new Error("Shared backend pending setup");
+        const response = await fetch(`${base}/api/updates/${encodeURIComponent(updateId)}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ id: updateId, action, resolved_by: "Website" })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.error || `Updates API returned ${response.status}`);
+      } catch (error) {
+        console.warn("Could not update shared status; applying local fallback.", error);
+      }
+      state.updates[parentId] = getUpdates(parentId).map((item) => item.id === updateId ? { ...item, status: actionLabel } : item);
+      updateStore.save(state.updates);
+      renderAll();
+      return;
+    }
   });
   document.addEventListener("submit", async (event) => {
     const suggestionForm = event.target.closest("[data-capture-suggestion-form]");
@@ -1599,13 +1679,13 @@ function bindEvents() {
       visibility: text(data.get("visibility"), "Team"),
       comment: text(data.get("comment")),
       notifySlack: data.get("notifySlack") === "true",
-      slackChannel: slackChannelFor(id),
+      slackChannel: text(data.get("slackChannel"), slackChannelFor(id)),
       slackStatus: "",
       timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
     };
     if (!update.comment) return;
     if (update.notifySlack) {
-      const preview = `Send this update to ${update.slackChannel}?\n\n${update.comment}`;
+      const preview = `Send this update to ${update.slackChannel}?\n\n${slackUrgencyLabel(update)}\nStatus: ${update.status}\nPriority: ${update.priority}\n\n${update.comment}`;
       if (!window.confirm(preview)) update.notifySlack = false;
     }
     const shouldNotify = update.notifySlack || shouldAutoNotifySlack(update, id);

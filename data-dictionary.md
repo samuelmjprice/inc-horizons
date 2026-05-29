@@ -369,6 +369,20 @@ Admin readiness metrics.
 
 Fields: `metric`, `count`, `action`, `status`.
 
-### `record_updates` / local update model
+### `record_updates` / shared update model
 
-The browser update form now captures Slack-ready fields: `priority`, `visibility`, `notifySlack`, `slackChannel`, and `slackStatus`. The static frontend queues Slack activity locally only; live posting requires a backend or serverless endpoint with environment variables.
+The browser update form captures `priority`, `visibility`, `notifySlack`, `slackChannel`, and Slack send state. Live comments save through the Vercel/Supabase backend when available. Browser storage is only an offline/draft fallback.
+
+Additional UI actions: `Mark Resolved`, `Archive`, and `Reopen`. Resolved or archived updates stay in history and should not be treated as deleted source data.
+
+### `podcastSchedule`
+
+Podcast records should support day grouping and episode-level detail.
+
+Recommended fields: `id`, `date`, `day`, `podcastNumber`, `time`, `presenter`, `guest`, `guestCompany`, `guestCount`, `duration`, `location`, `productionLead`, `technicalTeam`, `guestRunner`, `prepOwner`, `guestPrepChecklist`, `microphoneCheck`, `powderMakeupCheck`, `status`, `notes`.
+
+### `artworkSignage`
+
+Signage and wayfinding records should support operational placement.
+
+Recommended additional fields: `referenceImage`, `exactLocation`, `placementDescription`, `installedBy`, `installTime`, `printSize`, `mapNeeded`, `locationNeeded`, `placementNeeded`.

@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260529-commenttest2">
+    <link rel="stylesheet" href="style.css?v=20260529-onsiteux1">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -21,37 +21,45 @@
           <span class="menu-label">Menu</span>
         </button>
         <nav id="site-nav" class="site-nav" data-nav>
+          <span class="nav-group-label">Start</span>
           <a href="#overview">Overview</a>
           <a href="#today">Today</a>
           <a href="#red-flags">Red Flags</a>
+          <a href="#decisions">Decisions</a>
+          <a href="#who-do-i-call">Who Do I Call</a>
+          <a href="#call-sheet">Call Sheet</a>
+          <span class="nav-group-label">Schedule / Operations</span>
           <a href="#schedule">Schedule</a>
           <a href="#flights">Flights</a>
           <a href="#daily">Daily Focus</a>
-          <a href="#call-sheet">Call Sheet</a>
           <a href="#location-schedules">Location Schedules</a>
           <a href="#restaurants">Restaurants</a>
           <a href="#tasks">Tasks</a>
-          <a href="#locations">Locations</a>
+          <span class="nav-group-label">People / Teams</span>
           <a href="#contacts">Contacts</a>
-          <a href="#who-do-i-call">Who Do I Call</a>
+          <a href="#staff">Staff</a>
           <a href="#suppliers">Suppliers</a>
+          <span class="nav-group-label">Programme / Content</span>
           <a href="#podcast">Podcast</a>
+          <a href="#speakers">Speakers</a>
           <a href="#entertainment">Entertainment</a>
           <a href="#playlists">Playlists</a>
-          <a href="#content">Content</a>
-          <a href="#swag">Materials</a>
-          <a href="#speakers">Speakers</a>
           <a href="#rehearsals">Rehearsals</a>
+          <a href="#content">Content</a>
+          <span class="nav-group-label">Guest Experience / Assets</span>
+          <a href="#swag">Guest Materials</a>
+          <a href="#room-drops">Room Drops</a>
+          <a href="#horizons-house">HORIZONS House</a>
           <a href="#artwork">Signage</a>
-          <a href="#staff">Staff</a>
+          <a href="#documents">Documents</a>
+          <a href="#locations">Locations</a>
+          <span class="nav-group-label">Admin</span>
           <a href="#cvent">Cvent</a>
           <a href="#missing-files">Missing Files</a>
           <a href="#slack">Slack</a>
           <a href="#data-health">Data Health</a>
           <a href="#duplicate-review">Duplicates</a>
           <a href="#site-audit">Audit</a>
-          <a href="#decisions">Decisions</a>
-          <a href="#documents">Documents</a>
         </nav>
       </div>
     </header>
@@ -62,7 +70,6 @@
           <div class="hero-copy">
             <img class="hero-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
             <p class="eyebrow">Internal live event hub</p>
-            <h1 data-event-title>HORIZONS Ibiza 2026</h1>
             <p class="hero-subtitle" data-event-subtitle>Event Command Centre</p>
             <p class="hero-description" data-event-description></p>
             <div class="meta-strip" aria-label="Event information">
@@ -144,6 +151,17 @@
         </div>
       </section>
 
+      <section id="decisions" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Leadership</p>
+            <h2>Decisions Needed</h2>
+            <p>Unresolved decisions surfaced clearly without turning the page into a stress board.</p>
+          </div>
+          <div class="cards-grid" data-decisions></div>
+        </div>
+      </section>
+
       <section id="schedule" class="section">
         <div class="container">
           <div class="section-heading">
@@ -207,9 +225,11 @@
           </div>
           <div class="tabs" data-call-sheet-tabs role="tablist" aria-label="Call sheet days"></div>
           <div class="now-next" data-call-sheet-now-next></div>
-          <div class="weather-card" data-weather></div>
+          <div class="call-sheet-top-grid">
+            <div class="weather-card" data-weather></div>
+            <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
+          </div>
           <div class="cards-grid call-sheet-summary" data-call-sheet-summary></div>
-          <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
           <div class="cards-grid compact-grid call-sheet-notes" data-call-sheet-notes></div>
           <div class="call-sheet-list" data-call-sheet></div>
           <div class="cards-grid compact-grid call-sheet-links" data-call-sheet-links></div>
@@ -558,28 +578,6 @@
         </div>
       </section>
 
-      <section id="horizons-studio" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Operational section</p>
-            <h2>HORIZONS Studio</h2>
-            <p>Purpose, setup notes, owner, status, and production requirements for HORIZONS Studio.</p>
-          </div>
-          <div class="cards-grid" data-horizons-studio></div>
-        </div>
-      </section>
-
-      <section id="decisions" class="section section-tint">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Leadership</p>
-            <h2>Decisions Needed</h2>
-            <p>Unresolved decisions surfaced clearly without turning the page into a stress board.</p>
-          </div>
-          <div class="cards-grid" data-decisions></div>
-        </div>
-      </section>
-
       <section id="documents" class="section">
         <div class="container">
           <div class="section-heading">
@@ -619,6 +617,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260529-commenttest2"></script>
+    <script src="script.js?v=20260529-onsiteux1"></script>
   </body>
 </html>

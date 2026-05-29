@@ -2,7 +2,7 @@
 
 This is the internal static website for the HORIZONS Ibiza 2026 event team.
 
-It is a calm operating hub for schedules, priorities, red flags, flights/travel, tasks, contacts, suppliers, podcast, content capture, HORIZONS House, room drops, swag, HORIZONS Studio, decisions, maps, documents, and live team updates.
+It is a calm operating hub for schedules, priorities, red flags, decisions, call sheets, flights/travel, tasks, contacts, suppliers, podcast, speakers, entertainment, curated playlists, content capture, HORIZONS House, room drops, guest materials, signage, maps, documents, and live team updates.
 
 Live site:
 
@@ -199,23 +199,15 @@ The script does not overwrite `content.json`.
 
 ## Comments And Status Updates
 
-The current website comments are a local-only prototype using browser `localStorage`.
+Website comments and team updates now save through the shared Vercel/Supabase backend at `https://inc-horizons.vercel.app/api/updates`.
 
 This means:
 
-- Comments save only on the current device/browser.
-- Other team members cannot see them.
-- They are useful for UI testing and personal notes only.
+- Approved users can see shared comments after refresh and across browsers/devices.
+- Browser `localStorage` is only a draft/offline fallback if the backend cannot be reached.
+- Each update supports status, priority, visibility, optional Slack notification, and resolve/archive actions.
 
-Before event use, connect shared storage such as Firebase Firestore, Supabase, Airtable, or Google Sheets if the team needs shared comments.
-
-Local comments can be exported from the browser console:
-
-```js
-copy(localStorage.getItem("horizons-card-updates-v1"))
-```
-
-Do not treat local comments as official data. Approved comments must be reviewed and applied to `content.json`.
+Do not treat comments as official display data until a project lead approves them and the relevant `content.json` record is updated.
 
 ## Main Files
 
@@ -428,6 +420,21 @@ Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 - The live UI states this test-mode routing before a user sends a Slack notification.
 - Test comments are labelled `TEST - safe to delete` and should not be treated as event data.
 - Production Slack webhooks, wider team invites, and automatic production alerts still need Samuel/Chris approval.
+
+## Chris / Samuel Onsite UX Review - 29 May 2026
+
+- Hero duplicate event-title wording was removed; the official centred HORIZONS logo remains the brand anchor.
+- Navigation was reordered into team-first groups, with Decisions, Who Do I Call, and Call Sheet higher in the flow and admin/developer tools lower.
+- Standalone HORIZONS Studio operations view was hidden; HORIZONS Studio remains in locations, schedules, speakers, rehearsals, and source records.
+- Schedule tabs now show day and date. Location and restaurant schedules group expanded rows by day.
+- Call Sheet weather uses Open-Meteo near Six Senses Ibiza / Xarraca Bay with a fresh cache key and a confirmation note for the final venue pin.
+- Weather and Emergency / Medical cards sit side-by-side on desktop and stack on mobile.
+- Comment/update cards support Mark Resolved, Archive, Reopen, Slack channel selection, and urgent message preview.
+- Podcast is grouped by day and episode. Speaker Content is grouped by HORIZONS Hall, HORIZONS Studio, and HORIZONS Podcast.
+- Entertainment is limited to live performers; Curated Playlists are background/ambient music moments.
+- Room Drops now include hand fan, Pulsio/Poltio, hotel room drops, BeGood / Six Senses responsibilities, gloves note, handling, and quality control.
+- Notepads and pens are associated with HORIZONS Hall. Crew shirts are flagged as needing data/image confirmation.
+- Eve Dusek is the active display name and COO of Aream & Co.; final contact/role confirmation remains tracked.
 
 ## Files To Avoid Editing Unless Necessary
 
