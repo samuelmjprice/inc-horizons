@@ -20190,8 +20190,8 @@
     }
   ],
   "meta": {
-    "updateStorage": "localStorage prototype",
-    "updateStorageNote": "Website comments currently save only in the current browser/device. For shared team comments, connect Firebase, Supabase, Airtable, or Google Sheets before event use.",
+    "updateStorage": "shared Supabase backend via Vercel API, with browser fallback when offline",
+    "updateStorageNote": "Team updates post to the shared /api/updates backend when available. Browser storage is only a temporary fallback if the backend cannot be reached.",
     "statusOptions": [
       "Still To Be Resolved",
       "Resolved",
@@ -20378,7 +20378,9 @@
       "cvent": "#horizons-red-flags",
       "default": "#horizons-main"
     },
-    "weatherApi": "Open-Meteo Forecast API"
+    "weatherApi": "Open-Meteo Forecast API",
+    "backendApiBase": "https://inc-horizons.vercel.app",
+    "slackSetupStatus": "Slack test webhook is live for #horizons-test. Production channel webhooks remain disabled until approved."
   },
   "travel": [
     {
