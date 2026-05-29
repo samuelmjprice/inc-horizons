@@ -177,6 +177,14 @@ Optional fields: `phone`, `whatsappLink`, `email`, `notes`, `visibility`.
 
 Hide missing email/phone buttons in the UI. Do not invent contact details.
 
+### `whoDoICall`
+
+Problem-first escalation guide for the website, call sheet, and master workbook.
+
+Required fields: `situation`, `primaryContact`, `backupContact`, `phone`, `whatsapp`, `slackChannel`, `notes`.
+
+Use this when someone needs to know who to call for a problem type, not just a person's job title.
+
 ### `locations`
 
 Operational location cards.

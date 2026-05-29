@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-ops1";
+const APP_VERSION = "20260529-records1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -280,6 +280,7 @@ function renderAll() {
   renderTasks();
   renderContactTabs();
   renderContacts();
+  renderWhoDoICall();
   renderLocations();
   renderSuppliers();
   renderPodcast();
@@ -698,6 +699,18 @@ function renderContacts() {
   }).join("") || empty("No contacts match the current filters."));
 }
 
+function renderWhoDoICall() {
+  const items = state.data.whoDoICall || [];
+  setHtml("[data-who-do-i-call]", items.map((item) => card({
+    title: item.situation,
+    status: item.slackChannel,
+    body: `<p>${escapeHtml(item.notes)}</p>`,
+    metadata: meta("Primary", item.primaryContact) + meta("Backup", item.backupContact) + meta("Phone", item.phone),
+    footer: `<div class="contact-actions">${item.phone ? `<a href="tel:${escapeHtml(item.phone.replace(/[^+0-9]/g, ""))}">Call</a>` : ""}${item.whatsapp ? `<a href="${escapeHtml(item.whatsapp)}" target="_blank" rel="noreferrer">WhatsApp</a>` : ""}<a href="#slack">${escapeHtml(item.slackChannel || "Slack")}</a></div>`,
+    updateId: `who:${slug(item.situation)}`
+  })).join("") || empty("No escalation contacts listed yet."));
+}
+
 function renderLocations() {
   const items = state.data.locations.filter((item) => passesGlobal(item, { status: item.status, owner: item.keyOwner, location: item.locationName, updateId: item.updateId }));
   setHtml("[data-locations]", items.map((item) => card({
@@ -1099,6 +1112,7 @@ function setupSectionNavigation() {
     ["restaurants", "Restaurants"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
+    ["who-do-i-call", "Who Do I Call"],
     ["locations", "Locations"],
     ["suppliers", "Suppliers"],
     ["podcast", "Podcast"],

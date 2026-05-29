@@ -352,6 +352,7 @@ Recommended channels:
 
 The current site now supports:
 
+- `whoDoICall`: problem-first escalation contacts for decisions, operations, website/Codex/Slack, podcast, content, photography, video, technical support, and client approvals.
 - `locationSchedules`: what is happening by location.
 - `restaurants` and `restaurantSchedules`: meal spaces, menus, groups, entertainment, and content capture.
 - `speakers`: speaker/session/deck content.
@@ -369,6 +370,22 @@ Spelling rules:
 - Use `BeGood` exactly.
 - Use `Clownfish` exactly.
 - Replace known initials with full names. Unknown initials should be marked `Needs Name Confirmation`.
+
+## Final Updated Records
+
+The latest organized handover set is saved in:
+
+`HORIZONS_FINAL_UPDATED_FILES_2026-05-29_1346/`
+
+The matching desktop copy is saved in:
+
+`/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_FINAL_UPDATED_FILES_2026-05-29_1346/`
+
+Use `HORIZONS_MASTER_EVENT_CONTROL_UPDATED.xlsx` as the master source-of-truth workbook. Contact details are in `TEAM_CONTACTS`; issue-based escalation is in `WHO_DO_I_CALL`; missing assets are in `MISSING_FILES_TRACKER`; source references are in `SOURCE_ARCHIVE`.
+
+Backup created before this pass:
+
+`/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_BACKUP_2026-05-29_1346/`
 
 ## Deployment
 
