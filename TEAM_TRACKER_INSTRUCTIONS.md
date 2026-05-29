@@ -14,11 +14,18 @@ For Daily Call Sheet updates, use `Call Sheet Questions` if the row exists. If n
 
 For this latest website version, also check:
 
-- Use `BE GOOD` exactly for the supplier/company name.
+- Use `BeGood` exactly for the supplier/company name.
 - Use full names, not initials. If a name is unclear, write `Needs name confirmation`.
 - Add weather updates only if the forecast/source is confirmed.
 - Add guest materials such as tote bags, menus, easel boards, signage, room drops, and print files under the materials/documents tabs.
 - Do not add clothing measurements to tracker rows intended for the website.
+- Add Cvent exports, speaker/deck content, rehearsal schedules, signage placement maps, staff lists, entertainment riders/timings, playlist links, podcast files, venue maps, restaurant schedules, menus, and Slack setup notes where requested.
+
+## Latest Areas To Fill In
+
+The website now has sections for Location Schedules, Restaurant Schedules, Speaker Content, Rehearsals, Artwork / Wayfinding / Signage, Entertainment, Curated Playlists, Cvent Comparison, Staff Lists, Missing Files, and Slack Integration.
+
+Use `BeGood`, `Aream & Co.`, and `Clownfish` exactly. Replace known initials with full names; mark unknown initials as `Needs Name Confirmation`.
 
 ## Example
 
@@ -28,6 +35,6 @@ Rows marked `EXAMPLE - DO NOT IMPORT` are only there to show the team how to fil
 
 ## Brand Notes
 
-- Use the official spelling and styling: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, `HORIZONS Studio`, `BE GOOD`, and `Clownfish`.
+- Use the official spelling and styling: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, `HORIZONS Studio`, `BeGood`, and `Clownfish`.
 - The official main logo has been provided and should be used as an image file only. Do not recreate it with typed text or alter its colour/proportions.
 - If you are adding a new image, document, menu, map, presentation, or visual reference, include the final file link/location and mark the row `Approved` only when it is ready for the live site.

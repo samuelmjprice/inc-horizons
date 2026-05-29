@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260529-sync2">
+    <link rel="stylesheet" href="style.css?v=20260529-ops1">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -28,13 +28,24 @@
           <a href="#flights">Flights</a>
           <a href="#daily">Daily Focus</a>
           <a href="#call-sheet">Call Sheet</a>
+          <a href="#location-schedules">Location Schedules</a>
+          <a href="#restaurants">Restaurants</a>
           <a href="#tasks">Tasks</a>
           <a href="#locations">Locations</a>
           <a href="#contacts">Contacts</a>
           <a href="#suppliers">Suppliers</a>
           <a href="#podcast">Podcast</a>
+          <a href="#entertainment">Entertainment</a>
+          <a href="#playlists">Playlists</a>
           <a href="#content">Content</a>
           <a href="#swag">Materials</a>
+          <a href="#speakers">Speakers</a>
+          <a href="#rehearsals">Rehearsals</a>
+          <a href="#artwork">Signage</a>
+          <a href="#staff">Staff</a>
+          <a href="#cvent">Cvent</a>
+          <a href="#missing-files">Missing Files</a>
+          <a href="#slack">Slack</a>
           <a href="#decisions">Decisions</a>
           <a href="#documents">Documents</a>
         </nav>
@@ -194,6 +205,28 @@
         </div>
       </section>
 
+      <section id="location-schedules" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Where is it happening?</p>
+            <h2>Location Schedules</h2>
+            <p>Open a location to see only the activity, people, setup notes, and status for that space.</p>
+          </div>
+          <div class="cards-grid" data-location-schedules></div>
+        </div>
+      </section>
+
+      <section id="restaurants" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Meals + hospitality</p>
+            <h2>Restaurant Schedules</h2>
+            <p>Restaurant and meal-space views for menus, groups, entertainment, content capture, and owner notes.</p>
+          </div>
+          <div class="cards-grid" data-restaurants></div>
+        </div>
+      </section>
+
       <section id="tasks" class="section">
         <div class="container">
           <div class="section-heading section-heading-row">
@@ -284,6 +317,28 @@
         </div>
       </section>
 
+      <section id="entertainment" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Performers</p>
+            <h2>Entertainment</h2>
+            <p>Performer arrivals, sound checks, performance windows, technical needs, hospitality notes, and status.</p>
+          </div>
+          <div class="cards-grid" data-entertainment></div>
+        </div>
+      </section>
+
+      <section id="playlists" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Music moments</p>
+            <h2>Curated Playlists</h2>
+            <p>Known schedule points where curated music, background music, or ambient playlists may be needed.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-playlists></div>
+        </div>
+      </section>
+
       <section id="content" class="section section-tint">
         <div class="container">
           <div class="section-heading section-heading-row">
@@ -371,6 +426,83 @@
         </div>
       </section>
 
+      <section id="speakers" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Session content</p>
+            <h2>Speaker Content</h2>
+            <p>Speaker/session content for deck creation, rehearsals, Cvent checks, and production notes.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-speakers></div>
+        </div>
+      </section>
+
+      <section id="rehearsals" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Run-throughs</p>
+            <h2>Rehearsals</h2>
+            <p>Speaker, HORIZONS Hall, HORIZONS Studio, show running, technical, screen/deck, and podcast rehearsal records.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-rehearsals></div>
+        </div>
+      </section>
+
+      <section id="artwork" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Artwork + wayfinding</p>
+            <h2>Artwork / Wayfinding / Signage</h2>
+            <p>Placement, file, print, and installation records so Clownfish and the onsite team know what goes where.</p>
+          </div>
+          <div class="cards-grid" data-artwork></div>
+        </div>
+      </section>
+
+      <section id="staff" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Who is onsite?</p>
+            <h2>Staff Lists</h2>
+            <p>Staff and support lists grouped by company/team, connected back to contacts and the call sheet.</p>
+          </div>
+          <div class="cards-grid" data-staff></div>
+        </div>
+      </section>
+
+      <section id="cvent" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Event app audit</p>
+            <h2>Cvent Comparison</h2>
+            <p>Compare Cvent exports against the website source of truth. Conflicts are flagged for review, not auto-applied.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-cvent></div>
+        </div>
+      </section>
+
+      <section id="missing-files" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Files still needed</p>
+            <h2>Missing Files Tracker</h2>
+            <p>Critical file, asset, export, and reference needs that must be supplied before the website can show final information.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-missing-files></div>
+        </div>
+      </section>
+
+      <section id="slack" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Communication layer</p>
+            <h2>Slack Integration</h2>
+            <p>Website remains the source of truth. Slack is used for alerts, updates, threads, and urgent team communication.</p>
+          </div>
+          <div class="cards-grid" data-slack></div>
+        </div>
+      </section>
+
       <section id="horizons-studio" class="section">
         <div class="container">
           <div class="section-heading">
@@ -432,6 +564,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260529-sync2"></script>
+    <script src="script.js?v=20260529-ops1"></script>
   </body>
 </html>

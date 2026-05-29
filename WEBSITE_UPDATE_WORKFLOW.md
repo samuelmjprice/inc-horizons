@@ -116,12 +116,52 @@ Codex should only apply comments marked `Approved Change` or tracker rows marked
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
-- Use `BE GOOD` and `Clownfish` exactly.
+- Use `BeGood` and `Clownfish` exactly.
 - Use full names instead of initials where known. Unknown initials should be written as `Needs name confirmation`.
 - Use `assets/logos/horizons-main-logo-black.png` as the official main hero/header logo.
 - Suppliers should appear once; open questions belong inside the supplier card.
 - Do not publish clothing measurements on the website.
 - Use `File needed`, `Email needed`, `Phone needed`, `Time needed`, or `Needs Confirmation` when information is missing.
+
+## Slack Workflow
+
+The website is the source of truth. Slack is the communication and alert layer.
+
+Current implementation is a safe stub:
+
+1. Website users can copy Slack-ready red flag or operations updates.
+2. The Slack section shows recommended channels and event mapping.
+3. `slack-config.example.json` documents the channel/event mapping without credentials.
+4. Automated posting requires a backend/serverless endpoint.
+5. Webhook URLs and tokens must live in environment variables, not frontend code.
+
+Suggested environment variables:
+
+- `SLACK_WEBHOOK_MAIN`
+- `SLACK_WEBHOOK_RED_FLAGS`
+- `SLACK_WEBHOOK_SCHEDULE`
+- `SLACK_WEBHOOK_PRODUCTION`
+- `SLACK_WEBHOOK_CONTENT`
+- `SLACK_WEBHOOK_PODCAST`
+- `SLACK_WEBHOOK_SUPPLIERS`
+- `SLACK_WEBHOOK_ENTERTAINMENT`
+- `SLACK_WEBHOOK_LOCATIONS`
+- `SLACK_WEBHOOK_DOCUMENTS`
+- `SLACK_WEBHOOK_DECISIONS`
+
+## New Intake Areas
+
+Use the missing-info tracker for:
+
+- Cvent exports.
+- Speaker/session/deck content.
+- Rehearsal schedules.
+- Signage placement maps and print specs.
+- Staff lists.
+- Entertainment riders and timings.
+- Playlist links and start/stop ownership.
+- Podcast final guest/run-sheet files.
+- Venue maps, restaurant schedules, menus, and seating plans.
 
 ## Brand Implementation Notes
 

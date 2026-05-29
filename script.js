@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-sync2";
+const APP_VERSION = "20260529-ops1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -92,7 +92,8 @@ const statusClass = (value = "") => {
 const tag = (value, extraClass = "") => value ? `<span class="tag ${statusClass(value)} ${extraClass}">${escapeHtml(normalizeLabel(value))}</span>` : "";
 const departmentTag = (value) => value ? tag(value, `department-tag department-${slug(value)}`) : "";
 const meta = (label, value) => value ? `<div><span>${escapeHtml(label)}:</span> ${escapeHtml(value)}</div>` : "";
-const list = (items = []) => items.filter(Boolean).length ? `<ul>${items.filter(Boolean).slice(0, 8).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
+const asList = (value) => Array.isArray(value) ? value : text(value) ? [value] : [];
+const list = (items = []) => asList(items).filter(Boolean).length ? `<ul>${asList(items).filter(Boolean).slice(0, 8).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "";
 const empty = (message = "No matching items.") => `<div class="empty-state">${escapeHtml(message)}</div>`;
 const setHtml = (selector, html) => { const element = $(selector); if (element) element.innerHTML = html; };
 const detailRows = (rows = []) => rows.filter(([, value]) => text(value)).map(([label, value]) => meta(label, value)).join("");
@@ -270,6 +271,8 @@ function renderAll() {
   renderWeather();
   renderCallSheetTabs();
   renderCallSheet();
+  renderLocationSchedules();
+  renderRestaurants();
   renderTravel();
   renderDepartmentTabs();
   renderDepartmentFocus();
@@ -280,6 +283,8 @@ function renderAll() {
   renderLocations();
   renderSuppliers();
   renderPodcast();
+  renderEntertainment();
+  renderPlaylists();
   renderContentDayTabs();
   renderContentCapture();
   renderCaptureSuggestions();
@@ -288,6 +293,13 @@ function renderAll() {
   renderRoomDrops();
   renderSwagSchedule();
   renderSwag();
+  renderSpeakers();
+  renderRehearsals();
+  renderArtwork();
+  renderStaffLists();
+  renderCventComparison();
+  renderMissingFiles();
+  renderSlackIntegration();
   renderStudio();
   renderDecisions();
   renderDocumentTabs();
@@ -337,6 +349,7 @@ function renderRedFlags() {
     status: item.status || item.priority,
     body: `<p>${escapeHtml(item.whyItMatters)}</p>`,
     metadata: meta("Priority", item.priority) + meta("Owner", item.owner) + meta("Decision needed", item.decisionNeeded) + meta("Notes", item.notes),
+    footer: `<div class="contact-actions"><button type="button" data-copy-slack-summary="${escapeHtml(item.updateId || item.issue)}">Copy Slack Update</button><a href="#slack">Slack setup</a></div>`,
     updateId: item.updateId
   })).join("") || empty("No red flags match the current filters."));
 }
@@ -516,6 +529,66 @@ function renderCallSheet() {
   }).join("") || empty("No call sheet items match the current filters for this day."));
 }
 
+function renderLocationSchedules() {
+  const schedules = state.data.locationSchedules || [];
+  setHtml("[data-location-schedules]", (state.data.locations || []).map((location) => {
+    const items = schedules
+      .filter((item) => item.locationId === location.id || item.locationName === location.locationName || includes(item, location.locationName))
+      .slice(0, 18);
+    const details = items.length ? `<div class="location-schedule">${items.map((item) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml([item.day, item.timeDisplay || item.timeStart].filter(Boolean).join(" · ") || "Time needed")}</strong>
+        <p>${escapeHtml(item.activity)}</p>
+        <div class="meta-list compact-meta">
+          ${meta("Who is present", item.whoIsPresent)}
+          ${meta("Owner", item.owner)}
+          ${meta("Content / topic", item.contentTopic)}
+          ${meta("Setup", item.setupRequirements)}
+          ${meta("Status", item.status)}
+        </div>
+        ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
+      </div>
+    `).join("")}</div>` : `<div class="image-placeholder"><strong>Schedule needed</strong><span>No location-specific schedule items have been confirmed for this space yet.</span></div>`;
+    return card({
+      title: location.locationName,
+      status: location.status,
+      body: `<p>${escapeHtml(location.primaryUse)}</p>`,
+      metadata: meta("Main day(s)", location.mainDays) + meta("Key owner", location.keyOwner) + meta("Watch-out", location.watchOut),
+      footer: detailsBlock("Open location schedule", [], details),
+      updateId: location.updateId || `location:${slug(location.locationName)}`
+    });
+  }).join("") || empty("No location schedules available yet."));
+}
+
+function renderRestaurants() {
+  const schedules = state.data.restaurantSchedules || [];
+  setHtml("[data-restaurants]", (state.data.restaurants || []).map((restaurant) => {
+    const items = schedules.filter((item) => item.restaurantName === restaurant.restaurantName || includes(item, restaurant.restaurantName)).slice(0, 14);
+    const detail = items.length ? `<div class="location-schedule">${items.map((item) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml([item.day, item.timeDisplay || item.timeStart, item.meal].filter(Boolean).join(" · "))}</strong>
+        <p>${escapeHtml(item.groupAttending || "Group attending TBC")}</p>
+        <div class="meta-list compact-meta">
+          ${meta("Entertainment", item.entertainment)}
+          ${meta("Owner", item.owner)}
+          ${meta("Content capture", item.contentCapture)}
+          ${meta("Menu", item.menuFile)}
+          ${meta("Status", item.status)}
+        </div>
+        ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
+      </div>
+    `).join("")}</div>` : `<div class="image-placeholder"><strong>Restaurant schedule needed</strong><span>Add meal, menu, group, entertainment, and owner details.</span></div>`;
+    return card({
+      title: restaurant.restaurantName,
+      status: items.some((item) => /Needs|Risk|File/.test(item.status)) ? "Needs Confirmation" : "On Track",
+      body: `<p>${escapeHtml(restaurant.primaryUse)}</p>`,
+      metadata: meta("Main days", restaurant.mainDays) + meta("Owner", restaurant.owner),
+      footer: detailsBlock("Open restaurant schedule", [], detail),
+      updateId: `restaurant:${slug(restaurant.restaurantName)}`
+    });
+  }).join("") || empty("No restaurant schedules available yet."));
+}
+
 function renderContentDayTabs() {
   const days = ["All", ...unique(state.data.contentCapture.map((item) => item.day))];
   if (!days.includes(state.activeContentDay)) state.activeContentDay = "All";
@@ -604,13 +677,13 @@ function renderTravel() {
 }
 
 function renderContactTabs() {
-  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "Hotel", "Suppliers", "Aream / INC Support", "Clownfish", "BE GOOD", "Remote"];
+  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "Hotel", "Suppliers", "Aream / INC Support", "Clownfish", "BeGood", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
 function renderContacts() {
   const items = state.data.contacts
-    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "Aream / INC Support" && /I\\.N\\.C|INC|Aream|International Collective/.test(`${item.category} ${item.group}`)) || (state.activeContactCategory === "BE GOOD" && /BE GOOD/.test(`${item.role} ${item.responsibility} ${item.notes}`)))
+    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "Aream / INC Support" && /I\\.N\\.C|INC|Aream|International Collective/.test(`${item.category} ${item.group}`)) || (state.activeContactCategory === "BeGood" && /BeGood/.test(`${item.role} ${item.responsibility} ${item.notes}`)))
     .filter((item) => passesGlobal(item, { owner: item.name, department: item.category, updateId: item.updateId }));
   setHtml("[data-contacts]", items.map((item) => {
     const phoneHref = item.phone ? `tel:${item.phone.replace(/[^+0-9]/g, "")}` : "";
@@ -693,6 +766,38 @@ function renderPodcast() {
     metadata: meta("Date/day", item.day || item.date) + meta("Time", item.time) + meta("Host", item.presenter) + meta("Production lead", item.productionLead) + meta("Crew", item.technicalTeam) + meta("Location", item.location) + meta("Production needs", item.productionNeeds) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No podcast slots match the filters."));
+}
+
+function renderEntertainment() {
+  setHtml("[data-entertainment]", (state.data.entertainment || []).map((item) => {
+    const schedule = item.scheduleItems?.length ? `<div class="location-schedule">${item.scheduleItems.map((row) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml([row.day, row.time].filter(Boolean).join(" · ") || "Time needed")}</strong>
+        <p>${escapeHtml(row.title || "Performance moment")}</p>
+        <div class="meta-list compact-meta">${meta("Location", row.location)}${meta("Status", row.status)}</div>
+      </div>
+    `).join("")}</div>` : `<p>Performance schedule needs confirmation.</p>`;
+    return card({
+      title: item.performerName,
+      status: item.status,
+      department: "Entertainment",
+      body: `<p>${escapeHtml(item.type)}</p>`,
+      metadata: meta("Day(s)", item.day) + meta("Arrival", item.arrivalTime) + meta("Sound check", item.soundCheckTime) + meta("Performance", item.performanceTime) + meta("Location", item.location) + meta("Internal owner", item.internalOwner),
+      footer: detailsBlock("Performer details", [["Technical needs", item.technicalNeeds], ["Hospitality needs", item.hospitalityNeeds], ["Notes", item.notes]], schedule),
+      updateId: item.updateId
+    });
+  }).join("") || empty("No entertainment records available yet."));
+}
+
+function renderPlaylists() {
+  setHtml("[data-playlists]", (state.data.curatedPlaylists || []).map((item) => card({
+    title: item.playlistName,
+    status: item.status,
+    department: "Entertainment",
+    body: `<p>${escapeHtml([item.day, item.time, item.location].filter(Boolean).join(" · "))}</p>`,
+    metadata: meta("Playlist link", item.playlistLink) + meta("Owner", item.owner) + meta("Start/stop responsibility", item.startStopResponsibility) + meta("Notes", item.notes),
+    updateId: item.updateId
+  })).join("") || empty("No curated playlist moments available yet."));
 }
 
 function renderContentCapture() {
@@ -794,6 +899,108 @@ function renderSwag() {
   })).join(""));
 }
 
+function renderSpeakers() {
+  setHtml("[data-speakers]", (state.data.speakers || []).map((item) => card({
+    title: item.sessionTitle || item.speakerName,
+    status: item.status,
+    department: "Speaker Content",
+    body: `<p>${escapeHtml(item.sessionDescription || "Session description needed")}</p>`,
+    metadata: meta("Speaker", item.speakerName) + meta("Day/time", [item.day, item.time].filter(Boolean).join(" · ")) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Visibility", item.visibility) + meta("Source file", item.sourceFile),
+    footer: detailsBlock("Speaker content details", [["Deck copy", item.deckCopy], ["Speaker notes", item.speakerNotes], ["Status", item.status]]),
+    updateId: item.updateId
+  })).join("") || empty("No speaker content records available yet."));
+}
+
+function renderRehearsals() {
+  setHtml("[data-rehearsals]", (state.data.rehearsals || []).map((item) => card({
+    title: item.rehearsalName,
+    status: item.status,
+    department: "Rehearsal",
+    body: `<p>${escapeHtml([item.day, item.time, item.location].filter(Boolean).join(" · "))}</p>`,
+    metadata: meta("Required people", item.requiredPeople) + meta("Owner", item.owner) + meta("Notes", item.notes),
+    updateId: item.updateId
+  })).join("") || empty("No rehearsal records available yet."));
+}
+
+function renderArtwork() {
+  setHtml("[data-artwork]", (state.data.artworkSignage || []).map((item) => card({
+    title: item.itemName,
+    status: item.status,
+    department: item.type,
+    body: `<p>${escapeHtml(item.positioningNotes || "Placement details needed.")}</p>`,
+    metadata: meta("Artwork file", item.artworkFile) + meta("Print size", item.printSize) + meta("Location placement", item.locationPlacement) + meta("Owner", item.owner) + meta("Supplier / setup team", item.supplierSetupTeam) + meta("Notes", item.notes),
+    updateId: item.updateId
+  })).join("") || empty("No artwork or signage records available yet."));
+}
+
+function renderStaffLists() {
+  const groups = state.data.staffLists || {};
+  setHtml("[data-staff]", Object.entries(groups).map(([group, people]) => card({
+    title: group,
+    status: people.length ? `${people.length} listed` : "Info Needed",
+    body: people.length ? list(people.slice(0, 8).map((person) => `${person.name} · ${person.role || person.responsibility || "Role needed"}`)) : `<p>Staff list needed.</p>`,
+    metadata: meta("Purpose", "Connected to Contacts, Who Do I Call, and Call Sheet."),
+    footer: detailsBlock("Open staff details", [], people.length ? `<div class="location-schedule">${people.map((person) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml(person.name)}</strong>
+        <div class="meta-list compact-meta">${meta("Role", person.role)}${meta("Responsibility", person.responsibility)}${meta("Phone", person.phone)}${meta("WhatsApp", person.whatsappLink)}${meta("Days onsite", person.daysOnsite)}${meta("Notes", person.notes)}</div>
+      </div>
+    `).join("")}</div>` : `<p>Add staff list details.</p>`)
+  })).join(""));
+}
+
+function renderCventComparison() {
+  setHtml("[data-cvent]", (state.data.cventComparison || []).map((item) => card({
+    title: item.item,
+    status: item.status,
+    department: item.area,
+    body: `<p>${escapeHtml(item.difference)}</p>`,
+    metadata: meta("Website data", item.websiteData) + meta("Cvent data", item.cventData) + meta("Owner", item.owner) + meta("Decision needed", item.decisionNeeded) + meta("Notes", item.notes),
+    updateId: `cvent:${slug(item.item)}`
+  })).join("") || empty("No Cvent comparison records available yet."));
+}
+
+function renderMissingFiles() {
+  setHtml("[data-missing-files]", (state.data.missingFiles || []).map((item) => card({
+    title: item.fileNeeded,
+    status: item.status,
+    department: item.category,
+    body: `<p>${escapeHtml(item.neededFor)}</p>`,
+    metadata: meta("Owner", item.owner) + meta("Category", item.category) + meta("Notes", item.notes),
+    updateId: item.updateId
+  })).join("") || empty("No missing file records available yet."));
+}
+
+function renderSlackIntegration() {
+  const channels = state.data.meta?.slackChannels || [];
+  const mapping = state.data.meta?.slackEventMapping || {};
+  const env = state.data.meta?.slackEnvironmentVariables || [];
+  setHtml("[data-slack]", [
+    card({
+      title: "Slack integration status",
+      status: "Stub Ready",
+      body: `<p>Use copy/open actions now. Automated posting needs a backend or serverless endpoint with webhook environment variables.</p>`,
+      metadata: meta("No frontend secrets", "Webhook URLs and Slack tokens must not be stored in GitHub Pages JavaScript.") + meta("Environment variables", env.join(", ")),
+      footer: `<div class="contact-actions"><button type="button" data-copy-slack-summary="main">Copy Slack Update</button><a href="slack://open" target="_blank" rel="noreferrer">Open Slack</a></div>`,
+      updateId: "slack:integration"
+    }),
+    card({
+      title: "Recommended Slack channels",
+      status: `${channels.length} channels`,
+      body: list(channels.map((item) => `${item.channel} · ${item.purpose}`)),
+      metadata: "",
+      updateId: "slack:channels"
+    }),
+    card({
+      title: "Website event → Slack channel map",
+      status: "Ready for backend",
+      body: list(Object.entries(mapping).map(([event, channel]) => `${event} → ${channel}`)),
+      metadata: meta("Rule", "Website remains the source of truth; Slack is the communication layer."),
+      updateId: "slack:mapping"
+    })
+  ].join(""));
+}
+
 function renderStudio() {
   setHtml("[data-horizons-studio]", state.data.horizonsStudio.map((item) => card({
     title: "HORIZONS Studio",
@@ -815,10 +1022,10 @@ function renderStudio() {
 
 function renderDecisions() {
   setHtml("[data-decisions]", state.data.decisions.map((item) => card({
-    title: item.decisionNeeded,
+    title: firstMeaningful(item.decisionNeeded, item.decision, item.issue, "Decision needed"),
     status: item.status,
-    body: `<p>${escapeHtml(item.whyItMatters)}</p><h3>Options</h3>${list(item.options)}<h3>Recommendation</h3><p>${escapeHtml(item.recommendation)}</p>`,
-    metadata: meta("Owner", item.owner) + meta("Approver", item.approver) + meta("Deadline", item.deadline) + meta("Latest update", item.latestUpdate) + meta("Workstream", item.relatedWorkstream),
+    body: `<p>${escapeHtml(firstMeaningful(item.whyItMatters, item.notes, "Awaiting final detail."))}</p>${asList(item.options).length ? `<h3>Options</h3>${list(item.options)}` : ""}${text(item.recommendation) ? `<h3>Recommendation</h3><p>${escapeHtml(item.recommendation)}</p>` : ""}`,
+    metadata: meta("Owner", item.owner) + meta("Approver", item.approver) + meta("Deadline", item.deadline) + meta("Latest update", item.latestUpdate) + meta("Workstream", item.relatedWorkstream || item.workstream || item.section),
     updateId: item.updateId
   })).join(""));
 }
@@ -888,16 +1095,27 @@ function setupSectionNavigation() {
     ["flights", "Flights"],
     ["daily", "Daily Focus"],
     ["call-sheet", "Call Sheet"],
+    ["location-schedules", "Location Schedules"],
+    ["restaurants", "Restaurants"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
     ["locations", "Locations"],
     ["suppliers", "Suppliers"],
     ["podcast", "Podcast"],
+    ["entertainment", "Entertainment"],
+    ["playlists", "Playlists"],
     ["content", "Content"],
     ["workstreams", "Workstreams"],
     ["horizons-house", "HORIZONS House"],
     ["room-drops", "Room Drops"],
     ["swag", "Materials"],
+    ["speakers", "Speakers"],
+    ["rehearsals", "Rehearsals"],
+    ["artwork", "Signage"],
+    ["staff", "Staff"],
+    ["cvent", "Cvent"],
+    ["missing-files", "Missing Files"],
+    ["slack", "Slack"],
     ["horizons-studio", "HORIZONS Studio"],
     ["decisions", "Decisions"],
     ["documents", "Documents"]
@@ -994,6 +1212,18 @@ function bindEvents() {
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const swagTab = event.target.closest("[data-swag-tab]");
     if (swagTab) { state.activeSwagSchedule = swagTab.dataset.swagTab; renderSwagSchedule(); }
+    const copySlack = event.target.closest("[data-copy-slack-summary]");
+    if (copySlack) {
+      const id = copySlack.dataset.copySlackSummary;
+      const redFlag = state.data.redFlags.find((item) => item.updateId === id || item.issue === id);
+      const message = redFlag
+        ? `RED FLAG: ${redFlag.issue}\nOwner: ${redFlag.owner || "TBC"}\nStatus: ${redFlag.status || "Needs Confirmation"}\nAction Needed: ${redFlag.decisionNeeded || "Needs Confirmation"}\nWebsite Link: ${location.origin}${location.pathname}#red-flags`
+        : `HORIZONS update\nArea: Website source of truth\nStatus: Slack integration stub ready\nWebsite Link: ${location.origin}${location.pathname}#slack`;
+      navigator.clipboard?.writeText(message);
+      copySlack.textContent = "Copied";
+      setTimeout(() => { copySlack.textContent = "Copy Slack Update"; }, 1600);
+      return;
+    }
     const dismissSuggestion = event.target.closest("[data-capture-dismiss]");
     if (dismissSuggestion) {
       state.dismissedCaptureSuggestions = unique([...(state.dismissedCaptureSuggestions || []), dismissSuggestion.dataset.captureDismiss]);

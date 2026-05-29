@@ -28,9 +28,9 @@ Suppliers should appear once. Multiple questions, timings, or unresolved notes s
 
 ### Brand Spelling Rule
 
-Use `BE GOOD` and `Clownfish` exactly.
+Use `BeGood` and `Clownfish` exactly.
 
-Do not use old variants such as `BeGood`, `Be-Good`, `Be good`, `BGood`, `Clown Fish`, or `ClownFish`.
+Do not use old variants such as `BE GOOD`, `Be-Good`, `Be good`, `BGood`, `Clown Fish`, or `ClownFish`.
 
 ### Missing Info Rule
 
@@ -262,3 +262,61 @@ Approved comments should be applied to `content.json`, then committed and deploy
 - Avoid raw spreadsheet labels like `Yellow - Needs Confirmation` or `Green - Confirmed`; the UI supplies the colour treatment.
 - Brand colours are managed in `style.css` through CSS variables. Content data should not contain colour values unless a future approved design need requires it.
 - New document, schedule, supplier, or capture items should use concise summary fields first, with longer notes saved for expandable details.
+
+## Expanded Operating Models
+
+### `locationSchedules`
+
+Location-filtered schedule records. Use these when the team needs to answer "what is happening in this location?"
+
+Required fields: `id`, `locationName`, `day`, `timeDisplay`, `activity`, `whoIsPresent`, `owner`, `contentTopic`, `setupRequirements`, `status`, `notes`, `updateId`.
+
+### `restaurants` and `restaurantSchedules`
+
+Restaurant/meal-space schedules for Partel, Orchard, Beach Caves, Pool Deck, The Rocks, and any additional meal space.
+
+Required fields: `restaurantName`, `day`, `meal`, `timeDisplay`, `groupAttending`, `entertainment`, `owner`, `contentCapture`, `menuFile`, `status`, `notes`.
+
+### `speakers`
+
+Speaker/session/deck content. Do not expose private notes unless visibility is explicitly suitable for the live team.
+
+Statuses: `Awaiting Content`, `Draft`, `In Review`, `Approved`, `Added to Deck`.
+
+### `rehearsals`
+
+Rehearsal records for speakers, HORIZONS Hall, HORIZONS Studio, show running, technical, screen/deck, and podcast.
+
+Statuses: `Confirmed`, `Needs Confirmation`, `At Risk`, `Complete`.
+
+### `entertainment`
+
+Performer records for DJs and entertainment professionals.
+
+Required fields: `performerName`, `type`, `day`, `arrivalTime`, `soundCheckTime`, `performanceTime`, `location`, `internalOwner`, `technicalNeeds`, `hospitalityNeeds`, `status`, `notes`.
+
+### `curatedPlaylists`
+
+Every point where curated music/background music is needed.
+
+Required fields: `day`, `time`, `location`, `playlistName`, `playlistLink`, `owner`, `startStopResponsibility`, `status`, `notes`.
+
+### `artworkSignage`
+
+Artwork, wayfinding, signage, easel boards, A1 boards, natural totems, print files, and placement notes.
+
+Statuses: `File Needed`, `Artwork Uploaded`, `In Review`, `Approved`, `Sent to Print`, `Delivered`, `Installed`, `Needs Confirmation`.
+
+### `cventComparison`
+
+Human-review comparison between the website source of truth and Cvent exports. Never auto-overwrite website data from Cvent.
+
+Statuses: `Match`, `Conflict`, `Needs Review`, `Corrected`, `Ignore`.
+
+### `missingFiles`
+
+Files/assets still needed for call sheet, Cvent, speaker/deck content, artwork/signage, staff/suppliers, entertainment, playlists, podcast, venue/restaurants, and production.
+
+### `slackAlerts` and `meta.slackEventMapping`
+
+Slack records are stubs until a backend/serverless endpoint exists. Do not store webhook URLs or Slack tokens in `content.json`, `script.js`, or any GitHub Pages frontend file.

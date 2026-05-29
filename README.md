@@ -246,7 +246,7 @@ Common updates in `content.json`:
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
-- Use `BE GOOD` consistently.
+- Use `BeGood` consistently.
 - Use `Clownfish` consistently.
 - Use full names instead of initials where known. Unknown initials must be marked `Needs name confirmation`.
 - Use the official main HORIZONS logo at `assets/logos/horizons-main-logo-black.png` for the hero/header logo. Do not recreate it with text.
@@ -313,8 +313,62 @@ The latest source added or updated:
 - Menu/catering reference records.
 - Operating rules: artist/DJ liaison through Dawn, no pork, and neutral contractor clothing.
 - Guest Materials & Experience records for tote bags, crew shirts, easel boards, signage, menus, swag, and room drops.
+- Location-specific schedules and restaurant-specific schedule views.
+- StudioBinder-style call sheet fields, with weather placeholder and Slack-ready summary actions.
+- Speaker content, rehearsals, entertainment, curated playlists, artwork/signage, Cvent comparison, staff lists, and missing files records.
+- Slack channel map and integration stub. Webhook URLs must be configured in a backend/serverless environment, never in frontend files.
 
 Remaining unresolved items should stay as `Needs Confirmation`, `At Risk`, or `File Needed` until Samuel, Chris, or the relevant owner approves them.
+
+## Slack Integration
+
+The website remains the source of truth. Slack is the alert and communication layer.
+
+Current implementation:
+
+- Slack section lists recommended channels.
+- Red flags include a `Copy Slack Update` action.
+- Channel/event mapping lives in `content.json` under `meta.slackEventMapping`.
+- Credential-free example mapping lives in `slack-config.example.json`.
+- No Slack webhook URL, token, or secret is stored in the frontend.
+
+To activate automated Slack alerts later, create a backend or serverless endpoint that reads environment variables such as `SLACK_WEBHOOK_RED_FLAGS`, then posts approved website events to Slack.
+
+Recommended channels:
+
+- `#horizons-main`
+- `#horizons-red-flags`
+- `#horizons-schedule`
+- `#horizons-production`
+- `#horizons-content`
+- `#horizons-podcast`
+- `#horizons-suppliers`
+- `#horizons-entertainment`
+- `#horizons-locations`
+- `#horizons-documents`
+- `#horizons-decisions`
+
+## New Operational Sections
+
+The current site now supports:
+
+- `locationSchedules`: what is happening by location.
+- `restaurants` and `restaurantSchedules`: meal spaces, menus, groups, entertainment, and content capture.
+- `speakers`: speaker/session/deck content.
+- `rehearsals`: speaker, HORIZONS Hall, HORIZONS Studio, show running, technical, screen/deck, and podcast rehearsals.
+- `entertainment`: performer arrival, sound check, performance, rider, and hospitality notes.
+- `curatedPlaylists`: every known point where music is required.
+- `artworkSignage`: wayfinding, easel boards, A1 boards, natural totems, print files, and placement notes.
+- `staffLists`: grouped staff/contact views.
+- `cventComparison`: event app audit records.
+- `missingFiles`: all files/assets still needed.
+
+Spelling rules:
+
+- Use `Aream & Co.` exactly.
+- Use `BeGood` exactly.
+- Use `Clownfish` exactly.
+- Replace known initials with full names. Unknown initials should be marked `Needs Name Confirmation`.
 
 ## Deployment
 
