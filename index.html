@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260529-records1">
+    <link rel="stylesheet" href="style.css?v=20260529-call-sheet1">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -47,6 +47,9 @@
           <a href="#cvent">Cvent</a>
           <a href="#missing-files">Missing Files</a>
           <a href="#slack">Slack</a>
+          <a href="#data-health">Data Health</a>
+          <a href="#duplicate-review">Duplicates</a>
+          <a href="#site-audit">Audit</a>
           <a href="#decisions">Decisions</a>
           <a href="#documents">Documents</a>
         </nav>
@@ -194,15 +197,22 @@
 
       <section id="call-sheet" class="section">
         <div class="container">
-          <div class="section-heading">
+          <div class="brand-logo-wrapper call-sheet-brand">
+            <img class="brand-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+          </div>
+          <div class="section-heading centered-heading">
             <p class="eyebrow">Daily call sheets</p>
             <h2>Call Sheet</h2>
-            <p>Hour-by-hour rundown for each event day, with current and next moments highlighted when the event is live.</p>
+            <p>Day-specific production view for weather, crew call, key contacts, schedule, emergency information, notes, files, and red flags.</p>
           </div>
           <div class="tabs" data-call-sheet-tabs role="tablist" aria-label="Call sheet days"></div>
           <div class="now-next" data-call-sheet-now-next></div>
           <div class="weather-card" data-weather></div>
+          <div class="cards-grid call-sheet-summary" data-call-sheet-summary></div>
+          <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
+          <div class="cards-grid compact-grid call-sheet-notes" data-call-sheet-notes></div>
           <div class="call-sheet-list" data-call-sheet></div>
+          <div class="cards-grid compact-grid call-sheet-links" data-call-sheet-links></div>
         </div>
       </section>
 
@@ -515,6 +525,39 @@
         </div>
       </section>
 
+      <section id="data-health" class="section section-tint admin-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / source health</p>
+            <h2>Data Health Dashboard</h2>
+            <p>Internal review of missing owners, TBCs, red flags, missing files, duplicate candidates, and source readiness.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-data-health></div>
+        </div>
+      </section>
+
+      <section id="duplicate-review" class="section admin-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / duplicate review</p>
+            <h2>Duplicate Review</h2>
+            <p>Possible duplicate records are preserved here for human review instead of silently deleting operational information.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-duplicate-review></div>
+        </div>
+      </section>
+
+      <section id="site-audit" class="section section-tint admin-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / UX audit</p>
+            <h2>Site Data & UX Audit</h2>
+            <p>Structured audit notes from the developer, event producer, and creative team user perspectives.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-site-audit></div>
+        </div>
+      </section>
+
       <section id="horizons-studio" class="section">
         <div class="container">
           <div class="section-heading">
@@ -576,6 +619,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260529-records1"></script>
+    <script src="script.js?v=20260529-call-sheet1"></script>
   </body>
 </html>

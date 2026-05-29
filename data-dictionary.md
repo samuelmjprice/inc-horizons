@@ -328,3 +328,47 @@ Files/assets still needed for call sheet, Cvent, speaker/deck content, artwork/s
 ### `slackAlerts` and `meta.slackEventMapping`
 
 Slack records are stubs until a backend/serverless endpoint exists. Do not store webhook URLs or Slack tokens in `content.json`, `script.js`, or any GitHub Pages frontend file.
+
+### `callSheets`
+
+Dedicated daily call sheet records used by the Call Sheet page.
+
+Required fields: `id`, `day`, `date`, `title`, `weatherSummary`, `sunriseTime`, `sunsetTime`, `crewCallTime`, `mainLocation`, `dailyFocus`, `keyContacts`, `whoDoICall`, `scheduleItems`, `locationNotes`, `productionNotes`, `supplierNotes`, `entertainmentNotes`, `podcastNotes`, `transportNotes`, `mealNotes`, `emergencyNotes`, `hospitalLocationId`, `documents`, `redFlags`, `missingFiles`, `status`, `lastUpdated`.
+
+### `locations`
+
+Locations now also support emergency and mapping fields.
+
+Additional fields: `canonicalName`, `aliases`, `address`, `googleMapsUrl`, `emergencyRelevance`, `travelTimeFromVenue`.
+
+If a map link is not confirmed, use `Google Maps Link Needed`. Emergency medical records should keep `emergencyRelevance: true` and `status: Needs Confirmation` until verified.
+
+### `weather`
+
+Live weather configuration for the Open-Meteo card.
+
+Fields: `location`, `latitude`, `longitude`, `cacheMinutes`, `source`, `status`, `temperature`, `wind`, `rainChance`, `sunrise`, `sunset`, `operationalNote`.
+
+The frontend requests Open-Meteo directly and caches the response in localStorage for the configured period.
+
+### `siteDataUxAudit`
+
+Admin/source audit report.
+
+Fields: `area`, `issueType`, `whatWasFound`, `impact`, `recommendedFix`, `status`.
+
+### `duplicateReview`
+
+Human-review queue for duplicate candidates.
+
+Fields: `duplicateGroupId`, `itemType`, `possibleDuplicates`, `recommendedCanonicalRecord`, `reason`, `confidence`, `status`, `reviewedBy`, `notes`.
+
+### `dataHealthDashboard`
+
+Admin readiness metrics.
+
+Fields: `metric`, `count`, `action`, `status`.
+
+### `record_updates` / local update model
+
+The browser update form now captures Slack-ready fields: `priority`, `visibility`, `notifySlack`, `slackChannel`, and `slackStatus`. The static frontend queues Slack activity locally only; live posting requires a backend or serverless endpoint with environment variables.

@@ -387,6 +387,20 @@ Backup created before this pass:
 
 `/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_BACKUP_2026-05-29_1346/`
 
+Latest emergency/call-sheet backup:
+
+`/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_BACKUP_2026-05-29_1415/`
+
+## Latest Call Sheet / Emergency Update
+
+- `#call-sheet` is now a dedicated top-level daily call sheet view with Today and day tabs.
+- Call sheets pull from `content.json` `callSheets`, `schedule`, `dailyRunSheets`, `whoDoICall`, `documents`, `redFlags`, `missingFiles`, `locations`, and live weather.
+- The Call Sheet includes print support and a copy-ready Slack summary. Real Slack posting remains a backend/webhook task.
+- Emergency medical information is stored as a location record and is marked `Needs Confirmation` until the team confirms the hospital and route.
+- Major location cards support `googleMapsUrl`; unknown links must show `Google Maps Link Needed`.
+- Live weather uses Open-Meteo with local browser caching. If it fails, the site shows: “Weather currently unavailable. Please check closer to the event.”
+- Admin/source views now include Data Health Dashboard, Duplicate Review, and Site Data & UX Audit.
+
 ## Deployment
 
 1. Test locally.

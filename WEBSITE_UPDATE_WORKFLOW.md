@@ -171,3 +171,19 @@ Use the missing-info tracker for:
 - New status treatments should be small pills/tags using soft brand colours. Do not use aggressive full-card colour fills.
 - Interface icons should be simple line-style controls or CSS chevrons. Avoid emoji and mismatched icon styles.
 - New sections should reuse existing card, tab, details, and filter patterns so the page remains spacious and easy to scan on mobile.
+
+## Call Sheet / Emergency / Weather Workflow
+
+1. Update canonical schedule, daily run sheet, location, document, red flag, and missing-file records first.
+2. Use `callSheets` only as the daily operational view that references those records.
+3. Keep emergency medical location as `Needs Confirmation` until the exact hospital, route, venue contact, and protocol are confirmed.
+4. Add Google Maps URLs to `locations.googleMapsUrl`; use `Google Maps Link Needed` when unknown.
+5. Weather is loaded from Open-Meteo in the browser and cached locally. Do not add API keys.
+6. Print the Call Sheet from the dedicated `#call-sheet` page.
+7. Slack buttons/copy actions are safe stubs until a backend webhook endpoint is added.
+
+## Audit / Deduplication Workflow
+
+- Use Data Health Dashboard to check missing owners, TBC times, unknown initials, missing files, and open red flags.
+- Use Duplicate Review for possible duplicate records. Do not delete or merge uncertain records without human review.
+- Use Site Data & UX Audit to track layout, source, navigation, mobile, and density issues from each revision pass.

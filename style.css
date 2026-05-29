@@ -152,16 +152,21 @@ code {
 .nav-shell {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: min(100% - 32px, var(--container));
-  min-height: 72px;
+  min-height: 92px;
   margin: 0 auto;
   gap: 1.25rem;
+  position: relative;
+  flex-wrap: wrap;
+  padding: 0.75rem 0 0.55rem;
 }
 
 .brand-mark {
   flex: 0 0 auto;
   width: 148px;
+  margin: 0 auto;
+  order: 1;
 }
 
 .brand-mark img {
@@ -183,6 +188,7 @@ code {
 .site-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.34rem;
   min-width: 0;
   overflow-x: auto;
@@ -191,6 +197,8 @@ code {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   scrollbar-width: none;
+  flex: 1 1 100%;
+  order: 2;
 }
 
 .site-nav::-webkit-scrollbar {
@@ -221,6 +229,23 @@ code {
   padding: 0.58rem 0.85rem;
   font-family: "Soleil", Arial, sans-serif;
   font-weight: 700;
+}
+
+.brand-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 32px auto 24px;
+  text-align: center;
+}
+
+.brand-logo {
+  display: block;
+  width: min(240px, 68vw);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .menu-icon {
@@ -280,13 +305,14 @@ code {
 
 .hero-copy {
   max-width: 760px;
+  text-align: center;
 }
 
 .hero-logo {
   width: min(420px, 78vw);
   height: auto;
   object-fit: contain;
-  margin-bottom: 3.2rem;
+  margin: 0 auto 3.2rem;
 }
 
 .eyebrow {
@@ -316,6 +342,7 @@ h2 {
 
 h1 {
   max-width: 760px;
+  margin-inline: auto;
   font-size: clamp(2.8rem, 7vw, 6.2rem);
   letter-spacing: 0.14em;
 }
@@ -788,10 +815,38 @@ select {
 .call-sheet-list {
   display: grid;
   gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .call-sheet-item.is-past {
   opacity: 0.62;
+}
+
+.call-sheet-brand {
+  margin-top: 0;
+}
+
+.centered-heading {
+  max-width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.call-sheet-summary,
+.call-sheet-emergency,
+.call-sheet-notes,
+.call-sheet-links {
+  margin-top: 1rem;
+}
+
+.call-sheet-emergency .card {
+  border-color: rgba(194, 137, 82, 0.34);
+  background: rgba(235, 217, 183, 0.34);
+}
+
+.admin-section .section-heading p:last-child {
+  max-width: 760px;
 }
 
 .timeline-time {
@@ -962,6 +1017,30 @@ summary::-webkit-details-marker {
   gap: 0.45rem;
   color: var(--muted);
   font-size: 0.78rem;
+}
+
+.checkbox-row {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(243, 234, 225, 0.5);
+  padding: 0.75rem;
+}
+
+.checkbox-row input {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+}
+
+.checkbox-row em {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: normal;
 }
 
 .update-form {
@@ -1202,16 +1281,19 @@ summary::-webkit-details-marker {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 180px 1fr auto;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: center;
+  justify-items: center;
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .footer-logo {
   width: 152px;
   height: auto;
+  margin: 0 auto;
   object-fit: contain;
 }
 
@@ -1253,6 +1335,7 @@ summary::-webkit-details-marker {
 @media (max-width: 760px) {
   .nav-shell {
     min-height: 64px;
+    padding: 0;
   }
 
   .brand-word {
@@ -1265,6 +1348,8 @@ summary::-webkit-details-marker {
 
   .menu-toggle {
     display: inline-flex;
+    position: absolute;
+    right: 0;
   }
 
   .site-nav {
@@ -1368,5 +1453,77 @@ summary::-webkit-details-marker {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .site-header,
+  .utility-band,
+  .section-progress,
+  .site-footer,
+  .updates-module,
+  .contact-actions,
+  #overview,
+  #today,
+  #red-flags,
+  #schedule,
+  #flights,
+  #daily,
+  #location-schedules,
+  #restaurants,
+  #tasks,
+  #contacts,
+  #who-do-i-call,
+  #locations,
+  #suppliers,
+  #podcast,
+  #entertainment,
+  #playlists,
+  #content,
+  #workstreams,
+  #horizons-house,
+  #room-drops,
+  #swag,
+  #speakers,
+  #rehearsals,
+  #artwork,
+  #staff,
+  #cvent,
+  #missing-files,
+  #slack,
+  #data-health,
+  #duplicate-review,
+  #site-audit,
+  #horizons-studio,
+  #decisions,
+  #documents,
+  #completed {
+    display: none !important;
+  }
+
+  #call-sheet {
+    display: block !important;
+    padding: 0;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .card,
+  .call-sheet-item,
+  .weather-card,
+  .now-next > div {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .brand-logo {
+    max-width: 180px;
   }
 }

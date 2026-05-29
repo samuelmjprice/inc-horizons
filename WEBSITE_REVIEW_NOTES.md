@@ -188,3 +188,22 @@ Still needed:
 - Signage placement map, print specs, artwork files, and Clownfish setup instructions.
 - Performer riders, hospitality requirements, arrival/sound check/performance confirmations.
 - Playlist names, links, music usage schedule, start/stop owner, and backup plan.
+
+## Call Sheet / Emergency / Audit Update
+
+Implemented in this pass:
+
+- Dedicated `CALL SHEET` page section with Today and day tabs.
+- Call Sheet now includes daily focus, crew call, live weather, emergency/medical, schedule, production/supplier/entertainment/podcast/transport/meal notes, documents, red flags, and missing files.
+- Print Call Sheet and Copy Slack Summary actions added.
+- Live weather now uses Open-Meteo with cached browser requests and a graceful fallback.
+- Emergency medical location added to Locations and Call Sheet as `Nearest Hospital — Needs Confirmation`.
+- Major locations now support Google Maps links or explicit `Google Maps Link Needed` placeholders.
+- Data Health Dashboard, Duplicate Review, and Site Data & UX Audit admin sections added.
+- Comment/update forms now include priority, visibility, Notify Slack, and Slack-channel preview fields. Live Slack posting remains pending backend/webhook setup.
+
+Still needs confirmation:
+
+- Exact nearest hospital / medical location, route, travel time, venue medical contact, and emergency protocol.
+- Exact Google Maps links for internal venue spaces such as HORIZONS House, HORIZONS Hall, HORIZONS Studio, The Situation Room, Orchard, Partel, Arcade, and Tommy's Tunnel.
+- Whether Call Sheet should include Saturday 6 June setup day in team-facing tabs or keep it as admin/setup reference only.

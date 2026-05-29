@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-records1";
+const APP_VERSION = "20260529-call-sheet1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -51,6 +51,28 @@ const updateStore = {
   load() {
     try { return JSON.parse(localStorage.getItem(this.key) || "{}"); }
     catch { return {}; }
+  },
+  save(value) {
+    localStorage.setItem(this.key, JSON.stringify(value));
+  }
+};
+
+const weatherStore = {
+  key: "horizons-weather-cache-v1",
+  load() {
+    try { return JSON.parse(localStorage.getItem(this.key) || "null"); }
+    catch { return null; }
+  },
+  save(value) {
+    localStorage.setItem(this.key, JSON.stringify(value));
+  }
+};
+
+const slackActivityStore = {
+  key: "horizons-slack-activity-v1",
+  load() {
+    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
+    catch { return []; }
   },
   save(value) {
     localStorage.setItem(this.key, JSON.stringify(value));
@@ -110,6 +132,16 @@ const buildOptions = (select, values, label) => {
 };
 
 const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
+const slackChannelFor = (id = "") => {
+  const routing = state.data?.meta?.slackCommentRouting || {};
+  const prefix = text(id).split(":")[0] || "default";
+  return routing[prefix] || routing.default || "#horizons-main";
+};
+
+const shouldAutoNotifySlack = (update = {}, id = "") => {
+  const status = `${update.status} ${update.priority} ${id}`.toLowerCase();
+  return /redflag|urgent|at risk|decision needed|critical|schedule timing|podcast timing|supplier timing|entertainment timing|cvent|weather warning|call sheet/.test(status);
+};
 
 const topicOptions = (topics = []) => topics.length ? `
   <label><span>Update topic</span><select name="topic">
@@ -133,6 +165,7 @@ const updateModule = (id, topics = []) => {
               <time>${escapeHtml(item.timestamp)}</time>
               ${item.topic ? `<span class="tag">${escapeHtml(item.topic)}</span>` : ""}
               ${tag(item.status)}
+              ${item.slackChannel ? `<span class="tag">${escapeHtml(item.slackStatus || "Slack pending")}: ${escapeHtml(item.slackChannel)}</span>` : ""}
             </div>
             <p>${escapeHtml(item.comment)}</p>
           </article>
@@ -142,7 +175,10 @@ const updateModule = (id, topics = []) => {
         <label><span>Name</span><input required name="name" placeholder="Your name"></label>
         ${topicOptions(topics)}
         <label><span>Status</span><select name="status">${options().map((status) => `<option>${escapeHtml(status)}</option>`).join("")}</select></label>
+        <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option><option>Critical</option></select></label>
+        <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
+        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>This will post to ${escapeHtml(slackChannelFor(id))} once backend webhooks are configured.</em></span></label>
         <button class="button button-secondary" type="submit">Save update</button>
       </form>
     </details>
@@ -197,6 +233,7 @@ async function init() {
   renderFilters();
   renderAll();
   bindEvents();
+  loadLiveWeather();
   startCountdown();
   startNowNext();
   setupSectionNavigation();
@@ -301,6 +338,9 @@ function renderAll() {
   renderCventComparison();
   renderMissingFiles();
   renderSlackIntegration();
+  renderDataHealth();
+  renderDuplicateReview();
+  renderSiteAudit();
   renderStudio();
   renderDecisions();
   renderDocumentTabs();
@@ -452,23 +492,95 @@ function renderNowNext() {
   `);
 }
 
-function renderWeather() {
-  const weather = state.data.weather || {};
+const weatherCodeLabel = (code) => {
+  const value = Number(code);
+  if (value === 0) return "Clear sky";
+  if ([1, 2, 3].includes(value)) return "Mainly clear / partly cloudy";
+  if ([45, 48].includes(value)) return "Fog";
+  if ([51, 53, 55].includes(value)) return "Drizzle";
+  if ([61, 63, 65].includes(value)) return "Rain";
+  if ([71, 73, 75].includes(value)) return "Snow";
+  if ([80, 81, 82].includes(value)) return "Rain showers";
+  if (value === 95) return "Thunderstorm";
+  return "Weather update";
+};
+
+function formatWeatherTime(value) {
+  if (!value) return "";
+  try {
+    return new Date(value).toLocaleString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" });
+  } catch {
+    return value;
+  }
+}
+
+function renderWeather(live = null) {
+  const weather = live || state.data.weather || {};
+  const current = live?.current;
+  const daily = live?.daily;
+  const dayIndex = 0;
+  const temperature = current ? `${Math.round(current.temperature_2m)}°C` : weather.temperature;
+  const condition = current ? weatherCodeLabel(current.weather_code) : weather.status;
+  const wind = current ? `${Math.round(current.wind_speed_10m)} km/h` : weather.wind;
+  const rain = daily?.precipitation_probability_max ? `${daily.precipitation_probability_max[dayIndex]}%` : weather.rainChance;
+  const highLow = daily?.temperature_2m_max ? `${Math.round(daily.temperature_2m_max[dayIndex])}°C / ${Math.round(daily.temperature_2m_min[dayIndex])}°C` : "";
+  const sunrise = daily?.sunrise ? formatWeatherTime(daily.sunrise[dayIndex]) : weather.sunrise;
+  const sunset = daily?.sunset ? formatWeatherTime(daily.sunset[dayIndex]) : weather.sunset;
+  const updated = live?.fetchedAt ? new Date(live.fetchedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Madrid" }) : "";
   setHtml("[data-weather]", `
     <div>
       <span class="eyebrow">Weather</span>
       <strong>${escapeHtml(weather.location || "Six Senses Ibiza / Ibiza")}</strong>
-      <p>${escapeHtml(weather.temperature || "Weather module pending connection")}</p>
+      <p>${escapeHtml([temperature, condition].filter(Boolean).join(" · ") || "Loading live weather")}</p>
     </div>
     <div class="meta-list compact-meta">
-      ${meta("Wind", weather.wind)}
-      ${meta("Chance of rain", weather.rainChance)}
-      ${meta("Sunrise", weather.sunrise)}
-      ${meta("Sunset", weather.sunset)}
-      ${meta("Status", weather.status)}
+      ${meta("High / low", highLow)}
+      ${meta("Wind", wind)}
+      ${meta("Chance of rain", rain)}
+      ${meta("Sunrise", sunrise)}
+      ${meta("Sunset", sunset)}
+      ${meta("Last updated", updated)}
     </div>
-    <p>${escapeHtml(weather.operationalNote || "Weather module pending connection.")}</p>
+    <p>${escapeHtml(live ? "Good for operational planning. Drone/sunset capture remains subject to venue and drone approval." : (weather.operationalNote || "Weather currently unavailable. Please check closer to the event."))}</p>
   `);
+}
+
+async function loadLiveWeather() {
+  const weather = state.data.weather || {};
+  const latitude = weather.latitude;
+  const longitude = weather.longitude;
+  if (!latitude || !longitude) return;
+  const cached = weatherStore.load();
+  const ttl = Number(weather.cacheMinutes || 45) * 60 * 1000;
+  if (cached?.fetchedAt && Date.now() - cached.fetchedAt < ttl) {
+    renderWeather(cached);
+    return;
+  }
+  const params = new URLSearchParams({
+    latitude,
+    longitude,
+    current: "temperature_2m,weather_code,wind_speed_10m",
+    daily: "temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset",
+    timezone: "auto"
+  });
+  try {
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params.toString()}`);
+    if (!response.ok) throw new Error(`Weather API returned ${response.status}`);
+    const live = await response.json();
+    live.location = weather.location || "Six Senses Ibiza / Ibiza";
+    live.fetchedAt = Date.now();
+    weatherStore.save(live);
+    renderWeather(live);
+  } catch (error) {
+    console.warn("Weather currently unavailable", error);
+    setHtml("[data-weather]", `
+      <div>
+        <span class="eyebrow">Weather</span>
+        <strong>${escapeHtml(weather.location || "Six Senses Ibiza / Ibiza")}</strong>
+        <p>Weather currently unavailable. Please check closer to the event.</p>
+      </div>
+    `);
+  }
 }
 
 function renderSchedule() {
@@ -492,14 +604,24 @@ function renderSchedule() {
 }
 
 function renderCallSheetTabs() {
-  setHtml("[data-call-sheet-tabs]", state.data.dailyRunSheets.map((day, index) => {
+  const today = getCurrentEventDay() || getNextEventDay() || state.activeCallSheetDay;
+  const todayButton = `<button class="tab-button call-sheet-today" type="button" role="tab" aria-selected="${today === state.activeCallSheetDay}" data-call-sheet-tab="${escapeHtml(today)}">Today <span>${escapeHtml(today.split(" ")[0] || "")}</span></button>`;
+  setHtml("[data-call-sheet-tabs]", todayButton + state.data.dailyRunSheets.map((day, index) => {
     const label = day.day.split(" ")[0] || `Day ${index + 1}`;
     const current = getCurrentEventDay() === day.day;
     return `<button class="tab-button ${current ? "is-current-day" : ""}" type="button" role="tab" aria-selected="${day.day === state.activeCallSheetDay}" data-call-sheet-tab="${escapeHtml(day.day)}">${escapeHtml(label)}${current ? `<span>Today</span>` : ""}</button>`;
   }).join(""));
 }
 
+function mapLink(item = {}) {
+  const url = text(item.googleMapsUrl);
+  if (!url || url === "Google Maps Link Needed") return `<span class="tag tag-waiting">Google Maps Link Needed</span>`;
+  return `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">Open in Google Maps</a>`;
+}
+
 function renderCallSheet() {
+  const sheet = (state.data.callSheets || []).find((item) => item.day === state.activeCallSheetDay) || {};
+  const emergency = (state.data.locations || []).find((item) => item.id === sheet.hospitalLocationId) || (state.data.locations || []).find((item) => item.emergencyRelevance);
   const position = schedulePosition(state.activeCallSheetDay);
   const nowMinutes = position.now.getHours() * 60 + position.now.getMinutes();
   const isToday = position.today === state.activeCallSheetDay;
@@ -509,6 +631,41 @@ function renderCallSheet() {
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999))
     .slice(0, 120);
+  setHtml("[data-call-sheet-summary]", card({
+    title: sheet.title || `${state.activeCallSheetDay} Call Sheet`,
+    status: sheet.status || "Needs Confirmation",
+    body: `<p>${escapeHtml(sheet.dailyFocus || "Daily focus needed")}</p>`,
+    metadata: meta("Crew call", sheet.crewCallTime) + meta("Main location", sheet.mainLocation) + meta("Key contacts", sheet.keyContacts),
+    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet>Print Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button><a href="#who-do-i-call">Who Do I Call</a></div>`,
+    updateId: sheet.id || `call-sheet:${slug(state.activeCallSheetDay)}`
+  }));
+  setHtml("[data-call-sheet-emergency]", card({
+    title: "Emergency / Medical",
+    status: emergency?.status || "Needs Confirmation",
+    body: `<p>${escapeHtml(sheet.emergencyNotes || "Emergency medical information needs confirmation.")}</p>`,
+    metadata: meta("Nearest medical location", emergency?.locationName) + meta("Address", emergency?.address) + meta("Travel time", emergency?.travelTimeFromVenue) + meta("Emergency number", "112 / venue protocol TBC") + meta("Key onsite contact", "Dawn Ramsden / Pili Lopez"),
+    footer: `<div class="contact-actions">${mapLink(emergency)}<a href="#locations">Open Locations</a><a href="#who-do-i-call">Emergency contacts</a></div>`,
+    updateId: emergency?.updateId || "location:emergency-medical"
+  }));
+  setHtml("[data-call-sheet-notes]", [
+    ["Production notes", sheet.productionNotes],
+    ["Supplier notes", sheet.supplierNotes],
+    ["Entertainment notes", sheet.entertainmentNotes],
+    ["Podcast notes", sheet.podcastNotes],
+    ["Transport notes", sheet.transportNotes],
+    ["Food / meal notes", sheet.mealNotes],
+    ["Location notes", sheet.locationNotes]
+  ].map(([title, value]) => card({
+    title,
+    status: /needed|confirmation|tbc/i.test(value || "") ? "Needs Confirmation" : "Reference",
+    body: `<p>${escapeHtml(value || "Notes needed")}</p>`,
+    updateId: `call-sheet-note:${slug(state.activeCallSheetDay)}:${slug(title)}`
+  })).join(""));
+  setHtml("[data-call-sheet-links]", [
+    card({ title: "Documents / links", status: sheet.documents?.length ? "Reference" : "File Needed", body: list(sheet.documents) || "<p>Call sheet documents still need linking.</p>", updateId: `call-sheet-docs:${slug(state.activeCallSheetDay)}` }),
+    card({ title: "Red flags for this day", status: sheet.redFlags?.length ? "Watch" : "On Track", body: list(sheet.redFlags) || "<p>No day-specific red flags listed.</p>", updateId: `call-sheet-redflags:${slug(state.activeCallSheetDay)}` }),
+    card({ title: "Missing files for this day", status: sheet.missingFiles?.length ? "File Needed" : "On Track", body: list(sheet.missingFiles) || "<p>No day-specific missing files listed.</p>", updateId: `call-sheet-missing:${slug(state.activeCallSheetDay)}` })
+  ].join(""));
   setHtml("[data-call-sheet]", items.map((item) => {
     const past = isToday && item.startMinutes !== null && item.startMinutes < nowMinutes && item.updateId !== position.current?.updateId;
     const current = item.updateId === position.current?.updateId;
@@ -717,8 +874,8 @@ function renderLocations() {
     title: item.locationName,
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
-    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Watch-out", item.watchOut),
-    footer: detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
+    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Watch-out", item.watchOut),
+    footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
         <p>${escapeHtml(row.activity || "Activity needed")}</p>
@@ -1014,6 +1171,38 @@ function renderSlackIntegration() {
   ].join(""));
 }
 
+function renderDataHealth() {
+  setHtml("[data-data-health]", (state.data.dataHealthDashboard || []).map((item) => card({
+    title: item.metric,
+    status: item.status,
+    body: `<p><strong>${escapeHtml(String(item.count))}</strong> item${Number(item.count) === 1 ? "" : "s"}</p>`,
+    metadata: meta("Action", item.action),
+    updateId: `data-health:${slug(item.metric)}`
+  })).join("") || empty("No data health metrics available."));
+}
+
+function renderDuplicateReview() {
+  setHtml("[data-duplicate-review]", (state.data.duplicateReview || []).map((item) => card({
+    title: item.duplicateGroupId,
+    status: item.status,
+    department: item.itemType,
+    body: `<p>${escapeHtml(item.reason)}</p>`,
+    metadata: meta("Possible duplicates", item.possibleDuplicates) + meta("Recommended canonical", item.recommendedCanonicalRecord) + meta("Confidence", item.confidence) + meta("Reviewed by", item.reviewedBy) + meta("Notes", item.notes),
+    updateId: `duplicate:${slug(item.duplicateGroupId)}`
+  })).join("") || empty("No exact duplicate groups detected in this pass."));
+}
+
+function renderSiteAudit() {
+  setHtml("[data-site-audit]", (state.data.siteDataUxAudit || []).map((item) => card({
+    title: item.area,
+    status: item.status,
+    department: item.issueType,
+    body: `<p>${escapeHtml(item.whatWasFound)}</p>`,
+    metadata: meta("Impact", item.impact) + meta("Recommended fix", item.recommendedFix),
+    updateId: `site-audit:${slug(item.area)}:${slug(item.issueType)}`
+  })).join("") || empty("No site audit records available."));
+}
+
 function renderStudio() {
   setHtml("[data-horizons-studio]", state.data.horizonsStudio.map((item) => card({
     title: "HORIZONS Studio",
@@ -1130,6 +1319,9 @@ function setupSectionNavigation() {
     ["cvent", "Cvent"],
     ["missing-files", "Missing Files"],
     ["slack", "Slack"],
+    ["data-health", "Data Health"],
+    ["duplicate-review", "Duplicate Review"],
+    ["site-audit", "Site Audit"],
     ["horizons-studio", "HORIZONS Studio"],
     ["decisions", "Decisions"],
     ["documents", "Documents"]
@@ -1238,6 +1430,22 @@ function bindEvents() {
       setTimeout(() => { copySlack.textContent = "Copy Slack Update"; }, 1600);
       return;
     }
+    const printCallSheet = event.target.closest("[data-print-call-sheet]");
+    if (printCallSheet) { window.print(); return; }
+    const copyCallSheet = event.target.closest("[data-copy-call-sheet]");
+    if (copyCallSheet) {
+      const sheet = (state.data.callSheets || []).find((item) => item.day === state.activeCallSheetDay) || {};
+      const items = state.data.schedule
+        .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
+        .slice(0, 8)
+        .map((item) => `${item.timeDisplay || item.timeStart || "TBC"} - ${item.title} (${item.location || "Location TBC"})`)
+        .join("\n");
+      const message = `CALL SHEET: ${sheet.title || state.activeCallSheetDay}\nCrew call: ${sheet.crewCallTime || "TBC"}\nMain location: ${sheet.mainLocation || "TBC"}\nFocus: ${sheet.dailyFocus || "TBC"}\n\nSchedule:\n${items}\n\nOpen: ${location.origin}${location.pathname}#call-sheet`;
+      navigator.clipboard?.writeText(message);
+      copyCallSheet.textContent = "Copied";
+      setTimeout(() => { copyCallSheet.textContent = "Copy Slack Summary"; }, 1600);
+      return;
+    }
     const dismissSuggestion = event.target.closest("[data-capture-dismiss]");
     if (dismissSuggestion) {
       state.dismissedCaptureSuggestions = unique([...(state.dismissedCaptureSuggestions || []), dismissSuggestion.dataset.captureDismiss]);
@@ -1294,10 +1502,34 @@ function bindEvents() {
       name: text(data.get("name"), "Anonymous"),
       topic: text(data.get("topic")),
       status: text(data.get("status"), "Still To Be Resolved"),
+      priority: text(data.get("priority"), "Normal"),
+      visibility: text(data.get("visibility"), "Team"),
       comment: text(data.get("comment")),
+      notifySlack: data.get("notifySlack") === "true",
+      slackChannel: slackChannelFor(id),
+      slackStatus: "",
       timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
     };
     if (!update.comment) return;
+    const shouldNotify = update.notifySlack || shouldAutoNotifySlack(update, id);
+    if (shouldNotify && !/private|admin/i.test(update.visibility)) {
+      update.slackStatus = "Pending backend setup";
+      const log = slackActivityStore.load();
+      slackActivityStore.save([...log, {
+        id: `slack-local-${Date.now()}`,
+        updateId: id,
+        parentType: id.split(":")[0] || "default",
+        parentId: id,
+        channel: update.slackChannel,
+        messagePreview: update.comment.slice(0, 180),
+        sentBy: update.name,
+        sentAt: update.timestamp,
+        status: "Queued",
+        errorMessage: "Static site stub: add webhook-backed backend before live Slack posting."
+      }]);
+    } else if (shouldNotify) {
+      update.slackStatus = "Blocked by visibility";
+    }
     state.updates[id] = [...getUpdates(id), update];
     updateStore.save(state.updates);
     renderAll();
