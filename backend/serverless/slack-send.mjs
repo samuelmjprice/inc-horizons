@@ -39,9 +39,10 @@ export async function sendSlackAlert(payload, env = process.env) {
     return { ok: false, status: 400, error: `Unsupported Slack event type: ${eventType}` };
   }
 
-  const envName = channelMap[eventType];
+  const testMode = env.SLACK_TEST_MODE === "true" || payload.force_test_channel === true;
+  const envName = testMode ? "SLACK_WEBHOOK_TEST" : channelMap[eventType];
   const webhookUrl = env[envName];
-  const channel = payload.channel || envName;
+  const channel = testMode ? "#horizons-test" : (payload.channel || envName);
   const preview = slackText(payload);
 
   if (!webhookUrl) {

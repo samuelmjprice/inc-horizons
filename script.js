@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-backend1";
+const APP_VERSION = "20260529-commenttest1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -133,6 +133,7 @@ const buildOptions = (select, values, label) => {
 
 const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
 const slackChannelFor = (id = "") => {
+  if (state.data?.meta?.slackTestMode) return "#horizons-test";
   const routing = state.data?.meta?.slackCommentRouting || {};
   const prefix = text(id).split(":")[0] || "default";
   return routing[prefix] || routing.default || "#horizons-main";
@@ -173,7 +174,7 @@ const frontendUpdateFromRecord = (record = {}) => ({
   visibility: record.visibility || "Team",
   comment: record.body || "",
   notifySlack: Boolean(record.notify_slack),
-  slackChannel: record.slack_channel || slackChannelFor(record.parent_id),
+  slackChannel: record.slack_channel || (record.notify_slack ? slackChannelFor(record.parent_id) : ""),
   slackStatus: record.slack_sent_at ? "Sent" : record.slack_error ? "Slack failed" : record.notify_slack ? "Queued" : "",
   timestamp: record.created_at ? new Date(record.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "",
   source: "backend"
@@ -216,6 +217,7 @@ async function saveSharedUpdate(parentId, update) {
     priority: update.priority,
     notify_slack: update.notifySlack,
     slack_channel: update.slackChannel,
+    force_test_channel: Boolean(state.data?.meta?.slackTestMode),
     website_link: `${location.origin}${location.pathname}#${parentId}`
   };
   const response = await fetch(`${base}/api/updates`, {
@@ -1602,6 +1604,10 @@ function bindEvents() {
       timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
     };
     if (!update.comment) return;
+    if (update.notifySlack) {
+      const preview = `Send this update to ${update.slackChannel}?\n\n${update.comment}`;
+      if (!window.confirm(preview)) update.notifySlack = false;
+    }
     const shouldNotify = update.notifySlack || shouldAutoNotifySlack(update, id);
     if (shouldNotify && /private|admin/i.test(update.visibility)) {
       update.slackStatus = "Blocked by visibility";

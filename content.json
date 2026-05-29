@@ -20380,7 +20380,8 @@
     },
     "weatherApi": "Open-Meteo Forecast API",
     "backendApiBase": "https://inc-horizons.vercel.app",
-    "slackSetupStatus": "Slack test webhook is live for #horizons-test. Production channel webhooks remain disabled until approved."
+    "slackSetupStatus": "Slack test mode is active. Website Notify Slack actions route only to #horizons-test until production channel webhooks are approved.",
+    "slackTestMode": true
   },
   "travel": [
     {
