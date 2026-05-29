@@ -207,3 +207,19 @@ Still needs confirmation:
 - Exact nearest hospital / medical location, route, travel time, venue medical contact, and emergency protocol.
 - Exact Google Maps links for internal venue spaces such as HORIZONS House, HORIZONS Hall, HORIZONS Studio, The Situation Room, Orchard, Partel, Arcade, and Tommy's Tunnel.
 - Whether Call Sheet should include Saturday 6 June setup day in team-facing tabs or keep it as admin/setup reference only.
+
+## Comment / Slack QA - 29 May 2026
+
+Verified against `https://inc-horizons.com` and `https://inc-horizons.vercel.app`:
+
+- Shared update save works through `/api/updates` into Supabase `record_updates`.
+- Shared update read works after live site refresh, proving the visible comment is coming from the shared backend rather than browser-only storage.
+- A normal comment did not create Slack activity and no longer displays a misleading Slack-pending tag.
+- A Notify Slack test comment posted only to `#horizons-test` and wrote a `Sent` record to `slack_activity_log`.
+- A deliberately unconfigured production route failed safely with `Slack notifications pending setup.` while preserving the website update.
+- Production Slack webhooks remain disabled and should not be activated without Samuel/Chris approval.
+
+Remaining polish:
+
+- Replace the native confirm dialog with a branded confirmation modal and explicit resend warning.
+- Add an admin-visible Slack activity viewer if the team wants to review Slack logs inside the website rather than Supabase.

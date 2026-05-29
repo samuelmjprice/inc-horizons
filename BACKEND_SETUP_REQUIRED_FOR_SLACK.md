@@ -1,8 +1,12 @@
-# Backend Setup Required For Slack
+# Backend Setup Status For Slack
 
 The GitHub Pages frontend cannot safely post directly to Slack because webhook URLs would be exposed.
 
-Required backend/serverless endpoint:
+The backend route now exists on Vercel and has been tested with `SLACK_WEBHOOK_TEST`.
+
+Production channel webhooks remain pending approval and are intentionally not configured.
+
+Backend/serverless endpoint:
 
 `POST /api/slack/send`
 
@@ -19,19 +23,12 @@ Payload:
 }
 ```
 
-Backend requirements:
+Backend behavior:
 
 1. Validate the request.
 2. Resolve the correct environment variable from `slack-channel-map.json`.
 3. Send JSON to Slack Incoming Webhook.
 4. Write a Slack Activity Log record.
 5. Return success/failure to the website.
-
-Recommended hosting options:
-
-- Vercel serverless functions.
-- Netlify functions.
-- Cloudflare Workers.
-- Small Express API with persistent database.
 
 Do not hardcode Slack secrets in frontend JavaScript or `content.json`.

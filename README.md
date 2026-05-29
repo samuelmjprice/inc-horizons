@@ -419,6 +419,16 @@ GoDaddy DNS for `inc-horizons.com`:
 
 Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 
+## Comment + Slack Test Status - 29 May 2026
+
+- Live website updates now post to the shared Vercel/Supabase backend at `https://inc-horizons.vercel.app`.
+- `record_updates` and `slack_activity_log` are the shared Supabase tables for website comments and Slack send records.
+- `localStorage` is only a browser fallback if the shared backend is unavailable.
+- Slack is in test mode only. Notify Slack actions route to `#horizons-test` while production channel webhooks remain disabled.
+- The live UI states this test-mode routing before a user sends a Slack notification.
+- Test comments are labelled `TEST - safe to delete` and should not be treated as event data.
+- Production Slack webhooks, wider team invites, and automatic production alerts still need Samuel/Chris approval.
+
 ## Files To Avoid Editing Unless Necessary
 
 - `index.html`

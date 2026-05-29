@@ -31,15 +31,16 @@ Comments and tracker rows do not automatically change the official website. Appr
 
 ## Website Comments
 
-The current website comment system is a local-only prototype using browser `localStorage`.
+The current website comment system is connected to the shared Vercel/Supabase backend.
 
 This means:
 
-- Comments save only on the current device and browser.
-- Other team members cannot see them.
-- They are useful for UI testing and personal notes only.
+- Comments save to the `record_updates` table through `https://inc-horizons.vercel.app/api/updates`.
+- Comments are visible after refresh and across approved browsers/devices.
+- Browser `localStorage` remains only as a draft/offline fallback if the backend cannot be reached.
+- Test comments should be labelled `TEST - safe to delete` and archived or removed before team handover.
 
-For real shared event comments, connect Firebase Firestore, Supabase, Airtable, or Google Sheets before event use. Shared comments should capture name, comment, timestamp, status, related item ID, and approval/review status.
+Shared comments capture name, comment, timestamp, status, priority, visibility, related item ID, and Slack send state where relevant.
 
 Supplier updates now also support an `Update Topic` field such as `Arrival time`, `Setup time`, `Contact details`, `Delivery`, `Location`, `Issue`, or `Resolved`.
 
@@ -87,17 +88,12 @@ Approved official data update:
 
 ## Comment Review Method
 
-Until shared storage is connected, local comments can be exported from the browser console:
+Review shared comments from Supabase `record_updates`.
 
-```js
-copy(localStorage.getItem("horizons-card-updates-v1"))
-```
-
-When shared storage is added, create one of these review methods:
+Future improvements:
 
 - Export comments as CSV or JSON.
 - Create a comments admin/review page.
-- Store comments in a simple backend table.
 - Sync approved comments into the Excel tracker.
 
 Codex should only apply comments marked `Approved Change` or tracker rows marked `Approved` / `Ready for Codex`.
@@ -127,13 +123,13 @@ Codex should only apply comments marked `Approved Change` or tracker rows marked
 
 The website is the source of truth. Slack is the communication and alert layer.
 
-Current implementation is a safe stub:
+Current implementation is partially live in test mode:
 
-1. Website users can copy Slack-ready red flag or operations updates.
-2. The Slack section shows recommended channels and event mapping.
-3. `slack-config.example.json` documents the channel/event mapping without credentials.
-4. Automated posting requires a backend/serverless endpoint.
-5. Webhook URLs and tokens must live in environment variables, not frontend code.
+1. Website users can save shared team updates through the Vercel/Supabase backend.
+2. Notify Slack actions are enabled only for `#horizons-test` while `content.json` has `meta.slackTestMode: true`.
+3. The Slack section shows recommended channels and event mapping.
+4. `slack-config.example.json` documents the channel/event mapping without credentials.
+5. Webhook URLs and tokens live in Vercel environment variables, not frontend code.
 
 Suggested environment variables:
 
@@ -148,6 +144,15 @@ Suggested environment variables:
 - `SLACK_WEBHOOK_LOCATIONS`
 - `SLACK_WEBHOOK_DOCUMENTS`
 - `SLACK_WEBHOOK_DECISIONS`
+- `SLACK_WEBHOOK_TEST`
+
+Comment / Slack QA on 29 May 2026:
+
+- Non-Slack website comments save to Supabase and reload on the live site.
+- Notify Slack comments save to Supabase and post to `#horizons-test` when Slack test mode is active.
+- Slack send attempts are written to `slack_activity_log`.
+- Missing production webhook routes return `Slack notifications pending setup.` without breaking comment save.
+- The current send confirmation is a native browser confirmation. A branded resend/duplicate modal is still a polish item.
 
 ## New Intake Areas
 

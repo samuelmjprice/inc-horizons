@@ -1,6 +1,8 @@
 # Slack Test Plan
 
-Slack is prepared but not live. Human admin setup required.
+Slack test posting is live for `#horizons-test` through the Vercel backend.
+
+Production Slack posting is not live. Human approval and production webhook setup are still required.
 
 Use `#horizons-test` for every test until approved.
 
@@ -30,3 +32,10 @@ Approval checklist:
 - Message formatting is clear.
 - BeGood and Aream & Co. spellings are correct.
 - Samuel Price and Samuel Hosier are separate.
+
+Latest safe test results, 29 May 2026:
+
+- Backend `/api/slack/send` sent a controlled message to `#horizons-test`.
+- Website comment with Notify Slack saved to Supabase and posted to `#horizons-test`.
+- Missing production webhook route failed safely and left the saved website update intact.
+- Slack activity was logged in Supabase.

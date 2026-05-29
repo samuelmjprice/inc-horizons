@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-commenttest1";
+const APP_VERSION = "20260529-commenttest2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -270,7 +270,7 @@ const updateModule = (id, topics = []) => {
         <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option><option>Critical</option></select></label>
         <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>This will post to ${escapeHtml(slackChannelFor(id))} once backend webhooks are configured.</em></span></label>
+        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Test mode: this posts only to ${escapeHtml(slackChannelFor(id))}.` : `This will post to ${escapeHtml(slackChannelFor(id))} once backend webhooks are configured.`}</em></span></label>
         <button class="button button-secondary" type="submit">Save Team Update</button>
       </form>
     </details>
