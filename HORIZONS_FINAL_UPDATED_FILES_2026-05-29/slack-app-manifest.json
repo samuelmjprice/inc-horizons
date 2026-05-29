@@ -1,0 +1,26 @@
+{
+  "display_information": {
+    "name": "Horizons Ops Bot",
+    "description": "Posts HORIZONS website alerts and team updates into approved Slack channels.",
+    "background_color": "#1f1f1f"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Horizons Ops Bot",
+      "always_online": false
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "incoming-webhook",
+        "chat:write"
+      ]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

@@ -30,7 +30,7 @@ Suppliers should appear once. Multiple questions, timings, or unresolved notes s
 
 Use `BeGood` and `Clownfish` exactly.
 
-Do not use old variants such as `BE GOOD`, `Be-Good`, `Be good`, `BGood`, `Clown Fish`, or `ClownFish`.
+Do not use legacy variants of the BeGood or Clownfish names.
 
 ### Missing Info Rule
 

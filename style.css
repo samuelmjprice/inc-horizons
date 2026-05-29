@@ -298,13 +298,16 @@ code {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 4rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.8rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .hero-copy {
-  max-width: 760px;
+  width: min(100%, 860px);
+  max-width: 860px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -424,6 +427,7 @@ h3 {
 }
 
 .start-panel {
+  width: min(100%, 860px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(255, 253, 248, 0.7);

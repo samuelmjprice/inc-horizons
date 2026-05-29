@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260529-call-sheet1";
+const APP_VERSION = "20260529-nextpass1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -153,7 +153,7 @@ const updateModule = (id, topics = []) => {
   const updates = getUpdates(id);
   const latest = updates.at(-1);
   const topicLabel = latest?.topic ? ` · ${latest.topic}` : "";
-  const summary = latest ? `${updates.length} update${updates.length === 1 ? "" : "s"} · Latest: ${latest.status}${topicLabel}` : "Add update";
+  const summary = latest ? `${updates.length} team update${updates.length === 1 ? "" : "s"} · Latest: ${latest.status}${topicLabel}` : "Add Team Update";
   return `
     <details class="updates-module" data-update-module="${escapeHtml(id)}">
       <summary><span>${escapeHtml(summary)}</span>${latest ? tag(latest.status) : ""}</summary>
@@ -169,7 +169,7 @@ const updateModule = (id, topics = []) => {
             </div>
             <p>${escapeHtml(item.comment)}</p>
           </article>
-        `).join("") : `<p class="summary-hint">Updates are currently saved on this device/browser only.</p>`}
+        `).join("") : `<p class="summary-hint">Shared updates are pending backend connection. Draft updates are temporarily saved in this browser until the backend is connected.</p>`}
       </div>
       <form class="update-form" data-update-form="${escapeHtml(id)}">
         <label><span>Name</span><input required name="name" placeholder="Your name"></label>
@@ -179,7 +179,7 @@ const updateModule = (id, topics = []) => {
         <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
         <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>This will post to ${escapeHtml(slackChannelFor(id))} once backend webhooks are configured.</em></span></label>
-        <button class="button button-secondary" type="submit">Save update</button>
+        <button class="button button-secondary" type="submit">Save Team Update</button>
       </form>
     </details>
   `;
