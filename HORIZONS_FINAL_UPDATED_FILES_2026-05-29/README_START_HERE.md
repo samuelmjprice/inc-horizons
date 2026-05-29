@@ -44,9 +44,9 @@ Use `HORIZONS_MASTER_EVENT_CONTROL_UPDATED.xlsx` as the primary source-of-truth 
 
 ## Live vs Local
 
-- Local website update: ready.
-- Git commit exists: `7f226c0 Add dedicated call sheet and emergency location support`.
-- Live deployment: blocked until GitHub SSH key, PAT, or manual ZIP upload is completed.
+- Local website update: complete.
+- Latest pushed commit: `e1fb4b9 Ignore local deployment zip packages`.
+- Live deployment: complete. GitHub Pages is serving the latest `20260529-nextpass1` build at https://inc-horizons.com/.
 - Slack: prepared but not live. Human admin setup required.
 - Shared comments backend: scaffolded but not deployed. GitHub Pages cannot run backend/API routes directly.
 

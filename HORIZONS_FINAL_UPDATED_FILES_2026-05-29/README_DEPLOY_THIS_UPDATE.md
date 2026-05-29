@@ -10,9 +10,9 @@ Commits included:
 Current live deploy status:
 
 - The local site is updated.
-- The GitHub Pages live site is not confirmed updated.
-- `git push origin main` is blocked by SSH authentication.
-- HTTPS push is also blocked because no GitHub username/token is configured in this environment.
+- `git push origin main` has succeeded.
+- GitHub Pages is serving the latest `20260529-nextpass1` build at https://inc-horizons.com/.
+- The ZIP remains available as a manual fallback package.
 
 ## What Changed
 
@@ -29,7 +29,7 @@ Current live deploy status:
 
 ## Manual GitHub Upload
 
-If SSH or token push is still blocked:
+If a future SSH or token push is blocked:
 
 1. Unzip `inc-horizons-website-update-2026-05-29.zip`.
 2. Open the GitHub repository: `samuelmjprice/inc-horizons`.
@@ -114,7 +114,6 @@ Do not commit or paste the token into any file.
 - Shared comments backend is scaffolded but not deployed.
 - Slack notifications are prepared but not live.
 - Slack workspace/channels/webhooks require human admin setup.
-- Live deploy is blocked until GitHub authentication or manual ZIP upload is completed.
 
 ## Still Needs Confirmation
 

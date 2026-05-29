@@ -49,8 +49,8 @@ Status key: Complete, Partially Complete, Not Started, Blocked, Needs Human Conf
 | Slack activity log | Local Only / Not Live | `script.js`, `schemas/slack-activity-log.schema.json`, backend scaffold | Frontend queues local activity; backend schema/scaffold created. | Connect database and Slack endpoint. |
 | Slack environment variable placeholders | Complete | `SLACK_ENVIRONMENT_VARIABLES.md`, `slack-channel-map.json` | Required variables documented. | Add real values in hosting provider only. |
 | Git commit | Complete | `git log` | Commit `7f226c0` contains the first local pass. | Commit this packaging/backend pass next. |
-| Git push | Blocked | Git remote/SSH auth | Local branch ahead of origin; push rejected by SSH key. | Add SSH key or use PAT, then `git push origin main`. |
-| Live deployment | Blocked | GitHub Pages deploy depends on push | Live site is not updated by local changes yet. | Push or manually upload ZIP. |
-| Live browser test | Blocked | Live site not updated | Local testing passed; live needs deployed code. | Test `https://inc-horizons.com/` after deploy. |
+| Git push | Complete | `git push origin main` | Pushed `main` to `samuelmjprice/inc-horizons` after configuring this repo to use the local HORIZONS SSH key. | Keep `core.sshCommand` or equivalent SSH config in place for future pushes. |
+| Live deployment | Complete | `https://inc-horizons.com/` | GitHub Pages is serving `20260529-nextpass1` assets from the latest pushed build. | Continue live QA after future pushes. |
+| Live browser test | Complete | Playwright desktop/mobile live QA | Desktop and 390px mobile passed: no console errors, no failed requests, no overflow, centered logo, call sheet/weather/emergency/Slack-pending states visible. | Re-test after backend/Slack changes. |
 | Backup | Complete | `/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_BACKUP_2026-05-29_1415/`, `/Users/ddm/Desktop/Chris Manoe/INC-Horizons Website/HORIZONS_BACKUP_2026-05-29_1440/` | Backups exist before and after the major pass. | Keep backup folders read-only. |
-| ZIP fallback | Ready for Deploy | `inc-horizons-website-update-2026-05-29.zip` | Manual deployment package created because push is blocked. | Upload ZIP contents to GitHub repo if SSH/PAT is not fixed. |
+| ZIP fallback | Complete | `inc-horizons-website-update-2026-05-29.zip` | Manual deployment package remains available as a fallback even though Git push now works. | Keep as archive only unless GitHub push breaks again. |
