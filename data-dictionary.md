@@ -28,7 +28,9 @@ Suppliers should appear once. Multiple questions, timings, or unresolved notes s
 
 ### Brand Spelling Rule
 
-Use `B Good` and `Clownfish` exactly. Do not use `Be Good`, `BGood`, `B good`, `Clown Fish`, `Clown fish`, or `ClownFish`.
+Use `BE GOOD` and `Clownfish` exactly.
+
+Do not use old variants such as `BeGood`, `Be-Good`, `Be good`, `BGood`, `Clown Fish`, or `ClownFish`.
 
 ### Missing Info Rule
 
@@ -76,6 +78,22 @@ Do not use raw spreadsheet labels such as `Yellow - Needs Confirmation` or `Red 
 - `Podcast`
 - `Production`
 - `Leadership`
+- `Operations / Logistics`
+- `Suppliers`
+
+## Latest Workbook Sync Fields
+
+The latest schedule sync uses these display records:
+
+- `schedule`: includes `date`, `dayLabel`, `timeStart`, `timeEnd`, `timeDisplay`, `period`, `title`, `owner`, `support`, `location`, `status`, `priority`, `category`, `department`, `source`, and `notes`.
+- `dailyRunSheets`: generated from approved schedule rows for each event day, including Saturday 6 June.
+- `locations`: card-first records with `primaryUse`, `mainDays`, `keyOwner`, `watchOut`, `status`, and expandable `scheduleItems`.
+- `suppliers`: one supplier card per supplier, with `timelineBlocks` for connected day/time/location records and `openItems` for unresolved questions.
+- `menus`: menu and catering reference records sourced from the latest workbook.
+- `swag`: now includes broader Guest Materials & Experience records such as swag, menus, tote bags, easel boards, printed signage, and guest touchpoints.
+- `weather`: placeholder weather module fields until a live weather source or daily forecast is connected.
+
+Do not publish unresolved timings, podcast slots, supplier setup windows, or documents as final. Use `Needs Confirmation`, `At Risk`, or `File Needed`.
 
 ## Owner / Person / Support
 

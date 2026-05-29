@@ -38,12 +38,16 @@ The website should not directly depend on a messy Excel workbook or unapproved c
 
 Current live features include:
 
+- Latest workbook sync from `HORIZONS_Website_Final_Schedule_Sync_For_Codex.xlsx`, including Saturday 6 June pre-event logistics.
 - Flights / Travel cards for arrivals, departures, transfer notes, missing flight details, and transport ownership.
 - Ibiza-time Now / Next schedule awareness.
 - Daily Call Sheets derived from approved schedule data, with day tabs and Now / Next highlighting.
+- Call Sheet weather placeholder for Six Senses Ibiza / Ibiza until a live forecast source is connected.
+- Card-first Locations, with detailed schedules inside expandable location panels.
 - Supplier timing blocks grouped by day.
 - Supplier update topic tagging.
 - Content Capture Suggestions for live capture ideas from the team.
+- Guest Materials & Experience covering swag, tote bags, menus, easel boards, signage, room drops, and guest touchpoints.
 - Section progress navigation and active top navigation.
 - Document categories for `Presentations / Speeches` and `Event Content Documents`.
 
@@ -242,9 +246,11 @@ Common updates in `content.json`:
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
-- Use `B Good` consistently.
+- Use `BE GOOD` consistently.
 - Use `Clownfish` consistently.
+- Use full names instead of initials where known. Unknown initials must be marked `Needs name confirmation`.
 - Use the official main HORIZONS logo at `assets/logos/horizons-main-logo-black.png` for the hero/header logo. Do not recreate it with text.
+- Do not add clothing measurements to the website.
 - Do not invent emails, phone numbers, times, spellings, files, or approvals.
 - Missing files should use `File Needed`.
 - Missing contact details should be left blank or noted as `Email needed` / `Phone needed`.
@@ -290,6 +296,25 @@ Image folders:
 Images should be practical references, not decoration.
 
 Current swag references include tote bag, notebook, bottle, foldable charger, Nord fragrances, silk eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
+
+## Latest Sync Notes
+
+The current website data has been synced from:
+
+```txt
+assets/documents/horizons-website-final-schedule-sync-for-codex.xlsx
+```
+
+The latest source added or updated:
+
+- Saturday 6 June pre-event logistics.
+- Team contacts with phone and WhatsApp links.
+- Card-first location records.
+- Menu/catering reference records.
+- Operating rules: artist/DJ liaison through Dawn, no pork, and neutral contractor clothing.
+- Guest Materials & Experience records for tote bags, crew shirts, easel boards, signage, menus, swag, and room drops.
+
+Remaining unresolved items should stay as `Needs Confirmation`, `At Risk`, or `File Needed` until Samuel, Chris, or the relevant owner approves them.
 
 ## Deployment
 

@@ -54,9 +54,12 @@ Use the same approval flow for:
 - Flights / Travel updates.
 - Now / Next schedule timing corrections.
 - Daily Call Sheet updates. These should normally be entered as schedule updates because the Call Sheet is rendered from approved schedule data.
+- Weather module updates. Until a live source is connected, add the daily weather forecast manually or keep the module marked pending.
 - Supplier day/time grouping corrections.
 - Content Capture Suggestions.
+- Capture Suggestion dismissals are local-only until shared storage exists; approved suggestions should be copied into the tracker before becoming official.
 - Visual setup image references.
+- Guest Materials & Experience updates for tote bags, menus, easel boards, signage, room drops, and print files.
 - Presentation, speech, and event content document links.
 
 If the answer is missing, add it to `HORIZONS_Missing_Info_Questions_Tracker.xlsx` and mark the row `Needs Confirmation`.
@@ -113,9 +116,11 @@ Codex should only apply comments marked `Approved Change` or tracker rows marked
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
-- Use `B Good` and `Clownfish` exactly.
+- Use `BE GOOD` and `Clownfish` exactly.
+- Use full names instead of initials where known. Unknown initials should be written as `Needs name confirmation`.
 - Use `assets/logos/horizons-main-logo-black.png` as the official main hero/header logo.
 - Suppliers should appear once; open questions belong inside the supplier card.
+- Do not publish clothing measurements on the website.
 - Use `File needed`, `Email needed`, `Phone needed`, `Time needed`, or `Needs Confirmation` when information is missing.
 
 ## Brand Implementation Notes

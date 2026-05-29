@@ -717,7 +717,8 @@ select {
   color: var(--bronze-dark);
 }
 
-.now-next {
+.now-next,
+.weather-card {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.8rem;
@@ -725,6 +726,7 @@ select {
 }
 
 .now-next > div,
+.weather-card,
 .supplier-time-block,
 .capture-suggestions {
   border: 1px solid var(--line);
@@ -734,6 +736,7 @@ select {
 }
 
 .now-next strong,
+.weather-card strong,
 .travel-grid strong,
 .supplier-time-block strong {
   display: block;
@@ -741,6 +744,7 @@ select {
 }
 
 .now-next p,
+.weather-card p,
 .travel-grid p,
 .supplier-time-block p {
   margin: 0.2rem 0 0;
@@ -871,7 +875,14 @@ summary::-webkit-details-marker {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  min-height: 76px;
   padding: 1rem;
+}
+
+.accordion summary > span {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
 }
 
 .accordion-body {
@@ -1087,14 +1098,21 @@ summary::-webkit-details-marker {
   box-shadow: 0 0 0 4px rgba(194, 137, 82, 0.16);
 }
 
-.contact-actions a {
+.contact-actions a,
+.contact-actions button {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--panel);
+  color: var(--text);
   padding: 0.55rem 0.72rem;
   font-family: "Soleil", Arial, sans-serif;
   text-decoration: none;
   font-size: 0.85rem;
+  cursor: pointer;
+}
+
+[data-swag-schedule-tabs] {
+  margin-bottom: 1.1rem;
 }
 
 .visual-block {
@@ -1316,6 +1334,7 @@ summary::-webkit-details-marker {
   }
 
   .now-next,
+  .weather-card,
   .travel-grid {
     grid-template-columns: 1fr;
   }

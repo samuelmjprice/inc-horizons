@@ -82,7 +82,7 @@ The workbook includes:
 ## Needs Supplier / Venue Confirmation
 
 - Six Senses hotel contacts, maps, layouts, room drop coordination, and venue timings.
-- B Good room-drop and logistics responsibilities.
+- BE GOOD room-drop and logistics responsibilities.
 - Mobile Casino / Poker setup and open items.
 - Clownfish production, install, and setup details.
 - Podcast location access and setup requirements.
@@ -117,7 +117,7 @@ Latest review items now reflected in the website and trackers:
 - Content Capture cards are compact by default and can be filtered by day.
 - The official main HORIZONS logo is used for the header/hero source: `assets/logos/horizons-main-logo-black.png`.
 - New swag reference images were added for tote bag, notebook, bottle, charger, Nord fragrances, eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard.
-- `B Good` and `Clownfish` spelling rules were rechecked across text source files.
+- `BE GOOD` and `Clownfish` spelling rules were rechecked across text source files.
 
 Items still needing team confirmation:
 
@@ -145,3 +145,26 @@ Remaining brand/watch items:
 - Keep checking live cache after deploys; if the old logo, script, or countdown appears, hard refresh or confirm the version query in `index.html`.
 - Do not introduce new fonts, loud dashboard colours, emoji icons, or full-card status colour fills in future updates.
 - Any new section should reuse existing card, tag, tab, filter, details, and section-heading patterns.
+
+## Final Schedule Sync Notes - 29 May
+
+Latest workbook sync applied from `HORIZONS_Website_Final_Schedule_Sync_For_Codex.xlsx`:
+
+- Schedule and Call Sheet now use the 310-row latest sync source, including Saturday 6 June pre-event logistics.
+- Contacts now pull from `CONTACTS_SITE` with provided phone and WhatsApp links.
+- Locations now use a card-first model from `LOCATION_CARDS`, with detailed schedule rows tucked into expandable panels.
+- Menus and catering records from `MENU_CATERING_SITE` are represented in Documents and Guest Materials & Experience.
+- Supplier records are grouped by supplier with connected day/time blocks and open items, rather than disconnected timing fields.
+- BE GOOD is now the required company spelling across website data and docs.
+- Known initials were expanded; unresolved initials are flagged as `Name confirmation needed` instead of guessed.
+- Call Sheet includes a weather placeholder for Six Senses Ibiza / Ibiza until live forecast data is connected.
+- Capture Suggestions now have local Accept/Dismiss controls.
+- Guest Materials & Experience now includes tote bags, crew shirts, easel boards, signage, menus, room drops, and swag references.
+
+Still needing confirmation from Samuel / relevant owners:
+
+- Final podcast guest names, slot count, and agenda wording.
+- Mobile Casino / Poker setup timing and 33 poker chairs.
+- Supplier contacts and timing TBCs.
+- Final maps, seating plans, room layouts, call-sheet PDFs, print files, signage files, and presentation/speech docs.
+- Weather source or daily forecast input method.

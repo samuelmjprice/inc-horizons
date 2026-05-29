@@ -13,10 +13,11 @@ const state = {
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   captureSuggestions: [],
+  dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260529-brand2";
+const APP_VERSION = "20260529-sync2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -58,6 +59,17 @@ const updateStore = {
 
 const suggestionStore = {
   key: "horizons-capture-suggestions-v1",
+  load() {
+    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
+    catch { return []; }
+  },
+  save(value) {
+    localStorage.setItem(this.key, JSON.stringify(value));
+  }
+};
+
+const dismissedSuggestionStore = {
+  key: "horizons-dismissed-capture-suggestions-v1",
   load() {
     try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
     catch { return []; }
@@ -175,6 +187,7 @@ async function init() {
   state.data = await response.json();
   state.updates = updateStore.load();
   state.captureSuggestions = suggestionStore.load();
+  state.dismissedCaptureSuggestions = dismissedSuggestionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
   state.activeCallSheetDay = state.activeDay;
   state.activeContentDay = state.activeDay;
@@ -254,6 +267,7 @@ function renderAll() {
   renderScheduleTabs();
   renderSchedule();
   renderNowNext();
+  renderWeather();
   renderCallSheetTabs();
   renderCallSheet();
   renderTravel();
@@ -283,13 +297,30 @@ function renderAll() {
 
 function renderToday() {
   const { today } = state.data;
+  const eventDay = getCurrentEventDay();
+  const selectedDay = eventDay || getNextEventDay() || state.activeDay || today.date;
+  const now = madridNow();
+  const hour = now.getHours();
+  const currentPeriod = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : hour < 22 ? "Evening" : "Late Night";
+  const dayItems = state.data.schedule
+    .filter((item) => (item.dayLabel || item.date) === selectedDay)
+    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
+    .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999));
+  const nowMinutes = hour * 60 + now.getMinutes();
+  const nextItems = (eventDay === selectedDay
+    ? dayItems.filter((item) => (item.startMinutes ?? 9999) >= nowMinutes)
+    : dayItems
+  ).slice(0, 5);
+  const topRedFlag = state.data.redFlags.find((item) => /risk|problem|confirmation|needed/i.test(`${item.status} ${item.priority}`));
+  const mainLocation = unique(nextItems.map((item) => item.location)).slice(0, 2).join(", ");
+  const mainOwner = unique(nextItems.map((item) => item.owner)).slice(0, 2).join(", ");
   const blocks = [
-    ["Today", today.date, "On Track", [today.focus]],
-    ["Top priorities", "Highest signal only", "", today.priorities],
-    ["Critical items", "Needs attention", "Watch", today.criticalItems],
-    ["Key meetings", "Team moments", "", today.meetings],
-    ["Deadlines", "Confirm before moving", "Needs Confirmation", today.deadlines],
-    ["Lead today", today.lead, "", today.notes]
+    ["Today", selectedDay || today.date, eventDay ? "On Track" : "Needs Confirmation", [eventDay ? `${currentPeriod} operating view` : "Event has not started yet. Showing the next event day."]],
+    ["Next up", "Next 3-5 key actions", "", nextItems.map((item) => `${item.timeDisplay || "Time needed"} · ${item.title}`)],
+    ["Main location", mainLocation || "Location needed", "", nextItems.slice(0, 3).map((item) => item.location).filter(Boolean)],
+    ["Main owner", mainOwner || today.lead, "", nextItems.slice(0, 3).map((item) => item.owner).filter(Boolean)],
+    ["Watch-out", topRedFlag?.issue || "No active red flag listed", topRedFlag?.status || "Watch", [topRedFlag?.whyItMatters || today.criticalItems?.[0]].filter(Boolean)],
+    ["Full run sheet", "Open the detailed daily view", "", [`${selectedDay} schedule and call sheet are available below.`]]
   ];
   setHtml("[data-today]", blocks.map(([title, intro, status, bullets], index) => card({
     title,
@@ -319,6 +350,7 @@ function renderScheduleTabs() {
 }
 
 const dayDateMap = {
+  "Saturday 6 June": "2026-06-06",
   "Sunday 7 June": "2026-06-07",
   "Monday 8 June": "2026-06-08",
   "Tuesday 9 June": "2026-06-09",
@@ -329,14 +361,23 @@ const dayDateMap = {
 
 const madridNow = () => new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
 const parseTimeMinutes = (value = "") => {
-  const match = text(value).match(/(\d{1,2})(?::(\d{2}))?/);
+  const match = text(value).match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)?/i);
   if (!match) return null;
-  return Number(match[1]) * 60 + Number(match[2] || 0);
+  let hour = Number(match[1]);
+  const meridiem = text(match[3]).toUpperCase();
+  if (meridiem === "PM" && hour < 12) hour += 12;
+  if (meridiem === "AM" && hour === 12) hour = 0;
+  return hour * 60 + Number(match[2] || 0);
 };
 const getCurrentEventDay = () => {
   const now = madridNow();
   const iso = now.toISOString().slice(0, 10);
   return Object.entries(dayDateMap).find(([, date]) => date === iso)?.[0] || "";
+};
+const getNextEventDay = () => {
+  const now = madridNow();
+  const todayIso = now.toISOString().slice(0, 10);
+  return Object.entries(dayDateMap).find(([, date]) => date >= todayIso)?.[0] || Object.keys(dayDateMap)[0] || "";
 };
 const schedulePosition = (day = state.activeDay) => {
   const now = madridNow();
@@ -344,7 +385,7 @@ const schedulePosition = (day = state.activeDay) => {
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === day)
-    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeDisplay || item.timeStart) }))
+    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .filter((item) => item.startMinutes !== null)
     .sort((a, b) => a.startMinutes - b.startMinutes);
   if (day !== today) return { today, now, current: null, next: items[0], nextItems: items.slice(0, 3), eventLive: Boolean(today) };
@@ -397,6 +438,25 @@ function renderNowNext() {
   `);
 }
 
+function renderWeather() {
+  const weather = state.data.weather || {};
+  setHtml("[data-weather]", `
+    <div>
+      <span class="eyebrow">Weather</span>
+      <strong>${escapeHtml(weather.location || "Six Senses Ibiza / Ibiza")}</strong>
+      <p>${escapeHtml(weather.temperature || "Weather module pending connection")}</p>
+    </div>
+    <div class="meta-list compact-meta">
+      ${meta("Wind", weather.wind)}
+      ${meta("Chance of rain", weather.rainChance)}
+      ${meta("Sunrise", weather.sunrise)}
+      ${meta("Sunset", weather.sunset)}
+      ${meta("Status", weather.status)}
+    </div>
+    <p>${escapeHtml(weather.operationalNote || "Weather module pending connection.")}</p>
+  `);
+}
+
 function renderSchedule() {
   const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === state.activeDay)
@@ -432,7 +492,7 @@ function renderCallSheet() {
   const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
-    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeDisplay || item.timeStart) }))
+    .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999))
     .slice(0, 120);
   setHtml("[data-call-sheet]", items.map((item) => {
@@ -544,13 +604,13 @@ function renderTravel() {
 }
 
 function renderContactTabs() {
-  const categories = ["All", "Leadership", "Production", "Content", "Hotel", "Suppliers", "I.N.C", "Clownfish", "B Good", "Remote"];
+  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "Hotel", "Suppliers", "Aream / INC Support", "Clownfish", "BE GOOD", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
 function renderContacts() {
   const items = state.data.contacts
-    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "I.N.C" && /I\\.N\\.C|International Collective/.test(`${item.category} ${item.group}`)))
+    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "Aream / INC Support" && /I\\.N\\.C|INC|Aream|International Collective/.test(`${item.category} ${item.group}`)) || (state.activeContactCategory === "BE GOOD" && /BE GOOD/.test(`${item.role} ${item.responsibility} ${item.notes}`)))
     .filter((item) => passesGlobal(item, { owner: item.name, department: item.category, updateId: item.updateId }));
   setHtml("[data-contacts]", items.map((item) => {
     const phoneHref = item.phone ? `tel:${item.phone.replace(/[^+0-9]/g, "")}` : "";
@@ -571,7 +631,14 @@ function renderLocations() {
     title: item.locationName,
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
-    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Watch-out", item.watchOut) + meta("Notes", item.notes),
+    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Watch-out", item.watchOut),
+    footer: detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
+      <div class="supplier-time-block">
+        <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
+        <p>${escapeHtml(row.activity || "Activity needed")}</p>
+        <div class="meta-list compact-meta">${meta("Owner", row.owner)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div>
+      </div>
+    `).join("")}</div>` : `<p>No detailed location schedule linked yet.</p>`),
     updateId: item.updateId
   })).join("") || empty("No locations match the current filters."));
 }
@@ -651,12 +718,14 @@ function renderContentCapture() {
 function renderCaptureSuggestions() {
   const base = state.data.captureSuggestions || [];
   const local = state.captureSuggestions || [];
-  const items = [...base, ...local].slice(-12);
+  const dismissed = new Set(state.dismissedCaptureSuggestions || []);
+  const items = [...base, ...local].filter((item) => !dismissed.has(item.id) && !dismissed.has(item.updateId)).slice(-12);
   setHtml("[data-capture-suggestions]", items.map((item) => card({
     title: item.idea,
     status: item.status || item.priority,
     department: "Content",
     metadata: meta("Added by", item.name) + meta("Suggested day/time", item.suggestedTime) + meta("Location", item.location) + meta("Priority", item.priority) + meta("Assigned to", item.assignedTo) + meta("Notes", item.notes),
+    footer: `<div class="contact-actions"><button type="button" data-capture-accept="${escapeHtml(item.updateId || item.id)}">Accept</button><button type="button" data-capture-dismiss="${escapeHtml(item.id || item.updateId)}">Dismiss</button></div>`,
     updateId: item.updateId,
     updateTopics: state.data.meta?.contentUpdateTopics || []
   })).join("") || empty("No live capture suggestions yet."));
@@ -718,8 +787,9 @@ function renderSwag() {
   setHtml("[data-swag]", state.data.swag.map((item) => card({
     title: item.itemName,
     status: item.status,
+    department: item.category,
     body: item.image ? `<figure class="reference-card"><img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy"><figcaption>${escapeHtml(item.imageCaption || "Reference image")}</figcaption></figure>` : `<div class="image-placeholder"><strong>Image needed</strong><span>Reference image needed.</span></div>`,
-    metadata: meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity) + meta("Delivery/setup", item.deliverySetupNotes),
+    metadata: meta("Category", item.category) + meta("Day", item.day) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity) + meta("Delivery/setup", item.deliverySetupNotes) + meta("File/reference", item.fileUrl) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join(""));
 }
@@ -754,7 +824,7 @@ function renderDecisions() {
 }
 
 function renderDocumentTabs() {
-  const categories = ["All", "Menus", "Maps", "Site Map", "Seating Plans", "Room Layouts", "Brand Files", "Supplier Documents", "Runbooks", "Production Documents", "Guest Experience", "HORIZONS House", "Room Drops", "Swag", "Podcast", "Content Capture", "Presentations / Speeches", "Event Content Documents", "Other"];
+  const categories = ["All", "Call Sheets", "Menus", "Print Assets", "Signage / Easel Boards", "Swag / Guest Materials", "Podcast", "Supplier Docs", "Stage / Technical", "Travel / Flights", "Venue Docs", "Source Data", "Maps", "Site Map", "Seating Plans", "Room Layouts", "Brand / Logos", "Style Guide", "Runbooks", "Production Documents", "Guest Experience", "HORIZONS House", "Room Drops", "Content Capture", "Presentations / Speeches", "Event Content Documents", "Other"];
   setHtml("[data-document-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeDocumentCategory}" data-document-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
@@ -815,8 +885,9 @@ function setupSectionNavigation() {
     ["today", "Today"],
     ["red-flags", "Red Flags"],
     ["schedule", "Schedule"],
-    ["call-sheet", "Call Sheet"],
     ["flights", "Flights"],
+    ["daily", "Daily Focus"],
+    ["call-sheet", "Call Sheet"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
     ["locations", "Locations"],
@@ -826,7 +897,7 @@ function setupSectionNavigation() {
     ["workstreams", "Workstreams"],
     ["horizons-house", "HORIZONS House"],
     ["room-drops", "Room Drops"],
-    ["swag", "Swag"],
+    ["swag", "Materials"],
     ["horizons-studio", "HORIZONS Studio"],
     ["decisions", "Decisions"],
     ["documents", "Documents"]
@@ -843,14 +914,15 @@ function setupSectionNavigation() {
   };
   const updateActive = () => {
     ticking = false;
-    const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 16;
-    const probeLine = headerOffset + window.innerHeight * 0.28;
-    let active = sections[0]?.[0] || "";
-    sections.forEach(([id]) => {
-      const element = document.getElementById(id);
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      if (rect.top <= probeLine && rect.bottom > headerOffset) active = id;
+    const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 48;
+    const scrollPosition = window.scrollY + headerOffset;
+    const orderedSections = sections
+      .map(([id]) => ({ id, element: document.getElementById(id) }))
+      .filter((section) => section.element)
+      .sort((a, b) => a.element.offsetTop - b.element.offsetTop);
+    let active = orderedSections[0]?.id || "";
+    orderedSections.forEach(({ id, element }) => {
+      if (element.offsetTop <= scrollPosition) active = id;
     });
     if (active) setActive(active);
   };
@@ -922,6 +994,27 @@ function bindEvents() {
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const swagTab = event.target.closest("[data-swag-tab]");
     if (swagTab) { state.activeSwagSchedule = swagTab.dataset.swagTab; renderSwagSchedule(); }
+    const dismissSuggestion = event.target.closest("[data-capture-dismiss]");
+    if (dismissSuggestion) {
+      state.dismissedCaptureSuggestions = unique([...(state.dismissedCaptureSuggestions || []), dismissSuggestion.dataset.captureDismiss]);
+      dismissedSuggestionStore.save(state.dismissedCaptureSuggestions);
+      renderCaptureSuggestions();
+      return;
+    }
+    const acceptSuggestion = event.target.closest("[data-capture-accept]");
+    if (acceptSuggestion) {
+      const id = acceptSuggestion.dataset.captureAccept;
+      state.updates[id] = [...getUpdates(id), {
+        name: "Website",
+        topic: "Captured",
+        status: "Approved to Capture",
+        comment: "Suggestion accepted for content team review.",
+        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
+      }];
+      updateStore.save(state.updates);
+      renderCaptureSuggestions();
+      return;
+    }
   });
   document.addEventListener("submit", (event) => {
     const suggestionForm = event.target.closest("[data-capture-suggestion-form]");
