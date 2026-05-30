@@ -142,34 +142,6 @@ It is different from `HORIZONS_Website_Update_Tracker.xlsx`:
 - `HORIZONS_Website_Update_Tracker.xlsx` is for requested website changes and approved update intake.
 - `HORIZONS_Missing_Info_Questions_Tracker.xlsx` is for questions, missing files, missing contact details, unclear schedule items, supplier confirmations, image needs, and CEO approvals.
 
-## Master Website Data Review Workbook
-
-The master review workbook is:
-
-```txt
-data/HORIZONS_Master_Website_Data_Review.xlsx
-```
-
-A convenience copy is also saved at the project root as:
-
-```txt
-HORIZONS_Master_Website_Data_Review.xlsx
-```
-
-This workbook is the main line-by-line website data review file for Samuel and Chris Manoe. It is different from the update tracker and missing-info tracker:
-
-- `HORIZONS_Master_Website_Data_Review.xlsx` reviews every major canonical website record and shows where each item is cross-used.
-- `HORIZONS_Website_Update_Tracker.xlsx` is for individual requested website changes.
-- `HORIZONS_Missing_Info_Questions_Tracker.xlsx` is a focused list of open questions and missing items.
-
-Codex should later apply only rows marked `Approved`, unless Samuel or Chris explicitly instruct otherwise. Voice note references, document links, and final answer columns in the workbook should be treated as the review source for future content updates.
-
-Plain-English usage instructions are saved in:
-
-```txt
-HORIZONS_Master_Data_Review_Instructions.md
-```
-
 How to use it:
 
 1. Fill in `Answer / Final Info` or `Final Answer` where known.

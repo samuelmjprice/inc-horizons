@@ -98,21 +98,6 @@ Future improvements:
 
 Codex should only apply comments marked `Approved Change` or tracker rows marked `Approved` / `Ready for Codex`.
 
-## Master Data Review Workbook Workflow
-
-Use `data/HORIZONS_Master_Website_Data_Review.xlsx` when Samuel and Chris need to review the full website data set rather than one-off changes.
-
-Workflow:
-
-1. Samuel/Chris start in the `MASTER REVIEW` tab.
-2. They correct data in the green columns and use `Voice Note Reference` when an answer is given verbally.
-3. They mark final rows as `Approved`.
-4. They attach or link documents/files in the document/file columns.
-5. Codex later imports/applies only approved rows unless told otherwise.
-6. Codex updates `content.json`, supporting docs, and the live site from the approved corrections.
-
-The master review workbook avoids duplicate questions by using canonical records and `Cross-Used In` columns. For example, a podcast row can show that it is used in Podcast, Schedule, Call Sheet, Location Schedule, Content Capture, and Slack alerts without asking the same correction question multiple times.
-
 ## What Not To Do
 
 - Do not edit live HTML directly unless necessary.

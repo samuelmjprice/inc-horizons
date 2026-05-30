@@ -33,25 +33,6 @@ If the tracker asks for a final setup time, write the confirmed time in `Answer 
 
 Rows marked `EXAMPLE - DO NOT IMPORT` are only there to show the team how to fill in the tracker. They should not be used as real website updates.
 
-## Master Website Data Review Workbook
-
-For a full Samuel/Chris website data review, use:
-
-```txt
-data/HORIZONS_Master_Website_Data_Review.xlsx
-```
-
-This workbook is broader than the tracker. It contains one canonical row per major website item and lists where each item is cross-used on the site.
-
-Use it when reviewing the whole website in a meeting:
-
-- Start in `MASTER REVIEW`.
-- Write corrections in the green columns.
-- Use `Voice Note Reference` when an answer is given by audio.
-- Add document or file links where relevant.
-- Mark rows `Approved` only when the answer is final.
-- Codex should later apply approved rows to `content.json` and the live website.
-
 ## Brand Notes
 
 - Use the official spelling and styling: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, `HORIZONS Studio`, `BeGood`, and `Clownfish`.

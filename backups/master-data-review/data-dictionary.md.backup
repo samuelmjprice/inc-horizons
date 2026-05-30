@@ -261,22 +261,6 @@ Comments are updates and discussion. They are not official display data until re
 
 Approved comments should be applied to `content.json`, then committed and deployed through GitHub Pages.
 
-## Master Website Data Review Workbook
-
-`data/HORIZONS_Master_Website_Data_Review.xlsx` is the canonical human-review workbook for the current website data set.
-
-It is generated from `content.json` and supporting repo records. It does not update the website by itself.
-
-Key concepts:
-
-- `MASTER REVIEW` contains canonical rows for major website records.
-- `Cross-Used In` / `Cross-Used In Sections` show where one item appears across multiple website views.
-- Green columns are intended for Samuel/Chris corrections, final answers, voice note references, and document links.
-- Rows marked `Approved` are eligible for a later Codex update pass.
-- Rows marked `Needs Confirmation`, `Missing Data`, or `Conflict — Needs Review` should not be published as final data.
-
-The workbook is different from the update tracker. The update tracker captures individual change requests; the master review workbook reviews the whole current source of truth.
-
 ## Brand Data Rules
 
 - `event.logo` should point to `assets/logos/horizons-main-logo-black.png` unless an approved replacement official logo file is supplied.

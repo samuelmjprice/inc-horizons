@@ -1,0 +1,11 @@
+{
+  "name": "inc-horizons-event-command-centre",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "check": "node --check script.js && python3 -m json.tool content.json >/dev/null"
+  }
+}

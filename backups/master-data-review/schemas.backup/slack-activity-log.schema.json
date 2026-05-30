@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HORIZONS slack_activity_log",
+  "type": "object",
+  "required": ["id", "event_type", "channel", "status", "sent_at"],
+  "properties": {
+    "id": { "type": "string" },
+    "update_id": { "type": "string" },
+    "parent_type": { "type": "string" },
+    "parent_id": { "type": "string" },
+    "sent_at": { "type": "string" },
+    "sent_by": { "type": "string" },
+    "event_type": { "type": "string" },
+    "channel": { "type": "string" },
+    "message_title": { "type": "string" },
+    "related_item_id": { "type": "string" },
+    "website_link": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["Queued", "Sent", "Failed", "Cancelled"]
+    },
+    "error_message": { "type": "string" },
+    "payload_preview": { "type": "string" }
+  }
+}
