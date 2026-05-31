@@ -269,22 +269,3 @@ Purpose:
 - Provide section-specific tabs for schedule/call sheet, locations, contacts, suppliers, podcast, speakers, rehearsals, guest materials, signage, documents, Slack/comments, Cvent, admin/data health, human confirmations, and completed updates.
 
 Important: this workbook is for review only. It does not change the live website until approved rows are returned to Codex for a later update pass.
-
-## Final Master Workbook Import - 31 May 2026
-
-Imported approved/final rows from:
-
-`data/final-approved/HORIZONS_Master_Website_Data_Review_FINAL.xlsx`
-
-Import batch:
-
-`final-master-import-20260531-1918`
-
-Summary:
-
-- 827 master review rows read.
-- 607 approved/final rows applied to `content.json`.
-- 220 rows skipped because they remained Needs Confirmation, Missing Data, Waiting on Person, Conflict, Draft, TBC, Unclear, or Answered without approval.
-- 14 Not Needed rows were preserved in source/admin data and marked hidden/archived for live display.
-- Production Slack routes were not enabled.
-- Import reports were created: `FINAL_MASTER_IMPORT_REPORT.md` and `FINAL_MASTER_IMPORT_SKIPPED_ROWS.md`.

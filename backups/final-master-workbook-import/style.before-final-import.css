@@ -77,14 +77,10 @@
 }
 
 html {
-  max-width: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
-  max-width: 100%;
-  overflow-x: hidden;
   margin: 0;
   background:
     radial-gradient(circle at 18% 0%, rgba(225, 196, 175, 0.26), transparent 34rem),
@@ -1481,11 +1477,10 @@ summary::-webkit-details-marker {
   }
 
   .tabs {
-    box-sizing: border-box;
-    margin-inline: 0;
-    padding-left: 0;
-    padding-right: 1rem;
-    scroll-padding-inline: 0;
+    margin-inline: -16px;
+    padding-left: 16px;
+    padding-right: 48px;
+    scroll-padding-inline: 16px;
   }
 
   .section {
@@ -1537,18 +1532,16 @@ summary::-webkit-details-marker {
 
   [data-schedule-tabs] {
     top: 64px;
-    box-sizing: border-box;
-    margin-inline: 0;
-    padding-left: 0;
-    padding-right: 1rem;
+    margin-inline: -16px;
+    padding-left: 16px;
+    padding-right: 48px;
   }
 
   [data-call-sheet-tabs] {
     top: 64px;
-    box-sizing: border-box;
-    margin-inline: 0;
-    padding-left: 0;
-    padding-right: 1rem;
+    margin-inline: -16px;
+    padding-left: 16px;
+    padding-right: 48px;
   }
 
   .countdown-grid {

@@ -1,0 +1,349 @@
+# FINAL MASTER IMPORT REPORT
+
+- Final workbook used: `/Users/ddm/Documents/Codex/2026-05-28/files-mentioned-by-the-user-presentation/data/final-approved/HORIZONS_Master_Website_Data_Review_FINAL.xlsx`
+- Import batch ID: `final-master-import-20260531-1918`
+- Date/time: 2026-05-31T19:18:50
+- Rows read: 827
+- Approved/final rows applied: 607
+- Rows skipped: 220
+- Missing/needs-confirmation rows preserved: 218
+- Conflicts left for review: 0
+- Unmapped rows: 0
+- Not-needed/hidden records marked: 14
+
+## Sections Updated
+
+- artworkSignage
+- callSheets
+- contacts
+- contentCapture
+- curatedPlaylists
+- cventComparison
+- decisions
+- documents/missingFiles
+- entertainment
+- horizonsHouse
+- locations
+- podcast
+- redFlags
+- rehearsals
+- roomDrops
+- schedule
+- speakers
+- staffLists.Aream / Client Team
+- staffLists.International Collective / INC
+- staffLists.Production / Content
+- swag
+- travel
+- whoDoICall
+
+## Records Updated
+
+- RED-002 (redFlags): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, issue, last_updated, review_id
+- RED-005 (redFlags): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, issue, last_updated, review_id
+- RED-006 (redFlags): approved_by, archived, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive, issue
+- RED-007 (redFlags): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, issue, last_updated, review_id
+- DEC-002 (decisions): approved_by, canonical_record_id, decisionNeeded, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate
+- DEC-003 (decisions): approved_by, canonical_record_id, decisionNeeded, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate
+- DEC-008 (decisions): approved_by, archived, canonical_record_id, decisionNeeded, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive
+- DEC-009 (decisions): approved_by, archived, canonical_record_id, decisionNeeded, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive
+- CALL-002 (callSheets): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- CALL-003 (callSheets): approved_by, canonical_record_id, date, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id
+- CALL-004 (callSheets): approved_by, canonical_record_id, date, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, mainLocation
+- CALL-005 (callSheets): approved_by, canonical_record_id, date, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id
+- CALL-006 (callSheets): approved_by, canonical_record_id, date, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id
+- CALL-007 (callSheets): approved_by, canonical_record_id, date, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, mainLocation
+- SCH-001 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-002 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-003 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-004 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-005 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-006 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-007 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-009 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-010 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-011 (schedule): approved_by, archived, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive, last_updated
+- SCH-012 (schedule): approved_by, archived, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive, last_updated
+- SCH-013 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-014 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-015 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-016 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-017 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-018 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-019 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-020 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-021 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-022 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-023 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-024 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-025 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-026 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-027 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-028 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-029 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-030 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-031 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-032 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-033 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-034 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-035 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-036 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-037 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-038 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-039 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-040 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-041 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-042 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-044 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-045 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-046 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-047 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-048 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-049 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-050 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-051 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-052 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-053 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-054 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-055 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-056 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-057 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-058 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-059 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-060 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-061 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-062 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-063 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-064 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-065 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-066 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-067 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-068 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-069 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-070 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-071 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-072 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-073 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-074 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-075 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-076 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-077 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-078 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-079 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-080 (schedule): approved_by, archived, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive, last_updated
+- SCH-081 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-082 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-083 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-084 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-085 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-086 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-087 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-088 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-089 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-090 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-091 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-092 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-093 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-094 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-095 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-096 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-097 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-098 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-099 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-100 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-101 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-102 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-103 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-104 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-105 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-106 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-107 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-108 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-109 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-110 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-111 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-112 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-113 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-114 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-115 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-116 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-117 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-118 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-119 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-120 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-121 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-122 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-123 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-124 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-125 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-126 (schedule): approved_by, archived, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, hiddenFromLive, last_updated
+- SCH-127 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-128 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-129 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-130 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-131 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-132 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-133 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-134 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-135 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-136 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-137 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-138 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-139 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-140 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-141 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-142 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-143 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-144 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-145 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-146 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-147 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-148 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-149 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-150 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-151 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-153 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-154 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-157 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-158 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-159 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-160 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-161 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-162 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-164 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-165 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-166 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-167 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-168 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-169 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-170 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-172 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-173 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-174 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-175 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-176 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-177 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-178 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-179 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-180 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-181 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-182 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-183 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-184 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-185 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-186 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-187 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-188 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-189 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-190 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-191 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-192 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-193 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-194 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-195 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-196 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-197 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-198 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-199 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-200 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-201 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-202 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-203 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-204 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-205 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-206 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-207 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-208 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-209 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-210 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-211 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-212 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-213 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-214 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-215 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-216 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-217 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-218 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-219 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-220 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-221 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-222 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-223 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-224 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-227 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-228 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-229 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-230 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-231 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-232 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-234 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-235 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-236 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-237 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-238 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-240 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-241 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-242 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-244 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-246 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-247 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-248 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-249 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-251 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-252 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-253 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-254 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-255 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-256 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-257 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-258 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-259 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-260 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, latestUpdate, review_id
+- SCH-261 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-262 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-263 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-264 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-265 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-266 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-267 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-268 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-269 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-270 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-271 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-272 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-273 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-274 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-275 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-276 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-277 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-278 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-279 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-280 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-281 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-282 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-283 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-284 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-285 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, location, review_id
+- SCH-286 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-287 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-288 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-289 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-290 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-291 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-292 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-293 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-294 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-295 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- SCH-296 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-297 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-298 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-299 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, review_id, source_row
+- SCH-300 (schedule): approved_by, canonical_record_id, finalWorkbookDisplayText, finalWorkbookStatus, final_import_batch_id, last_updated, owner, review_id
+- ... 307 additional records updated.
+
+## Warnings / Manual Follow-Up
+
+- Rows marked Needs Confirmation, Missing Data, Waiting on Person, Conflict, Draft, TBC, or Unclear were not imported as final data.
+- Rows marked Not Needed were preserved in source/admin data and marked hidden/archived where mapped.
+- Production Slack routes were not enabled by this import.
+- The final workbook contains approved rows whose final text still includes Needs Confirmation; those are imported as approved wording but remain visibly pending on the site.

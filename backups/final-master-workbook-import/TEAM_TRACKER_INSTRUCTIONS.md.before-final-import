@@ -1,0 +1,77 @@
+# How to Fill In the HORIZONS Tracker
+
+1. Open `HORIZONS_Missing_Info_Questions_Tracker.xlsx`.
+2. Go to `TEAM VIEW` first.
+3. Find rows assigned to you or your team.
+4. Fill in the green answer columns.
+5. Change `Status` to `Answered` when you have replied.
+6. Change `Status` to `Approved` only if the information is final.
+7. Do not edit grey columns.
+8. Do not guess. Use `Needs Confirmation` if unsure.
+9. Send the file back when done.
+
+For Daily Call Sheet updates, use `Call Sheet Questions` if the row exists. If not, use `Schedule Questions` and include the time, location, owner, support team, supplier, and content capture need. Approved schedule answers are what Codex uses to update the live Call Sheet.
+
+For this latest website version, also check:
+
+- Use `BeGood` exactly for the supplier/company name.
+- Use full names, not initials. If a name is unclear, write `Needs name confirmation`.
+- Add weather updates only if the forecast/source is confirmed.
+- Add guest materials such as tote bags, menus, easel boards, signage, room drops, and print files under the materials/documents tabs.
+- Do not add clothing measurements to tracker rows intended for the website.
+- Add Cvent exports, speaker/deck content, rehearsal schedules, signage placement maps, staff lists, entertainment riders/timings, playlist links, podcast files, venue maps, restaurant schedules, menus, and Slack setup notes where requested.
+
+## Latest Areas To Fill In
+
+The website now has sections for Location Schedules, Restaurant Schedules, Speaker Content, Rehearsals, Artwork / Wayfinding / Signage, Entertainment, Curated Playlists, Cvent Comparison, Staff Lists, Missing Files, and Slack Integration.
+
+Use `BeGood`, `Aream & Co.`, and `Clownfish` exactly. Replace known initials with full names; mark unknown initials as `Needs Name Confirmation`.
+
+## Example
+
+If the tracker asks for a final setup time, write the confirmed time in `Answer / Final Info`, add the person who confirmed it in `Who Should Answer` or `Notes`, then set `Status` to `Approved` only when it is ready to be added to the live website.
+
+Rows marked `EXAMPLE - DO NOT IMPORT` are only there to show the team how to fill in the tracker. They should not be used as real website updates.
+
+## Master Website Data Review Workbook
+
+For a full Samuel/Chris website data review, use:
+
+```txt
+data/HORIZONS_Master_Website_Data_Review.xlsx
+```
+
+This workbook is broader than the tracker. It contains one canonical row per major website item and lists where each item is cross-used on the site.
+
+Use it when reviewing the whole website in a meeting:
+
+- Start in `MASTER REVIEW`.
+- Write corrections in the green columns.
+- Use `Voice Note Reference` when an answer is given by audio.
+- Add document or file links where relevant.
+- Mark rows `Approved` only when the answer is final.
+- Codex should later apply approved rows to `content.json` and the live website.
+
+## Brand Notes
+
+- Use the official spelling and styling: `HORIZONS`, `HORIZONS House`, `HORIZONS Hall`, `HORIZONS Studio`, `BeGood`, and `Clownfish`.
+- The official main logo has been provided and should be used as an image file only. Do not recreate it with typed text or alter its colour/proportions.
+- If you are adding a new image, document, menu, map, presentation, or visual reference, include the final file link/location and mark the row `Approved` only when it is ready for the live site.
+
+## Chris / Samuel Review Intake
+
+Add missing-info rows for these latest review items and keep them open until confirmed:
+
+- Eve Dusek name, role, and contact confirmation.
+- Health & Safety contact ownership and emergency escalation process.
+- Venue map, internal exact pins, room layouts, seating plans, and Google Maps links.
+- Weather location confirmation for the final Six Senses Ibiza / event hotel pin.
+- HORIZONS House display cabinet image.
+- Hand fan and Pulsio/Poltio room-drop naming and placement.
+- Notepads and pens placement in HORIZONS Hall.
+- Crew shirts data/image confirmation.
+- Speaker content by HORIZONS Hall, HORIZONS Studio, and HORIZONS Podcast.
+- HORIZONS Hall / HORIZONS Studio / HORIZONS Podcast logo assets where used as section screens.
+- HORIZONS Studio rehearsals on 8 June, including final time, owner, and required people.
+- Wayfinding artwork, A1 easel board files, three natural totem locations, two wall foam board locations, and signage placement map.
+- Staff list corrections, Cvent export, final menus, and Slack production routing approval.

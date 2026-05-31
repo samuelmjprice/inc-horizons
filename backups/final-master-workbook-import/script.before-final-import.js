@@ -17,7 +17,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260531-finalmaster1";
+const APP_VERSION = "20260529-onsiteux1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -125,8 +125,6 @@ const detailsBlock = (summary, rows = [], extra = "") => {
   return `<details class="details"><summary><span>${escapeHtml(summary)}</span></summary><div class="details-content">${content}</div></details>`;
 };
 const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
-const isLiveRecord = (item = {}) => !item.hiddenFromLive && !item.archived && !/not needed/i.test(text(item.status));
-const liveItems = (items = []) => items.filter(isLiveRecord);
 const groupBy = (items = [], keyFn = (item) => item.day || "Unscheduled") => items.reduce((acc, item) => {
   const key = text(keyFn(item), "Unscheduled");
   acc[key] = [...(acc[key] || []), item];
@@ -473,7 +471,7 @@ function renderToday() {
   const now = madridNow();
   const hour = now.getHours();
   const currentPeriod = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : hour < 22 ? "Evening" : "Late Night";
-  const dayItems = liveItems(state.data.schedule)
+  const dayItems = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === selectedDay)
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999));
@@ -482,7 +480,7 @@ function renderToday() {
     ? dayItems.filter((item) => (item.startMinutes ?? 9999) >= nowMinutes)
     : dayItems
   ).slice(0, 5);
-  const topRedFlag = liveItems(state.data.redFlags).find((item) => /risk|problem|confirmation|needed/i.test(`${item.status} ${item.priority}`));
+  const topRedFlag = state.data.redFlags.find((item) => /risk|problem|confirmation|needed/i.test(`${item.status} ${item.priority}`));
   const mainLocation = unique(nextItems.map((item) => item.location)).slice(0, 2).join(", ");
   const mainOwner = unique(nextItems.map((item) => item.owner)).slice(0, 2).join(", ");
   const blocks = [
@@ -502,7 +500,7 @@ function renderToday() {
 }
 
 function renderRedFlags() {
-  const items = liveItems(state.data.redFlags).filter((item) => passesGlobal(item, { status: item.status, owner: item.owner, updateId: item.updateId }));
+  const items = state.data.redFlags.filter((item) => passesGlobal(item, { status: item.status, owner: item.owner, updateId: item.updateId }));
   setHtml("[data-red-flags]", items.map((item) => card({
     title: item.issue,
     status: item.status || item.priority,
@@ -555,7 +553,7 @@ const schedulePosition = (day = state.activeDay) => {
   const now = madridNow();
   const today = getCurrentEventDay();
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
-  const items = liveItems(state.data.schedule)
+  const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === day)
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .filter((item) => item.startMinutes !== null)
@@ -702,7 +700,7 @@ async function loadLiveWeather() {
 }
 
 function renderSchedule() {
-  const items = liveItems(state.data.schedule)
+  const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === state.activeDay)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
     .slice(0, 80);
@@ -743,7 +741,7 @@ function renderCallSheet() {
   const position = schedulePosition(state.activeCallSheetDay);
   const nowMinutes = position.now.getHours() * 60 + position.now.getMinutes();
   const isToday = position.today === state.activeCallSheetDay;
-  const items = liveItems(state.data.schedule)
+  const items = state.data.schedule
     .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
@@ -1056,7 +1054,7 @@ function supplierTimeline(item) {
 }
 
 function renderPodcast() {
-  const items = liveItems(state.data.podcast)
+  const items = state.data.podcast
     .filter((item) => passesGlobal(item, { status: item.status, day: item.day || item.date, owner: item.productionLead, location: item.location, department: "Podcast", updateId: item.updateId }))
     .filter((item) => passesLocal(item, state.podcastFilters, { guest: (x) => x.guest || x.guestSubject }));
   let episode = 0;
@@ -1225,7 +1223,7 @@ function renderSpeakers() {
     "HORIZONS Studio": [],
     "HORIZONS Podcast": []
   };
-  liveItems(state.data.speakers || []).forEach((item) => {
+  (state.data.speakers || []).forEach((item) => {
     const key = /podcast|cliffhanger/i.test(item.location || item.sessionTitle || "") ? "HORIZONS Podcast" : /studio/i.test(item.location || "") ? "HORIZONS Studio" : "HORIZONS Hall";
     groups[key].push(item);
   });
@@ -1249,7 +1247,7 @@ function renderSpeakers() {
 }
 
 function renderRehearsals() {
-  const grouped = groupBy(liveItems(state.data.rehearsals || []), (item) => item.day || "Day needed");
+  const grouped = groupBy((state.data.rehearsals || []), (item) => item.day || "Day needed");
   setHtml("[data-rehearsals]", Object.entries(grouped).map(([day, rows]) => `<article class="card section-card">
     <div class="card-header"><h3 class="card-title">${escapeHtml(dayLabelShort(day))}</h3><div class="tag-stack">${tag(`${rows.length} rehearsal${rows.length === 1 ? "" : "s"}`)}</div></div>
     <div class="location-schedule grouped-schedule">${rows.map((item) => card({
@@ -1264,7 +1262,7 @@ function renderRehearsals() {
 }
 
 function renderArtwork() {
-  setHtml("[data-artwork]", liveItems(state.data.artworkSignage || []).map((item) => card({
+  setHtml("[data-artwork]", (state.data.artworkSignage || []).map((item) => card({
     title: item.itemName,
     status: item.status,
     department: item.type,
@@ -1291,7 +1289,7 @@ function renderStaffLists() {
 }
 
 function renderCventComparison() {
-  setHtml("[data-cvent]", liveItems(state.data.cventComparison || []).map((item) => card({
+  setHtml("[data-cvent]", (state.data.cventComparison || []).map((item) => card({
     title: item.item,
     status: item.status,
     department: item.area,
@@ -1375,7 +1373,7 @@ function renderSiteAudit() {
 }
 
 function renderDecisions() {
-  setHtml("[data-decisions]", liveItems(state.data.decisions).map((item) => card({
+  setHtml("[data-decisions]", state.data.decisions.map((item) => card({
     title: firstMeaningful(item.decisionNeeded, item.decision, item.issue, "Decision needed"),
     status: item.status,
     body: `<p>${escapeHtml(firstMeaningful(item.whyItMatters, item.notes, "Awaiting final detail."))}</p>${asList(item.options).length ? `<h3>Options</h3>${list(item.options)}` : ""}${text(item.recommendation) ? `<h3>Recommendation</h3><p>${escapeHtml(item.recommendation)}</p>` : ""}`,

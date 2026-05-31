@@ -170,29 +170,6 @@ Plain-English usage instructions are saved in:
 HORIZONS_Master_Data_Review_Instructions.md
 ```
 
-## Final Master Workbook Import
-
-The final approved workbook copy used for the latest import is:
-
-```txt
-data/final-approved/HORIZONS_Master_Website_Data_Review_FINAL.xlsx
-```
-
-Import reports:
-
-```txt
-FINAL_MASTER_IMPORT_REPORT.md
-FINAL_MASTER_IMPORT_SKIPPED_ROWS.md
-```
-
-Latest import batch:
-
-```txt
-final-master-import-20260531-1918
-```
-
-Only approved/final rows were applied. Rows still marked missing, needs confirmation, waiting, conflict, draft, TBC, unclear, or answered-but-not-approved remain pending and are listed in the skipped rows report.
-
 How to use it:
 
 1. Fill in `Answer / Final Info` or `Final Answer` where known.
