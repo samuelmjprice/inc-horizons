@@ -15,11 +15,11 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 - DIRECT WORK: `#samuel-chris-direct` is private and Chris was added.
 - HORIZONS channels: required `#horizons-*` channels are private/invite-only.
 - `#horizons-web-hub`: private HORIZONS website/data/admin channel.
-- `#horizons-test`: private and still connected to website-to-Slack test integration; do not rename.
+- `#horizons-test`: private, moved to `TESTING / ADMIN`, and still connected to website-to-Slack test integration; do not rename.
 - Backend test message to `#horizons-test` passed after private-channel conversion.
 - The required public/default channel formerly called `#all-inc-horizons` was quarantined on 1 June 2026 and renamed to `#unused-default-channel`.
 - `#unused-default-channel` remains public because Slack did not expose archive/private controls for this required/default channel. It has only Samuel Price and Christopher Manoe visible as members, contains no useful operational content beyond default join/onboarding history plus the posted warning, has no visible app/webhook integration in the channel UI, and has no active website/backend routing reference.
-- `#unused-default-channel` has a warning topic/description and posted warning message telling the team not to use it for company or event operations. It sits in `UNUSED / DEFAULT`.
+- `#unused-default-channel` has a warning topic/description and posted warning message telling the team not to use it for company or event operations. It should sit at the very bottom in `UNUSED / DEFAULT` if Slack forces it to remain visible.
 - No wider team, clients, or suppliers were invited during this pass.
 
 ## Channel Audit
@@ -58,10 +58,10 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 | `#horizons-documents` | Private | Private | No | Files/links may be visible too widely if made public later. | Converted private. |
 | `#horizons-decisions` | Private | Private | No | Approval/leadership decisions exposed if made public later. | Converted private. |
 | `#horizons-web-hub` | Private | Private | No | Website/backend/admin details exposed if public. | Created private under HORIZONS EVENT. |
-| `#horizons-test` | Private | Private | No | Website test messages visible too widely if made public later. | Converted private; backend test passed after conversion. |
+| `#horizons-test` | Private | Private | No | Website test messages visible too widely if made public later. | In `TESTING / ADMIN`; website-to-Slack testing only; backend test passed after conversion. Do not place in `HORIZONS EVENT`. |
 | `#inc-leadership` | Private | Review | No | If used, sensitive leadership notes remain protected. | Existing earlier channel; decide keep/archive later. |
 | `#samuel-chris` | Private | Private | No | Private Samuel/Chris notes exposed if public. | Existing private working channel. |
-| `#unused-default-channel` | Public/default | Public but quarantined; do not use | No active use allowed | Public catch-all/default channel could expose event/company context if used. | Formerly `#all-inc-horizons`. Renamed 1 June 2026. Visible members: Samuel Price and Christopher Manoe. Content: default join/onboarding history plus posted warning. No visible app/webhook integration in channel UI. No active website/backend routing reference found. Normal Slack UI did not allow archive/private conversion. Topic/description warns not to use. Placed in `UNUSED / DEFAULT`. |
+| `#unused-default-channel` | Public/default | Public but quarantined; do not use | No active use allowed | Public catch-all/default channel could expose event/company context if used. | Formerly `#all-inc-horizons`. Renamed 1 June 2026. Visible members: Samuel Price and Christopher Manoe. Content: default join/onboarding history plus posted warning. No visible app/webhook integration in channel UI. No active website/backend routing reference found. Normal Slack UI did not allow archive/private conversion. Topic/description warns not to use. Keep at the very bottom in `UNUSED / DEFAULT` if visible. |
 | `#social` | Public/status unknown | Review | Yes | Could expose casual/internal posts. | Review purpose and privacy. |
 | `#new-channel` | Public/status unknown | Review/archive | Yes | Unclear channel can confuse users. | Do not delete without approval. |
 

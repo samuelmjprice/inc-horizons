@@ -11,10 +11,9 @@ Note: Sidebar sections are for navigation only. Channel privacy controls who can
 3. INTERNATIONAL COLLECTIVE
 4. BUSINESS DIVISIONS
 5. INC CIRCLE
-6. HORIZONS ADMIN / TESTING
-7. UNUSED / DEFAULT
+6. TESTING / ADMIN
 
-Slack sidebar sections are user-specific, so each team member may need to mirror this order in their own sidebar.
+Slack sidebar sections are user-specific, so each team member may need to mirror this order in their own sidebar. Any default/not-applicable public channel, such as `#unused-default-channel`, should sit below these sections at the very bottom if Slack forces it to remain visible.
 
 ## Direct Work
 
@@ -65,13 +64,13 @@ Note: `#unused-default-channel` is the quarantined required public/default Slack
 - `#circle-outreach-inc` — Circle outreach
 - `#circle-content-inc` — Circle content
 
-## HORIZONS Admin / Testing
+## TESTING / ADMIN
 
-- `#horizons-test` — Website alert testing
+- `#horizons-test` — Website-to-Slack testing only
 
 ## UNUSED / DEFAULT
 
-- `#unused-default-channel` — Do not use
+- `#unused-default-channel` — Do not use; keep at very bottom if visible
 
 ## Privacy Note
 
