@@ -48,8 +48,6 @@ Content Capture updates now support topics such as `Capture idea`, `Timing`, `Lo
 
 Live Capture Suggestions are also local-only until shared storage is connected. They should be reviewed before being turned into official `content.json` data.
 
-Capture Log entries are a fast onsite lookup tool for photo/video/drone/BTS/audio/social teams. They capture timestamp, person logging, location, camera, media type, subject, tags, file/card reference, priority, status, and notes. Current Capture Log entries use browser storage unless or until a shared capture-log API is approved; important approved capture notes should be copied into the tracker or shared backend before handover.
-
 ## New Data Areas
 
 Use the same approval flow for:
@@ -240,21 +238,6 @@ Use the missing-info tracker for:
 1. Update canonical schedule, daily run sheet, location, document, red flag, and missing-file records first.
 2. Use `callSheets` only as the daily operational view that references those records.
 3. Keep emergency medical location as `Needs Confirmation` until the exact hospital, route, venue contact, and protocol are confirmed.
-4. Use the central Six Senses Ibiza event property coordinate for weather unless Samuel/Chris provide a more precise approved weather point.
-5. Use exact Google Maps coordinate links for confirmed event locations; keep unconfirmed hospital and venue detail rows marked `Needs Confirmation`, `Map Needed`, or `Exact pin needed`.
-
-## Admin / Developer Data
-
-The main team flow should stay focused on onsite operations. Admin-heavy areas are now grouped behind the `Admin Data` footer/nav entry:
-
-- Cvent Comparison
-- Missing Files Tracker
-- Slack Integration
-- Data Health Dashboard
-- Duplicate Review
-- Site Data / UX Audit
-
-These sections remain available for Samuel/developer review, but they should not be treated as the primary onsite navigation for the wider team.
 4. Add Google Maps URLs to `locations.googleMapsUrl`; use `Google Maps Link Needed` when unknown.
 5. Weather is loaded from Open-Meteo in the browser and cached locally. Do not add API keys.
 6. Print the Call Sheet from the dedicated `#call-sheet` page.

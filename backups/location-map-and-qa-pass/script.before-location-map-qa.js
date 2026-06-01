@@ -13,12 +13,11 @@ const state = {
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   captureSuggestions: [],
-  captureLog: [],
   dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260601-locationqa1";
+const APP_VERSION = "20260531-finalmaster1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -93,17 +92,6 @@ const suggestionStore = {
 
 const dismissedSuggestionStore = {
   key: "horizons-dismissed-capture-suggestions-v1",
-  load() {
-    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
-    catch { return []; }
-  },
-  save(value) {
-    localStorage.setItem(this.key, JSON.stringify(value));
-  }
-};
-
-const captureLogStore = {
-  key: "horizons-capture-log-v1",
   load() {
     try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
     catch { return []; }
@@ -307,7 +295,7 @@ const updateModule = (id, topics = []) => {
         <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
         <label><span>Notify Slack channel</span><select name="slackChannel">${channelOptions}</select></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Send to ${escapeHtml(suggestedChannel)}. Production Slack channels remain pending setup.` : `Suggested channel: ${escapeHtml(suggestedChannel)}. You can change this before sending.`}</em></span></label>
+        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Test mode: this posts only to ${escapeHtml(suggestedChannel)}.` : `Suggested channel: ${escapeHtml(suggestedChannel)}. You can change this before sending.`}</em></span></label>
         <button class="button button-secondary" type="submit">Save Team Update</button>
       </form>
     </details>
@@ -354,7 +342,6 @@ async function init() {
   state.updates = updateStore.load();
   await loadSharedUpdates();
   state.captureSuggestions = suggestionStore.load();
-  state.captureLog = [...(state.data.captureLog || []), ...captureLogStore.load()];
   state.dismissedCaptureSuggestions = dismissedSuggestionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
   state.activeCallSheetDay = state.activeDay;
@@ -368,7 +355,6 @@ async function init() {
   startCountdown();
   startNowNext();
   setupSectionNavigation();
-  setupBackToTopAndAdmin();
 }
 
 function renderEvent() {
@@ -459,7 +445,6 @@ function renderAll() {
   renderContentDayTabs();
   renderContentCapture();
   renderCaptureSuggestions();
-  renderCaptureLog();
   renderWorkstreams();
   renderHorizonsHouse();
   renderRoomDrops();
@@ -499,10 +484,12 @@ function renderToday() {
   ).slice(0, 5);
   const topRedFlag = liveItems(state.data.redFlags).find((item) => /risk|problem|confirmation|needed/i.test(`${item.status} ${item.priority}`));
   const mainLocation = unique(nextItems.map((item) => item.location)).slice(0, 2).join(", ");
+  const mainOwner = unique(nextItems.map((item) => item.owner)).slice(0, 2).join(", ");
   const blocks = [
     ["Today", selectedDay || today.date, eventDay ? "On Track" : "Needs Confirmation", [eventDay ? `${currentPeriod} operating view` : "Event has not started yet. Showing the next event day."]],
     ["Next up", "Next 3-5 key actions", "", nextItems.map((item) => `${item.timeDisplay || "Time needed"} · ${item.title}`)],
     ["Main location", mainLocation || "Location needed", "", nextItems.slice(0, 3).map((item) => item.location).filter(Boolean)],
+    ["Main owner", mainOwner || today.lead, "", nextItems.slice(0, 3).map((item) => item.owner).filter(Boolean)],
     ["Watch-out", topRedFlag?.issue || "No active red flag listed", topRedFlag?.status || "Watch", [topRedFlag?.whyItMatters || today.criticalItems?.[0]].filter(Boolean)],
     ["Full run sheet", "Open the detailed daily view", "", [`${selectedDay} schedule and call sheet are available below.`]]
   ];
@@ -692,7 +679,7 @@ async function loadLiveWeather() {
     longitude,
     current: "temperature_2m,weather_code,wind_speed_10m",
     daily: "temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset",
-    timezone: weather.timezone || "Europe/Madrid"
+    timezone: "auto"
   });
   try {
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params.toString()}`);
@@ -792,14 +779,11 @@ function renderCallSheet() {
     card({ title: "Red flags for this day", status: sheet.redFlags?.length ? "Watch" : "On Track", body: list(sheet.redFlags) || "<p>No day-specific red flags listed.</p>", updateId: `call-sheet-redflags:${slug(state.activeCallSheetDay)}` }),
     card({ title: "Missing files for this day", status: sheet.missingFiles?.length ? "File Needed" : "On Track", body: list(sheet.missingFiles) || "<p>No day-specific missing files listed.</p>", updateId: `call-sheet-missing:${slug(state.activeCallSheetDay)}` })
   ].join(""));
-  let nowLineRendered = false;
-  setHtml("[data-call-sheet]", `${items.map((item) => {
+  setHtml("[data-call-sheet]", `${isToday ? `<div class="now-line"><span>Now · ${escapeHtml(position.now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" }))}</span></div>` : ""}${items.map((item) => {
     const past = isToday && item.startMinutes !== null && item.startMinutes < nowMinutes && item.updateId !== position.current?.updateId;
     const current = item.updateId === position.current?.updateId;
     const next = item.updateId === position.next?.updateId;
-    const showNowLine = isToday && !nowLineRendered && (current || next);
-    if (showNowLine) nowLineRendered = true;
-    return `${showNowLine ? `<div class="now-line"><span>Now · ${escapeHtml(position.now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" }))}</span></div>` : ""}
+    return `
       <article class="call-sheet-item ${past ? "is-past" : ""} ${current ? "is-now" : ""} ${next ? "is-next" : ""}">
         <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
         <div>
@@ -824,7 +808,7 @@ function renderLocationSchedules() {
       .slice(0, 36);
     const grouped = groupBy(items, (item) => item.day);
     const details = items.length ? `<div class="location-schedule grouped-schedule">${Object.entries(grouped).map(([day, rows]) => `
-      <details class="details schedule-day-group">
+      <details class="details schedule-day-group" open>
         <summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length} item${rows.length === 1 ? "" : "s"}</span></summary>
         <div class="details-content">
           ${rows.map((item) => `
@@ -850,7 +834,7 @@ function renderLocationSchedules() {
       status: location.status,
       body: `<p>${escapeHtml(location.primaryUse)}</p>`,
       metadata: meta("Main day(s)", location.mainDays) + meta("Key owner", location.keyOwner) + meta("Watch-out", location.watchOut),
-      footer: `<div class="contact-actions">${mapLink(location)}</div>${detailsBlock("Open location schedule", [], details)}`,
+      footer: detailsBlock("Open location schedule", [], details),
       updateId: location.updateId || `location:${slug(location.locationName)}`
     });
   }).join("") || empty("No location schedules available yet."));
@@ -862,7 +846,7 @@ function renderRestaurants() {
     const items = schedules.filter((item) => item.restaurantName === restaurant.restaurantName || includes(item, restaurant.restaurantName)).slice(0, 32);
     const grouped = groupBy(items, (item) => item.day);
     const detail = items.length ? `<div class="location-schedule grouped-schedule">${Object.entries(grouped).map(([day, rows]) => `
-      <details class="details schedule-day-group">
+      <details class="details schedule-day-group" open>
         <summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length} meal moment${rows.length === 1 ? "" : "s"}</span></summary>
         <div class="details-content">
           ${rows.map((item) => `
@@ -958,7 +942,6 @@ function renderTasks() {
 }
 
 function renderTravel() {
-  const unclearTravel = /test check|check in$|on site$|subject\s*(to|\d)|\?|needed|tbc|missing|unclear/i;
   const items = (state.data.travel || [])
     .filter((item) => passesGlobal(item, { status: item.status, day: item.arrivalDate || item.departureDate, owner: item.person, location: item.arrivalAirport || item.departureAirport, updateId: item.updateId }))
     .filter((item) => passesLocal(item, state.travelFilters, {
@@ -972,8 +955,8 @@ function renderTravel() {
   const count = $("[data-travel-count]");
   if (count) count.textContent = `${items.length} showing`;
   setHtml("[data-travel]", items.map((item) => card({
-    title: item.person || "Person Needed",
-    status: unclearTravel.test(`${item.person} ${item.arrivalAirport} ${item.arrivalFlight} ${item.departureAirport} ${item.departureFlight} ${item.hotelTransferNotes} ${item.notes}`) ? "Needs Confirmation" : item.status,
+    title: item.person,
+    status: item.status,
     department: item.team,
     body: `<p>${escapeHtml(firstMeaningful(item.arrivalDate, item.departureDate, "Travel date needed"))} · ${escapeHtml(firstMeaningful(item.arrivalAirport, item.departureAirport, "Airport needed"))}</p>
       ${detailsBlock("Travel details", [["Team/company", item.team], ["Arrival date", item.arrivalDate || "Arrival date needed"], ["Arrival time", item.arrivalTime || "Arrival time needed"], ["Arrival airport", item.arrivalAirport || "Arrival airport needed"], ["Arrival flight", item.arrivalFlight || "Flight info needed"], ["Departure date", item.departureDate || "Departure date needed"], ["Departure time", item.departureTime || "Departure time needed"], ["Departure airport", item.departureAirport || "Departure airport needed"], ["Departure flight", item.departureFlight || "Flight info needed"], ["Transfer notes", item.hotelTransferNotes], ["Transport owner", item.transportOwner], ["Notes", item.notes]])}`,
@@ -997,7 +980,7 @@ function renderContacts() {
       title: item.name,
       status: item.category || item.group,
       body: `<p>${escapeHtml(item.role || item.responsibility)}</p>`,
-      metadata: meta("Category", item.category || item.group) + meta("Phone", item.phone) + meta("Email", item.email || item.emailStatus || (item.notes === "Email needed" ? "Email needed" : "")) + meta("Notes", item.notes && item.notes !== "Email needed" ? item.notes : ""),
+      metadata: meta("Category", item.category || item.group) + meta("Phone", item.phone) + meta("Email", item.email || (item.notes === "Email needed" ? "Email needed" : "")) + meta("Notes", item.notes && item.notes !== "Email needed" ? item.notes : ""),
       footer: `<div class="contact-actions">${phoneHref ? `<a href="${phoneHref}">Call</a>` : ""}${item.whatsappLink ? `<a href="${item.whatsappLink}" target="_blank" rel="noreferrer">WhatsApp</a>` : ""}${item.email ? `<a href="mailto:${item.email}">Email</a>` : ""}</div>`,
       updateId: item.updateId
     });
@@ -1022,7 +1005,7 @@ function renderLocations() {
     title: item.locationName,
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
-    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Latitude", item.latitude) + meta("Longitude", item.longitude) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Aliases", (item.aliases || []).join(", ")) + meta("Watch-out", item.watchOut),
+    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Watch-out", item.watchOut),
     footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
@@ -1081,7 +1064,7 @@ function renderPodcast() {
   setHtml("[data-podcast]", Object.entries(grouped).map(([day, rows]) => `
     <article class="card section-card">
       <div class="card-header"><h3 class="card-title">${escapeHtml(dayLabelShort(day))}</h3><div class="tag-stack">${tag(`${rows.length} podcast item${rows.length === 1 ? "" : "s"}`)}</div></div>
-      <details class="details schedule-day-group"><summary><span>Open ${escapeHtml(dayLabelShort(day))} podcasts</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content location-schedule grouped-schedule">
+      <div class="location-schedule grouped-schedule">
         ${rows.map((item) => {
           episode += 1;
           return card({
@@ -1094,7 +1077,7 @@ function renderPodcast() {
             updateId: item.updateId
           });
         }).join("")}
-      </div></details>
+      </div>
     </article>
   `).join("") || empty("No podcast slots match the filters."));
 }
@@ -1102,13 +1085,13 @@ function renderPodcast() {
 function renderEntertainment() {
   const performers = (state.data.entertainment || []).filter((item) => !/playlist|background|ambient|curated music/i.test(`${item.performerName} ${item.type}`));
   setHtml("[data-entertainment]", performers.map((item) => {
-    const schedule = item.scheduleItems?.length ? `<div class="location-schedule">${Object.entries(groupBy(item.scheduleItems, (row) => row.day || "Day needed")).map(([day, rows]) => `<details class="details schedule-day-group"><summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content">${rows.map((row) => `
+    const schedule = item.scheduleItems?.length ? `<div class="location-schedule">${item.scheduleItems.map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml([row.day, row.time].filter(Boolean).join(" · ") || "Time needed")}</strong>
         <p>${escapeHtml(row.title || "Performance moment")}</p>
         <div class="meta-list compact-meta">${meta("Location", row.location)}${meta("Status", row.status)}</div>
       </div>
-    `).join("")}</div></details>`).join("")}</div>` : `<p>Performance schedule needs confirmation.</p>`;
+    `).join("")}</div>` : `<p>Performance schedule needs confirmation.</p>`;
     return card({
       title: item.performerName,
       status: item.status,
@@ -1122,7 +1105,7 @@ function renderEntertainment() {
 }
 
 function renderPlaylists() {
-  const items = (state.data.curatedPlaylists || []).filter((item) => !/dj |violin|pianist|vocal|performer|live music/i.test(`${item.playlistName} ${item.notes}`));
+  const items = (state.data.curatedPlaylists || []).filter((item) => !/dj |violin|pianist|vocal|performer/i.test(`${item.playlistName} ${item.notes}`));
   setHtml("[data-playlists]", items.map((item) => card({
     title: item.playlistName,
     status: item.status,
@@ -1131,18 +1114,6 @@ function renderPlaylists() {
     metadata: meta("Playlist link", item.playlistLink) + meta("Owner", item.owner) + meta("Start/stop responsibility", item.startStopResponsibility) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No curated playlist moments available yet."));
-}
-
-function renderCaptureLog() {
-  const items = [...(state.captureLog || [])].slice(-18).reverse();
-  setHtml("[data-capture-log]", items.length ? items.map((item) => card({
-    title: item.subject || "Capture moment",
-    status: item.status || "Logged",
-    department: item.mediaType || "Capture Log",
-    body: `<p>${escapeHtml([item.day, item.manualTime || item.timestamp].filter(Boolean).join(" · "))}</p>`,
-    metadata: meta("Logged by", item.loggedBy) + meta("Camera", item.camera) + meta("Location", item.location) + meta("Tags", item.tags) + meta("File/card", item.fileReference) + meta("Priority", item.priority) + meta("Notes", item.notes),
-    updateId: item.updateId || `capture-log:${slug(item.id || item.subject)}`
-  })).join("") : empty("No capture log entries yet. Add moments as footage is captured onsite."));
 }
 
 function renderContentCapture() {
@@ -1238,8 +1209,7 @@ function renderSwagSchedule() {
 }
 
 function renderSwag() {
-  const items = (state.data.swag || []).filter((item) => !/breakfast|coffee break|lunch|dinner|catering|allergen key|selected in-room dining/i.test(`${item.itemName} ${item.category} ${item.notes}`));
-  setHtml("[data-swag]", items.map((item) => card({
+  setHtml("[data-swag]", state.data.swag.map((item) => card({
     title: item.itemName,
     status: item.status,
     department: item.category,
@@ -1265,7 +1235,7 @@ function renderSpeakers() {
     return `<article class="card section-card">
       <div class="brand-logo-wrapper mini-brand"><img class="brand-logo" src="${escapeHtml(logo)}" alt="${escapeHtml(location)} logo" loading="lazy"></div>
       <div class="card-header"><h3 class="card-title">${escapeHtml(location)}</h3><div class="tag-stack">${tag(items.length ? `${items.length} records` : "Content Needed")}</div></div>
-      ${items.length ? Object.entries(byDay).map(([day, rows]) => `<details class="details schedule-day-group"><summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content">${rows.map((item) => card({
+      ${items.length ? Object.entries(byDay).map(([day, rows]) => `<details class="details schedule-day-group" open><summary><span>${escapeHtml(dayLabelShort(day))}</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content">${rows.map((item) => card({
         title: item.sessionTitle || item.speakerName,
         status: item.status,
         department: "Speaker Content",
@@ -1282,20 +1252,19 @@ function renderRehearsals() {
   const grouped = groupBy(liveItems(state.data.rehearsals || []), (item) => item.day || "Day needed");
   setHtml("[data-rehearsals]", Object.entries(grouped).map(([day, rows]) => `<article class="card section-card">
     <div class="card-header"><h3 class="card-title">${escapeHtml(dayLabelShort(day))}</h3><div class="tag-stack">${tag(`${rows.length} rehearsal${rows.length === 1 ? "" : "s"}`)}</div></div>
-    <details class="details schedule-day-group"><summary><span>Open rehearsals</span><span class="summary-hint">${rows.length}</span></summary><div class="details-content location-schedule grouped-schedule">${rows.map((item) => card({
+    <div class="location-schedule grouped-schedule">${rows.map((item) => card({
       title: item.rehearsalName,
       status: item.status,
       department: "Rehearsal",
       body: `<p><strong>${escapeHtml(item.time || "Time needed")}</strong></p>`,
       metadata: meta("Location", item.location) + meta("Required people", item.requiredPeople) + meta("Owner", item.owner) + meta("Notes", item.notes),
       updateId: item.updateId
-    })).join("")}</div></details>
+    })).join("")}</div>
   </article>`).join("") || empty("No rehearsal records available yet."));
 }
 
 function renderArtwork() {
-  const items = liveItems(state.data.artworkSignage || []).filter((item) => !/breakfast|coffee break|lunch|dinner|catering/i.test(`${item.itemName} ${item.type} ${item.notes}`));
-  setHtml("[data-artwork]", items.map((item) => card({
+  setHtml("[data-artwork]", liveItems(state.data.artworkSignage || []).map((item) => card({
     title: item.itemName,
     status: item.status,
     department: item.type,
@@ -1315,7 +1284,7 @@ function renderStaffLists() {
     footer: detailsBlock("Open staff details", [], people.length ? `<div class="location-schedule">${people.map((person) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(person.name)}</strong>
-        <div class="meta-list compact-meta">${meta("Company", person.company)}${meta("Role", person.role)}${meta("Responsibility", person.responsibility)}${meta("Phone", person.phone)}${meta("WhatsApp", person.whatsappLink)}${meta("Slack", person.slackHandle || person.slackUserId)}${meta("Days onsite", person.daysOnsite)}${meta("Notes", person.notes || "Needs Confirmation")}</div>
+        <div class="meta-list compact-meta">${meta("Role", person.role)}${meta("Responsibility", person.responsibility)}${meta("Phone", person.phone)}${meta("WhatsApp", person.whatsappLink)}${meta("Days onsite", person.daysOnsite)}${meta("Notes", person.notes)}</div>
       </div>
     `).join("")}</div>` : `<p>Add staff list details.</p>`)
   })).join(""));
@@ -1501,7 +1470,12 @@ function setupSectionNavigation() {
     ["horizons-house", "HORIZONS House"],
     ["artwork", "Signage"],
     ["documents", "Documents"],
-    ["admin-data", "Admin Data"]
+    ["cvent", "Cvent"],
+    ["missing-files", "Missing Files"],
+    ["slack", "Slack"],
+    ["data-health", "Data Health"],
+    ["duplicate-review", "Duplicate Review"],
+    ["site-audit", "Site Audit"]
   ].filter(([id]) => document.getElementById(id));
   const progress = $("[data-section-progress]");
   if (progress) {
@@ -1535,27 +1509,6 @@ function setupSectionNavigation() {
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate);
   requestUpdate();
-}
-
-function setupBackToTopAndAdmin() {
-  const button = $("[data-back-to-top]");
-  const adminIds = new Set(["admin-data", "cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"]);
-  const visibleSections = $$("main > section").filter((section) => !section.classList.contains("admin-tool-section"));
-  visibleSections.forEach((section, index) => {
-    if (section.querySelector("[data-next-section]")) return;
-    const next = visibleSections[index + 1];
-    if (!next) return;
-    const heading = next.querySelector("h2")?.textContent || "next section";
-    section.querySelector(".container")?.insertAdjacentHTML("beforeend", `<div class="next-section-link"><a href="#${escapeHtml(next.id)}" data-next-section>Next: ${escapeHtml(heading)}</a></div>`);
-  });
-  const update = () => {
-    if (button) button.classList.toggle("is-visible", window.scrollY > 640);
-    document.body.classList.toggle("admin-view", adminIds.has((location.hash || "").replace("#", "")));
-  };
-  button?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("hashchange", update);
-  update();
 }
 
 function bindEvents() {
@@ -1691,36 +1644,6 @@ function bindEvents() {
     }
   });
   document.addEventListener("submit", async (event) => {
-    const captureLogForm = event.target.closest("[data-capture-log-form]");
-    if (captureLogForm) {
-      event.preventDefault();
-      const data = new FormData(captureLogForm);
-      const timestamp = new Date().toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Madrid" });
-      const item = {
-        id: `capture-log-${Date.now()}`,
-        updateId: `capture-log:${Date.now()}`,
-        loggedBy: text(data.get("loggedBy"), "Name needed"),
-        timestamp,
-        manualTime: text(data.get("manualTime")),
-        day: text(data.get("day"), state.activeContentDay || state.activeDay || "Day needed"),
-        location: text(data.get("location"), "Location needed"),
-        camera: text(data.get("camera"), "Camera needed"),
-        mediaType: text(data.get("mediaType"), "Photo"),
-        subject: text(data.get("subject")),
-        tags: text(data.get("tags")),
-        fileReference: text(data.get("fileReference")),
-        priority: text(data.get("priority"), "Normal"),
-        status: text(data.get("status"), "Logged"),
-        notes: text(data.get("notes")),
-        source: "local-capture-log"
-      };
-      if (!item.subject) return;
-      state.captureLog = [...(state.captureLog || []), item];
-      captureLogStore.save(state.captureLog.filter((entry) => entry.source === "local-capture-log"));
-      captureLogForm.reset();
-      renderCaptureLog();
-      return;
-    }
     const suggestionForm = event.target.closest("[data-capture-suggestion-form]");
     if (suggestionForm) {
       event.preventDefault();

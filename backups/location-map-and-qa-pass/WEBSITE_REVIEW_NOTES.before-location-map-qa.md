@@ -42,35 +42,6 @@ Safe tests completed:
 - Slack test send to `#horizons-test` through `/api/slack/send`.
 - Source scan for committed Slack webhooks, tokens, Supabase service role assignment, private keys, and `.env` secrets.
 
-## Location Map / Onsite QA Pass - 1 June 2026
-
-Implemented:
-
-- Exact Google Maps links added for HORIZONS Hall, Reception / HORIZONS House, Pool Deck, Partel, Chris Hotel Room, Six Senses Spa, Rocky Beach, Access Tunnel / Tommy's Tunnel, Beach Caves, Poker Room, Arcade, HORIZONS House Terrace, Orchard, Main Reception, HORIZONS Studio Refreshment Stop, Crew Food / Situation Room, HORIZONS Studio, and Longevity Spa.
-- Emergency medical card remains `Needs Confirmation` and uses a temporary Google Maps search near the Six Senses Ibiza property coordinate.
-- Weather now uses the central event property coordinate near Six Senses Ibiza with Europe/Madrid, Celsius, Open-Meteo, and graceful fallback copy.
-- Call Sheet top spacing was tightened, weather and emergency cards are laid out side-by-side on desktop, and the current/next/past item highlighting is less intrusive.
-- Locations, restaurants, podcast, entertainment, speakers, rehearsals, staff, documents, and long detail sections now default to collapsed/summary-first behavior where appropriate.
-- Capture Log was added for photo/video/drone/BTS/audio/social moment logging.
-- Admin-heavy sections now sit behind the footer `Admin Data` entry instead of dominating the main team navigation.
-- Samuel Price contact title was updated to `Group Director of Business Development and Technology`, with `Podcast Lead` retained.
-
-New reports:
-
-- `TRAVEL_DATA_CLEANUP_NEEDED.md`
-- `GUEST_MATERIALS_CLEANUP_REPORT.md`
-- `SECTION_MAPPING_AUDIT.md`
-- `MISSING_IMAGES_FILES_QUESTIONS_FOR_SAMUEL.md`
-- `NAMING_CONFIRMATION_NEEDED.md`
-
-Still pending:
-
-- Confirm final hospital details and emergency protocol.
-- Confirm venue pins and internal maps against Six Senses venue plans.
-- Review unclear travel rows before they are treated as final.
-- Supply missing imagery, signage artwork, maps, menus, staff lists, speaker/podcast content, and rehearsal timings.
-- Approve production Slack channel routing before enabling non-test alerts.
-
 ## Confirmed Fixed
 
 - Chris Manoe correction: fixed.

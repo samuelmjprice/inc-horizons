@@ -64,36 +64,14 @@ Current live features include:
 - Flights / Travel cards for arrivals, departures, transfer notes, missing flight details, and transport ownership.
 - Ibiza-time Now / Next schedule awareness.
 - Daily Call Sheets derived from approved schedule data, with day tabs and Now / Next highlighting.
-- Call Sheet weather using Open-Meteo for the Six Senses Ibiza event property coordinate, with local fallback copy if the API fails.
+- Call Sheet weather placeholder for Six Senses Ibiza / Ibiza until a live forecast source is connected.
 - Card-first Locations, with detailed schedules inside expandable location panels.
-- Exact Google Maps buttons for confirmed internal event locations and a temporary emergency medical search link until hospital details are confirmed.
 - Supplier timing blocks grouped by day.
 - Supplier update topic tagging.
 - Content Capture Suggestions for live capture ideas from the team.
-- Capture Log for photo/video/drone/BTS/audio/social teams to timestamp captured moments for edit lookup.
 - Guest Materials & Experience covering swag, tote bags, menus, easel boards, signage, room drops, and guest touchpoints.
 - Section progress navigation and active top navigation.
-- Floating Back to Top and Next Section controls for long-page navigation.
 - Document categories for `Presentations / Speeches` and `Event Content Documents`.
-
-## Location Map / QA Pass - 1 June 2026
-
-This pass added exact map coordinates, improved onsite navigation, tightened the Call Sheet, and moved admin-heavy review tools behind the footer `Admin Data` link.
-
-New review reports created:
-
-- `MISSING_IMAGES_FILES_QUESTIONS_FOR_SAMUEL.md`
-- `TRAVEL_DATA_CLEANUP_NEEDED.md`
-- `GUEST_MATERIALS_CLEANUP_REPORT.md`
-- `SECTION_MAPPING_AUDIT.md`
-- `NAMING_CONFIRMATION_NEEDED.md`
-
-Key open confirmations remain:
-
-- Final hospital / emergency medical location, route, venue contact, and emergency phone number.
-- Final venue pins and internal map confirmation for all operational locations.
-- Missing images, signage files, maps, menus, staff details, speaker/podcast content, and rehearsal timings.
-- Production Slack routing approval before any non-test Slack channels are activated.
 
 ## Update Workflow
 

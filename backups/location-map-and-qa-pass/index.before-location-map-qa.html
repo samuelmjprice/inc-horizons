@@ -54,7 +54,12 @@
           <a href="#documents">Documents</a>
           <a href="#locations">Locations</a>
           <span class="nav-group-label">Admin</span>
-          <a href="#admin-data">Admin Data</a>
+          <a href="#cvent">Cvent</a>
+          <a href="#missing-files">Missing Files</a>
+          <a href="#slack">Slack</a>
+          <a href="#data-health">Data Health</a>
+          <a href="#duplicate-review">Duplicates</a>
+          <a href="#site-audit">Audit</a>
         </nav>
       </div>
     </header>
@@ -129,10 +134,6 @@
             <p>Key focus, urgent items, and priority movements for the current event day.</p>
           </div>
           <div class="cards-grid priority-grid" data-today></div>
-          <div class="contact-actions section-actions">
-            <a href="#call-sheet">Open Today’s Call Sheet</a>
-            <a href="#who-do-i-call">Who Do I Call</a>
-          </div>
         </div>
       </section>
 
@@ -171,9 +172,6 @@
           <div class="tabs" data-schedule-tabs role="tablist" aria-label="Schedule days"></div>
           <div class="now-next" data-now-next></div>
           <div class="timeline" data-schedule></div>
-          <div class="contact-actions section-actions">
-            <a href="#call-sheet">Open Today’s Call Sheet</a>
-          </div>
         </div>
       </section>
 
@@ -420,29 +418,6 @@
               <button class="button button-secondary" type="submit">Add capture suggestion</button>
             </form>
           </div>
-          <div class="capture-log-panel">
-            <div class="section-heading">
-              <p class="eyebrow">Footage finder</p>
-              <h2>Capture Log</h2>
-              <p>Fast internal log for photo, video, drone, BTS, audio, and social moments captured onsite.</p>
-            </div>
-            <div class="cards-grid compact-grid" data-capture-log></div>
-            <form class="suggestion-form" data-capture-log-form>
-              <label><span>Logged by</span><input name="loggedBy" required placeholder="Your name"></label>
-              <label><span>Manual time override</span><input name="manualTime" placeholder="14:35 or leave blank"></label>
-              <label><span>Day/date</span><input name="day" placeholder="Wednesday 10 June"></label>
-              <label><span>Location</span><input name="location" placeholder="HORIZONS Hall"></label>
-              <label><span>Camera</span><input name="camera" placeholder="A Cam / Drone / iPhone"></label>
-              <label><span>Media type</span><select name="mediaType"><option>Photo</option><option>Video</option><option>Drone</option><option>Audio</option><option>BTS</option><option>Social</option></select></label>
-              <label><span>Subject / moment</span><textarea name="subject" required placeholder="What was captured?"></textarea></label>
-              <label><span>Tags</span><input name="tags" placeholder="awards, Chris, hallway"></label>
-              <label><span>File/card reference</span><input name="fileReference" placeholder="Card A / clip range / filename"></label>
-              <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option></select></label>
-              <label><span>Status</span><select name="status"><option>Logged</option><option>Needs Review</option><option>Selected</option><option>Used</option><option>Archived</option></select></label>
-              <label><span>Notes</span><textarea name="notes" placeholder="Useful context for edit team"></textarea></label>
-              <button class="button button-secondary" type="submit">Log capture moment</button>
-            </form>
-          </div>
           <div class="cards-grid compact-grid" data-content-capture></div>
         </div>
       </section>
@@ -537,25 +512,7 @@
         </div>
       </section>
 
-      <section id="admin-data" class="section admin-gateway">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Samuel / developer tools</p>
-            <h2>Backend / Developer Data</h2>
-            <p>Admin-only review area for source health, missing files, Slack setup, Cvent comparison, duplicate review, and site audit records.</p>
-          </div>
-          <div class="contact-actions">
-            <a href="#cvent">Cvent</a>
-            <a href="#missing-files">Missing Files</a>
-            <a href="#slack">Slack</a>
-            <a href="#data-health">Data Health</a>
-            <a href="#duplicate-review">Duplicate Review</a>
-            <a href="#site-audit">Site Audit</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="cvent" class="section admin-tool-section">
+      <section id="cvent" class="section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Event app audit</p>
@@ -566,7 +523,7 @@
         </div>
       </section>
 
-      <section id="missing-files" class="section section-tint admin-tool-section">
+      <section id="missing-files" class="section section-tint">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Files still needed</p>
@@ -577,7 +534,7 @@
         </div>
       </section>
 
-      <section id="slack" class="section admin-tool-section">
+      <section id="slack" class="section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Communication layer</p>
@@ -588,7 +545,7 @@
         </div>
       </section>
 
-      <section id="data-health" class="section section-tint admin-section admin-tool-section">
+      <section id="data-health" class="section section-tint admin-section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Admin / source health</p>
@@ -599,7 +556,7 @@
         </div>
       </section>
 
-      <section id="duplicate-review" class="section admin-section admin-tool-section">
+      <section id="duplicate-review" class="section admin-section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Admin / duplicate review</p>
@@ -610,7 +567,7 @@
         </div>
       </section>
 
-      <section id="site-audit" class="section section-tint admin-section admin-tool-section">
+      <section id="site-audit" class="section section-tint admin-section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Admin / UX audit</p>
@@ -651,17 +608,15 @@
     </main>
 
     <nav class="section-progress" data-section-progress aria-label="Section progress"></nav>
-    <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <img class="footer-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
         <p>Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.</p>
         <p>Last updated <time data-footer-updated></time></p>
-        <p><a href="#admin-data">Admin Data</a></p>
       </div>
     </footer>
 
-    <script src="script.js?v=20260601-locationqa1"></script>
+    <script src="script.js?v=20260531-finalmaster1"></script>
   </body>
 </html>
