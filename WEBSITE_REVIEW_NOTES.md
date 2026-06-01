@@ -262,8 +262,9 @@ Setup completed:
 - Created private business division channels: `#biz-chris-manoe`, `#biz-world-main`, `#biz-singers`, `#biz-dancers`, `#biz-artists`, `#biz-agency-105`, `#biz-circle`, `#biz-ip`.
 - Created private INC Circle channels: `#circle-team-inc`, `#circle-outreach-inc`, `#circle-content-inc`.
 - Renamed earlier similar channels to approved names where safe: `#inc-ops` to `#inc-core-team`, `#inc-production` to `#inc-media-production`, `#inc-business-growth` to `#inc-leads-new-deals`, and `#inc-admin` to `#inc-systems-tech`.
+- Created sidebar sections in Samuel's Slack sidebar: `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS EVENT`, and `HORIZONS ADMIN / TESTING`.
 - Existing HORIZONS channels were preserved.
-- HORIZONS channel privacy still needs review before inviting wider users.
+- HORIZONS channels currently appear public and need privacy conversion/review before inviting wider users.
 - `#horizons-test` received a backend test message successfully after the rename.
 - No wider team invites were sent.
 

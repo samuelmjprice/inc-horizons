@@ -19,6 +19,7 @@ Current setup status:
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Pro upgrade checkout has not been completed; Samuel/Chris billing approval is still required.
 - Required core INC, business division, and Circle private channels have been created.
+- Slack sidebar sections were created in Samuel's sidebar: `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS EVENT`, and `HORIZONS ADMIN / TESTING`.
 - Existing HORIZONS channels have been preserved.
 - `#horizons-test` has been verified with a backend website-to-Slack test message.
 
@@ -110,7 +111,7 @@ Create or confirm these channels inside the same International Collective worksp
 
 Private-by-default is recommended for all HORIZONS channels until the access plan is approved.
 
-Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. Their access/privacy should be reviewed before inviting wider users. `#horizons-test` is working and should remain connected to `SLACK_WEBHOOK_TEST`.
+Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. They currently appear public in Slack and should be converted to private/invite-only before wider invites unless Samuel/Chris approve a specific public exception. `#horizons-test` is working and should remain connected to `SLACK_WEBHOOK_TEST`.
 
 Existing channels needing later review:
 

@@ -493,8 +493,9 @@ Setup status:
 - Workspace is on a free Slack Pro trial through 27 June 2026; paid Pro checkout still needs billing approval.
 - Approved core INC, business division, and Circle channels were created as private channels.
 - Earlier duplicate-prone channels were renamed to the approved names where safe.
+- Slack sidebar sections were created in Samuel's sidebar for International Collective, Business Divisions, INC Circle, HORIZONS Event, and HORIZONS Admin / Testing.
 - Existing HORIZONS channels were preserved.
-- HORIZONS channel privacy still needs review before inviting wider users.
+- HORIZONS channels currently appear public and need privacy conversion/review before inviting wider users.
 - A backend test message to `#horizons-test` succeeded after the rename.
 
 ## Chris / Samuel Onsite UX Review - 29 May 2026
