@@ -138,6 +138,16 @@ The master review workbook avoids duplicate questions by using canonical records
 
 The website is the source of truth. Slack is the communication and alert layer.
 
+Workspace decision as of 1 June 2026:
+
+- Use one Slack workspace only: `International Collective`.
+- Do not create a second HORIZONS workspace.
+- Use Slack Pro if billing is approved; do not choose Business+ without explicit Samuel/Chris approval.
+- Internal INC work belongs in private `#inc-*` channels and `#samuel-chris`.
+- HORIZONS event alerts belong in private `#horizons-*` channels inside the same workspace.
+- Sidebar groups are visual only; channel privacy controls access.
+- Do not invite the wider team, clients, or suppliers until `SLACK_CHANNEL_ACCESS_PLAN.md` is approved.
+
 Current implementation is partially live in test mode:
 
 1. Website users can save shared team updates through the Vercel/Supabase backend.

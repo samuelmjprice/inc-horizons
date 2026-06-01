@@ -224,6 +224,43 @@ Remaining polish:
 - Replace the native confirm dialog with a branded confirmation modal and explicit resend warning.
 - Add an admin-visible Slack activity viewer if the team wants to review Slack logs inside the website rather than Supabase.
 
+## Slack Workspace Plan - 1 June 2026
+
+Decision:
+
+- Use one Slack workspace only.
+- Rename/use the workspace display name `International Collective`.
+- Do not create a second HORIZONS workspace.
+- Use Slack Pro after Samuel/Chris approve billing; do not choose Business+ without explicit approval.
+- Keep HORIZONS as private event channels inside the International Collective workspace.
+- Keep internal INC work in private `#inc-*` channels and `#samuel-chris`.
+- Do not invite wider team, clients, or suppliers until the access plan is approved.
+
+Docs added/updated:
+
+- `SLACK_SETUP.md`
+- `SLACK_CHANNEL_ACCESS_PLAN.md`
+- `SLACK_WORKSPACE_SETUP_REQUIRED.md`
+- `README.md`
+- `WEBSITE_UPDATE_WORKFLOW.md`
+
+Website integration rule:
+
+- Keep `#horizons-test` working.
+- Do not enable broad production Slack alerts.
+- Production website routing should stay HORIZONS-focused and be enabled gradually, starting with manual notify buttons.
+
+Setup completed:
+
+- Workspace display name changed from `INC-HORIZONS` to `International Collective`.
+- Workspace URL was not changed.
+- Workspace is on a free Slack Pro trial through 27 June 2026.
+- Paid Slack Pro checkout was not completed because billing approval is still required.
+- Created private internal INC channels: `#inc-main`, `#inc-leadership`, `#inc-ops`, `#inc-production`, `#inc-business-growth`, `#inc-admin`, `#samuel-chris`.
+- Existing HORIZONS channels were preserved.
+- `#horizons-test` received a backend test message successfully after the rename.
+- No wider team invites were sent.
+
 ## Chris / Samuel Onsite UX Review - 29 May 2026
 
 Implemented:

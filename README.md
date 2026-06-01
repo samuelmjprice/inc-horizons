@@ -472,6 +472,27 @@ Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 - Test comments are labelled `TEST - safe to delete` and should not be treated as event data.
 - Production Slack webhooks, wider team invites, and automatic production alerts still need Samuel/Chris approval.
 
+## Slack Workspace Decision - 1 June 2026
+
+- Use one Slack workspace only: `International Collective`.
+- Do not create a second HORIZONS workspace.
+- HORIZONS event operations live in private `#horizons-*` channels inside the International Collective workspace.
+- Internal company work lives in private `#inc-*` channels and `#samuel-chris`.
+- Recommended paid plan is Slack Pro. Do not choose Business+ unless Samuel/Chris explicitly approve it.
+- Privacy is controlled by channel privacy, not Slack sidebar sections.
+- `#horizons-test` remains the website-to-Slack test channel.
+- Website production routing remains HORIZONS-focused and should be enabled gradually after access approval.
+- See `SLACK_SETUP.md` and `SLACK_CHANNEL_ACCESS_PLAN.md`.
+
+Setup status:
+
+- Workspace display name changed to `International Collective`.
+- Workspace URL left unchanged at `inc-horizons.slack.com`.
+- Workspace is on a free Slack Pro trial through 27 June 2026; paid Pro checkout still needs billing approval.
+- Internal INC channels were created as private channels.
+- Existing HORIZONS channels were preserved.
+- A backend test message to `#horizons-test` succeeded after the rename.
+
 ## Chris / Samuel Onsite UX Review - 29 May 2026
 
 - Hero duplicate event-title wording was removed; the official centred HORIZONS logo remains the brand anchor.
