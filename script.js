@@ -369,6 +369,14 @@ async function init() {
   startNowNext();
   setupSectionNavigation();
   setupBackToTopAndAdmin();
+  const restoreHashTarget = () => {
+    const target = document.getElementById((location.hash || "").replace("#", ""));
+    if (target) target.scrollIntoView();
+    window.HORIZONS_UPDATE_SECTION_NAV?.();
+  };
+  requestAnimationFrame(restoreHashTarget);
+  setTimeout(restoreHashTarget, 350);
+  setTimeout(restoreHashTarget, 1000);
 }
 
 function renderEvent() {
@@ -1554,6 +1562,8 @@ function setupSectionNavigation() {
   };
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate);
+  window.addEventListener("hashchange", requestUpdate);
+  window.HORIZONS_UPDATE_SECTION_NAV = requestUpdate;
   requestUpdate();
 }
 
