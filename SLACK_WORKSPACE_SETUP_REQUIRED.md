@@ -14,17 +14,39 @@ Status on 1 June 2026: workspace is on a free Slack Pro trial through 27 June 20
 
 HORIZONS event channels should live inside the International Collective workspace and should be private-by-default until the access plan is approved.
 
-Internal INC private channels to create or confirm:
+Core INC private channels to create or confirm:
 
 - `#inc-main`
-- `#inc-leadership`
-- `#inc-ops`
-- `#inc-production`
-- `#inc-business-growth`
-- `#inc-admin`
-- `#samuel-chris`
+- `#inc-core-team`
+- `#inc-red-flags-urgent`
+- `#inc-finance`
+- `#inc-media-production`
+- `#inc-marketing-web-social`
+- `#inc-leads-new-deals`
+- `#inc-systems-tech`
 
-Status on 1 June 2026: all required internal INC channels were created as private channels.
+Status on 1 June 2026: all required core INC channels exist as private channels. Similar earlier channels were renamed to approved names where safe.
+
+Business division private channels:
+
+- `#biz-chris-manoe`
+- `#biz-world-main`
+- `#biz-singers`
+- `#biz-dancers`
+- `#biz-artists`
+- `#biz-agency-105`
+- `#biz-circle`
+- `#biz-ip`
+
+Status on 1 June 2026: all required `#biz-*` channels were created as private channels.
+
+INC Circle private channels:
+
+- `#circle-team-inc`
+- `#circle-outreach-inc`
+- `#circle-content-inc`
+
+Status on 1 June 2026: all required `#circle-*` channels were created as private channels.
 
 HORIZONS channels to create or confirm:
 
@@ -42,6 +64,14 @@ HORIZONS channels to create or confirm:
 - `#horizons-test`
 
 Status on 1 June 2026: these HORIZONS channels already exist and were preserved. `#horizons-test` received a backend test message successfully after the workspace display rename.
+
+Existing channels needing Samuel/Chris review before archive/delete/rename:
+
+- `#inc-leadership`
+- `#samuel-chris`
+- `#all-inc-horizons`
+- `#social`
+- `#new-channel`
 
 Private build invite list:
 

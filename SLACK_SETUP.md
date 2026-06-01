@@ -18,7 +18,7 @@ Current setup status:
 - Workspace URL remains `inc-horizons.slack.com`.
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Pro upgrade checkout has not been completed; Samuel/Chris billing approval is still required.
-- Required internal INC private channels have been created.
+- Required core INC, business division, and Circle private channels have been created.
 - Existing HORIZONS channels have been preserved.
 - `#horizons-test` has been verified with a backend website-to-Slack test message.
 
@@ -56,14 +56,40 @@ Do not invite clients, suppliers, or wider event collaborators into internal INC
 Create or confirm these private channels:
 
 - `#inc-main`
-- `#inc-leadership`
-- `#inc-ops`
-- `#inc-production`
-- `#inc-business-growth`
-- `#inc-admin`
-- `#samuel-chris`
+- `#inc-core-team`
+- `#inc-red-flags-urgent`
+- `#inc-finance`
+- `#inc-media-production`
+- `#inc-marketing-web-social`
+- `#inc-leads-new-deals`
+- `#inc-systems-tech`
 
-Status on 1 June 2026: all required internal INC channels above were created as private channels.
+Status on 1 June 2026: all required internal INC channels above exist as private channels. Similar earlier channels were renamed to approved names where safe.
+
+## Business Division Channels
+
+Create or confirm these private channels:
+
+- `#biz-chris-manoe`
+- `#biz-world-main`
+- `#biz-singers`
+- `#biz-dancers`
+- `#biz-artists`
+- `#biz-agency-105`
+- `#biz-circle`
+- `#biz-ip`
+
+Status on 1 June 2026: all required `#biz-*` channels above were created as private channels.
+
+## INC Circle Channels
+
+Create or confirm these private channels:
+
+- `#circle-team-inc`
+- `#circle-outreach-inc`
+- `#circle-content-inc`
+
+Status on 1 June 2026: all required `#circle-*` channels above were created as private channels. The business side of INC Circle lives in `#biz-circle`.
 
 ## HORIZONS Event Channels
 
@@ -85,6 +111,16 @@ Create or confirm these channels inside the same International Collective worksp
 Private-by-default is recommended for all HORIZONS channels until the access plan is approved.
 
 Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. Their access/privacy should be reviewed before inviting wider users. `#horizons-test` is working and should remain connected to `SLACK_WEBHOOK_TEST`.
+
+Existing channels needing later review:
+
+- `#inc-leadership`
+- `#samuel-chris`
+- `#all-inc-horizons`
+- `#social`
+- `#new-channel`
+
+Do not delete or archive these without Samuel/Chris approval.
 
 ## Website Integration
 

@@ -143,7 +143,9 @@ Workspace decision as of 1 June 2026:
 - Use one Slack workspace only: `International Collective`.
 - Do not create a second HORIZONS workspace.
 - Use Slack Pro if billing is approved; do not choose Business+ without explicit Samuel/Chris approval.
-- Internal INC work belongs in private `#inc-*` channels and `#samuel-chris`.
+- Core INC work belongs in private `#inc-*` channels.
+- Business division work belongs in private `#biz-*` channels.
+- INC Circle team/content/outreach work belongs in private `#circle-*` channels.
 - HORIZONS event alerts belong in private `#horizons-*` channels inside the same workspace.
 - Sidebar groups are visual only; channel privacy controls access.
 - Do not invite the wider team, clients, or suppliers until `SLACK_CHANNEL_ACCESS_PLAN.md` is approved.

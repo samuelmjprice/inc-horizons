@@ -476,8 +476,10 @@ Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 
 - Use one Slack workspace only: `International Collective`.
 - Do not create a second HORIZONS workspace.
-- HORIZONS event operations live in private `#horizons-*` channels inside the International Collective workspace.
-- Internal company work lives in private `#inc-*` channels and `#samuel-chris`.
+- HORIZONS event operations live in `#horizons-*` channels inside the International Collective workspace.
+- Internal company work uses private `#inc-*` channels.
+- Business divisions use private `#biz-*` channels.
+- INC Circle team/content/outreach uses private `#circle-*` channels.
 - Recommended paid plan is Slack Pro. Do not choose Business+ unless Samuel/Chris explicitly approve it.
 - Privacy is controlled by channel privacy, not Slack sidebar sections.
 - `#horizons-test` remains the website-to-Slack test channel.
@@ -489,8 +491,10 @@ Setup status:
 - Workspace display name changed to `International Collective`.
 - Workspace URL left unchanged at `inc-horizons.slack.com`.
 - Workspace is on a free Slack Pro trial through 27 June 2026; paid Pro checkout still needs billing approval.
-- Internal INC channels were created as private channels.
+- Approved core INC, business division, and Circle channels were created as private channels.
+- Earlier duplicate-prone channels were renamed to the approved names where safe.
 - Existing HORIZONS channels were preserved.
+- HORIZONS channel privacy still needs review before inviting wider users.
 - A backend test message to `#horizons-test` succeeded after the rename.
 
 ## Chris / Samuel Onsite UX Review - 29 May 2026

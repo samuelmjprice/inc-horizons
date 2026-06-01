@@ -232,8 +232,10 @@ Decision:
 - Rename/use the workspace display name `International Collective`.
 - Do not create a second HORIZONS workspace.
 - Use Slack Pro after Samuel/Chris approve billing; do not choose Business+ without explicit approval.
-- Keep HORIZONS as private event channels inside the International Collective workspace.
-- Keep internal INC work in private `#inc-*` channels and `#samuel-chris`.
+- Keep HORIZONS event work in `#horizons-*` channels inside the International Collective workspace.
+- Keep core INC work in private `#inc-*` channels.
+- Keep business division work in private `#biz-*` channels.
+- Keep INC Circle team/content/outreach work in private `#circle-*` channels.
 - Do not invite wider team, clients, or suppliers until the access plan is approved.
 
 Docs added/updated:
@@ -256,8 +258,12 @@ Setup completed:
 - Workspace URL was not changed.
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Slack Pro checkout was not completed because billing approval is still required.
-- Created private internal INC channels: `#inc-main`, `#inc-leadership`, `#inc-ops`, `#inc-production`, `#inc-business-growth`, `#inc-admin`, `#samuel-chris`.
+- Created/confirmed private core INC channels: `#inc-main`, `#inc-core-team`, `#inc-red-flags-urgent`, `#inc-finance`, `#inc-media-production`, `#inc-marketing-web-social`, `#inc-leads-new-deals`, `#inc-systems-tech`.
+- Created private business division channels: `#biz-chris-manoe`, `#biz-world-main`, `#biz-singers`, `#biz-dancers`, `#biz-artists`, `#biz-agency-105`, `#biz-circle`, `#biz-ip`.
+- Created private INC Circle channels: `#circle-team-inc`, `#circle-outreach-inc`, `#circle-content-inc`.
+- Renamed earlier similar channels to approved names where safe: `#inc-ops` to `#inc-core-team`, `#inc-production` to `#inc-media-production`, `#inc-business-growth` to `#inc-leads-new-deals`, and `#inc-admin` to `#inc-systems-tech`.
 - Existing HORIZONS channels were preserved.
+- HORIZONS channel privacy still needs review before inviting wider users.
 - `#horizons-test` received a backend test message successfully after the rename.
 - No wider team invites were sent.
 
