@@ -19,9 +19,12 @@ Current setup status:
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Pro upgrade checkout has not been completed; Samuel/Chris billing approval is still required.
 - Required core INC, business division, and Circle private channels have been created.
-- Slack sidebar sections were created in Samuel's sidebar: `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS EVENT`, and `HORIZONS ADMIN / TESTING`.
+- Slack sidebar sections were created in Samuel's sidebar: `INTERNATIONAL COLLECTIVE`, `DIRECT WORK`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS EVENT`, and `HORIZONS ADMIN / TESTING`.
 - Existing HORIZONS channels have been preserved.
-- `#horizons-test` has been verified with a backend website-to-Slack test message.
+- `#samuel-chris-direct` was created as a private direct work channel; Chris was added.
+- `#horizons-web-hub` was created as a private HORIZONS website/data/admin channel.
+- Required HORIZONS channels were converted to private/invite-only.
+- `#horizons-test` has been verified with a backend website-to-Slack test message after private-channel conversion.
 
 ## Why Slack Pro
 
@@ -92,6 +95,14 @@ Create or confirm these private channels:
 
 Status on 1 June 2026: all required `#circle-*` channels above were created as private channels. The business side of INC Circle lives in `#biz-circle`.
 
+## Direct Work Channels
+
+Create or confirm this private direct work channel:
+
+- `#samuel-chris-direct`
+
+Status on 1 June 2026: created as a private direct work channel, placed in `DIRECT WORK`, and Chris was added.
+
 ## HORIZONS Event Channels
 
 Create or confirm these channels inside the same International Collective workspace:
@@ -107,11 +118,12 @@ Create or confirm these channels inside the same International Collective worksp
 - `#horizons-locations`
 - `#horizons-documents`
 - `#horizons-decisions`
+- `#horizons-web-hub`
 - `#horizons-test`
 
 Private-by-default is recommended for all HORIZONS channels until the access plan is approved.
 
-Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. They currently appear public in Slack and should be converted to private/invite-only before wider invites unless Samuel/Chris approve a specific public exception. `#horizons-test` is working and should remain connected to `SLACK_WEBHOOK_TEST`.
+Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. Required `#horizons-*` channels were converted to private/invite-only. `#horizons-web-hub` was created private for website, Codex, data, backend/Supabase/Vercel, Slack integration, comments/update system, master workbook, and website QA. `#horizons-test` is private, working, and remains connected to `SLACK_WEBHOOK_TEST`.
 
 Existing channels needing later review:
 

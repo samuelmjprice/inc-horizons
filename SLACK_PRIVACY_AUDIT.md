@@ -12,8 +12,11 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 - Core INC channels: private.
 - Business division channels: private.
 - INC Circle channels: private.
-- HORIZONS channels: currently appear public in Slack and need privacy conversion/review before inviting wider users.
-- `#horizons-test`: still connected to website-to-Slack test integration; do not rename.
+- DIRECT WORK: `#samuel-chris-direct` is private and Chris was added.
+- HORIZONS channels: required `#horizons-*` channels are private/invite-only.
+- `#horizons-web-hub`: private HORIZONS website/data/admin channel.
+- `#horizons-test`: private and still connected to website-to-Slack test integration; do not rename.
+- Backend test message to `#horizons-test` passed after private-channel conversion.
 - No wider team, clients, or suppliers were invited during this pass.
 
 ## Channel Audit
@@ -39,18 +42,20 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 | `#circle-team-inc` | Private | Private | No | Circle team information exposed. | Circle team channel. |
 | `#circle-outreach-inc` | Private | Private | No | Outreach information exposed. | Circle outreach channel. |
 | `#circle-content-inc` | Private | Private | No | Content plans exposed. | Circle content channel. |
-| `#horizons-main` | Public currently | Private unless approved public | Yes | Wider workspace members may see event updates. | Convert before wider invite unless approved. |
-| `#horizons-red-flags` | Public currently | Private | Yes | Risks/blockers visible too widely. | High priority privacy change. |
-| `#horizons-schedule` | Public currently | Private | Yes | Schedule changes visible too widely. | Convert before event team invite. |
-| `#horizons-production` | Public currently | Private | Yes | Production/call sheet details exposed. | Convert before wider invite. |
-| `#horizons-content` | Public currently | Private | Yes | Content capture plans exposed. | Convert before wider invite. |
-| `#horizons-podcast` | Public currently | Private | Yes | Guest/podcast logistics exposed. | Convert before wider invite. |
-| `#horizons-suppliers` | Public currently | Private | Yes | Supplier logistics exposed. | Convert before supplier/client invite. |
-| `#horizons-entertainment` | Public currently | Private | Yes | Performer logistics exposed. | Convert before wider invite. |
-| `#horizons-locations` | Public currently | Private | Yes | Venue/location movements exposed. | Convert before wider invite. |
-| `#horizons-documents` | Public currently | Private | Yes | Files/links may be visible too widely. | Convert before wider invite. |
-| `#horizons-decisions` | Public currently | Private | Yes | Approval/leadership decisions exposed. | High priority privacy change. |
-| `#horizons-test` | Public currently | Private | Yes | Website test messages visible too widely. | Do not rename; convert carefully to preserve webhook. |
+| `#samuel-chris-direct` | Private | Private | No | Private Samuel/Chris work would be visible if public. | Created under `DIRECT WORK`; Chris added. |
+| `#horizons-main` | Private | Private unless approved public | No | Wider workspace members may see event updates if made public later. | Converted private; invite-only by default. |
+| `#horizons-red-flags` | Private | Private | No | Risks/blockers visible too widely if made public later. | Converted private. |
+| `#horizons-schedule` | Private | Private | No | Schedule changes visible too widely if made public later. | Converted private. |
+| `#horizons-production` | Private | Private | No | Production/call sheet details exposed if made public later. | Converted private. |
+| `#horizons-content` | Private | Private | No | Content capture plans exposed if made public later. | Converted private. |
+| `#horizons-podcast` | Private | Private | No | Guest/podcast logistics exposed if made public later. | Converted private. |
+| `#horizons-suppliers` | Private | Private | No | Supplier logistics exposed if made public later. | Converted private. |
+| `#horizons-entertainment` | Private | Private | No | Performer logistics exposed if made public later. | Converted private. |
+| `#horizons-locations` | Private | Private | No | Venue/location movements exposed if made public later. | Converted private. |
+| `#horizons-documents` | Private | Private | No | Files/links may be visible too widely if made public later. | Converted private. |
+| `#horizons-decisions` | Private | Private | No | Approval/leadership decisions exposed if made public later. | Converted private. |
+| `#horizons-web-hub` | Private | Private | No | Website/backend/admin details exposed if public. | Created private under HORIZONS EVENT. |
+| `#horizons-test` | Private | Private | No | Website test messages visible too widely if made public later. | Converted private; backend test passed after conversion. |
 | `#inc-leadership` | Private | Review | No | If used, sensitive leadership notes remain protected. | Existing earlier channel; decide keep/archive later. |
 | `#samuel-chris` | Private | Private | No | Private Samuel/Chris notes exposed if public. | Existing private working channel. |
 | `#all-inc-horizons` | Public/default likely | Review | Yes | Default channel may expose old event/company context. | Review before inviting anyone. |
@@ -59,8 +64,7 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 
 ## Recommended Next Privacy Actions
 
-1. Convert all `#horizons-*` channels to private unless Samuel/Chris approve a specific public exception.
-2. Prioritize `#horizons-red-flags`, `#horizons-decisions`, `#horizons-production`, `#horizons-documents`, and `#horizons-test`.
-3. Confirm whether `#horizons-main` should remain public inside the workspace or become private like the rest.
-4. Review `#all-inc-horizons`, `#social`, and `#new-channel` before inviting wider users.
-
+1. Keep all HORIZONS channels private unless Samuel/Chris approve a specific public exception.
+2. Approve the per-channel invite list before adding wider event users, clients, or suppliers.
+3. Review `#all-inc-horizons`, `#social`, and `#new-channel` before inviting wider users.
+4. Decide whether Chris should also be manually added to `#horizons-web-hub`; Slack did not surface a selectable Chris result during the add attempt.

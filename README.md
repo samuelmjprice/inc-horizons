@@ -478,11 +478,13 @@ Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 - Do not create a second HORIZONS workspace.
 - HORIZONS event operations live in `#horizons-*` channels inside the International Collective workspace.
 - Internal company work uses private `#inc-*` channels.
+- Direct Samuel/Chris work uses private `#samuel-chris-direct`.
 - Business divisions use private `#biz-*` channels.
 - INC Circle team/content/outreach uses private `#circle-*` channels.
 - Recommended paid plan is Slack Pro. Do not choose Business+ unless Samuel/Chris explicitly approve it.
 - Privacy is controlled by channel privacy, not Slack sidebar sections.
-- `#horizons-test` remains the website-to-Slack test channel.
+- `#horizons-web-hub` is the private website, Codex, data, backend, Slack integration, comments, master workbook, and QA hub.
+- `#horizons-test` remains the private website-to-Slack test channel.
 - Website production routing remains HORIZONS-focused and should be enabled gradually after access approval.
 - See `SLACK_SETUP.md` and `SLACK_CHANNEL_ACCESS_PLAN.md`.
 
@@ -493,10 +495,11 @@ Setup status:
 - Workspace is on a free Slack Pro trial through 27 June 2026; paid Pro checkout still needs billing approval.
 - Approved core INC, business division, and Circle channels were created as private channels.
 - Earlier duplicate-prone channels were renamed to the approved names where safe.
-- Slack sidebar sections were created in Samuel's sidebar for International Collective, Business Divisions, INC Circle, HORIZONS Event, and HORIZONS Admin / Testing.
-- Existing HORIZONS channels were preserved.
-- HORIZONS channels currently appear public and need privacy conversion/review before inviting wider users.
-- A backend test message to `#horizons-test` succeeded after the rename.
+- Slack sidebar sections were created in Samuel's sidebar for International Collective, Direct Work, Business Divisions, INC Circle, HORIZONS Event, and HORIZONS Admin / Testing.
+- Existing HORIZONS channels were preserved and required `#horizons-*` channels were converted to private/invite-only.
+- `#samuel-chris-direct` was created private and Chris was added.
+- `#horizons-web-hub` was created private and placed under HORIZONS Event.
+- A backend test message to `#horizons-test` succeeded after the private-channel conversion.
 
 ## Chris / Samuel Onsite UX Review - 29 May 2026
 

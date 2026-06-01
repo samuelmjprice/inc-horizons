@@ -22,6 +22,7 @@ Last updated: 1 June 2026
 - Required core INC, business division, and Circle channels were created as private channels.
 - Sidebar sections/folders were created in Samuel's Slack sidebar:
   - `INTERNATIONAL COLLECTIVE`
+  - `DIRECT WORK`
   - `BUSINESS DIVISIONS`
   - `INC CIRCLE`
   - `HORIZONS EVENT`
@@ -32,8 +33,10 @@ Last updated: 1 June 2026
   - `#inc-business-growth` -> `#inc-leads-new-deals`
   - `#inc-admin` -> `#inc-systems-tech`
 - Existing HORIZONS channels were preserved and not renamed.
-- `#horizons-test` remains connected to the website-to-Slack test integration and was verified after the rename.
-- HORIZONS channels currently appear as public channels in Slack and must be converted to private/invite-only before wider team/client/supplier invites unless Samuel/Chris approve a specific public exception.
+- `#samuel-chris-direct` was created, placed in `DIRECT WORK`, converted to private, and Chris was added.
+- `#horizons-web-hub` was created as a private HORIZONS website/data/admin channel and placed in `HORIZONS EVENT`.
+- Required `#horizons-*` channels were converted to private/invite-only.
+- `#horizons-test` remains connected to the website-to-Slack test integration and was verified after the private-channel conversion.
 - No wider team, clients, or suppliers were invited.
 
 ## Naming Logic
@@ -88,18 +91,20 @@ Last updated: 1 June 2026
 | `#circle-team-inc` | INC CIRCLE | INC Circle | Private | Circle team. | Approved Circle team. | Non-Circle team unless approved. | No | No | Created private; placed in section | Team coordination. |
 | `#circle-outreach-inc` | INC CIRCLE | INC Circle | Private | Circle outreach. | Approved Circle outreach team. | Non-Circle team unless approved. | No | No | Created private; placed in section | Outreach pipeline. |
 | `#circle-content-inc` | INC CIRCLE | INC Circle | Private | Circle content. | Approved Circle content team. | Non-Circle team unless approved. | No | No | Created private; placed in section | Content planning and delivery. |
-| `#horizons-main` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Main event. | Approved HORIZONS team. | Unapproved suppliers/clients. | Possible later | `SLACK_WEBHOOK_MAIN` later | Already existed; placed in section | Convert to private before wider invite unless approved public. |
-| `#horizons-red-flags` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Urgent event issues. | Leadership, ops leads, relevant owners. | Wider team unless approved. | Later, phased | `SLACK_WEBHOOK_RED_FLAGS` later | Already existed; placed in section | Convert to private before wider invite. |
-| `#horizons-schedule` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Schedule. | Leadership, ops, production, podcast as needed. | Unapproved external collaborators. | Later, phased | `SLACK_WEBHOOK_SCHEDULE` later | Already existed; placed in section | Manual notify first. |
-| `#horizons-production` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Production. | Production team, ops leads, leadership. | Unapproved clients/suppliers. | Later, phased | `SLACK_WEBHOOK_PRODUCTION` later | Already existed; placed in section | Manual notify first. |
-| `#horizons-content` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Content capture. | Content/production team and relevant leads. | Unapproved clients/suppliers. | Later | `SLACK_WEBHOOK_CONTENT` later | Already existed; placed in section | HORIZONS content only. |
-| `#horizons-podcast` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Podcast. | Podcast team, Samuel Price, production support. | Unapproved wider team. | Later | `SLACK_WEBHOOK_PODCAST` later | Already existed; placed in section | Manual notify first. |
-| `#horizons-suppliers` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Suppliers. | Supplier managers and approved supplier contacts only. | Internal INC-only roles unless relevant. | Later | `SLACK_WEBHOOK_SUPPLIERS` later | Already existed; placed in section | Use limited supplier access. |
-| `#horizons-entertainment` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Entertainment. | Entertainment owner, production/ops leads, approved performers as needed. | Unapproved suppliers/clients. | Later | `SLACK_WEBHOOK_ENTERTAINMENT` later | Already existed; placed in section | Performer details contained. |
-| `#horizons-locations` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Locations. | Ops, venue/production leads, relevant owners. | Unapproved suppliers/clients. | Later | `SLACK_WEBHOOK_LOCATIONS` later | Already existed; placed in section | Useful for onsite logistics. |
-| `#horizons-documents` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Files + docs. | Leadership, ops, production, document owners. | Suppliers/clients unless approved for specific needs. | Later, phased | `SLACK_WEBHOOK_DOCUMENTS` later | Already existed; placed in section | Recommended first production alert channel after approval. |
-| `#horizons-decisions` | HORIZONS EVENT | HORIZONS event | Public currently; private recommended | Approvals. | Samuel/Chris, leadership, approved decision-makers. | Wider team, suppliers, clients unless approved. | Later | `SLACK_WEBHOOK_DECISIONS` later | Already existed; placed in section | Convert to private before wider invite. |
-| `#horizons-test` | HORIZONS ADMIN / TESTING | HORIZONS event | Public currently; private recommended | Testing. | Samuel Price, Chris Manoe, technical admin/testers. | Wider team. | Yes, test only | `SLACK_WEBHOOK_TEST` | Works; placed in section | Do not rename without updating Vercel env. |
+| `#samuel-chris-direct` | DIRECT WORK | Direct work | Private | Samuel + Chris direct work. | Samuel Price, Chris Manoe. | Everyone else unless explicitly approved. | No | No | Created private; placed in section; Chris added | Primary private Samuel/Chris work channel. |
+| `#horizons-main` | HORIZONS EVENT | HORIZONS event | Private | Main event. | Approved HORIZONS team. | Unapproved suppliers/clients. | Possible later | `SLACK_WEBHOOK_MAIN` later | Converted private; placed in section | Invite-only by default. |
+| `#horizons-red-flags` | HORIZONS EVENT | HORIZONS event | Private | Urgent event issues. | Leadership, ops leads, relevant owners. | Wider team unless approved. | Later, phased | `SLACK_WEBHOOK_RED_FLAGS` later | Converted private; placed in section | Sensitive blockers. |
+| `#horizons-schedule` | HORIZONS EVENT | HORIZONS event | Private | Schedule. | Leadership, ops, production, podcast as needed. | Unapproved external collaborators. | Later, phased | `SLACK_WEBHOOK_SCHEDULE` later | Converted private; placed in section | Manual notify first. |
+| `#horizons-production` | HORIZONS EVENT | HORIZONS event | Private | Production. | Production team, ops leads, leadership. | Unapproved clients/suppliers. | Later, phased | `SLACK_WEBHOOK_PRODUCTION` later | Converted private; placed in section | Manual notify first. |
+| `#horizons-content` | HORIZONS EVENT | HORIZONS event | Private | Content capture. | Content/production team and relevant leads. | Unapproved clients/suppliers. | Later | `SLACK_WEBHOOK_CONTENT` later | Converted private; placed in section | HORIZONS content only. |
+| `#horizons-podcast` | HORIZONS EVENT | HORIZONS event | Private | Podcast. | Podcast team, Samuel Price, production support. | Unapproved wider team. | Later | `SLACK_WEBHOOK_PODCAST` later | Converted private; placed in section | Manual notify first. |
+| `#horizons-suppliers` | HORIZONS EVENT | HORIZONS event | Private | Suppliers. | Supplier managers and approved supplier contacts only. | Internal INC-only roles unless relevant. | Later | `SLACK_WEBHOOK_SUPPLIERS` later | Converted private; placed in section | Use limited supplier access. |
+| `#horizons-entertainment` | HORIZONS EVENT | HORIZONS event | Private | Entertainment. | Entertainment owner, production/ops leads, approved performers as needed. | Unapproved suppliers/clients. | Later | `SLACK_WEBHOOK_ENTERTAINMENT` later | Converted private; placed in section | Performer details contained. |
+| `#horizons-locations` | HORIZONS EVENT | HORIZONS event | Private | Locations. | Ops, venue/production leads, relevant owners. | Unapproved suppliers/clients. | Later | `SLACK_WEBHOOK_LOCATIONS` later | Converted private; placed in section | Useful for onsite logistics. |
+| `#horizons-documents` | HORIZONS EVENT | HORIZONS event | Private | Files + docs. | Leadership, ops, production, document owners. | Suppliers/clients unless approved for specific needs. | Later, phased | `SLACK_WEBHOOK_DOCUMENTS` later | Converted private; placed in section | Recommended first production alert channel after approval. |
+| `#horizons-decisions` | HORIZONS EVENT | HORIZONS event | Private | Approvals. | Samuel/Chris, leadership, approved decision-makers. | Wider team, suppliers, clients unless approved. | Later | `SLACK_WEBHOOK_DECISIONS` later | Converted private; placed in section | Leadership/decision access only. |
+| `#horizons-web-hub` | HORIZONS EVENT | HORIZONS event | Private | Website, Codex + data updates. | Samuel Price, Chris Manoe, approved technical/admin support. | Wider team, clients, suppliers. | No | No | Created private; placed in section | Website, backend, Supabase, Vercel, Slack integration, master workbook, comments, and QA. Chris access still needs manual add/confirmation because Slack did not surface a selectable Chris result during the add attempt. |
+| `#horizons-test` | HORIZONS ADMIN / TESTING | HORIZONS event | Private | Testing. | Samuel Price, Chris Manoe, technical admin/testers. | Wider team. | Yes, test only | `SLACK_WEBHOOK_TEST` | Converted private; backend test passed after conversion | Do not rename without updating Vercel env. |
 
 ## Existing Channels Needing Review
 

@@ -15,6 +15,10 @@ Note: Sidebar sections are for navigation only. Channel privacy controls who can
 - `#inc-leads-new-deals` — Sales + deals
 - `#inc-systems-tech` — Software, access + tools
 
+## Direct Work
+
+- `#samuel-chris-direct` — Samuel + Chris work
+
 ## Business Divisions
 
 - `#biz-chris-manoe` — Chris business direction
@@ -45,6 +49,7 @@ Note: Sidebar sections are for navigation only. Channel privacy controls who can
 - `#horizons-locations` — Locations
 - `#horizons-documents` — Files + docs
 - `#horizons-decisions` — Approvals
+- `#horizons-web-hub` — Website + data hub
 
 ## HORIZONS Admin / Testing
 
@@ -52,7 +57,6 @@ Note: Sidebar sections are for navigation only. Channel privacy controls who can
 
 ## Privacy Note
 
-Core INC, Business Division, and INC Circle channels are private.
+Core INC, Direct Work, Business Division, and INC Circle channels are private.
 
-HORIZONS channels currently need privacy review before inviting wider users. Keep them invite-only/private unless Samuel/Chris approve a specific public exception.
-
+HORIZONS channels are private/invite-only. Keep them private unless Samuel/Chris approve a specific public exception.
