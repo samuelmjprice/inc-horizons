@@ -20,13 +20,13 @@ Last updated: 1 June 2026
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Pro checkout/billing still needs Samuel/Chris approval.
 - Required core INC, business division, and Circle channels were created as private channels.
-- Sidebar sections/folders were created in Samuel's Slack sidebar:
-  - `INTERNATIONAL COLLECTIVE`
-  - `DIRECT WORK`
-  - `BUSINESS DIVISIONS`
-  - `INC CIRCLE`
-  - `HORIZONS EVENT`
-  - `HORIZONS ADMIN / TESTING`
+- Sidebar sections/folders exist in Samuel's Slack sidebar. The approved section order is:
+  1. `DIRECT WORK`
+  2. `HORIZONS EVENT`
+  3. `INTERNATIONAL COLLECTIVE`
+  4. `BUSINESS DIVISIONS`
+  5. `INC CIRCLE`
+  6. `HORIZONS ADMIN / TESTING`
 - Similar earlier channels were renamed to the approved names where safe:
   - `#inc-ops` -> `#inc-core-team`
   - `#inc-production` -> `#inc-media-production`
@@ -37,6 +37,7 @@ Last updated: 1 June 2026
 - `#horizons-web-hub` was created as a private HORIZONS website/data/admin channel and placed in `HORIZONS EVENT`.
 - Required `#horizons-*` channels were converted to private/invite-only.
 - `#horizons-test` remains connected to the website-to-Slack test integration and was verified after the private-channel conversion.
+- `#all-inc-horizons` was reviewed on 1 June 2026. It is a public/default Slack channel with only Samuel Price and Christopher Manoe visible as members, no useful operational content beyond the default join/onboarding history, and no visible Slack app/webhook integration in the channel UI. It is not part of the approved HORIZONS event channel structure and is not referenced by the active website/backend Slack routing. Slack did not expose normal archive/leave/private controls for this channel, so it requires workspace-admin/default-channel review before any archive, rename, or repurpose decision.
 - No wider team, clients, or suppliers were invited.
 
 ## Naming Logic
@@ -112,7 +113,7 @@ Last updated: 1 June 2026
 | --- | --- | --- |
 | `#inc-leadership` | Existing private channel | Created in previous pass. Not part of the latest approved naming list; keep until Samuel/Chris decide whether to archive, rename, or retain. |
 | `#samuel-chris` | Existing private channel | Useful private working channel. Latest naming list does not require removal. |
-| `#all-inc-horizons` | Existing default channel | Review before inviting anyone; likely default/public workspace channel. |
+| `#all-inc-horizons` | Existing public/default channel | Reviewed 1 June 2026. Visible members: Samuel Price and Christopher Manoe. Content: only default join/onboarding history. Integrations: no visible app/webhook in channel UI. Active website/backend references: none found. Normal Slack UI did not allow leave/archive/private conversion, so this needs workspace-admin/default-channel review. Do not use for HORIZONS operations or website alerts. |
 | `#social` | Existing channel | Review purpose and privacy before use. |
 | `#new-channel` | Existing channel | Review/archive later if not needed. Do not delete without approval. |
 
