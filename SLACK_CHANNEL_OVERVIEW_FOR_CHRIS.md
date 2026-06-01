@@ -55,6 +55,7 @@ Note: `#unused-default-channel` is the quarantined required public/default Slack
 - `#biz-dancers` — Dancers INC business
 - `#biz-artists` — Artist business
 - `#biz-agency-105` — Agency 105 business
+- `#biz-events` — Events business
 - `#biz-circle` — Circle business
 - `#biz-ip` — INC IP + assets
 

@@ -40,6 +40,7 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 | `#biz-dancers` | Private | Private | No | Division information exposed. | Business division channel. |
 | `#biz-artists` | Private | Private | No | Division information exposed. | Business division channel. |
 | `#biz-agency-105` | Private | Private | No | Division information exposed. | Business division channel. |
+| `#biz-events` | Private | Private | No | Event business information exposed. | Confirmed visible with lock icon in Business Divisions. Use no-suffix name only. |
 | `#biz-circle` | Private | Private | No | Circle business information exposed. | Business side of Circle. |
 | `#biz-ip` | Private | Private | No | IP/assets information exposed. | Keep tightly limited. |
 | `#circle-team-inc` | Private | Private | No | Circle team information exposed. | Circle team channel. |
