@@ -19,7 +19,7 @@ Current setup status:
 - Workspace is on a free Slack Pro trial through 27 June 2026.
 - Paid Pro upgrade checkout has not been completed; Samuel/Chris billing approval is still required.
 - Required core INC, business division, and Circle private channels have been created.
-- Slack sidebar sections exist in Samuel's sidebar. The approved navigation order is: `DIRECT WORK`, `HORIZONS EVENT`, `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS ADMIN / TESTING`.
+- Slack sidebar sections exist in Samuel's sidebar. The approved navigation order is: `DIRECT WORK`, `HORIZONS EVENT`, `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, `HORIZONS ADMIN / TESTING`, then `UNUSED / DEFAULT`.
 - Existing HORIZONS channels have been preserved.
 - `#samuel-chris-direct` was created as a private direct work channel; Chris was added.
 - `#horizons-web-hub` was created as a private HORIZONS website/data/admin channel.
@@ -125,13 +125,21 @@ Private-by-default is recommended for all HORIZONS channels until the access pla
 
 Status on 1 June 2026: HORIZONS channels already exist in the workspace and were not renamed or deleted. Required `#horizons-*` channels were converted to private/invite-only. `#horizons-web-hub` was created private for website, Codex, data, backend/Supabase/Vercel, Slack integration, comments/update system, master workbook, and website QA. `#horizons-test` is private, working, and remains connected to `SLACK_WEBHOOK_TEST`.
 
-`#all-inc-horizons` is not an approved HORIZONS event channel. It was reviewed on 1 June 2026 and appears to be a public/default legacy Slack channel with only Samuel Price and Christopher Manoe visible as members, no useful operational content beyond default join/onboarding history, no visible app/webhook integration in the channel UI, and no active website/backend Slack routing reference. Slack did not expose normal archive/leave/private controls, so it needs workspace-admin/default-channel review before archive, rename, or repurpose. Do not use it for HORIZONS operations or website alerts.
+`#unused-default-channel` is the quarantined required public/default Slack channel formerly called `#all-inc-horizons`. It is not an approved HORIZONS event channel. It was reviewed and renamed on 1 June 2026. It has only Samuel Price and Christopher Manoe visible as members, no useful operational content beyond default join/onboarding history plus the posted warning, no visible app/webhook integration in the channel UI, and no active website/backend Slack routing reference. Slack did not expose normal archive/private controls, so it remains public in `UNUSED / DEFAULT`. Do not use it for HORIZONS, INC, client, supplier, finance, leadership, strategy, website/backend, or private operations.
+
+Topic/description set on `#unused-default-channel`:
+
+"This is the required default Slack channel. Do not use for company or event operations. Use the approved private INC, Business, Circle, or HORIZONS channels instead."
+
+Warning message posted:
+
+"Please do not use this channel. This is the required default Slack channel and is not part of the active International Collective or HORIZONS communication structure. Use the approved private channels instead."
 
 Existing channels needing later review:
 
 - `#inc-leadership`
 - `#samuel-chris`
-- `#all-inc-horizons`
+- `#unused-default-channel`
 - `#social`
 - `#new-channel`
 

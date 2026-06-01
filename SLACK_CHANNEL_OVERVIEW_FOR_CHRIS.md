@@ -12,6 +12,7 @@ Note: Sidebar sections are for navigation only. Channel privacy controls who can
 4. BUSINESS DIVISIONS
 5. INC CIRCLE
 6. HORIZONS ADMIN / TESTING
+7. UNUSED / DEFAULT
 
 Slack sidebar sections are user-specific, so each team member may need to mirror this order in their own sidebar.
 
@@ -34,7 +35,7 @@ Slack sidebar sections are user-specific, so each team member may need to mirror
 - `#horizons-decisions` — Approvals
 - `#horizons-web-hub` — Website + data hub
 
-Note: `#all-inc-horizons` is not part of the approved HORIZONS event channel structure. It appears to be a public/default legacy Slack channel with no useful operational content and should not be used for HORIZONS operations or website alerts unless Samuel/Chris explicitly repurpose it.
+Note: `#unused-default-channel` is the quarantined required public/default Slack channel formerly called `#all-inc-horizons`. It is not part of the approved HORIZONS event channel structure and must not be used for company, event, client, supplier, finance, leadership, strategy, website/backend, or private operations.
 
 ## International Collective
 
@@ -67,6 +68,10 @@ Note: `#all-inc-horizons` is not part of the approved HORIZONS event channel str
 ## HORIZONS Admin / Testing
 
 - `#horizons-test` — Website alert testing
+
+## UNUSED / DEFAULT
+
+- `#unused-default-channel` — Do not use
 
 ## Privacy Note
 

@@ -17,7 +17,9 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 - `#horizons-web-hub`: private HORIZONS website/data/admin channel.
 - `#horizons-test`: private and still connected to website-to-Slack test integration; do not rename.
 - Backend test message to `#horizons-test` passed after private-channel conversion.
-- `#all-inc-horizons` was reviewed on 1 June 2026. It is public/default, has only Samuel Price and Christopher Manoe visible as members, contains no useful operational content beyond default join/onboarding history, has no visible app/webhook integration in the channel UI, and has no active website/backend routing reference. Slack did not expose normal leave/archive/private controls, so it remains for workspace-admin/default-channel review and should not be used for HORIZONS operations.
+- The required public/default channel formerly called `#all-inc-horizons` was quarantined on 1 June 2026 and renamed to `#unused-default-channel`.
+- `#unused-default-channel` remains public because Slack did not expose archive/private controls for this required/default channel. It has only Samuel Price and Christopher Manoe visible as members, contains no useful operational content beyond default join/onboarding history plus the posted warning, has no visible app/webhook integration in the channel UI, and has no active website/backend routing reference.
+- `#unused-default-channel` has a warning topic/description and posted warning message telling the team not to use it for company or event operations. It sits in `UNUSED / DEFAULT`.
 - No wider team, clients, or suppliers were invited during this pass.
 
 ## Channel Audit
@@ -59,7 +61,7 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 | `#horizons-test` | Private | Private | No | Website test messages visible too widely if made public later. | Converted private; backend test passed after conversion. |
 | `#inc-leadership` | Private | Review | No | If used, sensitive leadership notes remain protected. | Existing earlier channel; decide keep/archive later. |
 | `#samuel-chris` | Private | Private | No | Private Samuel/Chris notes exposed if public. | Existing private working channel. |
-| `#all-inc-horizons` | Public/default | Workspace-admin/default-channel review | Yes | Public catch-all/default channel could expose event/company context if used. | Reviewed 1 June 2026. Visible members: Samuel Price and Christopher Manoe. Content: only default join/onboarding history. No visible app/webhook integration in channel UI. No active website/backend routing reference found. Normal Slack UI did not allow leave/archive/private conversion. Not part of approved HORIZONS structure; do not use for operations or website alerts. |
+| `#unused-default-channel` | Public/default | Public but quarantined; do not use | No active use allowed | Public catch-all/default channel could expose event/company context if used. | Formerly `#all-inc-horizons`. Renamed 1 June 2026. Visible members: Samuel Price and Christopher Manoe. Content: default join/onboarding history plus posted warning. No visible app/webhook integration in channel UI. No active website/backend routing reference found. Normal Slack UI did not allow archive/private conversion. Topic/description warns not to use. Placed in `UNUSED / DEFAULT`. |
 | `#social` | Public/status unknown | Review | Yes | Could expose casual/internal posts. | Review purpose and privacy. |
 | `#new-channel` | Public/status unknown | Review/archive | Yes | Unclear channel can confuse users. | Do not delete without approval. |
 
@@ -67,5 +69,5 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 
 1. Keep all HORIZONS channels private unless Samuel/Chris approve a specific public exception.
 2. Approve the per-channel invite list before adding wider event users, clients, or suppliers.
-3. Ask a workspace admin to review whether `#all-inc-horizons` can be archived, renamed, or repurposed as the mandatory/default workspace channel. Do not use it for HORIZONS operations meanwhile.
+3. Keep `#unused-default-channel` quarantined. Do not post operational, client, supplier, finance, leadership, strategy, website/backend, or private information there.
 4. Decide whether Chris should also be manually added to `#horizons-web-hub`; Slack did not surface a selectable Chris result during the add attempt.
