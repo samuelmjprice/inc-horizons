@@ -18,7 +18,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260601-auditnav2";
+const APP_VERSION = "20260601-staffclownfish1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -842,6 +842,7 @@ function renderLocationSchedules() {
               <div class="meta-list compact-meta">
                 ${meta("Who is present", item.whoIsPresent)}
                 ${meta("Owner", item.owner)}
+                ${meta("Clownfish show operatives", item.showOperatives)}
                 ${meta("Content / topic", item.contentTopic)}
                 ${meta("Setup", item.setupRequirements)}
                 ${meta("Status", item.status)}
@@ -991,13 +992,13 @@ function renderTravel() {
 }
 
 function renderContactTabs() {
-  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "Hotel", "Suppliers", "Aream / INC Support", "Clownfish", "BeGood", "Remote"];
+  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "International Collective / I.N.C", "Clownfish", "Aream & Co.", "B Good", "Performers", "Hotel / Venue", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
 function renderContacts() {
   const items = state.data.contacts
-    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || (state.activeContactCategory === "Aream / INC Support" && /I\\.N\\.C|INC|Aream|International Collective/.test(`${item.category} ${item.group}`)) || (state.activeContactCategory === "BeGood" && /BeGood/.test(`${item.role} ${item.responsibility} ${item.notes}`)))
+    .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || item.company === state.activeContactCategory || (state.activeContactCategory === "International Collective / I.N.C" && /I\\.N\\.C|International Collective/.test(`${item.company} ${item.category} ${item.group}`)))
     .filter((item) => passesGlobal(item, { owner: item.name, department: item.category, updateId: item.updateId }));
   setHtml("[data-contacts]", items.map((item) => {
     const phoneHref = item.phone ? `tel:${item.phone.replace(/[^+0-9]/g, "")}` : "";
@@ -1005,7 +1006,7 @@ function renderContacts() {
       title: item.name,
       status: item.category || item.group,
       body: `<p>${escapeHtml(item.role || item.responsibility)}</p>`,
-      metadata: meta("Category", item.category || item.group) + meta("Phone", item.phone) + meta("Email", item.email || item.emailStatus || (item.notes === "Email needed" ? "Email needed" : "")) + meta("Notes", item.notes && item.notes !== "Email needed" ? item.notes : ""),
+      metadata: meta("Company", item.company) + meta("Responsibility", item.responsibility) + meta("Category", item.category || item.group) + meta("Phone", item.phone) + meta("Email", item.email || item.emailStatus || (item.notes === "Email needed" ? "Email needed" : "")) + meta("Location responsibility", item.locationAssignment || item.showOperativeFor) + meta("Notes", item.notes && item.notes !== "Email needed" ? item.notes : ""),
       footer: `<div class="contact-actions">${phoneHref ? `<a href="${phoneHref}">Call</a>` : ""}${item.whatsappLink ? `<a href="${item.whatsappLink}" target="_blank" rel="noreferrer">WhatsApp</a>` : ""}${item.email ? `<a href="mailto:${item.email}">Email</a>` : ""}</div>`,
       updateId: item.updateId
     });
@@ -1030,7 +1031,7 @@ function renderLocations() {
     title: item.locationName,
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
-    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Latitude", item.latitude) + meta("Longitude", item.longitude) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Aliases", (item.aliases || []).join(", ")) + meta("Watch-out", item.watchOut),
+    metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Clownfish show operatives", item.clownfishShowOperatives || (item.showOperatives || []).join(" + ")) + meta("Latitude", item.latitude) + meta("Longitude", item.longitude) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Aliases", (item.aliases || []).join(", ")) + meta("Watch-out", item.watchOut),
     footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
@@ -1051,7 +1052,7 @@ function renderSuppliers() {
     department: item.department,
     body: `<p>${escapeHtml(firstMeaningful(item.responsibility, item.supplierType, "Supplier responsibility needed"))}</p>
       <div class="meta-list compact-meta">${meta("Key day/location", [item.day, item.location].filter(Boolean).join(" · "))}${meta("Internal owner", item.internalOwner)}${meta("Open items", item.openItems?.length ? `${item.openItems.length}` : "")}</div>
-      ${detailsBlock("Supplier details", [["Supplier type", item.supplierType], ["Contact", item.contactPerson], ["Phone", item.phone], ["Email", item.email], ["Responsibility", item.responsibility], ["Day(s)", item.day], ["Location", item.location], ["Arrival", item.arrivalTime], ["Setup", item.setupTime], ["Active", item.activeTime], ["Notes", item.notes]], `${supplierTimeline(item)}${item.openItems?.length ? `<h3>Open items</h3>${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}` : ""}`)}`,
+      ${detailsBlock("Supplier details", [["Supplier type", item.supplierType], ["Contact", item.contactPerson], ["Phone", item.phone], ["Email", item.email], ["Responsibility", item.responsibility], ["Day(s)", item.day], ["Location", item.location], ["Arrival", item.arrivalTime], ["Setup", item.setupTime], ["Active", item.activeTime], ["Notes", item.notes]], `${item.keyRoles?.length ? `<h3>Clownfish Key Roles</h3><ul>${item.keyRoles.map((role) => `<li>${escapeHtml(role)}</li>`).join("")}</ul>` : ""}${item.showOperatives ? `<h3>Show operatives</h3>${Object.entries(item.showOperatives).map(([location, names]) => meta(location, names.join(" + "))).join("")}` : ""}${supplierTimeline(item)}${item.openItems?.length ? `<h3>Open items</h3>${item.openItems.slice(0, 8).map((open, index) => `<p>${tag(open.status)} <strong>${index + 1}.</strong> ${escapeHtml(open.item)}</p>${meta("Owner", open.owner)}${open.latestUpdate ? meta("Latest update", open.latestUpdate) : ""}`).join("")}` : ""}`)}`,
     metadata: "",
     updateId: item.updateId,
     updateTopics: state.data.meta?.supplierUpdateTopics || []
@@ -1323,7 +1324,7 @@ function renderStaffLists() {
     footer: detailsBlock("Open staff details", [], people.length ? `<div class="location-schedule">${people.map((person) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(person.name)}</strong>
-        <div class="meta-list compact-meta">${meta("Company", person.company)}${meta("Role", person.role)}${meta("Responsibility", person.responsibility)}${meta("Phone", person.phone)}${meta("WhatsApp", person.whatsappLink)}${meta("Slack", person.slackHandle || person.slackUserId)}${meta("Days onsite", person.daysOnsite)}${meta("Notes", person.notes || "Needs Confirmation")}</div>
+        <div class="meta-list compact-meta">${meta("Company", person.company)}${meta("Role", person.role)}${meta("Responsibility", person.responsibility)}${meta("Phone", person.phone)}${meta("Email", person.email || person.emailStatus)}${meta("Dietary requirements", person.dietaryRequirements)}${meta("Location responsibility", person.locationAssignment || person.showOperativeFor)}${meta("WhatsApp", person.whatsappLink)}${meta("Slack", person.slackHandle || person.slackUserId)}${meta("Days onsite", person.daysOnsite)}${meta("Notes", person.notes || "Needs Confirmation")}</div>
       </div>
     `).join("")}</div>` : `<p>Add staff list details.</p>`)
   })).join(""));

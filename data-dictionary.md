@@ -28,9 +28,17 @@ Suppliers should appear once. Multiple questions, timings, or unresolved notes s
 
 ### Brand Spelling Rule
 
-Use `BeGood` and `Clownfish` exactly.
+Use `B Good` and `Clownfish` exactly.
 
-Do not use legacy variants of the BeGood or Clownfish names.
+Do not use legacy variants of the B Good or Clownfish names.
+
+### Personal Data Display Rule
+
+Do not display dates of birth in website-facing data, search results, staff lists, contact cards, supplier cards, call sheets, or generated team-facing reports.
+
+### International Collective Naming Rule
+
+Use `International Collective / I.N.C` when the abbreviation is helpful. Do not display the company as `INC`.
 
 ### Missing Info Rule
 

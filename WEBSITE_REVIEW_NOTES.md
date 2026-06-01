@@ -166,7 +166,7 @@ The workbook includes:
 ## Needs Supplier / Venue Confirmation
 
 - Six Senses hotel contacts, maps, layouts, room drop coordination, and venue timings.
-- BeGood room-drop and logistics responsibilities.
+- B Good room-drop and logistics responsibilities.
 - Mobile Casino / Poker setup and open items.
 - Clownfish production, install, and setup details.
 - Podcast location access and setup requirements.
@@ -201,7 +201,7 @@ Latest review items now reflected in the website and trackers:
 - Content Capture cards are compact by default and can be filtered by day.
 - The official main HORIZONS logo is used for the header/hero source: `assets/logos/horizons-main-logo-black.png`.
 - New swag reference images were added for tote bag, notebook, bottle, charger, Nord fragrances, eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard.
-- `BeGood` and `Clownfish` spelling rules were rechecked across text source files.
+- `B Good` and `Clownfish` spelling rules were rechecked across text source files.
 
 Items still needing team confirmation:
 
@@ -239,7 +239,7 @@ Latest workbook sync applied from `HORIZONS_Website_Final_Schedule_Sync_For_Code
 - Locations now use a card-first model from `LOCATION_CARDS`, with detailed schedule rows tucked into expandable panels.
 - Menus and catering records from `MENU_CATERING_SITE` are represented in Documents and Guest Materials & Experience.
 - Supplier records are grouped by supplier with connected day/time blocks and open items, rather than disconnected timing fields.
-- BeGood is now the required company spelling across website data and docs.
+- B Good is now the required company spelling across website data and docs.
 - Known initials were expanded; unresolved initials are flagged as `Name confirmation needed` instead of guessed.
 - Call Sheet includes a weather placeholder for Six Senses Ibiza / Ibiza until live forecast data is connected.
 - Capture Suggestions now have local Accept/Dismiss controls.
@@ -261,7 +261,8 @@ Latest leadership brief items now reflected in the website records:
 - Slack integration stub with recommended channels, event/channel mapping, and copy-ready update actions. No Slack secrets are stored in frontend code.
 - Speaker Content, Rehearsals, Entertainment, Curated Playlists, Artwork / Wayfinding / Signage, Cvent Comparison, Staff Lists, and Missing Files Tracker sections.
 - Samuel Price role update: Podcast Lead, Executive Assistant to Chris Manoe, Website Development & Software Lead, and Infrastructure & Systems Support Lead.
-- Latest spelling rules: use `BeGood`, `Aream & Co.`, and `Clownfish` exactly.
+- Latest spelling rules: use `B Good`, `Aream & Co.`, and `Clownfish` exactly.
+- Latest staff/contact cleanup groups Clownfish, International Collective / I.N.C, Aream & Co., B Good, Performers, and Hotel / Venue separately. Dates of birth are excluded from team-facing website data and reports.
 - Known initials should be expanded to full names; unknown initials remain flagged as `Needs Name Confirmation`.
 
 Still needed:
