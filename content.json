@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "1 June 2026, 5:42 PM BST",
+    "lastUpdated": "1 June 2026, 8:28 PM BST",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -25,7 +25,7 @@
     "updatedBy": "Samuel Price / Codex staff-contact-clownfish-cleanup pass",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
     "last_updated": "2026-06-01T17:42:00+01:00",
-    "updated_at": "2026-06-01T17:42:00+01:00"
+    "updated_at": "2026-06-01T20:28:00+01:00"
   },
   "quickActions": [
     {
@@ -12104,7 +12104,7 @@
       "responsibility": "Technical support and assistant video editing.",
       "phone": "+44 7873 642211",
       "whatsappLink": "https://wa.me/447873642211",
-      "email": "",
+      "email": "Joshuagavin@icloud.com",
       "notes": "",
       "visibility": "Team",
       "updateId": "contact:joshua-gavin",
@@ -12122,7 +12122,6 @@
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Joshua Gavin is International Collective (I.N.C).",
       "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed",
       "updated_at": "2026-06-01T17:28:00+01:00",
       "aliases": []
     },
@@ -12135,7 +12134,7 @@
       "responsibility": "Podcast support and production assistant.",
       "phone": "+44 7745 242364",
       "whatsappLink": "https://wa.me/447745242364",
-      "email": "",
+      "email": "Federicotamburini97@gmail.com",
       "notes": "",
       "visibility": "Team",
       "updateId": "contact:fede-tamburini-tamburini-tamburini",
@@ -12153,7 +12152,6 @@
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Federico Tamburini is International Collective (I.N.C).",
       "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed",
       "updated_at": "2026-06-01T17:28:00+01:00",
       "aliases": [
         "Fede Tamburini"

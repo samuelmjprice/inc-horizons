@@ -55,8 +55,6 @@ This pass corrects the HORIZONS website staff, contact, performer, hotel, and Cl
 ## Remaining Missing Emails
 
 - Samuel Price.
-- Joshua Gavin.
-- Federico Tamburini.
 - Ryan Lowe.
 - Joachim Ridley-Barker.
 - Nathan Rushmer.
