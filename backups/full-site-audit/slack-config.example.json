@@ -1,0 +1,47 @@
+{
+  "note": "Example Slack mapping only. Do not place real webhook URLs or Slack tokens in GitHub Pages frontend files.",
+  "channels": {
+    "main": "#horizons-main",
+    "redFlags": "#horizons-red-flags",
+    "schedule": "#horizons-schedule",
+    "production": "#horizons-production",
+    "content": "#horizons-content",
+    "podcast": "#horizons-podcast",
+    "suppliers": "#horizons-suppliers",
+    "entertainment": "#horizons-entertainment",
+    "locations": "#horizons-locations",
+    "documents": "#horizons-documents",
+    "decisions": "#horizons-decisions"
+  },
+  "eventMapping": {
+    "red_flag_created": "redFlags",
+    "red_flag_resolved": "redFlags",
+    "schedule_changed": "schedule",
+    "call_sheet_changed": "production",
+    "location_schedule_changed": "locations",
+    "supplier_changed": "suppliers",
+    "podcast_changed": "podcast",
+    "document_uploaded": "documents",
+    "document_missing": "documents",
+    "decision_needed": "decisions",
+    "content_capture_changed": "content",
+    "capture_suggestion_accepted": "content",
+    "capture_suggestion_deleted": "content",
+    "cvent_conflict_found": "documents",
+    "rehearsal_added": "production",
+    "speaker_content_updated": "production"
+  },
+  "environmentVariables": [
+    "SLACK_WEBHOOK_MAIN",
+    "SLACK_WEBHOOK_RED_FLAGS",
+    "SLACK_WEBHOOK_SCHEDULE",
+    "SLACK_WEBHOOK_PRODUCTION",
+    "SLACK_WEBHOOK_CONTENT",
+    "SLACK_WEBHOOK_PODCAST",
+    "SLACK_WEBHOOK_SUPPLIERS",
+    "SLACK_WEBHOOK_ENTERTAINMENT",
+    "SLACK_WEBHOOK_LOCATIONS",
+    "SLACK_WEBHOOK_DOCUMENTS",
+    "SLACK_WEBHOOK_DECISIONS"
+  ]
+}

@@ -71,35 +71,6 @@ Still pending:
 - Supply missing imagery, signage artwork, maps, menus, staff lists, speaker/podcast content, and rehearsal timings.
 - Approve production Slack channel routing before enabling non-test alerts.
 
-## Full Site Audit / Navigation UX Pass - 1 June 2026
-
-Created:
-
-- `HORIZONS_FINAL_SITE_AUDIT_SUMMARY.md`
-- `FULL_SITE_CODE_AUDIT.md`
-- `FULL_SITE_FUNCTIONALITY_AUDIT.md`
-- `MOBILE_UX_AUDIT.md`
-- `APPLE_LEVEL_UX_REVIEW.md`
-- `DATA_QUALITY_AUDIT.md`
-- `PERFORMANCE_AUDIT.md`
-- `ACCESSIBILITY_AUDIT.md`
-- `BACKEND_SLACK_AUDIT.md`
-- `SECURITY_AUDIT.md`
-- `BRAND_QA_AUDIT.md`
-- `FILES_NEEDING_AMENDMENT.md`
-- `WHAT_WE_STILL_NEED_FROM_TEAM.md`
-
-Safe fixes made:
-
-- Long-page navigation redesigned with a floating current-section pill and section-end previous/top/next controls.
-- Scroll-to-top behavior now respects reduced-motion preferences.
-- Cache-bust version bumped for the audit navigation build.
-- Visible last-updated/source trace moved to the full-site-audit pass timestamp.
-
-Key finding:
-
-- Site structure and UX are strong. The main remaining risk is unresolved final event data, not website architecture.
-
 ## Confirmed Fixed
 
 - Chris Manoe correction: fixed.

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HORIZONS record_updates",
+  "type": "object",
+  "required": ["id", "parent_type", "parent_id", "body", "status", "visibility", "created_at"],
+  "properties": {
+    "id": { "type": "string" },
+    "parent_type": {
+      "type": "string",
+      "enum": [
+        "schedule_item",
+        "red_flag",
+        "missing_file",
+        "document",
+        "location",
+        "restaurant",
+        "podcast",
+        "supplier",
+        "entertainment",
+        "speaker_content",
+        "rehearsal",
+        "signage",
+        "guest_material",
+        "decision",
+        "cvent_comparison",
+        "call_sheet_item"
+      ]
+    },
+    "parent_id": { "type": "string" },
+    "title": { "type": "string" },
+    "body": { "type": "string" },
+    "author_name": { "type": "string" },
+    "author_email": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["Still To Be Resolved", "In Progress", "Resolved", "Archived", "At Risk", "Decision Needed"]
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["Team", "Leadership", "Admin", "Private"]
+    },
+    "priority": { "type": "string" },
+    "notify_slack": { "type": "boolean" },
+    "slack_channel": { "type": "string" },
+    "slack_sent_at": { "type": ["string", "null"] },
+    "slack_message_ts": { "type": "string" },
+    "slack_error": { "type": "string" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "resolved_by": { "type": "string" },
+    "resolved_at": { "type": ["string", "null"] },
+    "archived_at": { "type": ["string", "null"] },
+    "source": { "type": "string" }
+  }
+}

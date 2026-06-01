@@ -18,7 +18,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260601-auditnav1";
+const APP_VERSION = "20260601-locationqa1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -1508,30 +1508,10 @@ function setupSectionNavigation() {
     progress.innerHTML = sections.map(([id, label]) => `<a href="#${id}" data-progress-link="${id}"><span></span><em>${escapeHtml(label)}</em></a>`).join("");
   }
   const navLinks = $$("[data-nav] a");
-  const jump = $("[data-section-jump]");
-  const jumpPrev = $("[data-section-prev]", jump || document);
-  const jumpNext = $("[data-section-next]", jump || document);
-  const jumpCurrent = $("[data-section-current]", jump || document);
   let ticking = false;
   const setActive = (id) => {
     navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
     $$("[data-progress-link]").forEach((link) => link.classList.toggle("is-active", link.dataset.progressLink === id));
-    const index = sections.findIndex(([sectionId]) => sectionId === id);
-    const current = sections[index] || sections[0];
-    const prev = sections[Math.max(0, index - 1)] || current;
-    const next = sections[Math.min(sections.length - 1, index + 1)] || current;
-    if (jumpCurrent) jumpCurrent.textContent = current?.[1] || "Overview";
-    if (jumpPrev) {
-      jumpPrev.href = `#${prev[0]}`;
-      jumpPrev.textContent = index <= 0 ? "‹ Start" : `‹ ${prev[1]}`;
-      jumpPrev.classList.toggle("is-muted", index <= 0);
-    }
-    if (jumpNext) {
-      jumpNext.href = `#${next[0]}`;
-      jumpNext.textContent = index >= sections.length - 1 ? "End" : `${next[1]} ›`;
-      jumpNext.classList.toggle("is-muted", index >= sections.length - 1);
-    }
-    if (jump) jump.classList.toggle("is-visible", window.scrollY > 360);
   };
   const updateActive = () => {
     ticking = false;
@@ -1558,25 +1538,21 @@ function setupSectionNavigation() {
 }
 
 function setupBackToTopAndAdmin() {
+  const button = $("[data-back-to-top]");
   const adminIds = new Set(["admin-data", "cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"]);
   const visibleSections = $$("main > section").filter((section) => !section.classList.contains("admin-tool-section"));
   visibleSections.forEach((section, index) => {
-    if (section.querySelector("[data-section-end-nav]")) return;
-    const prev = visibleSections[index - 1];
+    if (section.querySelector("[data-next-section]")) return;
     const next = visibleSections[index + 1];
-    const prevHeading = prev?.querySelector("h2")?.textContent || "Previous";
-    const nextHeading = next?.querySelector("h2")?.textContent || "Next";
-    section.querySelector(".container")?.insertAdjacentHTML("beforeend", `
-      <div class="section-end-nav" data-section-end-nav>
-        ${prev ? `<a href="#${escapeHtml(prev.id)}">← ${escapeHtml(prevHeading)}</a>` : `<span></span>`}
-        <button type="button" data-scroll-top>Back to top</button>
-        ${next ? `<a href="#${escapeHtml(next.id)}">Next: ${escapeHtml(nextHeading)} →</a>` : `<span></span>`}
-      </div>
-    `);
+    if (!next) return;
+    const heading = next.querySelector("h2")?.textContent || "next section";
+    section.querySelector(".container")?.insertAdjacentHTML("beforeend", `<div class="next-section-link"><a href="#${escapeHtml(next.id)}" data-next-section>Next: ${escapeHtml(heading)}</a></div>`);
   });
   const update = () => {
+    if (button) button.classList.toggle("is-visible", window.scrollY > 640);
     document.body.classList.toggle("admin-view", adminIds.has((location.hash || "").replace("#", "")));
   };
+  button?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("hashchange", update);
   update();
@@ -1609,11 +1585,6 @@ function bindEvents() {
     renderAll();
   });
   document.addEventListener("click", async (event) => {
-    const scrollTop = event.target.closest("[data-scroll-top], [data-section-jump-action='top']");
-    if (scrollTop) {
-      window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-      return;
-    }
     const dayTab = event.target.closest("[data-day-tab]");
     if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
     const callSheetTab = event.target.closest("[data-call-sheet-tab]");

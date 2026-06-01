@@ -95,26 +95,6 @@ Key open confirmations remain:
 - Missing images, signage files, maps, menus, staff details, speaker/podcast content, and rehearsal timings.
 - Production Slack routing approval before any non-test Slack channels are activated.
 
-## Full Site Audit - 1 June 2026
-
-The final professional audit and UX pass is documented in:
-
-- `HORIZONS_FINAL_SITE_AUDIT_SUMMARY.md`
-- `FULL_SITE_CODE_AUDIT.md`
-- `FULL_SITE_FUNCTIONALITY_AUDIT.md`
-- `MOBILE_UX_AUDIT.md`
-- `APPLE_LEVEL_UX_REVIEW.md`
-- `DATA_QUALITY_AUDIT.md`
-- `PERFORMANCE_AUDIT.md`
-- `ACCESSIBILITY_AUDIT.md`
-- `BACKEND_SLACK_AUDIT.md`
-- `SECURITY_AUDIT.md`
-- `BRAND_QA_AUDIT.md`
-- `FILES_NEEDING_AMENDMENT.md`
-- `WHAT_WE_STILL_NEED_FROM_TEAM.md`
-
-This pass replaced the weaker long-page navigation with a mobile-friendly floating section pill and section-end previous/top/next controls. The site remains summary-first, mobile-first, and calm for onsite use.
-
 ## Update Workflow
 
 1. Team adds updates to `HORIZONS_Website_Update_Tracker.xlsx`.

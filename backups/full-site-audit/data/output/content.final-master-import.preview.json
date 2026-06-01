@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "1 June 2026, 5:03 PM BST",
+    "lastUpdated": "29 May 2026, 2:15 PM",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,10 +22,8 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Samuel Price / Codex full-site-audit pass",
-    "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
-    "last_updated": "2026-06-01T17:03:05+01:00",
-    "updated_at": "2026-06-01T17:03:05+01:00"
+    "updatedBy": "Samuel Price / Codex emergency-call-sheet pass",
+    "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf"
   },
   "quickActions": [
     {
@@ -2497,11 +2495,11 @@
       "timeEnd": "",
       "timeDisplay": "12:00 PM",
       "period": "Afternoon",
-      "title": "Cliffhanger — podcast setup (mic, lighting, backdrop)",
+      "title": "cliffhanger — podcast setup (mic, lighting, backdrop)",
       "shortDescription": "Has the early occupancy of the Cliff Hanger been agreed with the hotel?",
       "owner": "TBC",
       "support": "Clownfish",
-      "location": "Cliffhanger",
+      "location": "cliffhanger",
       "status": "Needs Confirmation",
       "priority": "Critical",
       "category": "Podcast",
@@ -2522,7 +2520,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Tuesday 9 June| 12:00 PM| Cliffhanger — podcast setup (mic, lighting, backdrop)| Cliffhanger| TBC| Needs Confirmation / Samuel Price / Samuel Hozier",
+      "finalWorkbookDisplayText": "Tuesday 9 June| 12:00 PM| cliffhanger — podcast setup (mic, lighting, backdrop)| cliffhanger| TBC| Needs Confirmation / Samuel Price / Samuel Hozier",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -3093,7 +3091,7 @@
       "shortDescription": "Podcast",
       "owner": "Chris Manoe / Tamy Hosier / Samuel Hosier / Fede Tamburini / Dawn Ramsden",
       "support": "I.N.C",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Watch",
       "category": "Podcast",
@@ -3114,7 +3112,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Tuesday 9 June | 2:00 PM-3:30 PM | Podcast set up | Cliffhanger Mansion | Chris Manoe / Tamy Hosier / Samuel Hosier / Fede Tamburini / Dawn Ramsden | On Track",
+      "finalWorkbookDisplayText": "Tuesday 9 June | 2:00 PM-3:30 PM | Podcast set up | cliffhanger Mansion | Chris Manoe / Tamy Hosier / Samuel Hosier / Fede Tamburini / Dawn Ramsden | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -5577,11 +5575,11 @@
       "timeEnd": "",
       "timeDisplay": "12:15 PM",
       "period": "Afternoon",
-      "title": "INC production crew call & full technical setup — Cliffhanger",
+      "title": "INC production crew call & full technical setup — cliffhanger",
       "shortDescription": "Camera framing & white balance · audio & backup recording checks · AC / ambient noise check · media formatting · set dressing · refreshments setup for cast & crew (soft drinks, coffee, water, light snacks — Cheryl Leno to confirm included in F&B requests).",
       "owner": "TBC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "Needs Confirmation",
       "priority": "Watch",
       "category": "Podcast",
@@ -5602,7 +5600,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 12:15 PM | INC production crew call & full technical setup — Cliffhanger | Cliffhanger Mansion | TBC | Needs Confirmation",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 12:15 PM | INC production crew call & full technical setup — cliffhanger | cliffhanger Mansion | TBC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -5729,7 +5727,7 @@
       "shortDescription": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality.",
       "owner": "Dawn Ramsden",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Watch",
       "category": "Flights / Travel",
@@ -5750,7 +5748,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 1:15 PM | Presenter (Michail Katkoff) & Subject 1 arrival — guest welcome & mic fitting | Cliffhanger Mansion | Dawn Ramsden | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 1:15 PM | Presenter (Michail Katkoff) & Subject 1 arrival — guest welcome & mic fitting | cliffhanger Mansion | Dawn Ramsden | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -5766,7 +5764,7 @@
       "shortDescription": "Podcast",
       "owner": "Ben Eddon-Carruthers",
       "support": "BeGood",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Watch",
       "category": "Podcast",
@@ -5787,7 +5785,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 1:15 PM | Room service order taken from Podcast team | Cliffhanger Mansion | Ben Eddon-Carruthers | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 1:15 PM | Room service order taken from Podcast team | cliffhanger Mansion | Ben Eddon-Carruthers | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -6066,7 +6064,7 @@
       "shortDescription": "Flights / Travel",
       "owner": "Dawn Ramsden / Ramsden / INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
@@ -6087,7 +6085,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 3:15 PM | Subject 3 arrival — guest welcome, mic fitting & holding | Cliffhanger Mansion | Dawn Ramsden / Ramsden / INC | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 3:15 PM | Subject 3 arrival — guest welcome, mic fitting & holding | cliffhanger Mansion | Dawn Ramsden / Ramsden / INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -6103,7 +6101,7 @@
       "shortDescription": "Podcast",
       "owner": "INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "Needs Confirmation",
       "priority": "Watch",
       "category": "Podcast",
@@ -6124,7 +6122,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 3:30 PM-4:00 PM | Changeover — presenter break, AV check, camera card/battery checks, set reset | Cliffhanger Mansion | INC | Needs Confirmation",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 3:30 PM-4:00 PM | Changeover — presenter break, AV check, camera card/battery checks, set reset | cliffhanger Mansion | INC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -6203,7 +6201,7 @@
       "shortDescription": "Refreshments replenished.",
       "owner": "INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
@@ -6224,7 +6222,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 4:45 PM-5:15 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Cliffhanger Mansion | INC | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 4:45 PM-5:15 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | cliffhanger Mansion | INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -6599,7 +6597,7 @@
       "shortDescription": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean",
       "owner": "INC / Lead",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Podcast",
@@ -6620,7 +6618,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | Cliffhanger Mansion | INC / Lead | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | cliffhanger Mansion | INC / Lead | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -6632,11 +6630,11 @@
       "timeEnd": "19:00",
       "timeDisplay": "6:15 PM-7:00 PM",
       "period": "Evening",
-      "title": "Re-set of Cliffhanger - six senses housing team",
+      "title": "Re-set of cliffhanger - six senses housing team",
       "shortDescription": "reset Cliffhanger ahead of Affan returning in the evening.",
       "owner": "Cheryl Leno",
       "support": "Six Senses",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Podcast",
@@ -6657,7 +6655,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM-7:00 PM | Re-set of Cliffhanger - six senses housing team | Cliffhanger Mansion | Cheryl Leno | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM-7:00 PM | Re-set of cliffhanger - six senses housing team | cliffhanger Mansion | Cheryl Leno | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -8006,7 +8004,7 @@
       "shortDescription": "Hub active all day. Podcast recordings separately at Cliffhanger Mansion 14:30–17:15 (see below).",
       "owner": "BeGood",
       "support": "BeGood",
-      "location": "HORIZONS House / Cliffhanger",
+      "location": "HORIZONS House / cliffhanger",
       "status": "On Track",
       "priority": "Watch",
       "category": "Podcast",
@@ -8027,7 +8025,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 9:00 AM | HORIZONS House — 1:1 concierge desk & meetings all day | HORIZONS House / Cliffhanger | BeGood | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 9:00 AM | HORIZONS House — 1:1 concierge desk & meetings all day | HORIZONS House / cliffhanger | BeGood | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -8652,7 +8650,7 @@
       "shortDescription": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality.",
       "owner": "Dawn Ramsden / INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Watch",
       "category": "Podcast",
@@ -8673,7 +8671,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 12:30 PM | Presenter (Michail Katkoff) & Subject 1 | Cliffhanger Mansion | Dawn Ramsden / INC | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 12:30 PM | Presenter (Michail Katkoff) & Subject 1 | cliffhanger Mansion | Dawn Ramsden / INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -8900,7 +8898,7 @@
       "shortDescription": "Flights / Travel",
       "owner": "Dawn Ramsden / INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
@@ -8921,7 +8919,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 2:30 PM | Subject 2 arrival — guest welcome & mic fitting | Cliffhanger Mansion | Dawn Ramsden / INC | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 2:30 PM | Subject 2 arrival — guest welcome & mic fitting | cliffhanger Mansion | Dawn Ramsden / INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -9100,7 +9098,7 @@
       "shortDescription": "Podcast",
       "owner": "INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "Needs Confirmation",
       "priority": "Watch",
       "category": "Podcast",
@@ -9121,7 +9119,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 3:45 PM-4:00 PM | Changeover — presenter break, AV check, camera card/battery checks, set reset | Cliffhanger Mansion | INC | Needs Confirmation",
+      "finalWorkbookDisplayText": "Thursday 11 June | 3:45 PM-4:00 PM | Changeover — presenter break, AV check, camera card/battery checks, set reset | cliffhanger Mansion | INC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -9163,7 +9161,7 @@
       "shortDescription": "Refreshments replenished.",
       "owner": "INC",
       "support": "I.N.C / Clownfish",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
@@ -9184,7 +9182,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 4:45 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Cliffhanger Mansion | INC | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 4:45 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | cliffhanger Mansion | INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -11863,20 +11861,19 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Chris Manoe | Executive Producer / Creative Director | Overall event decision, creative direction, final approvals | +44 7747 797879 | From contact screenshot / style guide contact",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-samuel-price",
-      "group": "Leadership / Technology / Podcast",
-      "category": "Leadership / Technology / Podcast",
+      "group": "Leadership / Production / Systems",
+      "category": "Leadership / Production / Systems",
       "name": "Samuel Price",
-      "role": "Group Director of Business Development and Technology",
-      "responsibility": "Technology, website, backend, Slack systems, podcast leadership and executive support",
+      "role": "Developer working with Codex / Website Development & Software Lead / Infrastructure & Systems Support Lead / Podcast Lead / Executive Assistant to Chris Manoe",
+      "responsibility": "Website, Codex, Slack, infrastructure, podcast leadership, executive support",
       "phone": "+1 949 482 9442",
       "whatsappLink": "https://wa.me/19494829442",
       "email": "",
-      "notes": "Podcast Lead. Technology escalation for website, Codex, Slack, Vercel, Supabase and infrastructure. Keep separate from Samuel Hosier.",
+      "notes": "Updated from leadership feedback. Keep separate from Samuel Hosier.",
       "visibility": "Team",
       "updateId": "contact:samuel-price",
       "slackHandle": "",
@@ -11891,8 +11888,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Samuel Price | Developer working with Codex / Website Development & Software Lead / Infrastructure & Systems Support Lead / Podcast Lead / Executive Assistant to Chris Manoe | Website, Codex, Slack, infrastructure, podcast leadership, executive support | +1 949 482 9442 | Updated from leadership feedback. Keep separate from Samuel Hosier.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-liz-morris",
@@ -11919,8 +11915,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Liz Morris, Content Producer, B Good.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-dawn-ramsden",
@@ -11948,8 +11943,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Dawn Ramsden is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-pili-lopez",
@@ -11977,8 +11971,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pilly Lopez is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-samuel-hosier",
@@ -12006,8 +11999,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Samuel Hozier is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-tamy-hosier-hosier-hosier",
@@ -12035,8 +12027,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tammy Hozier is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-dean-whitehead",
@@ -12064,8 +12055,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Dean Whitehead is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-joshua-gavin",
@@ -12093,8 +12083,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Joshua Gavin is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-fede-tamburini-tamburini-tamburini",
@@ -12122,8 +12111,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Federico Tamburini is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-alex-humphreys",
@@ -12150,8 +12138,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Alex Humphreys | Clownfish | Clownfish contact / production support | +44 7811 040509 | From contact screenshot",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-kirsty-davidson",
@@ -12178,8 +12165,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Kirsty Davidson | Supplier / Performer contact | Supplier/performer support | +44 7970 416859 | From contact screenshot",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-nathan-fox",
@@ -12206,8 +12192,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Nathan Fox | Clownfish | Clownfish onsite support | +44 7910 737831 | From contact screenshot",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-corinne",
@@ -12235,8 +12220,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Corinne Manoe is International Collective (I.N.C).",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-eve-blackwell",
@@ -12263,8 +12247,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Eve Dusek | COO of Aream & Co.. | Client / Aream approvals and leadership coordination | +44 7880 382186 | Approved display name: Eve Dusek. Role: COO of Aream & Co.. Spelling: Dusek.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-poppy",
@@ -12291,8 +12274,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Poppy Luck.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-ben-eddon-carruthers",
@@ -12319,8 +12301,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Ben Eddon-Carruthers | BeGood | BeGood lead contact / room drops / guest operations | +44 7786 225182 | From contact screenshot",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-cheryl-leno",
@@ -12347,8 +12328,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cheryl Leno | BeGood | BeGood contact / room drops / guest operations | +44 7711 068058 | From contact screenshot",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-brendan",
@@ -12373,8 +12353,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-andrew",
@@ -12399,8 +12378,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-ollie",
@@ -12425,8 +12403,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-nathan-rushmer",
@@ -12451,8 +12428,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-george-winning",
@@ -12477,8 +12453,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-ryan-lowe",
@@ -12503,8 +12478,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "contact-josh-millar",
@@ -12529,8 +12503,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Clownfish.",
-      "finalWorkbookStatus": "Approved",
-      "emailStatus": "Email Needed"
+      "finalWorkbookStatus": "Approved"
     }
   ],
   "tasks": [
@@ -17680,9 +17653,9 @@
     },
     {
       "id": "location-horizons-house",
-      "locationName": "Reception / HORIZONS House",
+      "locationName": "HORIZONS House",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Reception, HORIZONS House, check-in and guest hub",
+      "primaryUse": "Main hub / check-in / briefings / social moments / afterparty",
       "mainDays": "8–12 June",
       "keyOwner": "Chris / Dawn / Pili",
       "watchOut": "High-traffic location; guest-ready timing, 1:1 concierge, reception display, afterparty, room service/bar",
@@ -17787,12 +17760,10 @@
         }
       ],
       "updateId": "location:horizons-house",
-      "canonicalName": "Reception / HORIZONS House",
-      "aliases": [
-        "HORIZONS House"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11036,1.50855",
+      "canonicalName": "HORIZONS House",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -17801,27 +17772,22 @@
       "review_id": "REV-0337",
       "canonical_record_id": "LOC-003",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Confirmed; locations and schedules document link needs confirmation.",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11036,
-      "longitude": 1.50855,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-horizons-hall",
       "locationName": "HORIZONS Hall",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Plenary / HORIZONS Hall sessions, awards and show moments",
-      "mainDays": "11 June",
+      "primaryUse": "Highlight reel / awards / closing moment",
+      "mainDays": "10–11 June",
       "keyOwner": "Chris / Tamy Hosier / Dean / Clownfish",
       "watchOut": "Highlight reel sign-off, test playback, awards sequence",
       "status": "Needs Confirmation",
-      "notes": "Content + Decisions + Locations",
+      "notes": "Locations + Schedule + Content",
       "scheduleItems": [
         {
           "day": "Tuesday 9 June",
@@ -17923,22 +17889,17 @@
       "updateId": "location:horizons-hall",
       "canonicalName": "HORIZONS Hall",
       "aliases": [],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11105,1.50827",
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
-      "latitude": 39.11105,
-      "longitude": 1.50827,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 349,
       "review_id": "REV-0348",
       "canonical_record_id": "LOC-014",
       "approved_by": "Samuel & Chris voice review",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall | Highlight reel / awards / closing moment | Chris / Tamy Hosier / Dean / Clownfish | Highlight reel sign-off, test playback, awards sequence | Needs Confirmation",
@@ -17948,7 +17909,7 @@
       "id": "location-horizons-studio",
       "locationName": "HORIZONS Studio",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Split track / HORIZONS Studio sessions",
+      "primaryUse": "Split track / P&C sessions",
       "mainDays": "11 June",
       "keyOwner": "Joshua / Dean / Clownfish",
       "watchOut": "Confirm setup and session requirements; film crews excluded from track sessions",
@@ -18055,8 +18016,8 @@
       "updateId": "location:horizons-studio",
       "canonicalName": "HORIZONS Studio",
       "aliases": [],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11109,1.50840",
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18065,20 +18026,15 @@
       "review_id": "REV-0339",
       "canonical_record_id": "LOC-005",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Studio | Split track / P&C sessions | Joshua / Dean / Clownfish | Confirm setup and session requirements; film crews excluded from track sessions | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11109,
-      "longitude": 1.5084,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
-      "id": "location-Cliffhanger-mansion",
-      "locationName": "Cliffhanger Mansion",
+      "id": "location-cliffhanger-mansion",
+      "locationName": "cliffhanger Mansion",
       "locationType": "Venue / Operational area",
       "primaryUse": "Podcast recordings",
       "mainDays": "10–11 June",
@@ -18184,8 +18140,8 @@
           "notes": "Full production team to vacate by 18:00. Request housekeeping attend once wrapped to clean"
         }
       ],
-      "updateId": "location:Cliffhanger-mansion",
-      "canonicalName": "Cliffhanger Mansion",
+      "updateId": "location:cliffhanger-mansion",
+      "canonicalName": "cliffhanger Mansion",
       "aliases": [],
       "address": "Address Needed",
       "googleMapsUrl": "Google Maps Link Needed",
@@ -18200,14 +18156,14 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Cliffhanger Mansion| Podcast recordings| Samuel Price / Tamy Hosier / Fede Tamburini / Dawn| Podcast schedule conflict, quiet zone, guest flow, production wrap rows| At Risk",
+      "finalWorkbookDisplayText": "cliffhanger Mansion| Podcast recordings| Samuel Price / Tamy Hosier / Fede Tamburini / Dawn| Podcast schedule conflict, quiet zone, guest flow, production wrap rows| At Risk",
       "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-situation-room-2",
-      "locationName": "Crew Food / Situation Room",
+      "locationName": "Situation Room 2",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Crew food and production situation room",
+      "primaryUse": "Crew base / DIT / meals / operations hub",
       "mainDays": "9–12 June",
       "keyOwner": "Tamy Hosier / Dean / BeGood",
       "watchOut": "Crew catering open/close, DIT, staggered meals; use exact location name consistently",
@@ -18312,14 +18268,10 @@
         }
       ],
       "updateId": "location:situation-room-2",
-      "canonicalName": "Crew Food / Situation Room",
-      "aliases": [
-        "The Situation Room",
-        "Situation Room",
-        "Situation room 2"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11109,1.50838",
+      "canonicalName": "Situation Room 2",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18328,22 +18280,17 @@
       "review_id": "REV-0341",
       "canonical_record_id": "LOC-007",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Situation Room 2 | Crew base / DIT / meals / operations hub | Tamy Hosier / Dean / BeGood | Crew catering open/close, DIT, staggered meals; use exact location name consistently | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11109,
-      "longitude": 1.50838,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-the-rocks",
       "locationName": "Rocky Beach",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Beach / rocks / entertainment area",
+      "primaryUse": "Evening entertainment / DJ / content capture",
       "mainDays": "9 June",
       "keyOwner": "Dawn / Samuel Hosier / Dean",
       "watchOut": "Sunset drone, DJ timings, guest movement from Partel",
@@ -18409,12 +18356,9 @@
       ],
       "updateId": "location:the-rocks",
       "canonicalName": "Rocky Beach",
-      "aliases": [
-        "Rockey Beach",
-        "The Rocks"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11037,1.50694",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18423,26 +18367,21 @@
       "review_id": "REV-0342",
       "canonical_record_id": "LOC-008",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Rocky Beach | Evening entertainment / DJ / content capture | Dawn / Samuel Hosier / Dean | Sunset drone, DJ timings, guest movement from Partel | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11037,
-      "longitude": 1.50694,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-pool-deck",
       "locationName": "Pool Deck",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Pool deck, welcome drinks, guest movement",
+      "primaryUse": "Welcome mixer, dinner, paella lunch, content capture",
       "mainDays": "9 and 11 June",
       "keyOwner": "Dawn / Chris / Content Team",
       "watchOut": "Welcome dinner 9 June; Paella lunch/DJ 11 June; drinks/food timings",
-      "status": "Needs Confirmation",
+      "status": "On Track",
       "notes": "Schedule + F&B + Locations",
       "scheduleItems": [
         {
@@ -18504,11 +18443,9 @@
       ],
       "updateId": "location:pool-deck",
       "canonicalName": "Pool Deck",
-      "aliases": [
-        "Pool Side"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11090,1.50731",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18517,22 +18454,17 @@
       "review_id": "REV-0343",
       "canonical_record_id": "LOC-009",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pool Deck | Welcome mixer, dinner, paella lunch, content capture | Dawn / Chris / Content Team | Welcome dinner 9 June; Paella lunch/DJ 11 June; drinks/food timings | On Track",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.1109,
-      "longitude": 1.50731,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-partel",
-      "locationName": "Partel Restaurant",
+      "locationName": "Partel",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Restaurant / meal space",
+      "primaryUse": "Dinner / live music / gala-related moments",
       "mainDays": "7, 9, 10, 11 June",
       "keyOwner": "Dawn / BeGood",
       "watchOut": "Sound checks, performer arrivals, gala dinner, guest movement",
@@ -18540,13 +18472,10 @@
       "notes": "Suppliers + F&B + Locations",
       "scheduleItems": [],
       "updateId": "location:partel",
-      "canonicalName": "Partel Restaurant",
-      "aliases": [
-        "Partal",
-        "Partel"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11091,1.50745",
+      "canonicalName": "Partel",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18555,22 +18484,17 @@
       "review_id": "REV-0344",
       "canonical_record_id": "LOC-010",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Partel | Dinner / live music / gala-related moments | Dawn / BeGood | Sound checks, performer arrivals, gala dinner, guest movement | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11091,
-      "longitude": 1.50745,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-orchard",
-      "locationName": "Orchard Restaurant",
+      "locationName": "Orchard",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Restaurant / meal space",
+      "primaryUse": "Split dinner / violin / PC and console coverage / breakfast",
       "mainDays": "10–11 June",
       "keyOwner": "Dawn / Joshua / Dean / BeGood",
       "watchOut": "Violin timing, content coverage, breakfast location on Thu",
@@ -18651,12 +18575,10 @@
         }
       ],
       "updateId": "location:orchard",
-      "canonicalName": "Orchard Restaurant",
-      "aliases": [
-        "Orchard"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11107,1.50833",
+      "canonicalName": "Orchard",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18665,26 +18587,21 @@
       "review_id": "REV-0345",
       "canonical_record_id": "LOC-011",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Orchard | Split dinner / violin / PC and console coverage / breakfast | Dawn / Joshua / Dean / BeGood | Violin timing, content coverage, breakfast location on Thu | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11107,
-      "longitude": 1.50833,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-arcade",
       "locationName": "Arcade",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Arcade / gaming tournament",
+      "primaryUse": "Gaming / late night / poker / DJ / social zones",
       "mainDays": "9–10 June",
       "keyOwner": "Dawn / Dean / Joshua / Fede Tamburini / Clownfish",
       "watchOut": "Poker/casino timing conflict, bar close, late wraps, tournament flow",
-      "status": "Needs Confirmation",
+      "status": "At Risk",
       "notes": "Red Flags + Suppliers + Locations",
       "scheduleItems": [
         {
@@ -18779,8 +18696,8 @@
       "updateId": "location:arcade",
       "canonicalName": "Arcade",
       "aliases": [],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11066,1.50707",
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Onsite / venue area",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18789,22 +18706,17 @@
       "review_id": "REV-0346",
       "canonical_record_id": "LOC-012",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Arcade | Gaming / late night / poker / DJ / social zones | Dawn / Dean / Joshua / Fede Tamburini / Clownfish | Poker/casino timing conflict, bar close, late wraps, tournament flow | At Risk",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11066,
-      "longitude": 1.50707,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-beach-caves",
       "locationName": "Beach Caves",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Beach Caves / evening entertainment / private dining",
+      "primaryUse": "Split dinner / DJ / M&C content coverage",
       "mainDays": "10 June",
       "keyOwner": "Dean / Samuel Hosier / Dawn",
       "watchOut": "DJ Lyndsay timing, content coverage, dinner service",
@@ -18895,8 +18807,8 @@
       "updateId": "location:beach-caves",
       "canonicalName": "Beach Caves",
       "aliases": [],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11058,1.50706",
+      "address": "Address Needed",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Beach%20Caves%20Ibiza",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Needs Confirmation",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18905,16 +18817,127 @@
       "review_id": "REV-0347",
       "canonical_record_id": "LOC-013",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Beach Caves | Split dinner / DJ / M&C content coverage | Dean / Samuel Hosier / Dawn | DJ Lyndsay timing, content coverage, dinner service | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11058,
-      "longitude": 1.50706,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
+    },
+    {
+      "id": "location-horizons-hall",
+      "locationName": "HORIZONS Hall",
+      "locationType": "Venue / Operational area",
+      "primaryUse": "Highlight reel / awards / closing moment",
+      "mainDays": "11 June",
+      "keyOwner": "Chris / Tamy Hosier / Dean / Clownfish",
+      "watchOut": "Highlight reel sign-off, test playback, awards sequence",
+      "status": "Needs Confirmation",
+      "notes": "Content + Decisions + Locations",
+      "scheduleItems": [
+        {
+          "day": "Tuesday 9 June",
+          "time": "TBC",
+          "activity": "Starlink Installation",
+          "owner": "Chris Manoe",
+          "status": "Needs Confirmation",
+          "notes": ""
+        },
+        {
+          "day": "Tuesday 9 June",
+          "time": "12:00 PM",
+          "activity": "Hotel to remove Tractor",
+          "owner": "TBC",
+          "status": "Needs Confirmation",
+          "notes": ""
+        },
+        {
+          "day": "Tuesday 9 June",
+          "time": "2:00 PM",
+          "activity": "Clownfish Set build",
+          "owner": "Chris Manoe / Pili Lopez / Poppy Luck - CHECK INITIALS",
+          "status": "On Track",
+          "notes": ""
+        },
+        {
+          "day": "Tuesday 9 June",
+          "time": "7:30 PM",
+          "activity": "Set chairs theatre style",
+          "owner": "TBC",
+          "status": "Needs Confirmation",
+          "notes": ""
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "8:30 AM",
+          "activity": "Lay out Notebook and Fan on Plenary Chairs",
+          "owner": "Ben Eddon-Carruthers / Cheryl Leno / Chris Manoe",
+          "status": "On Track",
+          "notes": ""
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "9:00 AM-9:45 AM",
+          "activity": "Final show checks & speaker familiarisation",
+          "owner": "TBC",
+          "status": "Needs Confirmation",
+          "notes": "Full AV run. Presenter familiarisation. Slide preview. Drone activation begins."
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "9:00 AM",
+          "activity": "Check running order / working",
+          "owner": "Dean Whitehead / Chris Manoe",
+          "status": "Needs Confirmation",
+          "notes": ""
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "9:30 AM-10:00 AM",
+          "activity": "Guest movement — breakfast to plenary",
+          "owner": "BeGood / Team",
+          "status": "On Track",
+          "notes": "Guest flow management. All 150 guests."
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "10:00 AM-11:30 AM",
+          "activity": "OPENING PLENARY — all 150 guests (90 mins)",
+          "owner": "Chris Manoe / Dean Whitehead / Samuel Hosier / Tamy Hosier / Pili Lopez / Poppy Luck - CHECK INITIALS / Joshua Gavin",
+          "status": "On Track",
+          "notes": "Film crews: visual recording only in plenary. Excluded from all track sessions. Photography once crew leaves."
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "11:45 AM-12:00 PM",
+          "activity": "Track rooms confirmed ready — AV reset",
+          "owner": "Clownfish",
+          "status": "Needs Confirmation",
+          "notes": "Quick AV reset between plenary and tracks"
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "12:00 PM-1:00 PM",
+          "activity": "Guest Led Plenary Session Screen Content?",
+          "owner": "Chris Manoe / Dean Whitehead / Samuel Hosier / Tamy Hosier / Pili Lopez / Poppy Luck - CHECK INITIALS / Joshua Gavin / Fede Tamburini",
+          "status": "Needs Confirmation",
+          "notes": "Film crews excluded."
+        },
+        {
+          "day": "Wednesday 10 June",
+          "time": "1:00 PM",
+          "activity": "Remove theatre seating and relay cabaret style",
+          "owner": "Clownfish",
+          "status": "On Track",
+          "notes": ""
+        }
+      ],
+      "updateId": "location:horizons-hall",
+      "canonicalName": "HORIZONS Hall",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
+      "emergencyRelevance": false,
+      "travelTimeFromVenue": "Onsite / venue area"
     },
     {
       "id": "location-farmers-market-terrace",
@@ -19295,9 +19318,9 @@
     },
     {
       "id": "location-tommy-s-tunnel",
-      "locationName": "Access Tunnel / Tommy’s Tunnel",
+      "locationName": "Tommy’s Tunnel",
       "locationType": "Venue / Operational area",
-      "primaryUse": "Access tunnel / load-in route",
+      "primaryUse": "Clownfish load-in",
       "mainDays": "8 June",
       "keyOwner": "Chris / Pili / Dawn / Clownfish",
       "watchOut": "Access route, truck arrival, unloading, storage position",
@@ -19305,14 +19328,10 @@
       "notes": "Suppliers + Locations",
       "scheduleItems": [],
       "updateId": "location:tommy-s-tunnel",
-      "canonicalName": "Access Tunnel / Tommy’s Tunnel",
-      "aliases": [
-        "Tommy's Tunnel",
-        "Tommy’s Tunnel",
-        "Tommys Tunnel"
-      ],
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11037,1.50694",
+      "canonicalName": "Tommy’s Tunnel",
+      "aliases": [],
+      "address": "Address Needed",
+      "googleMapsUrl": "Google Maps Link Needed",
       "emergencyRelevance": false,
       "travelTimeFromVenue": "Needs Confirmation",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -19321,16 +19340,11 @@
       "review_id": "REV-0356",
       "canonical_record_id": "LOC-022",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tommy’s Tunnel | Clownfish load-in | Chris / Pili / Dawn / Clownfish | Access route, truck arrival, unloading, storage position | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "latitude": 39.11037,
-      "longitude": 1.50694,
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass"
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "location-record-car-hire",
@@ -19459,213 +19473,25 @@
     },
     {
       "id": "location-emergency-medical",
-      "locationName": "Nearest Hospital / Emergency Medical — Needs Confirmation",
-      "canonicalName": "Nearest Hospital / Emergency Medical — Needs Confirmation",
+      "locationName": "Nearest Hospital — Needs Confirmation",
+      "canonicalName": "Nearest Hospital — Needs Confirmation",
       "aliases": [
         "Emergency Medical Location",
         "Nearest Hospital / Emergency Medical"
       ],
       "locationType": "Emergency / Medical",
-      "primaryUse": "Emergency medical reference, pending venue confirmation",
+      "primaryUse": "Emergency medical support reference for the onsite team.",
       "mainDays": "All event days",
-      "keyOwner": "Dawn Ramsden / Pili Lopez / Venue medical protocol",
-      "address": "Needs Confirmation",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=nearest%20hospital%20near%2039.11090,1.50731",
+      "keyOwner": "Dawn Ramsden / Pili Lopez",
+      "address": "Nearest hospital to Six Senses Ibiza — Needs Confirmation",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=nearest%20hospital%20to%20Six%20Senses%20Ibiza",
       "emergencyRelevance": true,
       "travelTimeFromVenue": "Needs Confirmation",
       "watchOut": "Confirm the exact hospital, emergency route, and venue medical protocol before the event.",
       "status": "Needs Confirmation",
-      "notes": "Temporary Google Maps search link only. Confirm exact hospital, route, emergency phone, venue contact and onsite protocol before event use.",
+      "notes": "Temporary Google Maps search link is provided until the team confirms the correct hospital / medical location.",
       "scheduleItems": [],
-      "updateId": "location:emergency-medical",
-      "emergencyContactNumber": "Needs Confirmation",
-      "venueContact": "Needs Confirmation",
-      "keyOnsiteContact": "Needs Confirmation",
-      "latitude": 39.1109,
-      "longitude": 1.50731,
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true
-    },
-    {
-      "id": "location-chris-hotel-room",
-      "locationName": "Chris Hotel Room",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Private/internal accommodation reference",
-      "mainDays": "8-12 June",
-      "keyOwner": "Chris Manoe",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Private / Internal Only",
-      "notes": "Privacy: internal team/admin visibility only. Do not share broadly.",
-      "scheduleItems": [],
-      "updateId": "location:chris-hotel-room",
-      "canonicalName": "Chris Hotel Room",
-      "latitude": 39.11064,
-      "longitude": 1.50742,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11064,1.50742",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-six-senses-spa",
-      "locationName": "Six Senses Spa",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Spa / wellness treatments",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:six-senses-spa",
-      "canonicalName": "Six Senses Spa",
-      "latitude": 39.11033,
-      "longitude": 1.50738,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11033,1.50738",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [
-        "Six Senecs Spa"
-      ],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-poker-room",
-      "locationName": "Poker Room",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Poker / casino room",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:poker-room",
-      "canonicalName": "Poker Room",
-      "latitude": 39.11058,
-      "longitude": 1.50706,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11058,1.50706",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [
-        "Pocker room"
-      ],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-horizons-house-terrace",
-      "locationName": "HORIZONS House Terrace",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "HORIZONS House terrace / guest moments",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:horizons-house-terrace",
-      "canonicalName": "HORIZONS House Terrace",
-      "latitude": 39.11098,
-      "longitude": 1.50798,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11098,1.50798",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [
-        "Horizon’s house Terra"
-      ],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-main-reception",
-      "locationName": "Main Reception",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Hotel main reception / guest arrivals",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:main-reception",
-      "canonicalName": "Main Reception",
-      "latitude": 39.11107,
-      "longitude": 1.50854,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11107,1.50854",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-horizons-studio-refreshment-stop",
-      "locationName": "HORIZONS Studio Refreshment Stop",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Refreshment stop near HORIZONS Studio",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:horizons-studio-refreshment-stop",
-      "canonicalName": "HORIZONS Studio Refreshment Stop",
-      "latitude": 39.11109,
-      "longitude": 1.50838,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11109,1.50838",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
-    },
-    {
-      "id": "location-longevity-spa",
-      "locationName": "Longevity Spa",
-      "locationType": "Venue / Operational area",
-      "primaryUse": "Spa / wellness location",
-      "mainDays": "8-12 June",
-      "keyOwner": "Needs Confirmation",
-      "watchOut": "Exact usage / timing needs confirmation",
-      "status": "Needs Confirmation",
-      "notes": "",
-      "scheduleItems": [],
-      "updateId": "location:longevity-spa",
-      "canonicalName": "Longevity Spa",
-      "latitude": 39.11064,
-      "longitude": 1.50833,
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=39.11064,1.50833",
-      "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "address": "Onsite at Six Senses Ibiza / internal event property pin",
-      "travelTimeFromVenue": "Onsite / venue area",
-      "aliases": [],
-      "last_updated": "2026-06-01T13:51:00+01:00",
-      "updated_from_location_map_qa": true,
-      "source": "Location map QA pass",
-      "emergencyRelevance": false
+      "updateId": "location:emergency-medical"
     }
   ],
   "suppliers": [
@@ -21149,14 +20975,14 @@
       "id": "podcast-schedule-63",
       "day": "Tuesday 9 June",
       "date": "2026-06-09",
-      "slot": "Cliffhanger — podcast setup (mic, lighting, backdrop)",
+      "slot": "cliffhanger — podcast setup (mic, lighting, backdrop)",
       "time": "12:00 PM",
       "presenter": "Presenter TBC",
       "guest": "Guest / subject TBC",
       "guestSubject": "Guest / subject TBC",
       "productionLead": "Samuel Price",
       "technicalTeam": "Clownfish",
-      "location": "Cliffhanger",
+      "location": "cliffhanger",
       "status": "Needs Confirmation",
       "productionNeeds": "Quiet zone, audio backup, camera, lighting, DIT backup",
       "notes": "Has the early occupancy of the Cliff Hanger been agreed with the hotel?",
@@ -21170,7 +20996,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Tuesday 9 June | 12:00 PM | Cliffhanger — podcast setup (mic, lighting, backdrop) | Presenter TBC | Guest / subject TBC | Cliffhanger | Needs Confirmation",
+      "finalWorkbookDisplayText": "Tuesday 9 June | 12:00 PM | cliffhanger — podcast setup (mic, lighting, backdrop) | Presenter TBC | Guest / subject TBC | cliffhanger | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -21184,7 +21010,7 @@
       "guestSubject": "Guest / subject TBC",
       "productionLead": "Samuel Price",
       "technicalTeam": "I.N.C",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "productionNeeds": "Quiet zone, audio backup, camera, lighting, DIT backup",
       "notes": "",
@@ -21198,7 +21024,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Tuesday 9 June | 2:00 PM-3:30 PM | Podcast set up | Presenter TBC | Guest / subject TBC | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Tuesday 9 June | 2:00 PM-3:30 PM | Podcast set up | Presenter TBC | Guest / subject TBC | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -21447,21 +21273,21 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June| 6:15 PM| WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard| Guest / subject TBC| Cliffhanger Mansion| On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June| 6:15 PM| WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard| Guest / subject TBC| cliffhanger Mansion| On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
       "id": "podcast-schedule-176",
       "day": "Wednesday 10 June",
       "date": "2026-06-10",
-      "slot": "Re-set of Cliffhanger - six senses housing team",
+      "slot": "Re-set of cliffhanger - six senses housing team",
       "time": "6:15 PM-7:00 PM",
       "presenter": "Presenter TBC",
       "guest": "Guest / subject TBC",
       "guestSubject": "Guest / subject TBC",
       "productionLead": "Samuel Price",
       "technicalTeam": "Six Senses",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "status": "On Track",
       "productionNeeds": "Quiet zone, audio backup, camera, lighting, DIT backup",
       "notes": "reset Cliffhanger ahead of Affan returning in the evening.",
@@ -21475,7 +21301,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM-7:00 PM | Re-set of Cliffhanger - six senses housing team | Presenter TBC | Guest / subject TBC | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM-7:00 PM | Re-set of cliffhanger - six senses housing team | Presenter TBC | Guest / subject TBC | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -21489,7 +21315,7 @@
       "guestSubject": "Guest / subject TBC",
       "productionLead": "Samuel Price",
       "technicalTeam": "BeGood",
-      "location": "HORIZONS House / Cliffhanger",
+      "location": "HORIZONS House / cliffhanger",
       "status": "On Track",
       "productionNeeds": "Quiet zone, audio backup, camera, lighting, DIT backup",
       "notes": "Hub active all day. Podcast recordings separately at Cliffhanger Mansion 14:30–17:15 (see below).",
@@ -21503,7 +21329,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 9:00 AM | HORIZONS House — 1:1 concierge desk & meetings all day | Presenter TBC | Guest / subject TBC | HORIZONS House / Cliffhanger | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 9:00 AM | HORIZONS House — 1:1 concierge desk & meetings all day | Presenter TBC | Guest / subject TBC | HORIZONS House / cliffhanger | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -21684,7 +21510,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June| 6:15 PM| WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard| Guest / subject TBC| Cliffhanger Mansion| On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June| 6:15 PM| WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard| Guest / subject TBC| cliffhanger Mansion| On Track",
       "finalWorkbookStatus": "Approved"
     }
   ],
@@ -22330,7 +22156,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 4:45 PM-5:15 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | INC | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 4:45 PM-5:15 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | INC | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -22358,7 +22184,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | Podcast | INC / Lead | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Wednesday 10 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | Podcast | INC / Lead | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -22778,7 +22604,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 4:45 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | INC | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 4:45 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | INC | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -22806,7 +22632,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Thursday 11 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | Podcast | INC / Lead | Cliffhanger Mansion | On Track",
+      "finalWorkbookDisplayText": "Thursday 11 June | 6:15 PM | WRAP — equipment pack down · DIT media backup · set reset · space restored to venue standard | Podcast | INC / Lead | cliffhanger Mansion | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -25471,7 +25297,7 @@
     },
     "weatherApi": "Open-Meteo Forecast API",
     "backendApiBase": "https://inc-horizons.vercel.app",
-    "slackSetupStatus": "Slack notifications are connected to #horizons-test while production channel webhooks remain pending approval.",
+    "slackSetupStatus": "Slack test mode is active. Website Notify Slack actions route only to #horizons-test until production channel webhooks are approved.",
     "slackTestMode": true,
     "lastFinalWorkbookImport": {
       "batchId": "final-master-import-20260531-1918",
@@ -27226,20 +27052,18 @@
     }
   ],
   "weather": {
-    "location": "Six Senses Ibiza / central event property",
+    "location": "Six Senses Ibiza / Xarraca Bay, Ibiza",
     "status": "Live Open-Meteo enabled",
     "temperature": "Loading live weather",
     "wind": "Loading live weather",
     "rainChance": "Loading live weather",
     "sunrise": "Loading live weather",
     "sunset": "Loading live weather",
-    "operationalNote": "Live weather loads from Open-Meteo using central event property coordinates near Pool Deck / Six Senses Ibiza. Weather currently unavailable. Please check closer to the event if the API fails.",
-    "latitude": 39.1109,
-    "longitude": 1.50731,
-    "source": "Open-Meteo Forecast API; central event property coordinates 39.11090, 1.50731 supplied in location-map QA pass.",
-    "cacheMinutes": 45,
-    "timezone": "Europe/Madrid",
-    "units": "Celsius"
+    "operationalNote": "Live weather loads from Open-Meteo near Six Senses Ibiza and falls back safely if unavailable. Weather location still needs final venue confirmation.",
+    "latitude": 39.1113,
+    "longitude": 1.5085,
+    "source": "Open-Meteo Forecast API; coordinates set near Six Senses Ibiza, Cami De Sa Torre 71. Confirm exact event hotel pin if venue team supplies a final coordinate.",
+    "cacheMinutes": 45
   },
   "locationSchedules": [
     {
@@ -28722,8 +28546,8 @@
       "updateId": "location-schedule:schedule-78"
     },
     {
-      "id": "loc-schedule-schedule-79-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-79-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Tuesday 9 June",
       "timeStart": "14:00",
@@ -29997,8 +29821,8 @@
       "updateId": "location-schedule:schedule-145"
     },
     {
-      "id": "loc-schedule-schedule-146-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-146-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "12:15",
@@ -30082,8 +29906,8 @@
       "updateId": "location-schedule:schedule-149"
     },
     {
-      "id": "loc-schedule-schedule-150-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-150-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "13:15",
@@ -30099,8 +29923,8 @@
       "updateId": "location-schedule:schedule-150"
     },
     {
-      "id": "loc-schedule-schedule-151-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-151-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "13:15",
@@ -30167,8 +29991,8 @@
       "updateId": "location-schedule:schedule-154"
     },
     {
-      "id": "loc-schedule-schedule-155-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-155-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "14:30",
@@ -30184,8 +30008,8 @@
       "updateId": "location-schedule:schedule-155"
     },
     {
-      "id": "loc-schedule-schedule-156-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-156-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "14:45",
@@ -30269,8 +30093,8 @@
       "updateId": "location-schedule:schedule-159"
     },
     {
-      "id": "loc-schedule-schedule-160-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-160-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "15:15",
@@ -30286,8 +30110,8 @@
       "updateId": "location-schedule:schedule-160"
     },
     {
-      "id": "loc-schedule-schedule-161-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-161-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "15:30",
@@ -30320,8 +30144,8 @@
       "updateId": "location-schedule:schedule-162"
     },
     {
-      "id": "loc-schedule-schedule-163-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-163-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "16:00",
@@ -30337,8 +30161,8 @@
       "updateId": "location-schedule:schedule-163"
     },
     {
-      "id": "loc-schedule-schedule-164-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-164-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "16:45",
@@ -30456,8 +30280,8 @@
       "updateId": "location-schedule:schedule-170"
     },
     {
-      "id": "loc-schedule-schedule-171-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-171-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "17:15",
@@ -30524,8 +30348,8 @@
       "updateId": "location-schedule:schedule-174"
     },
     {
-      "id": "loc-schedule-schedule-175-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-175-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "18:15",
@@ -30541,8 +30365,8 @@
       "updateId": "location-schedule:schedule-175"
     },
     {
-      "id": "loc-schedule-schedule-176-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-176-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Wednesday 10 June",
       "timeStart": "18:15",
@@ -31527,8 +31351,8 @@
       "updateId": "location-schedule:schedule-230"
     },
     {
-      "id": "loc-schedule-schedule-231-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-231-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "12:30",
@@ -31561,8 +31385,8 @@
       "updateId": "location-schedule:schedule-232"
     },
     {
-      "id": "loc-schedule-schedule-233-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-233-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "12:45",
@@ -31646,8 +31470,8 @@
       "updateId": "location-schedule:schedule-237"
     },
     {
-      "id": "loc-schedule-schedule-238-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-238-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "14:30",
@@ -31663,8 +31487,8 @@
       "updateId": "location-schedule:schedule-238"
     },
     {
-      "id": "loc-schedule-schedule-239-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-239-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "14:45",
@@ -31731,8 +31555,8 @@
       "updateId": "location-schedule:schedule-242"
     },
     {
-      "id": "loc-schedule-schedule-243-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-243-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "15:45",
@@ -31748,8 +31572,8 @@
       "updateId": "location-schedule:schedule-243"
     },
     {
-      "id": "loc-schedule-schedule-244-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-244-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "15:45",
@@ -31765,8 +31589,8 @@
       "updateId": "location-schedule:schedule-244"
     },
     {
-      "id": "loc-schedule-schedule-245-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-245-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "16:00",
@@ -31782,8 +31606,8 @@
       "updateId": "location-schedule:schedule-245"
     },
     {
-      "id": "loc-schedule-schedule-246-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-246-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "16:45",
@@ -31884,8 +31708,8 @@
       "updateId": "location-schedule:schedule-249"
     },
     {
-      "id": "loc-schedule-schedule-250-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-250-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "17:15",
@@ -31969,8 +31793,8 @@
       "updateId": "location-schedule:schedule-254"
     },
     {
-      "id": "loc-schedule-schedule-255-Cliffhanger-mansion",
-      "locationId": "location-Cliffhanger-mansion",
+      "id": "loc-schedule-schedule-255-cliffhanger-mansion",
+      "locationId": "location-cliffhanger-mansion",
       "locationName": "Cliffhanger Mansion",
       "day": "Thursday 11 June",
       "timeStart": "18:15",
@@ -34897,10 +34721,10 @@
     },
     {
       "id": "rehearsal-schedule-146",
-      "rehearsalName": "INC production crew call & full technical setup — Cliffhanger",
+      "rehearsalName": "INC production crew call & full technical setup — cliffhanger",
       "day": "Wednesday 10 June",
       "time": "12:15 PM",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "requiredPeople": "TBC, I.N.C / Clownfish",
       "owner": "TBC",
       "status": "Needs Confirmation",
@@ -34915,7 +34739,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "INC production crew call & full technical setup — Cliffhanger | Wednesday 10 June | 12:15 PM | Cliffhanger Mansion | TBC | Needs Confirmation",
+      "finalWorkbookDisplayText": "INC production crew call & full technical setup — cliffhanger | Wednesday 10 June | 12:15 PM | cliffhanger Mansion | TBC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -34923,7 +34747,7 @@
       "rehearsalName": "Changeover — presenter break, AV check, camera card/battery checks, set reset",
       "day": "Wednesday 10 June",
       "time": "3:30 PM-4:00 PM",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "requiredPeople": "INC, I.N.C / Clownfish",
       "owner": "INC",
       "status": "Needs Confirmation",
@@ -34938,7 +34762,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Changeover — presenter break, AV check, camera card/battery checks, set reset | Wednesday 10 June | 3:30 PM-4:00 PM | Cliffhanger Mansion | INC | Needs Confirmation",
+      "finalWorkbookDisplayText": "Changeover — presenter break, AV check, camera card/battery checks, set reset | Wednesday 10 June | 3:30 PM-4:00 PM | cliffhanger Mansion | INC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -35004,7 +34828,7 @@
       "rehearsalName": "Changeover — presenter break, AV check, camera card/battery checks, set reset",
       "day": "Thursday 11 June",
       "time": "3:45 PM-4:00 PM",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "requiredPeople": "INC, I.N.C / Clownfish",
       "owner": "INC",
       "status": "Needs Confirmation",
@@ -35019,7 +34843,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Changeover — presenter break, AV check, camera card/battery checks, set reset | Thursday 11 June | 3:45 PM-4:00 PM | Cliffhanger Mansion | INC | Needs Confirmation",
+      "finalWorkbookDisplayText": "Changeover — presenter break, AV check, camera card/battery checks, set reset | Thursday 11 June | 3:45 PM-4:00 PM | cliffhanger Mansion | INC | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -35027,7 +34851,7 @@
       "rehearsalName": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload",
       "day": "Thursday 11 June",
       "time": "4:45 PM",
-      "location": "Cliffhanger Mansion",
+      "location": "cliffhanger Mansion",
       "requiredPeople": "INC, I.N.C / Clownfish",
       "owner": "INC",
       "status": "On Track",
@@ -35042,7 +34866,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Thursday 11 June | 4:45 PM | Cliffhanger Mansion | INC | On Track",
+      "finalWorkbookDisplayText": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Thursday 11 June | 4:45 PM | cliffhanger Mansion | INC | On Track",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -37508,19 +37332,6 @@
         "final_import_batch_id": "final-master-import-20260531-1918",
         "finalWorkbookDisplayText": "Cheryl Leno is Be Good.",
         "finalWorkbookStatus": "Approved"
-      },
-      {
-        "name": "Samuel Price",
-        "company": "International Collective (I.N.C)",
-        "role": "Group Director of Business Development and Technology",
-        "responsibility": "Technology, website/backend/Slack systems, podcast leadership and executive support",
-        "phone": "+1 949 482 9442",
-        "whatsapp": "https://wa.me/19494829442",
-        "slackUserId": "",
-        "slackHandle": "",
-        "daysOnsite": "All event / remote support as needed",
-        "notes": "Podcast Lead. Keep separate from Samuel Hosier.",
-        "status": "Confirmed"
       }
     ],
     "Production / Content": [
@@ -37836,6 +37647,29 @@
         "updated_from_final_workbook": true,
         "final_import_batch_id": "final-master-import-20260531-1918",
         "finalWorkbookDisplayText": "Chris Manoe is International Collective.",
+        "finalWorkbookStatus": "Approved"
+      },
+      {
+        "id": "staff-contact-samuel-price",
+        "name": "Samuel Price",
+        "company": "International Collective",
+        "role": "Podcast Lead / Executive Assistant to Chris Manoe / Website Development & Software Lead / Infrastructure & Systems Support Lead",
+        "responsibility": "Podcast Lead / Executive Assistant to Chris Manoe / Website Development & Software Lead / Infrastructure & Systems Support Lead",
+        "phone": "+1 949 482 9442",
+        "whatsappLink": "https://wa.me/19494829442",
+        "daysOnsite": "Needs Confirmation",
+        "notes": "Samuel Price is International Collective.",
+        "updateId": "staff:contact-samuel-price",
+        "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
+        "source_tab": "MASTER REVIEW",
+        "source_row": 808,
+        "review_id": "REV-0807",
+        "canonical_record_id": "STAFF-002",
+        "approved_by": "Samuel & Chris voice review",
+        "last_updated": "2026-05-31T19:18:50",
+        "updated_from_final_workbook": true,
+        "final_import_batch_id": "final-master-import-20260531-1918",
+        "finalWorkbookDisplayText": "Samuel Price is International Collective.",
         "finalWorkbookStatus": "Approved"
       },
       {
@@ -38797,13 +38631,13 @@
       "finalWorkbookStatus": "Approved"
     },
     {
-      "situation": "Technology",
+      "situation": "Website / Codex / Slack / infrastructure",
       "primaryContact": "Samuel Price",
       "backupContact": "Chris Manoe",
       "phone": "+1 949 482 9442",
       "whatsapp": "https://wa.me/19494829442",
-      "slackChannel": "#horizons-web-hub",
-      "notes": "Website, backend, Codex, Slack, Supabase, Vercel, infrastructure and systems support.",
+      "slackChannel": "#horizons-main",
+      "notes": "Website, Codex, Slack, infrastructure and systems support.",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 365,
@@ -39530,7 +39364,7 @@
       "podcastNotes": "No podcast items listed for this day",
       "transportNotes": "Transport notes needed",
       "mealNotes": "Meal notes needed",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -39553,8 +39387,7 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
-      "last_updated": "2026-06-01T13:51:00+01:00"
+      "lastUpdated": "29 May 2026, 2:15 PM"
     },
     {
       "id": "call-sheet-sunday-7-june",
@@ -39595,7 +39428,7 @@
       "podcastNotes": "No podcast items listed for this day",
       "transportNotes": "Chris Manoe — Arrival at Six Senses; Pili Lopez & Eve Dusek — Arrival at Six Senses; Chris Manoe - Taxi home",
       "mealNotes": "Suggest Dinner - Eve Dusek, Pili Lopez, Chris Manoe & BeGood",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -39618,14 +39451,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 20,
       "review_id": "REV-0019",
       "canonical_record_id": "CALL-002",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "9:30 AM on Sunday 7 June.",
@@ -39696,7 +39529,7 @@
       "podcastNotes": "No podcast items listed for this day",
       "transportNotes": "Chris Manoe — Arrival Six Senses; Ben Eddon-Carruthers to airport?; Dean Whitehead — Arrival Six Senses; Samuel Hosier, Tamy Hosier, Pili Lopez, Joshua Gavin & Dawn Ramsden — Arrival Six Senses; Clownfish truck arrival",
       "mealNotes": "Aream & Co. snacks and toiletries; Hotel to stock bar and have reduced room service menu available; Lunch — Chris Manoe, Dean Whitehead, Pili Lopez, Eve Dusek, Ben Eddon-Carruthers, Cheryl Leno, Nikki Mathias, RB, Liz Morris, LL; Crew dinner & briefing; Aream & Co. team & crew dinner — Italian menu a la carte",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -39719,14 +39552,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 21,
       "review_id": "REV-0020",
       "canonical_record_id": "CALL-003",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Monday 8 June | Monday 8 June Daily Call Sheet | Subject to Hotel agreement | 7:00 PM | Six Senses, HORIZONS House | Needs Confirmation",
@@ -39835,7 +39668,7 @@
       "podcastNotes": "9:00 AM-4:00 PM: Speaker rehearsals & AV checks — full day window; 12:00 PM: Cliff Hanger — podcast setup (mic, lighting, backdrop); 2:00 PM-3:30 PM: Podcast set up",
       "transportNotes": "On site arrival — Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier, Pili Lopez, Joshua Gavin, Fede Tamburini; GUEST ARRIVALS from 12:00; Welcome reception — all afternoon; Violinist (Christina Hizon) — arrival & sound check; DJ Lyndsay Evans — arrival",
       "mealNotes": "Breakfast — those checked in on 8th; Crew Breakfast; CREW CATERING OPEN; Light lunch available to order; Buffet Lunch",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -39858,14 +39691,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 22,
       "review_id": "REV-0021",
       "canonical_record_id": "CALL-004",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tuesday 9 June | Tuesday 9 June Daily Call Sheet | Food / Catering | 7:00 AM-8:30 AM | HORIZONS Hall, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area | Needs Confirmation",
@@ -39989,7 +39822,7 @@
       "podcastNotes": "9:00 AM-9:45 AM: Final show checks & speaker familiarisation; 12:00 PM: HORIZONS House — 1:1 meetings & concierge??; 12:15 PM: INC production crew call & full technical setup — Cliffhanger; 1:15 PM: Presenter (Michail Katkoff) & Subject 1 arrival — guest welcome & mic fitting; 1:15 PM: Room service order taken from Podcast team",
       "transportNotes": "On site arrival — Chris Manoe, Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier; On site arrival — Pili Lopez; On site arrival — Joshua Gavin, Fede Tamburini; Presenter (Michail Katkoff) & Subject 1 arrival — guest welcome & mic fitting; Subject 2 arrival — guest welcome & mic fitting",
       "mealNotes": "BREAKFAST — Partal & Pharmacy; CREW CATERING OPEN; CREW CATERING CLOSES; Breakfast Closes; Guest movement — breakfast to plenary",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -40012,14 +39845,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 23,
       "review_id": "REV-0022",
       "canonical_record_id": "CALL-005",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Wednesday 10 June | Wednesday 10 June Daily Call Sheet | F&B: à la carte + cold buffet. No pork. | 7:00 AM-9:00 AM | Partal & Pharmacy, Situation Room 2, Spa, Room 260, 256 & 355, Studio, Yoga Deck | Needs Confirmation",
@@ -40135,7 +39968,7 @@
       "podcastNotes": "9:00 AM: HORIZONS House — 1:1 concierge desk & meetings all day; 12:30 PM: Presenter (Michail Katkoff) & Subject 1; 12:45 PM-1:30 PM: PODCAST 1 — recording (45 mins); 2:30 PM: Subject 2 arrival — guest welcome & mic fitting; 2:45 PM-3:30 PM: PODCAST 2 — recording (45 mins)",
       "transportNotes": "On site arrival — Tamy Hosier, Dean Whitehead / D.I.T; On site arrival — Chris Manoe, Dawn Ramsden, Samuel Hosier, Tamy Hosier, Joshua Gavin; On site arrival — Pili Lopez, Joshua Gavin; On site arrival — Fede Tamburini; Subject 2 arrival — guest welcome & mic fitting",
       "mealNotes": "CREW CATERING OPENS; BREAKFAST — HORIZONS Hall & Orchard; CREW CATERING CLOSES; LUNCH — Pool Deck; CREW CATERING OPEN",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -40158,14 +39991,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 24,
       "review_id": "REV-0023",
       "canonical_record_id": "CALL-006",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Thursday 11 June | Thursday 11 June Daily Call Sheet | Early team in for Gala day. | 7:00 AM-9:00 AM | Situation room 2, HORIZONS Hall & Orchard, All spaces, Various, Studio | Needs Confirmation",
@@ -40229,7 +40062,7 @@
       "podcastNotes": "No podcast items listed for this day",
       "transportNotes": "GUEST DEPARTURES — check-out by 12:00; Transfer management — airport runs; On site arrival — Chris Manoe, Samuel Hosier, Tamy Hosier; Winners arrive — Ibiza Town Harbour; Winners depart",
       "mealNotes": "CREW CATERING OPEN; BREAKFAST — Farmers Market & Orchard; CREW CATERING CLOSES; CREW CATERING OPEN; Aream team lunch — HORIZONS House (TBC)",
-      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
+      "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
@@ -40252,14 +40085,14 @@
         "Confirmed nearest hospital / emergency medical route"
       ],
       "status": "Needs Confirmation",
-      "lastUpdated": "1 June 2026, 1:51 PM BST",
+      "lastUpdated": "29 May 2026, 2:15 PM",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 25,
       "review_id": "REV-0024",
       "canonical_record_id": "CALL-007",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Friday 12 June | Friday 12 June Daily Call Sheet | Food / Catering | 7:00 AM-9:00 AM | Situation Room 2, HORIZONS Hall & Orchard, Spa / Pool, All spaces, HORIZONS House | Needs Confirmation",
@@ -40366,41 +40199,5 @@
       "recommendedFix": "Add Data Health Dashboard admin section.",
       "status": "Implemented"
     }
-  ],
-  "captureLog": [],
-  "captureLogSchema": {
-    "fields": [
-      "Logged by",
-      "Auto timestamp",
-      "Manual time override",
-      "Day/date",
-      "Location",
-      "Camera",
-      "Media type",
-      "Subject / moment",
-      "Tags",
-      "Notes",
-      "Related schedule item",
-      "Related content capture item",
-      "Priority",
-      "Status"
-    ],
-    "mediaTypes": [
-      "Photo",
-      "Video",
-      "Drone",
-      "Audio",
-      "BTS",
-      "Social"
-    ],
-    "statusOptions": [
-      "Logged",
-      "Needs Review",
-      "Selected",
-      "Used",
-      "Archived"
-    ],
-    "slackDefault": "#horizons-content",
-    "note": "Shared backend persistence should use record_updates parent_type content_capture until a dedicated capture_log table is added."
-  }
+  ]
 }

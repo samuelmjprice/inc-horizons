@@ -1,0 +1,32 @@
+# Section Mapping Audit
+
+Created: 1 June 2026
+
+This audit lists records that appear to be mapped into the wrong operational section. No source/admin data was deleted.
+
+| Record title | Current section | Correct section | Action taken | Needs confirmation? |
+| --- | --- | --- | --- | --- |
+| Selected in-room dining items | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Food allergen key | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| HORIZONS Hall Terrace · 19:30–21:00 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| HORIZONS House · 12:00–19:00 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/HORIZONS Studio 11:00–11:15; lunch Pool Deck 12:00–13:30 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| HORIZONS Hall & Orchard · 07:00–09:30 | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Ben Eddon-Carruthers | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Cheryl Leno | Guest Materials / Experience | Restaurants / Menus / Documents | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Selected in-room dining items | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Food allergen key | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Farmers Market Terrace · 19:30–21:00 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| HORIZONS House · 12:00–19:00 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Farmers Market & Orchard · 07:00–09:30 | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Ben Eddon-Carruthers | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
+| Cheryl Leno | Artwork / Wayfinding / Signage | Restaurants / Menus / Documents unless actual artwork/signage file exists | Flagged; source preserved; display filters keep operational sections cleaner where possible. | Yes |
