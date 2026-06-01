@@ -16,6 +16,32 @@ Live site: https://inc-horizons.com/
 - The comments system is connected to the shared Vercel/Supabase backend, with browser storage retained only as a draft/offline fallback.
 - Supplier cards are grouped by supplier name rather than duplicated per note.
 
+## Software Upgrade Audit - 1 June 2026
+
+Created:
+
+- `HORIZONS_SOFTWARE_UPGRADE_AUDIT.md`
+- `HORIZONS_SOFTWARE_COST_SUMMARY.md`
+
+Findings:
+
+- Supabase is currently on Free. Upgrade to Pro is strongly recommended before event use because shared comments and Slack activity logs rely on Supabase, and Free lacks scheduled backups and can pause after inactivity.
+- Vercel is currently on Hobby. Upgrade to Pro is strongly recommended before event use because the backend/API now supports shared comments and Slack notifications.
+- Slack is on a Pro trial through 27 June 2026, with renewal shown for 28 June 2026 at EUR 8.25/month for the current one active paid user. Do not select Business+ unless explicitly approved.
+- GitHub and GitHub Pages are healthy and do not need an upgrade.
+- GoDaddy DNS is correctly pointed at GitHub Pages. Domain renewal is shown as 28 May 2027 at EUR 21.99/year.
+- Open-Meteo weather works without an API key for the current call-sheet forecast use.
+
+Safe tests completed:
+
+- `node --check script.js`
+- `python3 -m json.tool content.json`
+- Live GitHub Pages response check.
+- Vercel backend response check.
+- Shared comment save/read through `/api/updates`.
+- Slack test send to `#horizons-test` through `/api/slack/send`.
+- Source scan for committed Slack webhooks, tokens, Supabase service role assignment, private keys, and `.env` secrets.
+
 ## Confirmed Fixed
 
 - Chris Manoe correction: fixed.
@@ -231,7 +257,7 @@ Decision:
 - Use one Slack workspace only.
 - Rename/use the workspace display name `International Collective`.
 - Do not create a second HORIZONS workspace.
-- Use Slack Pro after Samuel/Chris approve billing; do not choose Business+ without explicit approval.
+- Use Slack Pro; do not choose Business+ without explicit approval.
 - Keep HORIZONS event work in `#horizons-*` channels inside the International Collective workspace.
 - Keep core INC work in private `#inc-*` channels.
 - Keep business division work in private `#biz-*` channels.
@@ -257,7 +283,7 @@ Setup completed:
 - Workspace display name changed from `INC-HORIZONS` to `International Collective`.
 - Workspace URL was not changed.
 - Workspace is on a free Slack Pro trial through 27 June 2026.
-- Paid Slack Pro checkout was not completed because billing approval is still required.
+- Slack billing shows Pro renewal on 28 June 2026; Samuel/Chris should approve active paid-user count before wider invites.
 - Created/confirmed private core INC channels: `#inc-main`, `#inc-core-team`, `#inc-red-flags-urgent`, `#inc-finance`, `#inc-media-production`, `#inc-marketing-web-social`, `#inc-leads-new-deals`, `#inc-systems-tech`.
 - Created private business division channels: `#biz-chris-manoe`, `#biz-world-main`, `#biz-singers`, `#biz-dancers`, `#biz-artists`, `#biz-agency-105`, `#biz-circle`, `#biz-ip`.
 - Created private INC Circle channels: `#circle-team-inc`, `#circle-outreach-inc`, `#circle-content-inc`.

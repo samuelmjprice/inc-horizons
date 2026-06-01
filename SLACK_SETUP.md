@@ -10,14 +10,16 @@ Use one Slack workspace only:
 
 HORIZONS event channels live inside this same workspace. Do not create a second HORIZONS workspace.
 
-Use Slack Pro if/when billing is approved by Samuel/Chris. Do not choose Business+ unless explicitly approved later.
+Use Slack Pro. Do not choose Business+ unless explicitly approved later.
 
 Current setup status:
 
 - Workspace display name has been changed to `International Collective`.
 - Workspace URL remains `inc-horizons.slack.com`.
 - Workspace is on a free Slack Pro trial through 27 June 2026.
-- Paid Pro upgrade checkout has not been completed; Samuel/Chris billing approval is still required.
+- Slack billing page shows the workspace will renew on Pro on 28 June 2026.
+- Current observed renewal estimate is EUR 8.25/month for one active paid user, inclusive of applicable tax.
+- Future charges are configured in Slack billing, but Samuel/Chris should approve the active paid-user count before wider invites.
 - Required core INC, business division, and Circle private channels have been created.
 - Slack sidebar sections exist in Samuel's sidebar. The approved navigation order is: `DIRECT WORK`, `HORIZONS EVENT`, `INTERNATIONAL COLLECTIVE`, `BUSINESS DIVISIONS`, `INC CIRCLE`, then `TESTING / ADMIN`.
 - `#horizons-test` belongs in `TESTING / ADMIN` at the bottom, not inside `HORIZONS EVENT`.
@@ -41,6 +43,14 @@ Slack Pro is enough for the current HORIZONS / International Collective setup be
 - Searchable event and company history.
 
 Business+ is not needed right now because the team has not requested SAML SSO, SCIM user management, advanced compliance exports, or enterprise governance.
+
+Current billing note from the 1 June 2026 production readiness audit:
+
+- Slack Pro trial is active through 27 June 2026.
+- Renewal is shown for 28 June 2026.
+- Current billing estimate is EUR 8.25/month for one active paid user.
+- Cost will increase as active paid users are invited.
+- Wider team invites remain paused until Samuel/Chris approve the access plan and active-user cost.
 
 ## Privacy Model
 

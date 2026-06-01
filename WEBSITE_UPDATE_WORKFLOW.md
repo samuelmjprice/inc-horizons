@@ -178,6 +178,35 @@ Comment / Slack QA on 29 May 2026:
 - Non-Slack website comments save to Supabase and reload on the live site.
 - Notify Slack comments save to Supabase and post to `#horizons-test` when Slack test mode is active.
 - Slack send attempts are written to `slack_activity_log`.
+
+## Production Readiness / Upgrade Workflow
+
+Before the team relies on the site onsite, review:
+
+```txt
+HORIZONS_SOFTWARE_UPGRADE_AUDIT.md
+HORIZONS_SOFTWARE_COST_SUMMARY.md
+```
+
+Upgrade gates:
+
+1. Supabase should be upgraded from Free to Pro only after Samuel approval.
+2. Vercel should be upgraded from Hobby to Pro only after Samuel approval.
+3. Slack should stay on Pro only; do not choose Business+ unless Samuel/Chris explicitly approve it.
+4. GoDaddy DNS should not be changed unless there is a specific domain issue.
+5. GitHub/GitHub Pages should remain as-is unless deployment is blocked.
+6. Open-Meteo should remain as-is for current light weather-card usage.
+
+After any upgrade, test:
+
+- `https://inc-horizons.com/`
+- `https://inc-horizons.vercel.app/api/updates`
+- `https://inc-horizons.vercel.app/api/slack/send`
+- Website comment save/read.
+- Slack test message to `#horizons-test`.
+- Supabase `record_updates` and `slack_activity_log`.
+
+Never paste passwords, card details, API keys, webhook URLs, service role keys, or tokens into chat or docs. Secrets belong only in Vercel environment variables.
 - Missing production webhook routes return `Slack notifications pending setup.` without breaking comment save.
 - The current send confirmation is a native browser confirmation. A branded resend/duplicate modal is still a polish item.
 

@@ -18,6 +18,28 @@ https://samuelmjprice.github.io/inc-horizons/
 
 HTTPS is enabled through GitHub Pages. If `http://inc-horizons.com/` does not redirect immediately after a deployment, wait for the GitHub Pages CDN cache to refresh.
 
+## Production Readiness / Software Upgrades
+
+The software readiness audit is saved in:
+
+```txt
+HORIZONS_SOFTWARE_UPGRADE_AUDIT.md
+```
+
+The invoice-ready cost summary is saved in:
+
+```txt
+HORIZONS_SOFTWARE_COST_SUMMARY.md
+```
+
+Current recommendation before event use:
+
+- Upgrade Supabase to Pro after Samuel approval.
+- Upgrade Vercel to Pro after Samuel approval.
+- Keep Slack on Pro only; do not choose Business+ unless Samuel/Chris explicitly approve it.
+- Keep GitHub, GitHub Pages, GoDaddy DNS, and Open-Meteo as-is unless a specific issue appears.
+- Do not commit secrets, `.env` files, Slack webhooks, Supabase service role keys, GitHub tokens, private keys, or billing details.
+
 ## How The Site Gets Its Data
 
 The live website displays official, cleaned event data from:
@@ -492,7 +514,7 @@ Setup status:
 
 - Workspace display name changed to `International Collective`.
 - Workspace URL left unchanged at `inc-horizons.slack.com`.
-- Workspace is on a free Slack Pro trial through 27 June 2026; paid Pro checkout still needs billing approval.
+- Workspace is on a free Slack Pro trial through 27 June 2026; billing shows Pro renewal on 28 June 2026, with active-user count approval still needed before wider invites.
 - Approved core INC, business division, and Circle channels were created as private channels.
 - Earlier duplicate-prone channels were renamed to the approved names where safe.
 - Slack sidebar sections were created in Samuel's sidebar for International Collective, Direct Work, Business Divisions, INC Circle, HORIZONS Event, and HORIZONS Admin / Testing.
