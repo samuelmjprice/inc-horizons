@@ -13,7 +13,7 @@ Date: 1 June 2026
 
 | Name | Group | Channels Needed | Missing Field | Recommended Follow-Up |
 | --- | --- | --- | --- | --- |
-| Samuel Price | HORIZONS / Website / Admin | `#horizons-main`, `#horizons-locations`, `#horizons-red-flags`, `#horizons-content`, `#horizons-decisions`, `#horizons-podcast`, `#horizons-production`, `#horizons-schedule`, `#horizons-web-hub`, `#horizons-test` | Approved public contact email | Samuel is visibly present in Slack as the current workspace user, but website contact data still says Email Needed. Confirm whether to publish an email on the website. |
+| Samuel Price | HORIZONS / Website / Admin | Existing Slack user; no invite blocked | Approved public contact email | Samuel is already present in Slack / HORIZONS channel history, but website contact data still says Email Needed. Confirm whether to publish an email on the website. |
 
 ## Not Missing
 

@@ -20,7 +20,7 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 - The required public/default channel formerly called `#all-inc-horizons` was quarantined on 1 June 2026 and renamed to `#unused-default-channel`.
 - `#unused-default-channel` remains public because Slack did not expose archive/private controls for this required/default channel. It has only Samuel Price and Christopher Manoe visible as members, contains no useful operational content beyond default join/onboarding history plus the posted warning, has no visible app/webhook integration in the channel UI, and has no active website/backend routing reference.
 - `#unused-default-channel` has a warning topic/description and posted warning message telling the team not to use it for company or event operations. It should sit at the very bottom in `UNUSED / DEFAULT` if Slack forces it to remain visible.
-- No wider team, clients, or suppliers were invited during this pass.
+- Approved International Collective and HORIZONS invitees were added/invited during the 1 June 2026 invite pass. No one was invited outside the approved invite map.
 
 ## Channel Audit
 
@@ -69,6 +69,6 @@ Important: Sidebar sections are not security. Channel privacy controls access.
 ## Recommended Next Privacy Actions
 
 1. Keep all HORIZONS channels private unless Samuel/Chris approve a specific public exception.
-2. Approve the per-channel invite list before adding wider event users, clients, or suppliers.
+2. Approve any next invite list before adding wider event users, clients, suppliers, or additional internal team members.
 3. Keep `#unused-default-channel` quarantined. Do not post operational, client, supplier, finance, leadership, strategy, website/backend, or private information there.
-4. Decide whether Chris should also be manually added to `#horizons-web-hub`; Slack did not surface a selectable Chris result during the add attempt.
+4. External HORIZONS invitees should accept their Slack invitations before relying on those channel memberships for event communication.

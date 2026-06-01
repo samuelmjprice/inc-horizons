@@ -108,7 +108,7 @@ Create or confirm these private channels:
 
 Status on 1 June 2026: all required `#circle-*` channels above were created as private channels. The business side of INC Circle lives in `#biz-circle`.
 
-Invite pass note on 1 June 2026: use the existing no-suffix Business Division channel names exactly. Do not rename them to `-inc` and do not create duplicate `-inc` versions. Corinne Manoe and Dean Whitehead were invited to `#inc-main`; remaining invite additions are pending/manual because the Slack browser modal stopped reliably exposing the email input.
+Invite pass note on 1 June 2026: use the existing no-suffix Business Division channel names exactly. Do not rename them to `-inc` and do not create duplicate `-inc` versions. The approved invite map was completed using private channel member management. Internal users were added directly to approved channels. External HORIZONS emails were invited only to approved private HORIZONS channels and are pending acceptance. `#horizons-test` was not altered.
 
 ## Direct Work Channels
 

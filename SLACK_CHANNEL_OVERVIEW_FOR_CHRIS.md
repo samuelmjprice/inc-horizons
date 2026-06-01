@@ -78,3 +78,7 @@ Note: `#unused-default-channel` is the quarantined required public/default Slack
 Core INC, Direct Work, Business Division, and INC Circle channels are private.
 
 HORIZONS channels are private/invite-only. Keep them private unless Samuel/Chris approve a specific public exception.
+
+## Invite Status
+
+The approved 1 June 2026 invite map has been completed. Internal users were added to their approved private channels; external HORIZONS contacts were invited only to approved private HORIZONS channels and are pending acceptance. `#horizons-test` was not altered.

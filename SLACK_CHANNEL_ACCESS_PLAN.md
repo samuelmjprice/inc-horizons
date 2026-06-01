@@ -40,10 +40,10 @@ Last updated: 1 June 2026
 - `#horizons-test` was moved to `TESTING / ADMIN` and should not sit inside `HORIZONS EVENT`.
 - `#horizons-test` remains connected to the website-to-Slack test integration and was verified after the private-channel conversion.
 - The required public/default Slack channel formerly called `#all-inc-horizons` was quarantined on 1 June 2026 and renamed to `#unused-default-channel`. It has only Samuel Price and Christopher Manoe visible as members, no useful operational content beyond default join/onboarding history, and no visible Slack app/webhook integration in the channel UI. It is not part of the approved HORIZONS event channel structure and is not referenced by the active website/backend Slack routing. Slack did not expose normal archive/private controls for this channel, so it remains public and must not be used for operations.
-- 1 June 2026 invite pass: Corinne Manoe and Dean Whitehead were invited to `#inc-main`. Further invites are pending because Slack's browser modal stopped reliably exposing the email input after the channel-history confirmation screen. Continue manually using this access plan; do not use `-inc` duplicate business channel names.
+- 1 June 2026 invite pass: approved International Collective and HORIZONS invites were completed using the channel member management flow after the first Slack modal became unreliable. Internal users were added to their approved private channels; external HORIZONS emails were invited only to approved HORIZONS private channels and are pending acceptance. `#horizons-test` was not altered. Do not use `-inc` duplicate business channel names.
 - `#unused-default-channel` now has this topic and description: "This is the required default Slack channel. Do not use for company or event operations. Use the approved private INC, Business, Circle, or HORIZONS channels instead."
 - A warning message was posted in `#unused-default-channel`: "Please do not use this channel. This is the required default Slack channel and is not part of the active International Collective or HORIZONS communication structure. Use the approved private channels instead." Pinning was attempted, but Slack's visible message action controls did not reliably expose a completed pin state during automation.
-- No wider team, clients, or suppliers were invited.
+- No one outside the approved 1 June 2026 invite map was invited.
 
 ## Naming Logic
 
@@ -57,7 +57,7 @@ Last updated: 1 June 2026
 - Default new channels to private.
 - Slack sidebar sections are not security. Channel privacy controls access.
 - Do not invite clients, suppliers, or wider event collaborators into internal INC private channels.
-- Do not invite anyone until Samuel/Chris approve this access plan.
+- Do not invite additional people beyond the approved 1 June 2026 invite map until Samuel/Chris approve the next access list.
 - Website alerts should route only to HORIZONS event channels unless Samuel/Chris explicitly approve otherwise.
 
 ## Suggested Access Groups
@@ -92,7 +92,7 @@ Last updated: 1 June 2026
 | `#biz-dancers` | BUSINESS DIVISIONS | Business divisions | Private | Dancers INC business. | Approved Dancers business team. | Event-only team, clients/suppliers unless approved. | No | No | Created private; placed in section | Business division. |
 | `#biz-artists` | BUSINESS DIVISIONS | Business divisions | Private | Artist business. | Approved artist business team. | Event-only team, clients/suppliers unless approved. | No | No | Created private; placed in section | Business division. |
 | `#biz-agency-105` | BUSINESS DIVISIONS | Business divisions | Private | Agency 105 business. | Approved Agency 105 business team. | Event-only team, clients/suppliers unless approved. | No | No | Created private; placed in section | Business division. |
-| `#biz-events` | BUSINESS DIVISIONS | Business divisions | Private | Events business. | Approved events business team. | Event-only team, clients/suppliers unless approved. | No | No | Needs confirmation in Slack before invites | Business division. Use this no-suffix name if present; do not create `-inc` duplicates. |
+| `#biz-events` | BUSINESS DIVISIONS | Business divisions | Private | Events business. | Approved events business team. | Event-only team, clients/suppliers unless approved. | No | No | Confirmed visible/private; no invite additions listed in the 1 June map | Business division. Use this no-suffix name; do not create `-inc` duplicates. |
 | `#biz-circle` | BUSINESS DIVISIONS | Business divisions | Private | Circle business. | Samuel/Chris and approved Circle business owners. | Circle content/outreach-only users unless approved. | No | No | Created private; placed in section | Business side of INC Circle. |
 | `#biz-ip` | BUSINESS DIVISIONS | Business divisions | Private | INC IP + assets. | Samuel/Chris and approved IP/assets owners. | Wider team, clients, suppliers. | No | No | Created private; placed in section | Sensitive business/IP channel. |
 | `#circle-team-inc` | INC CIRCLE | INC Circle | Private | Circle team. | Approved Circle team. | Non-Circle team unless approved. | No | No | Created private; placed in section | Team coordination. |
@@ -110,7 +110,7 @@ Last updated: 1 June 2026
 | `#horizons-locations` | HORIZONS EVENT | HORIZONS event | Private | Locations. | Ops, venue/production leads, relevant owners. | Unapproved suppliers/clients. | Later | `SLACK_WEBHOOK_LOCATIONS` later | Converted private; placed in section | Useful for onsite logistics. |
 | `#horizons-documents` | HORIZONS EVENT | HORIZONS event | Private | Files + docs. | Leadership, ops, production, document owners. | Suppliers/clients unless approved for specific needs. | Later, phased | `SLACK_WEBHOOK_DOCUMENTS` later | Converted private; placed in section | Recommended first production alert channel after approval. |
 | `#horizons-decisions` | HORIZONS EVENT | HORIZONS event | Private | Approvals. | Samuel/Chris, leadership, approved decision-makers. | Wider team, suppliers, clients unless approved. | Later | `SLACK_WEBHOOK_DECISIONS` later | Converted private; placed in section | Leadership/decision access only. |
-| `#horizons-web-hub` | HORIZONS EVENT | HORIZONS event | Private | Website, Codex + data updates. | Samuel Price, Chris Manoe, approved technical/admin support. | Wider team, clients, suppliers. | No | No | Created private; placed in section | Website, backend, Supabase, Vercel, Slack integration, master workbook, comments, and QA. Chris access still needs manual add/confirmation because Slack did not surface a selectable Chris result during the add attempt. |
+| `#horizons-web-hub` | HORIZONS EVENT | HORIZONS event | Private | Website, Codex + data updates. | Samuel Price, Chris Manoe, approved technical/admin support. | Wider team, clients, suppliers. | No | No | Created private; placed in section | Website, backend, Supabase, Vercel, Slack integration, master workbook, comments, and QA. Samuel Hosier, Tamy Hosier, and Dean Whitehead were added in the 1 June invite pass. |
 | `#horizons-test` | TESTING / ADMIN | HORIZONS testing | Private | Website-to-Slack testing only. | Samuel Price, Chris Manoe, technical admin/testers. | Wider team and active operations users unless testing is approved. | Yes, test only | `SLACK_WEBHOOK_TEST` | Moved to `TESTING / ADMIN`; backend test passed after conversion | Do not place inside `HORIZONS EVENT`; do not use for active operations; do not rename without updating Vercel env. |
 
 ## Existing Channels Needing Review
