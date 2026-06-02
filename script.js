@@ -12,13 +12,14 @@ const state = {
   travelFilters: { person: "", arrivalDay: "", departureDay: "", team: "", status: "" },
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
+  guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
   captureSuggestions: [],
   captureLog: [],
   dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260601-staffclownfish1";
+const APP_VERSION = "20260602-guests-namecards1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -438,6 +439,10 @@ function renderFilters() {
   buildOptions($('[data-content-filter="location"]'), unique(d.contentCapture.map((x) => x.location)), "locations");
   buildOptions($('[data-content-filter="priority"]'), unique(d.contentCapture.map((x) => x.priority)), "priorities");
   buildOptions($('[data-content-filter="status"]'), unique(d.contentCapture.map((x) => x.status)), "statuses");
+  const guests = d.guests || [];
+  buildOptions($('[data-guest-filter="company"]'), unique(guests.map((x) => x.company_display_name || x.company)), "companies");
+  buildOptions($('[data-guest-filter="status"]'), unique(guests.map((x) => x.status)), "statuses");
+  buildOptions($('[data-guest-filter="missing"]'), unique(guests.flatMap((x) => x.missing_fields || [])), "missing fields");
 }
 
 function renderAll() {
@@ -458,6 +463,7 @@ function renderAll() {
   renderTasks();
   renderContactTabs();
   renderContacts();
+  renderGuests();
   renderWhoDoICall();
   renderLocations();
   renderSuppliers();
@@ -1013,6 +1019,76 @@ function renderContacts() {
   }).join("") || empty("No contacts match the current filters."));
 }
 
+function renderGuests() {
+  const allGuests = state.data.guests || [];
+  const filters = state.guestFilters;
+  const query = text(filters.query).toLowerCase();
+  const missingFields = (item) => item.missing_fields || [];
+  const matchesQuickFilter = (item) => {
+    if (filters.quick === "needs") return /needs confirmation/i.test(item.status || "");
+    if (filters.quick === "missing") return missingFields(item).length > 0;
+    if (filters.quick === "duplicate") return missingFields(item).some((field) => /duplicate/i.test(field));
+    return true;
+  };
+  const items = allGuests
+    .filter((item) => !query || `${item.name} ${item.namecard_display_name} ${item.company} ${item.company_display_name}`.toLowerCase().includes(query))
+    .filter((item) => !filters.company || (item.company_display_name || item.company) === filters.company)
+    .filter((item) => !filters.status || item.status === filters.status)
+    .filter((item) => !filters.missing || missingFields(item).includes(filters.missing))
+    .filter(matchesQuickFilter);
+  const ready = allGuests.filter((item) => item.namecard_status === "Ready" && item.lanyard_status === "Ready").length;
+  const missing = allGuests.filter((item) => missingFields(item).length).length;
+  const needs = allGuests.filter((item) => /needs confirmation/i.test(item.status || "")).length;
+  const duplicateCount = allGuests.filter((item) => missingFields(item).some((field) => /duplicate/i.test(field))).length;
+  setHtml("[data-guest-summary]", [
+    ["Total guests", allGuests.length, "Approved lanyards workbook"],
+    ["Namecards ready", ready, "Safe display records"],
+    ["Missing info", missing, "Needs follow-up"],
+    ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"]
+  ].map(([label, value, note]) => `
+    <div class="guest-summary-card">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+      <em>${escapeHtml(note)}</em>
+    </div>
+  `).join(""));
+  const quickFilters = [
+    ["all", "All"],
+    ["needs", "Needs Confirmation"],
+    ["missing", "Missing Info"],
+    ...(duplicateCount ? [["duplicate", "Duplicates"]] : [])
+  ];
+  setHtml("[data-guest-quick-filters]", quickFilters.map(([key, label]) => `
+    <button type="button" class="${filters.quick === key ? "is-active" : ""}" data-guest-quick="${key}">${escapeHtml(label)}</button>
+  `).join(""));
+  const initialLimit = 72;
+  const limited = items.slice(0, initialLimit);
+  const count = $("[data-guest-count]");
+  if (count) {
+    count.textContent = items.length > initialLimit
+      ? `${limited.length} of ${items.length} showing`
+      : `${items.length} showing`;
+  }
+  const cards = limited.map((item) => {
+    const missingLabel = missingFields(item).join(", ");
+    const source = [item.source_workbook, item.source_sheet, item.source_row ? `row ${item.source_row}` : ""].filter(Boolean).join(" · ");
+    return card({
+      title: item.name || "Guest Name Needed",
+      status: item.status || "Confirmed",
+      department: item.company_display_name || item.company,
+      body: `<p>${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>`,
+      metadata: meta("Namecard display", item.namecard_display_name) + meta("Company display", item.company_display_name) + meta("Lanyard", item.lanyard_status) + meta("Namecard", item.namecard_status) + meta("Role/title", item.role) + meta("Category", item.category),
+      footer: `${missingLabel ? `<div class="tag-stack">${missingFields(item).map((field) => tag(field)).join("")}</div>` : ""}${detailsBlock("Safe source details", [["Safe notes", item.safe_notes], ["Missing info", missingLabel], ["Source", source], ["Visibility", item.visibility]])}`,
+      className: "guest-card",
+      updateId: item.id || `guest:${slug(item.name)}`
+    });
+  }).join("");
+  const more = items.length > initialLimit
+    ? `<div class="empty-state">Showing the first ${initialLimit} guest records. Use search or filters to narrow the full approved list.</div>`
+    : "";
+  setHtml("[data-guests]", cards ? `${cards}${more}` : empty("No guests match the current search or filters."));
+}
+
 function renderWhoDoICall() {
   const items = state.data.whoDoICall || [];
   setHtml("[data-who-do-i-call]", items.map((item) => card({
@@ -1495,6 +1571,7 @@ function setupSectionNavigation() {
     ["restaurants", "Restaurants"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
+    ["guests", "Guests"],
     ["staff", "Staff"],
     ["suppliers", "Suppliers"],
     ["locations", "Locations"],
@@ -1609,14 +1686,26 @@ function bindEvents() {
   $$("[data-travel-filter]").forEach((select) => select.addEventListener("change", (event) => { state.travelFilters[event.target.dataset.travelFilter] = event.target.value; renderTravel(); }));
   $$("[data-podcast-filter]").forEach((select) => select.addEventListener("change", (event) => { state.podcastFilters[event.target.dataset.podcastFilter] = event.target.value; renderPodcast(); }));
   $$("[data-content-filter]").forEach((select) => select.addEventListener("change", (event) => { state.contentFilters[event.target.dataset.contentFilter] = event.target.value; renderContentCapture(); }));
+  const guestSearch = $("[data-guest-search]");
+  if (guestSearch) guestSearch.addEventListener("input", (event) => { state.guestFilters.query = event.target.value.trim(); renderGuests(); });
+  $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
+  const guestReset = $("[data-guest-reset]");
+  if (guestReset) guestReset.addEventListener("click", () => {
+    state.guestFilters = { query: "", company: "", status: "", missing: "", quick: "all" };
+    if (guestSearch) guestSearch.value = "";
+    $$("[data-guest-filter]").forEach((select) => select.value = "");
+    renderGuests();
+  });
   $("[data-reset-filters]").addEventListener("click", () => {
     state.filters = { query: "", status: "", day: "", owner: "", location: "", department: "" };
     state.taskFilters = { department: "", owner: "", day: "", status: "", location: "" };
     state.travelFilters = { person: "", arrivalDay: "", departureDay: "", team: "", status: "" };
     state.podcastFilters = { day: "", guest: "", status: "", location: "" };
     state.contentFilters = { owner: "", day: "", department: "", location: "", priority: "", status: "" };
+    state.guestFilters = { query: "", company: "", status: "", missing: "", quick: "all" };
     $("[data-global-search]").value = "";
-    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter]").forEach((select) => select.value = "");
+    if (guestSearch) guestSearch.value = "";
+    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter]").forEach((select) => select.value = "");
     renderAll();
   });
   document.addEventListener("click", async (event) => {
@@ -1652,6 +1741,8 @@ function bindEvents() {
     if (departmentTab) { state.activeDepartment = departmentTab.dataset.departmentTab; renderDepartmentTabs(); renderDepartmentFocus(); return; }
     const contactTab = event.target.closest("[data-contact-tab]");
     if (contactTab) { state.activeContactCategory = contactTab.dataset.contactTab; renderContactTabs(); renderContacts(); return; }
+    const guestQuick = event.target.closest("[data-guest-quick]");
+    if (guestQuick) { state.guestFilters.quick = guestQuick.dataset.guestQuick; renderGuests(); return; }
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const swagTab = event.target.closest("[data-swag-tab]");

@@ -1521,6 +1521,82 @@ body.admin-view .admin-tool-section,
   font-size: 0.9rem;
 }
 
+.guest-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0 0 1rem;
+}
+
+.guest-summary-card {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.72);
+  padding: 0.95rem;
+}
+
+.guest-summary-card span {
+  color: var(--muted);
+  font-family: "Soleil", Arial, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guest-summary-card strong {
+  color: var(--text);
+  font-family: "Ivy Journal", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.guest-summary-card em {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: normal;
+}
+
+.guest-controls {
+  margin-bottom: 0.75rem;
+}
+
+.quick-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.05rem;
+}
+
+.quick-filter-row button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--muted);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.quick-filter-row button.is-active {
+  border-color: var(--bronze);
+  background: var(--bronze);
+  color: #fffaf0;
+}
+
+.guest-card .card-title,
+.guest-card .card-title + .tag-stack {
+  min-width: 0;
+}
+
+.guest-card .meta-list {
+  overflow-wrap: anywhere;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   background: rgba(255, 253, 248, 0.78);
@@ -1575,7 +1651,8 @@ body.admin-view .admin-tool-section,
   .suggestion-form,
   .cards-grid,
   .compact-grid,
-  .contacts-grid {
+  .contacts-grid,
+  .guest-summary-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1656,6 +1733,7 @@ body.admin-view .admin-tool-section,
   .cards-grid,
   .compact-grid,
   .contacts-grid,
+  .guest-summary-grid,
   .priority-grid,
   .accordion-body {
     grid-template-columns: 1fr;
