@@ -15,6 +15,7 @@ Created: 2 June 2026
 | Spare swag handling | Not clear enough | Swag & Delivery / Post-setup | Added spare handling card: collect, package neatly, send back with Michael at Jigsaw | Leftover allocation owner needed |
 | Meal / menu records | Guest Materials source data | Restaurant schedules / menus | Hidden from the live Guest Materials card list, retained in source data | No |
 | Namecard proof with Eve Blackwell | Not active | Guest Materials / Namecards reference only | Added as Needs Review reference and did not change contact data | Confirm historical/proof-only status |
+| Legacy mixed swag catalogue | Guest Materials visible flow | Source/admin data only unless it matches official PDF | Removed from visible Swag & Delivery card list; visible cards now use official PDF records only | No |
 
 ## Mapping Rule Applied
 

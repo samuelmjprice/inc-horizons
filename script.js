@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-swag-correction1";
+const APP_VERSION = "20260602-swag-correction2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -1464,20 +1464,25 @@ function renderSwagDelivery() {
 }
 
 function renderSwagSchedule() {
-  const items = state.data.swagQueensSchedule || [];
-  setHtml("[data-swag-schedule-tabs]", items.map((item) => `<button class="tab-button" type="button" role="tab" aria-selected="${item.day === state.activeSwagSchedule}" data-swag-tab="${escapeHtml(item.day)}">${escapeHtml(item.label || item.day)}</button>`).join(""));
-  const selected = items.filter((item) => item.day === state.activeSwagSchedule);
-  setHtml("[data-swag-queens]", selected.map((item) => card({
-    title: `Swag / Queens schedule · ${item.day}`,
-    status: item.status,
-    body: list(item.schedule),
-    metadata: meta("Guests", item.guests) + meta("Owner", item.owner) + meta("Notes", item.notes),
-    updateId: item.updateId
-  })).join(""));
+  setHtml("[data-swag-schedule-tabs]", "");
+  setHtml("[data-swag-queens]", "");
 }
 
 function renderSwag() {
-  const items = liveItems(state.data.swag || []).filter((item) => !/breakfast|coffee break|lunch|dinner|catering|allergen key|selected in-room dining/i.test(`${item.itemName} ${item.category} ${item.notes}`));
+  const officialOrder = [
+    "swag-horizons-house-check-in-caps",
+    "swag-shoot",
+    "swag-horizons-connect-chair-drop",
+    "swag-hand-fan-allocation",
+    "swag-pens-notepads-allocation",
+    "swag-spare-handling",
+    "swag-lanyard-references"
+  ];
+  const officialIds = new Set(officialOrder);
+  const items = liveItems(state.data.swag || [])
+    .filter((item) => officialIds.has(item.id))
+    .filter((item) => !/breakfast|coffee break|lunch|dinner|catering|allergen key|selected in-room dining/i.test(`${item.itemName} ${item.category} ${item.notes}`))
+    .sort((a, b) => officialOrder.indexOf(a.id) - officialOrder.indexOf(b.id));
   setHtml("[data-swag]", items.map((item) => card({
     title: item.itemName,
     status: item.status,

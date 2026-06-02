@@ -31,3 +31,9 @@ This pass uses the rendered PDF pages as the source of truth. The PDF is image-b
 - Owner for leftover allocation, potentially B Good.
 - Lanyard colour group meanings.
 - Better individual images for each lanyard colour if needed beyond the PDF reference grid.
+
+## Second Visible-Section Correction
+
+- The visible Swag & Delivery flow now shows the official PDF dashboard plus only official PDF item cards.
+- Legacy mixed swag/source records remain in data for audit purposes but are not shown in the main Swag & Delivery card list.
+- The old swag schedule tabs were removed from this section to avoid duplicating the official timeline.

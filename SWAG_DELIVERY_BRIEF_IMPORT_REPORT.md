@@ -96,6 +96,7 @@ Created: 2 June 2026
 ## Import Notes
 
 - Menu/meal records were kept in source data but hidden from the live Guest Materials card list.
+- Second correction pass removed the legacy mixed swag catalogue from the visible Swag & Delivery flow. The visible item cards are now limited to official PDF records only.
 - No old images were deleted.
 - The Swag & Delivery section now shows compact timeline, feature cards, allocation details, lanyard references, and execution checklist from the official PDF.
 - All updated records include `source_document`, `last_updated`, `updated_from_official_swag_brief`, and `swag_delivery_brief_batch_id` where supported.
