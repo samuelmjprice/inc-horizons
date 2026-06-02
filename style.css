@@ -1565,6 +1565,13 @@ body.admin-view .admin-tool-section,
   margin-bottom: 0.75rem;
 }
 
+.guest-detail-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+}
+
 .quick-filter-row {
   display: flex;
   flex-wrap: wrap;
@@ -1591,6 +1598,61 @@ body.admin-view .admin-tool-section,
 .guest-card .card-title,
 .guest-card .card-title + .tag-stack {
   min-width: 0;
+}
+
+.guest-card-company {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.guest-summary-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.guest-summary-line span {
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.86rem;
+  padding-left: 0.5rem;
+}
+
+.guest-summary-line span:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.guest-status-tags {
+  justify-content: flex-start;
+}
+
+.guest-detail-toggle {
+  width: max-content;
+  max-width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.86);
+  color: var(--bronze-dark);
+  cursor: pointer;
+  padding: 0.56rem 0.85rem;
+}
+
+.guest-detail-toggle[aria-expanded="true"] {
+  border-color: var(--bronze);
+  background: var(--color-accent-soft);
+}
+
+.guest-detail-panel {
+  display: grid;
+  gap: 0.8rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.9rem;
+}
+
+.guest-detail-panel[hidden] {
+  display: none;
 }
 
 .guest-card .meta-list {

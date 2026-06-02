@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-guests-namecards1";
+const APP_VERSION = "20260602-guests-collapse1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -1024,6 +1024,10 @@ function renderGuests() {
   const filters = state.guestFilters;
   const query = text(filters.query).toLowerCase();
   const missingFields = (item) => item.missing_fields || [];
+  const visibleGuestValue = (value) => {
+    const raw = text(value);
+    return raw && !/^(not provided|role not provided)$/i.test(raw) ? raw : "";
+  };
   const matchesQuickFilter = (item) => {
     if (filters.quick === "needs") return /needs confirmation/i.test(item.status || "");
     if (filters.quick === "missing") return missingFields(item).length > 0;
@@ -1072,21 +1076,63 @@ function renderGuests() {
   const cards = limited.map((item) => {
     const missingLabel = missingFields(item).join(", ");
     const source = [item.source_workbook, item.source_sheet, item.source_row ? `row ${item.source_row}` : ""].filter(Boolean).join(" · ");
-    return card({
-      title: item.name || "Guest Name Needed",
-      status: item.status || "Confirmed",
-      department: item.company_display_name || item.company,
-      body: `<p>${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>`,
-      metadata: meta("Namecard display", item.namecard_display_name) + meta("Company display", item.company_display_name) + meta("Lanyard", item.lanyard_status) + meta("Namecard", item.namecard_status) + meta("Role/title", item.role) + meta("Category", item.category),
-      footer: `${missingLabel ? `<div class="tag-stack">${missingFields(item).map((field) => tag(field)).join("")}</div>` : ""}${detailsBlock("Safe source details", [["Safe notes", item.safe_notes], ["Missing info", missingLabel], ["Source", source], ["Visibility", item.visibility]])}`,
-      className: "guest-card",
-      updateId: item.id || `guest:${slug(item.name)}`
-    });
+    const updateId = item.id || `guest:${slug(item.name)}`;
+    const latest = latestUpdate(updateId);
+    const panelId = `guest-panel-${slug(updateId)}`;
+    const role = visibleGuestValue(item.role);
+    const guestType = visibleGuestValue(item.guest_type);
+    const category = visibleGuestValue(item.category);
+    const relatedItems = [
+      ["Related schedule", (item.related_schedule_items || []).join(", ")],
+      ["Related podcast", (item.related_podcast_items || []).join(", ")],
+      ["Related speaker/session", (item.related_speaker_sessions || []).join(", ")],
+      ["Related restaurant", (item.related_restaurant_items || []).join(", ")]
+    ];
+    return `
+      <article class="card guest-card" data-guest-card>
+        <div class="card-header">
+          <h3 class="card-title">${escapeHtml(item.name || "Guest Name Needed")}</h3>
+          <div class="tag-stack">${departmentTag(item.company_display_name || item.company)}${tag(latest?.status || item.status || "Confirmed")}</div>
+        </div>
+        <p class="guest-card-company">${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>
+        ${(role || guestType || category) ? `<div class="guest-summary-line">${[role, guestType, category].filter(Boolean).map((value) => `<span>${escapeHtml(value)}</span>`).join("")}</div>` : ""}
+        <div class="tag-stack guest-status-tags">${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
+        <button class="guest-detail-toggle" type="button" data-guest-toggle aria-expanded="false" aria-controls="${escapeHtml(panelId)}">View details</button>
+        <div class="guest-detail-panel" id="${escapeHtml(panelId)}" hidden>
+          ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
+          <div class="meta-list">
+            ${meta("Namecard display", item.namecard_display_name)}
+            ${meta("Company display", item.company_display_name)}
+            ${meta("Full role/title", item.role)}
+            ${meta("Guest type", item.guest_type)}
+            ${meta("Category", item.category)}
+            ${meta("Lanyard status", item.lanyard_status)}
+            ${meta("Namecard status", item.namecard_status)}
+            ${detailRows(relatedItems)}
+            ${meta("Safe operational notes", item.safe_notes)}
+            ${meta("Missing data details", missingLabel)}
+            ${meta("Source", source)}
+            ${meta("Visibility", item.visibility)}
+          </div>
+          ${updateModule(updateId)}
+        </div>
+      </article>
+    `;
   }).join("");
   const more = items.length > initialLimit
     ? `<div class="empty-state">Showing the first ${initialLimit} guest records. Use search or filters to narrow the full approved list.</div>`
     : "";
   setHtml("[data-guests]", cards ? `${cards}${more}` : empty("No guests match the current search or filters."));
+}
+
+function setGuestDetailState(card, expanded) {
+  const button = card?.querySelector("[data-guest-toggle]");
+  const panel = card?.querySelector(".guest-detail-panel");
+  if (!button || !panel) return;
+  button.setAttribute("aria-expanded", String(expanded));
+  button.textContent = expanded ? "Hide details" : "View details";
+  panel.hidden = !expanded;
+  card.classList.toggle("is-expanded", expanded);
 }
 
 function renderWhoDoICall() {
@@ -1743,6 +1789,16 @@ function bindEvents() {
     if (contactTab) { state.activeContactCategory = contactTab.dataset.contactTab; renderContactTabs(); renderContacts(); return; }
     const guestQuick = event.target.closest("[data-guest-quick]");
     if (guestQuick) { state.guestFilters.quick = guestQuick.dataset.guestQuick; renderGuests(); return; }
+    const guestToggle = event.target.closest("[data-guest-toggle]");
+    if (guestToggle) {
+      const card = guestToggle.closest("[data-guest-card]");
+      setGuestDetailState(card, guestToggle.getAttribute("aria-expanded") !== "true");
+      return;
+    }
+    const expandGuests = event.target.closest("[data-guest-expand-all]");
+    if (expandGuests) { $$("[data-guest-card]").forEach((card) => setGuestDetailState(card, true)); return; }
+    const collapseGuests = event.target.closest("[data-guest-collapse-all]");
+    if (collapseGuests) { $$("[data-guest-card]").forEach((card) => setGuestDetailState(card, false)); return; }
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const swagTab = event.target.closest("[data-swag-tab]");
