@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-swag-image-crops1";
+const APP_VERSION = "20260602-final-swag-assets1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -150,7 +150,7 @@ const allocationTable = (rows = []) => asList(rows).length ? `
   </div>
 ` : "";
 const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
-const isLiveRecord = (item = {}) => !item.hiddenFromLive && !item.archived && !/not needed/i.test(text(item.status));
+const isLiveRecord = (item = {}) => !item.hiddenFromLive && !item.archived && !/not needed|archived|moved/i.test(text(item.status));
 const liveItems = (items = []) => items.filter(isLiveRecord);
 const groupBy = (items = [], keyFn = (item) => item.day || "Unscheduled") => items.reduce((acc, item) => {
   const key = text(keyFn(item), "Unscheduled");

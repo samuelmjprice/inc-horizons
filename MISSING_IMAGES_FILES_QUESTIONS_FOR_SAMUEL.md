@@ -123,6 +123,8 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 
 ## Swag / Guest Materials / Room Drops
 
+Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage, and crew-shirt images have now been added to the website asset folders. Remaining items below are operational confirmations or final layout/allocation questions, not missing product-image blockers.
+
 | Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hotel room-drop photo layout | Final photo layout if different from the brief page | Room-drop team needs exact placement before entering rooms | Room Drops | B Good / Six Senses / Samuel | High | Layout Needed |
