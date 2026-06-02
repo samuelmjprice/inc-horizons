@@ -30,41 +30,31 @@
       {
         "colour": "Oatmeal",
         "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
+        "image": "assets/images/swag/lanyard-oatmeal.jpeg",
         "status": "Needs Confirmation"
       },
       {
         "colour": "Ochre",
         "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
+        "image": "assets/images/swag/lanyards-reference-grid.jpg",
         "status": "Needs Confirmation"
       },
       {
         "colour": "Black",
         "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/pdf-extracted/lanyard-black.jpg",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
+        "image": "assets/images/swag/lanyards-reference-grid.jpg",
         "status": "Needs Confirmation"
       },
       {
         "colour": "Blue",
         "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
+        "image": "assets/images/swag/lanyards-reference-grid.jpg",
         "status": "Needs Confirmation"
       },
       {
         "colour": "Sage",
         "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
+        "image": "assets/images/swag/lanyards-reference-grid.jpg",
         "status": "Needs Confirmation"
       }
     ]
@@ -23493,36 +23483,29 @@
       ],
       "referenceImages": [
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-reception-display-cabinet.jpg",
+          "src": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
           "alt": "HORIZONS House reception display cabinet reference",
-          "caption": "Reception display cabinet crop from official brief page 4.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 4,
-          "status": "Confirmed"
+          "caption": "Reception display cabinet reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+          "src": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
+          "alt": "HORIZONS House cap and display reference grid",
+          "caption": "HORIZONS House cap/display references from official brief."
+        },
+        {
+          "src": "assets/images/swag/hats.jpeg",
           "alt": "Stone and black HORIZONS caps",
-          "caption": "Caps stone/black crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Caps stone/black reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-olive.jpg",
+          "src": "assets/images/swag/hats-2.jpeg",
           "alt": "Olive HORIZONS cap mockup",
-          "caption": "Olive cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Olive cap reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-black.jpg",
+          "src": "assets/images/swag/hats-3.jpeg",
           "alt": "Black HORIZONS cap mockup",
-          "caption": "Black cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Black cap reference from official brief."
         }
       ],
       "notes": "Reception display follows the official Swag Delivery Brief. Keep the display compact, neat, visible, and premium; do not place room-drop items here unless used as a small display reference.",
@@ -23533,7 +23516,7 @@
       "review_id": "REV-0587",
       "canonical_record_id": "HH-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS House and Reception Display | Chris Manoe / Dawn / Pili | Needs Confirmation | Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
@@ -23564,28 +23547,19 @@
         ],
         "images": [
           {
-            "src": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+            "src": "assets/images/swag/hats.jpeg",
             "alt": "Stone and black HORIZONS caps",
-            "caption": "Caps stone/black crop from official brief page 12.",
-            "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-            "sourcePage": 12,
-            "status": "Confirmed"
+            "caption": "Caps stone/black reference from official brief."
           },
           {
-            "src": "assets/swag/pdf-extracted/horizons-house-cap-olive.jpg",
+            "src": "assets/images/swag/hats-2.jpeg",
             "alt": "Olive HORIZONS cap mockup",
-            "caption": "Olive cap crop from official brief page 12.",
-            "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-            "sourcePage": 12,
-            "status": "Confirmed"
+            "caption": "Olive cap reference from official brief."
           },
           {
-            "src": "assets/swag/pdf-extracted/horizons-house-cap-black.jpg",
+            "src": "assets/images/swag/hats-3.jpeg",
             "alt": "Black HORIZONS cap mockup",
-            "caption": "Black cap crop from official brief page 12.",
-            "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-            "sourcePage": 12,
-            "status": "Confirmed"
+            "caption": "Black cap reference from official brief."
           }
         ]
       },
@@ -23606,9 +23580,7 @@
         ],
         "status": "Confirmed"
       },
-      "updated_from_official_swag_brief": true,
-      "sourcePage": "4, 12",
-      "imageExtractionStatus": "Active images now use individual crops from official PDF pages 4 and 12."
+      "updated_from_official_swag_brief": true
     }
   ],
   "roomDrops": [
@@ -23642,68 +23614,54 @@
       ],
       "referenceImages": [
         {
-          "src": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+          "src": "assets/images/swag/room-drop-brief-reference.jpg",
+          "alt": "Welcome hotel room drops brief page",
+          "caption": "Room drop overview from official brief."
+        },
+        {
+          "src": "assets/images/swag/room-drop-items-reference-grid.jpg",
+          "alt": "Room drop item reference grid",
+          "caption": "Room drop visual reference grid."
+        },
+        {
+          "src": "assets/images/swag/bag.jpeg",
           "alt": "Black HORIZONS tote bag",
-          "caption": "Tote bag crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Tote bag."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-larq-bottle.jpg",
+          "src": "assets/images/swag/bottle.jpeg",
           "alt": "Black HORIZONS LARQ bottle",
-          "caption": "LARQ bottle crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "LARQ bottle."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-foldable-charger.jpg",
+          "src": "assets/images/swag/charger.jpeg",
           "alt": "Black foldable charger",
-          "caption": "Foldable charger crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Foldable charger."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-nord-day-fragrance.jpg",
+          "src": "assets/images/swag/cent-2.jpeg",
           "alt": "NORD Day fragrance reference",
-          "caption": "NORD Day fragrance crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "NORD Day fragrance."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-nord-night-fragrance.jpg",
+          "src": "assets/images/swag/cent.jpeg",
           "alt": "NORD Night fragrance reference",
-          "caption": "NORD Night fragrance crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "NORD Night fragrance."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-pulsio-massager.jpg",
+          "src": "assets/images/swag/massage-gun.jpeg",
           "alt": "Pulsio massager",
-          "caption": "Pulsio massager crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Pulsio massager."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-silk-eye-mask.jpg",
-          "alt": "Silk eye mask",
-          "caption": "Silk eye mask crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/room-drop-silk-eye-mask-packaging.jpg",
+          "src": "assets/images/swag/eye-mask-1.jpeg",
           "alt": "Silk eye mask packaging",
-          "caption": "Silk eye mask packaging crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Silk eye mask packaging."
+        },
+        {
+          "src": "assets/images/swag/eye-mask-2.jpeg",
+          "alt": "Silk eye mask",
+          "caption": "Silk eye mask."
         }
       ],
       "updateId": "roomdrop:roomdrop-standard",
@@ -23713,7 +23671,7 @@
       "review_id": "REV-0586",
       "canonical_record_id": "DROP-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Gloves must be worn at all times when handling swag drops.",
@@ -23725,9 +23683,7 @@
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
       "executionTeam": "B Good & Six Senses",
-      "updated_from_official_swag_brief": true,
-      "sourcePage": 10,
-      "imageExtractionStatus": "Active images now use individual item crops from official PDF page 10; old overview/grid screenshots removed from active gallery."
+      "updated_from_official_swag_brief": true
     }
   ],
   "swag": [
@@ -23740,12 +23696,12 @@
       "location": "Hotel rooms / HORIZONS House display",
       "owner": "B Good / Six Senses",
       "status": "On Track",
-      "image": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+      "image": "assets/images/guest-materials/tote-bag.jpeg",
       "alt": "Black HORIZONS tote bag reference",
       "imageCaption": "Current tote bag visual reference",
       "quantity": "Included in hotel room drops; final count by room list",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops and HORIZONS House display references. Assemble according to supplied photo layout.",
-      "fileUrl": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+      "fileUrl": "assets/images/guest-materials/tote-bag.jpeg",
       "notes": "Source: Swag Delivery Brief welcome hotel room drops.",
       "updateId": "material:tote-bag",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -23754,18 +23710,14 @@
       "review_id": "REV-0554",
       "canonical_record_id": "MAT-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tote bags | Swag | All event | Room drops / HORIZONS House | B Good / HORIZONS team | On Track",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "material-crew-shirts",
@@ -24266,7 +24218,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops and display-cabinet reference.",
-      "image": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+      "image": "assets/images/swag/bag.jpeg",
       "alt": "Black HORIZONS tote bag",
       "imageCaption": "Tote bag reference",
       "updateId": "swag:swag-tote-bag",
@@ -24276,19 +24228,14 @@
       "review_id": "REV-0571",
       "canonical_record_id": "MAT-018",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tote Bag | Room drops / HORIZONS House | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-notebook",
@@ -24298,7 +24245,7 @@
       "quantity": "185 for HORIZONS Connect; 30 HORIZONS House; 15 Studio; 15 Hall; 3 Affan children; 2 spare remaining",
       "status": "Confirmed",
       "deliverySetupNotes": "Pair with HORIZONS pen/notepad for HORIZONS Connect chair drop on 10 June. Follow allocation table.",
-      "image": "assets/swag/pdf-extracted/chair-drop-horizons-notepad.jpg",
+      "image": "assets/images/swag/book.jpeg",
       "alt": "Cream HORIZONS notebook",
       "imageCaption": "Notebook reference",
       "updateId": "swag:swag-notebook",
@@ -24309,7 +24256,7 @@
       "review_id": "REV-0572",
       "canonical_record_id": "MAT-019",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Notebook | HORIZONS Hall / Guest Materials | B Good / Six Senses | Needs Confirmation",
@@ -24318,12 +24265,7 @@
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
       "category": "HORIZONS Connect Chair Drop / Swag Allocation",
-      "day": "10-06-2026",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 11,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "day": "10-06-2026"
     },
     {
       "id": "swag-bottle",
@@ -24333,7 +24275,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
-      "image": "assets/swag/pdf-extracted/room-drop-larq-bottle.jpg",
+      "image": "assets/images/swag/bottle.jpeg",
       "alt": "Black HORIZONS bottle",
       "imageCaption": "Bottle reference",
       "updateId": "swag:swag-bottle",
@@ -24343,19 +24285,14 @@
       "review_id": "REV-0573",
       "canonical_record_id": "MAT-020",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "LARQ Bottle | Room drops | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-foldable-charger",
@@ -24365,7 +24302,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
-      "image": "assets/swag/pdf-extracted/room-drop-foldable-charger.jpg",
+      "image": "assets/images/swag/charger.jpeg",
       "alt": "Black foldable charger with HORIZONS mark",
       "imageCaption": "Foldable charger reference",
       "updateId": "swag:swag-foldable-charger",
@@ -24375,19 +24312,14 @@
       "review_id": "REV-0574",
       "canonical_record_id": "MAT-021",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Foldable Charger | Room drops | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-nord-day-fragrance",
@@ -24397,7 +24329,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
-      "image": "assets/swag/pdf-extracted/room-drop-nord-day-fragrance.jpg",
+      "image": "assets/images/swag/cent-2.jpeg",
       "alt": "Light Nord fragrance item with ampersand mark",
       "imageCaption": "Nord day fragrance reference",
       "updateId": "swag:swag-nord-day-fragrance",
@@ -24407,19 +24339,14 @@
       "review_id": "REV-0575",
       "canonical_record_id": "MAT-022",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Nord Day Fragrance | Room drops / display cabinet | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-nord-night-fragrance",
@@ -24429,7 +24356,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
-      "image": "assets/swag/pdf-extracted/room-drop-nord-night-fragrance.jpg",
+      "image": "assets/images/swag/cent.jpeg",
       "alt": "Dark Nord fragrance item with ampersand mark",
       "imageCaption": "Nord night fragrance reference",
       "updateId": "swag:swag-nord-night-fragrance",
@@ -24439,19 +24366,14 @@
       "review_id": "REV-0576",
       "canonical_record_id": "MAT-023",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Nord Night Fragrance | Room drops / display cabinet | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-silk-eye-mask",
@@ -24461,7 +24383,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
-      "image": "assets/swag/pdf-extracted/room-drop-silk-eye-mask.jpg",
+      "image": "assets/images/swag/eye-mask-2.jpeg",
       "alt": "Black silk eye mask with HORIZONS wordmark",
       "imageCaption": "Silk eye mask reference",
       "updateId": "swag:swag-silk-eye-mask",
@@ -24471,19 +24393,14 @@
       "review_id": "REV-0577",
       "canonical_record_id": "MAT-024",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Silk Eye Mask | Room drops | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-silk-eye-mask-packaging",
@@ -24493,7 +24410,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Use packaging reference for quality control.",
-      "image": "assets/swag/pdf-extracted/room-drop-silk-eye-mask-packaging.jpg",
+      "image": "assets/images/swag/eye-mask-1.jpeg",
       "alt": "SilkAddict box with branded wrapper",
       "imageCaption": "Silk eye mask packaging reference",
       "updateId": "swag:swag-silk-eye-mask-packaging",
@@ -24503,19 +24420,14 @@
       "review_id": "REV-0578",
       "canonical_record_id": "MAT-025",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Silk Eye Mask Packaging | Room drops | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-fan",
@@ -24525,7 +24437,7 @@
       "quantity": "170 fans total; 150 guest seats, 3 Affan children, 17 spare fans",
       "status": "Confirmed",
       "deliverySetupNotes": "Hand fan belongs to HORIZONS Connect chair drop only. Place directly on chairs at 8:30 am on 10-06-2026.",
-      "image": "assets/swag/pdf-extracted/chair-drop-hand-fan.jpg",
+      "image": "assets/images/swag/fan.jpeg",
       "alt": "Black fan with ampersand mark",
       "imageCaption": "Fan reference",
       "updateId": "swag:swag-fan",
@@ -24536,7 +24448,7 @@
       "review_id": "REV-0579",
       "canonical_record_id": "MAT-026",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Fan | Room Drops | Hotel Room Drops | B Good / HORIZONS team | Needs Confirmation",
@@ -24545,12 +24457,7 @@
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "day": "10-06-2026",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 11,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "day": "10-06-2026"
     },
     {
       "id": "swag-caps-stone-black",
@@ -24560,7 +24467,7 @@
       "quantity": "150 caps: 100 black, 50 stone",
       "status": "On Track",
       "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
-      "image": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+      "image": "assets/images/swag/hats.jpeg",
       "alt": "Stone HORIZONS cap with black caps behind",
       "imageCaption": "Caps stone and black reference",
       "updateId": "swag:swag-caps-stone-black",
@@ -24570,19 +24477,14 @@
       "review_id": "REV-0580",
       "canonical_record_id": "MAT-027",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Caps - Stone / Black | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 12,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-cap-olive",
@@ -24592,7 +24494,7 @@
       "quantity": "50 olive caps",
       "status": "On Track",
       "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
-      "image": "assets/swag/pdf-extracted/horizons-house-cap-olive.jpg",
+      "image": "assets/images/swag/hats-2.jpeg",
       "alt": "Olive cap mockup with HORIZONS wordmark and ampersand",
       "imageCaption": "Olive cap mockup",
       "updateId": "swag:swag-cap-olive",
@@ -24602,19 +24504,14 @@
       "review_id": "REV-0581",
       "canonical_record_id": "MAT-028",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cap Mockup - Olive | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 12,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-cap-black",
@@ -24624,7 +24521,7 @@
       "quantity": "100 black caps",
       "status": "On Track",
       "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
-      "image": "assets/swag/pdf-extracted/horizons-house-cap-black.jpg",
+      "image": "assets/images/swag/hats-3.jpeg",
       "alt": "Black cap mockup with HORIZONS wordmark and ampersand",
       "imageCaption": "Black cap mockup",
       "updateId": "swag:swag-cap-black",
@@ -24634,19 +24531,14 @@
       "review_id": "REV-0582",
       "canonical_record_id": "MAT-029",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cap Mockup - Black | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 12,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-pulsio-massager",
@@ -24656,7 +24548,7 @@
       "quantity": "Included in hotel room drops; final count by room list",
       "status": "On Track",
       "deliverySetupNotes": "Included in 9 June welcome hotel room drops and display cabinet reference.",
-      "image": "assets/swag/pdf-extracted/room-drop-pulsio-massager.jpg",
+      "image": "assets/images/swag/massage-gun.jpeg",
       "alt": "Black Pulsio massager with HORIZONS branding",
       "imageCaption": "Pulsio massager reference",
       "updateId": "swag:swag-pulsio-massager",
@@ -24666,7 +24558,7 @@
       "review_id": "REV-0583",
       "canonical_record_id": "MAT-030",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pulsio Massager | Display cabinet / guest gifts | B Good / HORIZONS team | Needs Confirmation",
@@ -24674,12 +24566,7 @@
       "notes": "Use spelling Pulsio from Swag Delivery Brief.",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 10,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-bamboo-pen",
@@ -24689,7 +24576,7 @@
       "quantity": "185 for HORIZONS Connect; 30 HORIZONS House; 15 Studio; 15 Hall; 3 Affan children; 2 spare remaining",
       "status": "Confirmed",
       "deliverySetupNotes": "Pair with HORIZONS pen/notepad for HORIZONS Connect chair drop on 10 June. Follow allocation table.",
-      "image": "assets/swag/pdf-extracted/chair-drop-horizons-pen.jpg",
+      "image": "assets/images/swag/pen.jpeg",
       "alt": "Bamboo pen reference",
       "imageCaption": "Pen reference",
       "updateId": "swag:swag-bamboo-pen",
@@ -24700,7 +24587,7 @@
       "review_id": "REV-0584",
       "canonical_record_id": "MAT-031",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Bamboo Pen | HORIZONS Hall / Guest Materials | B Good / Six Senses | Needs Confirmation",
@@ -24709,12 +24596,7 @@
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
       "category": "HORIZONS Connect Chair Drop / Swag Allocation",
-      "day": "10-06-2026",
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 11,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      "day": "10-06-2026"
     },
     {
       "id": "swag-lanyard-oatmeal",
@@ -24724,7 +24606,7 @@
       "quantity": "Quantity needed",
       "status": "Needs Confirmation",
       "deliverySetupNotes": "Official brief shows lanyard colour references: Oatmeal, Ochre, Black, Blue, and Sage. Group meaning is not confirmed. Check whether lanyards can be included with the HORIZONS House check-in gift.",
-      "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
+      "image": "assets/images/swag/lanyard-oatmeal.jpeg",
       "alt": "Oatmeal lanyard reference",
       "imageCaption": "Oatmeal lanyard reference from official brief. Group meaning needed.",
       "updateId": "swag:swag-lanyard-oatmeal",
@@ -24734,7 +24616,7 @@
       "review_id": "REV-0585",
       "canonical_record_id": "MAT-032",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Lanyard - Oatmeal | Check-in / HORIZONS House | B Good / Six Senses | Needs Confirmation",
@@ -24748,49 +24630,34 @@
         {
           "colour": "Oatmeal",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyard-oatmeal.jpeg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Ochre",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Sage",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         }
-      ],
-      "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "sourcePage": 13,
-      "image_status": "Confirmed",
-      "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF."
+      ]
     },
     {
       "id": "swag-horizons-connect-chair-drop",
@@ -24802,46 +24669,41 @@
       "owner": "To be confirmed / B Good potential support",
       "quantity": "150 guest seats + 3 reserved sets + 17 spare fans; 185 HORIZONS pens / notepads for HORIZONS Connect",
       "status": "Execution Team Needed",
-      "image": "assets/swag/pdf-extracted/chair-drop-hand-fan.jpg",
+      "image": "assets/images/swag/horizons-connect-chair-drop-brief.jpg",
       "alt": "HORIZONS Connect chair drop brief",
-      "imageCaption": "HORIZONS Connect chair drop item crops from official brief page 11.",
+      "imageCaption": "Chair drop setup page from official brief.",
       "deliverySetupNotes": "Execute at 8:30 am. Place hand fan, HORIZONS notepad, and HORIZONS pen directly on chairs. This happens only on 10-06-2026, not the 11th.",
       "notes": "Setup team must wear disposable gloves. Cheryl confirmed gloves have been purchased.",
       "updateId": "swag:horizons-connect-chair-drop",
       "source_page_or_section": "HORIZONS Connect / Chair drop",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
       "source_tab": "Swag / Guest Materials",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
       "referenceImages": [
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-hand-fan.jpg",
+          "src": "assets/images/swag/chair-drop-items-reference-grid.jpg",
+          "alt": "Chair drop item references",
+          "caption": "Hand fan, HORIZONS notepad, and HORIZONS pen references."
+        },
+        {
+          "src": "assets/images/swag/fan.jpeg",
           "alt": "HORIZONS hand fan",
-          "caption": "Hand fan crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "Hand fan."
         },
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-horizons-notepad.jpg",
+          "src": "assets/images/swag/book.jpeg",
           "alt": "HORIZONS notepad",
-          "caption": "HORIZONS notepad crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "HORIZONS notepad."
         },
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-horizons-pen.jpg",
+          "src": "assets/images/swag/pen.jpeg",
           "alt": "HORIZONS pen",
-          "caption": "HORIZONS pen crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "HORIZONS pen."
         }
       ],
-      "updated_from_official_swag_brief": true,
-      "sourcePage": 11
+      "updated_from_official_swag_brief": true
     },
     {
       "id": "swag-horizons-house-check-in-caps",
@@ -24853,46 +24715,36 @@
       "owner": "B Good / HORIZONS team",
       "quantity": "200 caps total: 100 black, 50 stone, 50 olive",
       "status": "Confirmed",
-      "image": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+      "image": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
       "alt": "HORIZONS House cap references",
-      "imageCaption": "HORIZONS House cap crops from official brief page 12.",
+      "imageCaption": "Caps stone/black, olive cap, and black cap references from official brief.",
       "deliverySetupNotes": "1x baseball cap per person. Check if a lanyard can also be included with the HORIZONS House check-in gift.",
       "notes": "HORIZONS House check-in gifting is confirmed. Do not show unrelated room-drop items here.",
       "updateId": "swag:horizons-house-check-in-caps",
       "source_page_or_section": "HORIZONS House / Check-in gifts",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
       "source_tab": "Swag / Guest Materials",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
       "referenceImages": [
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+          "src": "assets/images/swag/hats.jpeg",
           "alt": "Stone and black HORIZONS caps",
-          "caption": "Caps stone/black crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Caps stone/black reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-olive.jpg",
+          "src": "assets/images/swag/hats-2.jpeg",
           "alt": "Olive HORIZONS cap mockup",
-          "caption": "Olive cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Olive cap reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-black.jpg",
+          "src": "assets/images/swag/hats-3.jpeg",
           "alt": "Black HORIZONS cap mockup",
-          "caption": "Black cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Black cap reference from official brief."
         }
       ],
-      "updated_from_official_swag_brief": true,
-      "sourcePage": 12
+      "updated_from_official_swag_brief": true
     },
     {
       "id": "swag-namecards-lanyards-reference",
@@ -24904,103 +24756,62 @@
       "owner": "B Good / Aream & Co.",
       "quantity": "Final guest list driven",
       "status": "Needs Confirmation",
-      "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
+      "image": "assets/images/guest-materials/namecard-blank-reference.jpeg",
       "alt": "Blank black HORIZONS namecard reference",
-      "imageCaption": "Individual lanyard colour crops from official brief page 13.",
+      "imageCaption": "Blank namecard reference from supplied WhatsApp proof.",
       "deliverySetupNotes": "Official brief shows lanyard colour references: Oatmeal, Ochre, Black, Blue, and Sage. Group meaning is not confirmed. Check whether lanyards can be included with the HORIZONS House check-in gift.",
       "notes": "Group Meaning Needed. Do not invent lanyard group assignments from the website data.",
       "updateId": "swag:namecards-lanyards-reference",
       "source_page_or_section": "Merchandise / WhatsApp references",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "source_tab": "Swag / Guest Materials",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
       "referenceImages": [
         {
-          "src": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "alt": "Lanyard Oatmeal reference",
-          "caption": "Oatmeal lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
+          "src": "assets/images/swag/lanyards-reference-grid.jpg",
+          "alt": "Lanyard colour reference grid",
+          "caption": "Official lanyard references: Oatmeal, Ochre, Black, Blue, Sage. Group meaning needed."
         },
         {
-          "src": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "alt": "Lanyard Ochre reference",
-          "caption": "Ochre lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "alt": "Lanyard Black reference",
-          "caption": "Black lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "alt": "Lanyard Blue reference",
-          "caption": "Blue lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "alt": "Lanyard Sage reference",
-          "caption": "Sage lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
+          "src": "assets/images/guest-materials/namecard-eve-blackwell-proof-needs-review.jpeg",
+          "alt": "Old Eve Blackwell namecard proof needs review",
+          "caption": "Proof image retained as Needs Review only; not used as final guest data."
         }
       ],
       "lanyardColourMapping": [
         {
           "colour": "Oatmeal",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyard-oatmeal.jpeg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Ochre",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Sage",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         }
-      ],
-      "sourcePage": 13
+      ]
     },
     {
       "itemName": "Swag Shoot",
@@ -25011,17 +24822,16 @@
       "owner": "I.N.C Staff",
       "quantity": "Team: Chris, Dean, Samuel Hosier, Samuel Price, Tamy, Joshua",
       "status": "Confirmed",
-      "image": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+      "image": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
       "alt": "HORIZONS House swag references",
-      "imageCaption": "HORIZONS House cap reference crop from official brief page 12.",
+      "imageCaption": "Swag shoot references from official brief.",
       "deliverySetupNotes": "After dinner. Prepare swag items for shoot.",
       "notes": "I.N.C Staff: Chris, Dean, Samuel Hosier, Samuel Price, Tamy, Joshua.",
       "id": "swag-shoot",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_official_swag_brief": true,
-      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
-      "sourcePage": 12
+      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640"
     },
     {
       "itemName": "Allocation: Hand Fans",
@@ -25032,17 +24842,16 @@
       "owner": "B Good / setup team",
       "quantity": "170 fans total: 150 guest seats, 3 Affan children, 17 spare fans",
       "status": "Confirmed",
-      "image": "assets/swag/pdf-extracted/chair-drop-hand-fan.jpg",
-      "alt": "HORIZONS hand fan crop from official brief",
-      "imageCaption": "Hand fan allocation uses the extracted hand fan crop from official brief page 11.",
+      "image": "assets/images/swag/hand-fan-allocation-brief.jpg",
+      "alt": "Hand fan allocation table from official brief",
+      "imageCaption": "Hand fan allocation from official brief.",
       "deliverySetupNotes": "Primary use is HORIZONS Connect chair drop. Hand fans do not belong under hotel room drops.",
       "notes": "Guest seats: 150. Reserved for Affan’s children: 3. Spare fans: 17.",
       "id": "swag-hand-fan-allocation",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
       "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_official_swag_brief": true,
-      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
-      "imageExtractionStatus": "Old brief-page reference image replaced with relevant official PDF crop."
+      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640"
     },
     {
       "itemName": "Allocation: HORIZONS Pens / Notepads",
@@ -25053,17 +24862,16 @@
       "owner": "Owner Needed / B Good potential support",
       "quantity": "HORIZONS Connect 185; HORIZONS House 30; HORIZONS Studio 15; HORIZONS Hall 15; Affan’s children 3; spare remaining 2",
       "status": "Owner Needed",
-      "image": "assets/swag/pdf-extracted/chair-drop-horizons-notepad.jpg",
-      "alt": "HORIZONS notepad crop from official brief",
-      "imageCaption": "Pens / notepads allocation uses the extracted HORIZONS notepad crop from official brief page 11.",
+      "image": "assets/images/swag/pens-notepads-allocation-brief.jpg",
+      "alt": "HORIZONS pens and notepads allocation from official brief",
+      "imageCaption": "HORIZONS pens / notepads allocation from official brief.",
       "deliverySetupNotes": "Use the term HORIZONS notepad throughout the site. Leftover allocation needs someone assigned to execute it, potentially B Good.",
       "notes": "Affan’s children are accounted for in both HORIZONS pens/notepads and hand fan allocation.",
       "id": "swag-pens-notepads-allocation",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
       "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_official_swag_brief": true,
-      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
-      "imageExtractionStatus": "Old brief-page reference image replaced with relevant official PDF crop."
+      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640"
     },
     {
       "itemName": "Spare Swag Handling",
@@ -25074,17 +24882,16 @@
       "owner": "Owner Needed / Michael at Jigsaw return",
       "quantity": "All remaining swag",
       "status": "Owner Needed",
-      "image": "assets/swag/pdf-extracted/horizons-house-reception-display-cabinet.jpg",
-      "alt": "HORIZONS House reception display crop from official brief",
-      "imageCaption": "Spare handling uses the extracted reception display crop from official brief page 4.",
+      "image": "assets/images/swag/studio-reserved-swag-spares-brief.jpg",
+      "alt": "Studio reserved swag and spares page from official brief",
+      "imageCaption": "Studio allocation, reserved swag, and spare handling from official brief.",
       "deliverySetupNotes": "All spare swag must be collected after setup and event use, packaged neatly, and sent back with Michael at Jigsaw.",
       "notes": "Someone needs to be assigned to allocate leftover items, potentially B Good.",
       "id": "swag-spare-handling",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
       "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_official_swag_brief": true,
-      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
-      "imageExtractionStatus": "Old brief-page reference image replaced with relevant official PDF crop."
+      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640"
     },
     {
       "itemName": "Lanyard References",
@@ -25095,101 +24902,48 @@
       "owner": "B Good / Aream & Co.",
       "quantity": "Quantity Needed",
       "status": "Needs Confirmation",
-      "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
+      "image": "assets/images/swag/lanyards-reference-grid.jpg",
       "alt": "Lanyard colour reference grid",
-      "imageCaption": "Individual lanyard colour crops from official brief page 13.",
+      "imageCaption": "Official brief shows Oatmeal, Ochre, Black, Blue, and Sage lanyard references.",
       "deliverySetupNotes": "Show each lanyard once. Do not duplicate brown/ochre. Group meaning is not confirmed in the PDF.",
       "notes": "Group Meaning Needed for each lanyard colour. Check if lanyards can also be included with HORIZONS House check-in gift.",
       "lanyardColourMapping": [
         {
           "colour": "Oatmeal",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyard-oatmeal.jpeg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Ochre",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Sage",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         }
       ],
       "id": "swag-lanyard-references",
       "source_document": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-      "last_updated": "2026-06-02T18:30:00+01:00",
+      "last_updated": "2026-06-02T16:40:00+01:00",
       "updated_from_official_swag_brief": true,
-      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
-      "referenceImages": [
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "alt": "Lanyard Oatmeal reference",
-          "caption": "Oatmeal lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "alt": "Lanyard Ochre reference",
-          "caption": "Ochre lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "alt": "Lanyard Black reference",
-          "caption": "Black lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "alt": "Lanyard Blue reference",
-          "caption": "Blue lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "alt": "Lanyard Sage reference",
-          "caption": "Sage lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        }
-      ],
-      "sourcePage": 13
+      "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640"
     }
   ],
   "horizonsStudio": [
@@ -37839,7 +37593,7 @@
       "id": "artwork-swag-tote-bag",
       "itemName": "Tote Bag",
       "type": "Artwork / signage",
-      "artworkFile": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+      "artworkFile": "assets/images/swag/bag.jpeg",
       "printSize": "Needs Confirmation",
       "locationPlacement": "Room drops / HORIZONS House",
       "positioningNotes": "Use for welcome hotel room drops and display cabinet references.",
@@ -37864,7 +37618,7 @@
       "id": "artwork-swag-notebook",
       "itemName": "Notebook",
       "type": "Artwork / signage",
-      "artworkFile": "assets/swag/pdf-extracted/chair-drop-horizons-notepad.jpg",
+      "artworkFile": "assets/images/swag/book.jpeg",
       "printSize": "Needs Confirmation",
       "locationPlacement": "Room drops / HORIZONS House",
       "positioningNotes": "Keep notebook placement clean and aligned in guest drops or display.",
@@ -39362,7 +39116,7 @@
       "notes": "Tote bag reference already present and confirmed in room-drop brief.",
       "updateId": "missing-file:tote-bag-artwork",
       "currentStatus": "Available",
-      "finalLink": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+      "finalLink": "assets/images/swag/bag.jpeg",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "source_tab": "Missing Files",
       "last_updated": "2026-06-02T14:45:00+01:00",
@@ -39845,7 +39599,7 @@
       "notes": "Display cabinet reference image added from Swag Delivery Brief.",
       "updateId": "missing-file:display-cabinet-image",
       "currentStatus": "Available",
-      "finalLink": "assets/swag/pdf-extracted/horizons-house-reception-display-cabinet.jpg",
+      "finalLink": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "source_tab": "Missing Files",
       "last_updated": "2026-06-02T14:45:00+01:00",
@@ -46818,7 +46572,7 @@
   "swagDelivery": {
     "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
     "sourcePath": "/Users/ddm/Downloads/HORIZONS_Swag_Delivery_Brief (3).pdf",
-    "lastUpdated": "2026-06-02T18:30:00+01:00",
+    "lastUpdated": "2026-06-02T16:40:00+01:00",
     "status": "Official Source Applied",
     "timeline": [
       {
@@ -46884,28 +46638,19 @@
       ],
       "images": [
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-caps-stone-black.jpg",
+          "src": "assets/images/swag/hats.jpeg",
           "alt": "Stone and black HORIZONS caps",
-          "caption": "Caps stone/black crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Caps stone/black reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-olive.jpg",
+          "src": "assets/images/swag/hats-2.jpeg",
           "alt": "Olive HORIZONS cap mockup",
-          "caption": "Olive cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Olive cap reference from official brief."
         },
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-cap-black.jpg",
+          "src": "assets/images/swag/hats-3.jpeg",
           "alt": "Black HORIZONS cap mockup",
-          "caption": "Black cap crop from official brief page 12.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 12,
-          "status": "Confirmed"
+          "caption": "Black cap reference from official brief."
         }
       ]
     },
@@ -46922,12 +46667,14 @@
       ],
       "images": [
         {
-          "src": "assets/swag/pdf-extracted/horizons-house-reception-display-cabinet.jpg",
+          "src": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
           "alt": "HORIZONS House reception display cabinet reference",
-          "caption": "Reception display cabinet crop from official brief page 4.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 4,
-          "status": "Confirmed"
+          "caption": "Reception display cabinet reference from official brief."
+        },
+        {
+          "src": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
+          "alt": "HORIZONS House cap and display reference grid",
+          "caption": "HORIZONS House cap/display references from official brief."
         }
       ]
     },
@@ -46974,68 +46721,54 @@
       ],
       "images": [
         {
-          "src": "assets/swag/pdf-extracted/room-drop-tote-bag.jpg",
+          "src": "assets/images/swag/room-drop-brief-reference.jpg",
+          "alt": "Welcome hotel room drops brief page",
+          "caption": "Room drop overview from official brief."
+        },
+        {
+          "src": "assets/images/swag/room-drop-items-reference-grid.jpg",
+          "alt": "Room drop item reference grid",
+          "caption": "Room drop visual reference grid."
+        },
+        {
+          "src": "assets/images/swag/bag.jpeg",
           "alt": "Black HORIZONS tote bag",
-          "caption": "Tote bag crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Tote bag."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-larq-bottle.jpg",
+          "src": "assets/images/swag/bottle.jpeg",
           "alt": "Black HORIZONS LARQ bottle",
-          "caption": "LARQ bottle crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "LARQ bottle."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-foldable-charger.jpg",
+          "src": "assets/images/swag/charger.jpeg",
           "alt": "Black foldable charger",
-          "caption": "Foldable charger crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Foldable charger."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-nord-day-fragrance.jpg",
+          "src": "assets/images/swag/cent-2.jpeg",
           "alt": "NORD Day fragrance reference",
-          "caption": "NORD Day fragrance crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "NORD Day fragrance."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-nord-night-fragrance.jpg",
+          "src": "assets/images/swag/cent.jpeg",
           "alt": "NORD Night fragrance reference",
-          "caption": "NORD Night fragrance crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "NORD Night fragrance."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-pulsio-massager.jpg",
+          "src": "assets/images/swag/massage-gun.jpeg",
           "alt": "Pulsio massager",
-          "caption": "Pulsio massager crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Pulsio massager."
         },
         {
-          "src": "assets/swag/pdf-extracted/room-drop-silk-eye-mask.jpg",
-          "alt": "Silk eye mask",
-          "caption": "Silk eye mask crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/room-drop-silk-eye-mask-packaging.jpg",
+          "src": "assets/images/swag/eye-mask-1.jpeg",
           "alt": "Silk eye mask packaging",
-          "caption": "Silk eye mask packaging crop from official brief page 10.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 10,
-          "status": "Confirmed"
+          "caption": "Silk eye mask packaging."
+        },
+        {
+          "src": "assets/images/swag/eye-mask-2.jpeg",
+          "alt": "Silk eye mask",
+          "caption": "Silk eye mask."
         }
       ]
     },
@@ -47062,28 +46795,29 @@
       ],
       "images": [
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-hand-fan.jpg",
+          "src": "assets/images/swag/horizons-connect-chair-drop-brief.jpg",
+          "alt": "HORIZONS Connect chair drop brief",
+          "caption": "HORIZONS Connect chair drop page from official brief."
+        },
+        {
+          "src": "assets/images/swag/chair-drop-items-reference-grid.jpg",
+          "alt": "Chair drop item references",
+          "caption": "Hand fan, HORIZONS notepad, and HORIZONS pen references."
+        },
+        {
+          "src": "assets/images/swag/fan.jpeg",
           "alt": "HORIZONS hand fan",
-          "caption": "Hand fan crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "Hand fan."
         },
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-horizons-notepad.jpg",
+          "src": "assets/images/swag/book.jpeg",
           "alt": "HORIZONS notepad",
-          "caption": "HORIZONS notepad crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "HORIZONS notepad."
         },
         {
-          "src": "assets/swag/pdf-extracted/chair-drop-horizons-pen.jpg",
+          "src": "assets/images/swag/pen.jpeg",
           "alt": "HORIZONS pen",
-          "caption": "HORIZONS pen crop from official brief page 11.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 11,
-          "status": "Confirmed"
+          "caption": "HORIZONS pen."
         }
       ]
     },
@@ -47201,84 +46935,39 @@
         {
           "colour": "Oatmeal",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyard-oatmeal.jpeg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Ochre",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         },
         {
           "colour": "Sage",
           "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
+          "image": "assets/images/swag/lanyards-reference-grid.jpg",
           "status": "Needs Confirmation"
         }
       ],
       "images": [
         {
-          "src": "assets/swag/pdf-extracted/lanyard-oatmeal.jpg",
-          "alt": "Lanyard Oatmeal reference",
-          "caption": "Oatmeal lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-ochre.jpg",
-          "alt": "Lanyard Ochre reference",
-          "caption": "Ochre lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-black.jpg",
-          "alt": "Lanyard Black reference",
-          "caption": "Black lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-blue.jpg",
-          "alt": "Lanyard Blue reference",
-          "caption": "Blue lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
-        },
-        {
-          "src": "assets/swag/pdf-extracted/lanyard-sage.jpg",
-          "alt": "Lanyard Sage reference",
-          "caption": "Sage lanyard crop from official brief page 13.",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Confirmed"
+          "src": "assets/images/swag/lanyards-reference-grid.jpg",
+          "alt": "Lanyard reference grid",
+          "caption": "Oatmeal, Ochre, Black, Blue, and Sage lanyard references from official brief."
         }
       ]
     },
@@ -47355,7 +47044,6 @@
         "area": "All Areas",
         "task": "Collect all spare swag, package neatly, and send back with Michael at Jigsaw."
       }
-    ],
-    "imageExtractionStatus": "Individual item crops extracted from official PDF pages 4, 10, 11, 12, and 13."
+    ]
   }
 }

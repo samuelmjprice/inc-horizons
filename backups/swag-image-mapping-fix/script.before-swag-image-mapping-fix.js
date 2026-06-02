@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-swag-image-crops1";
+const APP_VERSION = "20260602-swag-correction2";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
