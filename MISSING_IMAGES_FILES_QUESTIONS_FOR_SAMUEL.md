@@ -126,7 +126,8 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hotel room-drop photo layout | Final photo layout if different from the brief page | Room-drop team needs exact placement before entering rooms | Room Drops | B Good / Six Senses / Samuel | High | Layout Needed |
-| HORIZONS House lanyards | Confirm whether lanyards are included with check-in caps | Brief says to check if lanyards can be included | HORIZONS House / Guest Materials | Samuel / Chris | Medium | Needs Confirmation |
+| HORIZONS House lanyards | Confirm whether lanyards are included with check-in caps | Colour mapping is approved, but brief still says to check if lanyards can be included | HORIZONS House / Guest Materials | Samuel / Chris | Medium | Needs Confirmation |
+| Guest lanyard PC/mobile split | Confirm which attendees are PC & console versus mobile consumer if blue/green lanyards need person-level assignment | The imported lanyards workbook only has badge name and company, so blue/green cannot be assigned safely per attendee without category data | Guests / Namecards | Samuel / Chris / Aream & Co. | High | Info Needed |
 | HORIZONS pens / notepads leftover allocation | Owner for remaining spare quantity | Brief notes leftover allocation needs someone assigned, potentially Be Good | Guest Materials / HORIZONS Connect | B Good / Samuel | Medium | Owner Needed |
 | Crew shirts | Final quantity, sizes, and allocation | Visuals are added but sizing/allocation is not stored on the website | Guest Materials / Crew | Samuel | High | Info Needed |
 | Eve Blackwell namecard proof | Confirm whether this proof is historical only | Website contact data uses Eve Dusek; do not let old proof create a data conflict | Guest Materials / Namecards | Samuel / Chris | High | Needs Confirmation |

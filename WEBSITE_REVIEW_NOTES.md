@@ -200,7 +200,7 @@ Latest review items now reflected in the website and trackers:
 - Supplier cards are compact by default, with timing blocks, contacts, open items, and updates inside expandable details.
 - Content Capture cards are compact by default and can be filtered by day.
 - The official main HORIZONS logo is used for the header/hero source: `assets/logos/horizons-main-logo-black.png`.
-- New swag reference images were added for tote bag, notebook, bottle, charger, Nord fragrances, eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard.
+- New swag reference images were added for tote bag, notebook, bottle, charger, Nord fragrances, eye mask, fan, caps, Pulsio massager, pen, and lanyards. Lanyard colour mapping is now approved: black Aream & Co., brown Crew, blue PC & console, green mobile consumer, oatmeal other.
 - `B Good` and `Clownfish` spelling rules were rechecked across text source files.
 
 Items still needing team confirmation:

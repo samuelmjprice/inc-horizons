@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "2 June 2026, 12:15 BST",
+    "lastUpdated": "2 June 2026, 15:35 BST",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,10 +22,45 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex guest namecard import",
+    "updatedBy": "Codex lanyard colour mapping update",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
-    "last_updated": "2026-06-01T17:42:00+01:00",
-    "updated_at": "2026-06-01T20:28:00+01:00"
+    "last_updated": "2026-06-02T15:35:00+01:00",
+    "updated_at": "2026-06-02T15:35:00+01:00",
+    "lanyardColourMapping": [
+      {
+        "group": "Aream & Co.",
+        "colour": "Black",
+        "display": "black (Aream & Co)"
+      },
+      {
+        "group": "Crew",
+        "colour": "Brown",
+        "display": "brown (Crew)"
+      },
+      {
+        "group": "PC & console",
+        "colour": "Blue",
+        "display": "blue (PC & console)"
+      },
+      {
+        "group": "Mobile consumer",
+        "colour": "Green",
+        "display": "green (mobile consumer)"
+      },
+      {
+        "group": "Other",
+        "colour": "Oatmeal",
+        "display": "oatmeal (other)"
+      }
+    ],
+    "lanyardColourAssignmentSummary": {
+      "source": "Samuel approved Slack note, 2 June 2026",
+      "aream_black": 31,
+      "crew_brown": 29,
+      "other_oatmeal_default": 155,
+      "pc_console_blue": "Category data not present in imported workbook; needs attendee-level category confirmation if required.",
+      "mobile_consumer_green": "Category data not present in imported workbook; needs attendee-level category confirmation if required."
+    }
   },
   "quickActions": [
     {
@@ -23479,10 +23514,10 @@
         {
           "src": "assets/images/swag/lanyards-reference-grid.jpg",
           "alt": "Lanyard colour reference grid",
-          "caption": "Lanyard references. Inclusion with check-in gift still needs confirmation."
+          "caption": "Approved lanyard colour mapping: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other. Inclusion with check-in gift still needs confirmation."
         }
       ],
-      "notes": "Reception display follows the Swag Delivery Brief: spare HORIZONS House swag held inside the display cabinet, kept neat, visible, and premium.",
+      "notes": "Reception display follows the Swag Delivery Brief: spare HORIZONS House swag held inside the display cabinet, kept neat, visible, and premium. Approved lanyard colour mapping: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other.",
       "updateId": "house:house-reception",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "HORIZONS House / Reception Display",
@@ -23490,14 +23525,41 @@
       "review_id": "REV-0587",
       "canonical_record_id": "HH-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T14:45:00+01:00",
+      "last_updated": "2026-06-02T15:35:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS House and Reception Display | Chris Manoe / Dawn / Pili | Needs Confirmation | Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
       "finalWorkbookStatus": "Approved",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "lanyardColourMapping": [
+        {
+          "group": "Aream & Co.",
+          "colour": "Black",
+          "display": "black (Aream & Co)"
+        },
+        {
+          "group": "Crew",
+          "colour": "Brown",
+          "display": "brown (Crew)"
+        },
+        {
+          "group": "PC & console",
+          "colour": "Blue",
+          "display": "blue (PC & console)"
+        },
+        {
+          "group": "Mobile consumer",
+          "colour": "Green",
+          "display": "green (mobile consumer)"
+        },
+        {
+          "group": "Other",
+          "colour": "Oatmeal",
+          "display": "oatmeal (other)"
+        }
+      ]
     }
   ],
   "roomDrops": [
@@ -24510,15 +24572,15 @@
     },
     {
       "id": "swag-lanyard-oatmeal",
-      "itemName": "Lanyard - Oatmeal",
+      "itemName": "Lanyard Colour Mapping / Oatmeal Reference",
       "location": "HORIZONS House check-in gift / lanyard reference",
       "owner": "B Good / Six Senses",
       "quantity": "Quantity needed",
       "status": "Needs Confirmation",
-      "deliverySetupNotes": "Check if a lanyard can also be included with the HORIZONS House check-in gift.",
+      "deliverySetupNotes": "Approved lanyard colour mapping: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other. Confirm separately whether lanyards can be included with the HORIZONS House check-in gift.",
       "image": "assets/images/swag/lanyard-oatmeal.jpeg",
       "alt": "Oatmeal lanyard reference",
-      "imageCaption": "Oatmeal lanyard reference",
+      "imageCaption": "Oatmeal lanyard reference. Oatmeal is the approved colour for other guests.",
       "updateId": "swag:swag-lanyard-oatmeal",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "Swag / Guest Materials",
@@ -24526,15 +24588,43 @@
       "review_id": "REV-0585",
       "canonical_record_id": "MAT-032",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-06-02T14:45:00+01:00",
+      "last_updated": "2026-06-02T15:35:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Lanyard - Oatmeal | Check-in / HORIZONS House | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
-      "notes": "Lanyard colour references available; inclusion still needs confirmation.",
+      "notes": "Colour mapping is approved. Check-in gift inclusion still needs confirmation.",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
-      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "category": "Guest Materials / Lanyards",
+      "lanyardColourMapping": [
+        {
+          "group": "Aream & Co.",
+          "colour": "Black",
+          "display": "black (Aream & Co)"
+        },
+        {
+          "group": "Crew",
+          "colour": "Brown",
+          "display": "brown (Crew)"
+        },
+        {
+          "group": "PC & console",
+          "colour": "Blue",
+          "display": "blue (PC & console)"
+        },
+        {
+          "group": "Mobile consumer",
+          "colour": "Green",
+          "display": "green (mobile consumer)"
+        },
+        {
+          "group": "Other",
+          "colour": "Oatmeal",
+          "display": "oatmeal (other)"
+        }
+      ]
     },
     {
       "id": "swag-horizons-connect-chair-drop",
@@ -24624,25 +24714,52 @@
       "image": "assets/images/guest-materials/namecard-blank-reference.jpeg",
       "alt": "Blank black HORIZONS namecard reference",
       "imageCaption": "Blank namecard reference from supplied WhatsApp proof.",
-      "deliverySetupNotes": "Use final guest/namecard data for personalised cards. Do not use old Eve Blackwell proof as live guest data.",
-      "notes": "One supplied proof says Eve Blackwell; site contact data uses Eve Dusek. Keep proof as Needs Review only.",
+      "deliverySetupNotes": "Use final guest/namecard data for personalised cards. Approved lanyard colour mapping: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other. Do not use old Eve Blackwell proof as live guest data.",
+      "notes": "Colour mapping is approved. One supplied proof says Eve Blackwell; site contact data uses Eve Dusek. Keep proof as Needs Review only.",
       "updateId": "swag:namecards-lanyards-reference",
       "source_page_or_section": "Merchandise / WhatsApp references",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "source_tab": "Swag / Guest Materials",
-      "last_updated": "2026-06-02T14:45:00+01:00",
+      "last_updated": "2026-06-02T15:35:00+01:00",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
       "referenceImages": [
         {
           "src": "assets/images/swag/lanyards-reference-grid.jpg",
           "alt": "Lanyard colour reference grid",
-          "caption": "Lanyard colour references."
+          "caption": "Approved lanyard colour mapping: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other."
         },
         {
           "src": "assets/images/guest-materials/namecard-eve-blackwell-proof-needs-review.jpeg",
           "alt": "Old Eve Blackwell namecard proof needs review",
           "caption": "Proof image retained as Needs Review only; not used as final guest data."
+        }
+      ],
+      "lanyardColourMapping": [
+        {
+          "group": "Aream & Co.",
+          "colour": "Black",
+          "display": "black (Aream & Co)"
+        },
+        {
+          "group": "Crew",
+          "colour": "Brown",
+          "display": "brown (Crew)"
+        },
+        {
+          "group": "PC & console",
+          "colour": "Blue",
+          "display": "blue (PC & console)"
+        },
+        {
+          "group": "Mobile consumer",
+          "colour": "Green",
+          "display": "green (mobile consumer)"
+        },
+        {
+          "group": "Other",
+          "colour": "Oatmeal",
+          "display": "oatmeal (other)"
         }
       ]
     }
@@ -41126,7 +41243,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 2,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_marc-allera",
@@ -41150,7 +41271,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 3,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_bader-alzamil",
@@ -41174,7 +41299,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 4,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_naz-m-akmandil",
@@ -41198,7 +41327,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 5,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_stephan-ansari",
@@ -41222,7 +41355,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 6,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_robert-antokol",
@@ -41246,7 +41383,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 7,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_akin-babayigit",
@@ -41270,7 +41411,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 8,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_stephan-beinert",
@@ -41294,7 +41439,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 9,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jon-bellamy",
@@ -41318,7 +41467,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 10,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_arnd-benninghoff",
@@ -41342,7 +41495,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 11,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_michael-berkovich",
@@ -41366,7 +41523,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 12,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kelly-bianucci",
@@ -41390,7 +41551,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 13,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ece-bilgehan",
@@ -41414,7 +41579,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 14,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_phillip-black",
@@ -41438,7 +41607,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 15,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rudi-bonaparte",
@@ -41462,7 +41635,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 16,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_mit-boncuk-u",
@@ -41486,7 +41663,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 17,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alexis-bonte",
@@ -41510,7 +41691,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 18,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_luisa-bixio",
@@ -41534,7 +41719,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 19,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_marcus-bromander",
@@ -41558,7 +41747,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 20,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_cyril-ca-l",
@@ -41582,7 +41775,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 21,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alex-capretta",
@@ -41606,7 +41803,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 22,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_emre-elik",
@@ -41630,7 +41831,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 23,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_charles-chapman",
@@ -41654,7 +41859,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 24,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_vickie-chen",
@@ -41678,7 +41887,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 25,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jay-chi",
@@ -41702,7 +41915,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 26,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_craig-chittick",
@@ -41726,7 +41943,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 27,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_saad-choudri",
@@ -41750,7 +41971,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 28,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_olivier-comte",
@@ -41774,7 +41999,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 29,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_janette-d-alessio",
@@ -41798,7 +42027,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 30,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jordi-de-los-pinos",
@@ -41822,7 +42055,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 31,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_maxime-demeure",
@@ -41846,7 +42083,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 32,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_yi-it-doruk",
@@ -41870,7 +42111,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 33,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ben-drury",
@@ -41894,7 +42139,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 34,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_benoit-ducrest",
@@ -41918,7 +42167,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 35,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_katerina-dudinskaya",
@@ -41942,7 +42195,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 36,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alexander-ekvall",
@@ -41966,7 +42223,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 37,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_harvey-elliott",
@@ -41990,7 +42251,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 38,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_emilien-eychenne",
@@ -42014,7 +42279,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 39,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jimmy-gendron",
@@ -42038,7 +42307,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 40,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_martina-gianfreda",
@@ -42062,7 +42335,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 41,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_gabriel-godard",
@@ -42086,7 +42363,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 42,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ger-griffin",
@@ -42110,7 +42391,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 43,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_tom-guillermin",
@@ -42134,7 +42419,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 44,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_k-bra-g-ndo-an",
@@ -42158,7 +42447,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 45,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ash-habib",
@@ -42182,7 +42475,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 46,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_fatih-haltas",
@@ -42206,7 +42503,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 47,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_saad-hameed",
@@ -42230,7 +42531,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 48,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anatolii-henis",
@@ -42254,7 +42559,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 49,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nick-hopkins",
@@ -42278,7 +42587,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 50,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_floyd-horng",
@@ -42302,7 +42615,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 51,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_joppe-houpt",
@@ -42326,7 +42643,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 52,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alicia-huang",
@@ -42350,7 +42671,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 53,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lee-hutchinson",
@@ -42374,7 +42699,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 54,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ilker-ilicali",
@@ -42398,7 +42727,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 55,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_onur-isik",
@@ -42422,7 +42755,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 56,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jono-jones",
@@ -42446,7 +42783,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 57,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nate-jones",
@@ -42470,7 +42811,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 58,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kristine-kakuno",
@@ -42494,7 +42839,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 59,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_fabian-kamberi",
@@ -42518,7 +42867,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 60,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_mishka-katkoff",
@@ -42542,7 +42895,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 61,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_sami-khan",
@@ -42566,7 +42923,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 62,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_bernard-kim",
@@ -42590,7 +42951,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 63,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_irene-klemm",
@@ -42614,7 +42979,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 64,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_caro-krenzer",
@@ -42638,7 +43007,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 65,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_valery-kurilov",
@@ -42662,7 +43035,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 66,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rebecca-lautner",
@@ -42686,7 +43063,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 67,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chris-lee",
@@ -42710,7 +43091,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 68,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chen-leshez",
@@ -42734,7 +43119,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 69,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_erik-levin-de-verdier",
@@ -42758,7 +43147,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 70,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_yaron-leyvand",
@@ -42782,7 +43175,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 71,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nachuan-li",
@@ -42806,7 +43203,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 72,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_marcus-liassides",
@@ -42830,7 +43231,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 73,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_dmitri-lipnitsky",
@@ -42854,7 +43259,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 74,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ben-lin",
@@ -42878,7 +43287,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 75,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_carl-livie",
@@ -42902,7 +43315,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 76,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_brian-lovell",
@@ -42926,7 +43343,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 77,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_christian-lovstedt",
@@ -42950,7 +43371,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 78,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_li-ma",
@@ -42974,7 +43399,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 79,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_vishal-mahtani",
@@ -42998,7 +43427,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 80,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_emmanuel-de-maistre",
@@ -43022,7 +43455,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 81,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_xavier-mariani",
@@ -43046,7 +43483,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 82,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_michael-martinez",
@@ -43070,7 +43511,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 83,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_mark-maslowicz",
@@ -43094,7 +43539,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 84,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alistair-mcfarlane",
@@ -43118,7 +43567,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 85,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nitish-mittersain",
@@ -43142,7 +43595,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 86,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_phil-mohr",
@@ -43166,7 +43623,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 87,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_vincent-naiden",
@@ -43190,7 +43651,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 88,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kirsten-lee-naidoo",
@@ -43214,7 +43679,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 89,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_daniel-nathan",
@@ -43238,7 +43707,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 90,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_micha-nowakowski",
@@ -43262,7 +43735,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 91,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_vladimir-oane",
@@ -43286,7 +43763,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 92,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_maria-park",
@@ -43310,7 +43791,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 93,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chris-petrovic",
@@ -43334,7 +43819,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 94,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_will-porter",
@@ -43358,7 +43847,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 95,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_michael-qian",
@@ -43382,7 +43875,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 96,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_queena-qiu",
@@ -43406,7 +43903,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 97,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_r-mi-racine",
@@ -43430,7 +43931,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 98,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rohun-ranjith",
@@ -43454,7 +43959,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 99,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kirsty-rigden",
@@ -43478,7 +43987,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 100,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_maya-rogers",
@@ -43502,7 +44015,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 101,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_frank-sagnier",
@@ -43526,7 +44043,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 102,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ufuk-ahin",
@@ -43550,7 +44071,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 103,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_sagi-schliesser",
@@ -43574,7 +44099,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 104,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_florian-schuhbauer",
@@ -43598,7 +44127,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 105,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nathan-sellyn",
@@ -43622,7 +44155,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 106,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rohit-sharma",
@@ -43646,7 +44183,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 107,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_annie-she",
@@ -43670,7 +44211,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 108,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_xiang-shen",
@@ -43694,7 +44239,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 109,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lior-shiff",
@@ -43718,7 +44267,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 110,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_pavel-siomin",
@@ -43742,7 +44295,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 111,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jose-sirera",
@@ -43766,7 +44323,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 112,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_grant-smith",
@@ -43790,7 +44351,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 113,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_asbjoern-soendergaard",
@@ -43814,7 +44379,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 114,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jan-rainer-sommerfeld",
@@ -43838,7 +44407,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 115,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_sai-srinivas",
@@ -43862,7 +44435,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 116,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_raymond-stauffer",
@@ -43886,7 +44463,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 117,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_franziska-meyer",
@@ -43910,7 +44491,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 118,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_graeme-struthers",
@@ -43934,7 +44519,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 119,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_henric-suuronen",
@@ -43958,7 +44547,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 120,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ridzki-syahputera",
@@ -43982,7 +44575,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 121,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_tynan-sylvester",
@@ -44006,7 +44603,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 122,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anthony-tirone",
@@ -44030,7 +44631,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 123,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_tuyen-duong-hoang",
@@ -44054,7 +44659,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 124,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_erkay-uzun",
@@ -44078,7 +44687,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 125,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chris-van-der-kuyl",
@@ -44102,7 +44715,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 126,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_cristobal-viedma",
@@ -44126,7 +44743,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 127,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_vishnu-vijayakumar",
@@ -44150,7 +44771,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 128,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_stephan-vogler",
@@ -44174,7 +44799,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 129,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anton-volovyk",
@@ -44198,7 +44827,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 130,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_mikkel-weider",
@@ -44222,7 +44855,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 131,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_paul-west",
@@ -44246,7 +44883,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 132,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anton-westbergh",
@@ -44270,7 +44911,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 133,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_paul-wharshavsky",
@@ -44294,7 +44939,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 134,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_du-xueqian",
@@ -44318,7 +44967,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 135,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lars-wingefors",
@@ -44342,7 +44995,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 136,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jerry-yang",
@@ -44366,7 +45023,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 137,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_armagan-yavuz",
@@ -44390,7 +45051,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 138,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_dave-yonamine",
@@ -44414,7 +45079,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 139,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lisa-esperandieu",
@@ -44440,7 +45109,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 140,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_babar-ahmed",
@@ -44464,7 +45137,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 141,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_yuning-zhang",
@@ -44488,7 +45165,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 142,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_melisa-yaguboglu",
@@ -44512,7 +45193,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 143,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_agostino-simonetta",
@@ -44536,7 +45221,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 144,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_geo-morgan",
@@ -44560,7 +45249,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 145,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anton-albiin",
@@ -44584,7 +45277,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 146,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alexey-mikhaylov",
@@ -44608,7 +45305,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 147,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_moritz-holl-nder",
@@ -44632,7 +45333,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 148,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_joe-sosa",
@@ -44656,7 +45361,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 149,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_zaur-bedoev",
@@ -44680,7 +45389,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 150,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_suranga-chandratillake",
@@ -44704,7 +45417,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 151,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rob-moffat",
@@ -44728,7 +45445,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 152,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_igor-bereslavski",
@@ -44752,7 +45473,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 153,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jarrod-yahes",
@@ -44776,7 +45501,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 154,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_yagiz-akpek",
@@ -44800,7 +45529,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 155,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ba-ak-b-k-mc",
@@ -44824,7 +45557,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 156,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Oatmeal",
+      "lanyard_colour_group": "Other",
+      "lanyard_colour_note": "Defaulted to other from approved colour mapping. Confirm separately if this guest belongs to PC & console or mobile consumer.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_hassan-ali",
@@ -44848,7 +45585,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 157,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_carlo-antoniazzi",
@@ -44872,7 +45613,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 158,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_julian-au",
@@ -44896,7 +45641,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 159,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_affan-butt",
@@ -44920,7 +45669,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 160,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chris-dai",
@@ -44944,7 +45697,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 161,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_eve-dusek",
@@ -44968,7 +45725,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 162,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_jess-eduful",
@@ -44992,7 +45753,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 163,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rachel-evans",
@@ -45016,7 +45781,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 164,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_sergei-evdokimov",
@@ -45040,7 +45809,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 165,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_griffen-frye",
@@ -45064,7 +45837,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 166,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_fiona-graham",
@@ -45088,7 +45865,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 167,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_louis-grocott",
@@ -45112,7 +45893,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 168,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_irem-g-r",
@@ -45136,7 +45921,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 169,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ava-hydorn",
@@ -45160,7 +45949,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 170,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_gregory-israelyan",
@@ -45184,7 +45977,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 171,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_regan-jarvis",
@@ -45208,7 +46005,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 172,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_micha-katz",
@@ -45232,7 +46033,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 173,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_christine-kryst",
@@ -45256,7 +46061,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 174,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_simon-laborde",
@@ -45280,7 +46089,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 175,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_duncan-lam",
@@ -45304,7 +46117,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 176,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_poppy-luck",
@@ -45328,7 +46145,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 177,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lily-morgan",
@@ -45352,7 +46173,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 178,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anup-nadesan",
@@ -45376,7 +46201,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 179,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_elena-pacioni",
@@ -45400,7 +46229,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 180,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kartik-prabhakara",
@@ -45424,7 +46257,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 181,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_laurynas-ra-anskas",
@@ -45448,7 +46285,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 182,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_anjan-sarangi",
@@ -45472,7 +46313,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 183,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_matthew-short",
@@ -45496,7 +46341,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 184,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_kristina-starr",
@@ -45520,7 +46369,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 185,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_paramveer-takhar",
@@ -45544,7 +46397,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 186,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_sam-vasandani",
@@ -45568,7 +46425,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 187,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Black",
+      "lanyard_colour_group": "Aream & Co.",
+      "lanyard_colour_note": "Assigned from approved company colour mapping.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_rose-butler",
@@ -45592,7 +46453,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 188,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_brendan-davies",
@@ -45616,7 +46481,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 189,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ben-eddon-carrruthers",
@@ -45640,7 +46509,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 190,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_lyndsay-evans",
@@ -45664,7 +46537,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 191,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nathan-fox",
@@ -45688,7 +46565,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 192,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_joshua-gavin",
@@ -45712,7 +46593,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 193,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_christina-hizon",
@@ -45736,7 +46621,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 194,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_oliver-hooper",
@@ -45760,7 +46649,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 195,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_samual-hosier",
@@ -45784,7 +46677,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 196,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_tamy-hosier",
@@ -45808,7 +46705,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 197,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_andrew-howes",
@@ -45832,7 +46733,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 198,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alex-hudson",
@@ -45856,7 +46761,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 199,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_alex-humphreys",
@@ -45880,7 +46789,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 200,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_libby-laurie",
@@ -45904,7 +46817,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 201,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_cheryl-leno",
@@ -45928,7 +46845,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 202,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_pili-lopez",
@@ -45952,7 +46873,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 203,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_ryan-lowe",
@@ -45978,7 +46903,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 204,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_002_ryan-lowe",
@@ -46004,7 +46933,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 205,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_chris-manoe",
@@ -46028,7 +46961,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 206,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nikki-mathias",
@@ -46052,7 +46989,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 207,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_joshua-millar",
@@ -46076,7 +47017,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 208,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_liz-morris",
@@ -46100,7 +47045,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 209,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_samual-price",
@@ -46124,7 +47073,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 210,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_dawn-ramsden",
@@ -46148,7 +47101,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 211,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_joachim-ridley-barker",
@@ -46172,7 +47129,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 212,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_nathan-rushmer",
@@ -46196,7 +47157,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 213,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_federico-tamburini",
@@ -46220,7 +47185,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 214,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_dean-whitehead",
@@ -46244,7 +47213,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 215,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     },
     {
       "id": "guest_george-winning",
@@ -46268,7 +47241,11 @@
       "source_workbook": "Lanyards and Namecards Final 9.xlsx",
       "source_sheet": "MASTER LIST",
       "source_row": 216,
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-02T15:35:00+01:00",
+      "lanyard_colour": "Brown",
+      "lanyard_colour_group": "Crew",
+      "lanyard_colour_note": "Assigned from approved crew colour mapping based on company/team.",
+      "lanyard_colour_source": "Samuel approved Slack note, 2 June 2026"
     }
   ]
 }

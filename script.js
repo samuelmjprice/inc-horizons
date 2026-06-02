@@ -1035,7 +1035,7 @@ function renderGuests() {
     return true;
   };
   const items = allGuests
-    .filter((item) => !query || `${item.name} ${item.namecard_display_name} ${item.company} ${item.company_display_name}`.toLowerCase().includes(query))
+    .filter((item) => !query || `${item.name} ${item.namecard_display_name} ${item.company} ${item.company_display_name} ${item.lanyard_colour} ${item.lanyard_colour_group}`.toLowerCase().includes(query))
     .filter((item) => !filters.company || (item.company_display_name || item.company) === filters.company)
     .filter((item) => !filters.status || item.status === filters.status)
     .filter((item) => !filters.missing || missingFields(item).includes(filters.missing))
@@ -1048,7 +1048,8 @@ function renderGuests() {
     ["Total guests", allGuests.length, "Approved lanyards workbook"],
     ["Namecards ready", ready, "Safe display records"],
     ["Missing info", missing, "Needs follow-up"],
-    ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"]
+    ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"],
+    ["Lanyard colours", "5 groups", "Black Aream, brown crew, blue PC/console, green mobile, oatmeal other"]
   ].map(([label, value, note]) => `
     <div class="guest-summary-card">
       <span>${escapeHtml(label)}</span>
@@ -1096,7 +1097,7 @@ function renderGuests() {
         </div>
         <p class="guest-card-company">${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>
         ${(role || guestType || category) ? `<div class="guest-summary-line">${[role, guestType, category].filter(Boolean).map((value) => `<span>${escapeHtml(value)}</span>`).join("")}</div>` : ""}
-        <div class="tag-stack guest-status-tags">${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
+        <div class="tag-stack guest-status-tags">${tag(item.lanyard_colour || "Lanyard Colour Needed")}${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
         <button class="guest-detail-toggle" type="button" data-guest-toggle aria-expanded="false" aria-controls="${escapeHtml(panelId)}">View details</button>
         <div class="guest-detail-panel" id="${escapeHtml(panelId)}" hidden>
           ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
@@ -1106,6 +1107,9 @@ function renderGuests() {
             ${meta("Full role/title", item.role)}
             ${meta("Guest type", item.guest_type)}
             ${meta("Category", item.category)}
+            ${meta("Lanyard colour", item.lanyard_colour)}
+            ${meta("Lanyard colour group", item.lanyard_colour_group)}
+            ${meta("Lanyard colour note", item.lanyard_colour_note)}
             ${meta("Lanyard status", item.lanyard_status)}
             ${meta("Namecard status", item.namecard_status)}
             ${detailRows(relatedItems)}

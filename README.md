@@ -403,7 +403,7 @@ Image folders:
 
 Images should be practical references, not decoration.
 
-Current swag references include tote bag, notebook, bottle, foldable charger, Nord fragrances, silk eye mask, fan, caps, Pulsio massager, pen, and oatmeal lanyard. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
+Current swag references include tote bag, notebook, bottle, foldable charger, Nord fragrances, silk eye mask, fan, caps, Pulsio massager, pen, and lanyards. Approved lanyard colour mapping is black for Aream & Co., brown for Crew, blue for PC & console, green for mobile consumer, and oatmeal for other. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
 
 ## Latest Sync Notes
 

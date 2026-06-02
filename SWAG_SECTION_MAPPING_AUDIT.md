@@ -5,7 +5,7 @@ Created: 2 June 2026
 | Item | Current section | Correct section | Action taken | Needs confirmation |
 | --- | --- | --- | --- | --- |
 | HORIZONS House check-in caps | Swag / HORIZONS House | HORIZONS House / Reception Display and Swag / Guest Materials | Updated with 200 cap quantity split and display references | No |
-| HORIZONS House lanyards | Swag | Swag / Guest Materials / Check-in | Kept as lanyard reference and marked Needs Confirmation | Yes, confirm if included with check-in gift |
+| HORIZONS House lanyards | Swag | Swag / Guest Materials / Check-in | Kept as lanyard reference; approved colour mapping added | Yes, confirm if included with check-in gift and confirm any PC/mobile attendee split |
 | Welcome hotel room drops | Room Drops | Room Drops | Updated items, date, owners, handling notes, welcome note, and references | Final photo layout still needed if not the brief page |
 | Pulsio massager | Swag / Room Drops | Room Drops and display reference | Updated spelling to Pulsio and marked On Track per brief | No |
 | Hand fan | Previously Room Drops leaning | HORIZONS Connect chair drop / HORIZONS Hall | Updated as hand fan chair-drop item with 170 quantity allocation | No |

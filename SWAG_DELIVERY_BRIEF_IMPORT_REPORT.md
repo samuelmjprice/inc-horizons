@@ -39,6 +39,7 @@ Created: 2 June 2026
 - `swag-cap-olive`
 - `swag-cap-black`
 - `swag-lanyard-oatmeal`
+- Approved lanyard colour mapping added to guest/materials data
 
 ## Records Added
 
@@ -74,6 +75,7 @@ Created: 2 June 2026
 ## Items Needing Confirmation
 
 - Whether lanyards are included with HORIZONS House check-in gifts.
+- Which individual attendees should be blue PC & console or green mobile consumer if the default oatmeal/other assignment needs overriding.
 - Who owns the leftover HORIZONS pen/notepad allocation.
 - Whether the Eve Blackwell namecard proof should be treated as historical only.
 
@@ -82,3 +84,4 @@ Created: 2 June 2026
 - Menu/meal records were kept in source data but hidden from the live Guest Materials card list.
 - No old images were deleted.
 - All updated records include `source_document`, `last_updated`, `updated_from_swag_delivery_brief`, and `swag_delivery_brief_batch_id`.
+- Approved lanyard colour key: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other.
