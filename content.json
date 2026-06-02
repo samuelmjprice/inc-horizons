@@ -23433,106 +23433,122 @@
   "horizonsHouse": [
     {
       "id": "house-reception",
-      "title": "HORIZONS House and Reception Display",
-      "status": "Needs Confirmation",
-      "owner": "Chris Manoe / Dawn / Pili",
+      "title": "HORIZONS House / Reception Display",
+      "status": "On Track",
+      "owner": "Chris Manoe / Clownfish",
       "setupInstructions": [
-        "Use the official HORIZONS House logo only.",
-        "Keep reception, cabinet, and swag display clean and intentional.",
-        "Display cabinet includes swag.",
-        "Confirm final display ownership before guest arrivals.",
-        "Display cabinet image needed.",
-        "Hand fan and Pulsio/Poltio are Room Drops items, not HORIZONS House display items.",
-        "Notepads and pens belong with HORIZONS Hall materials unless room-drop placement is reconfirmed."
+        "Reception display location: HORIZONS House reception area.",
+        "Chris leads the display layout direction.",
+        "Clownfish supplies the display decal.",
+        "Hold a small quantity of spare HORIZONS House swag inside the cabinet.",
+        "Keep all swag shown in the cabinet neat, visible, clean, and premium."
       ],
       "checklist": [
-        "Reception display owner confirmed",
-        "Display cabinet swag placed",
-        "Guest flow checked",
-        "Logo asset approved and unmodified",
-        "Final tidy check completed"
+        "Display area prepared on 8 June.",
+        "Caps staged for HORIZONS House check-in gifting.",
+        "Spare HORIZONS House swag held in the cabinet.",
+        "Reception display checked against supplied visual direction.",
+        "Final tidy check completed before guest arrivals."
       ],
       "referenceImages": [
         {
-          "src": "assets/logos/horizons-house-black.png",
-          "alt": "Official HORIZONS House logo",
-          "caption": "Official HORIZONS House logo reference."
+          "src": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
+          "alt": "HORIZONS House reception display cabinet reference",
+          "caption": "Swag Delivery Brief display cabinet reference."
+        },
+        {
+          "src": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
+          "alt": "HORIZONS House swag reference grid",
+          "caption": "Caps and display cabinet visual references from the brief."
         },
         {
           "src": "assets/images/swag/hats.jpeg",
-          "alt": "Stone and black caps",
-          "caption": "Caps for HORIZONS House display."
+          "alt": "Stone and black HORIZONS caps",
+          "caption": "HORIZONS House cap reference."
         },
         {
           "src": "assets/images/swag/hats-2.jpeg",
-          "alt": "Olive cap mockup",
-          "caption": "Olive cap display reference."
+          "alt": "Olive HORIZONS cap mockup",
+          "caption": "Olive cap reference."
         },
         {
-          "src": "assets/images/swag/lanyard-oatmeal.jpeg",
-          "alt": "Oatmeal lanyard",
-          "caption": "Oatmeal lanyard check-in reference."
+          "src": "assets/images/swag/hats-3.jpeg",
+          "alt": "Black HORIZONS cap mockup",
+          "caption": "Black cap reference."
+        },
+        {
+          "src": "assets/images/swag/lanyards-reference-grid.jpg",
+          "alt": "Lanyard colour reference grid",
+          "caption": "Lanyard references. Inclusion with check-in gift still needs confirmation."
         }
       ],
-      "notes": "HORIZONS House and Reception Display | Chris Manoe / Dawn / Pili | Needs Confirmation | Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
+      "notes": "Reception display follows the Swag Delivery Brief: spare HORIZONS House swag held inside the display cabinet, kept neat, visible, and premium.",
       "updateId": "house:house-reception",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "HORIZONS House / Reception Display",
       "source_row": 588,
       "review_id": "REV-0587",
       "canonical_record_id": "HH-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS House and Reception Display | Chris Manoe / Dawn / Pili | Needs Confirmation | Clarifies previous reception-display notes as HORIZONS House and reception display where appropriate.",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     }
   ],
   "roomDrops": [
     {
       "id": "roomdrop-standard",
-      "title": "Hotel Room Drops",
-      "status": "Needs Confirmation",
+      "title": "Welcome Hotel Room Drops",
+      "status": "On Track",
       "owner": "B Good / Six Senses",
       "responsibleTeams": [
         "B Good",
         "Six Senses"
       ],
       "items": [
-        "Guest gifts",
-        "Printed notes or welcome materials",
-        "Swag items confirmed by final runbook",
-        "Hand fan",
-        "Pulsio / Poltio item - Needs Confirmation on exact naming",
-        "Hotel room drop items",
-        "B Good / Six Senses responsibilities",
-        "Gloves note and quality-control handling instructions"
+        "Pulsio massager",
+        "Silk eye mask",
+        "NORD Day fragrance",
+        "NORD Night fragrance",
+        "Tote bag",
+        "LARQ bottle",
+        "Foldable charger",
+        "Welcome note"
       ],
-      "deliveryNotes": "Gloves must be worn at all times when handling swag drops.",
-      "handling": "Gloves must be worn when handling hotel room drops. Keep every drop clean, intentional, premium, and consistent.",
+      "deliveryNotes": "Be Good & Six Senses assemble and execute the welcome hotel room drops on 9 June. Use the provided photo layout once supplied.",
+      "handling": "Setup team must wear disposable gloves when placing room-drop items. Cheryl confirmed gloves have been purchased.",
       "qualityChecklist": [
-        "Gloves worn for handling",
-        "Correct room list checked",
-        "Items aligned and clean",
-        "No damaged packaging",
-        "Final room checked by owner"
+        "Photo design/layout provided or marked as Layout Needed before room placement.",
+        "Be Good & Six Senses assemble and execute every room drop.",
+        "Use the provided photo layout once supplied.",
+        "Disposable gloves worn for all room-drop handling.",
+        "Each room drop is clean, intentional, premium, and consistent."
       ],
       "referenceImages": [
+        {
+          "src": "assets/images/swag/room-drop-brief-reference.jpg",
+          "alt": "Welcome hotel room drops brief page",
+          "caption": "Room drop item list, setup notes, and welcome note from the brief."
+        },
+        {
+          "src": "assets/images/swag/room-drop-items-reference-grid.jpg",
+          "alt": "Room drop item reference grid",
+          "caption": "Visual references for tote, LARQ, charger, fragrances, eye mask, Pulsio, and packaging."
+        },
         {
           "src": "assets/images/swag/bag.jpeg",
           "alt": "Black HORIZONS tote bag",
           "caption": "Tote bag for room drops."
         },
         {
-          "src": "assets/images/swag/book.jpeg",
-          "alt": "Cream HORIZONS notebook",
-          "caption": "Notebook room-drop reference."
-        },
-        {
           "src": "assets/images/swag/bottle.jpeg",
-          "alt": "Black HORIZONS bottle",
-          "caption": "Bottle room-drop reference."
+          "alt": "Black HORIZONS LARQ bottle",
+          "caption": "LARQ bottle room-drop reference."
         },
         {
           "src": "assets/images/swag/charger.jpeg",
@@ -23541,13 +23557,13 @@
         },
         {
           "src": "assets/images/swag/cent-2.jpeg",
-          "alt": "Light Nord fragrance with ampersand",
-          "caption": "Nord day fragrance reference."
+          "alt": "NORD Day fragrance reference",
+          "caption": "NORD Day fragrance reference."
         },
         {
           "src": "assets/images/swag/cent.jpeg",
-          "alt": "Dark Nord fragrance with ampersand",
-          "caption": "Nord night fragrance reference."
+          "alt": "NORD Night fragrance reference",
+          "caption": "NORD Night fragrance reference."
         },
         {
           "src": "assets/images/swag/eye-mask-1.jpeg",
@@ -23555,63 +23571,72 @@
           "caption": "Silk eye mask packaging reference."
         },
         {
-          "src": "assets/images/swag/fan.jpeg",
-          "alt": "Black fan with ampersand mark",
-          "caption": "Hand fan belongs in Room Drops."
+          "src": "assets/images/swag/eye-mask-2.jpeg",
+          "alt": "Silk eye mask",
+          "caption": "Silk eye mask reference."
         },
         {
           "src": "assets/images/swag/massage-gun.jpeg",
-          "alt": "Pulsio / Poltio item reference",
-          "caption": "Pulsio / Poltio room-drop item - naming needs confirmation."
+          "alt": "Pulsio massager",
+          "caption": "Pulsio massager reference."
         }
       ],
       "updateId": "roomdrop:roomdrop-standard",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Welcome Hotel Room Drops",
       "source_row": 587,
       "review_id": "REV-0586",
       "canonical_record_id": "DROP-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Gloves must be worn at all times when handling swag drops.",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "date": "09-06-2026",
+      "location": "Hotel rooms",
+      "welcomeNote": "Welcome to HORIZONS Ibiza 2026. Thank you for being part of the first chapter. Affan",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     }
   ],
   "swag": [
     {
       "id": "material-tote-bag",
-      "category": "Swag",
+      "category": "Room Drops / Guest Materials",
       "itemName": "Tote bags",
-      "day": "All event",
+      "day": "9 June",
       "time": "",
-      "location": "Room drops / HORIZONS House",
-      "owner": "B Good / HORIZONS team",
+      "location": "Hotel rooms / HORIZONS House display",
+      "owner": "B Good / Six Senses",
       "status": "On Track",
       "image": "assets/images/guest-materials/tote-bag.jpeg",
       "alt": "Black HORIZONS tote bag reference",
       "imageCaption": "Current tote bag visual reference",
-      "quantity": "Quantity needed",
-      "deliverySetupNotes": "Use as guest-facing material and room-drop reference.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops and HORIZONS House display references. Assemble according to supplied photo layout.",
       "fileUrl": "assets/images/guest-materials/tote-bag.jpeg",
-      "notes": "Approved current visual reference.",
+      "notes": "Source: Swag Delivery Brief welcome hotel room drops.",
       "updateId": "material:tote-bag",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 555,
       "review_id": "REV-0554",
       "canonical_record_id": "MAT-001",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tote bags | Swag | All event | Room drops / HORIZONS House | B Good / HORIZONS team | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "material-crew-shirts",
-      "category": "Printed Materials",
+      "category": "Crew / Staff Materials",
       "itemName": "Crew shirts",
       "day": "All event",
       "time": "",
@@ -23622,21 +23647,46 @@
       "alt": "Black HORIZONS crew shirt reference",
       "imageCaption": "Crew shirt visual reference",
       "quantity": "Quantity needed",
-      "deliverySetupNotes": "Final allocation details held offline.",
+      "deliverySetupNotes": "Visual references supplied, but final staff sizing/allocation still needs confirmation.",
       "fileUrl": "assets/images/guest-materials/crew-shirts.jpeg",
-      "notes": "No sizing details are stored on the site. Crew shirts data/image needs confirmation.",
+      "notes": "Crew-shirt visuals added from WhatsApp references; no sizing data stored on site.",
       "updateId": "material:crew-shirts",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 556,
       "review_id": "REV-0555",
       "canonical_record_id": "MAT-002",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Crew shirts | Printed Materials | All event | Crew / onsite team | Samuel Price | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "referenceImages": [
+        {
+          "src": "assets/images/guest-materials/crew-shirt-womens-trousers.jpeg",
+          "alt": "Women crew shirt with trousers",
+          "caption": "Crew shirt reference: women / trousers."
+        },
+        {
+          "src": "assets/images/guest-materials/crew-shirt-mens-trousers.jpeg",
+          "alt": "Men crew shirt with trousers",
+          "caption": "Crew shirt reference: men / trousers."
+        },
+        {
+          "src": "assets/images/guest-materials/crew-shirt-womens-shorts.jpeg",
+          "alt": "Women crew shirt with shorts",
+          "caption": "Crew shirt reference: women / shorts."
+        },
+        {
+          "src": "assets/images/guest-materials/crew-shirt-mens-shorts.jpeg",
+          "alt": "Men crew shirt with shorts",
+          "caption": "Crew shirt reference: men / shorts."
+        }
+      ]
     },
     {
       "id": "material-easel-board",
@@ -23741,7 +23791,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Selected in-room dining items | Menus | All | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-2",
@@ -23770,7 +23822,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Food allergen key | Menus | All | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-3",
@@ -23799,7 +23853,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall Terrace · 19:30–21:00 | Menus | Monday 8 June | HORIZONS Hall Terrace | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-4",
@@ -23828,7 +23884,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS House · 12:00–19:00 | Menus | Tuesday 9 June | HORIZONS House | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-5",
@@ -23857,7 +23915,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00 | Menus | Tuesday 9 June | Pool Deck & Beach | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-6",
@@ -23886,7 +23946,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30 | Menus | Wednesday 10 June | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-7",
@@ -23904,7 +23966,9 @@
       "deliverySetupNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "fileUrl": "",
       "notes": "Mobile Consumer dinner Beach Caves 100 pax; PC Console + Aream Internal Orchard/Market Terrace 50+20 pax; Speakeasy/Arcade/Poker late snacks 75 pax",
-      "updateId": "material:menu-7"
+      "updateId": "material:menu-7",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-8",
@@ -23933,7 +23997,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/HORIZONS Studio 11:00–11:15; lunch Pool Deck 12:00–13:30 | Menus | Thursday 11 June | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-9",
@@ -23962,7 +24028,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30 | Menus | Thursday 11 June | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-10",
@@ -23991,7 +24059,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall & Orchard · 07:00–09:30 | Menus | Friday 12 June | HORIZONS Hall & Orchard | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-11",
@@ -24020,7 +24090,9 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Ben Eden-Carruthers | Menus | All event | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "material-menu-12",
@@ -24049,370 +24121,530 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cheryl Leno | Menus | All event | Location needed | B Good / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "hiddenFromLive": true,
+      "section_mapping_note": "Meal/menu record kept in source data but hidden from Guest Materials; belongs in restaurant schedules / menus."
     },
     {
       "id": "swag-tote-bag",
       "itemName": "Tote Bag",
-      "location": "Room drops / HORIZONS House",
+      "location": "Hotel room drops / HORIZONS House display",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use for welcome hotel room drops and display cabinet references.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops and display-cabinet reference.",
       "image": "assets/images/swag/bag.jpeg",
       "alt": "Black HORIZONS tote bag",
       "imageCaption": "Tote bag reference",
       "updateId": "swag:swag-tote-bag",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 572,
       "review_id": "REV-0571",
       "canonical_record_id": "MAT-018",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tote Bag | Room drops / HORIZONS House | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-notebook",
-      "itemName": "Notebook",
-      "location": "HORIZONS Hall / Guest Materials",
-      "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Keep notebook placement clean and aligned in guest drops or display. Associate with HORIZONS Hall, not Room Drops, unless final placement is reconfirmed.",
+      "itemName": "HORIZONS Notepad",
+      "location": "HORIZONS Connect chair drop / HORIZONS Hall",
+      "owner": "B Good / setup team",
+      "quantity": "185 for HORIZONS Connect; 30 HORIZONS House; 15 Studio; 15 Hall; 3 Affan children; 2 spare remaining",
+      "status": "On Track",
+      "deliverySetupNotes": "Use the term HORIZONS notepads throughout. Chair drop happens only on 10 June at HORIZONS Hall.",
       "image": "assets/images/swag/book.jpeg",
       "alt": "Cream HORIZONS notebook",
       "imageCaption": "Notebook reference",
       "updateId": "swag:swag-notebook",
-      "notes": "HORIZONS Hall placement needs confirmation.",
+      "notes": "Remaining spare quantity is 2; leftover allocation needs owner assignment, potentially B Good.",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 573,
       "review_id": "REV-0572",
       "canonical_record_id": "MAT-019",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Notebook | HORIZONS Hall / Guest Materials | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-bottle",
       "itemName": "LARQ Bottle",
-      "location": "Room drops",
+      "location": "Hotel room drops",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm quantities and room-drop placement.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
       "image": "assets/images/swag/bottle.jpeg",
       "alt": "Black HORIZONS bottle",
       "imageCaption": "Bottle reference",
       "updateId": "swag:swag-bottle",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 574,
       "review_id": "REV-0573",
       "canonical_record_id": "MAT-020",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "LARQ Bottle | Room drops | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-foldable-charger",
       "itemName": "Foldable Charger",
-      "location": "Room drops",
+      "location": "Hotel room drops",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm charging unit count and packaging condition before drops.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
       "image": "assets/images/swag/charger.jpeg",
       "alt": "Black foldable charger with HORIZONS mark",
       "imageCaption": "Foldable charger reference",
       "updateId": "swag:swag-foldable-charger",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 575,
       "review_id": "REV-0574",
       "canonical_record_id": "MAT-021",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Foldable Charger | Room drops | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-nord-day-fragrance",
-      "itemName": "Nord Day Fragrance",
-      "location": "Room drops / display cabinet",
+      "itemName": "NORD Day Fragrance",
+      "location": "Hotel room drops / display cabinet",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use as room-drop and display reference; confirm day/night split if applicable.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
       "image": "assets/images/swag/cent-2.jpeg",
       "alt": "Light Nord fragrance item with ampersand mark",
       "imageCaption": "Nord day fragrance reference",
       "updateId": "swag:swag-nord-day-fragrance",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 576,
       "review_id": "REV-0575",
       "canonical_record_id": "MAT-022",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Nord Day Fragrance | Room drops / display cabinet | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-nord-night-fragrance",
-      "itemName": "Nord Night Fragrance",
-      "location": "Room drops / display cabinet",
+      "itemName": "NORD Night Fragrance",
+      "location": "Hotel room drops / display cabinet",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use as room-drop and display reference; confirm day/night split if applicable.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
       "image": "assets/images/swag/cent.jpeg",
       "alt": "Dark Nord fragrance item with ampersand mark",
       "imageCaption": "Nord night fragrance reference",
       "updateId": "swag:swag-nord-night-fragrance",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 577,
       "review_id": "REV-0576",
       "canonical_record_id": "MAT-023",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Nord Night Fragrance | Room drops / display cabinet | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-silk-eye-mask",
       "itemName": "Silk Eye Mask",
-      "location": "Room drops",
+      "location": "Hotel room drops",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm final packaging and handling standard.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops.",
       "image": "assets/images/swag/eye-mask-2.jpeg",
       "alt": "Black silk eye mask with HORIZONS wordmark",
       "imageCaption": "Silk eye mask reference",
       "updateId": "swag:swag-silk-eye-mask",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 578,
       "review_id": "REV-0577",
       "canonical_record_id": "MAT-024",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Silk Eye Mask | Room drops | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-silk-eye-mask-packaging",
       "itemName": "Silk Eye Mask Packaging",
-      "location": "Room drops",
+      "location": "Hotel room drops",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use packaging reference for quality control and premium placement.",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Use packaging reference for quality control.",
       "image": "assets/images/swag/eye-mask-1.jpeg",
       "alt": "SilkAddict box with branded wrapper",
       "imageCaption": "Silk eye mask packaging reference",
       "updateId": "swag:swag-silk-eye-mask-packaging",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 579,
       "review_id": "REV-0578",
       "canonical_record_id": "MAT-025",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Silk Eye Mask Packaging | Room drops | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-fan",
-      "itemName": "Fan",
-      "location": "Hotel Room Drops",
-      "owner": "B Good / HORIZONS team",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm location and quantity before final display. Room Drops item.",
+      "itemName": "Hand Fan",
+      "location": "HORIZONS Connect chair drop / HORIZONS Hall",
+      "owner": "B Good / setup team",
+      "quantity": "170 fans: 150 guest seats, 3 reserved for Affan's children, 17 spare fans",
+      "status": "On Track",
+      "deliverySetupNotes": "Primary use is HORIZONS Connect chair drop on 10 June in HORIZONS Hall.",
       "image": "assets/images/swag/fan.jpeg",
       "alt": "Black fan with ampersand mark",
       "imageCaption": "Fan reference",
       "updateId": "swag:swag-fan",
       "category": "Room Drops",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 580,
       "review_id": "REV-0579",
       "canonical_record_id": "MAT-026",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Fan | Room Drops | Hotel Room Drops | B Good / HORIZONS team | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "notes": "Affan's children are accounted for in both HORIZONS pens/notepads and hand fan allocation.",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-caps-stone-black",
-      "itemName": "Caps - Stone / Black",
-      "location": "HORIZONS House / display cabinet",
+      "itemName": "HORIZONS Caps - Stone / Black",
+      "location": "HORIZONS House check-in gifts / display cabinet",
       "owner": "B Good / HORIZONS team",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Use as physical cap reference for display and gifting.",
+      "quantity": "150 caps: 100 black, 50 stone",
+      "status": "On Track",
+      "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
       "image": "assets/images/swag/hats.jpeg",
       "alt": "Stone HORIZONS cap with black caps behind",
       "imageCaption": "Caps stone and black reference",
       "updateId": "swag:swag-caps-stone-black",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 581,
       "review_id": "REV-0580",
       "canonical_record_id": "MAT-027",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Caps - Stone / Black | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-cap-olive",
-      "itemName": "Cap Mockup - Olive",
-      "location": "HORIZONS House / display cabinet",
+      "itemName": "HORIZONS Cap - Olive",
+      "location": "HORIZONS House check-in gifts / display cabinet",
       "owner": "B Good / HORIZONS team",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Mockup reference only; confirm final cap colourways.",
+      "quantity": "50 olive caps",
+      "status": "On Track",
+      "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
       "image": "assets/images/swag/hats-2.jpeg",
       "alt": "Olive cap mockup with HORIZONS wordmark and ampersand",
       "imageCaption": "Olive cap mockup",
       "updateId": "swag:swag-cap-olive",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 582,
       "review_id": "REV-0581",
       "canonical_record_id": "MAT-028",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cap Mockup - Olive | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-cap-black",
-      "itemName": "Cap Mockup - Black",
-      "location": "HORIZONS House / display cabinet",
+      "itemName": "HORIZONS Cap - Black",
+      "location": "HORIZONS House check-in gifts / display cabinet",
       "owner": "B Good / HORIZONS team",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Mockup reference only; confirm final cap colourways.",
+      "quantity": "100 black caps",
+      "status": "On Track",
+      "deliverySetupNotes": "HORIZONS House check-in gifting confirmed. Each person receives 1x HORIZONS baseball cap.",
       "image": "assets/images/swag/hats-3.jpeg",
       "alt": "Black cap mockup with HORIZONS wordmark and ampersand",
       "imageCaption": "Black cap mockup",
       "updateId": "swag:swag-cap-black",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 583,
       "review_id": "REV-0582",
       "canonical_record_id": "MAT-029",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cap Mockup - Black | HORIZONS House / display cabinet | B Good / HORIZONS team | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-pulsio-massager",
       "itemName": "Pulsio Massager",
-      "location": "Display cabinet / guest gifts",
-      "owner": "B Good / HORIZONS team",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Confirm whether this is display-only or included in guest gifts.",
+      "location": "Hotel room drops / display cabinet",
+      "owner": "B Good / Six Senses",
+      "quantity": "Included in hotel room drops; final count by room list",
+      "status": "On Track",
+      "deliverySetupNotes": "Included in 9 June welcome hotel room drops and display cabinet reference.",
       "image": "assets/images/swag/massage-gun.jpeg",
       "alt": "Black Pulsio massager with HORIZONS branding",
       "imageCaption": "Pulsio massager reference",
       "updateId": "swag:swag-pulsio-massager",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 584,
       "review_id": "REV-0583",
       "canonical_record_id": "MAT-030",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pulsio Massager | Display cabinet / guest gifts | B Good / HORIZONS team | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "notes": "Use spelling Pulsio from Swag Delivery Brief.",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-bamboo-pen",
-      "itemName": "Bamboo Pen",
-      "location": "HORIZONS Hall / Guest Materials",
-      "owner": "B Good / Six Senses",
-      "quantity": "TBC",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Pair with notebook where relevant; confirm final quantity. Associate with HORIZONS Hall, not Room Drops, unless final placement is reconfirmed.",
+      "itemName": "HORIZONS Pen",
+      "location": "HORIZONS Connect chair drop / HORIZONS Hall",
+      "owner": "B Good / setup team",
+      "quantity": "185 for HORIZONS Connect; 30 HORIZONS House; 15 Studio; 15 Hall; 3 Affan children; 2 spare remaining",
+      "status": "On Track",
+      "deliverySetupNotes": "Pair with HORIZONS notepad for HORIZONS Connect chair drop on 10 June.",
       "image": "assets/images/swag/pen.jpeg",
       "alt": "Bamboo pen reference",
       "imageCaption": "Pen reference",
       "updateId": "swag:swag-bamboo-pen",
-      "notes": "HORIZONS Hall placement needs confirmation.",
+      "notes": "Use disposable gloves when placing chair-drop items.",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 585,
       "review_id": "REV-0584",
       "canonical_record_id": "MAT-031",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Bamboo Pen | HORIZONS Hall / Guest Materials | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "swag-lanyard-oatmeal",
       "itemName": "Lanyard - Oatmeal",
-      "location": "Check-in / HORIZONS House",
+      "location": "HORIZONS House check-in gift / lanyard reference",
       "owner": "B Good / Six Senses",
-      "quantity": "TBC",
+      "quantity": "Quantity needed",
       "status": "Needs Confirmation",
-      "deliverySetupNotes": "Oatmeal lanyard reference; confirm final colour selection.",
+      "deliverySetupNotes": "Check if a lanyard can also be included with the HORIZONS House check-in gift.",
       "image": "assets/images/swag/lanyard-oatmeal.jpeg",
       "alt": "Oatmeal lanyard reference",
       "imageCaption": "Oatmeal lanyard reference",
       "updateId": "swag:swag-lanyard-oatmeal",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
-      "source_tab": "MASTER REVIEW",
+      "source_tab": "Swag / Guest Materials",
       "source_row": 586,
       "review_id": "REV-0585",
       "canonical_record_id": "MAT-032",
       "approved_by": "Samuel & Chris voice review",
-      "last_updated": "2026-05-31T19:18:50",
+      "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Lanyard - Oatmeal | Check-in / HORIZONS House | B Good / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "notes": "Lanyard colour references available; inclusion still needs confirmation.",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
+    },
+    {
+      "id": "swag-horizons-connect-chair-drop",
+      "itemName": "HORIZONS Connect Chair Drop",
+      "category": "Guest Materials / Chair Drop",
+      "day": "10 June",
+      "time": "8:30 AM",
+      "location": "HORIZONS Hall",
+      "owner": "B Good / setup team",
+      "quantity": "150 guest seats + 3 reserved sets + spares",
+      "status": "On Track",
+      "image": "assets/images/swag/horizons-connect-chair-drop-brief.jpg",
+      "alt": "HORIZONS Connect chair drop brief",
+      "imageCaption": "Chair drop setup note from Swag Delivery Brief.",
+      "deliverySetupNotes": "Place hand fan, HORIZONS notepad, and HORIZONS pen directly on chairs. This happens only on 10 June, not the 11th.",
+      "notes": "Setup team must wear disposable gloves. Cheryl confirmed gloves have been purchased.",
+      "updateId": "swag:horizons-connect-chair-drop",
+      "source_page_or_section": "HORIZONS Connect / Chair drop",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Swag / Guest Materials",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "referenceImages": [
+        {
+          "src": "assets/images/swag/chair-drop-items-reference-grid.jpg",
+          "alt": "Chair drop item visual references",
+          "caption": "Hand fan, notepad, and pen reference images."
+        },
+        {
+          "src": "assets/images/swag/hand-fan-allocation-brief.jpg",
+          "alt": "Hand fan allocation brief",
+          "caption": "Hand fan quantity allocation."
+        },
+        {
+          "src": "assets/images/swag/pens-notepads-allocation-brief.jpg",
+          "alt": "Pens and notepads allocation brief",
+          "caption": "HORIZONS pens and notepads quantity allocation."
+        }
+      ]
+    },
+    {
+      "id": "swag-horizons-house-check-in-caps",
+      "itemName": "HORIZONS House Check-in Caps",
+      "category": "HORIZONS House / Check-in Gifts",
+      "day": "8-9 June",
+      "time": "",
+      "location": "HORIZONS House",
+      "owner": "B Good / HORIZONS team",
+      "quantity": "200 caps total: 100 black, 50 stone, 50 olive",
+      "status": "On Track",
+      "image": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
+      "alt": "HORIZONS House cap and display references",
+      "imageCaption": "HORIZONS House swag reference from Swag Delivery Brief.",
+      "deliverySetupNotes": "Each person receives 1x HORIZONS baseball cap. Check whether lanyards can also be included.",
+      "notes": "HORIZONS House check-in gifting is confirmed.",
+      "updateId": "swag:horizons-house-check-in-caps",
+      "source_page_or_section": "HORIZONS House / Check-in gifts",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Swag / Guest Materials",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "referenceImages": [
+        {
+          "src": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
+          "alt": "HORIZONS House display cabinet reference",
+          "caption": "Reception display cabinet reference."
+        },
+        {
+          "src": "assets/images/swag/horizons-house-swag-reference-grid.jpg",
+          "alt": "HORIZONS House swag reference grid",
+          "caption": "Caps and display-cabinet references."
+        }
+      ]
+    },
+    {
+      "id": "swag-namecards-lanyards-reference",
+      "itemName": "Namecards / Lanyards Reference",
+      "category": "Guest Materials / Namecards",
+      "day": "All event",
+      "time": "",
+      "location": "Check-in / HORIZONS House",
+      "owner": "B Good / Aream & Co.",
+      "quantity": "Final guest list driven",
+      "status": "Needs Confirmation",
+      "image": "assets/images/guest-materials/namecard-blank-reference.jpeg",
+      "alt": "Blank black HORIZONS namecard reference",
+      "imageCaption": "Blank namecard reference from supplied WhatsApp proof.",
+      "deliverySetupNotes": "Use final guest/namecard data for personalised cards. Do not use old Eve Blackwell proof as live guest data.",
+      "notes": "One supplied proof says Eve Blackwell; site contact data uses Eve Dusek. Keep proof as Needs Review only.",
+      "updateId": "swag:namecards-lanyards-reference",
+      "source_page_or_section": "Merchandise / WhatsApp references",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Swag / Guest Materials",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
+      "referenceImages": [
+        {
+          "src": "assets/images/swag/lanyards-reference-grid.jpg",
+          "alt": "Lanyard colour reference grid",
+          "caption": "Lanyard colour references."
+        },
+        {
+          "src": "assets/images/guest-materials/namecard-eve-blackwell-proof-needs-review.jpeg",
+          "alt": "Old Eve Blackwell namecard proof needs review",
+          "caption": "Proof image retained as Needs Review only; not used as final guest data."
+        }
+      ]
     }
   ],
   "horizonsStudio": [
@@ -25340,6 +25572,21 @@
       "description": "Swag and room drop delivery reference.",
       "notes": "Swag and room drop delivery reference.",
       "updateId": "doc:horizons-swag-delivery-brief-pdf"
+    },
+    {
+      "id": "doc-swag-delivery-brief",
+      "name": "HORIZONS Swag Delivery Brief",
+      "category": "Swag / Guest Materials",
+      "status": "Available",
+      "owner": "Samuel Price",
+      "url": "assets/documents/horizons-swag-delivery-brief.pdf",
+      "notes": "Source of truth for HORIZONS House check-in gifts, room drops, chair drops, hand fans, pens/notepads, spares, and return handling.",
+      "updateId": "document:swag-delivery-brief",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Documents",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     }
   ],
   "completed": [
@@ -25360,30 +25607,53 @@
   ],
   "swagQueensSchedule": [
     {
-      "id": "swag-queens-10",
-      "updateId": "swagQueens:10-june",
-      "day": "10 June",
-      "label": "Day 1",
-      "status": "Needs Confirmation",
-      "owner": "Chris Manoe / B Good",
-      "guests": "TBC",
+      "id": "swag-brief-08-june",
+      "updateId": "swagBrief:08-june",
+      "day": "8 June",
+      "label": "8 June",
+      "status": "On Track",
+      "owner": "Chris Manoe / B Good / Clownfish",
+      "guests": "HORIZONS House / I.N.C staff",
+      "notes": "HORIZONS House check-in gifting, reception display, and swag shoot preparation.",
       "schedule": [
-        "Confirm swag and Queens-related moments from final notes."
-      ],
-      "notes": "Dedicated day split created so final data can be dropped in without combining dates."
+        "HORIZONS House: prepare check-in gifts: 100 black, 50 stone, and 50 olive caps.",
+        "HORIZONS House: confirm each person receives 1x baseball cap. Check whether lanyards can also be included.",
+        "Reception display: prepare display area, hold spare HORIZONS House swag in the cabinet, Chris leads layout design, Clownfish supplies decal.",
+        "21:30 swag shoot: prepare swag items and confirm HORIZONS House location and I.N.C staff: Chris, Dean, Samuel Hosier, Samuel Price, Tamy, Joshua."
+      ]
     },
     {
-      "id": "swag-queens-11",
-      "updateId": "swagQueens:11-june",
-      "day": "11 June",
-      "label": "Day 2",
-      "status": "Needs Confirmation",
-      "owner": "Chris Manoe / B Good",
-      "guests": "TBC",
+      "id": "swag-brief-09-june",
+      "updateId": "swagBrief:09-june",
+      "day": "9 June",
+      "label": "9 June",
+      "status": "On Track",
+      "owner": "B Good / Six Senses",
+      "guests": "Hotel room guests",
+      "notes": "Welcome hotel room drops.",
       "schedule": [
-        "Confirm swag and Queens-related moments from final notes."
-      ],
-      "notes": "Use this card for 11 June schedule, guests and notes."
+        "Be Good & Six Senses assemble welcome hotel room drops and follow the supplied photo layout.",
+        "Include Pulsio massager, silk eye mask, NORD Day fragrance, NORD Night fragrance, tote bag, LARQ, foldable charger, and welcome note.",
+        "Use disposable gloves for handling. Cheryl confirmed gloves have been purchased."
+      ]
+    },
+    {
+      "id": "swag-brief-10-june",
+      "updateId": "swagBrief:10-june",
+      "day": "10 June",
+      "label": "10 June",
+      "status": "On Track",
+      "owner": "B Good / setup team",
+      "guests": "HORIZONS Connect attendees",
+      "notes": "HORIZONS Connect chair drop in HORIZONS Hall only. Does not happen on 11 June.",
+      "schedule": [
+        "08:30 HORIZONS Connect: execute chair drop at HORIZONS Hall. Place items directly on chairs.",
+        "Include hand fan, HORIZONS notepad, and HORIZONS pen.",
+        "Ensure setup team wears disposable gloves.",
+        "Keep 3 complete swag sets aside for Affan's children.",
+        "Confirm 150 guest seats, 3 sets for Affan's children, 17 spare fans, and 185 HORIZONS pens / notepads allocated to HORIZONS Connect.",
+        "Post-setup: collect all spare swag, package neatly, and send back with Michael at Jigsaw."
+      ]
     }
   ],
   "siteMaps": [
@@ -25676,7 +25946,10 @@
     },
     "guestSourceWorkbook": "Lanyards and Namecards Final 9.xlsx",
     "guestSourceSheet": "MASTER LIST",
-    "guestImportLastUpdated": "2026-06-02"
+    "guestImportLastUpdated": "2026-06-02",
+    "lastUpdated": "2 June 2026, 14:45 BST",
+    "last_updated": "2026-06-02T14:45:00+01:00",
+    "lastUpdateSummary": "Swag, guest materials, room drops, HORIZONS House display, chair drops, cap allocations, and swag reference visuals updated from the Swag Delivery Brief."
   },
   "travel": [
     {
@@ -38541,9 +38814,16 @@
       "category": "Artwork / Wayfinding",
       "owner": "Chris Manoe",
       "neededFor": "Guest materials",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
-      "updateId": "missing-file:tote-bag-artwork"
+      "status": "Complete",
+      "notes": "Tote bag reference already present and confirmed in room-drop brief.",
+      "updateId": "missing-file:tote-bag-artwork",
+      "currentStatus": "Available",
+      "finalLink": "assets/images/swag/bag.jpeg",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Missing Files",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "missing-notebook-artwork",
@@ -39017,9 +39297,16 @@
       "owner": "Chris Manoe",
       "neededFor": "Reception display cabinet image.",
       "priority": "High",
-      "status": "File Needed",
-      "notes": "Added from Chris/Samuel review.",
-      "updateId": "missing-file:display-cabinet-image"
+      "status": "Complete",
+      "notes": "Display cabinet reference image added from Swag Delivery Brief.",
+      "updateId": "missing-file:display-cabinet-image",
+      "currentStatus": "Available",
+      "finalLink": "assets/images/swag/horizons-house-display-cabinet-reference.jpg",
+      "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
+      "source_tab": "Missing Files",
+      "last_updated": "2026-06-02T14:45:00+01:00",
+      "updated_from_swag_delivery_brief": true,
+      "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
     },
     {
       "id": "missing-crew-shirts-data-image-confirmation",

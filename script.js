@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-guests-collapse1";
+const APP_VERSION = "20260602-swag-brief1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -1344,7 +1344,7 @@ function renderHorizonsHouse() {
 function renderRoomDrops() {
   setHtml("[data-room-drops]", state.data.roomDrops.map((item) => `
     <div class="visual-block">
-      ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p><h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
+      ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p>${detailsBlock("Open room-drop details", [["Date", item.date], ["Location", item.location], ["Welcome note", item.welcomeNote]], `<h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
       <div class="reference-grid">
         ${(item.referenceImages || []).map((image) => image.src
           ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`
@@ -1369,13 +1369,13 @@ function renderSwagSchedule() {
 }
 
 function renderSwag() {
-  const items = (state.data.swag || []).filter((item) => !/breakfast|coffee break|lunch|dinner|catering|allergen key|selected in-room dining/i.test(`${item.itemName} ${item.category} ${item.notes}`));
+  const items = liveItems(state.data.swag || []).filter((item) => !/breakfast|coffee break|lunch|dinner|catering|allergen key|selected in-room dining/i.test(`${item.itemName} ${item.category} ${item.notes}`));
   setHtml("[data-swag]", items.map((item) => card({
     title: item.itemName,
     status: item.status,
     department: item.category,
-    body: item.image ? `<figure class="reference-card"><img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy"><figcaption>${escapeHtml(item.imageCaption || "Reference image")}</figcaption></figure>` : `<div class="image-placeholder"><strong>Image needed</strong><span>Reference image needed.</span></div>`,
-    metadata: meta("Category", item.category) + meta("Day", item.day) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity) + meta("Delivery/setup", item.deliverySetupNotes) + meta("File/reference", item.fileUrl) + meta("Notes", item.notes),
+    body: detailsBlock("Open item details", [["Delivery/setup", item.deliverySetupNotes], ["File/reference", item.fileUrl], ["Notes", item.notes]], `${item.image ? `<figure class="reference-card"><img src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy"><figcaption>${escapeHtml(item.imageCaption || "Reference image")}</figcaption></figure>` : `<div class="image-placeholder"><strong>Image needed</strong><span>Reference image needed.</span></div>`}${item.referenceImages?.length ? `<div class="reference-grid">${item.referenceImages.map((image) => image.src ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>` : `<div class="image-placeholder"><strong>${escapeHtml(image.alt || "Image needed")}</strong><span>${escapeHtml(image.caption || "Reference image needed.")}</span></div>`).join("")}</div>` : ""}`),
+    metadata: meta("Category", item.category) + meta("Day", item.day) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Quantity", item.quantity),
     updateId: item.updateId
   })).join(""));
 }

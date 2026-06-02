@@ -6,7 +6,7 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 
 | Category | What is missing | Why it is needed | Website section | Who should provide | Priority | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| Images | Display cabinet image | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
+| Images | Display cabinet image | Added from Swag Delivery Brief reception display reference | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Added to Website |
 | Images | HORIZONS House images | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
 | Images | HORIZONS Hall images/logos | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
 | Images | HORIZONS Studio images/logos | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
@@ -111,7 +111,7 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Existing Missing Files | Health & Safety contact ownership | Confirm final health and safety owner and venue protocol. | Contacts / Escalation | Dawn Ramsden / Pili Lopez | High | File Needed |
 | Existing Missing Files | Venue map / exact location pins | Exact Google Maps/internal pins for all venue spaces. | Venue / Locations | Pili Lopez | High | File Needed |
 | Existing Missing Files | Weather location confirmation | Confirm final hotel/event coordinate for weather module. | Weather | Pili Lopez | High | File Needed |
-| Existing Missing Files | Display cabinet image | Reception display cabinet image. | HORIZONS House | Chris Manoe | High | File Needed |
+| Existing Missing Files | Display cabinet image | Reception display cabinet image added from Swag Delivery Brief. | HORIZONS House | Chris Manoe | High | Added to Website |
 | Existing Missing Files | Crew shirts data/image confirmation | Confirm crew shirts are correct or replace image/data. | Guest Materials | Samuel Price | High | File Needed |
 | Existing Missing Files | HORIZONS Hall / Studio / Podcast logos | Confirm logo files for programme grouping. | Brand / Logos | Samuel Price | High | File Needed |
 | Existing Missing Files | Wayfinding artwork files | Artwork files for all wayfinding moments. | Artwork / Wayfinding | Clownfish | High | File Needed |
@@ -120,3 +120,13 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Existing Missing Files | 2 wall foam board locations | Exact wall foam board locations. | Artwork / Wayfinding | Clownfish | High | File Needed |
 | Existing Missing Files | Staff list corrections | Confirm staff names, companies, roles, onsite days. | Staff Lists | Dawn Ramsden | High | File Needed |
 | Existing Missing Files | Slack production routing approval | Approve channels before adding production webhooks. | Slack | Samuel Price / Chris Manoe | High | File Needed |
+
+## Swag / Guest Materials / Room Drops
+
+| Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Hotel room-drop photo layout | Final photo layout if different from the brief page | Room-drop team needs exact placement before entering rooms | Room Drops | B Good / Six Senses / Samuel | High | Layout Needed |
+| HORIZONS House lanyards | Confirm whether lanyards are included with check-in caps | Brief says to check if lanyards can be included | HORIZONS House / Guest Materials | Samuel / Chris | Medium | Needs Confirmation |
+| HORIZONS pens / notepads leftover allocation | Owner for remaining spare quantity | Brief notes leftover allocation needs someone assigned, potentially Be Good | Guest Materials / HORIZONS Connect | B Good / Samuel | Medium | Owner Needed |
+| Crew shirts | Final quantity, sizes, and allocation | Visuals are added but sizing/allocation is not stored on the website | Guest Materials / Crew | Samuel | High | Info Needed |
+| Eve Blackwell namecard proof | Confirm whether this proof is historical only | Website contact data uses Eve Dusek; do not let old proof create a data conflict | Guest Materials / Namecards | Samuel / Chris | High | Needs Confirmation |
