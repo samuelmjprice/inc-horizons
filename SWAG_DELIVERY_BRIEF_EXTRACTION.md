@@ -16,7 +16,7 @@ The Swag Delivery Brief is image-based and has no useful text layer. Page images
 | --- | --- | --- |
 | HORIZONS House check-in gifts | HORIZONS baseball cap, 1x per person, 200 total: 100 black, 50 stone, 50 olive | HORIZONS House / Reception Display, Swag / Guest Materials |
 | HORIZONS House lanyard note | Check if lanyard can also be included with the HORIZONS House check-in gift | Swag / Guest Materials, Missing questions |
-| Lanyard colour mapping | black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other | Guest Materials / Guests / Namecards |
+| Lanyard colour references | Oatmeal, Ochre, Black, Blue, Sage | Guest Materials / Guests / Namecards |
 | HORIZONS House reception display | Chris leads layout, Clownfish supplies decal, small quantity of spare HORIZONS House swag held in cabinet | HORIZONS House / Reception Display |
 | Swag shoot | 8 June, 21:30, HORIZONS House, I.N.C staff: Chris, Dean, Samuel Hosier, Samuel Price, Tamy, Joshua | Swag schedule |
 | Welcome hotel room drops | 9 June, hotel rooms, Be Good & Six Senses | Room Drops |
@@ -37,7 +37,7 @@ The Swag Delivery Brief is image-based and has no useful text layer. Page images
 - Chair-drop item reference grid
 - HORIZONS House cap/display references
 - Lanyard colour references
-- Approved lanyard colour mapping added: black Aream & Co., brown Crew, blue PC & console, green mobile consumer, oatmeal other.
+- Official lanyard colour references added: Oatmeal, Ochre, Black, Blue, Sage. Group meanings still need confirmation.
 - Hand-fan allocation page
 - Pens/notepads allocation page
 - Studio reserved swag/spares page
@@ -64,7 +64,7 @@ The Swag Delivery Brief is image-based and has no useful text layer. Page images
 ## Items Needing Confirmation
 
 - Whether lanyards are included with HORIZONS House check-in gifts.
-- Which individual attendees should be PC & console or mobile consumer if blue/green lanyard assignment is required; the current workbook only contains badge name and company.
+- Lanyard colour group meanings for Oatmeal, Ochre, Black, Blue, and Sage.
 - Final photo layout for each hotel room drop.
 - Leftover pen/notepad allocation owner, potentially Be Good.
 - Whether the supplied Eve Blackwell namecard proof is historical only; the live site should continue using the approved Eve Dusek contact data unless told otherwise.

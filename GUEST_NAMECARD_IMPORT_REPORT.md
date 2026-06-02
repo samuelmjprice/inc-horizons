@@ -16,9 +16,9 @@ Date: 2 June 2026
 - Missing company values: 1
 - Sensitive fields found in this workbook: No
 - Sensitive fields imported: No
-- Lanyard colour key added after approval: black = Aream & Co.; brown = Crew; blue = PC & console; green = mobile consumer; oatmeal = other.
-- Attendee-level colour assignments added where the current workbook/company data supports it: Aream & Co. = black, crew/internal companies = brown, remaining guests default to oatmeal/other.
-- Blue PC & console and green mobile consumer person-level splits need attendee category data if they should override the oatmeal/default assignment.
+- Official Swag Delivery Brief correction removed attendee-level lanyard colour assignments because the PDF only confirms lanyard colour references, not group meanings.
+- Current official lanyard references are Oatmeal, Ochre, Black, Blue, and Sage.
+- Lanyard group meanings are marked `Group Meaning Needed` until Samuel/Chris/Aream confirm them.
 
 ## Sections Updated
 
@@ -58,4 +58,4 @@ Date: 2 June 2026
 
 The workbook does not include role/title, VIP/category, podcast, speaker, or status columns. Those fields were not invented. The website shows only safe lanyard/namecard fields and clear missing/confirmation labels.
 
-The workbook also does not include a PC & console vs mobile consumer category field. The approved colour legend is stored on the website, but any individual blue/green lanyard assignments need an attendee-level category list before they can be applied safely.
+The workbook also does not include a lanyard colour/group field. The website therefore shows official lanyard references only and does not assign lanyard meanings per guest.

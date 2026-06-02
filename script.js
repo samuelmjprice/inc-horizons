@@ -19,7 +19,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-swag-brief1";
+const APP_VERSION = "20260602-swag-correction1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -137,6 +137,18 @@ const detailsBlock = (summary, rows = [], extra = "") => {
   if (!content.trim()) return "";
   return `<details class="details"><summary><span>${escapeHtml(summary)}</span></summary><div class="details-content">${content}</div></details>`;
 };
+const referenceGallery = (images = []) => `
+  <div class="reference-grid compact-reference-grid">
+    ${asList(images).map((image) => image?.src
+      ? `<figure class="reference-card"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || image.caption || "Reference image")}" loading="lazy"><figcaption>${escapeHtml(image.caption || "Reference image")}</figcaption></figure>`
+      : `<div class="image-placeholder"><strong>${escapeHtml(image?.alt || "Image needed")}</strong><span>${escapeHtml(image?.caption || "Reference image needed.")}</span></div>`).join("")}
+  </div>
+`;
+const allocationTable = (rows = []) => asList(rows).length ? `
+  <div class="allocation-table">
+    ${rows.map((row) => `<div><span>${escapeHtml(row.label || row.title || "Item")}</span><strong>${escapeHtml(row.quantity || row.value || "Needed")}</strong></div>`).join("")}
+  </div>
+` : "";
 const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
 const isLiveRecord = (item = {}) => !item.hiddenFromLive && !item.archived && !/not needed/i.test(text(item.status));
 const liveItems = (items = []) => items.filter(isLiveRecord);
@@ -477,6 +489,7 @@ function renderAll() {
   renderWorkstreams();
   renderHorizonsHouse();
   renderRoomDrops();
+  renderSwagDelivery();
   renderSwagSchedule();
   renderSwag();
   renderSpeakers();
@@ -1049,7 +1062,7 @@ function renderGuests() {
     ["Namecards ready", ready, "Safe display records"],
     ["Missing info", missing, "Needs follow-up"],
     ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"],
-    ["Lanyard colours", "5 groups", "Black Aream, brown crew, blue PC/console, green mobile, oatmeal other"]
+    ["Lanyard colours", "5 refs", "Oatmeal, Ochre, Black, Blue, Sage. Meanings needed."]
   ].map(([label, value, note]) => `
     <div class="guest-summary-card">
       <span>${escapeHtml(label)}</span>
@@ -1097,7 +1110,7 @@ function renderGuests() {
         </div>
         <p class="guest-card-company">${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>
         ${(role || guestType || category) ? `<div class="guest-summary-line">${[role, guestType, category].filter(Boolean).map((value) => `<span>${escapeHtml(value)}</span>`).join("")}</div>` : ""}
-        <div class="tag-stack guest-status-tags">${tag(item.lanyard_colour || "Lanyard Colour Needed")}${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
+        <div class="tag-stack guest-status-tags">${item.lanyard_colour ? tag(item.lanyard_colour) : ""}${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
         <button class="guest-detail-toggle" type="button" data-guest-toggle aria-expanded="false" aria-controls="${escapeHtml(panelId)}">View details</button>
         <div class="guest-detail-panel" id="${escapeHtml(panelId)}" hidden>
           ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
@@ -1333,30 +1346,121 @@ function renderWorkstreams() {
 
 function renderHorizonsHouse() {
   setHtml("[data-horizons-house]", state.data.horizonsHouse.map((item) => `
-    <div class="visual-block">
-      ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.notes)}</p><h3>Setup instructions</h3>${list(item.setupInstructions)}<h3>Checklist</h3>${list(item.checklist)}`, metadata: meta("Owner", item.owner), updateId: item.updateId })}
-      <div class="reference-grid">
-        ${(item.referenceImages || []).map((image) => image.src
-          ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`
-          : `<div class="image-placeholder"><strong>${escapeHtml(image.alt || "Image needed")}</strong><span>${escapeHtml(image.caption || "Reference image needed.")}</span></div>`).join("")}
-        ${item.referenceImages?.length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>HORIZONS test reception display, reception display, and display cabinet reference images.</span></div>`}
-      </div>
+    <div class="visual-block official-brief-block">
+      ${card({
+        title: item.title,
+        status: item.status,
+        body: `<p>${escapeHtml(item.notes)}</p>
+          <div class="brief-summary-grid">
+            ${meta("Location", item.location)}
+            ${meta("Layout lead", item.layoutLead)}
+            ${meta("Decal supplier", item.decalSupplier)}
+          </div>
+          ${detailsBlock("Open reception display details", [["Owner", item.owner]], `<h3>Instructions</h3>${list(item.setupInstructions)}<h3>Checklist</h3>${list(item.checklist)}${item.checkInGifts ? `<h3>Check-in gifts</h3>${list(item.checkInGifts.confirmedNotes)}<h3>Cap quantities</h3>${list(item.checkInGifts.capQuantities)}${meta("Additional note", item.checkInGifts.additionalNote)}` : ""}${item.swagShoot ? `<h3>Swag shoot</h3>${meta("Date", item.swagShoot.date)}${meta("Time", item.swagShoot.time)}${meta("Location", item.swagShoot.location)}${meta("Team", item.swagShoot.team)}${meta("People", (item.swagShoot.people || []).join(", "))}` : ""}`)}`,
+        metadata: meta("Owner", item.owner),
+        updateId: item.updateId
+      })}
+      ${item.referenceImages?.length ? referenceGallery(item.referenceImages) : `<div class="image-placeholder"><strong>Image needed</strong><span>Reception display and display-cabinet reference images.</span></div>`}
     </div>
   `).join(""));
 }
 
 function renderRoomDrops() {
   setHtml("[data-room-drops]", state.data.roomDrops.map((item) => `
-    <div class="visual-block">
-      ${card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.deliveryNotes)}</p><p><strong>${escapeHtml(item.handling)}</strong></p>${detailsBlock("Open room-drop details", [["Date", item.date], ["Location", item.location], ["Welcome note", item.welcomeNote]], `<h3>What is being dropped</h3>${list(item.items)}<h3>Quality control</h3>${list(item.qualityChecklist)}`)}`, metadata: meta("Owner", item.owner) + meta("Responsible teams", item.responsibleTeams.join(", ")), updateId: item.updateId })}
-      <div class="reference-grid">
-        ${(item.referenceImages || []).map((image) => image.src
-          ? `<figure class="reference-card"><img src="${image.src}" alt="${escapeHtml(image.alt)}" loading="lazy"><figcaption>${escapeHtml(image.caption)}</figcaption></figure>`
-          : `<div class="image-placeholder"><strong>${escapeHtml(image.alt || "Image needed")}</strong><span>${escapeHtml(image.caption || "Reference image needed.")}</span></div>`).join("")}
-        ${(item.referenceImages || []).length ? "" : `<div class="image-placeholder"><strong>Image needed</strong><span>Room-drop and guest-gift reference images.</span></div>`}
-      </div>
+    <div class="visual-block official-brief-block">
+      ${card({
+        title: item.title,
+        status: item.status,
+        body: `<p>${escapeHtml(item.deliveryNotes)}</p>
+          <p><strong>${escapeHtml(item.handling)}</strong></p>
+          ${detailsBlock("Open room-drop details", [["Date", item.date], ["Location", item.location], ["Execution team", item.executionTeam], ["Welcome note", item.welcomeNote]], `<h3>Items included</h3>${list(item.items)}<h3>Setup / quality control</h3>${list(item.qualityChecklist)}`)}`,
+        metadata: meta("Owner", item.owner) + meta("Responsible teams", (item.responsibleTeams || []).join(", ")),
+        updateId: item.updateId
+      })}
+      ${(item.referenceImages || []).length ? referenceGallery(item.referenceImages) : `<div class="image-placeholder"><strong>Image needed</strong><span>Room-drop and guest-gift reference images.</span></div>`}
     </div>
   `).join(""));
+}
+
+function renderSwagDelivery() {
+  const data = state.data.swagDelivery || {};
+  if (!Object.keys(data).length) {
+    setHtml("[data-swag-delivery]", "");
+    return;
+  }
+  const timeline = asList(data.timeline);
+  const allocationCards = asList(data.allocations).map((item) => card({
+    title: item.title,
+    status: item.status || "Confirmed",
+    body: `${allocationTable(item.rows)}${list(item.notes)}`,
+    metadata: meta("Total quantity", item.totalQuantity) + meta("Primary use", item.primaryUse) + meta("Location", item.location) + meta("Date", item.date) + meta("Responsible team", item.responsibleTeam),
+    updateId: `swag-allocation:${slug(item.title)}`
+  })).join("");
+  const lanyard = data.lanyards || {};
+  setHtml("[data-swag-delivery]", `
+    <div class="official-brief-dashboard">
+      ${card({
+        title: "Official Swag & Delivery Timeline",
+        status: data.status || "Reference",
+        body: `<div class="timeline-list compact-timeline">${timeline.map((item) => `
+          <div class="timeline-row">
+            <strong>${escapeHtml([item.date, item.time].filter(Boolean).join(" | "))}</strong>
+            <span>${escapeHtml(item.title)}</span>
+            <em>${escapeHtml(item.location || item.details || "")}</em>
+            ${tag(item.status)}
+          </div>
+        `).join("")}</div>${detailsBlock("Open source details", [["Source PDF", data.sourceDocument], ["Last updated", data.lastUpdated]], "")}`,
+        updateId: "swag-delivery:timeline"
+      })}
+      <div class="cards-grid brief-feature-grid">
+        ${data.checkInGifts ? card({
+          title: data.checkInGifts.title,
+          status: data.checkInGifts.status,
+          body: `<p>${escapeHtml(data.checkInGifts.quantityRule)}</p>${detailsBlock("Open check-in gift details", [["Date", data.checkInGifts.date], ["Location", data.checkInGifts.location], ["Gift", data.checkInGifts.gift], ["Additional note", data.checkInGifts.additionalNote]], `<h3>Cap quantities</h3>${list(data.checkInGifts.capQuantities)}<h3>Confirmed notes</h3>${list(data.checkInGifts.confirmedNotes)}${referenceGallery(data.checkInGifts.images)}`)}`,
+          metadata: meta("Location", data.checkInGifts.location),
+          updateId: "swag-delivery:check-in-gifts"
+        }) : ""}
+        ${data.chairDrop ? card({
+          title: data.chairDrop.title,
+          status: data.chairDrop.status,
+          body: `<p>${escapeHtml(data.chairDrop.setupType)} for ${escapeHtml(data.chairDrop.audience)}.</p>${detailsBlock("Open chair drop details", [["Date", data.chairDrop.date], ["Time", data.chairDrop.time], ["Location", data.chairDrop.location], ["Execution team", data.chairDrop.executionTeam]], `<h3>Chair drop items</h3>${list(data.chairDrop.items)}<h3>Setup notes</h3>${list(data.chairDrop.setupNotes)}${referenceGallery(data.chairDrop.images)}`)}`,
+          metadata: meta("Location", data.chairDrop.location),
+          updateId: "swag-delivery:chair-drop"
+        }) : ""}
+        ${data.swagShoot ? card({
+          title: data.swagShoot.title,
+          status: data.swagShoot.status,
+          body: `<p>${escapeHtml(data.swagShoot.timingNote || "")}</p>`,
+          metadata: meta("Date", data.swagShoot.date) + meta("Time", data.swagShoot.time) + meta("Location", data.swagShoot.location) + meta("Team", data.swagShoot.team) + meta("People", (data.swagShoot.people || []).join(", ")),
+          updateId: "swag-delivery:swag-shoot"
+        }) : ""}
+      </div>
+      <details class="details brief-detail-group">
+        <summary><span>Swag Allocation</span>${tag("Reference")}</summary>
+        <div class="details-content cards-grid">${allocationCards}</div>
+      </details>
+      <details class="details brief-detail-group">
+        <summary><span>Visual References / Lanyards</span>${tag(lanyard.status || "Needs Confirmation")}</summary>
+        <div class="details-content">
+          ${list(lanyard.notes)}
+          ${allocationTable(asList(lanyard.colours).map((item) => ({ label: item.colour, quantity: item.groupMeaning || "Group Meaning Needed" })))}
+          ${referenceGallery(lanyard.images)}
+        </div>
+      </details>
+      <details class="details brief-detail-group">
+        <summary><span>Execution Checklist</span>${tag("Reference")}</summary>
+        <div class="details-content timeline-list compact-timeline">
+          ${asList(data.executionChecklist).map((item) => `
+            <div class="timeline-row">
+              <strong>${escapeHtml([item.date, item.time].filter(Boolean).join(" | "))}</strong>
+              <span>${escapeHtml(item.area)}</span>
+              <em>${escapeHtml(item.task)}</em>
+            </div>
+          `).join("")}
+        </div>
+      </details>
+    </div>
+  `);
 }
 
 function renderSwagSchedule() {
