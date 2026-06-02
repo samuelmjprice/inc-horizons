@@ -13,13 +13,14 @@ const state = {
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
+  menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   captureSuggestions: [],
   captureLog: [],
   dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260602-final-swag-assets1";
+const APP_VERSION = "20260602-final-menus1";
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -455,6 +456,10 @@ function renderFilters() {
   buildOptions($('[data-guest-filter="company"]'), unique(guests.map((x) => x.company_display_name || x.company)), "companies");
   buildOptions($('[data-guest-filter="status"]'), unique(guests.map((x) => x.status)), "statuses");
   buildOptions($('[data-guest-filter="missing"]'), unique(guests.flatMap((x) => x.missing_fields || [])), "missing fields");
+  const menus = d.menus || [];
+  buildOptions($('[data-menu-filter="date"]'), unique(menus.map((x) => x.date)), "dates");
+  buildOptions($('[data-menu-filter="location"]'), unique(menus.map((x) => x.location)), "locations");
+  buildOptions($('[data-menu-filter="meal"]'), unique(menus.map((x) => x.meal_type)), "meal types");
 }
 
 function renderAll() {
@@ -468,6 +473,7 @@ function renderAll() {
   renderCallSheet();
   renderLocationSchedules();
   renderRestaurants();
+  renderMenus();
   renderTravel();
   renderDepartmentTabs();
   renderDepartmentFocus();
@@ -816,6 +822,7 @@ function renderCallSheet() {
   ].map(([title, value]) => `<details class="details note-detail"><summary><span>${escapeHtml(title)}</span>${tag(/needed|confirmation|tbc/i.test(value || "") ? "Needs Confirmation" : "Reference")}</summary><div class="details-content"><p>${escapeHtml(value || "Notes needed")}</p>${updateModule(`call-sheet-note:${slug(state.activeCallSheetDay)}:${slug(title)}`)}</div></details>`).join(""));
   setHtml("[data-call-sheet-links]", [
     card({ title: "Documents / links", status: sheet.documents?.length ? "Reference" : "File Needed", body: list(sheet.documents) || "<p>Call sheet documents still need linking.</p>", updateId: `call-sheet-docs:${slug(state.activeCallSheetDay)}` }),
+    card({ title: "Linked final menus", status: sheet.linkedMenuIds?.length ? "Final" : "Needs Confirmation", body: sheet.linkedMenuIds?.length ? `<p>${escapeHtml(sheet.linkedMenuIds.length)} final menu${sheet.linkedMenuIds.length === 1 ? "" : "s"} linked for this day.</p>` : "<p>No final menus linked to this call sheet day yet.</p>", footer: sheet.linkedMenuIds?.length ? `<div class="contact-actions"><a href="#menus">Open Menus</a></div>` : "", updateId: `call-sheet-menus:${slug(state.activeCallSheetDay)}` }),
     card({ title: "Red flags for this day", status: sheet.redFlags?.length ? "Watch" : "On Track", body: list(sheet.redFlags) || "<p>No day-specific red flags listed.</p>", updateId: `call-sheet-redflags:${slug(state.activeCallSheetDay)}` }),
     card({ title: "Missing files for this day", status: sheet.missingFiles?.length ? "File Needed" : "On Track", body: list(sheet.missingFiles) || "<p>No day-specific missing files listed.</p>", updateId: `call-sheet-missing:${slug(state.activeCallSheetDay)}` })
   ].join(""));
@@ -904,6 +911,7 @@ function renderRestaurants() {
                 ${meta("Menu", item.menuFile)}
                 ${meta("Status", item.status)}
               </div>
+              ${(item.linkedMenuIds || []).length ? `<div class="contact-actions menu-links">${item.linkedMenuIds.map((id) => `<a href="#menus" data-menu-open="${escapeHtml(id)}">Open final menu</a>`).join("")}</div>` : ""}
               ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
               ${updateModule(item.updateId)}
             </div>
@@ -920,6 +928,73 @@ function renderRestaurants() {
       updateId: `restaurant:${slug(restaurant.restaurantName)}`
     });
   }).join("") || empty("No restaurant schedules available yet."));
+}
+
+function renderMenus() {
+  const filters = state.menuFilters;
+  const menus = liveItems(state.data.menus || [])
+    .filter((item) => !filters.query || includes(item, filters.query))
+    .filter((item) => !filters.date || item.date === filters.date)
+    .filter((item) => !filters.location || item.location === filters.location)
+    .filter((item) => !filters.meal || item.meal_type === filters.meal)
+    .filter((item) => !filters.needs || (item.needs_confirmation || []).length || /needs confirmation/i.test(item.location))
+    .sort((a, b) => `${a.date} ${a.title}`.localeCompare(`${b.date} ${b.title}`));
+  setHtml("[data-menu-count]", `${menus.length} menu${menus.length === 1 ? "" : "s"}`);
+  const grouped = groupBy(menus, (item) => item.date || "Date Needs Confirmation");
+  const html = Object.entries(grouped).map(([date, rows]) => `
+    <section class="menu-date-group" aria-label="Menus for ${escapeHtml(date)}">
+      <div class="subsection-heading">
+        <h3>${escapeHtml(date)}</h3>
+        <span>${rows.length} menu${rows.length === 1 ? "" : "s"}</span>
+      </div>
+      <div class="cards-grid menu-card-grid">
+        ${rows.map((item) => {
+          const relatedRestaurantCount = (item.related_restaurant_schedule_ids || []).length;
+          const relatedCallSheetCount = (item.related_call_sheet_ids || []).length;
+          const detail = `
+            <div class="menu-detail-grid">
+              ${(item.sections || []).map((section) => `
+                <div class="menu-section-block">
+                  <strong>${escapeHtml(section.heading)}</strong>
+                  ${list(section.items || [])}
+                </div>
+              `).join("")}
+            </div>
+            ${item.allergen_key ? `<p class="fine-print">${escapeHtml(item.allergen_key)}</p>` : ""}
+            <div class="contact-actions">
+              <a href="${escapeHtml(item.source_url || item.source_asset)}" target="_blank" rel="noreferrer">View source PDF page</a>
+              ${relatedRestaurantCount ? `<a href="#restaurants">Open restaurant schedule</a>` : ""}
+              ${relatedCallSheetCount ? `<a href="#call-sheet">Open call sheet</a>` : ""}
+            </div>
+          `;
+          return `
+            <article class="card menu-card" data-menu-card="${escapeHtml(item.id)}">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">${escapeHtml(item.date)}</p>
+                  <h3>${escapeHtml(item.title)}</h3>
+                </div>
+                <div class="tag-stack">${tag(item.status)}${(item.needs_confirmation || []).length ? tag("Needs Confirmation") : ""}</div>
+              </div>
+              <p>${escapeHtml((item.contains || []).slice(0, 4).join(" / "))}</p>
+              <div class="meta-list compact-meta">
+                ${meta("Meal / session", item.meal_type)}
+                ${meta("Location", item.location)}
+                ${meta("Source page", (item.source_pages || []).join(", "))}
+                ${meta("Restaurant links", relatedRestaurantCount ? `${relatedRestaurantCount} linked` : "Needs Confirmation")}
+                ${meta("Call sheet", relatedCallSheetCount ? "Linked" : "Needs Confirmation")}
+              </div>
+              <details class="details menu-details">
+                <summary><span>Open menu</span><span class="summary-hint">PDF page ${(item.source_pages || []).join(", ")}</span></summary>
+                <div class="details-content">${detail}${updateModule(item.updateId)}</div>
+              </details>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `).join("");
+  setHtml("[data-menus]", html || empty("No menus match the current filters."));
 }
 
 function renderContentDayTabs() {
@@ -1728,6 +1803,7 @@ function setupSectionNavigation() {
     ["daily", "Daily Focus"],
     ["location-schedules", "Location Schedules"],
     ["restaurants", "Restaurants"],
+    ["menus", "Menus"],
     ["tasks", "Tasks"],
     ["contacts", "Contacts"],
     ["guests", "Guests"],
@@ -1845,6 +1921,13 @@ function bindEvents() {
   $$("[data-travel-filter]").forEach((select) => select.addEventListener("change", (event) => { state.travelFilters[event.target.dataset.travelFilter] = event.target.value; renderTravel(); }));
   $$("[data-podcast-filter]").forEach((select) => select.addEventListener("change", (event) => { state.podcastFilters[event.target.dataset.podcastFilter] = event.target.value; renderPodcast(); }));
   $$("[data-content-filter]").forEach((select) => select.addEventListener("change", (event) => { state.contentFilters[event.target.dataset.contentFilter] = event.target.value; renderContentCapture(); }));
+  const menuSearch = $("[data-menu-search]");
+  if (menuSearch) menuSearch.addEventListener("input", (event) => { state.menuFilters.query = event.target.value.trim(); renderMenus(); });
+  $$("[data-menu-filter]").forEach((control) => control.addEventListener("change", (event) => {
+    if (event.target.dataset.menuFilter === "needs") state.menuFilters.needs = event.target.checked;
+    else state.menuFilters[event.target.dataset.menuFilter] = event.target.value;
+    renderMenus();
+  }));
   const guestSearch = $("[data-guest-search]");
   if (guestSearch) guestSearch.addEventListener("input", (event) => { state.guestFilters.query = event.target.value.trim(); renderGuests(); });
   $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
@@ -1862,9 +1945,14 @@ function bindEvents() {
     state.podcastFilters = { day: "", guest: "", status: "", location: "" };
     state.contentFilters = { owner: "", day: "", department: "", location: "", priority: "", status: "" };
     state.guestFilters = { query: "", company: "", status: "", missing: "", quick: "all" };
+    state.menuFilters = { query: "", date: "", location: "", meal: "", needs: false };
     $("[data-global-search]").value = "";
     if (guestSearch) guestSearch.value = "";
-    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter]").forEach((select) => select.value = "");
+    if (menuSearch) menuSearch.value = "";
+    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter], [data-menu-filter]").forEach((select) => {
+      if (select.type === "checkbox") select.checked = false;
+      else select.value = "";
+    });
     renderAll();
   });
   document.addEventListener("click", async (event) => {
@@ -1914,6 +2002,20 @@ function bindEvents() {
     if (collapseGuests) { $$("[data-guest-card]").forEach((card) => setGuestDetailState(card, false)); return; }
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
+    const expandMenus = event.target.closest("[data-menu-expand-all]");
+    if (expandMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = true; }); return; }
+    const collapseMenus = event.target.closest("[data-menu-collapse-all]");
+    if (collapseMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = false; }); return; }
+    const openMenu = event.target.closest("[data-menu-open]");
+    if (openMenu) {
+      event.preventDefault();
+      const card = document.querySelector(`[data-menu-card="${CSS.escape(openMenu.dataset.menuOpen)}"]`);
+      if (card) {
+        card.querySelector("details.menu-details").open = true;
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return;
+    }
     const swagTab = event.target.closest("[data-swag-tab]");
     if (swagTab) { state.activeSwagSchedule = swagTab.dataset.swagTab; renderSwagSchedule(); }
     const copySlack = event.target.closest("[data-copy-slack-summary]");

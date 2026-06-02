@@ -578,6 +578,53 @@ select {
   gap: 1.1rem;
 }
 
+.menu-date-groups {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.menu-date-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.subsection-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.45rem;
+}
+
+.subsection-heading h3 {
+  margin: 0;
+}
+
+.subsection-heading span,
+.fine-print {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.menu-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.menu-section-block {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: rgba(255, 253, 248, 0.56);
+  padding: 0.75rem;
+}
+
+.menu-section-block ul {
+  margin-bottom: 0;
+}
+
 .compact-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1807,6 +1854,10 @@ body.admin-view .admin-tool-section,
   .guest-summary-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .menu-detail-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1849,6 +1900,17 @@ body.admin-view .admin-tool-section,
 
   .reference-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-detail-grid,
+  .menu-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subsection-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   .allocation-table div {

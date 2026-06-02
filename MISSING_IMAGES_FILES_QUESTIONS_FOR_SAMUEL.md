@@ -134,3 +134,13 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | HORIZONS pens / notepads leftover allocation | Owner for remaining spare quantity | Brief notes leftover allocation needs someone assigned, potentially Be Good | Guest Materials / HORIZONS Connect | B Good / Samuel | Medium | Owner Needed |
 | Crew shirts | Final quantity, sizes, and allocation | Visuals are added but sizing/allocation is not stored on the website | Guest Materials / Crew | Samuel | High | Info Needed |
 | Eve Blackwell namecard proof | Confirm whether this proof is historical only | Website contact data uses Eve Dusek; do not let old proof create a data conflict | Guest Materials / Namecards | Samuel / Chris | High | Needs Confirmation |
+## Final Menus
+
+| Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Final menu locations | Confirm locations for all menus marked Location Needs Confirmation | Some PDF pages show menu content/date but no clear location | Menus / Restaurant Schedules / Call Sheet | Samuel / B Good / Six Senses | High | Needs Confirmation |
+| Restaurant schedule menu links | Confirm any menu-to-restaurant links that were not safely matched by location | Prevents menus being attached to the wrong meal space | Menus / Restaurant Schedules | Samuel / B Good | High | Needs Confirmation |
+| Dinner Drinks locations | Confirm exact locations for 10.06.26 and 11.06.26 Dinner Drinks | PDF pages list drinks but not explicit venue on the page | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
+| Tea & Coffee location | Confirm location for 12.06.26 Tea & Coffee | Page 34 has menu content but no clear location | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
+| Pool & Pharmacy Bar naming | Confirm final approved display name if Pharmacy Bar should be separate from Pool | Prevents location naming mismatch in menus and location schedules | Menus / Locations | Samuel / Six Senses | Medium | Needs Confirmation |
+

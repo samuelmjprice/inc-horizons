@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "2 June 2026, 16:35 BST",
+    "lastUpdated": "2 June 2026, 17:15 BST",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,10 +22,10 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex final uploaded swag asset pass",
+    "updatedBy": "Codex final menus import",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
-    "last_updated": "2026-06-02T16:35:00+01:00",
-    "updated_at": "2026-06-02T16:35:00+01:00",
+    "last_updated": "2026-06-02T17:15:00+01:00",
+    "updated_at": "2026-06-02T17:15:00+01:00",
     "lanyardColourMapping": [
       {
         "colour": "Oatmeal",
@@ -25611,6 +25611,18 @@
   ],
   "documents": [
     {
+      "id": "doc-final-horizons-menus-wip5",
+      "title": "Final HORIZONS Menus WIP5",
+      "description": "Final menu source for 9-12 June menu cards. Open individual menu cards for page references.",
+      "category": "Menus",
+      "day": "9-12 June",
+      "type": "PDF",
+      "owner": "B Good / Six Senses / Samuel",
+      "status": "Final",
+      "link": "assets/menus/final/horizons-menus-wip5.pdf",
+      "updateId": "doc:final-horizons-menus-wip5"
+    },
+    {
       "id": "doc-final-sync-workbook",
       "title": "HORIZONS Website Final Schedule Sync Workbook",
       "description": "Latest workbook used to sync schedule, contacts, locations, menus, and data gaps.",
@@ -27865,589 +27877,1736 @@
   ],
   "menus": [
     {
-      "id": "menu-1",
-      "day": "All",
-      "meal": "In Room Dining",
-      "location": "Location needed",
-      "menuTitle": "Selected in-room dining items",
-      "dietaryNotes": "",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Brava's Potatoes; Farmers Chicken Salad; Xarraca Salad; Beef Burger; Chicken Sandwich; Sweet Potato Fries; Seasonal Fruit Platter",
-      "visibility": "Team / Admin",
-      "updateId": "menu:1"
-    },
-    {
-      "id": "menu-2",
-      "day": "All",
-      "meal": "Allergen Key",
-      "location": "Location needed",
-      "menuTitle": "Food allergen key",
-      "dietaryNotes": "",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "N Nuts; LU Lupin; D Dairy; E Eggs; F Fish; C Celery; M Mustard; SY Soy; SD Sulphur Dioxide; ML Molluscs; SE Sesame; CR Crustacean; G Gluten; P Peanuts",
-      "visibility": "Team / Admin",
-      "updateId": "menu:2"
-    },
-    {
-      "id": "menu-3",
-      "day": "Monday 8 June",
-      "meal": "Team Dinner",
-      "location": "Farmers Market Terrace",
-      "menuTitle": "Farmers Market Terrace · 19:30–21:00",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "Needs Confirmation",
-      "fileUrl": "",
-      "notes": "Aream & Co. Team Dinner; Italian/Orchard à la carte; guarantee 20 guests; note: ADD IN CREW DINNER HERE IN HORIZON HOUSE",
-      "visibility": "Team / Admin",
-      "updateId": "menu:3"
-    },
-    {
-      "id": "menu-4",
+      "id": "menu_09-06-26_buffet-lunch",
+      "title": "Buffet Lunch",
+      "date": "09.06.26",
       "day": "Tuesday 9 June",
-      "meal": "Welcome / Check-in F&B",
-      "location": "HORIZONS House",
-      "menuTitle": "HORIZONS House · 12:00–19:00",
-      "dietaryNotes": "",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Cold towels; welcome drinks; light lunch 11:00–13:00 for 40 pax; buffet lunch 13:00–14:30 for 30 pax; afternoon food 15:00–17:00 for 30 pax",
-      "visibility": "Team / Admin",
-      "updateId": "menu:4"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Buffet Lunch",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        2
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=2",
+      "contains": [
+        "Salad bar",
+        "Breads",
+        "Mains",
+        "Sides",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Salad Bar",
+          "items": [
+            "Iceberg, lambs lettuce, rocket, romaine, Batavia, tomatoes, cucumber, red onion, pickles",
+            "Beetroot salad with watermelon, feta, rucola and mustard seeds",
+            "Ibicenco salad with tomato, bell peppers, potatoes and Peix Sec",
+            "Traditional Niçoise salad with seared red tuna"
+          ]
+        },
+        {
+          "heading": "Breads",
+          "items": [
+            "Fresh baked bread selection",
+            "Homemade focaccia and olive oil"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Baked salmon trout with fennel, shallot and capers",
+            "Grilled chicken supreme with roasted tomatoes"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Creamy mashed potato",
+            "Fregola Sarda with Mediterranean vegetables"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Chocolate and caramel tart",
+            "Almond and caramelized banana",
+            "Seasonal sliced fruits"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-tuesday-9-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:09-06-26:buffet-lunch"
     },
     {
-      "id": "menu-5",
+      "id": "menu_09-06-26_bbq-dinner",
+      "title": "BBQ Dinner",
+      "date": "09.06.26",
       "day": "Tuesday 9 June",
-      "meal": "Welcome Dinner",
-      "location": "Pool Deck & Beach",
-      "menuTitle": "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "First evening drinks reception 170 pax; BBQ dinner 150 pax; late snacks Speakeasy/Arcade/Tournament 23:30–01:00 for 70 pax",
-      "visibility": "Team / Admin",
-      "updateId": "menu:5"
+      "location": "Location Needs Confirmation",
+      "meal_type": "BBQ Dinner",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        3
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=3",
+      "contains": [
+        "Starters & mezze",
+        "Grill",
+        "Sides",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters & Mezze",
+          "items": [
+            "Romaine lettuce with parmesan, anchovies and crispy sourdough croutons",
+            "Organic quinoa with green apple, celeriac and crushed walnuts",
+            "Brava eggplant",
+            "Leeks with romesco",
+            "Sweet potato with pesto",
+            "Hummus",
+            "Babaganoush"
+          ]
+        },
+        {
+          "heading": "Grill",
+          "items": [
+            "Marinated Spanish beef striploin",
+            "Marinated chicken breast",
+            "Cauliflower steak",
+            "Chilli and citrus prawns",
+            "Seabass"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Roasted broccolini with almonds",
+            "Roasted sweetcorn",
+            "Baked potatoes with sour cream and chives",
+            "Sweet potato with oyster mushroom"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Selection of financiers",
+            "Fruit platter",
+            "Chocolate mousse",
+            "Apple pie",
+            "Lemon pie",
+            "Individual ice cream carts"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-tuesday-9-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:09-06-26:bbq-dinner"
     },
     {
-      "id": "menu-6",
+      "id": "menu_09-06-26_evening-welcome-drinks",
+      "title": "Evening Welcome Drinks",
+      "date": "09.06.26",
+      "day": "Tuesday 9 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Drinks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        4
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=4",
+      "contains": [
+        "Soft drinks",
+        "Sparkling",
+        "White wine",
+        "Red wine",
+        "Beer"
+      ],
+      "sections": [
+        {
+          "heading": "Soft Drinks",
+          "items": [
+            "Club soda",
+            "Tonic water",
+            "Ginger ale",
+            "Lemonisla",
+            "Coca-Cola and Diet Coke",
+            "Mineral still and sparkling water",
+            "Cortese Organic cola, lemonade and blood orange"
+          ]
+        },
+        {
+          "heading": "Wine / Beer",
+          "items": [
+            "Cava Reserve",
+            "Ribas Blanc, Mallorcan",
+            "Marques de Murrieta, Rioja",
+            "Estrella Galicia"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-tuesday-9-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:09-06-26:evening-welcome-drinks"
+    },
+    {
+      "id": "menu_09-06-26_late-night-snacks",
+      "title": "Late Night Snacks",
+      "date": "09.06.26",
+      "day": "Tuesday 9 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Late Night Snacks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        5
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=5",
+      "contains": [
+        "Beef sliders",
+        "Chicken hot dogs",
+        "French fries in cones",
+        "Signature dips",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Snacks",
+          "items": [
+            "Beef sliders",
+            "Chicken hot dogs",
+            "French fries in cones with signature dips"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-tuesday-9-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:09-06-26:late-night-snacks"
+    },
+    {
+      "id": "menu_10-06-26_breakfast",
+      "title": "Breakfast",
+      "date": "10.06.26",
       "day": "Wednesday 10 June",
-      "meal": "Breakfast / Coffee / Lunch",
-      "location": "Location needed",
-      "menuTitle": "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Breakfast menu; coffee break 150 pax; lunch 170 pax; rolling refreshments Cliffhanger Mansion 14:15–18:15 for 10 pax",
-      "visibility": "Team / Admin",
-      "updateId": "menu:6"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Breakfast",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        7,
+        8,
+        9
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=7",
+      "contains": [
+        "A la carte sides",
+        "Eggs",
+        "Cold buffet",
+        "Hot drinks",
+        "Cold drinks",
+        "Smoothies",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "A La Carte",
+          "items": [
+            "Avocado toast",
+            "Scrambled silken tofu",
+            "Cured trout",
+            "Oat porridge",
+            "Açaí bowl",
+            "Pancakes"
+          ]
+        },
+        {
+          "heading": "Eggs",
+          "items": [
+            "Freestyle eggs",
+            "Market fried eggs",
+            "Egg Avoquit",
+            "Eggs Benedict"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Wilted spinach",
+            "Roasted baby potatoes",
+            "Chicken sausage",
+            "Turkey bacon"
+          ]
+        },
+        {
+          "heading": "Cold Buffet",
+          "items": [
+            "Artisanal breads",
+            "Freshly baked pastries",
+            "Seasonal fruit jams and butter",
+            "Roasted turkey breast",
+            "Balearic cheese board",
+            "Yogurts",
+            "Granola",
+            "Cereals",
+            "Dried fruits and nuts",
+            "Seasonal crudite",
+            "Sliced seasonal fruit"
+          ]
+        },
+        {
+          "heading": "Drinks",
+          "items": [
+            "Tea",
+            "Coffee",
+            "Can Tanca infusion",
+            "Milk of choice",
+            "Iced coffee",
+            "Bohemian Power Smoothie",
+            "Vitaminous Smoothie"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:breakfast"
     },
     {
-      "id": "menu-7",
+      "id": "menu_10-06-26_morning-gratitude",
+      "title": "Morning Gratitude",
+      "date": "10.06.26",
       "day": "Wednesday 10 June",
-      "meal": "Split Dinners / Late Snacks",
-      "location": "Location needed",
-      "menuTitle": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Mobile Consumer dinner Beach Caves 100 pax; PC Console + Aream Internal Orchard/Market Terrace 50+20 pax; Speakeasy/Arcade/Poker late snacks 75 pax",
-      "visibility": "Team / Admin",
-      "updateId": "menu:7"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Refreshments",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        10
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=10",
+      "contains": [
+        "Freshly baked items",
+        "Energy",
+        "Fruit",
+        "Beverages",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Freshly Baked",
+          "items": [
+            "Croissant",
+            "Chocolate cookies",
+            "Banana cake"
+          ]
+        },
+        {
+          "heading": "Energy",
+          "items": [
+            "Cubes energy",
+            "Dates and nuts"
+          ]
+        },
+        {
+          "heading": "Fruit",
+          "items": [
+            "Seasonal fruit"
+          ]
+        },
+        {
+          "heading": "Beverages",
+          "items": [
+            "Coffee",
+            "Tea",
+            "Still and sparkling water",
+            "Orange juice"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:morning-gratitude"
     },
     {
-      "id": "menu-8",
+      "id": "menu_10-06-26_lunch",
+      "title": "Lunch",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Lunch",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        11
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=11",
+      "contains": [
+        "Starters",
+        "Breads",
+        "Mains",
+        "Salad bar",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Green asparagus with Comté and hazelnut",
+            "Beetroot with watermelon, feta and mustard seeds",
+            "Tomato mozzarella with basil pesto"
+          ]
+        },
+        {
+          "heading": "Breads",
+          "items": [
+            "Fresh baked bread selection",
+            "Homemade focaccia and olive oil"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Live cooking paella with chicken, fish or vegetarian choice",
+            "Chicken supreme with roasted crushed potatoes"
+          ]
+        },
+        {
+          "heading": "Salad Bar",
+          "items": [
+            "Leaves",
+            "Dressings",
+            "Toppings"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Cheesecake",
+            "Milk chocolate and peanut butter cake",
+            "Seasonal sliced fruits"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:lunch"
+    },
+    {
+      "id": "menu_10-06-26_ibiza-heritage",
+      "title": "Ibiza Heritage",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Refreshments",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        12
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=12",
+      "contains": [
+        "Freshly baked",
+        "Savoury",
+        "Fruit",
+        "Nuts",
+        "Beverages",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Freshly Baked",
+          "items": [
+            "Carrot cake",
+            "Chocolate cookies"
+          ]
+        },
+        {
+          "heading": "Savoury",
+          "items": [
+            "Cheese and grated tomato sandwich"
+          ]
+        },
+        {
+          "heading": "Fruit / Nuts",
+          "items": [
+            "Seasonal fruit",
+            "Rosemary roasted almonds"
+          ]
+        },
+        {
+          "heading": "Beverages",
+          "items": [
+            "Coffee",
+            "Tea",
+            "Still and sparkling water",
+            "Orange juice"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:ibiza-heritage"
+    },
+    {
+      "id": "menu_10-06-26_dinner-drinks",
+      "title": "Dinner Drinks",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Drinks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        13
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=13",
+      "contains": [
+        "Soft drinks",
+        "Sparkling",
+        "White wine",
+        "Red wine",
+        "Beer"
+      ],
+      "sections": [
+        {
+          "heading": "Wine / Beer",
+          "items": [
+            "Cava Reserve",
+            "Ferrara Blanco",
+            "Marques de Murrieta, Rioja",
+            "Estrella Galicia"
+          ]
+        },
+        {
+          "heading": "Soft Drinks",
+          "items": [
+            "Club soda",
+            "Tonic water",
+            "Ginger ale",
+            "Lemonisla",
+            "Coca-Cola and Diet Coke",
+            "Mineral still and sparkling water",
+            "Cortese Organic"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:dinner-drinks"
+    },
+    {
+      "id": "menu_10-06-26_beach-caves-dinner",
+      "title": "Beach Caves Dinner",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Beach Caves",
+      "meal_type": "Dinner",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        14
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=14",
+      "contains": [
+        "Starters",
+        "Main",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Eggplant tostada with pickled onions, aioli and chives",
+            "Scallop with sweet potato, lime and coriander",
+            "Beef tartare",
+            "Caves aguachile with hamachi, octopus and local red prawn"
+          ]
+        },
+        {
+          "heading": "Main",
+          "items": [
+            "Premium beef tenderloin anticucho marinade with grilled asparagus",
+            "Seabass with corn and Latin spiced beurre blanc",
+            "Red mole corn with crunchy tortillas and pickled onions",
+            "Sweet potato with oyster mushroom"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Dark Guanaja chocolate with banana, caramel and coffee",
+            "Mango peanut with green shiso and passion fruit"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [
+        "restaurant-schedule-schedule-159",
+        "restaurant-schedule-schedule-179",
+        "restaurant-schedule-schedule-181",
+        "restaurant-schedule-schedule-184",
+        "restaurant-schedule-schedule-187",
+        "restaurant-schedule-schedule-190",
+        "restaurant-schedule-schedule-192",
+        "restaurant-schedule-schedule-200"
+      ],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [],
+      "notes": "",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:beach-caves-dinner"
+    },
+    {
+      "id": "menu_10-06-26_dinner",
+      "title": "Dinner",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Dinner",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        15
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=15",
+      "contains": [
+        "Starters",
+        "Breads",
+        "Sides",
+        "Mains",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Seasonal salad",
+            "Burrata with beetroots and fermented coulis",
+            "Fried artichokes with pesto rosso and Kalamata olives"
+          ]
+        },
+        {
+          "heading": "Breads",
+          "items": [
+            "Rosemary focaccia",
+            "Grissinis",
+            "Pane carasau",
+            "Olive oil",
+            "Olive tapenade and red pesto"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Atlantic seabass acqua pazza",
+            "Free range chicken cacciatore",
+            "Grilled eggplant with celery root purée"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Arugula and Parmigiano",
+            "Coffee butter potatoes",
+            "Grilled vegetables"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Tiramisu de la Nonna",
+            "Fruit platter to share"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:dinner"
+    },
+    {
+      "id": "menu_10-06-26_late-night-snacks",
+      "title": "Late Night Snacks",
+      "date": "10.06.26",
+      "day": "Wednesday 10 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Late Night Snacks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        16
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=16",
+      "contains": [
+        "Beef sliders",
+        "Chicken hot dogs",
+        "French fries in cones",
+        "Signature dips",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Snacks",
+          "items": [
+            "Beef sliders",
+            "Chicken hot dogs",
+            "French fries in cones with signature dips"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:10-06-26:late-night-snacks"
+    },
+    {
+      "id": "menu_11-06-26_breakfast",
+      "title": "Breakfast",
+      "date": "11.06.26",
       "day": "Thursday 11 June",
-      "meal": "Breakfast / Coffee / Lunch",
-      "location": "Location needed",
-      "menuTitle": "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu",
-      "visibility": "Team / Admin",
-      "updateId": "menu:8"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Breakfast",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        18,
+        19
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=18",
+      "contains": [
+        "A la carte sides",
+        "Eggs",
+        "Cold buffet",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "A La Carte",
+          "items": [
+            "Avocado toast",
+            "Scrambled silken tofu",
+            "Cured trout",
+            "Oat porridge",
+            "Açaí bowl",
+            "Falafel",
+            "French toast",
+            "Pancakes"
+          ]
+        },
+        {
+          "heading": "Eggs",
+          "items": [
+            "Freestyle eggs",
+            "Market fried eggs",
+            "Open omelette",
+            "Egg Avocado",
+            "Shakshuka",
+            "Eggs Benedict"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Wilted spinach",
+            "Roasted baby potatoes",
+            "Chicken sausage",
+            "Turkey bacon"
+          ]
+        },
+        {
+          "heading": "Cold Buffet",
+          "items": [
+            "Artisanal breads",
+            "Freshly baked pastries",
+            "Fruit jams and butter",
+            "Roasted turkey breast",
+            "Balearic cheese board",
+            "Yogurts",
+            "Granola",
+            "Cereals",
+            "Dried fruits and nuts",
+            "Seasonal crudite",
+            "Sliced seasonal fruit"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:breakfast"
     },
     {
-      "id": "menu-9",
+      "id": "menu_11-06-26_morning-gratitude",
+      "title": "Morning Gratitude",
+      "date": "11.06.26",
       "day": "Thursday 11 June",
-      "meal": "Gala Dinner / Afterparty Snacks",
-      "location": "Location needed",
-      "menuTitle": "Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Gala dinner 170 pax; extra drinks 75 pax after 22:00; afterparty snacks 75 pax",
-      "visibility": "Team / Admin",
-      "updateId": "menu:9"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Refreshments",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        20
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=20",
+      "contains": [
+        "Freshly baked",
+        "Energy",
+        "Fruit",
+        "Beverages",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Freshly Baked",
+          "items": [
+            "Croissant",
+            "Chocolate cookies",
+            "Banana cake"
+          ]
+        },
+        {
+          "heading": "Energy",
+          "items": [
+            "Cubes energy",
+            "Dates and nuts"
+          ]
+        },
+        {
+          "heading": "Fruit",
+          "items": [
+            "Seasonal fruit"
+          ]
+        },
+        {
+          "heading": "Beverages",
+          "items": [
+            "Coffee",
+            "Tea",
+            "Still and sparkling water",
+            "Orange juice"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:morning-gratitude"
     },
     {
-      "id": "menu-10",
+      "id": "menu_11-06-26_lunch",
+      "title": "Lunch",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Lunch",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        21
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=21",
+      "contains": [
+        "Starters",
+        "Breads",
+        "Mains",
+        "Salad bar",
+        "Desserts",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Green asparagus with Comté and hazelnut",
+            "Beetroot with watermelon, feta and mustard seeds",
+            "Tomato mozzarella with basil pesto"
+          ]
+        },
+        {
+          "heading": "Breads",
+          "items": [
+            "Fresh baked bread selection",
+            "Homemade focaccia and olive oil"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Live cooking tacos with tuna and pulled beef"
+          ]
+        },
+        {
+          "heading": "Salad Bar",
+          "items": [
+            "Leaves",
+            "Dressings",
+            "Toppings"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Cheesecake",
+            "Milk chocolate and peanut butter cake",
+            "Seasonal sliced fruits"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:lunch"
+    },
+    {
+      "id": "menu_11-06-26_pool-deck-canapes",
+      "title": "Pool Deck Canapés",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Pool Deck",
+      "meal_type": "Canapés",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        22
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=22",
+      "contains": [
+        "Beetroot tartelette",
+        "Tuna tataki",
+        "Beef steak tartare pani puri",
+        "Grilled prawns",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Canapés",
+          "items": [
+            "Beetroot tartelette with pickled mustard seeds and feta",
+            "Tuna tataki with spicy mayo and pickles",
+            "Beef steak tartare pani puri",
+            "Grilled prawns with aioli"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [
+        "restaurant-schedule-schedule-229",
+        "restaurant-schedule-schedule-232",
+        "restaurant-schedule-schedule-259"
+      ],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [],
+      "notes": "",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:pool-deck-canapes"
+    },
+    {
+      "id": "menu_11-06-26_ibiza-heritage",
+      "title": "Ibiza Heritage",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Refreshments",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        23
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=23",
+      "contains": [
+        "Freshly baked",
+        "Savoury",
+        "Fruit",
+        "Nuts",
+        "Beverages",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Freshly Baked",
+          "items": [
+            "Carrot cake",
+            "Chocolate cookies"
+          ]
+        },
+        {
+          "heading": "Savoury",
+          "items": [
+            "Cheese and grated tomato sandwich"
+          ]
+        },
+        {
+          "heading": "Fruit / Nuts",
+          "items": [
+            "Seasonal fruit",
+            "Rosemary roasted almonds"
+          ]
+        },
+        {
+          "heading": "Beverages",
+          "items": [
+            "Coffee",
+            "Tea",
+            "Still and sparkling water",
+            "Orange juice"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:ibiza-heritage"
+    },
+    {
+      "id": "menu_11-06-26_dinner-drinks",
+      "title": "Dinner Drinks",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Drinks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        24
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=24",
+      "contains": [
+        "Sparkling",
+        "White wine",
+        "Red wine",
+        "Beer",
+        "Alcohol-free cocktails",
+        "Soft drinks"
+      ],
+      "sections": [
+        {
+          "heading": "Wine / Beer",
+          "items": [
+            "Cava Reserve",
+            "Christophe Patrice Chardonnay",
+            "Armand Heitz Pinot Noir",
+            "Estrella Galicia",
+            "0% Beer"
+          ]
+        },
+        {
+          "heading": "Alcohol Free Cocktails",
+          "items": [
+            "Cava Sangria",
+            "Rumba"
+          ]
+        },
+        {
+          "heading": "Soft Drinks",
+          "items": [
+            "Club soda",
+            "Tonic water",
+            "Ginger ale",
+            "Lemonisla",
+            "Coca-Cola and Diet Coke",
+            "Mineral still and sparkling water",
+            "Cortese Organic"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:dinner-drinks"
+    },
+    {
+      "id": "menu_11-06-26_gala-dinner",
+      "title": "Gala Dinner",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Dinner",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        25
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=25",
+      "contains": [
+        "Starters",
+        "Breads",
+        "Sides",
+        "Mains",
+        "Desserts",
+        "Allergen notes"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Burrata",
+            "Green oak leaf with heirloom tomatoes, cucumber, crisp peppers and Kalamata olives",
+            "Brava’s potatoes",
+            "Mushroom croquettes",
+            "Chicken croquettes"
+          ]
+        },
+        {
+          "heading": "Breads",
+          "items": [
+            "Xeixa sourdough bread",
+            "Marinated olives",
+            "Aioli"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Grilled cauliflower with harissa, coriander and tahini",
+            "Free range chicken thighs and supreme with roasted potatoes and tartar sauce",
+            "Seabass fillet with fennel salad and orange"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Charcoal roasted vegetables",
+            "Homemade French fries"
+          ]
+        },
+        {
+          "heading": "Desserts",
+          "items": [
+            "Mini cheesecake",
+            "Almond, lemon and meringue",
+            "Assortment of bonbons and chocolates"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:gala-dinner"
+    },
+    {
+      "id": "menu_11-06-26_late-night-snacks",
+      "title": "Late Night Snacks",
+      "date": "11.06.26",
+      "day": "Thursday 11 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Late Night Snacks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        26
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=26",
+      "contains": [
+        "Beef sliders",
+        "Chicken hot dogs",
+        "French fries in cones",
+        "Signature dips",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Snacks",
+          "items": [
+            "Beef sliders",
+            "Chicken hot dogs",
+            "French fries in cones with signature dips"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-thursday-11-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:11-06-26:late-night-snacks"
+    },
+    {
+      "id": "menu_12-06-26_breakfast",
+      "title": "Breakfast",
+      "date": "12.06.26",
       "day": "Friday 12 June",
-      "meal": "Departure Breakfast",
-      "location": "Farmers Market & Orchard",
-      "menuTitle": "Farmers Market & Orchard · 07:00–09:30",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Breakfast menu similar to Thursday; final morning F&B",
-      "visibility": "Team / Admin",
-      "updateId": "menu:10"
+      "location": "Location Needs Confirmation",
+      "meal_type": "Breakfast",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        28,
+        29,
+        30
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=28",
+      "contains": [
+        "A la carte sides",
+        "Eggs",
+        "Cold buffet",
+        "Hot drinks",
+        "Rosebar Longevity Shake",
+        "Cold drinks",
+        "Smoothies",
+        "Protein shake",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "A La Carte",
+          "items": [
+            "Avocado toast",
+            "Scrambled silken tofu",
+            "Cured trout",
+            "Oat porridge",
+            "Açaí bowl",
+            "Falafel",
+            "French toast",
+            "Pancakes"
+          ]
+        },
+        {
+          "heading": "Eggs",
+          "items": [
+            "Freestyle eggs",
+            "Market fried eggs",
+            "Open omelette",
+            "Egg Avocado",
+            "Shakshuka",
+            "Eggs Benedict"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Wilted spinach",
+            "Roasted baby potatoes",
+            "Chicken sausage",
+            "Turkey bacon"
+          ]
+        },
+        {
+          "heading": "Cold Buffet",
+          "items": [
+            "Artisanal breads",
+            "Freshly baked pastries",
+            "Fruit jams and butter",
+            "Roasted turkey breast",
+            "Balearic cheese board",
+            "Yogurts",
+            "Granola",
+            "Cereals",
+            "Dried fruits and nuts",
+            "Seasonal crudite",
+            "Sliced seasonal fruit"
+          ]
+        },
+        {
+          "heading": "Drinks",
+          "items": [
+            "Tea",
+            "Coffee",
+            "Can Tanca infusion",
+            "Milk of choice",
+            "Iced coffee",
+            "Bohemian Power Smoothie",
+            "Vitaminous Smoothie",
+            "Protein Shake"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-friday-12-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:12-06-26:breakfast"
     },
     {
-      "id": "menu-11",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Ben Eden-Carruthers",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:11"
+      "id": "menu_12-06-26_in-room-dining",
+      "title": "In-Room Dining",
+      "date": "12.06.26",
+      "day": "Friday 12 June",
+      "location": "In-Room Dining",
+      "meal_type": "In-Room Dining",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        31
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=31",
+      "contains": [
+        "Starters",
+        "Salads",
+        "Mains",
+        "Sides",
+        "Fruit",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Brava’s potatoes with aioli and fermented chilies Brava sauce"
+          ]
+        },
+        {
+          "heading": "Salads",
+          "items": [
+            "Farmers chicken salad",
+            "Xarraca salad"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Beef burger",
+            "Chicken sandwich"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Sweet potato fries",
+            "French fries"
+          ]
+        },
+        {
+          "heading": "Fruit",
+          "items": [
+            "Seasonal fruit platter"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-friday-12-june"
+      ],
+      "needs_confirmation": [
+        "Schedule link"
+      ],
+      "notes": "",
+      "visibility": "Team",
+      "updateId": "menu:12-06-26:in-room-dining"
     },
     {
-      "id": "menu-12",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Cheryl Leno",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:12"
+      "id": "menu_12-06-26_horizons-house",
+      "title": "HORIZONS House Menu",
+      "date": "12.06.26",
+      "day": "Friday 12 June",
+      "location": "HORIZONS House",
+      "meal_type": "HORIZONS House",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        32
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=32",
+      "contains": [
+        "Starters",
+        "Salads",
+        "Mains",
+        "Sides",
+        "Fruit",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Starters",
+          "items": [
+            "Brava’s potatoes with aioli and fermented chilies Brava sauce"
+          ]
+        },
+        {
+          "heading": "Salads",
+          "items": [
+            "Farmers chicken salad",
+            "Xarraca salad"
+          ]
+        },
+        {
+          "heading": "Mains",
+          "items": [
+            "Beef burger",
+            "Chicken sandwich"
+          ]
+        },
+        {
+          "heading": "Sides",
+          "items": [
+            "Sweet potato fries",
+            "French fries"
+          ]
+        },
+        {
+          "heading": "Fruit",
+          "items": [
+            "Seasonal fruit platter"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [
+        "restaurant-schedule-schedule-303"
+      ],
+      "related_call_sheet_ids": [
+        "call-sheet-friday-12-june"
+      ],
+      "needs_confirmation": [],
+      "notes": "",
+      "visibility": "Team",
+      "updateId": "menu:12-06-26:horizons-house"
     },
     {
-      "id": "menu-13",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Nikki Mathias",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:13"
+      "id": "menu_12-06-26_pool-pharmacy-bar",
+      "title": "Pool & Pharmacy Bar",
+      "date": "12.06.26",
+      "day": "Friday 12 June",
+      "location": "Pool & Pharmacy Bar",
+      "meal_type": "Drinks / Snacks",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        33
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=33",
+      "contains": [
+        "Wines",
+        "Fresh juices",
+        "Smoothies",
+        "Beer",
+        "Soft drinks",
+        "Ice cream",
+        "Allergen key"
+      ],
+      "sections": [
+        {
+          "heading": "Wines / Beer",
+          "items": [
+            "Ribas Blanc 2025",
+            "Marques de Murrieta Reserva 2022",
+            "Ojo de Ibiza Rosado 2025",
+            "Estrella Galicia Reposada",
+            "Estrella Alcohol Free",
+            "Estrella gluten-free"
+          ]
+        },
+        {
+          "heading": "Fresh Juices / Smoothies",
+          "items": [
+            "Orange Wave",
+            "Deep Green",
+            "Vitaminous",
+            "Bohemian Power",
+            "Add Vegan Protein Whey"
+          ]
+        },
+        {
+          "heading": "Soft Drinks",
+          "items": [
+            "Grapefruit soda",
+            "Still water",
+            "Sparkling water",
+            "Lemonade",
+            "Tonic water",
+            "Ginger ale",
+            "Ginger beer",
+            "Coca-Cola and Diet Coke"
+          ]
+        },
+        {
+          "heading": "Ice Cream",
+          "items": [
+            "Strawberry-raspberry, yogurt and ginger",
+            "Chocolate",
+            "Vanilla",
+            "Pistachio",
+            "Coconut and mint"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-friday-12-june"
+      ],
+      "needs_confirmation": [
+        "Schedule link"
+      ],
+      "notes": "",
+      "visibility": "Team",
+      "updateId": "menu:12-06-26:pool-pharmacy-bar"
     },
     {
-      "id": "menu-14",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Rose Butler",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:14"
-    },
-    {
-      "id": "menu-15",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Libby Laurie",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:15"
-    },
-    {
-      "id": "menu-16",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Liz Morris",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: B Good; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:16"
-    },
-    {
-      "id": "menu-17",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Chris Manoe",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: No Fish; Arrival: 07 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:17"
-    },
-    {
-      "id": "menu-18",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Samuel Hosier",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:18"
-    },
-    {
-      "id": "menu-19",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Tamy Hosier",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:19"
-    },
-    {
-      "id": "menu-20",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Dean Whitehead",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: No Fish. No Cheese; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:20"
-    },
-    {
-      "id": "menu-21",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Dawn Ramsden",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:21"
-    },
-    {
-      "id": "menu-22",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Pili Lopez",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:22"
-    },
-    {
-      "id": "menu-23",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Joshua Gavin",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:23"
-    },
-    {
-      "id": "menu-24",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Fede Tamburini",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:24"
-    },
-    {
-      "id": "menu-25",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Samuel Price",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:25"
-    },
-    {
-      "id": "menu-26",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Lindsay Evans",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: No Spicy food - Allergic to certain spices; Arrival: 09 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:26"
-    },
-    {
-      "id": "menu-27",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Maria-Christina Hizon (Christina)",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: 09 Jun 2026; Departure: 11 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:27"
-    },
-    {
-      "id": "menu-28",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Alex Humphreys",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:28"
-    },
-    {
-      "id": "menu-29",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Nathan Fox",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:29"
-    },
-    {
-      "id": "menu-30",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Andrew Howes",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:30"
-    },
-    {
-      "id": "menu-31",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Brendan Davies",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:31"
-    },
-    {
-      "id": "menu-32",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Joachim Ridley-Barker",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:32"
-    },
-    {
-      "id": "menu-33",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Joshua Millar",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:33"
-    },
-    {
-      "id": "menu-34",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Nathan Rushmer",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:34"
-    },
-    {
-      "id": "menu-35",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Alex Hudson",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:35"
-    },
-    {
-      "id": "menu-36",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Ryan Lowe",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 12 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:36"
-    },
-    {
-      "id": "menu-37",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Oliver Hooper",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: None listed; Arrival: 08 Jun 2026; Departure: 10 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:37"
-    },
-    {
-      "id": "menu-38",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "George Winning",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: Clownfish; Dietaries: Peanut Allergy; Arrival: 08 Jun 2026; Departure: 11 Jun 2026",
-      "visibility": "Admin only",
-      "updateId": "menu:38"
-    },
-    {
-      "id": "menu-39",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Connor Reeves",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: Vegetarian; Arrival: Local; Departure: Local",
-      "visibility": "Admin only",
-      "updateId": "menu:39"
-    },
-    {
-      "id": "menu-40",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Paris Taylor",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: Local; Departure: Local",
-      "visibility": "Admin only",
-      "updateId": "menu:40"
-    },
-    {
-      "id": "menu-41",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Dan The Man",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: None listed; Arrival: Local; Departure: Local",
-      "visibility": "Admin only",
-      "updateId": "menu:41"
-    },
-    {
-      "id": "menu-42",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "Erin Dusek",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: I.N.C; Dietaries: No Cows Dairy; Arrival: Local; Departure: Local",
-      "visibility": "Admin only",
-      "updateId": "menu:42"
-    },
-    {
-      "id": "menu-43",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "KEY",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: ; Dietaries: None listed; Arrival: ; Departure:",
-      "visibility": "Admin only",
-      "updateId": "menu:43"
-    },
-    {
-      "id": "menu-44",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "HT",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: ; Dietaries: Horizon Terrace; Arrival: ; Departure:",
-      "visibility": "Admin only",
-      "updateId": "menu:44"
-    },
-    {
-      "id": "menu-45",
-      "day": "All event",
-      "meal": "Crew Catering Person",
-      "location": "Location needed",
-      "menuTitle": "H",
-      "dietaryNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
-      "status": "On Track",
-      "fileUrl": "",
-      "notes": "Agency: ; Dietaries: External Hotel Breakfast; Arrival: ; Departure:",
-      "visibility": "Admin only",
-      "updateId": "menu:45"
+      "id": "menu_12-06-26_tea-coffee",
+      "title": "Tea & Coffee",
+      "date": "12.06.26",
+      "day": "Friday 12 June",
+      "location": "Location Needs Confirmation",
+      "meal_type": "Tea & Coffee",
+      "status": "Final",
+      "source_file": "HORIZONS_MENUS_WIP5.pdf",
+      "source_asset": "assets/menus/final/horizons-menus-wip5.pdf",
+      "source_pages": [
+        34
+      ],
+      "source_url": "assets/menus/final/horizons-menus-wip5.pdf#page=34",
+      "contains": [
+        "Coffee",
+        "Iced coffee",
+        "Tea",
+        "Milk of choice",
+        "Can Tanca infusion"
+      ],
+      "sections": [
+        {
+          "heading": "Coffee",
+          "items": [
+            "Espresso",
+            "Americano",
+            "Latte",
+            "Cappuccino",
+            "Flat White"
+          ]
+        },
+        {
+          "heading": "Iced Coffee",
+          "items": [
+            "Iced latte",
+            "Iced americano",
+            "Shaked",
+            "Blended"
+          ]
+        },
+        {
+          "heading": "Tea",
+          "items": [
+            "Green",
+            "English Breakfast",
+            "Earl Grey",
+            "Rooibos",
+            "Chamomile",
+            "Peppermint"
+          ]
+        },
+        {
+          "heading": "Milk of Choice",
+          "items": [
+            "Almond",
+            "Oat",
+            "Full Fat",
+            "Coconut"
+          ]
+        },
+        {
+          "heading": "Can Tanca Infusion",
+          "items": [
+            "Daily hand-picked herbs and citrus from the farm"
+          ]
+        }
+      ],
+      "allergen_key": "See source PDF page(s) for full allergen key. Common codes include d dairy, f fish, g gluten, n nuts, e eggs, m mustard, sd sulphites, sy soy, se sesame, cr crustaceans, mo mollusks, ve vegan.",
+      "related_restaurant_schedule_ids": [],
+      "related_call_sheet_ids": [
+        "call-sheet-friday-12-june"
+      ],
+      "needs_confirmation": [
+        "Location",
+        "Schedule link"
+      ],
+      "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
+      "visibility": "Team",
+      "updateId": "menu:12-06-26:tea-coffee"
     }
   ],
   "weather": {
@@ -35153,10 +36312,13 @@
       "entertainment": "None listed",
       "owner": "TBC",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "Needs Confirmation",
       "notes": "Film crews excluded.",
-      "updateId": "restaurant-schedule:schedule-159"
+      "updateId": "restaurant-schedule:schedule-159",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-170",
@@ -35255,10 +36417,13 @@
       "entertainment": "None listed",
       "owner": "Dean Whitehead / Samuel Hosier",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-179"
+      "updateId": "restaurant-schedule:schedule-179",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-180",
@@ -35289,10 +36454,13 @@
       "entertainment": "None listed",
       "owner": "B Good",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-181"
+      "updateId": "restaurant-schedule:schedule-181",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-183",
@@ -35323,10 +36491,13 @@
       "entertainment": "None listed",
       "owner": "Dean Whitehead / Fede Tamburini / Samuel Hosier",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-184"
+      "updateId": "restaurant-schedule:schedule-184",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-185",
@@ -35357,10 +36528,13 @@
       "entertainment": "DJ Lindsay Evans",
       "owner": "Dawn Ramsden",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "Needs Confirmation",
       "notes": "Is this possible during dinner?",
-      "updateId": "restaurant-schedule:schedule-187"
+      "updateId": "restaurant-schedule:schedule-187",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-190",
@@ -35374,10 +36548,13 @@
       "entertainment": "DJ Lindsay Evans",
       "owner": "Dawn Ramsden",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "Vox pops by I.N.C during set.",
-      "updateId": "restaurant-schedule:schedule-190"
+      "updateId": "restaurant-schedule:schedule-190",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-192",
@@ -35391,10 +36568,13 @@
       "entertainment": "None listed",
       "owner": "Samuel Hosier / Dean Whitehead",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-192"
+      "updateId": "restaurant-schedule:schedule-192",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-200",
@@ -35408,10 +36588,13 @@
       "entertainment": "DJ Lindsay Evans",
       "owner": "B Good",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "DJ Lyndsay moves from Beach Caves to Alchemy Bar.",
-      "updateId": "restaurant-schedule:schedule-200"
+      "updateId": "restaurant-schedule:schedule-200",
+      "linkedMenuIds": [
+        "menu_10-06-26_beach-caves-dinner"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-206",
@@ -35527,10 +36710,13 @@
       "entertainment": "None listed",
       "owner": "Tamy Hosier / Fede Tamburini",
       "contentCapture": "Needs Confirmation",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-229"
+      "updateId": "restaurant-schedule:schedule-229",
+      "linkedMenuIds": [
+        "menu_11-06-26_pool-deck-canapes"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-230",
@@ -35561,10 +36747,13 @@
       "entertainment": "DJ Lindsay Evans",
       "owner": "Dawn Ramsden",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "Paella live food station",
-      "updateId": "restaurant-schedule:schedule-232"
+      "updateId": "restaurant-schedule:schedule-232",
+      "linkedMenuIds": [
+        "menu_11-06-26_pool-deck-canapes"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-234",
@@ -35714,10 +36903,13 @@
       "entertainment": "Connor Reeves",
       "owner": "Ben Eden-Carruthers / Cheryl Leno",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "On Track",
       "notes": "Christina (violin) + Connor Reeves (piano) alternating 19:30–20:15.",
-      "updateId": "restaurant-schedule:schedule-259"
+      "updateId": "restaurant-schedule:schedule-259",
+      "linkedMenuIds": [
+        "menu_11-06-26_pool-deck-canapes"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-260",
@@ -35935,10 +37127,13 @@
       "entertainment": "None listed",
       "owner": "B Good / Lead",
       "contentCapture": "Only if available",
-      "menuFile": "File Needed",
+      "menuFile": "Final menu linked",
       "status": "Needs Confirmation",
       "notes": "",
-      "updateId": "restaurant-schedule:schedule-303"
+      "updateId": "restaurant-schedule:schedule-303",
+      "linkedMenuIds": [
+        "menu_12-06-26_horizons-house"
+      ]
     },
     {
       "id": "restaurant-schedule-schedule-306",
@@ -41336,7 +42531,8 @@
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
         "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -41360,7 +42556,13 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Tuesday 9 June | Tuesday 9 June Daily Call Sheet | Food / Catering | 7:00 AM-8:30 AM | HORIZONS Hall, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "linkedMenuIds": [
+        "menu_09-06-26_buffet-lunch",
+        "menu_09-06-26_bbq-dinner",
+        "menu_09-06-26_evening-welcome-drinks",
+        "menu_09-06-26_late-night-snacks"
+      ]
     },
     {
       "id": "call-sheet-wednesday-10-june",
@@ -41490,7 +42692,8 @@
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
         "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -41514,7 +42717,17 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Wednesday 10 June | Wednesday 10 June Daily Call Sheet | F&B: à la carte + cold buffet. No pork. | 7:00 AM-9:00 AM | Partal & Pharmacy, Situation Room 2, Spa, Room 260, 256 & 355, Studio, Yoga Deck | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "linkedMenuIds": [
+        "menu_10-06-26_breakfast",
+        "menu_10-06-26_morning-gratitude",
+        "menu_10-06-26_lunch",
+        "menu_10-06-26_ibiza-heritage",
+        "menu_10-06-26_dinner-drinks",
+        "menu_10-06-26_beach-caves-dinner",
+        "menu_10-06-26_dinner",
+        "menu_10-06-26_late-night-snacks"
+      ]
     },
     {
       "id": "call-sheet-thursday-11-june",
@@ -41636,7 +42849,8 @@
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
         "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -41660,7 +42874,17 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Thursday 11 June | Thursday 11 June Daily Call Sheet | Early team in for Gala day. | 7:00 AM-9:00 AM | Situation room 2, HORIZONS Hall & Orchard, All spaces, Various, Studio | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "linkedMenuIds": [
+        "menu_11-06-26_breakfast",
+        "menu_11-06-26_morning-gratitude",
+        "menu_11-06-26_lunch",
+        "menu_11-06-26_pool-deck-canapes",
+        "menu_11-06-26_ibiza-heritage",
+        "menu_11-06-26_dinner-drinks",
+        "menu_11-06-26_gala-dinner",
+        "menu_11-06-26_late-night-snacks"
+      ]
     },
     {
       "id": "call-sheet-friday-12-june",
@@ -41730,7 +42954,8 @@
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
         "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -41754,7 +42979,14 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Friday 12 June | Friday 12 June Daily Call Sheet | Food / Catering | 7:00 AM-9:00 AM | Situation Room 2, HORIZONS Hall & Orchard, Spa / Pool, All spaces, HORIZONS House | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "linkedMenuIds": [
+        "menu_12-06-26_breakfast",
+        "menu_12-06-26_in-room-dining",
+        "menu_12-06-26_horizons-house",
+        "menu_12-06-26_pool-pharmacy-bar",
+        "menu_12-06-26_tea-coffee"
+      ]
     }
   ],
   "duplicateReview": [],

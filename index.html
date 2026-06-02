@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260602-final-swag-assets1">
+    <link rel="stylesheet" href="style.css?v=20260602-final-menus1">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -34,6 +34,7 @@
           <a href="#daily">Daily Focus</a>
           <a href="#location-schedules">Location Schedules</a>
           <a href="#restaurants">Restaurants</a>
+          <a href="#menus">Menus</a>
           <a href="#tasks">Tasks</a>
           <span class="nav-group-label">People / Teams</span>
           <a href="#contacts">Contacts</a>
@@ -258,6 +259,44 @@
             <p>Restaurant and meal-space views for menus, groups, entertainment, content capture, and owner notes.</p>
           </div>
           <div class="cards-grid" data-restaurants></div>
+        </div>
+      </section>
+
+      <section id="menus" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Final food + beverage source</p>
+              <h2>Menus</h2>
+              <p>Final menu cards from HORIZONS_MENUS_WIP5, grouped by date and collapsed by default.</p>
+            </div>
+            <p class="result-count" data-menu-count></p>
+          </div>
+          <div class="section-controls menu-controls">
+            <label>
+              <span>Search menu</span>
+              <input type="search" data-menu-search placeholder="Search dish, drink, location...">
+            </label>
+            <label>
+              <span>Date</span>
+              <select data-menu-filter="date"></select>
+            </label>
+            <label>
+              <span>Location</span>
+              <select data-menu-filter="location"></select>
+            </label>
+            <label>
+              <span>Meal type</span>
+              <select data-menu-filter="meal"></select>
+            </label>
+            <label class="checkbox-control">
+              <input type="checkbox" data-menu-filter="needs">
+              <span>Needs location/link confirmation</span>
+            </label>
+            <button type="button" data-menu-expand-all>Expand all</button>
+            <button type="button" data-menu-collapse-all>Collapse all</button>
+          </div>
+          <div class="menu-date-groups" data-menus></div>
         </div>
       </section>
 
@@ -700,6 +739,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260602-final-swag-assets1"></script>
+    <script src="script.js?v=20260602-final-menus1"></script>
   </body>
 </html>
