@@ -8,8 +8,6 @@
 - Only one selected table is shown at a time by default.
 - Added explicit View Mode vs Editing Round Table Assignments.
 - Export CSV, Print seating plan, and Copy table summary now sit in a utility action row.
-- Moved the entire assignment tool out of the narrow HORIZONS Hall location card and into the full-width Hall Control Centre.
-- Seat rows now show compact summaries by default; assignment fields only open for the selected seat while editing.
 
 ## Assignment safety
 - Guest search continues to use the safe Guests / Namecards source.

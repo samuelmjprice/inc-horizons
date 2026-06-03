@@ -9,7 +9,6 @@
 - Preferred: `round_table_assignments`, `round_table_assignment_activity`, `round_table_plan_config`.
 - Current fallback: shared snapshot via existing `record_updates` table.
 - UI displays storage warnings when dedicated seating tables are unavailable or save fails.
-- Current truth for live site: shared snapshot storage is connected; dedicated seating tables still need migration confirmation.
 
 ## Security
 - No Supabase service keys are exposed in the frontend.
