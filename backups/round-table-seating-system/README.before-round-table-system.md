@@ -531,7 +531,6 @@ Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 
 - Live website updates now post to the shared Vercel/Supabase backend at `https://inc-horizons.vercel.app`.
 - `record_updates` and `slack_activity_log` are the shared Supabase tables for website comments and Slack send records.
-- HORIZONS Hall round-table seating assignments use `/api/seating-plan`; preferred dedicated Supabase tables are in `backend/supabase-schema.sql`, with shared snapshot fallback through `record_updates` until the migration is confirmed.
 - `localStorage` is only a browser fallback if the shared backend is unavailable.
 - Slack is in test mode only. Notify Slack actions route to `#horizons-test` while production channel webhooks remain disabled.
 - The live UI states this test-mode routing before a user sends a Slack notification.

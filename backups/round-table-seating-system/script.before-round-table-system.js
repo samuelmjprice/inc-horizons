@@ -14,15 +14,13 @@ const state = {
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
-  roundTablePlan: null,
-  roundTableStorageWarning: "",
   captureSuggestions: [],
   captureLog: [],
   dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260603-round-table1";
+const APP_VERSION = "20260603-hall-layouts1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -288,166 +286,6 @@ async function saveSharedUpdate(parentId, update) {
   return result;
 }
 
-const roundTableConfig = () => state.data?.roundTableSeatingPlan || {};
-const seatingAssignmentsFromTables = (tables = []) => tables.flatMap((table) => (table.seats || []).map((seat) => ({ ...seat, table_number: Number(table.table_number), seat_number: Number(seat.seat_number) })));
-const safeGuestLabel = (guest = {}) => [guest.name, guest.company_display_name || guest.company].filter(Boolean).join(" · ");
-
-function roundTableSeedPlan() {
-  const config = roundTableConfig();
-  const assignments = asList(config.seedAssignments).map((seat) => ({
-    table_number: Number(seat.table_number),
-    seat_number: Number(seat.seat_number),
-    guest_id: seat.guest_id || "",
-    guest_name: seat.guest_name || "",
-    guest_company: seat.guest_company || "",
-    guest_category: seat.guest_category || "",
-    dietary_flag: seat.dietary_flag || "",
-    assignment_status: seat.assignment_status || "Guest Needed",
-    notes: seat.notes || "",
-    updated_by: seat.updated_by || "",
-    updated_at: seat.updated_at || "",
-    created_at: seat.created_at || ""
-  }));
-  return normalizeRoundTablePlan({
-    event_id: "horizons_2026",
-    source: "seed",
-    shared: false,
-    config: {
-      layout_name: config.title || "HORIZONS Hall Round Table Layout",
-      source_file: config.sourceFile || "Horizons - Farmers Market x80 V5.pdf",
-      source_capacity: config.sourceLayoutCapacity || 80,
-      working_table_count: config.tableCount || 10,
-      working_seats_per_table: config.guestSlotsPerTable || 9,
-      status: config.status || "Needs Assignment",
-      seat_count_confirmation_status: config.seatCountStatus || "Needs Confirmation",
-      notes: config.sourceNote || ""
-    },
-    assignments
-  });
-}
-
-function normalizeRoundTablePlan(plan = {}) {
-  const config = {
-    layout_name: plan.config?.layout_name || roundTableConfig().title || "HORIZONS Hall Round Table Layout",
-    source_file: plan.config?.source_file || roundTableConfig().sourceFile || "Horizons - Farmers Market x80 V5.pdf",
-    source_capacity: Number(plan.config?.source_capacity || roundTableConfig().sourceLayoutCapacity || 80),
-    working_table_count: Number(plan.config?.working_table_count || roundTableConfig().tableCount || 10),
-    working_seats_per_table: Number(plan.config?.working_seats_per_table || roundTableConfig().guestSlotsPerTable || 9),
-    status: plan.config?.status || roundTableConfig().status || "Needs Assignment",
-    seat_count_confirmation_status: plan.config?.seat_count_confirmation_status || roundTableConfig().seatCountStatus || "Needs Confirmation",
-    notes: plan.config?.notes || roundTableConfig().sourceNote || ""
-  };
-  const seed = asList(roundTableConfig().seedAssignments);
-  const assignments = (plan.assignments?.length ? plan.assignments : seed).map((seat) => ({
-    table_number: Number(seat.table_number || seat.tableNumber),
-    seat_number: Number(seat.seat_number || seat.seatNumber),
-    guest_id: seat.guest_id || seat.guestId || "",
-    guest_name: seat.guest_name || seat.guestName || "",
-    guest_company: seat.guest_company || seat.guestCompany || "",
-    guest_category: seat.guest_category || seat.guestCategory || "",
-    dietary_flag: seat.dietary_flag || seat.dietaryFlag || "",
-    assignment_status: seat.assignment_status || seat.assignmentStatus || "Guest Needed",
-    notes: seat.notes || "",
-    updated_by: seat.updated_by || seat.updatedBy || "",
-    updated_at: seat.updated_at || seat.updatedAt || "",
-    created_at: seat.created_at || seat.createdAt || ""
-  }));
-  const byKey = new Map(assignments.map((seat) => [`${seat.table_number}-${seat.seat_number}`, seat]));
-  const mergedAssignments = [];
-  for (let tableNumber = 1; tableNumber <= config.working_table_count; tableNumber += 1) {
-    for (let seatNumber = 1; seatNumber <= config.working_seats_per_table; seatNumber += 1) {
-      mergedAssignments.push(byKey.get(`${tableNumber}-${seatNumber}`) || {
-        table_number: tableNumber,
-        seat_number: seatNumber,
-        guest_id: "",
-        guest_name: "",
-        guest_company: "",
-        guest_category: "",
-        dietary_flag: "",
-        assignment_status: "Guest Needed",
-        notes: "",
-        updated_by: "",
-        updated_at: "",
-        created_at: ""
-      });
-    }
-  }
-  const tables = Array.from({ length: config.working_table_count }, (_, index) => {
-    const tableNumber = index + 1;
-    const seats = mergedAssignments.filter((seat) => seat.table_number === tableNumber).sort((a, b) => a.seat_number - b.seat_number);
-    const assigned = seats.filter((seat) => seat.guest_name && /assigned|reserved|confirmation/i.test(seat.assignment_status || "")).length;
-    const latest = seats.map((seat) => seat.updated_at).filter(Boolean).sort().at(-1) || "";
-    return {
-      table_number: tableNumber,
-      status: assigned ? assigned >= config.working_seats_per_table ? "Fully Assigned" : "In Progress" : "Needs Assignment",
-      assigned_count: assigned,
-      remaining_slots: Math.max(0, config.working_seats_per_table - assigned),
-      notes: "",
-      updated_at: latest,
-      updated_by: seats.find((seat) => seat.updated_at === latest)?.updated_by || "",
-      seats
-    };
-  });
-  const latest = mergedAssignments.map((seat) => seat.updated_at).filter(Boolean).sort().at(-1) || "";
-  return {
-    ...plan,
-    ok: plan.ok !== false,
-    config,
-    assignments: mergedAssignments,
-    tables,
-    summary: {
-      table_count: config.working_table_count,
-      seats_per_table: config.working_seats_per_table,
-      working_slots: config.working_table_count * config.working_seats_per_table,
-      source_capacity: config.source_capacity,
-      assigned_count: mergedAssignments.filter((seat) => seat.guest_name && /assigned|reserved|confirmation/i.test(seat.assignment_status || "")).length,
-      last_updated: latest
-    }
-  };
-}
-
-async function loadSharedSeatingPlan() {
-  state.roundTablePlan = roundTableSeedPlan();
-  state.roundTableStorageWarning = "";
-  const base = backendApiBase();
-  if (!base) {
-    state.roundTableStorageWarning = "Shared seating storage unavailable. Changes are not saved yet.";
-    return false;
-  }
-  try {
-    const response = await fetch(`${base}/api/seating-plan`);
-    const result = await response.json().catch(() => ({}));
-    if (!response.ok || result.ok === false) throw new Error(result.error || `Seating API returned ${response.status}`);
-    state.roundTablePlan = normalizeRoundTablePlan(result);
-    state.roundTableStorageWarning = result.storage_warning || "";
-    return true;
-  } catch (error) {
-    state.roundTableStorageWarning = `Shared seating storage unavailable. Changes are not saved yet. ${error.message}`;
-    console.warn("Shared seating plan is not available yet.", error);
-    return false;
-  }
-}
-
-async function saveSharedSeatingPlan(plan, updatedBy = "Website") {
-  const base = backendApiBase();
-  if (!base) throw new Error("Shared seating storage unavailable. Changes are not saved yet.");
-  const response = await fetch(`${base}/api/seating-plan`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      config: plan.config,
-      assignments: plan.assignments,
-      updated_by: updatedBy,
-      action: "save_round_table_assignments"
-    })
-  });
-  const result = await response.json().catch(() => ({}));
-  if (!response.ok || result.ok === false) throw new Error(result.error || `Seating API returned ${response.status}`);
-  state.roundTablePlan = normalizeRoundTablePlan(result);
-  state.roundTableStorageWarning = result.storage_warning || "";
-  return state.roundTablePlan;
-}
-
 const shouldAutoNotifySlack = (update = {}, id = "") => {
   const status = `${update.status} ${update.priority} ${id}`.toLowerCase();
   return /redflag|urgent|at risk|decision needed|critical|schedule timing|podcast timing|supplier timing|entertainment timing|cvent|weather warning|call sheet/.test(status);
@@ -544,7 +382,6 @@ async function init() {
   state.data = await response.json();
   state.updates = updateStore.load();
   await loadSharedUpdates();
-  await loadSharedSeatingPlan();
   state.captureSuggestions = suggestionStore.load();
   state.captureLog = [...(state.data.captureLog || []), ...captureLogStore.load()];
   state.dismissedCaptureSuggestions = dismissedSuggestionStore.load();
@@ -983,7 +820,7 @@ function renderSchedule() {
         ${latestUpdate(item.updateId) ? `<p><strong>Latest update:</strong> ${escapeHtml(latestUpdate(item.updateId).comment)}</p>` : ""}
         <p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>
         <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}${meta("Seating layout", item.seatingLayout)}${meta("Layout status", item.layoutStatus)}</div>
-        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], `${item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : ""}${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
+        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], `${item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : ""}${layoutLinks(item.relatedLayoutIds)}`)}
         ${updateModule(item.updateId)}
       </div>
     </article>
@@ -1023,7 +860,7 @@ function renderCallSheet() {
     status: sheet.status || "Needs Confirmation",
     body: `<p>${escapeHtml(sheet.dailyFocus || "Daily focus needed")}</p>`,
     metadata: meta("Crew call", sheet.crewCallTime) + meta("Main location", sheet.mainLocation) + meta("Key contacts", sheet.keyContacts),
-    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet>Print Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button>${sheet.roundTableSeatingPlanId ? `<a href="#locations">Open round table seating plan</a><button type="button" data-round-table-print>Print seating plan</button>` : ""}<a href="#who-do-i-call">Who Do I Call</a></div>`,
+    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet>Print Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button><a href="#who-do-i-call">Who Do I Call</a></div>`,
     updateId: sheet.id || `call-sheet:${slug(state.activeCallSheetDay)}`
   }));
   setHtml("[data-call-sheet-emergency]", card({
@@ -1065,7 +902,7 @@ function renderCallSheet() {
             <div class="tag-stack">${current ? tag("Now") : ""}${next ? tag("Next") : ""}${tag(item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div>
           </div>
           <div class="meta-list compact-meta">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Department", item.department || item.category)}</div>
-          ${detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]], `${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
+          ${detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]])}
           ${updateModule(item.updateId)}
         </div>
       </article>
@@ -1333,9 +1170,6 @@ function renderContacts() {
 
 function renderGuests() {
   const allGuests = state.data.guests || [];
-  const assignmentByGuest = new Map((state.roundTablePlan?.assignments || [])
-    .filter((seat) => seat.guest_name)
-    .map((seat) => [seat.guest_id || slug(seat.guest_name), seat]));
   const filters = state.guestFilters;
   const query = text(filters.query).toLowerCase();
   const missingFields = (item) => item.missing_fields || [];
@@ -1398,8 +1232,6 @@ function renderGuests() {
     const role = visibleGuestValue(item.role);
     const guestType = visibleGuestValue(item.guest_type);
     const category = visibleGuestValue(item.category);
-    const tableAssignment = assignmentByGuest.get(item.id) || assignmentByGuest.get(slug(item.name));
-    const tableAssignmentLabel = tableAssignment ? `Assigned to Table ${tableAssignment.table_number}, Seat ${tableAssignment.seat_number}` : "";
     const relatedItems = [
       ["Related schedule", (item.related_schedule_items || []).join(", ")],
       ["Related podcast", (item.related_podcast_items || []).join(", ")],
@@ -1414,7 +1246,7 @@ function renderGuests() {
         </div>
         <p class="guest-card-company">${escapeHtml(item.company_display_name || item.company || "Company Needed")}</p>
         ${(role || guestType || category) ? `<div class="guest-summary-line">${[role, guestType, category].filter(Boolean).map((value) => `<span>${escapeHtml(value)}</span>`).join("")}</div>` : ""}
-        <div class="tag-stack guest-status-tags">${item.lanyard_colour ? tag(item.lanyard_colour) : ""}${tag(item.lanyard_status)}${tag(item.namecard_status)}${tableAssignmentLabel ? tag(tableAssignmentLabel) : ""}${missingFields(item).map((field) => tag(field)).join("")}</div>
+        <div class="tag-stack guest-status-tags">${item.lanyard_colour ? tag(item.lanyard_colour) : ""}${tag(item.lanyard_status)}${tag(item.namecard_status)}${missingFields(item).map((field) => tag(field)).join("")}</div>
         <button class="guest-detail-toggle" type="button" data-guest-toggle aria-expanded="false" aria-controls="${escapeHtml(panelId)}">View details</button>
         <div class="guest-detail-panel" id="${escapeHtml(panelId)}" hidden>
           ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
@@ -1429,14 +1261,12 @@ function renderGuests() {
             ${meta("Lanyard colour note", item.lanyard_colour_note)}
             ${meta("Lanyard status", item.lanyard_status)}
             ${meta("Namecard status", item.namecard_status)}
-            ${meta("Table assignment", tableAssignmentLabel)}
             ${detailRows(relatedItems)}
             ${meta("Safe operational notes", item.safe_notes)}
             ${meta("Missing data details", missingLabel)}
             ${meta("Source", source)}
             ${meta("Visibility", item.visibility)}
           </div>
-          <div class="contact-actions"><a href="#locations">Open HORIZONS Hall Round Table Plan</a></div>
           ${updateModule(updateId)}
         </div>
       </article>
@@ -1855,199 +1685,6 @@ function layoutLinks(ids = []) {
   return `<div class="contact-actions layout-actions">${records.map((item) => `<a href="${escapeHtml(item.sourceAsset)}" target="_blank" rel="noreferrer">${escapeHtml(item.title === "Reserved Seats — Needs Assignment" ? "Open reserved seats placeholder" : item.layoutName || item.title)}</a>`).join("")}</div>`;
 }
 
-function guestBySelectorValue(value = "") {
-  const raw = text(value).toLowerCase();
-  if (!raw) return null;
-  return (state.data.guests || []).find((guest) => {
-    const labels = [
-      guest.name,
-      guest.namecard_display_name,
-      safeGuestLabel(guest),
-      `${guest.name} · ${guest.company_display_name || guest.company || ""}`,
-      guest.id
-    ].map((item) => text(item).toLowerCase());
-    return labels.includes(raw);
-  }) || null;
-}
-
-function assignmentLabel(seat = {}) {
-  return seat.guest_name ? `${seat.guest_name}${seat.guest_company ? ` · ${seat.guest_company}` : ""}` : "Guest Needed";
-}
-
-function roundTableGuestDatalist() {
-  const optionsHtml = (state.data.guests || []).map((guest) => `<option value="${escapeHtml(safeGuestLabel(guest))}"></option>`).join("");
-  return `<datalist id="round-table-guest-options">${optionsHtml}</datalist>`;
-}
-
-function renderRoundTableAssignmentSystem(layout = {}) {
-  const config = roundTableConfig();
-  const plan = state.roundTablePlan || roundTableSeedPlan();
-  const summary = plan.summary || {};
-  const tables = plan.tables || [];
-  const assignedCount = summary.assigned_count || 0;
-  const incompleteCount = tables.filter((table) => (table.assigned_count || 0) < (plan.config?.working_seats_per_table || 9)).length;
-  return `
-    <details class="details round-table-system" data-round-table-system>
-      <summary><span>HORIZONS Hall Round Table Plan</span><span class="summary-hint">${assignedCount} / ${summary.working_slots || 90} assigned · ${incompleteCount} incomplete tables</span></summary>
-      <div class="round-table-panel">
-        <div class="round-table-hero">
-          <div>
-            <p class="eyebrow">Editable seating</p>
-            <h3>HORIZONS Hall Round Table Plan</h3>
-            <p>Editable table assignments for the round table moment.</p>
-            <div class="tag-stack">${tag(config.warningTag || "Seat Count Needs Confirmation")}${tag(layout.status || "Needs Assignment")}</div>
-          </div>
-          <div class="round-table-stats">
-            <div><span>Tables</span><strong>${escapeHtml(summary.table_count || 10)}</strong></div>
-            <div><span>Slots/table</span><strong>${escapeHtml(summary.seats_per_table || 9)}</strong></div>
-            <div><span>Working slots</span><strong>${escapeHtml(summary.working_slots || 90)}</strong></div>
-            <div><span>Source capacity</span><strong>${escapeHtml(summary.source_capacity || 80)}</strong></div>
-          </div>
-        </div>
-        <div class="empty-state warning-state">
-          <strong>Seat Count Needs Confirmation</strong>
-          <span>${escapeHtml(config.sourceNote || plan.config?.notes || "Uploaded layout shows seated capacity 80. Current working version uses 10 tables x 9 guest slots until final confirmation from Kirsty / Clownfish.")}</span>
-        </div>
-        ${state.roundTableStorageWarning ? `<div class="empty-state warning-state"><strong>Shared storage status</strong><span>${escapeHtml(state.roundTableStorageWarning)}</span></div>` : ""}
-        <div class="contact-actions">
-          <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" target="_blank" rel="noreferrer">Open layout PDF</a>
-          <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" download>Download layout</a>
-          <button type="button" data-round-table-reload>Refresh assignments</button>
-          <button type="button" data-round-table-export>Export seating plan CSV</button>
-          <button type="button" data-round-table-print>Print seating plan</button>
-          <button type="button" data-round-table-copy>Copy seating plan summary</button>
-        </div>
-        <div class="section-controls round-table-controls">
-          <label class="search-control"><span>Search assigned guest</span><input type="search" data-round-table-search placeholder="Search current assignments"></label>
-          <button class="button button-secondary" type="button" data-round-table-expand-all>Expand all</button>
-          <button class="button button-secondary" type="button" data-round-table-collapse-all>Collapse all</button>
-          <button class="button button-secondary" type="button" data-round-table-show-incomplete>Show incomplete tables</button>
-        </div>
-        <p class="summary-hint" data-round-table-status>Last updated: ${escapeHtml(summary.last_updated || config.lastUpdated || "No shared save yet")}</p>
-        ${roundTableGuestDatalist()}
-        <div class="round-table-board" data-round-table-board>
-          ${tables.map((table) => renderRoundTableCard(table, plan)).join("")}
-        </div>
-      </div>
-    </details>
-  `;
-}
-
-function renderRoundTableCard(table = {}, plan = {}) {
-  const seats = table.seats || [];
-  const tableNumber = table.table_number;
-  const slotCount = plan.config?.working_seats_per_table || 9;
-  return `
-    <details class="round-table-card" data-round-table-card data-table-number="${escapeHtml(tableNumber)}">
-      <summary>
-        <span>Table ${escapeHtml(tableNumber)}</span>
-        <span class="summary-hint">${escapeHtml(table.assigned_count || 0)} / ${escapeHtml(slotCount)} assigned · ${escapeHtml(table.status || "Needs Assignment")}</span>
-      </summary>
-      <div class="round-table-card-body">
-        <div class="meta-list compact-meta">
-          ${meta("Status", table.status || "Needs Assignment")}
-          ${meta("Remaining slots", table.remaining_slots)}
-          ${meta("Last updated", table.updated_at)}
-          ${meta("Updated by", table.updated_by)}
-        </div>
-        <label><span>Table notes</span><textarea data-table-notes placeholder="Notes for this table">${escapeHtml(table.notes || "")}</textarea></label>
-        <div class="seat-grid">
-          ${seats.map((seat) => renderRoundTableSeat(tableNumber, seat)).join("")}
-        </div>
-        <div class="contact-actions">
-          <button type="button" data-round-table-save-table="${escapeHtml(tableNumber)}">Save table</button>
-          <button type="button" data-round-table-clear-table="${escapeHtml(tableNumber)}">Clear table</button>
-        </div>
-      </div>
-    </details>
-  `;
-}
-
-function renderRoundTableSeat(tableNumber, seat = {}) {
-  const seatNumber = seat.seat_number;
-  return `
-    <div class="seat-slot" data-seat-slot data-table-number="${escapeHtml(tableNumber)}" data-seat-number="${escapeHtml(seatNumber)}">
-      <div class="seat-slot-header">
-        <strong>Seat ${escapeHtml(seatNumber)}</strong>
-        ${tag(seat.assignment_status || "Guest Needed")}
-      </div>
-      <label><span>Guest</span><input data-seat-guest list="round-table-guest-options" value="${escapeHtml(assignmentLabel(seat) === "Guest Needed" ? "" : assignmentLabel(seat))}" placeholder="Guest Needed"></label>
-      <div class="seat-fields">
-        <label><span>Company</span><input data-seat-company value="${escapeHtml(seat.guest_company || "")}" placeholder="Company"></label>
-        <label><span>Category</span><input data-seat-category value="${escapeHtml(seat.guest_category || "")}" placeholder="Category"></label>
-        <label><span>Dietary/allergy flag</span><input data-seat-dietary value="${escapeHtml(seat.dietary_flag || "")}" placeholder="Safe flag only"></label>
-        <label><span>Status</span><select data-seat-status>
-          ${["Guest Needed", "Assigned", "Needs Confirmation", "VIP / Reserved", "Empty / Not Used"].map((status) => `<option ${status === (seat.assignment_status || "Guest Needed") ? "selected" : ""}>${escapeHtml(status)}</option>`).join("")}
-        </select></label>
-      </div>
-      <label><span>Notes</span><input data-seat-notes value="${escapeHtml(seat.notes || "")}" placeholder="Safe operational note"></label>
-      <input type="hidden" data-seat-guest-id value="${escapeHtml(seat.guest_id || "")}">
-      <button type="button" data-round-table-clear-seat>Remove guest</button>
-    </div>
-  `;
-}
-
-function collectRoundTableAssignmentsFromDom() {
-  const plan = state.roundTablePlan || roundTableSeedPlan();
-  const byKey = new Map((plan.assignments || []).map((seat) => [`${seat.table_number}-${seat.seat_number}`, seat]));
-  $$("[data-seat-slot]").forEach((slot) => {
-    const tableNumber = Number(slot.dataset.tableNumber);
-    const seatNumber = Number(slot.dataset.seatNumber);
-    const guestInput = slot.querySelector("[data-seat-guest]");
-    const guest = guestBySelectorValue(guestInput?.value);
-    const guestName = guest ? guest.name : text((guestInput?.value || "").split(" · ")[0]);
-    const company = guest ? guest.company_display_name || guest.company || "" : text(slot.querySelector("[data-seat-company]")?.value);
-    const category = guest ? (guest.category && !/not provided/i.test(guest.category) ? guest.category : guest.guest_type || "") : text(slot.querySelector("[data-seat-category]")?.value);
-    const existing = byKey.get(`${tableNumber}-${seatNumber}`) || {};
-    byKey.set(`${tableNumber}-${seatNumber}`, {
-      ...existing,
-      table_number: tableNumber,
-      seat_number: seatNumber,
-      guest_id: guest?.id || slot.querySelector("[data-seat-guest-id]")?.value || "",
-      guest_name: guestName,
-      guest_company: company,
-      guest_category: category,
-      dietary_flag: text(slot.querySelector("[data-seat-dietary]")?.value),
-      assignment_status: text(slot.querySelector("[data-seat-status]")?.value, guestName ? "Assigned" : "Guest Needed"),
-      notes: text(slot.querySelector("[data-seat-notes]")?.value) || (guestName && !guest ? "Not in guest list" : ""),
-      updated_by: existing.updated_by || "",
-      updated_at: existing.updated_at || "",
-      created_at: existing.created_at || ""
-    });
-  });
-  return [...byKey.values()];
-}
-
-function duplicateRoundTableAssignment(assignments, tableNumber) {
-  const seen = new Map();
-  for (const seat of assignments) {
-    const key = seat.guest_id || slug(seat.guest_name || "");
-    if (!key || !seat.guest_name) continue;
-    const previous = seen.get(key);
-    if (previous && (previous.table_number !== seat.table_number || previous.seat_number !== seat.seat_number)) {
-      const involvesTable = previous.table_number === tableNumber || seat.table_number === tableNumber;
-      if (involvesTable) return { previous, current: seat };
-    }
-    seen.set(key, seat);
-  }
-  return null;
-}
-
-function roundTableCsv(plan = state.roundTablePlan) {
-  const rows = [["table number", "seat number", "guest name", "company", "category", "dietary flag", "notes", "status"]];
-  (plan?.assignments || []).forEach((seat) => {
-    rows.push([seat.table_number, seat.seat_number, seat.guest_name || "Guest Needed", seat.guest_company, seat.guest_category, seat.dietary_flag, seat.notes, seat.assignment_status]);
-  });
-  return rows.map((row) => row.map((cell) => `"${String(cell || "").replace(/"/g, '""')}"`).join(",")).join("\n");
-}
-
-function roundTableSummary(plan = state.roundTablePlan) {
-  return (plan?.tables || []).map((table) => {
-    const seats = (table.seats || []).map((seat) => `  Seat ${seat.seat_number}: ${assignmentLabel(seat)} (${seat.assignment_status || "Guest Needed"})`).join("\n");
-    return `Table ${table.table_number} — ${table.assigned_count || 0}/${plan.config?.working_seats_per_table || 9}\n${seats}`;
-  }).join("\n\n");
-}
-
 function layoutCards(ids = []) {
   const records = layoutRecords(ids);
   if (!records.length) return "";
@@ -2062,7 +1699,6 @@ function layoutCards(ids = []) {
       ${item.reservedSeatRows?.length ? detailsBlock("Reserved seats placeholder", [], `<div class="location-schedule">${item.reservedSeatRows.map((row) => `<div class="supplier-time-block"><strong>${escapeHtml(row.seat)}</strong><p>${escapeHtml(row.reason)}</p><div class="meta-list compact-meta">${meta("Person", row.personName)}${meta("Company", row.company)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div></div>`).join("")}</div>`) : ""}
       ${item.tablePlaceholders?.length ? detailsBlock("Table assignment placeholders", [], `<div class="location-schedule">${item.tablePlaceholders.map((row) => `<div class="supplier-time-block"><strong>${escapeHtml(row.table)}</strong><p>${escapeHtml(row.guestAssignments)}</p><div class="meta-list compact-meta">${meta("Capacity", row.capacity)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div></div>`).join("")}</div>`) : ""}
       <div class="contact-actions"><a href="${escapeHtml(item.sourceAsset)}" target="_blank" rel="noreferrer">Open layout</a><a href="${escapeHtml(item.sourceAsset)}" download>Download PDF</a></div>
-      ${item.assignmentSystemId ? renderRoundTableAssignmentSystem(item) : ""}
     </article>
   `).join("")}</div>`;
 }
@@ -2351,28 +1987,6 @@ function bindEvents() {
   }));
   const guestSearch = $("[data-guest-search]");
   if (guestSearch) guestSearch.addEventListener("input", (event) => { state.guestFilters.query = event.target.value.trim(); renderGuests(); });
-  document.addEventListener("input", (event) => {
-    const assignedSearch = event.target.closest("[data-round-table-search]");
-    if (assignedSearch) {
-      const query = assignedSearch.value.trim().toLowerCase();
-      $$("[data-round-table-card]").forEach((table) => {
-        table.classList.toggle("is-hidden", Boolean(query) && !table.textContent.toLowerCase().includes(query));
-      });
-      return;
-    }
-    const guestInput = event.target.closest("[data-seat-guest]");
-    if (guestInput) {
-      const slot = guestInput.closest("[data-seat-slot]");
-      const guest = guestBySelectorValue(guestInput.value);
-      if (guest && slot) {
-        slot.querySelector("[data-seat-guest-id]").value = guest.id || "";
-        slot.querySelector("[data-seat-company]").value = guest.company_display_name || guest.company || "";
-        slot.querySelector("[data-seat-category]").value = guest.category && !/not provided/i.test(guest.category) ? guest.category : guest.guest_type || "";
-        const status = slot.querySelector("[data-seat-status]");
-        if (status && status.value === "Guest Needed") status.value = "Assigned";
-      }
-    }
-  });
   $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
   const guestReset = $("[data-guest-reset]");
   if (guestReset) guestReset.addEventListener("click", () => {
@@ -2469,111 +2083,6 @@ function bindEvents() {
     if (expandGuests) { $$("[data-guest-card]").forEach((card) => setGuestDetailState(card, true)); return; }
     const collapseGuests = event.target.closest("[data-guest-collapse-all]");
     if (collapseGuests) { $$("[data-guest-card]").forEach((card) => setGuestDetailState(card, false)); return; }
-    const reloadSeating = event.target.closest("[data-round-table-reload]");
-    if (reloadSeating) {
-      reloadSeating.textContent = "Refreshing...";
-      await loadSharedSeatingPlan();
-      renderAll();
-      return;
-    }
-    const expandTables = event.target.closest("[data-round-table-expand-all]");
-    if (expandTables) { $$("[data-round-table-card]").forEach((detail) => { detail.open = true; }); return; }
-    const collapseTables = event.target.closest("[data-round-table-collapse-all]");
-    if (collapseTables) { $$("[data-round-table-card]").forEach((detail) => { detail.open = false; }); return; }
-    const showIncomplete = event.target.closest("[data-round-table-show-incomplete]");
-    if (showIncomplete) {
-      $$("[data-round-table-card]").forEach((detail) => {
-        const assigned = Number((detail.querySelector(".summary-hint")?.textContent || "0").match(/\\d+/)?.[0] || 0);
-        detail.classList.toggle("is-hidden", assigned >= (state.roundTablePlan?.config?.working_seats_per_table || 9));
-      });
-      return;
-    }
-    const clearSeat = event.target.closest("[data-round-table-clear-seat]");
-    if (clearSeat) {
-      const slot = clearSeat.closest("[data-seat-slot]");
-      if (slot) {
-        slot.querySelector("[data-seat-guest]").value = "";
-        slot.querySelector("[data-seat-guest-id]").value = "";
-        slot.querySelector("[data-seat-company]").value = "";
-        slot.querySelector("[data-seat-category]").value = "";
-        slot.querySelector("[data-seat-dietary]").value = "";
-        slot.querySelector("[data-seat-status]").value = "Guest Needed";
-        slot.querySelector("[data-seat-notes]").value = "";
-      }
-      return;
-    }
-    const clearTable = event.target.closest("[data-round-table-clear-table]");
-    if (clearTable) {
-      const tableNumber = Number(clearTable.dataset.roundTableClearTable);
-      if (!window.confirm(`Clear all assignments from Table ${tableNumber}?`)) return;
-      clearTable.closest("[data-round-table-card]")?.querySelectorAll("[data-seat-slot]").forEach((slot) => {
-        slot.querySelector("[data-seat-guest]").value = "";
-        slot.querySelector("[data-seat-guest-id]").value = "";
-        slot.querySelector("[data-seat-company]").value = "";
-        slot.querySelector("[data-seat-category]").value = "";
-        slot.querySelector("[data-seat-dietary]").value = "";
-        slot.querySelector("[data-seat-status]").value = "Guest Needed";
-        slot.querySelector("[data-seat-notes]").value = "";
-      });
-      return;
-    }
-    const saveTable = event.target.closest("[data-round-table-save-table]");
-    if (saveTable) {
-      const tableNumber = Number(saveTable.dataset.roundTableSaveTable);
-      const updatedBy = window.prompt("Who is saving this table?", "Website team") || "Website team";
-      let assignments = collectRoundTableAssignmentsFromDom();
-      const duplicate = duplicateRoundTableAssignment(assignments, tableNumber);
-      if (duplicate) {
-        const move = window.confirm(`Guest already assigned to Table ${duplicate.previous.table_number}, Seat ${duplicate.previous.seat_number}. Move guest here?`);
-        if (!move) return;
-        assignments = assignments.map((seat) => seat.table_number === duplicate.previous.table_number && seat.seat_number === duplicate.previous.seat_number
-          ? { ...seat, guest_id: "", guest_name: "", guest_company: "", guest_category: "", dietary_flag: "", assignment_status: "Guest Needed", notes: "Moved to another seat", updated_by: updatedBy, updated_at: new Date().toISOString() }
-          : seat);
-      }
-      if (!window.confirm("Save changes to shared seating plan?")) return;
-      saveTable.textContent = "Saving...";
-      try {
-        const timestamp = new Date().toISOString();
-        const stamped = assignments.map((seat) => seat.table_number === tableNumber ? { ...seat, updated_by: updatedBy, updated_at: timestamp } : seat);
-        await saveSharedSeatingPlan({ ...(state.roundTablePlan || roundTableSeedPlan()), assignments: stamped }, updatedBy);
-      } catch (error) {
-        state.roundTableStorageWarning = error.message;
-        window.alert(error.message);
-      }
-      renderAll();
-      return;
-    }
-    const exportSeating = event.target.closest("[data-round-table-export]");
-    if (exportSeating) {
-      state.roundTablePlan = normalizeRoundTablePlan({ ...(state.roundTablePlan || roundTableSeedPlan()), assignments: collectRoundTableAssignmentsFromDom() });
-      const blob = new Blob([roundTableCsv()], { type: "text/csv;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "horizons-hall-round-table-seating-plan.csv";
-      link.click();
-      URL.revokeObjectURL(url);
-      return;
-    }
-    const copySeating = event.target.closest("[data-round-table-copy]");
-    if (copySeating) {
-      state.roundTablePlan = normalizeRoundTablePlan({ ...(state.roundTablePlan || roundTableSeedPlan()), assignments: collectRoundTableAssignmentsFromDom() });
-      navigator.clipboard?.writeText(`HORIZONS Hall Round Table Plan\\n${roundTableSummary()}`);
-      copySeating.textContent = "Copied";
-      setTimeout(() => { copySeating.textContent = "Copy seating plan summary"; }, 1600);
-      return;
-    }
-    const printSeating = event.target.closest("[data-round-table-print]");
-    if (printSeating) {
-      state.roundTablePlan = normalizeRoundTablePlan({ ...(state.roundTablePlan || roundTableSeedPlan()), assignments: collectRoundTableAssignmentsFromDom() });
-      const win = window.open("", "_blank");
-      if (win) {
-        win.document.write(`<title>HORIZONS Hall Round Table Plan</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#211b15}h1{font-family:Georgia,serif}pre{white-space:pre-wrap;font-size:13px}.note{border:1px solid #ddd;padding:12px;margin:12px 0}</style><h1>HORIZONS Hall Round Table Plan</h1><div class="note">Source capacity: 80. Working version: 10 tables x 9 guest slots. Seat count needs final confirmation.</div><pre>${escapeHtml(roundTableSummary())}</pre>`);
-        win.document.close();
-        win.print();
-      }
-      return;
-    }
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const expandMenus = event.target.closest("[data-menu-expand-all]");

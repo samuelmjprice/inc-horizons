@@ -731,151 +731,6 @@ select {
   margin-top: 0.75rem;
 }
 
-.round-table-system {
-  margin-top: 0.9rem;
-}
-
-.round-table-panel {
-  display: grid;
-  gap: 1rem;
-  padding-top: 0.85rem;
-}
-
-.round-table-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.round-table-hero h3 {
-  margin: 0.2rem 0;
-}
-
-.round-table-stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem;
-}
-
-.round-table-stats div {
-  border: 1px solid var(--line);
-  border-radius: calc(var(--radius) - 4px);
-  background: rgba(255, 253, 248, 0.74);
-  padding: 0.8rem;
-}
-
-.round-table-stats span,
-.seat-slot label span {
-  display: block;
-  color: var(--muted);
-  font-family: "Soleil", Arial, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.round-table-stats strong {
-  color: var(--text);
-  font-family: "Ivy Journal", Georgia, serif;
-  font-size: 1.8rem;
-  font-weight: 300;
-}
-
-.warning-state {
-  display: grid;
-  gap: 0.35rem;
-  text-align: left;
-}
-
-.round-table-controls {
-  margin: 0;
-}
-
-.round-table-board {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-}
-
-.round-table-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255, 253, 248, 0.78);
-  min-width: 0;
-}
-
-.round-table-card > summary {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.8rem;
-  min-height: 54px;
-  padding: 0.85rem 1rem;
-}
-
-.round-table-card-body {
-  display: grid;
-  gap: 0.85rem;
-  border-top: 1px solid var(--line);
-  padding: 0.95rem;
-}
-
-.seat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
-}
-
-.seat-slot {
-  display: grid;
-  gap: 0.55rem;
-  border: 1px solid rgba(122, 99, 70, 0.18);
-  border-radius: calc(var(--radius) - 4px);
-  background: rgba(255, 253, 248, 0.66);
-  padding: 0.75rem;
-  min-width: 0;
-}
-
-.seat-slot-header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.seat-fields {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-
-.seat-slot input,
-.seat-slot select,
-.round-table-card textarea {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--text);
-  font: inherit;
-  padding: 0.62rem 0.65rem;
-}
-
-.seat-slot button {
-  justify-self: start;
-  min-height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 253, 248, 0.86);
-  color: var(--bronze-dark);
-  cursor: pointer;
-  padding: 0.48rem 0.7rem;
-}
-
 .card-header {
   display: flex;
   align-items: start;
@@ -2142,13 +1997,7 @@ body.admin-view .admin-tool-section,
   .compact-grid,
   .contacts-grid,
   .guest-summary-grid,
-  .round-table-hero,
-  .round-table-board,
   .start-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .seat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2301,11 +2150,6 @@ body.admin-view .admin-tool-section,
   .compact-grid,
   .contacts-grid,
   .guest-summary-grid,
-  .round-table-hero,
-  .round-table-stats,
-  .round-table-board,
-  .seat-grid,
-  .seat-fields,
   .start-grid,
   .priority-grid,
   .accordion-body {

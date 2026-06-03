@@ -5,9 +5,9 @@ const memory = {
 
 const now = () => new Date().toISOString();
 const makeId = (prefix) => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-export const hasSupabase = () => Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+const hasSupabase = () => Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-export async function supabaseRequest(path, options = {}) {
+async function supabaseRequest(path, options = {}) {
   const baseUrl = process.env.SUPABASE_URL.replace(/\/$/, "");
   const response = await fetch(`${baseUrl}/rest/v1/${path}`, {
     ...options,
@@ -28,7 +28,7 @@ export async function supabaseRequest(path, options = {}) {
   return response.json();
 }
 
-export function queryParams(params = {}) {
+function queryParams(params = {}) {
   const query = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== "") query.set(key, value);

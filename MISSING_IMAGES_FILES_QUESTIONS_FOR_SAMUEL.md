@@ -159,3 +159,13 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | HORIZONS Hall TBC rehearsal timing | Confirm final timing for HORIZONS Hall stage familiarisation/mic check | Current slot is TBC: 18:00 or 23:30 | Rehearsals / Call Sheet | Samuel / Clownfish / Liz | High | Needs Confirmation |
 | Pre/post BBQ rehearsal timing | Confirm whether the TBC rehearsal is pre or post BBQ dinner | Needed for Call Sheet and speaker availability | Rehearsals / Schedule | Samuel / Clownfish / B Good | High | Needs Confirmation |
 | Monday 8 June fallback location | Confirm final location if HORIZONS Studio is not ready | Cue-to-cue records currently say HORIZONS Studio / or elsewhere if not ready | Rehearsals / HORIZONS Studio | Samuel / Clownfish | Medium | Needs Confirmation |
+
+## HORIZONS Hall Round Table Seating System
+
+| Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Updated HORIZONS Hall Round Table Layout | Confirm final table count, seats per table, table numbering, and whether the uploaded 80-seat layout is final | Current working website plan uses 10 tables x 9 guest slots, but the uploaded source layout shows seated capacity 80 | HORIZONS Hall Round Table Plan / Documents / Missing Files | Samuel / Chris / Kirsty / Clownfish | High | Needs Confirmation |
+| Final table guest assignments | Confirm which guest belongs at each table and seat | The editable tool is seeded empty and ready for onsite assignment, but no names should be guessed | HORIZONS Hall Round Table Plan / Guests / Namecards | Samuel / Aream & Co. / Kirsty | High | Needs Assignment |
+| VIP / reserved table seats | Confirm any VIP, CEO, leadership, or speaker seats at round tables | Prevents duplicate or incorrect guest placement | HORIZONS Hall Round Table Plan | Samuel / Chris / Aream & Co. | High | Needs Confirmation |
+| Round table schedule link | Confirm the exact schedule moment that uses the round-table layout | The site has a placeholder: Round Table Moment — Needs Schedule Link | Schedule / Call Sheet / HORIZONS Hall | Samuel / Chris | Medium | Needs Confirmation |
+| Supabase seating tables migration | Confirm the dedicated Supabase tables have been created from `backend/supabase-schema.sql` | The API can save through shared snapshot fallback, but dedicated tables are the preferred long-term storage | Admin / Developer Data | Samuel / Technology | High | Needs Confirmation |

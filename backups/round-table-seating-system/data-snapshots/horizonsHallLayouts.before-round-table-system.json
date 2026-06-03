@@ -1,0 +1,272 @@
+[
+  {
+    "id": "hall-layout-theatre-seating-x160",
+    "title": "HORIZONS Hall Theatre Seating Plan",
+    "layoutName": "Theatre Seating Plan",
+    "layoutType": "Theatre-style seating",
+    "capacity": "160 seated",
+    "location": "HORIZONS Hall",
+    "sourceFile": "Horizons - Farmers Market - x160 V4.pdf",
+    "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+    "status": "Confirmed layout / seat assignments pending",
+    "summary": "Theatre-style HORIZONS Hall seating plan for HORIZONS Connect and the 12:00-13:00 debate.",
+    "relatedSessions": [
+      "HORIZONS Connect opening 90 minutes",
+      "Debate 12:00-13:00"
+    ],
+    "relatedScheduleIds": [
+      "schedule-138",
+      "schedule-143"
+    ],
+    "relatedSpeakerIds": [
+      "speaker-schedule-138",
+      "speaker-schedule-143"
+    ],
+    "relatedCallSheetIds": [
+      "call-sheet-wednesday-10-june"
+    ],
+    "relatedSections": [
+      "HORIZONS Hall",
+      "Call Sheet",
+      "Schedule",
+      "Speaker Content",
+      "Rehearsals",
+      "Documents"
+    ],
+    "sourceTrace": "Original file name: Horizons - Farmers Market - x160 V4.pdf. Website-facing label changed to HORIZONS Hall Theatre Seating Plan.",
+    "needsConfirmation": [
+      "Reserved seat assignments",
+      "Exact reserved rows/zones",
+      "Reserved signage placement"
+    ]
+  },
+  {
+    "id": "hall-layout-round-table-x80",
+    "title": "HORIZONS Hall Round Table Layout",
+    "layoutName": "Round Table Layout",
+    "layoutType": "Round-table seating",
+    "capacity": "80 seated",
+    "location": "HORIZONS Hall",
+    "sourceFile": "Horizons - Farmers Market x80 V5.pdf",
+    "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf",
+    "status": "Confirmed layout / table assignments pending",
+    "summary": "Round-table option showing 10 numbered tables and 80 seated capacity. Guest/table assignments still needed.",
+    "relatedSessions": [
+      "Table seating / cabaret-style option"
+    ],
+    "relatedScheduleIds": [
+      "schedule-150"
+    ],
+    "relatedCallSheetIds": [
+      "call-sheet-wednesday-10-june"
+    ],
+    "relatedSections": [
+      "HORIZONS Hall",
+      "Guests / Namecards",
+      "Table Namecards",
+      "Call Sheet",
+      "Schedule",
+      "Documents"
+    ],
+    "sourceTrace": "Original file name: Horizons - Farmers Market x80 V5.pdf. Website-facing label changed to HORIZONS Hall Round Table Layout.",
+    "tablePlaceholders": [
+      {
+        "table": "Table 1",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 2",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 3",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 4",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 5",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 6",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 7",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 8",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 9",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      },
+      {
+        "table": "Table 10",
+        "capacity": "8 seats shown / confirm final seat count",
+        "guestAssignments": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": "Seat count per table needs confirmation"
+      }
+    ],
+    "needsConfirmation": [
+      "Seat count per table",
+      "Guest assignments",
+      "Final layout approval"
+    ]
+  },
+  {
+    "id": "hall-layout-stage-design-technical",
+    "title": "HORIZONS Hall Stage Design / Technical Layout",
+    "layoutName": "Stage Design / Technical Layout",
+    "layoutType": "Production / stage technical reference",
+    "capacity": "Production reference",
+    "location": "HORIZONS Hall",
+    "sourceFile": "STAGE DESIGN_I.N.C STAFF - Horizons 2026 - Entertainment & Wellness Programme (1).pdf",
+    "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf",
+    "status": "Production reference",
+    "summary": "Stage design, technical/stage construction, LED wall / rear panel and production reference for HORIZONS Hall.",
+    "relatedSessions": [
+      "HORIZONS Hall production setup",
+      "Rehearsals",
+      "Speaker Content"
+    ],
+    "relatedScheduleIds": [
+      "schedule-61",
+      "schedule-70",
+      "schedule-131",
+      "schedule-138",
+      "schedule-143"
+    ],
+    "relatedCallSheetIds": [
+      "call-sheet-tuesday-9-june",
+      "call-sheet-wednesday-10-june"
+    ],
+    "relatedSections": [
+      "HORIZONS Hall",
+      "Rehearsals",
+      "Call Sheet",
+      "Production",
+      "Clownfish",
+      "Speaker Content",
+      "Documents"
+    ],
+    "sourceTrace": "Original file name: STAGE DESIGN_I.N.C STAFF - Horizons 2026 - Entertainment & Wellness Programme (1).pdf.",
+    "needsConfirmation": [
+      "Latest Clownfish technical revision if newer"
+    ]
+  },
+  {
+    "id": "hall-layout-reserved-seats-placeholder",
+    "title": "Reserved Seats — Needs Assignment",
+    "layoutName": "Reserved Seats",
+    "layoutType": "Reserved seating placeholder",
+    "capacity": "Needs Assignment",
+    "location": "HORIZONS Hall",
+    "sourceFile": "Derived operational placeholder",
+    "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+    "status": "Needs Assignment",
+    "summary": "Placeholder for CEOs, leadership, VIPs, speakers and reserved signage. No seats assigned yet.",
+    "relatedSessions": [
+      "HORIZONS Connect opening 90 minutes",
+      "Debate 12:00-13:00"
+    ],
+    "relatedScheduleIds": [
+      "schedule-138",
+      "schedule-143"
+    ],
+    "relatedCallSheetIds": [
+      "call-sheet-wednesday-10-june"
+    ],
+    "relatedSections": [
+      "HORIZONS Hall",
+      "Guests / Namecards",
+      "Speaker Content",
+      "Call Sheet"
+    ],
+    "reservedSeatRows": [
+      {
+        "seat": "CEO seat",
+        "personName": "Needs Assignment",
+        "company": "Needs Assignment",
+        "reason": "CEO / leadership reserved seating",
+        "assignedBy": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": ""
+      },
+      {
+        "seat": "Leadership seats",
+        "personName": "Needs Assignment",
+        "company": "Needs Assignment",
+        "reason": "Leadership reserved seating",
+        "assignedBy": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": ""
+      },
+      {
+        "seat": "Speaker seats",
+        "personName": "Needs Assignment",
+        "company": "Needs Assignment",
+        "reason": "Speaker reserved seating",
+        "assignedBy": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": ""
+      },
+      {
+        "seat": "VIP / Aream seats",
+        "personName": "Needs Assignment",
+        "company": "Aream & Co. / VIP",
+        "reason": "VIP / client reserved seating",
+        "assignedBy": "Needs Assignment",
+        "status": "Needs Assignment",
+        "notes": ""
+      },
+      {
+        "seat": "Reserved signage placement",
+        "personName": "Needs Confirmation",
+        "company": "Needs Confirmation",
+        "reason": "Reserved seat signage placement",
+        "assignedBy": "Needs Assignment",
+        "status": "Needs Confirmation",
+        "notes": "Confirm reserved seat signage artwork and placement."
+      }
+    ],
+    "needsConfirmation": [
+      "CEO/VIP/speaker names",
+      "Rows/zones/seats",
+      "Reserved signage artwork"
+    ]
+  }
+]
