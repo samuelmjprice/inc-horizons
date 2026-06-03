@@ -710,6 +710,27 @@ select {
   min-width: 0;
 }
 
+.mini-card {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: rgba(255, 253, 248, 0.7);
+  padding: 0.9rem;
+  min-width: 0;
+}
+
+.mini-card h4 {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.hall-layout-grid {
+  margin-top: 0.85rem;
+}
+
+.layout-actions {
+  margin-top: 0.75rem;
+}
+
 .card-header {
   display: flex;
   align-items: start;

@@ -20,7 +20,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260603-menus1";
+const APP_VERSION = "20260603-hall-layouts1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -819,8 +819,8 @@ function renderSchedule() {
         <div class="card-header"><h3>${escapeHtml(item.title)}</h3><div class="tag-stack">${tag(latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
         ${latestUpdate(item.updateId) ? `<p><strong>Latest update:</strong> ${escapeHtml(latestUpdate(item.updateId).comment)}</p>` : ""}
         <p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>
-        <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}</div>
-        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : "")}
+        <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}${meta("Seating layout", item.seatingLayout)}${meta("Layout status", item.layoutStatus)}</div>
+        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], `${item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : ""}${layoutLinks(item.relatedLayoutIds)}`)}
         ${updateModule(item.updateId)}
       </div>
     </article>
@@ -1307,7 +1307,7 @@ function renderLocations() {
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
     metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Clownfish show operatives", item.clownfishShowOperatives || (item.showOperatives || []).join(" + ")) + meta("Latitude", item.latitude) + meta("Longitude", item.longitude) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Aliases", (item.aliases || []).join(", ")) + meta("Watch-out", item.watchOut),
-    footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
+    footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>${item.layoutReferences?.length ? detailsBlock("Layouts + Production References", [["Summary", item.layoutsSummary]], layoutCards(item.layoutReferences)) : ""}` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
         <p>${escapeHtml(row.activity || "Activity needed")}</p>
@@ -1650,8 +1650,8 @@ function renderSpeakers() {
         status: item.status,
         department: "Speaker Content",
         body: `<p>${escapeHtml(item.sessionDescription || "Session description needed")}</p>`,
-        metadata: meta("Speaker", item.speakerName) + meta("Time", item.time) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Visibility", item.visibility) + meta("Source file", item.sourceFile),
-        footer: detailsBlock("Speaker content details", [["Deck copy", item.deckCopy], ["Speaker notes", item.speakerNotes], ["Podcast clash check", item.podcastClash || "Needs Confirmation"], ["Status", item.status]]),
+        metadata: meta("Speaker", item.speakerName) + meta("Time", item.time) + meta("Location", item.location) + meta("Owner", item.owner) + meta("Visibility", item.visibility) + meta("Source file", item.sourceFile) + meta("Seating layout", item.seatingLayout) + meta("Layout status", item.layoutStatus),
+        footer: detailsBlock("Speaker content details", [["Deck copy", item.deckCopy], ["Speaker notes", item.speakerNotes], ["Podcast clash check", item.podcastClash || "Needs Confirmation"], ["Status", item.status]], layoutLinks(item.relatedLayoutIds)),
         updateId: item.updateId
       })).join("")}</div></details>`).join("") : `<div class="image-placeholder"><strong>Content needed</strong><span>${escapeHtml(location)} speaker/session content still needs upload.</span></div>`}
     </article>`;
@@ -1667,10 +1667,40 @@ function renderRehearsals() {
       status: item.status,
       department: "Rehearsal",
       body: `<p><strong>${escapeHtml(item.time || "Time needed")}</strong></p>`,
-      metadata: meta("Location", item.location) + meta("Required people", item.requiredPeople) + meta("Owner", item.owner) + meta("Notes", item.notes),
+      metadata: meta("Location", item.location) + meta("Related session", item.relatedSession) + meta("Owner", item.owner) + meta("Purpose", item.purpose),
+      footer: detailsBlock("Open rehearsal details", [["Required people", item.requiredPeople], ["Notes", item.notes], ["Status", item.status]], layoutLinks(item.relatedLayoutIds)),
       updateId: item.updateId
     })).join("")}</div></details>
   </article>`).join("") || empty("No rehearsal records available yet."));
+}
+
+function layoutRecords(ids = []) {
+  const records = state.data.horizonsHallLayouts || [];
+  return asList(ids).map((id) => records.find((item) => item.id === id)).filter(Boolean);
+}
+
+function layoutLinks(ids = []) {
+  const records = layoutRecords(ids);
+  if (!records.length) return "";
+  return `<div class="contact-actions layout-actions">${records.map((item) => `<a href="${escapeHtml(item.sourceAsset)}" target="_blank" rel="noreferrer">${escapeHtml(item.title === "Reserved Seats — Needs Assignment" ? "Open reserved seats placeholder" : item.layoutName || item.title)}</a>`).join("")}</div>`;
+}
+
+function layoutCards(ids = []) {
+  const records = layoutRecords(ids);
+  if (!records.length) return "";
+  return `<div class="cards-grid compact-grid hall-layout-grid">${records.map((item) => `
+    <article class="mini-card hall-layout-card">
+      <div class="card-header"><h4>${escapeHtml(item.title)}</h4><div class="tag-stack">${tag(item.status)}</div></div>
+      <p>${escapeHtml(item.summary || item.layoutType)}</p>
+      <div class="meta-list compact-meta">
+        ${meta("Type", item.layoutType)}
+        ${meta("Capacity", item.capacity)}
+      </div>
+      ${item.reservedSeatRows?.length ? detailsBlock("Reserved seats placeholder", [], `<div class="location-schedule">${item.reservedSeatRows.map((row) => `<div class="supplier-time-block"><strong>${escapeHtml(row.seat)}</strong><p>${escapeHtml(row.reason)}</p><div class="meta-list compact-meta">${meta("Person", row.personName)}${meta("Company", row.company)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div></div>`).join("")}</div>`) : ""}
+      ${item.tablePlaceholders?.length ? detailsBlock("Table assignment placeholders", [], `<div class="location-schedule">${item.tablePlaceholders.map((row) => `<div class="supplier-time-block"><strong>${escapeHtml(row.table)}</strong><p>${escapeHtml(row.guestAssignments)}</p><div class="meta-list compact-meta">${meta("Capacity", row.capacity)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div></div>`).join("")}</div>`) : ""}
+      <div class="contact-actions"><a href="${escapeHtml(item.sourceAsset)}" target="_blank" rel="noreferrer">Open layout</a><a href="${escapeHtml(item.sourceAsset)}" download>Download PDF</a></div>
+    </article>
+  `).join("")}</div>`;
 }
 
 function renderArtwork() {

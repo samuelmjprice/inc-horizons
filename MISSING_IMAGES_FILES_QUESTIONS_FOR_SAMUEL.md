@@ -143,3 +143,19 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | Dinner Drinks locations | Confirm exact locations for 10.06.26 and 11.06.26 Dinner Drinks | PDF pages list drinks but not explicit venue on the page | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
 | Tea & Coffee location | Confirm location for 12.06.26 Tea & Coffee | Page 34 has menu content but no clear location | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
 | Pool & Pharmacy Bar naming | Confirm final approved display name if Pharmacy Bar should be separate from Pool | Prevents location naming mismatch in menus and location schedules | Menus / Locations | Samuel / Six Senses | Medium | Needs Confirmation |
+
+## HORIZONS Hall Seating / Layout
+
+| Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Theatre reserved seats | Confirm reserved seats for theatre-style seating | CEOs, leadership, speakers and VIPs need final assigned rows/zones before onsite print/signage | HORIZONS Hall Layouts / Call Sheet | Samuel / Chris / Aream & Co. | High | Needs Assignment |
+| CEO / VIP / speaker list | Confirm which CEOs, VIPs, speakers or leadership guests need reserved seating | Prevents accidental wrong reserved seating | HORIZONS Hall Layouts / Guests / Namecards | Samuel / Chris / Aream & Co. | High | Needs Confirmation |
+| Exact seat positions | Confirm exact seat, row or zone positions | Needed before seating plan can be marked final for onsite team | HORIZONS Hall Theatre Seating Plan | Samuel / Chris / Clownfish | High | Needs Assignment |
+| Reserved signage artwork | Confirm whether reserved seat signage artwork is final | Needed for print/install readiness | Artwork / Wayfinding / HORIZONS Hall | Chris / Clownfish | High | Needs Confirmation |
+| Round-table seat count | Confirm round-table seat count per table | Source says 80 seated with 10 tables; do not assume 9 per table | HORIZONS Hall Round Table Layout | Samuel / Chris / Clownfish | Medium | Needs Confirmation |
+| Round-table assignments | Confirm guest assignments for Tables 1-10 | Needed for namecards/table plan and onsite seating | Guests / Namecards / HORIZONS Hall | Samuel / Aream & Co. | High | Needs Assignment |
+| Round-table final status | Confirm whether round-table layout is final | Prevents replacing theatre plan with wrong layout | HORIZONS Hall Layouts | Samuel / Clownfish | Medium | Needs Confirmation |
+| Latest Clownfish table layout | Confirm whether Clownfish has a newer HORIZONS Hall table layout | Ensures website uses the latest technical source | HORIZONS Hall / Clownfish | Clownfish / Samuel | Medium | Needs Confirmation |
+| HORIZONS Hall TBC rehearsal timing | Confirm final timing for HORIZONS Hall stage familiarisation/mic check | Current slot is TBC: 18:00 or 23:30 | Rehearsals / Call Sheet | Samuel / Clownfish / Liz | High | Needs Confirmation |
+| Pre/post BBQ rehearsal timing | Confirm whether the TBC rehearsal is pre or post BBQ dinner | Needed for Call Sheet and speaker availability | Rehearsals / Schedule | Samuel / Clownfish / B Good | High | Needs Confirmation |
+| Monday 8 June fallback location | Confirm final location if HORIZONS Studio is not ready | Cue-to-cue records currently say HORIZONS Studio / or elsewhere if not ready | Rehearsals / HORIZONS Studio | Samuel / Clownfish | Medium | Needs Confirmation |

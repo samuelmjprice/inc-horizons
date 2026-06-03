@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "3 June 2026, 16:45 BST",
+    "lastUpdated": "3 June 2026, 22:05 BST",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,10 +22,10 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex final menus verification pass",
+    "updatedBy": "Codex HORIZONS Hall seating/layout update",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
-    "last_updated": "2026-06-03T16:45:00+01:00",
-    "updated_at": "2026-06-03T16:45:00+01:00",
+    "last_updated": "2026-06-03T22:05:00+01:00",
+    "updated_at": "2026-06-03T22:05:00+01:00",
     "lanyardColourMapping": [
       {
         "colour": "Oatmeal",
@@ -5339,7 +5339,7 @@
       "relatedContentCapture": "Yes",
       "publicPrivate": "Team",
       "source": "Wed 10 June row 24",
-      "notes": "Film crews: visual recording only in plenary. Excluded from all track sessions. Photography once crew leaves.",
+      "notes": "Film crews: visual recording only in plenary. Excluded from all track sessions. Photography once crew leaves. Seating layout: HORIZONS Hall Theatre Seating Plan. Reserved Seats — Needs Assignment.",
       "workstream": "Content",
       "updateId": "schedule:138",
       "latestUpdate": "HORIZONS Connect, 10:00-11:30 AM on Wednesday 10 June.",
@@ -5353,7 +5353,13 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Connect, 10:00-11:30 AM on Wednesday 10 June.",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "seatingLayout": "HORIZONS Hall Theatre Seating Plan",
+      "layoutStatus": "Reserved Seats — Needs Assignment"
     },
     {
       "id": "schedule-139",
@@ -5525,7 +5531,7 @@
       "relatedContentCapture": "Yes",
       "publicPrivate": "Team",
       "source": "Wed 10 June row 29",
-      "notes": "Film crews excluded.",
+      "notes": "Film crews excluded. Seating layout: HORIZONS Hall Theatre Seating Plan. Reserved Seats — Needs Assignment.",
       "workstream": "Content",
       "updateId": "schedule:143",
       "latestUpdate": "Panel discussion, 12:00-1:00 PM.",
@@ -5539,7 +5545,15 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Panel discussion, 12:00-1:00 PM.",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "seatingLayout": "HORIZONS Hall Theatre Seating Plan",
+      "layoutStatus": "Reserved Seats — Needs Assignment",
+      "teamFacingLabel": "Debate 12:00-13:00",
+      "sourceTrace": "Possible source labels include Debate, VIP 100 Debate, NOT-AT-VIP100 Debate, and The Winning Bet; team-facing label uses Debate 12:00-13:00 until final wording is approved."
     },
     {
       "id": "schedule-144",
@@ -11592,6 +11606,213 @@
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Friday 12 June| 7:30 PM| Winners return to Ibiza Town Harbour| Ibiza Town Harbour| / Poppy Luck - CHECK INITIALS / Eve Dusek / Eve Dusek - CHECK INITIALS| Needs Confirmation",
       "finalWorkbookStatus": "Approved"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-08-cue-to-cue-studio",
+      "date": "2026-06-08",
+      "dayLabel": "Monday 8 June",
+      "day": "Monday 8 June",
+      "timeDisplay": "21:00",
+      "title": "Cue-to-Cue Run Through — HORIZONS Studio Graphics",
+      "shortDescription": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "support": "Liz; HORIZONS Studio Clownfish Graphics Op: Nathan Rushmer; Dean; Samuel",
+      "location": "HORIZONS Studio / or elsewhere if not ready",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Aream team available to drop in if they want any final tweaks. Final location depends on readiness.",
+      "relatedRehearsalId": "rehearsal-2026-06-08-cue-to-cue-studio",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-08-cue-to-cue-studio"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-08-cue-to-cue-hall",
+      "date": "2026-06-08",
+      "dayLabel": "Monday 8 June",
+      "day": "Monday 8 June",
+      "timeDisplay": "21:00",
+      "title": "Cue-to-Cue Run Through — HORIZONS Hall Graphics",
+      "shortDescription": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "owner": "Liz / Dean / Samuel / Ryan Lowe / George Winning",
+      "support": "Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Dean; Samuel",
+      "location": "HORIZONS Studio / or elsewhere if not ready",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Aream team available to drop in if they want any final tweaks. Final location depends on readiness.",
+      "relatedRehearsalId": "rehearsal-2026-06-08-cue-to-cue-hall",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical",
+        "hall-layout-theatre-seating-x160"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-08-cue-to-cue-hall"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-connect",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "09:00-10:00",
+      "title": "Team Rehearsals: HORIZONS Connect",
+      "shortDescription": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "support": "Aream & Co. Team; Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Samuel; Dean",
+      "location": "HORIZONS Studio",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Related session: HORIZONS Connect. Related layout: HORIZONS Hall Theatre Seating Plan.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-connect",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-connect"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-buffer-1000",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "10:00-10:15",
+      "title": "Buffer",
+      "shortDescription": "Transition buffer.",
+      "owner": "Production",
+      "support": "Hold / transition",
+      "location": "HORIZONS Studio",
+      "status": "Hold / transition",
+      "priority": "Reference",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "",
+      "relatedRehearsalId": "rehearsal-2026-06-09-buffer-1000",
+      "relatedLayoutIds": [],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-buffer-1000"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-pc-console",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "10:15-11:15",
+      "title": "Team Rehearsals: PC & Console Track",
+      "shortDescription": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "support": "Aream & Co. Team; Liz; HORIZONS Studio Clownfish Graphics Op: Nathan Rushmer; Dean; Samuel",
+      "location": "HORIZONS Studio",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Related session: PC & Console Track.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-pc-console",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-pc-console"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-buffer-1115",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "11:15-11:30",
+      "title": "Buffer",
+      "shortDescription": "Transition buffer.",
+      "owner": "Production",
+      "support": "Hold / transition",
+      "location": "HORIZONS Studio",
+      "status": "Hold / transition",
+      "priority": "Reference",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "",
+      "relatedRehearsalId": "rehearsal-2026-06-09-buffer-1115",
+      "relatedLayoutIds": [],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-buffer-1115"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-mobile",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "11:30-12:30",
+      "title": "Team Rehearsals: Mobile Track",
+      "shortDescription": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "support": "Aream & Co. Team; Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Samuel; Dean",
+      "location": "HORIZONS Studio",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Related session: Mobile Track.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-mobile",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-mobile"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-vip100-debate",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "14:00-15:00",
+      "title": "Team Rehearsals: VIP 100 Debate",
+      "shortDescription": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "support": "Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Li Ma; Dean; Samuel",
+      "location": "HORIZONS Studio",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "Related session: VIP 100 Debate / 12:00-13:00 debate. Related layout: HORIZONS Hall Theatre Seating Plan.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-vip100-debate",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-vip100-debate"
+    },
+    {
+      "id": "schedule-rehearsal-2026-06-09-hall-tbc",
+      "date": "2026-06-09",
+      "dayLabel": "Tuesday 9 June",
+      "day": "Tuesday 9 June",
+      "timeDisplay": "TBC: 18:00 or 23:30",
+      "title": "Team Rehearsals: HORIZONS Hall",
+      "shortDescription": "Following completion of venue setup, speakers to be available for brief stage familiarisation and mic check in HORIZONS Hall.",
+      "owner": "Clownfish / Liz / Dean / Samuel",
+      "support": "HORIZONS Connect speakers on standby; Mobile speakers on standby",
+      "location": "HORIZONS Hall",
+      "status": "Needs Confirmation",
+      "priority": "Needs Confirmation",
+      "category": "Rehearsal",
+      "department": "Programme",
+      "notes": "This will be pre or post the BBQ dinner, depending on when Clownfish has finished setting up HORIZONS Hall. Purpose is quick stage familiarisation for the Connect and Mobile tracks because earlier rehearsals are in studio.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-hall-tbc",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-stage-design-technical"
+      ],
+      "publicPrivate": "Team",
+      "updateId": "schedule:rehearsal-2026-06-09-hall-tbc"
     }
   ],
   "dailyRunSheets": [
@@ -11702,7 +11923,7 @@
       "day": "Tuesday 9 June",
       "date": "2026-06-09",
       "summary": "Food / Catering",
-      "mainLocations": "Farmers Market, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area",
+      "mainLocations": "HORIZONS Hall, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area",
       "watchOut": "7:00 AM-9:30 AM: Breakfast — those checked in on 8th",
       "teamResponsibilities": [
         "7:00 AM-9:30 AM: Breakfast — those checked in on 8th — TBC",
@@ -11849,11 +12070,11 @@
       "day": "Friday 12 June",
       "date": "2026-06-12",
       "summary": "Food / Catering",
-      "mainLocations": "Situation Room 2, Farmers Market & Orchard, Spa / Pool, All spaces, HORIZONS House",
+      "mainLocations": "Situation Room 2, HORIZONS Hall & Orchard, Spa / Pool, All spaces, HORIZONS House",
       "watchOut": "7:00 AM-9:00 AM: CREW CATERING OPEN",
       "teamResponsibilities": [
         "7:00 AM-9:00 AM: CREW CATERING OPEN — TBC",
-        "7:00 AM-9:30 AM: BREAKFAST — Farmers Market & Orchard — B Good / monitor",
+        "7:00 AM-9:30 AM: BREAKFAST — HORIZONS Hall & Orchard — B Good / monitor",
         "7:30 AM: Wellness (optional) — Spa / Pool — B Good / monitor",
         "8:00 AM: DE-RIG begins — all event spaces — Clownfish / Lead",
         "8:00 AM-12:00 PM: GUEST DEPARTURES — check-out by 12:00 — B Good / Lead",
@@ -11871,7 +12092,7 @@
       ],
       "supplierMoments": [
         "7:00 AM-9:00 AM: CREW CATERING OPEN — Six Senses",
-        "7:00 AM-9:30 AM: BREAKFAST — Farmers Market & Orchard — Six Senses",
+        "7:00 AM-9:30 AM: BREAKFAST — HORIZONS Hall & Orchard — Six Senses",
         "7:30 AM: Wellness (optional) — Spa / Pool — B Good",
         "8:00 AM: DE-RIG begins — all event spaces — Clownfish",
         "8:00 AM-12:00 PM: GUEST DEPARTURES — check-out by 12:00 — B Good",
@@ -13463,7 +13684,7 @@
       "personInvolved": "",
       "support": "Six Senses",
       "department": "Food & Beverage",
-      "location": "Farmers Market",
+      "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
       "priority": "Watch",
       "notes": "",
@@ -13744,14 +13965,14 @@
     },
     {
       "id": "task-schedule-64",
-      "action": "Full build — Farmers Market (stage, AV, lighting, trussing)",
+      "action": "Full build — HORIZONS Hall (stage, AV, lighting, trussing)",
       "day": "Tuesday 9 June",
       "time": "12:00 PM",
       "person": "Clownfish / Lead",
       "personInvolved": "",
       "support": "Clownfish",
       "department": "Entertainment",
-      "location": "Farmers Market",
+      "location": "HORIZONS Hall",
       "status": "On Track",
       "priority": "Green - Ready",
       "notes": "",
@@ -13767,7 +13988,7 @@
       "personInvolved": "",
       "support": "Six Senses",
       "department": "Setup / Production",
-      "location": "Farmers Market",
+      "location": "HORIZONS Hall",
       "status": "On Track",
       "priority": "Green - Ready",
       "notes": "",
@@ -13783,7 +14004,7 @@
       "personInvolved": "",
       "support": "I.N.C/Clownfish",
       "department": "Entertainment",
-      "location": "Farmers Market",
+      "location": "HORIZONS Hall",
       "status": "Needs Confirmation",
       "priority": "Watch",
       "notes": "Please advise furniture required from SS to remain for Aream & Co. team on balcony",
@@ -13799,7 +14020,7 @@
       "personInvolved": "",
       "support": "Six Senses",
       "department": "Setup / Production",
-      "location": "Farmers Market",
+      "location": "HORIZONS Hall",
       "status": "On Track",
       "priority": "Green - Ready",
       "notes": "",
@@ -17280,14 +17501,14 @@
     },
     {
       "id": "task-schedule-285",
-      "action": "BREAKFAST — Farmers Market & Orchard",
+      "action": "BREAKFAST — HORIZONS Hall & Orchard",
       "day": "Friday 12 June",
       "time": "7:00 AM-9:30 AM",
       "person": "B Good / monitor",
       "personInvolved": "",
       "support": "Six Senses",
       "department": "Food & Beverage",
-      "location": "Farmers Market & Orchard",
+      "location": "HORIZONS Hall & Orchard",
       "status": "On Track",
       "priority": "Green - Ready",
       "notes": "F&B: à la carte as previous days. No pork.",
@@ -18130,7 +18351,7 @@
       "latitude": 39.11105,
       "longitude": 1.50827,
       "mapStatus": "Exact pin supplied; venue team can still confirm internal naming/route.",
-      "last_updated": "2026-06-01T13:51:00+01:00",
+      "last_updated": "2026-06-03T21:55:00+01:00",
       "updated_from_location_map_qa": true,
       "source": "Location map QA pass",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -18147,7 +18368,15 @@
         "George Winning",
         "Ryan Lowe"
       ],
-      "clownfishShowOperatives": "George Winning + Ryan Lowe"
+      "clownfishShowOperatives": "George Winning + Ryan Lowe",
+      "layoutReferences": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-round-table-x80",
+        "hall-layout-stage-design-technical",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "layoutsSummary": "Theatre seating plan, round-table layout, stage design / technical layout, and reserved seats placeholder are linked under HORIZONS Hall Layouts.",
+      "updated_from_hall_layout_pass": true
     },
     {
       "id": "location-horizons-studio",
@@ -18854,7 +19083,7 @@
         {
           "day": "Friday 12 June",
           "time": "7:00 AM-9:30 AM",
-          "activity": "BREAKFAST — Farmers Market & Orchard",
+          "activity": "BREAKFAST — HORIZONS Hall & Orchard",
           "owner": "B Good / monitor",
           "status": "On Track",
           "notes": "F&B: à la carte as previous days. No pork."
@@ -19148,7 +19377,7 @@
         {
           "day": "Tuesday 9 June",
           "time": "12:00 PM",
-          "activity": "Full build — Farmers Market (stage, AV, lighting, trussing)",
+          "activity": "Full build — HORIZONS Hall (stage, AV, lighting, trussing)",
           "owner": "Clownfish / Lead",
           "status": "On Track",
           "notes": ""
@@ -20421,11 +20650,11 @@
         },
         {
           "day": "Tuesday 9 June",
-          "summary": "Full build — Farmers Market (stage, AV, lighting, trussing)",
+          "summary": "Full build — HORIZONS Hall (stage, AV, lighting, trussing)",
           "arrival": "",
           "setup": "",
           "active": "12:00 PM",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "On Track"
         },
         {
@@ -20914,7 +21143,7 @@
       "arrivalTime": "See day/time blocks",
       "setupTime": "See day/time blocks",
       "activeTime": "See day/time blocks",
-      "location": "HORIZONS House, Farmers Market, Six Senses",
+      "location": "HORIZONS House, HORIZONS Hall, Six Senses",
       "status": "Needs Confirmation",
       "notes": "Times are grouped by day below. Confirm any TBC fields before treating final.",
       "openItems": [
@@ -20953,7 +21182,7 @@
           "arrival": "",
           "setup": "",
           "active": "12:00 PM",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "On Track"
         },
         {
@@ -20971,7 +21200,7 @@
           "arrival": "",
           "setup": "",
           "active": "Time needed",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "Needs Confirmation"
         },
         {
@@ -21176,7 +21405,7 @@
       "arrivalTime": "See day/time blocks",
       "setupTime": "See day/time blocks",
       "activeTime": "See day/time blocks",
-      "location": "HORIZONS House, Farmers Market, Situation room 2, HORIZONS Hall",
+      "location": "HORIZONS House, HORIZONS Hall, Situation room 2, HORIZONS Hall",
       "status": "Needs Confirmation",
       "notes": "Times are grouped by day below. Confirm any TBC fields before treating final.",
       "openItems": [
@@ -21257,7 +21486,7 @@
           "arrival": "",
           "setup": "",
           "active": "7:00 AM-9:30 AM",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "Needs Confirmation"
         },
         {
@@ -21284,7 +21513,7 @@
           "arrival": "",
           "setup": "",
           "active": "12:00 PM",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "On Track"
         },
         {
@@ -21293,7 +21522,7 @@
           "arrival": "",
           "setup": "",
           "active": "12:00 PM",
-          "location": "Farmers Market",
+          "location": "HORIZONS Hall",
           "status": "On Track"
         },
         {
@@ -24164,7 +24393,7 @@
     {
       "id": "material-menu-7",
       "category": "Menus",
-      "itemName": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
+      "itemName": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
       "day": "Wednesday 10 June",
       "time": "",
       "location": "Location needed",
@@ -25738,7 +25967,7 @@
     },
     {
       "id": "doc-menu-menu-3",
-      "title": "Farmers Market Terrace · 19:30–21:00",
+      "title": "HORIZONS Hall Terrace · 19:30–21:00",
       "description": "Aream & Co. Team Dinner; Italian/Orchard à la carte; guarantee 20 guests; note: ADD IN CREW DINNER HERE IN HORIZON HOUSE",
       "category": "Menus",
       "day": "Monday 8 June",
@@ -25786,7 +26015,7 @@
     },
     {
       "id": "doc-menu-menu-7",
-      "title": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
+      "title": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
       "description": "Mobile Consumer dinner Beach Caves 100 pax; PC Console + Aream Internal Orchard/Market Terrace 50+20 pax; Speakeasy/Arcade/Poker late snacks 75 pax",
       "category": "Menus",
       "day": "Wednesday 10 June",
@@ -25798,7 +26027,7 @@
     },
     {
       "id": "doc-menu-menu-8",
-      "title": "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+      "title": "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
       "description": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu",
       "category": "Menus",
       "day": "Thursday 11 June",
@@ -25822,7 +26051,7 @@
     },
     {
       "id": "doc-menu-menu-10",
-      "title": "Farmers Market & Orchard · 07:00–09:30",
+      "title": "HORIZONS Hall & Orchard · 07:00–09:30",
       "description": "Breakfast menu similar to Thursday; final morning F&B",
       "category": "Menus",
       "day": "Friday 12 June",
@@ -25979,12 +26208,12 @@
     {
       "id": "doc-placeholder-seating-plans",
       "title": "Final seating plans",
-      "description": "File needed. Add final upload/link when available.",
+      "description": "HORIZONS Hall theatre and round-table layout PDFs are now linked. Reserved seat assignments and any other final seating plans still need confirmation.",
       "category": "Seating Plans",
       "day": "All",
       "type": "File placeholder",
       "owner": "TBC",
-      "status": "File Needed",
+      "status": "Partially Added",
       "link": "",
       "updateId": "doc:placeholder:seating-plans"
     },
@@ -26301,46 +26530,6 @@
       "updateId": "doc:doc-placeholder-horizons-hall-rehearsal-schedule"
     },
     {
-      "title": "HORIZONS_MASTER_EVENT_CONTROL_UPDATED.xlsx",
-      "category": "Source Data",
-      "owner": "Samuel Price",
-      "status": "Added to Website",
-      "link": "",
-      "description": "Master event control workbook generated and saved in final files folder.",
-      "notes": "Master event control workbook generated and saved in final files folder.",
-      "updateId": "doc:horizons-master-event-control-updated-xlsx"
-    },
-    {
-      "title": "HORIZONS_CONTACTS_AND_WHO_DO_I_CALL.xlsx",
-      "category": "Source Data",
-      "owner": "Samuel Price",
-      "status": "Added to Website",
-      "link": "",
-      "description": "Phone-ready contact and escalation workbook generated.",
-      "notes": "Phone-ready contact and escalation workbook generated.",
-      "updateId": "doc:horizons-contacts-and-who-do-i-call-xlsx"
-    },
-    {
-      "title": "HORIZONS_SLACK_SETUP_GUIDE_UPDATED.md",
-      "category": "Slack",
-      "owner": "Samuel Price",
-      "status": "Added to Website",
-      "link": "",
-      "description": "Slack setup guide with channels and environment variable placeholders.",
-      "notes": "Slack setup guide with channels and environment variable placeholders.",
-      "updateId": "doc:horizons-slack-setup-guide-updated-md"
-    },
-    {
-      "title": "Horizons Style Guide.pdf",
-      "category": "Style Guide",
-      "owner": "Samuel Price",
-      "status": "Reference",
-      "link": "",
-      "description": "Official brand/style guide reference.",
-      "notes": "Official brand/style guide reference.",
-      "updateId": "doc:horizons-style-guide-pdf"
-    },
-    {
       "title": "Horizons Swag Delivery Brief.pdf",
       "category": "Swag / Guest Materials",
       "owner": "Samuel Price",
@@ -26364,6 +26553,73 @@
       "last_updated": "2026-06-02T14:45:00+01:00",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445"
+    },
+    {
+      "id": "doc-horizons-hall-theatre-seating-plan-x160",
+      "title": "HORIZONS Hall Theatre Seating Plan — 160 Seated",
+      "description": "Theatre-style HORIZONS Hall seating plan. Source filename preserved in details; team-facing label uses HORIZONS Hall.",
+      "category": "HORIZONS Hall Layouts",
+      "status": "Confirmed layout / seat assignments pending",
+      "type": "PDF",
+      "owner": "Clownfish / Samuel / Chris",
+      "relatedLocation": "HORIZONS Hall",
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Call Sheet",
+        "Schedule",
+        "Speaker Content",
+        "Rehearsals",
+        "Documents"
+      ],
+      "sourceFile": "Horizons - Farmers Market - x160 V4.pdf",
+      "link": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+      "download": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+      "updateId": "document:horizons-hall-theatre-seating-plan-x160"
+    },
+    {
+      "id": "doc-horizons-hall-round-table-layout-x80",
+      "title": "HORIZONS Hall Round Table Layout — 80 Seated",
+      "description": "Round-table HORIZONS Hall layout showing 10 numbered tables. Guest/table assignments still needed.",
+      "category": "HORIZONS Hall Layouts",
+      "status": "Confirmed layout / table assignments pending",
+      "type": "PDF",
+      "owner": "Clownfish / Samuel / Chris",
+      "relatedLocation": "HORIZONS Hall",
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Guests / Namecards",
+        "Table Namecards",
+        "Call Sheet",
+        "Schedule",
+        "Documents"
+      ],
+      "sourceFile": "Horizons - Farmers Market x80 V5.pdf",
+      "link": "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf",
+      "download": "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf",
+      "updateId": "document:horizons-hall-round-table-layout-x80"
+    },
+    {
+      "id": "doc-horizons-hall-stage-design-technical-layout",
+      "title": "HORIZONS Hall Stage Design / Technical Layout",
+      "description": "Production/stage technical reference for HORIZONS Hall including stage design and LED/rear panel references.",
+      "category": "HORIZONS Hall Layouts",
+      "status": "Production reference",
+      "type": "PDF",
+      "owner": "Clownfish / Production",
+      "relatedLocation": "HORIZONS Hall",
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Rehearsals",
+        "Call Sheet",
+        "Production",
+        "Clownfish",
+        "Speaker Content",
+        "Documents"
+      ],
+      "sourceFile": "STAGE DESIGN_I.N.C STAFF - Horizons 2026 - Entertainment & Wellness Programme (1).pdf",
+      "link": "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf",
+      "download": "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf",
+      "updateId": "document:horizons-hall-stage-design-technical-layout"
     }
   ],
   "completed": [
@@ -30476,7 +30732,7 @@
     {
       "id": "loc-schedule-schedule-46-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "timeStart": "07:00",
       "timeEnd": "09:30",
@@ -30837,12 +31093,12 @@
     {
       "id": "loc-schedule-schedule-64-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "timeStart": "12:00",
       "timeEnd": "",
       "timeDisplay": "12:00 PM",
-      "activity": "Full build — Farmers Market (stage, AV, lighting, trussing)",
+      "activity": "Full build — HORIZONS Hall (stage, AV, lighting, trussing)",
       "whoIsPresent": "Clownfish / Lead, Clownfish",
       "owner": "Clownfish / Lead",
       "contentTopic": "Suppliers / Entertainment",
@@ -30854,7 +31110,7 @@
     {
       "id": "loc-schedule-schedule-65-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "timeStart": "12:00",
       "timeEnd": "",
@@ -30871,7 +31127,7 @@
     {
       "id": "loc-schedule-schedule-66-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "timeStart": "",
       "timeEnd": "",
@@ -30888,7 +31144,7 @@
     {
       "id": "loc-schedule-schedule-67-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "timeStart": "12:00",
       "timeEnd": "",
@@ -34982,12 +35238,12 @@
     {
       "id": "loc-schedule-schedule-285-farmers-market",
       "locationId": "",
-      "locationName": "Farmers Market",
+      "locationName": "HORIZONS Hall",
       "day": "Friday 12 June",
       "timeStart": "07:00",
       "timeEnd": "09:30",
       "timeDisplay": "7:00 AM-9:30 AM",
-      "activity": "BREAKFAST — Farmers Market & Orchard",
+      "activity": "BREAKFAST — HORIZONS Hall & Orchard",
       "whoIsPresent": "B Good / monitor, Six Senses",
       "owner": "B Good / monitor",
       "contentTopic": "F&B: à la carte as previous days. No pork.",
@@ -35004,7 +35260,7 @@
       "timeStart": "07:00",
       "timeEnd": "09:30",
       "timeDisplay": "7:00 AM-9:30 AM",
-      "activity": "BREAKFAST — Farmers Market & Orchard",
+      "activity": "BREAKFAST — HORIZONS Hall & Orchard",
       "whoIsPresent": "B Good / monitor, Six Senses",
       "owner": "B Good / monitor",
       "contentTopic": "F&B: à la carte as previous days. No pork.",
@@ -35471,6 +35727,159 @@
       "status": "Needs Confirmation",
       "notes": "Transfers TBC. Aream managing.",
       "updateId": "location-schedule:schedule-310"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-08-cue-to-cue-studio",
+      "location": "HORIZONS Studio",
+      "title": "Cue-to-Cue Run Through — HORIZONS Studio Graphics",
+      "day": "Monday 8 June",
+      "date": "2026-06-08",
+      "time": "21:00",
+      "activity": "Cue-to-Cue Run Through — HORIZONS Studio Graphics",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "status": "Needs Confirmation",
+      "notes": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "relatedRehearsalId": "rehearsal-2026-06-08-cue-to-cue-studio",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-08-cue-to-cue-studio"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-08-cue-to-cue-hall",
+      "location": "HORIZONS Studio",
+      "title": "Cue-to-Cue Run Through — HORIZONS Hall Graphics",
+      "day": "Monday 8 June",
+      "date": "2026-06-08",
+      "time": "21:00",
+      "activity": "Cue-to-Cue Run Through — HORIZONS Hall Graphics",
+      "owner": "Liz / Dean / Samuel / Ryan Lowe / George Winning",
+      "status": "Needs Confirmation",
+      "notes": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "relatedRehearsalId": "rehearsal-2026-06-08-cue-to-cue-hall",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical",
+        "hall-layout-theatre-seating-x160"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-08-cue-to-cue-hall"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-connect",
+      "location": "HORIZONS Studio",
+      "title": "Team Rehearsals: HORIZONS Connect",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "09:00-10:00",
+      "activity": "Team Rehearsals: HORIZONS Connect",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "notes": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-connect",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-09-connect"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-buffer-1000",
+      "location": "HORIZONS Studio",
+      "title": "Buffer",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "10:00-10:15",
+      "activity": "Buffer",
+      "owner": "Production",
+      "status": "Hold / transition",
+      "notes": "Transition buffer.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-buffer-1000",
+      "relatedLayoutIds": [],
+      "updateId": "location-schedule:rehearsal-2026-06-09-buffer-1000"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-pc-console",
+      "location": "HORIZONS Studio",
+      "title": "Team Rehearsals: PC & Console Track",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "10:15-11:15",
+      "activity": "Team Rehearsals: PC & Console Track",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "status": "Needs Confirmation",
+      "notes": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-pc-console",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-09-pc-console"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-buffer-1115",
+      "location": "HORIZONS Studio",
+      "title": "Buffer",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "11:15-11:30",
+      "activity": "Buffer",
+      "owner": "Production",
+      "status": "Hold / transition",
+      "notes": "Transition buffer.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-buffer-1115",
+      "relatedLayoutIds": [],
+      "updateId": "location-schedule:rehearsal-2026-06-09-buffer-1115"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-mobile",
+      "location": "HORIZONS Studio",
+      "title": "Team Rehearsals: Mobile Track",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "11:30-12:30",
+      "activity": "Team Rehearsals: Mobile Track",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "notes": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-mobile",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-09-mobile"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-vip100-debate",
+      "location": "HORIZONS Studio",
+      "title": "Team Rehearsals: VIP 100 Debate",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "14:00-15:00",
+      "activity": "Team Rehearsals: VIP 100 Debate",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "notes": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-vip100-debate",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-09-vip100-debate"
+    },
+    {
+      "id": "loc-schedule-rehearsal-2026-06-09-hall-tbc",
+      "location": "HORIZONS Hall",
+      "title": "Team Rehearsals: HORIZONS Hall",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "TBC: 18:00 or 23:30",
+      "activity": "Team Rehearsals: HORIZONS Hall",
+      "owner": "Clownfish / Liz / Dean / Samuel",
+      "status": "Needs Confirmation",
+      "notes": "Following completion of venue setup, speakers to be available for brief stage familiarisation and mic check in HORIZONS Hall.",
+      "relatedRehearsalId": "rehearsal-2026-06-09-hall-tbc",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-stage-design-technical"
+      ],
+      "updateId": "location-schedule:rehearsal-2026-06-09-hall-tbc"
     }
   ],
   "restaurants": [
@@ -35619,7 +36028,7 @@
     },
     {
       "id": "restaurant-schedule-schedule-46",
-      "restaurantName": "Farmers Market",
+      "restaurantName": "HORIZONS Hall",
       "day": "Tuesday 9 June",
       "meal": "Breakfast",
       "timeStart": "07:00",
@@ -37708,6 +38117,164 @@
       "status": "Needs Confirmation",
       "notes": "Placeholder added from Chris/Samuel review. Timing will be supplied later.",
       "updateId": "rehearsal:horizons-studio-8-june"
+    },
+    {
+      "id": "rehearsal-2026-06-08-cue-to-cue-studio",
+      "rehearsalName": "Cue-to-Cue Run Through — HORIZONS Studio Graphics",
+      "day": "Monday 8 June",
+      "date": "2026-06-08",
+      "time": "21:00",
+      "location": "HORIZONS Studio / or elsewhere if not ready",
+      "requiredPeople": "Liz; HORIZONS Studio Clownfish Graphics Op: Nathan Rushmer; Dean; Samuel",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "status": "Needs Confirmation",
+      "purpose": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "notes": "Aream team available to drop in if they want any final tweaks. Final location depends on readiness.",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "relatedSession": "HORIZONS Studio graphics / cue-to-cue",
+      "updateId": "rehearsal:2026-06-08:cue-to-cue-studio"
+    },
+    {
+      "id": "rehearsal-2026-06-08-cue-to-cue-hall",
+      "rehearsalName": "Cue-to-Cue Run Through — HORIZONS Hall Graphics",
+      "day": "Monday 8 June",
+      "date": "2026-06-08",
+      "time": "21:00",
+      "location": "HORIZONS Studio / or elsewhere if not ready",
+      "requiredPeople": "Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Dean; Samuel",
+      "owner": "Liz / Dean / Samuel / Ryan Lowe / George Winning",
+      "status": "Needs Confirmation",
+      "purpose": "Cue-to-cue rehearsal covering graphics, transitions, deck flow, and production cues.",
+      "notes": "Aream team available to drop in if they want any final tweaks. Final location depends on readiness.",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical",
+        "hall-layout-theatre-seating-x160"
+      ],
+      "relatedSession": "HORIZONS Hall graphics / cue-to-cue",
+      "updateId": "rehearsal:2026-06-08:cue-to-cue-hall"
+    },
+    {
+      "id": "rehearsal-2026-06-09-connect",
+      "rehearsalName": "Team Rehearsals: HORIZONS Connect",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "09:00-10:00",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Aream & Co. Team; Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Samuel; Dean",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "purpose": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "notes": "Related session: HORIZONS Connect. Related layout: HORIZONS Hall Theatre Seating Plan.",
+      "relatedSession": "HORIZONS Connect",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "updateId": "rehearsal:2026-06-09:connect"
+    },
+    {
+      "id": "rehearsal-2026-06-09-buffer-1000",
+      "rehearsalName": "Buffer",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "10:00-10:15",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Hold / transition",
+      "owner": "Production",
+      "status": "Hold / transition",
+      "purpose": "Transition buffer.",
+      "notes": "",
+      "updateId": "rehearsal:2026-06-09:buffer-1000"
+    },
+    {
+      "id": "rehearsal-2026-06-09-pc-console",
+      "rehearsalName": "Team Rehearsals: PC & Console Track",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "10:15-11:15",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Aream & Co. Team; Liz; HORIZONS Studio Clownfish Graphics Op: Nathan Rushmer; Dean; Samuel",
+      "owner": "Liz / Dean / Samuel / Nathan Rushmer",
+      "status": "Needs Confirmation",
+      "purpose": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "notes": "Related session: PC & Console Track.",
+      "relatedSession": "PC & Console Track",
+      "relatedLayoutIds": [
+        "hall-layout-stage-design-technical"
+      ],
+      "updateId": "rehearsal:2026-06-09:pc-console"
+    },
+    {
+      "id": "rehearsal-2026-06-09-buffer-1115",
+      "rehearsalName": "Buffer",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "11:15-11:30",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Hold / transition",
+      "owner": "Production",
+      "status": "Hold / transition",
+      "purpose": "Transition buffer.",
+      "notes": "",
+      "updateId": "rehearsal:2026-06-09:buffer-1115"
+    },
+    {
+      "id": "rehearsal-2026-06-09-mobile",
+      "rehearsalName": "Team Rehearsals: Mobile Track",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "11:30-12:30",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Aream & Co. Team; Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Samuel; Dean",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "purpose": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "notes": "Related session: Mobile Track.",
+      "relatedSession": "Mobile Track",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160"
+      ],
+      "updateId": "rehearsal:2026-06-09:mobile"
+    },
+    {
+      "id": "rehearsal-2026-06-09-vip100-debate",
+      "rehearsalName": "Team Rehearsals: VIP 100 Debate",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "14:00-15:00",
+      "location": "HORIZONS Studio",
+      "requiredPeople": "Liz; HORIZONS Hall Clownfish Graphics Ops: Ryan Lowe and George Winning; Li Ma; Dean; Samuel",
+      "owner": "Liz / Dean / Samuel / Clownfish",
+      "status": "Needs Confirmation",
+      "purpose": "Stage familiarisation, mic checks, quick session run-through, and Slido practice.",
+      "notes": "Related session: VIP 100 Debate / 12:00-13:00 debate. Related layout: HORIZONS Hall Theatre Seating Plan.",
+      "relatedSession": "VIP 100 Debate / 12:00-13:00 debate",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "updateId": "rehearsal:2026-06-09:vip100-debate"
+    },
+    {
+      "id": "rehearsal-2026-06-09-hall-tbc",
+      "rehearsalName": "Team Rehearsals: HORIZONS Hall",
+      "day": "Tuesday 9 June",
+      "date": "2026-06-09",
+      "time": "TBC: 18:00 or 23:30",
+      "location": "HORIZONS Hall",
+      "requiredPeople": "HORIZONS Connect speakers on standby; Mobile speakers on standby",
+      "owner": "Clownfish / Liz / Dean / Samuel",
+      "status": "Needs Confirmation",
+      "purpose": "Following completion of venue setup, speakers to be available for brief stage familiarisation and mic check in HORIZONS Hall.",
+      "notes": "This will be pre or post the BBQ dinner, depending on when Clownfish has finished setting up HORIZONS Hall. Purpose is quick stage familiarisation for the Connect and Mobile tracks because earlier rehearsals are in studio.",
+      "relatedSession": "HORIZONS Connect / Mobile Track",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-stage-design-technical"
+      ],
+      "updateId": "rehearsal:2026-06-09:hall-tbc"
     }
   ],
   "entertainment": [
@@ -38723,7 +39290,14 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall | Wednesday 10 June | 10:00 AM-11:30 AM | Needs Name Confirmation | HORIZONS Connect — all 150 guests (90 mins) | On Track",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "seatingLayout": "HORIZONS Hall Theatre Seating Plan",
+      "layoutStatus": "Reserved Seats — Needs Assignment",
+      "notes": "Seating layout: HORIZONS Hall Theatre Seating Plan. Reserved Seats — Needs Assignment."
     },
     {
       "id": "speaker-schedule-143",
@@ -38750,7 +39324,16 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall | Wednesday 10 June | 12:00 PM-1:00 PM | Needs Name Confirmation | Guest Led panel session Session Screen Content? | Awaiting Content",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "relatedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder"
+      ],
+      "seatingLayout": "HORIZONS Hall Theatre Seating Plan",
+      "layoutStatus": "Reserved Seats — Needs Assignment",
+      "teamFacingLabel": "Debate 12:00-13:00",
+      "sourceTrace": "Possible source labels include Debate, VIP 100 Debate, NOT-AT-VIP100 Debate, and The Winning Bet; team-facing label uses Debate 12:00-13:00 until final wording is approved.",
+      "notes": "Seating layout: HORIZONS Hall Theatre Seating Plan. Reserved Seats — Needs Assignment."
     },
     {
       "id": "speaker-schedule-221",
@@ -39043,11 +39626,11 @@
     },
     {
       "id": "artwork-material-menu-3",
-      "itemName": "Farmers Market Terrace · 19:30–21:00",
+      "itemName": "HORIZONS Hall Terrace · 19:30–21:00",
       "type": "Menus",
       "artworkFile": "File Needed",
       "printSize": "Needs Confirmation",
-      "locationPlacement": "Farmers Market Terrace",
+      "locationPlacement": "HORIZONS Hall Terrace",
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "B Good / Six Senses",
       "supplierSetupTeam": "Clownfish / B Good as relevant",
@@ -39143,7 +39726,7 @@
     },
     {
       "id": "artwork-material-menu-7",
-      "itemName": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
+      "itemName": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
       "type": "Menus",
       "artworkFile": "File Needed",
       "printSize": "Needs Confirmation",
@@ -39168,7 +39751,7 @@
     },
     {
       "id": "artwork-material-menu-8",
-      "itemName": "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+      "itemName": "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
       "type": "Menus",
       "artworkFile": "File Needed",
       "printSize": "Needs Confirmation",
@@ -39218,11 +39801,11 @@
     },
     {
       "id": "artwork-material-menu-10",
-      "itemName": "Farmers Market & Orchard · 07:00–09:30",
+      "itemName": "HORIZONS Hall & Orchard · 07:00–09:30",
       "type": "Menus",
       "artworkFile": "File Needed",
       "printSize": "Needs Confirmation",
-      "locationPlacement": "Farmers Market & Orchard",
+      "locationPlacement": "HORIZONS Hall & Orchard",
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "B Good / Six Senses",
       "supplierSetupTeam": "Clownfish / B Good as relevant",
@@ -40731,8 +41314,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:speaker-rehearsal-schedule"
     },
     {
@@ -40741,8 +41324,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:horizons-hall-rehearsal-schedule"
     },
     {
@@ -40751,8 +41334,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:horizons-studio-rehearsal-schedule"
     },
     {
@@ -40761,8 +41344,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Clownfish",
       "neededFor": "Technical production",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:technical-rehearsal-schedule"
     },
     {
@@ -41228,8 +41811,8 @@
       "category": "Venue / Restaurants",
       "owner": "Dawn Ramsden",
       "neededFor": "Seating",
-      "status": "Added to Website",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Partially Added",
+      "notes": "HORIZONS Hall theatre and round-table layout PDFs are added. Reserved seat assignments and other seating plans still need confirmation.",
       "updateId": "missing-file:seating-plans"
     },
     {
@@ -42252,12 +42835,12 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -42317,12 +42900,12 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -42418,12 +43001,13 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30"
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "HORIZONS Hall Stage Design / Technical Layout"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -42447,7 +43031,11 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Monday 8 June | Monday 8 June Daily Call Sheet | Subject to Hotel agreement | 7:00 PM | Six Senses, HORIZONS House | Needs Confirmation",
-      "finalWorkbookStatus": "Approved"
+      "finalWorkbookStatus": "Approved",
+      "linkedRehearsalIds": [
+        "rehearsal-2026-06-08-cue-to-cue-studio",
+        "rehearsal-2026-06-08-cue-to-cue-hall"
+      ]
     },
     {
       "id": "call-sheet-tuesday-9-june",
@@ -42545,10 +43133,10 @@
         "schedule-116",
         "schedule-117"
       ],
-      "locationNotes": "Farmers Market, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area Show operatives: HORIZONS Hall — George Winning + Ryan Lowe. HORIZONS Studio — Alex Hudson + Nathan Rushmer.",
+      "locationNotes": "HORIZONS Hall, Situation room 2, HORIZONS House, Beach Caves, HORIZONS House, HORIZONS Hall, HORIZONS Studio & Pool area Show operatives: HORIZONS Hall — George Winning + Ryan Lowe. HORIZONS Studio — Alex Hudson + Nathan Rushmer.",
       "productionNotes": "7:00 AM-9:30 AM: Breakfast — those checked in on 8th; 7:00 AM-8:30 AM: Crew Breakfast; 8:30 AM: Full team brief; TBC: Beach Caves & Arcade set up; TBC: Starlink Installation",
       "supplierNotes": "7:00 AM-9:30 AM: Breakfast — those checked in on 8th — Six Senses; 7:00 AM-8:30 AM: Crew Breakfast — Six Senses; 8:30 AM: Full team brief — B Good / Aream & Co. / I.N.C / Clownfish; TBC: Beach Caves & Arcade set up — Clownfish; TBC: Starlink Installation — Joseph",
-      "entertainmentNotes": "Full team brief; Beach Caves & Arcade set up; Clownfish Familiarisation; Curated background music; Full build — Farmers Market (stage, AV, lighting, trussing)",
+      "entertainmentNotes": "Full team brief; Beach Caves & Arcade set up; Clownfish Familiarisation; Curated background music; Full build — HORIZONS Hall (stage, AV, lighting, trussing)",
       "podcastNotes": "9:00 AM-4:00 PM: Speaker rehearsals & AV checks — full day window; 12:00 PM: Cliff Hanger — podcast setup (mic, lighting, backdrop); 2:00 PM-3:30 PM: Podcast set up",
       "transportNotes": "On site arrival — Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier, Pili Lopez, Joshua Gavin, Fede Tamburini; GUEST ARRIVALS from 12:00; Welcome reception — all afternoon; Violinist (Christina Hizon) — arrival & sound check; DJ Lindsay Evans — arrival",
       "mealNotes": "Breakfast — those checked in on 8th; Crew Breakfast; CREW CATERING OPEN; Light lunch available to order; Buffet Lunch",
@@ -42557,13 +43145,16 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
-        "Final Menus PDF linked in Menus section"
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section",
+        "HORIZONS Hall Theatre Seating Plan",
+        "HORIZONS Hall Round Table Layout",
+        "HORIZONS Hall Stage Design / Technical Layout"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -42593,6 +43184,15 @@
         "menu_09-06-26_bbq-dinner",
         "menu_09-06-26_evening-welcome-drinks",
         "menu_09-06-26_late-night-snacks"
+      ],
+      "linkedRehearsalIds": [
+        "rehearsal-2026-06-09-connect",
+        "rehearsal-2026-06-09-buffer-1000",
+        "rehearsal-2026-06-09-pc-console",
+        "rehearsal-2026-06-09-buffer-1115",
+        "rehearsal-2026-06-09-mobile",
+        "rehearsal-2026-06-09-vip100-debate",
+        "rehearsal-2026-06-09-hall-tbc"
       ]
     },
     {
@@ -42718,13 +43318,16 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
-        "Final Menus PDF linked in Menus section"
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Final Menus PDF linked in Menus section",
+        "HORIZONS Hall Theatre Seating Plan",
+        "HORIZONS Hall Round Table Layout",
+        "HORIZONS Hall Stage Design / Technical Layout"
       ],
       "redFlags": [
         "Podcast slot count, guests, and final agenda need confirmation",
@@ -42758,6 +43361,11 @@
         "menu_10-06-26_beach-caves-dinner",
         "menu_10-06-26_dinner",
         "menu_10-06-26_late-night-snacks"
+      ],
+      "linkedLayoutIds": [
+        "hall-layout-theatre-seating-x160",
+        "hall-layout-reserved-seats-placeholder",
+        "hall-layout-stage-design-technical"
       ]
     },
     {
@@ -42875,12 +43483,12 @@
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
         "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
@@ -42968,24 +43576,24 @@
         "schedule-309",
         "schedule-310"
       ],
-      "locationNotes": "Situation Room 2, Farmers Market & Orchard, Spa / Pool, All spaces, HORIZONS House Show operatives: HORIZONS Hall — George Winning + Ryan Lowe. HORIZONS Studio — Alex Hudson + Nathan Rushmer.",
+      "locationNotes": "Situation Room 2, HORIZONS Hall & Orchard, Spa / Pool, All spaces, HORIZONS House Show operatives: HORIZONS Hall — George Winning + Ryan Lowe. HORIZONS Studio — Alex Hudson + Nathan Rushmer.",
       "productionNotes": "7:00 AM-9:00 AM: CREW CATERING OPEN; 8:00 AM-12:00 PM: GUEST DEPARTURES — check-out by 12:00; 8:00 AM-12:00 PM: Transfer management — airport runs; 9:00 AM: Winners depart — Six Senses; 9:30 AM: Winners arrive — Ibiza Town Harbour",
-      "supplierNotes": "7:00 AM-9:00 AM: CREW CATERING OPEN — Six Senses; 7:00 AM-9:30 AM: BREAKFAST — Farmers Market & Orchard — Six Senses; 7:30 AM: Wellness (optional) — Spa / Pool — B Good; 8:00 AM: DE-RIG begins — all event spaces — Clownfish; 8:00 AM-12:00 PM: GUEST DEPARTURES — check-out by 12:00 — B Good",
+      "supplierNotes": "7:00 AM-9:00 AM: CREW CATERING OPEN — Six Senses; 7:00 AM-9:30 AM: BREAKFAST — HORIZONS Hall & Orchard — Six Senses; 7:30 AM: Wellness (optional) — Spa / Pool — B Good; 8:00 AM: DE-RIG begins — all event spaces — Clownfish; 8:00 AM-12:00 PM: GUEST DEPARTURES — check-out by 12:00 — B Good",
       "entertainmentNotes": "DE-RIG begins — all event spaces; Curated background music; Eva to collect plants / Furniture collection / Brian Beeswax DJ equipment collection; De-rig complete — space handback by 12:00",
       "podcastNotes": "No podcast items listed for this day",
       "transportNotes": "GUEST DEPARTURES — check-out by 12:00; Transfer management — airport runs; On site arrival — Chris Manoe, Samuel Hosier, Tamy Hosier; Winners arrive — Ibiza Town Harbour; Winners depart",
-      "mealNotes": "CREW CATERING OPEN; BREAKFAST — Farmers Market & Orchard; CREW CATERING CLOSES; CREW CATERING OPEN; Aream team lunch — HORIZONS House (TBC)",
+      "mealNotes": "CREW CATERING OPEN; BREAKFAST — HORIZONS Hall & Orchard; CREW CATERING CLOSES; CREW CATERING OPEN; Aream team lunch — HORIZONS House (TBC)",
       "emergencyNotes": "Nearest hospital / medical route is not confirmed yet. Use emergency services 112 for urgent emergencies and confirm venue medical protocol. Open the Emergency / Medical map link from this call sheet.",
       "hospitalLocationId": "location-emergency-medical",
       "documents": [
         "Selected in-room dining items",
         "Food allergen key",
-        "Farmers Market Terrace · 19:30–21:00",
+        "HORIZONS Hall Terrace · 19:30–21:00",
         "HORIZONS House · 12:00–19:00",
         "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00",
         "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/Farmers Market Terrace; late snacks 23:30–01:00",
-        "Breakfast Farmers Market & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
+        "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00",
+        "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
         "Final Menus PDF linked in Menus section"
       ],
       "redFlags": [
@@ -49017,5 +49625,277 @@
         }
       ]
     }
-  }
+  },
+  "horizonsHallLayouts": [
+    {
+      "id": "hall-layout-theatre-seating-x160",
+      "title": "HORIZONS Hall Theatre Seating Plan",
+      "layoutName": "Theatre Seating Plan",
+      "layoutType": "Theatre-style seating",
+      "capacity": "160 seated",
+      "location": "HORIZONS Hall",
+      "sourceFile": "Horizons - Farmers Market - x160 V4.pdf",
+      "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+      "status": "Confirmed layout / seat assignments pending",
+      "summary": "Theatre-style HORIZONS Hall seating plan for HORIZONS Connect and the 12:00-13:00 debate.",
+      "relatedSessions": [
+        "HORIZONS Connect opening 90 minutes",
+        "Debate 12:00-13:00"
+      ],
+      "relatedScheduleIds": [
+        "schedule-138",
+        "schedule-143"
+      ],
+      "relatedSpeakerIds": [
+        "speaker-schedule-138",
+        "speaker-schedule-143"
+      ],
+      "relatedCallSheetIds": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Call Sheet",
+        "Schedule",
+        "Speaker Content",
+        "Rehearsals",
+        "Documents"
+      ],
+      "sourceTrace": "Original file name: Horizons - Farmers Market - x160 V4.pdf. Website-facing label changed to HORIZONS Hall Theatre Seating Plan.",
+      "needsConfirmation": [
+        "Reserved seat assignments",
+        "Exact reserved rows/zones",
+        "Reserved signage placement"
+      ]
+    },
+    {
+      "id": "hall-layout-round-table-x80",
+      "title": "HORIZONS Hall Round Table Layout",
+      "layoutName": "Round Table Layout",
+      "layoutType": "Round-table seating",
+      "capacity": "80 seated",
+      "location": "HORIZONS Hall",
+      "sourceFile": "Horizons - Farmers Market x80 V5.pdf",
+      "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf",
+      "status": "Confirmed layout / table assignments pending",
+      "summary": "Round-table option showing 10 numbered tables and 80 seated capacity. Guest/table assignments still needed.",
+      "relatedSessions": [
+        "Table seating / cabaret-style option"
+      ],
+      "relatedScheduleIds": [
+        "schedule-150"
+      ],
+      "relatedCallSheetIds": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Guests / Namecards",
+        "Table Namecards",
+        "Call Sheet",
+        "Schedule",
+        "Documents"
+      ],
+      "sourceTrace": "Original file name: Horizons - Farmers Market x80 V5.pdf. Website-facing label changed to HORIZONS Hall Round Table Layout.",
+      "tablePlaceholders": [
+        {
+          "table": "Table 1",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 2",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 3",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 4",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 5",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 6",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 7",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 8",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 9",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        },
+        {
+          "table": "Table 10",
+          "capacity": "8 seats shown / confirm final seat count",
+          "guestAssignments": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": "Seat count per table needs confirmation"
+        }
+      ],
+      "needsConfirmation": [
+        "Seat count per table",
+        "Guest assignments",
+        "Final layout approval"
+      ]
+    },
+    {
+      "id": "hall-layout-stage-design-technical",
+      "title": "HORIZONS Hall Stage Design / Technical Layout",
+      "layoutName": "Stage Design / Technical Layout",
+      "layoutType": "Production / stage technical reference",
+      "capacity": "Production reference",
+      "location": "HORIZONS Hall",
+      "sourceFile": "STAGE DESIGN_I.N.C STAFF - Horizons 2026 - Entertainment & Wellness Programme (1).pdf",
+      "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf",
+      "status": "Production reference",
+      "summary": "Stage design, technical/stage construction, LED wall / rear panel and production reference for HORIZONS Hall.",
+      "relatedSessions": [
+        "HORIZONS Hall production setup",
+        "Rehearsals",
+        "Speaker Content"
+      ],
+      "relatedScheduleIds": [
+        "schedule-61",
+        "schedule-70",
+        "schedule-131",
+        "schedule-138",
+        "schedule-143"
+      ],
+      "relatedCallSheetIds": [
+        "call-sheet-tuesday-9-june",
+        "call-sheet-wednesday-10-june"
+      ],
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Rehearsals",
+        "Call Sheet",
+        "Production",
+        "Clownfish",
+        "Speaker Content",
+        "Documents"
+      ],
+      "sourceTrace": "Original file name: STAGE DESIGN_I.N.C STAFF - Horizons 2026 - Entertainment & Wellness Programme (1).pdf.",
+      "needsConfirmation": [
+        "Latest Clownfish technical revision if newer"
+      ]
+    },
+    {
+      "id": "hall-layout-reserved-seats-placeholder",
+      "title": "Reserved Seats — Needs Assignment",
+      "layoutName": "Reserved Seats",
+      "layoutType": "Reserved seating placeholder",
+      "capacity": "Needs Assignment",
+      "location": "HORIZONS Hall",
+      "sourceFile": "Derived operational placeholder",
+      "sourceAsset": "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf",
+      "status": "Needs Assignment",
+      "summary": "Placeholder for CEOs, leadership, VIPs, speakers and reserved signage. No seats assigned yet.",
+      "relatedSessions": [
+        "HORIZONS Connect opening 90 minutes",
+        "Debate 12:00-13:00"
+      ],
+      "relatedScheduleIds": [
+        "schedule-138",
+        "schedule-143"
+      ],
+      "relatedCallSheetIds": [
+        "call-sheet-wednesday-10-june"
+      ],
+      "relatedSections": [
+        "HORIZONS Hall",
+        "Guests / Namecards",
+        "Speaker Content",
+        "Call Sheet"
+      ],
+      "reservedSeatRows": [
+        {
+          "seat": "CEO seat",
+          "personName": "Needs Assignment",
+          "company": "Needs Assignment",
+          "reason": "CEO / leadership reserved seating",
+          "assignedBy": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": ""
+        },
+        {
+          "seat": "Leadership seats",
+          "personName": "Needs Assignment",
+          "company": "Needs Assignment",
+          "reason": "Leadership reserved seating",
+          "assignedBy": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": ""
+        },
+        {
+          "seat": "Speaker seats",
+          "personName": "Needs Assignment",
+          "company": "Needs Assignment",
+          "reason": "Speaker reserved seating",
+          "assignedBy": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": ""
+        },
+        {
+          "seat": "VIP / Aream seats",
+          "personName": "Needs Assignment",
+          "company": "Aream & Co. / VIP",
+          "reason": "VIP / client reserved seating",
+          "assignedBy": "Needs Assignment",
+          "status": "Needs Assignment",
+          "notes": ""
+        },
+        {
+          "seat": "Reserved signage placement",
+          "personName": "Needs Confirmation",
+          "company": "Needs Confirmation",
+          "reason": "Reserved seat signage placement",
+          "assignedBy": "Needs Assignment",
+          "status": "Needs Confirmation",
+          "notes": "Confirm reserved seat signage artwork and placement."
+        }
+      ],
+      "needsConfirmation": [
+        "CEO/VIP/speaker names",
+        "Rows/zones/seats",
+        "Reserved signage artwork"
+      ]
+    }
+  ]
 }
