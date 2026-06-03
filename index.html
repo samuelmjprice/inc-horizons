@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260602-final-menus1">
+    <link rel="stylesheet" href="style.css?v=20260603-compression1">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -21,42 +21,15 @@
           <span class="menu-label">Menu</span>
         </button>
         <nav id="site-nav" class="site-nav" data-nav>
-          <span class="nav-group-label">Start</span>
-          <a href="#overview">Overview</a>
-          <a href="#today">Today</a>
-          <a href="#red-flags">Red Flags</a>
-          <a href="#decisions">Decisions</a>
-          <a href="#who-do-i-call">Who Do I Call</a>
-          <a href="#call-sheet">Call Sheet</a>
-          <span class="nav-group-label">Schedule / Operations</span>
-          <a href="#schedule">Schedule</a>
-          <a href="#flights">Flights</a>
-          <a href="#daily">Daily Focus</a>
-          <a href="#location-schedules">Location Schedules</a>
-          <a href="#restaurants">Restaurants</a>
-          <a href="#menus">Menus</a>
-          <a href="#tasks">Tasks</a>
-          <span class="nav-group-label">People / Teams</span>
-          <a href="#contacts">Contacts</a>
-          <a href="#staff">Staff</a>
-          <a href="#guests">Guests</a>
-          <a href="#suppliers">Suppliers</a>
-          <span class="nav-group-label">Programme / Content</span>
-          <a href="#podcast">Podcast</a>
-          <a href="#speakers">Speakers</a>
-          <a href="#entertainment">Entertainment</a>
-          <a href="#playlists">Playlists</a>
-          <a href="#rehearsals">Rehearsals</a>
-          <a href="#content">Content</a>
-          <span class="nav-group-label">Guest Experience / Assets</span>
-          <a href="#swag">Guest Materials</a>
-          <a href="#room-drops">Room Drops</a>
-          <a href="#horizons-house">HORIZONS House</a>
-          <a href="#artwork">Signage</a>
-          <a href="#documents">Documents</a>
-          <a href="#locations">Locations</a>
-          <span class="nav-group-label">Admin</span>
-          <a href="#admin-data">Admin Data</a>
+          <a href="#overview" data-app-nav="overview">Overview</a>
+          <a href="#today" data-app-nav="today">Today</a>
+          <a href="#call-sheet" data-app-nav="call-sheet">Call Sheet</a>
+          <a href="#schedule" data-app-nav="schedule">Schedule</a>
+          <a href="#locations" data-app-nav="locations">Locations</a>
+          <a href="#contacts" data-app-nav="people">People</a>
+          <a href="#podcast" data-app-nav="programme">Programme</a>
+          <a href="#menus" data-app-nav="assets">Assets</a>
+          <a href="#admin-data" data-app-nav="admin">Admin</a>
         </nav>
       </div>
     </header>
@@ -76,12 +49,13 @@
             </div>
             <div class="countdown" data-countdown aria-label="Countdown to HORIZONS arrival">
               <p class="eyebrow">Countdown to HORIZONS arrival</p>
-              <div class="countdown-grid">
-                <span><strong data-countdown-days>--</strong>Days</span>
-                <span><strong data-countdown-hours>--</strong>Hours</span>
-                <span><strong data-countdown-minutes>--</strong>Minutes</span>
-                <span><strong data-countdown-seconds>--</strong>Seconds</span>
+              <div class="countdown-grid" data-countdown-grid hidden>
+                <span><strong data-countdown-days>0</strong>Days</span>
+                <span><strong data-countdown-hours>00</strong>Hours</span>
+                <span><strong data-countdown-minutes>00</strong>Minutes</span>
+                <span><strong data-countdown-seconds>00</strong>Seconds</span>
               </div>
+              <p class="countdown-fallback" data-countdown-fallback>Countdown loading...</p>
             </div>
             <div class="quick-actions" data-quick-actions></div>
           </div>
@@ -93,7 +67,7 @@
         </div>
       </section>
 
-      <section class="utility-band" aria-label="Search and filters">
+      <section id="app-search" class="utility-band" aria-label="Search and filters">
         <div class="container utility-grid">
           <label class="search-control">
             <span>Search the hub</span>
@@ -473,19 +447,22 @@
             <div class="section-heading">
               <p class="eyebrow">Live notes</p>
               <h2>Capture Suggestions</h2>
-              <p>Quick live ideas for the content team. These are saved locally until shared storage is connected.</p>
+              <p data-capture-storage-copy>Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.</p>
             </div>
             <div class="cards-grid compact-grid" data-capture-suggestions></div>
-            <form class="suggestion-form" data-capture-suggestion-form>
-              <label><span>Name</span><input name="name" required placeholder="Your name"></label>
-              <label><span>Capture idea / moment</span><textarea name="idea" required placeholder="What should the team capture?"></textarea></label>
-              <label><span>Suggested day/time</span><input name="time" placeholder="Wednesday, 14:30"></label>
-              <label><span>Location</span><input name="location" placeholder="HORIZONS House"></label>
-              <label><span>Priority</span><select name="priority"><option>Suggested</option><option>Needs Review</option><option>Approved to Capture</option><option>Captured</option><option>Not Captured</option><option>Not Needed</option></select></label>
-              <label><span>Assigned to</span><input name="assignedTo" placeholder="Content lead"></label>
-              <label><span>Notes</span><textarea name="notes" placeholder="Any useful context"></textarea></label>
-              <button class="button button-secondary" type="submit">Add capture suggestion</button>
-            </form>
+            <details class="details form-detail">
+              <summary><span>Add capture suggestion</span><span class="summary-hint">Open form</span></summary>
+              <form class="suggestion-form" data-capture-suggestion-form>
+                <label><span>Name</span><input name="name" required placeholder="Your name"></label>
+                <label><span>Capture idea / moment</span><textarea name="idea" required placeholder="What should the team capture?"></textarea></label>
+                <label><span>Suggested day/time</span><input name="time" placeholder="Wednesday, 14:30"></label>
+                <label><span>Location</span><input name="location" placeholder="HORIZONS House"></label>
+                <label><span>Priority</span><select name="priority"><option>Suggested</option><option>Needs Review</option><option>Approved to Capture</option><option>Captured</option><option>Not Captured</option><option>Not Needed</option></select></label>
+                <label><span>Assigned to</span><input name="assignedTo" placeholder="Content lead"></label>
+                <label><span>Notes</span><textarea name="notes" placeholder="Any useful context"></textarea></label>
+                <button class="button button-secondary" type="submit">Add capture suggestion</button>
+              </form>
+            </details>
           </div>
           <div class="capture-log-panel">
             <div class="section-heading">
@@ -494,21 +471,24 @@
               <p>Fast internal log for photo, video, drone, BTS, audio, and social moments captured onsite.</p>
             </div>
             <div class="cards-grid compact-grid" data-capture-log></div>
-            <form class="suggestion-form" data-capture-log-form>
-              <label><span>Logged by</span><input name="loggedBy" required placeholder="Your name"></label>
-              <label><span>Manual time override</span><input name="manualTime" placeholder="14:35 or leave blank"></label>
-              <label><span>Day/date</span><input name="day" placeholder="Wednesday 10 June"></label>
-              <label><span>Location</span><input name="location" placeholder="HORIZONS Hall"></label>
-              <label><span>Camera</span><input name="camera" placeholder="A Cam / Drone / iPhone"></label>
-              <label><span>Media type</span><select name="mediaType"><option>Photo</option><option>Video</option><option>Drone</option><option>Audio</option><option>BTS</option><option>Social</option></select></label>
-              <label><span>Subject / moment</span><textarea name="subject" required placeholder="What was captured?"></textarea></label>
-              <label><span>Tags</span><input name="tags" placeholder="awards, Chris, hallway"></label>
-              <label><span>File/card reference</span><input name="fileReference" placeholder="Card A / clip range / filename"></label>
-              <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option></select></label>
-              <label><span>Status</span><select name="status"><option>Logged</option><option>Needs Review</option><option>Selected</option><option>Used</option><option>Archived</option></select></label>
-              <label><span>Notes</span><textarea name="notes" placeholder="Useful context for edit team"></textarea></label>
-              <button class="button button-secondary" type="submit">Log capture moment</button>
-            </form>
+            <details class="details form-detail">
+              <summary><span>Log capture moment</span><span class="summary-hint">Open form</span></summary>
+              <form class="suggestion-form" data-capture-log-form>
+                <label><span>Logged by</span><input name="loggedBy" required placeholder="Your name"></label>
+                <label><span>Manual time override</span><input name="manualTime" placeholder="14:35 or leave blank"></label>
+                <label><span>Day/date</span><input name="day" placeholder="Wednesday 10 June"></label>
+                <label><span>Location</span><input name="location" placeholder="HORIZONS Hall"></label>
+                <label><span>Camera</span><input name="camera" placeholder="A Cam / Drone / iPhone"></label>
+                <label><span>Media type</span><select name="mediaType"><option>Photo</option><option>Video</option><option>Drone</option><option>Audio</option><option>BTS</option><option>Social</option></select></label>
+                <label><span>Subject / moment</span><textarea name="subject" required placeholder="What was captured?"></textarea></label>
+                <label><span>Tags</span><input name="tags" placeholder="awards, Chris, hallway"></label>
+                <label><span>File/card reference</span><input name="fileReference" placeholder="Card A / clip range / filename"></label>
+                <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option></select></label>
+                <label><span>Status</span><select name="status"><option>Logged</option><option>Needs Review</option><option>Selected</option><option>Used</option><option>Archived</option></select></label>
+                <label><span>Notes</span><textarea name="notes" placeholder="Useful context for edit team"></textarea></label>
+                <button class="button button-secondary" type="submit">Log capture moment</button>
+              </form>
+            </details>
           </div>
           <div class="cards-grid compact-grid" data-content-capture></div>
         </div>
@@ -725,10 +705,19 @@
     <nav class="section-progress" data-section-progress aria-label="Section progress"></nav>
     <nav class="section-jump" data-section-jump aria-label="Section navigation">
       <button type="button" data-section-jump-action="top">↑ Top</button>
-      <a href="#overview" data-section-prev>‹ Previous</a>
+      <button type="button" data-section-drawer-open aria-expanded="false" aria-controls="section-drawer">Sections</button>
       <span data-section-current>Overview</span>
       <a href="#today" data-section-next>Next ›</a>
     </nav>
+    <div class="section-drawer" id="section-drawer" data-section-drawer hidden>
+      <div class="section-drawer-panel" role="dialog" aria-modal="false" aria-labelledby="section-drawer-title">
+        <div class="section-drawer-header">
+          <h2 id="section-drawer-title">Sections</h2>
+          <button type="button" data-section-drawer-close>Close</button>
+        </div>
+        <div class="section-drawer-links" data-section-drawer-links></div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container footer-grid">
@@ -739,6 +728,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260602-final-menus1"></script>
+    <script src="script.js?v=20260603-compression1"></script>
   </body>
 </html>

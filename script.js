@@ -20,7 +20,22 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260602-final-menus1";
+const APP_VERSION = "20260603-compression1";
+const APP_GROUPS = [
+  { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
+  { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
+  { id: "call-sheet", label: "Call Sheet", target: "call-sheet", sections: ["call-sheet"] },
+  { id: "schedule", label: "Schedule", target: "schedule", sections: ["schedule", "flights", "daily", "tasks"] },
+  { id: "locations", label: "Locations", target: "locations", sections: ["locations", "location-schedules", "restaurants", "menus"] },
+  { id: "people", label: "People", target: "contacts", sections: ["contacts", "who-do-i-call", "staff", "guests", "suppliers"] },
+  { id: "programme", label: "Programme", target: "podcast", sections: ["podcast", "speakers", "entertainment", "playlists", "rehearsals", "content", "workstreams"] },
+  { id: "assets", label: "Assets", target: "menus", sections: ["menus", "swag", "room-drops", "horizons-house", "artwork", "documents", "completed"] },
+  { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"] }
+];
+const groupBySection = APP_GROUPS.reduce((acc, group) => {
+  group.sections.forEach((id) => { acc[id] = group.id; });
+  return acc;
+}, {});
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const text = (value, fallback = "") => value === null || value === undefined || String(value).trim() === "" ? fallback : String(value).trim();
@@ -374,6 +389,7 @@ async function init() {
   state.activeCallSheetDay = state.activeDay;
   state.activeContentDay = state.activeDay;
   state.activeSwagSchedule = state.data.swagQueensSchedule?.[0]?.day || "";
+  setupAppGroups();
   renderEvent();
   renderFilters();
   renderAll();
@@ -384,13 +400,52 @@ async function init() {
   setupSectionNavigation();
   setupBackToTopAndAdmin();
   const restoreHashTarget = () => {
-    const target = document.getElementById((location.hash || "").replace("#", ""));
+    const targetId = (location.hash || "").replace("#", "");
+    setActiveGroupForTarget(targetId || "overview");
+    const target = document.getElementById(targetId);
     if (target) target.scrollIntoView();
     window.HORIZONS_UPDATE_SECTION_NAV?.();
   };
   requestAnimationFrame(restoreHashTarget);
   setTimeout(restoreHashTarget, 350);
   setTimeout(restoreHashTarget, 1000);
+}
+
+function setupAppGroups() {
+  const main = $("#main");
+  if (!main) return;
+  APP_GROUPS.forEach((group) => {
+    group.sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+      section.dataset.appGroup = group.id;
+      section.dataset.appGroupLabel = group.label;
+      main.appendChild(section);
+    });
+  });
+  APP_GROUPS.forEach((group) => {
+    const lead = document.getElementById(group.target);
+    const container = lead?.querySelector(".container");
+    if (!container || container.querySelector("[data-app-subnav]")) return;
+    const links = group.sections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+      .map((section) => {
+        const label = section.querySelector("h2")?.textContent || section.dataset.appGroupLabel || section.id;
+        return `<a href="#${escapeHtml(section.id)}">${escapeHtml(label)}</a>`;
+      }).join("");
+    if (links) container.insertAdjacentHTML("afterbegin", `<nav class="app-subnav" data-app-subnav aria-label="${escapeHtml(group.label)} shortcuts">${links}</nav>`);
+  });
+  setActiveGroupForTarget((location.hash || "#overview").replace("#", ""));
+  document.body.classList.add("app-compressed");
+}
+
+function setActiveGroupForTarget(targetId = "overview") {
+  const targetGroup = groupBySection[targetId] || APP_GROUPS.find((group) => group.id === targetId)?.id || "overview";
+  document.body.dataset.activeGroup = targetGroup;
+  document.body.classList.toggle("admin-view", targetGroup === "admin" || ["cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"].includes(targetId));
+  $$("[data-app-nav]").forEach((link) => link.classList.toggle("is-active", link.dataset.appNav === targetGroup));
+  $$("[data-app-subnav] a").forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${targetId}`));
 }
 
 function renderEvent() {
@@ -410,14 +465,19 @@ function renderEvent() {
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
   setHtml("[data-quick-actions]", quickActions.map((action, index) => `<a class="button ${index === 0 ? "button-primary" : "button-secondary"}" href="${action.target}">${escapeHtml(action.label)}</a>`).join(""));
   const startCards = [
-    ["What matters now...", state.data.today?.focus || "Current event-day priorities", "#today"],
-    ["Top red flag", state.data.redFlags?.[0]?.issue || "No critical red flag listed", "#red-flags"],
-    ["Next schedule moment", state.data.schedule?.find((item) => (item.dayLabel || item.date) === state.activeDay)?.title || "Open the run sheet", "#schedule"],
-    ["Key decision", state.data.decisions?.[0]?.decisionNeeded || "No open decision listed", "#decisions"],
-    ["Quick contacts", state.data.contacts?.filter((c) => c.category === "Leadership").slice(0, 3).map((c) => c.name).join(", ") || "Open team contacts", "#contacts"],
-    ["Documents", "Menus, maps, room layouts, runbooks, and brand files", "#documents"]
+    ["Open Today", state.data.today?.focus || "Current event-day priorities", "#today"],
+    ["Open Call Sheet", state.activeCallSheetDay || "Daily production view", "#call-sheet"],
+    ["Who Do I Call", "Escalation guide by problem", "#who-do-i-call"],
+    ["Locations", "Open maps and venue pins", "#locations"],
+    ["Red Flags", state.data.redFlags?.[0]?.issue || "No critical red flag listed", "#red-flags"],
+    ["Guests", `${(state.data.guests || []).length} safe guest records`, "#guests"],
+    ["Menus", `${(state.data.menus || []).length} final menu cards`, "#menus"],
+    ["Assets", "Swag, room drops, signage, documents", "#menus"]
   ];
   setHtml("[data-start-grid]", startCards.map(([title, detail, href]) => `<a class="start-card" href="${href}"><strong>${title}</strong><span>${detail}</span></a>`).join(""));
+  $("[data-capture-storage-copy]") && ($("[data-capture-storage-copy]").textContent = backendApiBase()
+    ? "Quick live ideas for the content team. Capture suggestions are saved to the shared event system."
+    : "Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.");
 }
 
 function renderFilters() {
@@ -1031,7 +1091,7 @@ function renderDepartmentFocus() {
 
 function renderDailyRuns() {
   setHtml("[data-daily-runs]", state.data.dailyRunSheets.map((day) => `
-    <details class="accordion" ${day.day === state.activeDay ? "open" : ""}>
+    <details class="accordion">
       <summary><span><strong>${escapeHtml(day.day)}</strong><br><span class="summary-hint">${escapeHtml(day.summary)}</span></span>${tag(day.watchOut ? "Watch" : "")}</summary>
       <div class="accordion-body">
         ${card({ title: "Focus", body: `<p>${escapeHtml(day.summary)}</p>`, metadata: meta("Locations", day.mainLocations) + meta("Watch-out", day.watchOut), updateId: `${day.updateId}:focus` })}
@@ -1618,7 +1678,7 @@ function renderArtwork() {
     title: item.itemName,
     status: item.status,
     department: item.type,
-    body: `${item.referenceImage || (item.artworkFile || "").match(/\.(png|jpe?g|webp)$/i) ? `<figure class="reference-card"><img src="${escapeHtml(item.referenceImage || item.artworkFile)}" alt="${escapeHtml(item.itemName)} reference" loading="lazy"><figcaption>${escapeHtml(item.type || "Artwork reference")}</figcaption></figure>` : `<div class="image-placeholder"><strong>${escapeHtml(item.artworkFile || "File Needed")}</strong><span>Artwork preview / reference image needed.</span></div>`}<p>${escapeHtml(item.positioningNotes || item.placementDescription || "Placement details needed.")}</p>`,
+    body: `<p>${escapeHtml(item.positioningNotes || item.placementDescription || "Placement details needed.")}</p>${detailsBlock("Open signage visual", [], item.referenceImage || (item.artworkFile || "").match(/\.(png|jpe?g|webp)$/i) ? `<figure class="reference-card"><img src="${escapeHtml(item.referenceImage || item.artworkFile)}" alt="${escapeHtml(item.itemName)} reference" loading="lazy"><figcaption>${escapeHtml(item.type || "Artwork reference")}</figcaption></figure>` : `<div class="image-placeholder"><strong>${escapeHtml(item.artworkFile || "File Needed")}</strong><span>Artwork preview / reference image needed.</span></div>`)}`,
     metadata: meta("Artwork file", item.artworkFile) + meta("Print size", item.printSize) + meta("Exact location", item.exactLocation || item.locationPlacement) + meta("Placement", item.placementDescription || item.positioningNotes) + meta("Who installs", item.installer || item.supplierSetupTeam) + meta("Install timing", item.installTiming) + meta("Owner", item.owner) + meta("Supplier / setup team", item.supplierSetupTeam) + meta("Reference image", item.referenceImage) + meta("Notes", item.notes),
     updateId: item.updateId
   })).join("") || empty("No artwork or signage records available yet."));
@@ -1765,6 +1825,8 @@ function renderCompleted() {
 
 function startCountdown() {
   const target = new Date(state.data.event.countdownTarget || "2026-06-08T00:00:00+02:00").getTime();
+  const grid = $("[data-countdown-grid]");
+  const fallback = $("[data-countdown-fallback]");
   const update = () => {
     const diff = Math.max(0, target - Date.now());
     const days = Math.floor(diff / 86400000);
@@ -1775,6 +1837,11 @@ function startCountdown() {
     $("[data-countdown-hours]").textContent = String(hours).padStart(2, "0");
     $("[data-countdown-minutes]").textContent = String(minutes).padStart(2, "0");
     $("[data-countdown-seconds]").textContent = String(seconds).padStart(2, "0");
+    if (grid) grid.hidden = false;
+    if (fallback) {
+      fallback.hidden = true;
+      fallback.textContent = "";
+    }
   };
   update();
   setInterval(update, 1000);
@@ -1791,65 +1858,27 @@ function startNowNext() {
 }
 
 function setupSectionNavigation() {
-  const sections = [
-    ["overview", "Overview"],
-    ["today", "Today"],
-    ["red-flags", "Red Flags"],
-    ["decisions", "Decisions"],
-    ["who-do-i-call", "Who Do I Call"],
-    ["call-sheet", "Call Sheet"],
-    ["schedule", "Schedule"],
-    ["flights", "Flights"],
-    ["daily", "Daily Focus"],
-    ["location-schedules", "Location Schedules"],
-    ["restaurants", "Restaurants"],
-    ["menus", "Menus"],
-    ["tasks", "Tasks"],
-    ["contacts", "Contacts"],
-    ["guests", "Guests"],
-    ["staff", "Staff"],
-    ["suppliers", "Suppliers"],
-    ["locations", "Locations"],
-    ["podcast", "Podcast"],
-    ["speakers", "Speakers"],
-    ["entertainment", "Entertainment"],
-    ["playlists", "Playlists"],
-    ["rehearsals", "Rehearsals"],
-    ["content", "Content"],
-    ["workstreams", "Workstreams"],
-    ["swag", "Materials"],
-    ["room-drops", "Room Drops"],
-    ["horizons-house", "HORIZONS House"],
-    ["artwork", "Signage"],
-    ["documents", "Documents"],
-    ["admin-data", "Admin Data"]
-  ].filter(([id]) => document.getElementById(id));
+  const sections = APP_GROUPS.filter((group) => document.getElementById(group.target));
   const progress = $("[data-section-progress]");
   if (progress) {
-    progress.innerHTML = sections.map(([id, label]) => `<a href="#${id}" data-progress-link="${id}"><span></span><em>${escapeHtml(label)}</em></a>`).join("");
+    progress.innerHTML = sections.map((group) => `<a href="#${group.target}" data-progress-link="${group.id}"><span></span><em>${escapeHtml(group.label)}</em></a>`).join("");
   }
-  const navLinks = $$("[data-nav] a");
+  setHtml("[data-section-drawer-links]", sections.map((group) => `<a href="#${group.target}" data-drawer-section="${group.id}">${escapeHtml(group.label)}</a>`).join(""));
   const jump = $("[data-section-jump]");
-  const jumpPrev = $("[data-section-prev]", jump || document);
   const jumpNext = $("[data-section-next]", jump || document);
   const jumpCurrent = $("[data-section-current]", jump || document);
   let ticking = false;
-  const setActive = (id) => {
-    navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
-    $$("[data-progress-link]").forEach((link) => link.classList.toggle("is-active", link.dataset.progressLink === id));
-    const index = sections.findIndex(([sectionId]) => sectionId === id);
+  const setActive = (groupId) => {
+    const index = sections.findIndex((group) => group.id === groupId);
     const current = sections[index] || sections[0];
-    const prev = sections[Math.max(0, index - 1)] || current;
     const next = sections[Math.min(sections.length - 1, index + 1)] || current;
-    if (jumpCurrent) jumpCurrent.textContent = current?.[1] || "Overview";
-    if (jumpPrev) {
-      jumpPrev.href = `#${prev[0]}`;
-      jumpPrev.textContent = index <= 0 ? "‹ Start" : `‹ ${prev[1]}`;
-      jumpPrev.classList.toggle("is-muted", index <= 0);
-    }
+    setActiveGroupForTarget(current?.target || "overview");
+    $$("[data-progress-link]").forEach((link) => link.classList.toggle("is-active", link.dataset.progressLink === current?.id));
+    $$("[data-drawer-section]").forEach((link) => link.classList.toggle("is-active", link.dataset.drawerSection === current?.id));
+    if (jumpCurrent) jumpCurrent.textContent = current?.label || "Overview";
     if (jumpNext) {
-      jumpNext.href = `#${next[0]}`;
-      jumpNext.textContent = index >= sections.length - 1 ? "End" : `${next[1]} ›`;
+      jumpNext.href = `#${next.target}`;
+      jumpNext.textContent = index >= sections.length - 1 ? "End" : `Next: ${next.label}`;
       jumpNext.classList.toggle("is-muted", index >= sections.length - 1);
     }
     if (jump) jump.classList.toggle("is-visible", window.scrollY > 360);
@@ -1858,15 +1887,17 @@ function setupSectionNavigation() {
     ticking = false;
     const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 48;
     const scrollPosition = window.scrollY + headerOffset;
-    const orderedSections = sections
-      .map(([id]) => ({ id, element: document.getElementById(id) }))
+    const orderedSections = (APP_GROUPS.find((group) => group.id === document.body.dataset.activeGroup) || sections[0])?.sections
+      .map((id) => ({ id, groupId: groupBySection[id], element: document.getElementById(id) }))
       .filter((section) => section.element)
       .sort((a, b) => a.element.offsetTop - b.element.offsetTop);
-    let active = orderedSections[0]?.id || "";
+    let activeSection = orderedSections[0]?.id || "";
     orderedSections.forEach(({ id, element }) => {
-      if (element.offsetTop <= scrollPosition) active = id;
+      if (element.offsetTop <= scrollPosition) activeSection = id;
     });
-    if (active) setActive(active);
+    const activeGroup = groupBySection[activeSection] || document.body.dataset.activeGroup || "overview";
+    if (activeGroup) setActive(activeGroup);
+    $$("[data-app-subnav] a").forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${activeSection}`));
   };
   const requestUpdate = () => {
     if (ticking) return;
@@ -1875,34 +1906,28 @@ function setupSectionNavigation() {
   };
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate);
-  window.addEventListener("hashchange", requestUpdate);
+  window.addEventListener("hashchange", () => {
+    setActiveGroupForTarget((location.hash || "#overview").replace("#", ""));
+    requestUpdate();
+  });
   window.HORIZONS_UPDATE_SECTION_NAV = requestUpdate;
   requestUpdate();
 }
 
 function setupBackToTopAndAdmin() {
-  const adminIds = new Set(["admin-data", "cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"]);
-  const visibleSections = $$("main > section").filter((section) => !section.classList.contains("admin-tool-section"));
-  visibleSections.forEach((section, index) => {
-    if (section.querySelector("[data-section-end-nav]")) return;
-    const prev = visibleSections[index - 1];
-    const next = visibleSections[index + 1];
-    const prevHeading = prev?.querySelector("h2")?.textContent || "Previous";
-    const nextHeading = next?.querySelector("h2")?.textContent || "Next";
+  APP_GROUPS.forEach((group, index) => {
+    const section = document.getElementById(group.sections.filter((id) => document.getElementById(id)).at(-1));
+    if (!section || section.querySelector("[data-section-end-nav]")) return;
+    const prev = APP_GROUPS[Math.max(0, index - 1)];
+    const next = APP_GROUPS[Math.min(APP_GROUPS.length - 1, index + 1)];
     section.querySelector(".container")?.insertAdjacentHTML("beforeend", `
       <div class="section-end-nav" data-section-end-nav>
-        ${prev ? `<a href="#${escapeHtml(prev.id)}">← ${escapeHtml(prevHeading)}</a>` : `<span></span>`}
+        ${index > 0 ? `<a href="#${escapeHtml(prev.target)}">← ${escapeHtml(prev.label)}</a>` : `<span></span>`}
         <button type="button" data-scroll-top>Back to top</button>
-        ${next ? `<a href="#${escapeHtml(next.id)}">Next: ${escapeHtml(nextHeading)} →</a>` : `<span></span>`}
+        ${index < APP_GROUPS.length - 1 ? `<a href="#${escapeHtml(next.target)}">Next: ${escapeHtml(next.label)} →</a>` : `<span></span>`}
       </div>
     `);
   });
-  const update = () => {
-    document.body.classList.toggle("admin-view", adminIds.has((location.hash || "").replace("#", "")));
-  };
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("hashchange", update);
-  update();
 }
 
 function bindEvents() {
@@ -1912,6 +1937,7 @@ function bindEvents() {
     event.currentTarget.setAttribute("aria-expanded", String(open));
   });
   $$("[data-nav] a").forEach((link) => link.addEventListener("click", () => {
+    setActiveGroupForTarget((link.getAttribute("href") || "#overview").replace("#", ""));
     document.body.classList.remove("nav-open");
     $("[data-menu-toggle]").setAttribute("aria-expanded", "false");
   }));
@@ -1959,6 +1985,32 @@ function bindEvents() {
     const scrollTop = event.target.closest("[data-scroll-top], [data-section-jump-action='top']");
     if (scrollTop) {
       window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      return;
+    }
+    const openDrawer = event.target.closest("[data-section-drawer-open]");
+    if (openDrawer) {
+      const drawer = $("[data-section-drawer]");
+      const isOpen = drawer && !drawer.hidden;
+      if (drawer) drawer.hidden = isOpen;
+      document.body.classList.toggle("section-drawer-open", !isOpen);
+      openDrawer.setAttribute("aria-expanded", String(!isOpen));
+      return;
+    }
+    const closeDrawer = event.target.closest("[data-section-drawer-close], [data-section-drawer]");
+    if (closeDrawer && (!event.target.closest(".section-drawer-panel") || event.target.closest("[data-section-drawer-close]"))) {
+      const drawer = $("[data-section-drawer]");
+      if (drawer) drawer.hidden = true;
+      document.body.classList.remove("section-drawer-open");
+      $("[data-section-drawer-open]")?.setAttribute("aria-expanded", "false");
+      return;
+    }
+    const drawerLink = event.target.closest("[data-drawer-section]");
+    if (drawerLink) {
+      const drawer = $("[data-section-drawer]");
+      if (drawer) drawer.hidden = true;
+      document.body.classList.remove("section-drawer-open");
+      $("[data-section-drawer-open]")?.setAttribute("aria-expanded", "false");
+      setActiveGroupForTarget((drawerLink.getAttribute("href") || "#overview").replace("#", ""));
       return;
     }
     const dayTab = event.target.closest("[data-day-tab]");
@@ -2092,6 +2144,12 @@ function bindEvents() {
       return;
     }
   });
+  document.addEventListener("toggle", (event) => {
+    if (event.target instanceof HTMLDetailsElement) {
+      event.target.querySelector("summary")?.setAttribute("aria-expanded", String(event.target.open));
+      document.body.classList.toggle("detail-open", $$("details[open] .update-form, details[open] .suggestion-form").length > 0);
+    }
+  }, true);
   document.addEventListener("submit", async (event) => {
     const captureLogForm = event.target.closest("[data-capture-log-form]");
     if (captureLogForm) {
