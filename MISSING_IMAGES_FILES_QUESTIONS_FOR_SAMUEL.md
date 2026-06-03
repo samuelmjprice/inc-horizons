@@ -14,7 +14,7 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Images | Signage reference images | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
 | Images | Artwork previews | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
 | Images | Venue/location images | Needed for visual confirmation and onsite recognition | HORIZONS House / Guest Materials / Signage | Samuel / Chris / relevant owner | High | Needed |
-| Documents | Final menus | Needed to complete source-of-truth records and remove placeholders | Documents / Missing Files | Samuel / Chris / relevant owner | High | Needed |
+| Documents | Final menus | Final PDF added and linked; remaining work is menu location/link confirmation | Menus / Documents / Call Sheet | Samuel / Chris / relevant owner | High | Added to Website |
 | Documents | Venue maps | Needed to complete source-of-truth records and remove placeholders | Documents / Missing Files | Samuel / Chris / relevant owner | High | Needed |
 | Documents | Seating plans | Needed to complete source-of-truth records and remove placeholders | Documents / Missing Files | Samuel / Chris / relevant owner | High | Needed |
 | Documents | Stage layouts | Needed to complete source-of-truth records and remove placeholders | Documents / Missing Files | Samuel / Chris / relevant owner | High | Needed |
@@ -99,7 +99,7 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Existing Missing Files | Podcast technical notes | Podcast | Podcast | Clownfish | Medium | File Needed |
 | Existing Missing Files | Release forms | Podcast | Podcast | Samuel Price | Medium | File Needed |
 | Existing Missing Files | Restaurant/meal schedules | Restaurants | Venue / Restaurants | Dawn Ramsden | Medium | File Needed |
-| Existing Missing Files | Final menus | Menus | Venue / Restaurants | BeGood | Medium | File Needed |
+| Existing Missing Files | Final menus | Final menus PDF added to website; remaining menu items below are confirmation questions, not missing file blockers | Venue / Restaurants | BeGood | Medium | Added to Website |
 | Existing Missing Files | Dietary notes | Menus | Venue / Restaurants | BeGood | Medium | File Needed |
 | Existing Missing Files | Venue maps | Maps | Venue / Restaurants | Six Senses | Medium | File Needed |
 | Existing Missing Files | Floor plans | Layouts | Venue / Restaurants | Six Senses | Medium | File Needed |
@@ -143,4 +143,3 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | Dinner Drinks locations | Confirm exact locations for 10.06.26 and 11.06.26 Dinner Drinks | PDF pages list drinks but not explicit venue on the page | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
 | Tea & Coffee location | Confirm location for 12.06.26 Tea & Coffee | Page 34 has menu content but no clear location | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
 | Pool & Pharmacy Bar naming | Confirm final approved display name if Pharmacy Bar should be separate from Pool | Prevents location naming mismatch in menus and location schedules | Menus / Locations | Samuel / Six Senses | Medium | Needs Confirmation |
-

@@ -1,38 +1,45 @@
 # Menus Import Report
 
-Updated: 2 June 2026
+Updated: 3 June 2026
 
 ## Source
 
 - PDF used: `/Users/ddm/Downloads/HORIZONS_MENUS_WIP5.pdf`
-- Website copy: `assets/menus/final/horizons-menus-wip5.pdf`
+- Website source copy: `assets/menus/final/horizons-menus-wip5.pdf`
 - Pages processed: 34
-- Final menu records created: 25
+- Canonical menu records verified: 25
 
 ## Website Updates
 
-- Created a visible `Menus` section near Restaurant Schedules.
-- Added date, location, meal type, search, and Needs Confirmation filters.
-- Menu cards are collapsed by default using native details controls.
-- Added Expand all and Collapse all controls.
-- Added source PDF page links for every menu.
-- Added final menu document entry to Documents under Menus.
+- Existing Menus section retained.
+- Menu cards remain grouped by date and collapsed by default.
+- Search, date filter, location filter, meal type filter, Needs Confirmation filter, Expand all, and Collapse all are active.
+- Menu accordions now switch between `Open menu` and `Close menu`.
+- Each record includes status `Final`, source PDF page reference, source link, location, location status, restaurant link count, and call sheet link status.
 
-## Links
+## Cross-Links
 
-- Restaurant Schedule links added where safe: 3 menu records.
-- Call Sheet day links added: 25 menu records.
-- Menus needing location confirmation: 20 menu records.
+- Call Sheet links added/verified: 25 menu records.
+- Restaurant Schedule links added/verified where safe: 3 menu groups with clear location matches.
+- Restaurant Schedules show `Open final menu` buttons where a linked menu ID exists.
+- Call Sheet shows linked final menus by day without duplicating full menu text.
 
-## Unresolved Questions
+## Documents
 
-- Confirm locations for menu pages marked `Location Needs Confirmation`.
-- Confirm restaurant schedule links for menus where the date/meal matched broadly but location was not explicit.
-- Confirm whether Tea & Coffee on 12.06.26 belongs to a specific venue/location.
-- Confirm whether Dinner Drinks locations should map to Partal/Pharmacy/Beach Caves/Orchard/Farmers Market by day.
+- Document title updated to `HORIZONS Final Menus`.
+- Document category: `Menus`.
+- Document status: `Final`.
+- Document link: `assets/menus/final/horizons-menus-wip5.pdf`.
+
+## Remaining Confirmations
+
+- Confirm locations for menus marked `Location Needs Confirmation`.
+- Confirm additional Restaurant Schedule links once locations are approved.
+- Confirm Dinner Drinks locations for 10.06.26 and 11.06.26.
+- Confirm Tea & Coffee location for 12.06.26.
 
 ## Safety
 
-- No menu data was pasted into Restaurant Schedules or Call Sheet as full text.
-- Restaurant Schedules and Call Sheet show links/tags back to the canonical menu records.
-- No sensitive private data was imported.
+- No menu content was pasted into Restaurant Schedules or Call Sheet as a large text dump.
+- No sensitive/private data was imported.
+- No unrelated sections were rebuilt.

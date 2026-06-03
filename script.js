@@ -20,7 +20,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260603-compression1";
+const APP_VERSION = "20260603-menus1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -1040,12 +1040,13 @@ function renderMenus() {
               <div class="meta-list compact-meta">
                 ${meta("Meal / session", item.meal_type)}
                 ${meta("Location", item.location)}
+                ${meta("Location status", item.location_status || (/needs confirmation/i.test(item.location || "") ? "Needs Confirmation" : "Confirmed"))}
                 ${meta("Source page", (item.source_pages || []).join(", "))}
                 ${meta("Restaurant links", relatedRestaurantCount ? `${relatedRestaurantCount} linked` : "Needs Confirmation")}
                 ${meta("Call sheet", relatedCallSheetCount ? "Linked" : "Needs Confirmation")}
               </div>
               <details class="details menu-details">
-                <summary><span>Open menu</span><span class="summary-hint">PDF page ${(item.source_pages || []).join(", ")}</span></summary>
+                <summary><span data-menu-summary-label>Open menu</span><span class="summary-hint">PDF page ${(item.source_pages || []).join(", ")}</span></summary>
                 <div class="details-content">${detail}${updateModule(item.updateId)}</div>
               </details>
             </article>
@@ -2055,15 +2056,17 @@ function bindEvents() {
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const expandMenus = event.target.closest("[data-menu-expand-all]");
-    if (expandMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = true; }); return; }
+    if (expandMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = true; updateMenuDetailLabel(detail); }); return; }
     const collapseMenus = event.target.closest("[data-menu-collapse-all]");
-    if (collapseMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = false; }); return; }
+    if (collapseMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = false; updateMenuDetailLabel(detail); }); return; }
     const openMenu = event.target.closest("[data-menu-open]");
     if (openMenu) {
       event.preventDefault();
       const card = document.querySelector(`[data-menu-card="${CSS.escape(openMenu.dataset.menuOpen)}"]`);
       if (card) {
-        card.querySelector("details.menu-details").open = true;
+        const detail = card.querySelector("details.menu-details");
+        detail.open = true;
+        updateMenuDetailLabel(detail);
         card.scrollIntoView({ behavior: "smooth", block: "center" });
       }
       return;
@@ -2147,6 +2150,7 @@ function bindEvents() {
   document.addEventListener("toggle", (event) => {
     if (event.target instanceof HTMLDetailsElement) {
       event.target.querySelector("summary")?.setAttribute("aria-expanded", String(event.target.open));
+      if (event.target.classList.contains("menu-details")) updateMenuDetailLabel(event.target);
       document.body.classList.toggle("detail-open", $$("details[open] .update-form, details[open] .suggestion-form").length > 0);
     }
   }, true);
@@ -2265,6 +2269,11 @@ function bindEvents() {
     updateStore.save(state.updates);
     renderAll();
   });
+}
+
+function updateMenuDetailLabel(detail) {
+  const label = detail?.querySelector("[data-menu-summary-label]");
+  if (label) label.textContent = detail.open ? "Close menu" : "Open menu";
 }
 
 init().catch((error) => {

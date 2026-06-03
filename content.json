@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "3 June 2026, 09:30 BST",
+    "lastUpdated": "3 June 2026, 16:45 BST",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,10 +22,10 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Codex site compression and mobile UX pass",
+    "updatedBy": "Codex final menus verification pass",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
-    "last_updated": "2026-06-03T09:30:00+01:00",
-    "updated_at": "2026-06-03T09:30:00+01:00",
+    "last_updated": "2026-06-03T16:45:00+01:00",
+    "updated_at": "2026-06-03T16:45:00+01:00",
     "lanyardColourMapping": [
       {
         "colour": "Oatmeal",
@@ -25612,15 +25612,21 @@
   "documents": [
     {
       "id": "doc-final-horizons-menus-wip5",
-      "title": "Final HORIZONS Menus WIP5",
-      "description": "Final menu source for 9-12 June menu cards. Open individual menu cards for page references.",
+      "title": "HORIZONS Final Menus",
+      "description": "Final HORIZONS menu source PDF for the Menus section, Restaurant Schedules, and Call Sheet links.",
       "category": "Menus",
       "day": "9-12 June",
       "type": "PDF",
       "owner": "B Good / Six Senses / Samuel",
       "status": "Final",
       "link": "assets/menus/final/horizons-menus-wip5.pdf",
-      "updateId": "doc:final-horizons-menus-wip5"
+      "updateId": "doc:final-horizons-menus-wip5",
+      "relatedSections": [
+        "Menus",
+        "Restaurant Schedules",
+        "Call Sheet",
+        "Documents"
+      ]
     },
     {
       "id": "doc-final-sync-workbook",
@@ -27949,7 +27955,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:09-06-26:buffet-lunch"
+      "updateId": "menu:09-06-26:buffet-lunch",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_09-06-26_bbq-dinner",
@@ -28027,7 +28034,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:09-06-26:bbq-dinner"
+      "updateId": "menu:09-06-26:bbq-dinner",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_09-06-26_evening-welcome-drinks",
@@ -28084,7 +28092,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:09-06-26:evening-welcome-drinks"
+      "updateId": "menu:09-06-26:evening-welcome-drinks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_09-06-26_late-night-snacks",
@@ -28128,7 +28137,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:09-06-26:late-night-snacks"
+      "updateId": "menu:09-06-26:late-night-snacks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_breakfast",
@@ -28225,7 +28235,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:breakfast"
+      "updateId": "menu:10-06-26:breakfast",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_morning-gratitude",
@@ -28291,7 +28302,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:morning-gratitude"
+      "updateId": "menu:10-06-26:morning-gratitude",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_lunch",
@@ -28366,7 +28378,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:lunch"
+      "updateId": "menu:10-06-26:lunch",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_ibiza-heritage",
@@ -28432,7 +28445,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:ibiza-heritage"
+      "updateId": "menu:10-06-26:ibiza-heritage",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_dinner-drinks",
@@ -28489,7 +28503,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:dinner-drinks"
+      "updateId": "menu:10-06-26:dinner-drinks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_beach-caves-dinner",
@@ -28555,7 +28570,8 @@
       "needs_confirmation": [],
       "notes": "",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:beach-caves-dinner"
+      "updateId": "menu:10-06-26:beach-caves-dinner",
+      "location_status": "Confirmed"
     },
     {
       "id": "menu_10-06-26_dinner",
@@ -28633,7 +28649,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:dinner"
+      "updateId": "menu:10-06-26:dinner",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_10-06-26_late-night-snacks",
@@ -28677,7 +28694,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:10-06-26:late-night-snacks"
+      "updateId": "menu:10-06-26:late-night-snacks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_breakfast",
@@ -28762,7 +28780,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:breakfast"
+      "updateId": "menu:11-06-26:breakfast",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_morning-gratitude",
@@ -28828,7 +28847,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:morning-gratitude"
+      "updateId": "menu:11-06-26:morning-gratitude",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_lunch",
@@ -28902,7 +28922,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:lunch"
+      "updateId": "menu:11-06-26:lunch",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_pool-deck-canapes",
@@ -28948,7 +28969,8 @@
       "needs_confirmation": [],
       "notes": "",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:pool-deck-canapes"
+      "updateId": "menu:11-06-26:pool-deck-canapes",
+      "location_status": "Confirmed"
     },
     {
       "id": "menu_11-06-26_ibiza-heritage",
@@ -29014,7 +29036,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:ibiza-heritage"
+      "updateId": "menu:11-06-26:ibiza-heritage",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_dinner-drinks",
@@ -29080,7 +29103,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:dinner-drinks"
+      "updateId": "menu:11-06-26:dinner-drinks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_gala-dinner",
@@ -29158,7 +29182,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:gala-dinner"
+      "updateId": "menu:11-06-26:gala-dinner",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_11-06-26_late-night-snacks",
@@ -29202,7 +29227,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:11-06-26:late-night-snacks"
+      "updateId": "menu:11-06-26:late-night-snacks",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_12-06-26_breakfast",
@@ -29306,7 +29332,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:12-06-26:breakfast"
+      "updateId": "menu:12-06-26:breakfast",
+      "location_status": "Needs Confirmation"
     },
     {
       "id": "menu_12-06-26_in-room-dining",
@@ -29375,7 +29402,8 @@
       ],
       "notes": "",
       "visibility": "Team",
-      "updateId": "menu:12-06-26:in-room-dining"
+      "updateId": "menu:12-06-26:in-room-dining",
+      "location_status": "Confirmed"
     },
     {
       "id": "menu_12-06-26_horizons-house",
@@ -29444,7 +29472,8 @@
       "needs_confirmation": [],
       "notes": "",
       "visibility": "Team",
-      "updateId": "menu:12-06-26:horizons-house"
+      "updateId": "menu:12-06-26:horizons-house",
+      "location_status": "Confirmed"
     },
     {
       "id": "menu_12-06-26_pool-pharmacy-bar",
@@ -29525,7 +29554,8 @@
       ],
       "notes": "",
       "visibility": "Team",
-      "updateId": "menu:12-06-26:pool-pharmacy-bar"
+      "updateId": "menu:12-06-26:pool-pharmacy-bar",
+      "location_status": "Confirmed"
     },
     {
       "id": "menu_12-06-26_tea-coffee",
@@ -29606,7 +29636,8 @@
       ],
       "notes": "Location needs confirmation or matching to final Restaurant Schedule.",
       "visibility": "Team",
-      "updateId": "menu:12-06-26:tea-coffee"
+      "updateId": "menu:12-06-26:tea-coffee",
+      "location_status": "Needs Confirmation"
     }
   ],
   "weather": {
@@ -41157,8 +41188,8 @@
       "category": "Venue / Restaurants",
       "owner": "B Good",
       "neededFor": "Menus",
-      "status": "File Needed",
-      "notes": "Add file/link when available. Keep unresolved until confirmed.",
+      "status": "Added to Website",
+      "notes": "HORIZONS_MENUS_WIP5.pdf is linked in Documents and canonical menu records are available in the Menus section. Remaining menu questions are location/link confirmations, not missing source file blockers.",
       "updateId": "missing-file:final-menus"
     },
     {
