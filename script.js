@@ -22,7 +22,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260603-round-table1";
+const APP_VERSION = "20260603-round-table2";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -1912,6 +1912,7 @@ function renderRoundTableAssignmentSystem(layout = {}) {
         <div class="contact-actions">
           <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" target="_blank" rel="noreferrer">Open layout PDF</a>
           <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" download>Download layout</a>
+          <button type="button" data-round-table-expand-all>Edit assignments</button>
           <button type="button" data-round-table-reload>Refresh assignments</button>
           <button type="button" data-round-table-export>Export seating plan CSV</button>
           <button type="button" data-round-table-print>Print seating plan</button>
