@@ -1,0 +1,13 @@
+{
+  "roundTableSeatingStorage": {
+    "status": "Backend routes added / Supabase tables documented",
+    "routes": [
+      "GET /api/seating-plan",
+      "POST /api/seating-plan",
+      "PATCH /api/seating-plan",
+      "POST /api/seating-plan/activity"
+    ],
+    "security": "Server-side Supabase service role only. No database keys in frontend.",
+    "fallback": "If dedicated tables are not migrated yet, the API saves shared snapshots through the existing record_updates table."
+  }
+}

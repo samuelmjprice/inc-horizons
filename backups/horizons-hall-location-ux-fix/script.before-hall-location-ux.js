@@ -16,16 +16,13 @@ const state = {
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   roundTablePlan: null,
   roundTableStorageWarning: "",
-  activeHallTab: "overview",
-  activeRoundTableNumber: 1,
-  roundTableEditMode: false,
   captureSuggestions: [],
   captureLog: [],
   dismissedCaptureSuggestions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260603-hall-ux1";
+const APP_VERSION = "20260603-round-table2";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -1480,7 +1477,7 @@ function renderLocations() {
     status: item.status,
     body: `<p>${escapeHtml(item.primaryUse)}</p>`,
     metadata: meta("Type", item.locationType) + meta("Key days", item.mainDays) + meta("Owner", item.keyOwner) + meta("Clownfish show operatives", item.clownfishShowOperatives || (item.showOperatives || []).join(" + ")) + meta("Latitude", item.latitude) + meta("Longitude", item.longitude) + meta("Address", item.address) + meta("Travel time", item.travelTimeFromVenue) + meta("Aliases", (item.aliases || []).join(", ")) + meta("Watch-out", item.watchOut),
-    footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}${text(item.locationName).toLowerCase() === "horizons hall" ? `<button type="button" data-open-hall-panel>Open Hall Control Panel</button><a href="#call-sheet">Open Call Sheet</a>` : ""}</div>${text(item.locationName).toLowerCase() === "horizons hall" ? renderHorizonsHallControlPanel(item) : (item.layoutReferences?.length ? detailsBlock("Layouts + Production References", [["Summary", item.layoutsSummary]], layoutCards(item.layoutReferences)) : "")}` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
+    footer: `<div class="contact-actions">${mapLink(item)}${item.emergencyRelevance ? `<a href="#call-sheet">Open emergency call sheet</a>` : `<a href="#location-schedules">Open location schedule</a>`}</div>${item.layoutReferences?.length ? detailsBlock("Layouts + Production References", [["Summary", item.layoutsSummary]], layoutCards(item.layoutReferences)) : ""}` + detailsBlock("Location schedule", [], (item.scheduleItems || []).length ? `<div class="location-schedule">${item.scheduleItems.slice(0, 8).map((row) => `
       <div class="supplier-time-block">
         <strong>${escapeHtml(row.day || "Day needed")} · ${escapeHtml(row.time || "Time needed")}</strong>
         <p>${escapeHtml(row.activity || "Activity needed")}</p>
@@ -1889,16 +1886,15 @@ function renderRoundTableAssignmentSystem(layout = {}) {
   const tables = plan.tables || [];
   const assignedCount = summary.assigned_count || 0;
   const incompleteCount = tables.filter((table) => (table.assigned_count || 0) < (plan.config?.working_seats_per_table || 9)).length;
-  const selected = tables.find((table) => Number(table.table_number) === Number(state.activeRoundTableNumber)) || tables[0] || {};
-  state.activeRoundTableNumber = Number(selected.table_number || 1);
   return `
-    <section class="round-table-system" data-round-table-system>
+    <details class="details round-table-system" data-round-table-system>
+      <summary><span>HORIZONS Hall Round Table Plan</span><span class="summary-hint">${assignedCount} / ${summary.working_slots || 90} assigned · ${incompleteCount} incomplete tables</span></summary>
       <div class="round-table-panel">
         <div class="round-table-hero">
           <div>
-            <p class="eyebrow">Round Tables</p>
-            <h3>HORIZONS Hall Round Table Assignments</h3>
-            <p>Assign guests to tables for the round table moment.</p>
+            <p class="eyebrow">Editable seating</p>
+            <h3>HORIZONS Hall Round Table Plan</h3>
+            <p>Editable table assignments for the round table moment.</p>
             <div class="tag-stack">${tag(config.warningTag || "Seat Count Needs Confirmation")}${tag(layout.status || "Needs Assignment")}</div>
           </div>
           <div class="round-table-stats">
@@ -1913,87 +1909,28 @@ function renderRoundTableAssignmentSystem(layout = {}) {
           <span>${escapeHtml(config.sourceNote || plan.config?.notes || "Uploaded layout shows seated capacity 80. Current working version uses 10 tables x 9 guest slots until final confirmation from Kirsty / Clownfish.")}</span>
         </div>
         ${state.roundTableStorageWarning ? `<div class="empty-state warning-state"><strong>Shared storage status</strong><span>${escapeHtml(state.roundTableStorageWarning)}</span></div>` : ""}
-        <div class="hall-visual-action-card">
-          <div>
-            <strong>HORIZONS Hall Round Table Layout</strong>
-            <p>Small layout reference only. Original source file: ${escapeHtml(config.sourceFile || "Horizons - Farmers Market x80 V5.pdf")}.</p>
-          </div>
-          <div class="contact-actions">
-            <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" target="_blank" rel="noreferrer">Open layout PDF</a>
-            <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" download>Download layout PDF</a>
-          </div>
+        <div class="contact-actions">
+          <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" target="_blank" rel="noreferrer">Open layout PDF</a>
+          <a href="${escapeHtml(layout.sourceAsset || config.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-round-table-layout-x80.pdf")}" download>Download layout</a>
+          <button type="button" data-round-table-expand-all>Edit assignments</button>
+          <button type="button" data-round-table-reload>Refresh assignments</button>
+          <button type="button" data-round-table-export>Export seating plan CSV</button>
+          <button type="button" data-round-table-print>Print seating plan</button>
+          <button type="button" data-round-table-copy>Copy seating plan summary</button>
         </div>
-        <div class="round-table-mode-card">
-          <div>
-            <strong>${state.roundTableEditMode ? "Editing Round Table Assignments" : "View Mode"}</strong>
-            <p>${state.roundTableEditMode ? "Make changes deliberately, then save to the shared seating plan." : "Review assignments. Tap Edit assignments before changing seats."}</p>
-          </div>
-          <div class="contact-actions">
-            <button type="button" data-round-table-edit-toggle>${state.roundTableEditMode ? "Cancel editing" : "Edit assignments"}</button>
-            <button type="button" data-round-table-reload>Refresh assignments</button>
-          </div>
+        <div class="section-controls round-table-controls">
+          <label class="search-control"><span>Search assigned guest</span><input type="search" data-round-table-search placeholder="Search current assignments"></label>
+          <button class="button button-secondary" type="button" data-round-table-expand-all>Expand all</button>
+          <button class="button button-secondary" type="button" data-round-table-collapse-all>Collapse all</button>
+          <button class="button button-secondary" type="button" data-round-table-show-incomplete>Show incomplete tables</button>
         </div>
-        <div class="round-table-utility-row">
-          <strong>Actions</strong>
-          <div class="contact-actions">
-            <button type="button" data-round-table-export>Export CSV</button>
-            <button type="button" data-round-table-print>Print seating plan</button>
-            <button type="button" data-round-table-copy>Copy table summary</button>
-          </div>
-        </div>
-        <div class="meta-list compact-meta round-table-save-status" data-round-table-status>
-          ${meta("Last updated", summary.last_updated || config.lastUpdated || "No shared save yet")}
-          ${meta("Updated by", summary.updated_by || "Shared backend")}
-          ${meta("Incomplete tables", incompleteCount)}
-        </div>
-        <div class="round-table-chip-row" role="tablist" aria-label="Round table selector">
-          ${tables.map((table) => renderRoundTableChip(table, plan)).join("")}
-        </div>
+        <p class="summary-hint" data-round-table-status>Last updated: ${escapeHtml(summary.last_updated || config.lastUpdated || "No shared save yet")}</p>
         ${roundTableGuestDatalist()}
-        <div class="round-table-board is-single-table" data-round-table-board>
-          ${renderSelectedRoundTablePanel(selected, plan)}
+        <div class="round-table-board" data-round-table-board>
+          ${tables.map((table) => renderRoundTableCard(table, plan)).join("")}
         </div>
       </div>
-    </section>
-  `;
-}
-
-function renderRoundTableChip(table = {}, plan = {}) {
-  const slotCount = plan.config?.working_seats_per_table || 9;
-  const assigned = table.assigned_count || 0;
-  const statusClass = assigned >= slotCount ? "is-complete" : assigned > 0 ? "is-partial" : "is-empty";
-  return `<button type="button" role="tab" aria-selected="${Number(table.table_number) === Number(state.activeRoundTableNumber)}" class="round-table-chip ${statusClass} ${Number(table.table_number) === Number(state.activeRoundTableNumber) ? "is-active" : ""}" data-round-table-select="${escapeHtml(table.table_number)}"><span>Table ${escapeHtml(table.table_number)}</span><strong>${escapeHtml(assigned)} / ${escapeHtml(slotCount)}</strong></button>`;
-}
-
-function renderSelectedRoundTablePanel(table = {}, plan = {}) {
-  const tableNumber = table.table_number || state.activeRoundTableNumber || 1;
-  const slotCount = plan.config?.working_seats_per_table || 9;
-  const seats = table.seats || [];
-  return `
-    <article class="round-table-selected-panel" data-round-table-card data-table-number="${escapeHtml(tableNumber)}">
-      <div class="round-table-selected-header">
-        <div>
-          <p class="eyebrow">Selected table</p>
-          <h4>Table ${escapeHtml(tableNumber)}</h4>
-          <p>${escapeHtml(table.assigned_count || 0)} / ${escapeHtml(slotCount)} assigned · ${escapeHtml(table.status || "Needs Assignment")}</p>
-        </div>
-        <div class="tag-stack">${tag(table.status || "Needs Assignment")}${state.roundTableEditMode ? tag("Editing") : tag("View Mode")}</div>
-      </div>
-      <div class="meta-list compact-meta">
-        ${meta("Remaining slots", table.remaining_slots)}
-        ${meta("Last updated", table.updated_at)}
-        ${meta("Updated by", table.updated_by)}
-      </div>
-      <label><span>Table notes</span><textarea data-table-notes ${state.roundTableEditMode ? "" : "readonly"} placeholder="Notes for this table">${escapeHtml(table.notes || "")}</textarea></label>
-      <div class="seat-grid single-table-seat-grid">
-        ${seats.map((seat) => renderRoundTableSeat(tableNumber, seat)).join("")}
-      </div>
-      <div class="round-table-save-bar">
-        <button type="button" data-round-table-save-table="${escapeHtml(tableNumber)}" ${state.roundTableEditMode ? "" : "disabled"}>Save changes</button>
-        <button type="button" data-round-table-clear-table="${escapeHtml(tableNumber)}" ${state.roundTableEditMode ? "" : "disabled"}>Clear selected table</button>
-        <button type="button" data-round-table-edit-toggle>${state.roundTableEditMode ? "Cancel" : "Edit assignments"}</button>
-      </div>
-    </article>
+    </details>
   `;
 }
 
@@ -2029,25 +1966,24 @@ function renderRoundTableCard(table = {}, plan = {}) {
 
 function renderRoundTableSeat(tableNumber, seat = {}) {
   const seatNumber = seat.seat_number;
-  const locked = !state.roundTableEditMode;
   return `
     <div class="seat-slot" data-seat-slot data-table-number="${escapeHtml(tableNumber)}" data-seat-number="${escapeHtml(seatNumber)}">
       <div class="seat-slot-header">
         <strong>Seat ${escapeHtml(seatNumber)}</strong>
         ${tag(seat.assignment_status || "Guest Needed")}
       </div>
-      <label><span>Assign guest</span><input data-seat-guest list="round-table-guest-options" value="${escapeHtml(assignmentLabel(seat) === "Guest Needed" ? "" : assignmentLabel(seat))}" placeholder="Guest Needed" ${locked ? "readonly" : ""}></label>
+      <label><span>Guest</span><input data-seat-guest list="round-table-guest-options" value="${escapeHtml(assignmentLabel(seat) === "Guest Needed" ? "" : assignmentLabel(seat))}" placeholder="Guest Needed"></label>
       <div class="seat-fields">
-        <label><span>Company</span><input data-seat-company value="${escapeHtml(seat.guest_company || "")}" placeholder="Company" ${locked ? "readonly" : ""}></label>
-        <label><span>Category</span><input data-seat-category value="${escapeHtml(seat.guest_category || "")}" placeholder="Category" ${locked ? "readonly" : ""}></label>
-        <label><span>Dietary/allergy flag</span><input data-seat-dietary value="${escapeHtml(seat.dietary_flag || "")}" placeholder="Safe flag only" ${locked ? "readonly" : ""}></label>
-        <label><span>Status</span><select data-seat-status ${locked ? "disabled" : ""}>
+        <label><span>Company</span><input data-seat-company value="${escapeHtml(seat.guest_company || "")}" placeholder="Company"></label>
+        <label><span>Category</span><input data-seat-category value="${escapeHtml(seat.guest_category || "")}" placeholder="Category"></label>
+        <label><span>Dietary/allergy flag</span><input data-seat-dietary value="${escapeHtml(seat.dietary_flag || "")}" placeholder="Safe flag only"></label>
+        <label><span>Status</span><select data-seat-status>
           ${["Guest Needed", "Assigned", "Needs Confirmation", "VIP / Reserved", "Empty / Not Used"].map((status) => `<option ${status === (seat.assignment_status || "Guest Needed") ? "selected" : ""}>${escapeHtml(status)}</option>`).join("")}
         </select></label>
       </div>
-      <label><span>Notes</span><input data-seat-notes value="${escapeHtml(seat.notes || "")}" placeholder="Safe operational note" ${locked ? "readonly" : ""}></label>
+      <label><span>Notes</span><input data-seat-notes value="${escapeHtml(seat.notes || "")}" placeholder="Safe operational note"></label>
       <input type="hidden" data-seat-guest-id value="${escapeHtml(seat.guest_id || "")}">
-      <button type="button" data-round-table-clear-seat ${locked ? "disabled" : ""}>Clear</button>
+      <button type="button" data-round-table-clear-seat>Remove guest</button>
     </div>
   `;
 }
@@ -2111,194 +2047,6 @@ function roundTableSummary(plan = state.roundTablePlan) {
     const seats = (table.seats || []).map((seat) => `  Seat ${seat.seat_number}: ${assignmentLabel(seat)} (${seat.assignment_status || "Guest Needed"})`).join("\n");
     return `Table ${table.table_number} — ${table.assigned_count || 0}/${plan.config?.working_seats_per_table || 9}\n${seats}`;
   }).join("\n\n");
-}
-
-const hallTabs = [
-  ["overview", "Overview"],
-  ["round-tables", "Round Tables"],
-  ["theatre", "Theatre Seating"],
-  ["stage", "Stage / Technical"],
-  ["rehearsals", "Rehearsals"],
-  ["files", "Files"]
-];
-
-function hallLayoutByTitle(pattern) {
-  return (state.data.horizonsHallLayouts || []).find((item) => pattern.test(item.title || ""));
-}
-
-function hallRelatedDocuments() {
-  return (state.data.documents || []).filter((doc) => /HORIZONS Hall Layouts|Round Table|Theatre Seating|Stage Design|Updated Table Layout Needed/i.test(`${doc.category} ${doc.title} ${doc.relatedLocation || ""}`));
-}
-
-function hallRelatedRehearsals() {
-  return (state.data.rehearsals || []).filter((item) => /HORIZONS Hall|HORIZONS Connect|VIP 100 Debate/i.test(`${item.rehearsalName || item.title} ${item.relatedSession || ""} ${item.relatedLayout || ""} ${item.location || ""}`));
-}
-
-function renderHorizonsHallControlPanel(location = {}) {
-  const plan = state.roundTablePlan || roundTableSeedPlan();
-  const summary = plan.summary || {};
-  const assignedCount = summary.assigned_count || 0;
-  const workingSlots = summary.working_slots || 90;
-  const panelOpen = state.activeHallTab !== "overview" || state.roundTableEditMode;
-  return `
-    <details class="hall-control-panel" data-hall-control-panel ${panelOpen ? "open" : ""}>
-      <summary>
-        <span>
-          <strong>HORIZONS Hall Control Panel</strong>
-          <small>Main stage / HORIZONS Connect / debate / round table setup.</small>
-        </span>
-        <span class="tag-stack">${tag("Round table seating: Needs Assignment")}${tag("Theatre plan: Available")}${tag("Stage design: Available")}${tag("Seat count: Needs Confirmation")}</span>
-      </summary>
-      <div class="hall-panel-body">
-        <div class="hall-tabs" role="tablist" aria-label="HORIZONS Hall control panel">
-          ${hallTabs.map(([id, label]) => `<button type="button" role="tab" aria-selected="${state.activeHallTab === id}" class="hall-tab ${state.activeHallTab === id ? "is-active" : ""}" data-hall-tab="${escapeHtml(id)}">${escapeHtml(label)}</button>`).join("")}
-        </div>
-        <div class="hall-tab-panel">
-          ${renderHallTabContent(state.activeHallTab, location)}
-        </div>
-      </div>
-    </details>
-  `;
-}
-
-function renderHallTabContent(tab, location) {
-  if (tab === "round-tables") return renderRoundTableAssignmentSystem(hallLayoutByTitle(/Round Table/i) || {});
-  if (tab === "theatre") return renderHallTheatreTab();
-  if (tab === "stage") return renderHallStageTab();
-  if (tab === "rehearsals") return renderHallRehearsalsTab();
-  if (tab === "files") return renderHallFilesTab();
-  return renderHallOverviewTab(location);
-}
-
-function renderHallOverviewTab(location = {}) {
-  const plan = state.roundTablePlan || roundTableSeedPlan();
-  const assigned = plan.summary?.assigned_count || 0;
-  return `
-    <div class="hall-overview-grid">
-      <div class="hall-summary-card">
-        <p class="eyebrow">HORIZONS Hall Overview</p>
-        <h3>Location control panel</h3>
-        <p>Main stage / HORIZONS Connect / debate / round table setup.</p>
-        <div class="meta-list compact-meta">
-          ${meta("Location", "HORIZONS Hall")}
-          ${meta("Primary use", "HORIZONS Connect / debate / round table moment")}
-          ${meta("Current active task", "Round table guest assignments")}
-          ${meta("Round table progress", `${assigned} / ${plan.summary?.working_slots || 90} assigned`)}
-          ${meta("Status", "Needs Assignment")}
-          ${meta("Seat count", "Needs Confirmation")}
-        </div>
-        <div class="contact-actions">
-          <button type="button" data-hall-tab-jump="round-tables">Open Round Tables</button>
-          <button type="button" data-hall-tab-jump="theatre">Open Theatre Seating</button>
-          <button type="button" data-hall-tab-jump="stage">Open Stage Design</button>
-          <button type="button" data-hall-tab-jump="files">Open Documents</button>
-        </div>
-      </div>
-      <div class="hall-action-card">
-        <strong>Key layout references</strong>
-        <ul class="mini-list">
-          <li>HORIZONS Hall Theatre Seating Plan</li>
-          <li>HORIZONS Hall Round Table Layout</li>
-          <li>HORIZONS Hall Stage Design / Technical Layout</li>
-        </ul>
-        <p class="summary-hint">${escapeHtml(location.layoutsSummary || "Theatre, round-table, and technical layout references are connected here.")}</p>
-      </div>
-    </div>
-  `;
-}
-
-function renderHallTheatreTab() {
-  const theatre = hallLayoutByTitle(/Theatre Seating/i) || {};
-  return `
-    <div class="hall-tab-card">
-      <div class="card-header">
-        <h3>HORIZONS Hall Theatre Seating Plan</h3>
-        <div class="tag-stack">${tag(theatre.status || "Available")}${tag("Reserved Seats: Needs Assignment")}</div>
-      </div>
-      <p>${escapeHtml(theatre.summary || "Read-only theatre-style reference for HORIZONS Connect and the 12:00-13:00 debate.")}</p>
-      <div class="meta-list compact-meta">
-        ${meta("Layout type", theatre.layoutType || "Theatre-style")}
-        ${meta("Capacity", theatre.capacity || "160 seated")}
-        ${meta("Related sessions", (theatre.relatedSessions || ["HORIZONS Connect opening 90 minutes", "12:00-13:00 debate"]).join("; "))}
-      </div>
-      <div class="contact-actions">
-        <a href="${escapeHtml(theatre.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf")}" target="_blank" rel="noreferrer">Open theatre plan</a>
-        <a href="${escapeHtml(theatre.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-theatre-seating-plan-x160.pdf")}" download>Download PDF</a>
-      </div>
-      ${detailsBlock("Reserved Seats — Needs Assignment", [], `<div class="location-schedule">${(theatre.reservedSeatRows || [
-        { seat: "CEO seat — Needs Assignment", personName: "Needs Assignment", company: "", reason: "CEO / leadership reserved seat", status: "Needs Assignment", notes: "" },
-        { seat: "Leadership seats — Needs Assignment", personName: "Needs Assignment", company: "", reason: "Leadership reserved seats", status: "Needs Assignment", notes: "" },
-        { seat: "Speaker seats — Needs Assignment", personName: "Needs Assignment", company: "", reason: "Speaker reserved seats", status: "Needs Assignment", notes: "" },
-        { seat: "VIP / Aream seats — Needs Assignment", personName: "Needs Assignment", company: "Aream & Co.", reason: "VIP / client reserved seating", status: "Needs Assignment", notes: "" },
-        { seat: "Reserved signage placement — Needs Confirmation", personName: "", company: "", reason: "Reserved signage placement", status: "Needs Confirmation", notes: "" }
-      ]).map((row) => `<div class="supplier-time-block"><strong>${escapeHtml(row.seat)}</strong><div class="meta-list compact-meta">${meta("Person", row.personName)}${meta("Company", row.company)}${meta("Reason", row.reason)}${meta("Status", row.status)}${meta("Notes", row.notes)}</div></div>`).join("")}</div>`)}
-    </div>
-  `;
-}
-
-function renderHallStageTab() {
-  const stage = hallLayoutByTitle(/Stage Design|Technical/i) || {};
-  return `
-    <div class="hall-tab-card">
-      <div class="card-header">
-        <h3>HORIZONS Hall Stage Design / Technical Layout</h3>
-        <div class="tag-stack">${tag(stage.status || "Available")}${tag("Read-only production reference")}</div>
-      </div>
-      <p>${escapeHtml(stage.summary || "Stage design, LED wall / rear panel and production reference for HORIZONS Hall.")}</p>
-      <div class="meta-list compact-meta">
-        ${meta("Related team", "Clownfish / production")}
-        ${meta("Related sections", "Rehearsals; Call Sheet; Speaker Content; Documents")}
-        ${meta("Source", stage.sourceFile)}
-      </div>
-      <div class="contact-actions">
-        <a href="${escapeHtml(stage.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf")}" target="_blank" rel="noreferrer">Open stage design PDF</a>
-        <a href="${escapeHtml(stage.sourceAsset || "assets/horizons-hall-layouts/horizons-hall-stage-design-technical-layout.pdf")}" download>Download PDF</a>
-      </div>
-    </div>
-  `;
-}
-
-function renderHallRehearsalsTab() {
-  const rehearsals = hallRelatedRehearsals();
-  return `
-    <div class="hall-tab-card">
-      <div class="card-header"><h3>HORIZONS Hall Rehearsals</h3><div class="tag-stack">${tag(`${rehearsals.length} linked`)}</div></div>
-      <p>Hall-related rehearsal references only. Full rehearsal records remain in Programme.</p>
-      <div class="location-schedule">
-        ${rehearsals.slice(0, 8).map((item) => `
-          <details class="details rehearsal-mini-card">
-            <summary><span>${escapeHtml(item.rehearsalName || item.title)}</span><span class="summary-hint">${escapeHtml([item.date, item.time, item.status].filter(Boolean).join(" · "))}</span></summary>
-            <div class="meta-list compact-meta">${meta("Location", item.location)}${meta("Attendees", item.attendees || item.requiredPeople)}${meta("Purpose", item.purpose)}${meta("Related session", item.relatedSession)}${meta("Related layout", item.relatedLayout)}${meta("Notes", item.notes)}</div>
-          </details>
-        `).join("") || `<p>No HORIZONS Hall rehearsal records linked yet.</p>`}
-      </div>
-    </div>
-  `;
-}
-
-function renderHallFilesTab() {
-  const docs = hallRelatedDocuments();
-  const missing = state.data.roundTableSeatingPlan?.missingAction || {};
-  return `
-    <div class="hall-tab-card">
-      <div class="card-header"><h3>HORIZONS Hall Files</h3><div class="tag-stack">${tag(`${docs.length} files / records`)}</div></div>
-      <div class="location-schedule">
-        ${docs.map((doc) => `
-          <div class="supplier-time-block">
-            <strong>${escapeHtml(doc.title)}</strong>
-            <p>${escapeHtml(doc.description || doc.notes || doc.sourceTrace || "Related HORIZONS Hall file.")}</p>
-            <div class="meta-list compact-meta">${meta("Status", doc.status)}${meta("Category", doc.category)}${meta("Source trace", doc.sourceFile || doc.sourceTrace)}</div>
-            <div class="contact-actions">${doc.url || doc.file ? `<a href="${escapeHtml(doc.url || doc.file)}" target="_blank" rel="noreferrer">Open</a><a href="${escapeHtml(doc.url || doc.file)}" download>Download</a>` : ""}</div>
-          </div>
-        `).join("")}
-        <div class="supplier-time-block action-needed">
-          <strong>${escapeHtml(missing.title || "Updated Table Layout Needed from Kirsty / Clownfish")}</strong>
-          <p>${escapeHtml(missing.details || "Please confirm final table count, seats per table, table numbering, and whether the uploaded 80-seat layout is final.")}</p>
-          <div class="meta-list compact-meta">${meta("Status", missing.status || "Needs Confirmation")}${meta("Priority", missing.priority || "High")}</div>
-        </div>
-      </div>
-    </div>
-  `;
 }
 
 function layoutCards(ids = []) {
@@ -2729,43 +2477,6 @@ function bindEvents() {
       renderAll();
       return;
     }
-    const openHallPanel = event.target.closest("[data-open-hall-panel]");
-    if (openHallPanel) {
-      const panel = document.querySelector("[data-hall-control-panel]");
-      if (panel) {
-        panel.open = true;
-        panel.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-      return;
-    }
-    const hallTab = event.target.closest("[data-hall-tab], [data-hall-tab-jump]");
-    if (hallTab) {
-      state.activeHallTab = hallTab.dataset.hallTab || hallTab.dataset.hallTabJump || "overview";
-      renderLocations();
-      document.querySelector("[data-hall-control-panel]")?.setAttribute("open", "");
-      return;
-    }
-    const roundTableSelect = event.target.closest("[data-round-table-select]");
-    if (roundTableSelect) {
-      state.activeRoundTableNumber = Number(roundTableSelect.dataset.roundTableSelect || 1);
-      state.activeHallTab = "round-tables";
-      renderLocations();
-      document.querySelector("[data-hall-control-panel]")?.setAttribute("open", "");
-      return;
-    }
-    const editRoundTables = event.target.closest("[data-round-table-edit-toggle]");
-    if (editRoundTables) {
-      if (state.roundTableEditMode) {
-        if (!window.confirm("Cancel editing without saving current visible changes?")) return;
-        state.roundTableEditMode = false;
-      } else {
-        state.roundTableEditMode = true;
-      }
-      state.activeHallTab = "round-tables";
-      renderLocations();
-      document.querySelector("[data-hall-control-panel]")?.setAttribute("open", "");
-      return;
-    }
     const expandTables = event.target.closest("[data-round-table-expand-all]");
     if (expandTables) { $$("[data-round-table-card]").forEach((detail) => { detail.open = true; }); return; }
     const collapseTables = event.target.closest("[data-round-table-collapse-all]");
@@ -2826,7 +2537,6 @@ function bindEvents() {
         const timestamp = new Date().toISOString();
         const stamped = assignments.map((seat) => seat.table_number === tableNumber ? { ...seat, updated_by: updatedBy, updated_at: timestamp } : seat);
         await saveSharedSeatingPlan({ ...(state.roundTablePlan || roundTableSeedPlan()), assignments: stamped }, updatedBy);
-        state.roundTableEditMode = false;
       } catch (error) {
         state.roundTableStorageWarning = error.message;
         window.alert(error.message);

@@ -731,161 +731,6 @@ select {
   margin-top: 0.75rem;
 }
 
-.hall-control-panel {
-  border: 1px solid rgba(122, 99, 70, 0.2);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(247, 241, 232, 0.72));
-  margin-top: 1rem;
-  overflow: hidden;
-}
-
-.hall-control-panel > summary {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-.hall-control-panel > summary small {
-  color: var(--muted);
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 500;
-  margin-top: 0.15rem;
-}
-
-.hall-panel-body {
-  border-top: 1px solid var(--line);
-  display: grid;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.hall-tabs {
-  display: flex;
-  gap: 0.45rem;
-  overflow-x: auto;
-  padding-bottom: 0.15rem;
-  scrollbar-width: thin;
-}
-
-.hall-tab,
-.round-table-chip {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 253, 248, 0.82);
-  color: var(--bronze-dark);
-  cursor: pointer;
-  font: inherit;
-  min-height: 42px;
-  padding: 0.62rem 0.86rem;
-  white-space: nowrap;
-}
-
-.hall-tab.is-active,
-.round-table-chip.is-active {
-  background: var(--text);
-  border-color: var(--text);
-  color: #fffaf0;
-}
-
-.hall-tab-panel,
-.hall-tab-card,
-.hall-summary-card,
-.hall-action-card,
-.hall-visual-action-card,
-.round-table-mode-card,
-.round-table-utility-row,
-.round-table-selected-panel {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255, 253, 248, 0.78);
-  padding: 1rem;
-}
-
-.hall-overview-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-  gap: 1rem;
-}
-
-.hall-visual-action-card,
-.round-table-mode-card,
-.round-table-utility-row,
-.round-table-selected-header {
-  align-items: center;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-}
-
-.round-table-chip-row {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding: 0.1rem 0 0.35rem;
-}
-
-.round-table-chip {
-  align-items: center;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 96px;
-}
-
-.round-table-chip strong {
-  font-size: 0.78rem;
-}
-
-.round-table-chip.is-empty:not(.is-active) {
-  background: rgba(255, 253, 248, 0.9);
-}
-
-.round-table-chip.is-partial:not(.is-active) {
-  border-color: rgba(180, 129, 55, 0.45);
-}
-
-.round-table-chip.is-complete:not(.is-active) {
-  border-color: rgba(74, 130, 95, 0.45);
-}
-
-.round-table-save-status {
-  margin-top: -0.2rem;
-}
-
-.round-table-board.is-single-table {
-  grid-template-columns: 1fr;
-}
-
-.round-table-selected-panel {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.round-table-selected-header h4 {
-  font-family: "Ivy Journal", Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 300;
-  margin: 0.12rem 0;
-}
-
-.round-table-save-bar {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  justify-content: flex-end;
-}
-
-.round-table-save-bar button:disabled,
-.seat-slot button:disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
-}
-
 .round-table-system {
   margin-top: 0.9rem;
 }
@@ -2297,7 +2142,6 @@ body.admin-view .admin-tool-section,
   .compact-grid,
   .contacts-grid,
   .guest-summary-grid,
-  .hall-overview-grid,
   .round-table-hero,
   .round-table-board,
   .start-grid {
@@ -2471,31 +2315,6 @@ body.admin-view .admin-tool-section,
   .section-heading-row {
     align-items: start;
     flex-direction: column;
-  }
-
-  .hall-control-panel > summary,
-  .hall-visual-action-card,
-  .round-table-mode-card,
-  .round-table-utility-row,
-  .round-table-selected-header {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .round-table-save-bar {
-    bottom: 0.65rem;
-    position: sticky;
-    z-index: 5;
-    justify-content: stretch;
-    padding: 0.6rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: rgba(255, 253, 248, 0.94);
-    box-shadow: 0 14px 34px rgba(74, 50, 28, 0.12);
-  }
-
-  .round-table-save-bar button {
-    flex: 1 1 auto;
   }
 
   .timeline-item,
