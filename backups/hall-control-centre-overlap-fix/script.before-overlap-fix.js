@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260603-hall-centre2";
+const APP_VERSION = "20260603-hall-centre1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },

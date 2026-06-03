@@ -781,11 +781,7 @@ body.hall-centre-open {
 }
 
 .hall-centre-header h2 {
-  font-size: clamp(2rem, 3.8vw, 3.9rem);
-  letter-spacing: 0.085em;
-  line-height: 0.98;
-  margin: 0.05rem 0 0.35rem;
-  max-width: 980px;
+  margin: 0.1rem 0;
 }
 
 .hall-centre-actions {
@@ -813,9 +809,7 @@ body.hall-centre-open {
 .hall-centre-body {
   min-height: 0;
   overflow: auto;
-  overscroll-behavior: contain;
   padding: 1rem 1.25rem 1.25rem;
-  scroll-padding-top: 76px;
 }
 
 .hall-centre-tab-panel {
@@ -855,18 +849,10 @@ body.hall-centre-open {
 }
 
 .hall-tabs {
-  align-items: center;
-  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.9));
-  border-bottom: 1px solid rgba(194, 137, 82, 0.12);
   display: flex;
   gap: 0.45rem;
-  min-height: 60px;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.35rem 0 0.6rem;
-  position: sticky;
-  top: 0;
-  z-index: 7;
+  padding-bottom: 0.15rem;
   scrollbar-width: thin;
 }
 
@@ -1081,10 +1067,6 @@ body.hall-centre-open {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
-}
-
-.round-table-selected-panel .seat-grid {
-  padding-bottom: 4.5rem;
 }
 
 .seat-slot {
@@ -2605,12 +2587,13 @@ body.admin-view .admin-tool-section,
   }
 
   .round-table-save-bar {
-    position: static;
-    z-index: auto;
+    bottom: 0.65rem;
+    position: sticky;
+    z-index: 5;
     justify-content: stretch;
     padding: 0.6rem;
     border: 1px solid var(--line);
-    border-radius: var(--radius);
+    border-radius: 999px;
     background: rgba(255, 253, 248, 0.94);
     box-shadow: 0 14px 34px rgba(74, 50, 28, 0.12);
   }
@@ -2628,20 +2611,10 @@ body.admin-view .admin-tool-section,
   }
 
   .hall-centre-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     background: rgba(255, 253, 248, 0.96);
-    flex: 0 0 auto;
-    max-height: 36vh;
-    overflow: auto;
-    padding: 0.9rem 0.95rem;
-  }
-
-  .hall-centre-header h2 {
-    font-size: clamp(1.8rem, 9.5vw, 2.6rem);
-    letter-spacing: 0.065em;
-  }
-
-  .hall-centre-header .tag-stack {
-    gap: 0.35rem;
   }
 
   .hall-centre-actions {
@@ -2652,16 +2625,6 @@ body.admin-view .admin-tool-section,
   .hall-centre-actions a,
   .hall-centre-actions button {
     justify-content: center;
-  }
-
-  .hall-centre-body {
-    padding: 0.75rem 0.95rem 1rem;
-    scroll-padding-top: 72px;
-  }
-
-  .hall-tabs {
-    margin: 0 -0.95rem;
-    padding: 0.55rem 0.95rem 0.7rem;
   }
 
   .timeline-item,
