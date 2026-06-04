@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260603-hall-centre2";
+const APP_VERSION = "20260604-apple-mobile1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -2196,28 +2196,45 @@ function renderHorizonsHallControlPanel(location = {}) {
 
 function renderHallControlCentre(location = {}) {
   if (!state.hallControlCentreOpen) return "";
+  const activeHallLabel = hallTabs.find(([id]) => id === state.activeHallTab)?.[1] || "Overview";
   return `
     <div class="hall-centre-shell" data-hall-centre>
       <button type="button" class="hall-centre-backdrop" data-close-hall-centre aria-label="Close HORIZONS Hall Control Centre"></button>
-      <section class="hall-centre-panel" role="dialog" aria-modal="true" aria-label="HORIZONS Hall Control Centre">
-        <header class="hall-centre-header">
+      <section class="hall-centre-panel app-tool-panel" role="dialog" aria-modal="true" aria-label="HORIZONS Hall Control Centre">
+        <header class="hall-centre-header app-tool-header">
           <div>
             <p class="eyebrow">HORIZONS Hall</p>
             <h2>HORIZONS Hall Control Centre</h2>
             <p>Layouts, seating assignments, stage references, and HORIZONS Hall operating links.</p>
-            <div class="tag-stack">${tag("Round Tables: Needs Assignment")}${tag("Theatre Plan: Available")}${tag("Stage Design: Available")}${tag("Seat Count: Needs Confirmation")}</div>
+            <details class="tool-status-summary">
+              <summary>Status summary</summary>
+              <div class="tag-stack">${tag("Round Tables: Needs Assignment")}${tag("Theatre Plan: Available")}${tag("Stage Design: Available")}${tag("Seat Count: Needs Confirmation")}</div>
+            </details>
           </div>
-          <div class="hall-centre-actions">
-            <a href="#call-sheet">Open Call Sheet</a>
-            <button type="button" data-hall-tab-jump="files">Open Documents</button>
-            <button type="button" data-close-hall-centre>Close</button>
+          <button type="button" class="app-tool-close" data-close-hall-centre aria-label="Close HORIZONS Hall Control Centre">×</button>
+          <div class="hall-centre-actions app-tool-actions">
+            <a href="#call-sheet" data-close-hall-centre>Open Call Sheet</a>
+            <details class="app-tool-more">
+              <summary>More</summary>
+              <div>
+                <button type="button" data-hall-tab-jump="files">Open Documents</button>
+                <button type="button" data-close-hall-centre>Close</button>
+              </div>
+            </details>
           </div>
         </header>
-        <div class="hall-panel-body hall-centre-body">
-          <div class="hall-tabs" role="tablist" aria-label="HORIZONS Hall control centre">
+        <div class="hall-panel-body hall-centre-body app-tool-body">
+          <label class="app-tool-section-select">
+            <span>Section</span>
+            <select data-hall-section-select aria-label="HORIZONS Hall Control Centre section">
+              ${hallTabs.map(([id, label]) => `<option value="${escapeHtml(id)}" ${state.activeHallTab === id ? "selected" : ""}>${escapeHtml(label)}</option>`).join("")}
+            </select>
+            <small>Current: ${escapeHtml(activeHallLabel)}</small>
+          </label>
+          <div class="hall-tabs app-tool-tabs" role="tablist" aria-label="HORIZONS Hall control centre">
             ${hallTabs.map(([id, label]) => `<button type="button" role="tab" aria-selected="${state.activeHallTab === id}" class="hall-tab ${state.activeHallTab === id ? "is-active" : ""}" data-hall-tab="${escapeHtml(id)}">${escapeHtml(label)}</button>`).join("")}
           </div>
-          <div class="hall-tab-panel hall-centre-tab-panel">
+          <div class="hall-tab-panel hall-centre-tab-panel app-tool-card">
             ${renderHallTabContent(state.activeHallTab, location)}
           </div>
         </div>
@@ -2689,6 +2706,15 @@ function bindEvents() {
         const status = slot.querySelector("[data-seat-status]");
         if (status && status.value === "Guest Needed") status.value = "Assigned";
       }
+    }
+  });
+  document.addEventListener("change", (event) => {
+    const hallSectionSelect = event.target.closest("[data-hall-section-select]");
+    if (hallSectionSelect) {
+      state.activeHallTab = hallSectionSelect.value || "overview";
+      state.hallControlCentreOpen = true;
+      renderLocations();
+      document.body.classList.add("hall-centre-open");
     }
   });
   $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
