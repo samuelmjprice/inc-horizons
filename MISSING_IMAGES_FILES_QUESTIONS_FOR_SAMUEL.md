@@ -127,21 +127,21 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 
 | Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hotel room-drop photo layout | Final photo layout if different from the brief page | Room-drop team needs exact placement before entering rooms | Room Drops | B Good / Six Senses / Samuel | High | Layout Needed |
+| Hotel room-drop photo layout | Final photo layout if different from the brief page | Room-drop team needs exact placement before entering rooms | Room Drops | BeGood / Six Senses / Samuel | High | Layout Needed |
 | HORIZONS House lanyards | Confirm whether lanyards are included with check-in caps | Official brief says to check if lanyards can be included | HORIZONS House / Guest Materials | Samuel / Chris | Medium | Needs Confirmation |
 | Lanyard colour meanings | Confirmed meanings: Black = Aream & Co, Brown = Crew, Blue = PC & console, Green = mobile consumer, Oatmeal = other | Updated from Samuel's 5 June correction. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset. | Guests / Namecards / Lanyards | Samuel / Chris / Aream & Co. | High | Confirmed |
-| HORIZONS Connect chair-drop execution team | Confirm who executes the 10 June 8:30 am chair drop | Official brief notes chair-drop setup; execution team is not final beyond possible B Good support | Swag & Delivery / HORIZONS Hall | Samuel / B Good | High | Execution Team Needed |
-| HORIZONS pens / notepads leftover allocation | Owner for remaining spare quantity | Brief notes leftover allocation needs someone assigned, potentially Be Good | Guest Materials / HORIZONS Connect | B Good / Samuel | Medium | Owner Needed |
+| HORIZONS Connect chair-drop execution team | Confirm who executes the 10 June 8:30 am chair drop | Official brief notes chair-drop setup; execution team is not final beyond possible BeGood support | Swag & Delivery / HORIZONS Hall | Samuel / BeGood | High | Execution Team Needed |
+| HORIZONS pens / notepads leftover allocation | Owner for remaining spare quantity | Brief notes leftover allocation needs someone assigned, potentially BeGood | Guest Materials / HORIZONS Connect | BeGood / Samuel | Medium | Owner Needed |
 | Crew shirts | Final quantity, sizes, and allocation | Visuals are added but sizing/allocation is not stored on the website | Guest Materials / Crew | Samuel | High | Info Needed |
 | Eve Blackwell namecard proof | Confirm whether this proof is historical only | Website contact data uses Eve Dusek; do not let old proof create a data conflict | Guest Materials / Namecards | Samuel / Chris | High | Needs Confirmation |
 ## Final Menus
 
 | Item | Missing image/file/info | Why it is needed | Website section | Who should provide | Priority | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| Final menu locations | Confirm locations for all menus marked Location Needs Confirmation | Some PDF pages show menu content/date but no clear location | Menus / Restaurant Schedules / Call Sheet | Samuel / B Good / Six Senses | High | Needs Confirmation |
-| Restaurant schedule menu links | Confirm any menu-to-restaurant links that were not safely matched by location | Prevents menus being attached to the wrong meal space | Menus / Restaurant Schedules | Samuel / B Good | High | Needs Confirmation |
-| Dinner Drinks locations | Confirm exact locations for 10.06.26 and 11.06.26 Dinner Drinks | PDF pages list drinks but not explicit venue on the page | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
-| Tea & Coffee location | Confirm location for 12.06.26 Tea & Coffee | Page 34 has menu content but no clear location | Menus / Call Sheet | Samuel / B Good / Six Senses | Medium | Location Needed |
+| Final menu locations | Confirm locations for all menus marked Location Needs Confirmation | Some PDF pages show menu content/date but no clear location | Menus / Restaurant Schedules / Call Sheet | Samuel / BeGood / Six Senses | High | Needs Confirmation |
+| Restaurant schedule menu links | Confirm any menu-to-restaurant links that were not safely matched by location | Prevents menus being attached to the wrong meal space | Menus / Restaurant Schedules | Samuel / BeGood | High | Needs Confirmation |
+| Dinner Drinks locations | Confirm exact locations for 10.06.26 and 11.06.26 Dinner Drinks | PDF pages list drinks but not explicit venue on the page | Menus / Call Sheet | Samuel / BeGood / Six Senses | Medium | Location Needed |
+| Tea & Coffee location | Confirm location for 12.06.26 Tea & Coffee | Page 34 has menu content but no clear location | Menus / Call Sheet | Samuel / BeGood / Six Senses | Medium | Location Needed |
 | Pool & Pharmacy Bar naming | Confirm final approved display name if Pharmacy Bar should be separate from Pool | Prevents location naming mismatch in menus and location schedules | Menus / Locations | Samuel / Six Senses | Medium | Needs Confirmation |
 
 ## HORIZONS Hall Seating / Layout
@@ -157,7 +157,7 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | Round-table final status | Confirm whether round-table layout is final | Prevents replacing theatre plan with wrong layout | HORIZONS Hall Layouts | Samuel / Clownfish | Medium | Needs Confirmation |
 | Latest Clownfish table layout | Confirm whether Clownfish has a newer HORIZONS Hall table layout | Ensures website uses the latest technical source | HORIZONS Hall / Clownfish | Clownfish / Samuel | Medium | Needs Confirmation |
 | HORIZONS Hall TBC rehearsal timing | Confirm final timing for HORIZONS Hall stage familiarisation/mic check | Current slot is TBC: 18:00 or 23:30 | Rehearsals / Call Sheet | Samuel / Clownfish / Pili Lopez | High | Needs Confirmation |
-| Pre/post BBQ rehearsal timing | Confirm whether the TBC rehearsal is pre or post BBQ dinner | Needed for Call Sheet and speaker availability | Rehearsals / Schedule | Samuel / Clownfish / B Good | High | Needs Confirmation |
+| Pre/post BBQ rehearsal timing | Confirm whether the TBC rehearsal is pre or post BBQ dinner | Needed for Call Sheet and speaker availability | Rehearsals / Schedule | Samuel / Clownfish / BeGood | High | Needs Confirmation |
 | Monday 8 June fallback location | Confirm final location if HORIZONS Studio is not ready | Cue-to-cue records currently say HORIZONS Studio / or elsewhere if not ready | Rehearsals / HORIZONS Studio | Samuel / Clownfish | Medium | Needs Confirmation |
 
 ## HORIZONS Hall Round Table Seating System
@@ -180,6 +180,6 @@ Note: final separate uploaded swag, room-drop, chair-drop, cap, lanyard, signage
 | Kelechi company/team label | Confirm Kelechi’s correct company/team label | Current website marks `Company Needed` until confirmed | Staff Lists / Guests / Who Do I Call | Samuel / Chris | High | Company Needed |
 | Kelechi responsibility scope | Confirm exact list of Pili Lopez’s old responsibilities now owned by Kelechi | Prevents moving responsibilities too broadly or incorrectly | Who Do I Call / My Tasks / Workstreams | Samuel / Chris | High | Needs Confirmation |
 | Pili inherited role scope | Confirm exact active role Pili Lopez is taking over from the previous content producer role | Pili is now the active I.N.C owner for that role; final scope should be confirmed | Team Contacts / Schedule / Rehearsals / Production | Samuel / Chris | High | Needs Confirmation |
-| Ben company display | Confirm whether supplier/company should display globally as `Be Good` or retain `B Good` in non-Ben records | Ben’s approved display is Be Good and Ben@be-good.co.uk; other company labels were not globally renamed | Suppliers / Staff Lists / Schedule | Samuel / Be Good | Medium | Needs Confirmation |
+| BeGood company display | Approved company display spelling is `BeGood` across the website | Updated visible company/supplier display text; valid email domains such as Ben@be-good.co.uk remain unchanged | Suppliers / Staff Lists / Schedule | Samuel / BeGood | Medium | Added to Website |
 | Archived previous contact references | Confirm whether old archive/source references to removed people should remain admin-only | Active website data has been cleaned; historical reports may retain old source trace | Admin / Source Trace | Samuel | Medium | Needs Confirmation |
 | Kelechi contact visibility | Confirm whether Kelechi should appear in Team Contacts or only operational responsibility sections | Kelechi is currently added with Email Needed / Company Needed so the team can see the gap | Team Contacts / Who Do I Call | Samuel / Chris | Medium | Needs Confirmation |

@@ -353,7 +353,7 @@ Common updates in `content.json`:
 
 - There is only one Chris: `Chris Manoe`.
 - Use `HORIZONS Hall`, not `Farmers Market Stage`.
-- Use `B Good` consistently.
+- Use `BeGood` consistently.
 - Use `Clownfish` consistently.
 - Use full names instead of initials where known. Unknown initials must be marked `Needs name confirmation`.
 - Use the official main HORIZONS logo at `assets/logos/horizons-main-logo-black.png` for the hero/header logo. Do not recreate it with text.
@@ -475,7 +475,7 @@ The current site now supports:
 Spelling rules:
 
 - Use `Aream & Co.` exactly.
-- Use `B Good` exactly.
+- Use `BeGood` exactly.
 - Use `Clownfish` exactly.
 - Replace known initials with full names. Unknown initials should be marked `Needs Name Confirmation`.
 
@@ -578,8 +578,8 @@ Setup status:
 - Comment/update cards support Mark Resolved, Archive, Reopen, Slack channel selection, and urgent message preview.
 - Podcast is grouped by day and episode. Speaker Content is grouped by HORIZONS Hall, HORIZONS Studio, and HORIZONS Podcast.
 - Entertainment is limited to live performers; Curated Playlists are background/ambient music moments.
-- Room Drops now include hand fan, Pulsio/Poltio, hotel room drops, B Good / Six Senses responsibilities, gloves note, handling, and quality control.
-- Staff/contact cleanup now groups people by `International Collective / I.N.C`, `Clownfish`, `Aream & Co.`, `B Good`, `Performers`, and `Hotel / Venue`. Clownfish roles, dietary notes, and HORIZONS Hall / Studio show-operative assignments are included without exposing dates of birth.
+- Room Drops now include hand fan, Pulsio/Poltio, hotel room drops, BeGood / Six Senses responsibilities, gloves note, handling, and quality control.
+- Staff/contact cleanup now groups people by `International Collective / I.N.C`, `Clownfish`, `Aream & Co.`, `BeGood`, `Performers`, and `Hotel / Venue`. Clownfish roles, dietary notes, and HORIZONS Hall / Studio show-operative assignments are included without exposing dates of birth.
 - Notepads and pens are associated with HORIZONS Hall. Crew shirts are flagged as needing data/image confirmation.
 - Eve Dusek is the active display name and COO of Aream & Co.; final contact/role confirmation remains tracked.
 

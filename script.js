@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260605-podcast1";
+const APP_VERSION = "20260605-begood1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -1326,7 +1326,7 @@ function renderTravel() {
 }
 
 function renderContactTabs() {
-  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "International Collective / I.N.C", "Clownfish", "Aream & Co.", "B Good", "Performers", "Hotel / Venue", "Remote"];
+  const categories = ["All", "Leadership", "Production / Content", "Operations / Logistics", "International Collective / I.N.C", "Clownfish", "Aream & Co.", "BeGood", "Performers", "Hotel / Venue", "Remote"];
   setHtml("[data-contact-tabs]", categories.map((category) => `<button class="tab-button" type="button" role="tab" aria-selected="${category === state.activeContactCategory}" data-contact-tab="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join(""));
 }
 
