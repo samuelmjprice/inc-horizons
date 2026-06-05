@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260605-begood1";
+const APP_VERSION = "20260605-cleanup1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -50,6 +50,7 @@ const slug = (value) => text(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").re
 const escapeHtml = (value) => text(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#039;" }[char]));
 const includes = (item, query) => JSON.stringify(item).toLowerCase().includes(query.toLowerCase());
 const unique = (values) => [...new Set(values.map((value) => text(value)).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+const displayName = (value = "") => text(value).replace(/\bB Good\b/g, "BeGood").replace(/\bBe Good\b/g, "BeGood");
 const getUpdates = (id) => state.updates[id] || [];
 const latestUpdate = (id) => getUpdates(id).at(-1);
 const hallScrollTop = () => $("[data-hall-scroll]")?.scrollTop || 0;
@@ -182,6 +183,15 @@ const allocationTable = (rows = []) => asList(rows).length ? `
     ${rows.map((row) => `<div><span>${escapeHtml(row.label || row.title || "Item")}</span><strong>${escapeHtml(row.quantity || row.value || "Needed")}</strong></div>`).join("")}
   </div>
 ` : "";
+const lanyardMeaning = (item = {}) => {
+  const colour = text(item.colour || item.label).toLowerCase();
+  if (colour.includes("black")) return "Aream & Co";
+  if (colour.includes("brown") || colour.includes("ochre")) return "Crew";
+  if (colour.includes("blue")) return "PC & console";
+  if (colour.includes("green") || colour.includes("sage")) return "mobile consumer";
+  if (colour.includes("oatmeal")) return "other";
+  return text(item.groupMeaning || item.meaning || item.group, "Meaning pending");
+};
 const firstMeaningful = (...values) => values.map((value) => text(value)).find(Boolean) || "";
 const isLiveRecord = (item = {}) => !item.hiddenFromLive && !item.archived && !/not needed|archived|moved/i.test(text(item.status));
 const liveItems = (items = []) => items.filter(isLiveRecord);
@@ -199,7 +209,21 @@ const dayLabelShort = (value = "") => {
 
 const buildOptions = (select, values, label) => {
   if (!select) return;
-  select.innerHTML = `<option value="">All ${label}</option>${values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("")}`;
+  select.innerHTML = `<option value="">All ${label}</option>${values.map((value) => `<option value="${escapeHtml(displayName(value))}">${escapeHtml(displayName(value))}</option>`).join("")}`;
+};
+
+const optionStopWords = new Set(["lead", "team", "monitor", "support", "owner", "tbc", "n/a", "na", "needs confirmation"]);
+const splitOptionValues = (values = []) => unique(values.flatMap((value) => displayName(value)
+  .split(/\s*\/\s*|\s*,\s*|\s+\+\s+/)
+  .map((part) => displayName(part))
+  .filter((part) => part && !optionStopWords.has(part.toLowerCase()) && part.length > 1)));
+const ownerOptionValues = (values = []) => splitOptionValues(values).slice(0, 160);
+const ownerMatches = (candidate, selected) => {
+  if (!selected) return true;
+  const tokens = splitOptionValues([candidate]);
+  const normalized = displayName(candidate).toLowerCase();
+  const choice = displayName(selected).toLowerCase();
+  return tokens.some((token) => token.toLowerCase() === choice) || normalized.includes(choice);
 };
 
 const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
@@ -542,7 +566,7 @@ const passesGlobal = (item, fields = {}) => {
   if (query && !includes(item, query) && !includes(getUpdates(fields.updateId || item.updateId || item.id), query)) return false;
   if (status && !text(fields.status || item.status).toLowerCase().includes(status.toLowerCase())) return false;
   if (day && !text(fields.day || item.day || item.date || item.dayLabel).toLowerCase().includes(day.toLowerCase())) return false;
-  if (owner && !text(fields.owner || item.owner || item.person || item.internalOwner || item.lead).toLowerCase().includes(owner.toLowerCase())) return false;
+  if (owner && !ownerMatches(fields.owner || item.owner || item.person || item.internalOwner || item.lead, owner)) return false;
   if (location && !text(fields.location || item.location || item.locationName).toLowerCase().includes(location.toLowerCase())) return false;
   if (department && !text(fields.department || item.department).toLowerCase().includes(department.toLowerCase())) return false;
   return true;
@@ -551,7 +575,9 @@ const passesGlobal = (item, fields = {}) => {
 const passesLocal = (item, filters, fieldMap) => Object.entries(filters).every(([key, value]) => {
   if (!value) return true;
   const field = fieldMap[key] || key;
-  return text(typeof field === "function" ? field(item) : item[field]).toLowerCase().includes(value.toLowerCase());
+  const candidate = typeof field === "function" ? field(item) : item[field];
+  if (/owner|person|lead|contact/i.test(key)) return ownerMatches(candidate, value);
+  return displayName(candidate).toLowerCase().includes(displayName(value).toLowerCase());
 });
 
 async function init() {
@@ -662,7 +688,7 @@ function renderFilters() {
   const d = state.data;
   const statusValues = unique([...d.schedule, ...d.tasks, ...d.suppliers, ...d.contentCapture, ...d.decisions, ...(d.travel || [])].map((x) => x.status));
   const dayValues = unique([...d.dailyRunSheets.map((x) => x.day), ...d.schedule.map((x) => x.dayLabel || x.date), ...d.tasks.map((x) => x.day), ...d.suppliers.map((x) => x.day), ...d.contentCapture.map((x) => x.day), ...(d.travel || []).map((x) => x.arrivalDate || x.departureDate)]);
-  const ownerValues = unique([...d.schedule.map((x) => x.owner), ...d.tasks.map((x) => x.person), ...d.suppliers.map((x) => x.internalOwner), ...d.contentCapture.map((x) => x.lead), ...d.contacts.map((x) => x.name), ...(d.travel || []).map((x) => x.person)]).slice(0, 160);
+  const ownerValues = ownerOptionValues([...d.schedule.map((x) => x.owner), ...d.tasks.map((x) => x.person), ...d.suppliers.map((x) => x.internalOwner), ...d.contentCapture.map((x) => x.lead), ...d.contacts.map((x) => x.name), ...(d.travel || []).map((x) => x.person)]);
   const locationValues = unique([...d.schedule.map((x) => x.location), ...d.tasks.map((x) => x.location), ...d.suppliers.map((x) => x.location), ...d.locations.map((x) => x.locationName), ...d.contentCapture.map((x) => x.location), ...(d.travel || []).map((x) => x.arrivalAirport), ...(d.travel || []).map((x) => x.departureAirport)]);
   const departmentValues = unique(d.meta.departments || [...d.schedule, ...d.tasks, ...d.suppliers, ...d.contentCapture].map((x) => x.department));
   buildOptions($('[data-filter="status"]'), statusValues, "statuses");
@@ -671,7 +697,7 @@ function renderFilters() {
   buildOptions($('[data-filter="location"]'), locationValues, "locations");
   buildOptions($('[data-filter="department"]'), departmentValues, "departments");
   buildOptions($('[data-task-filter="department"]'), departmentValues, "departments");
-  buildOptions($('[data-task-filter="owner"]'), unique(d.tasks.map((x) => x.person)), "names");
+  buildOptions($('[data-task-filter="owner"]'), ownerOptionValues(d.tasks.map((x) => x.person)), "names");
   buildOptions($('[data-task-filter="day"]'), dayValues, "days");
   buildOptions($('[data-task-filter="status"]'), statusValues, "statuses");
   buildOptions($('[data-task-filter="location"]'), locationValues, "locations");
@@ -685,7 +711,7 @@ function renderFilters() {
   buildOptions($('[data-podcast-filter="guest"]'), unique(podcastFilterItems.flatMap((x) => [x.guest, x.guestSubject, x.guest_1, x.guest_2])), "guests");
   buildOptions($('[data-podcast-filter="status"]'), unique(podcastFilterItems.map((x) => x.status)), "statuses");
   buildOptions($('[data-podcast-filter="location"]'), unique(podcastFilterItems.map((x) => x.location)), "locations");
-  buildOptions($('[data-content-filter="owner"]'), unique(d.contentCapture.map((x) => x.lead)), "people");
+  buildOptions($('[data-content-filter="owner"]'), ownerOptionValues(d.contentCapture.map((x) => x.lead)), "people");
   buildOptions($('[data-content-filter="day"]'), unique(d.contentCapture.map((x) => x.day)), "days");
   buildOptions($('[data-content-filter="department"]'), departmentValues, "departments");
   buildOptions($('[data-content-filter="location"]'), unique(d.contentCapture.map((x) => x.location)), "locations");
@@ -701,7 +727,61 @@ function renderFilters() {
   buildOptions($('[data-menu-filter="meal"]'), unique(menus.map((x) => x.meal_type)), "meal types");
 }
 
+function searchResultGroups() {
+  const d = state.data || {};
+  return [
+    ["Schedule", "#schedule", d.schedule || [], (item) => [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.dayLabel || item.date, item.location, item.owner].filter(Boolean).join(" · ")],
+    ["Call Sheet", "#call-sheet", d.schedule || [], (item) => [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.dayLabel || item.date, item.location, item.department].filter(Boolean).join(" · ")],
+    ["Contacts", "#contacts", d.contacts || [], (item) => item.name, (item) => [item.company, item.role || item.responsibility].filter(Boolean).join(" · ")],
+    ["Who Do I Call", "#who-do-i-call", d.whoDoICall || [], (item) => item.situation, (item) => [item.primaryContact, item.notes].filter(Boolean).join(" · ")],
+    ["Locations", "#locations", d.locations || [], (item) => item.locationName, (item) => [item.type, item.keyOwner, item.status].filter(Boolean).join(" · ")],
+    ["Guests", "#guests", d.guests || [], (item) => item.name || item.namecard_display_name, (item) => [item.company_display_name || item.company, item.lanyard_colour, item.status].filter(Boolean).join(" · ")],
+    ["Menus", "#menus", d.menus || [], (item) => item.title || item.menu_type, (item) => [item.date, item.location, item.meal_type].filter(Boolean).join(" · ")],
+    ["Podcast", "#podcast", d.podcast || [], (item) => item.session || item.title, (item) => [item.date || item.day, item.recording_time || item.time, item.guest_1 || item.guest].filter(Boolean).join(" · ")],
+    ["Suppliers", "#suppliers", d.suppliers || [], (item) => item.supplierName || item.name, (item) => [item.company, item.internalOwner, item.location].filter(Boolean).join(" · ")],
+    ["Documents", "#documents", d.documents || [], (item) => item.title, (item) => [item.category, item.owner, item.status].filter(Boolean).join(" · ")],
+    ["Assets", "#swag", d.swag || [], (item) => item.itemName || item.title, (item) => [item.category, item.location, item.owner].filter(Boolean).join(" · ")]
+  ];
+}
+
+function renderSearchResults() {
+  const panel = $("[data-search-results]");
+  if (!panel) return;
+  const query = text(state.filters.query);
+  if (!query) {
+    panel.hidden = true;
+    panel.innerHTML = "";
+    return;
+  }
+  const results = searchResultGroups().flatMap(([section, href, items, titleFn, summaryFn]) => liveItems(items)
+    .filter((item) => includes(item, query))
+    .slice(0, 4)
+    .map((item) => ({
+      section,
+      href,
+      title: firstMeaningful(titleFn(item), section),
+      summary: firstMeaningful(summaryFn(item), "Open matching section"),
+      status: item.status || item.priority || item.category || ""
+    }))).slice(0, 24);
+  panel.hidden = false;
+  panel.innerHTML = `
+    <div class="search-results-head">
+      <strong>Search results</strong>
+      <span>${escapeHtml(results.length ? `${results.length} quick match${results.length === 1 ? "" : "es"}` : "No quick matches")}</span>
+    </div>
+    ${results.length ? `<div class="search-results-grid">${results.map((result) => `
+      <a class="search-result-card" href="${escapeHtml(result.href)}">
+        <span>${escapeHtml(result.section)}</span>
+        <strong>${escapeHtml(displayName(result.title))}</strong>
+        <em>${escapeHtml(displayName(result.summary))}</em>
+        ${result.status ? tag(result.status) : ""}
+      </a>
+    `).join("")}</div>` : `<div class="empty-state">No results for “${escapeHtml(query)}”. Try a person, company, location, menu, guest, or task.</div>`}
+  `;
+}
+
 function renderAll() {
+  renderSearchResults();
   renderToday();
   renderRedFlags();
   renderScheduleTabs();
@@ -1476,7 +1556,7 @@ function renderLanyardGuide(lanyardGuide = {}) {
       </div>
       <figcaption>
         <strong>${escapeHtml(item.colour || "Colour Needed")}</strong>
-        <span>${escapeHtml(item.groupMeaning || "Group Meaning Needed")}</span>
+        <span>${escapeHtml(lanyardMeaning(item))}</span>
       </figcaption>
     </figure>
   `).join("");
@@ -1802,7 +1882,7 @@ function renderSwagDelivery() {
         <summary><span>Visual References / Lanyards</span>${tag(lanyard.status || "Needs Confirmation")}</summary>
         <div class="details-content">
           ${list(lanyard.notes)}
-          ${allocationTable(asList(lanyard.colours).map((item) => ({ label: item.colour, quantity: item.groupMeaning || "Group Meaning Needed" })))}
+          ${allocationTable(asList(lanyard.colours).map((item) => ({ label: item.colour, quantity: lanyardMeaning(item) })))}
           ${referenceGallery(lanyard.images)}
         </div>
       </details>
