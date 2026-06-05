@@ -91,9 +91,9 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Existing Missing Files | Music usage schedule | Call sheet | Playlists | Dawn Ramsden | Medium | File Needed |
 | Existing Missing Files | Start/stop ownership | Music operations | Playlists | Dawn Ramsden | Medium | File Needed |
 | Existing Missing Files | Backup playlist plan | Contingency | Playlists | Dawn Ramsden | Medium | File Needed |
-| Existing Missing Files | Final podcast schedule | Podcast | Podcast | Samuel Price | Medium | File Needed |
-| Existing Missing Files | Podcast guest list | Podcast | Podcast | Samuel Price | Medium | File Needed |
-| Existing Missing Files | Podcast run sheet | Podcast | Podcast | Samuel Price | Medium | File Needed |
+| Existing Missing Files | Final podcast schedule | Imported from `H O R I Z O N S x DoF _ Podcast Outreach.xlsx`; live podcast schedule now updated | Podcast | Samuel Price | Medium | Added to Website |
+| Existing Missing Files | Podcast guest list | Scheduled podcast guests imported from workbook; confirmed-but-unscheduled guests reported separately | Podcast | Samuel Price | Medium | Added to Website |
+| Existing Missing Files | Podcast run sheet | Recording slots and support lunch moments imported from workbook; detailed production run sheet still depends on technical notes | Podcast | Samuel Price | Medium | Partially Added |
 | Existing Missing Files | Presenter notes | Podcast | Podcast | Samuel Price | Medium | File Needed |
 | Existing Missing Files | Guest arrival/holding notes | Podcast | Podcast | Samuel Price | Medium | File Needed |
 | Existing Missing Files | Podcast technical notes | Podcast | Podcast | Clownfish | Medium | File Needed |

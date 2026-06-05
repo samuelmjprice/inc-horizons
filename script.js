@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260605-peoplefix1";
+const APP_VERSION = "20260605-podcast1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -680,10 +680,11 @@ function renderFilters() {
   buildOptions($('[data-travel-filter="departureDay"]'), unique((d.travel || []).map((x) => x.departureDate)), "departure days");
   buildOptions($('[data-travel-filter="team"]'), unique((d.travel || []).map((x) => x.team)), "teams");
   buildOptions($('[data-travel-filter="status"]'), unique((d.travel || []).map((x) => x.status)), "statuses");
-  buildOptions($('[data-podcast-filter="day"]'), unique(d.podcast.map((x) => x.day || x.date)), "days");
-  buildOptions($('[data-podcast-filter="guest"]'), unique(d.podcast.map((x) => x.guest || x.guestSubject)), "guests");
-  buildOptions($('[data-podcast-filter="status"]'), unique(d.podcast.map((x) => x.status)), "statuses");
-  buildOptions($('[data-podcast-filter="location"]'), unique(d.podcast.map((x) => x.location)), "locations");
+  const podcastFilterItems = liveItems(d.podcast || []);
+  buildOptions($('[data-podcast-filter="day"]'), unique(podcastFilterItems.map((x) => x.day || x.date)), "days");
+  buildOptions($('[data-podcast-filter="guest"]'), unique(podcastFilterItems.flatMap((x) => [x.guest, x.guestSubject, x.guest_1, x.guest_2])), "guests");
+  buildOptions($('[data-podcast-filter="status"]'), unique(podcastFilterItems.map((x) => x.status)), "statuses");
+  buildOptions($('[data-podcast-filter="location"]'), unique(podcastFilterItems.map((x) => x.location)), "locations");
   buildOptions($('[data-content-filter="owner"]'), unique(d.contentCapture.map((x) => x.lead)), "people");
   buildOptions($('[data-content-filter="day"]'), unique(d.contentCapture.map((x) => x.day)), "days");
   buildOptions($('[data-content-filter="department"]'), departmentValues, "departments");
@@ -1573,9 +1574,15 @@ function supplierTimeline(item) {
 }
 
 function renderPodcast() {
+  const podcastGuests = (item) => [item.guest_1 || item.guest, item.guest_2].filter(Boolean).join(" / ") || item.guestSubject || "Guest TBC";
+  const podcastCompanies = (item) => [item.guest_1_company || item.guestCompany, item.guest_2_company].filter(Boolean).join(" / ") || "Needs Confirmation";
+  const podcastTitle = (item, episode) => {
+    if (item.kind === "support") return item.session || item.slot || "Podcast support";
+    return item.session ? `${item.session}: ${podcastGuests(item)}` : (item.episodeNumber || `Podcast ${episode}: ${podcastGuests(item)}`);
+  };
   const items = liveItems(state.data.podcast)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.day || item.date, owner: item.productionLead, location: item.location, department: "Podcast", updateId: item.updateId }))
-    .filter((item) => passesLocal(item, state.podcastFilters, { guest: (x) => x.guest || x.guestSubject }));
+    .filter((item) => passesLocal(item, state.podcastFilters, { guest: podcastGuests }));
   let episode = 0;
   const grouped = groupBy(items, (item) => item.day || item.date || "Day needed");
   setHtml("[data-podcast]", Object.entries(grouped).map(([day, rows]) => `
@@ -1585,12 +1592,12 @@ function renderPodcast() {
         ${rows.map((item) => {
           episode += 1;
           return card({
-            title: item.episodeNumber || `Podcast ${episode}: ${item.slot || item.guest || "Slot TBC"}`,
+            title: podcastTitle(item, episode),
             status: item.status,
             department: "Podcast",
-            body: `<p>${escapeHtml(item.guest || item.guestSubject || "Guest TBC")}</p>`,
-            metadata: meta("Day/time", [item.day || item.date, item.time].filter(Boolean).join(" · ")) + meta("Presenter", item.presenter) + meta("Guest company", item.guestCompany || "Needs Confirmation") + meta("Guests", item.guestCount || "Needs Confirmation") + meta("Duration", item.duration || "Needs Confirmation") + meta("Location", item.location) + meta("Production lead", item.productionLead) + meta("Technical team", item.technicalTeam),
-            footer: detailsBlock("Guest prep / production checklist", [["Guest runner", item.guestRunner || "Needs Confirmation"], ["Guest prep owner", item.guestPrepOwner || "Needs Confirmation"], ["Guest prep checklist", item.guestPrepChecklist || "Needs Confirmation"], ["Microphone check", item.microphoneCheck || "Needs Confirmation"], ["Powder / makeup check", item.powderMakeupCheck || "If applicable / Needs Confirmation"], ["Production needs", item.productionNeeds], ["Notes", item.notes]]),
+            body: `<p>${escapeHtml(podcastGuests(item))}</p>${item.topic ? `<p>${escapeHtml(item.topic)}</p>` : ""}`,
+            metadata: meta("Recording time", item.recording_time || item.time) + meta("Call time", item.call_time) + meta("Presenter", item.presenter) + meta("Company", podcastCompanies(item)) + meta("Location", item.location) + meta("Production / logistics", item.productionLead) + meta("Related schedule", item.related_schedule_ids?.length ? `${item.related_schedule_ids.length} linked` : "") + meta("Related call sheet", item.related_call_sheet_ids?.length ? `${item.related_call_sheet_ids.length} linked` : ""),
+            footer: detailsBlock("Podcast details / source trace", [["Topic", item.topic || "Topic Needed"], ["Notes", item.notes], ["Support window", item.kind === "support" ? (item.time || item.recording_time) : ""], ["Presenter source alias", item.presenter_source_name], ["Source workbook", item.source_workbook], ["Source sheet", item.source_sheet], ["Source row", item.source_row], ["Location status", item.location_status], ["Production needs", item.productionNeeds]]),
             updateId: item.updateId
           });
         }).join("")}
