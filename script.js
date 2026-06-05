@@ -27,7 +27,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260604-apple-mobile1";
+const APP_VERSION = "20260605-hallfix1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -52,6 +52,16 @@ const includes = (item, query) => JSON.stringify(item).toLowerCase().includes(qu
 const unique = (values) => [...new Set(values.map((value) => text(value)).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 const getUpdates = (id) => state.updates[id] || [];
 const latestUpdate = (id) => getUpdates(id).at(-1);
+const hallScrollTop = () => $("[data-hall-scroll]")?.scrollTop || 0;
+function rerenderHallCentre({ preserveScroll = true, scrollTop = hallScrollTop() } = {}) {
+  renderLocations();
+  document.body.classList.add("hall-centre-open");
+  if (!preserveScroll) return;
+  requestAnimationFrame(() => {
+    const body = $("[data-hall-scroll]");
+    if (body) body.scrollTop = scrollTop;
+  });
+}
 const normalizeLabel = (value = "") => {
   const raw = text(value);
   const normalized = raw.toLowerCase();
@@ -2053,8 +2063,7 @@ function renderRoundTableSeat(tableNumber, seat = {}) {
           ${seat.notes ? `<span>${escapeHtml(`Notes: ${seat.notes}`)}</span>` : ""}
         </div>
         <div class="contact-actions seat-actions">
-          <button type="button" data-round-table-edit-seat="${escapeHtml(seatKey)}" ${locked ? "disabled" : ""}>${assigned ? "Change" : "Assign guest"}</button>
-          <button type="button" data-round-table-clear-seat ${locked ? "disabled" : ""}>Clear</button>
+          ${locked ? `<span class="seat-edit-hint">Tap Edit assignments to assign guests.</span>` : `<button type="button" data-round-table-edit-seat="${escapeHtml(seatKey)}">${assigned ? "Change" : "Assign guest"}</button>${assigned ? `<button type="button" data-round-table-clear-seat>Clear</button>` : ""}`}
         </div>
         <input type="hidden" data-seat-guest-id value="${escapeHtml(seat.guest_id || "")}">
         <input type="hidden" data-seat-existing-status value="${escapeHtml(seat.assignment_status || "Guest Needed")}">
@@ -2069,6 +2078,7 @@ function renderRoundTableSeat(tableNumber, seat = {}) {
         ${tag(seat.assignment_status || "Guest Needed")}
       </div>
       <label><span>Assign guest</span><input data-seat-guest list="round-table-guest-options" value="${escapeHtml(assignmentLabel(seat) === "Guest Needed" ? "" : assignmentLabel(seat))}" placeholder="Guest Needed" ${locked ? "readonly" : ""}></label>
+      <p class="seat-edit-hint">Search Guests / Namecards by name or company. Manual entries are marked as not in the guest list.</p>
       <div class="seat-fields">
         <label><span>Company</span><input data-seat-company value="${escapeHtml(seat.guest_company || "")}" placeholder="Company" ${locked ? "readonly" : ""}></label>
         <label><span>Category</span><input data-seat-category value="${escapeHtml(seat.guest_category || "")}" placeholder="Category" ${locked ? "readonly" : ""}></label>
@@ -2079,7 +2089,7 @@ function renderRoundTableSeat(tableNumber, seat = {}) {
       </div>
       <label><span>Notes</span><input data-seat-notes value="${escapeHtml(seat.notes || "")}" placeholder="Safe operational note" ${locked ? "readonly" : ""}></label>
       <input type="hidden" data-seat-guest-id value="${escapeHtml(seat.guest_id || "")}">
-      <button type="button" data-round-table-clear-seat ${locked ? "disabled" : ""}>Clear</button>
+      <button type="button" data-round-table-clear-seat ${locked || !assigned ? "disabled" : ""}>Clear guest</button>
     </div>
   `;
 }
@@ -2202,7 +2212,7 @@ function renderHallControlCentre(location = {}) {
       <button type="button" class="hall-centre-backdrop" data-close-hall-centre aria-label="Close HORIZONS Hall Control Centre"></button>
       <section class="hall-centre-panel app-tool-panel" role="dialog" aria-modal="true" aria-label="HORIZONS Hall Control Centre">
         <header class="hall-centre-header app-tool-header">
-          <div>
+          <div class="hall-centre-title-block">
             <p class="eyebrow">HORIZONS Hall</p>
             <h2>HORIZONS Hall Control Centre</h2>
             <p>Layouts, seating assignments, stage references, and HORIZONS Hall operating links.</p>
@@ -2211,7 +2221,6 @@ function renderHallControlCentre(location = {}) {
               <div class="tag-stack">${tag("Round Tables: Needs Assignment")}${tag("Theatre Plan: Available")}${tag("Stage Design: Available")}${tag("Seat Count: Needs Confirmation")}</div>
             </details>
           </div>
-          <button type="button" class="app-tool-close" data-close-hall-centre aria-label="Close HORIZONS Hall Control Centre">×</button>
           <div class="hall-centre-actions app-tool-actions">
             <a href="#call-sheet" data-close-hall-centre>Open Call Sheet</a>
             <details class="app-tool-more">
@@ -2222,15 +2231,16 @@ function renderHallControlCentre(location = {}) {
               </div>
             </details>
           </div>
+          <button type="button" class="app-tool-close" data-close-hall-centre aria-label="Close HORIZONS Hall Control Centre">×</button>
         </header>
-        <div class="hall-panel-body hall-centre-body app-tool-body">
-          <label class="app-tool-section-select">
-            <span>Section</span>
-            <select data-hall-section-select aria-label="HORIZONS Hall Control Centre section">
-              ${hallTabs.map(([id, label]) => `<option value="${escapeHtml(id)}" ${state.activeHallTab === id ? "selected" : ""}>${escapeHtml(label)}</option>`).join("")}
-            </select>
-            <small>Current: ${escapeHtml(activeHallLabel)}</small>
-          </label>
+        <label class="app-tool-section-select">
+          <span>Section</span>
+          <select data-hall-section-select aria-label="HORIZONS Hall Control Centre section">
+            ${hallTabs.map(([id, label]) => `<option value="${escapeHtml(id)}" ${state.activeHallTab === id ? "selected" : ""}>${escapeHtml(label)}</option>`).join("")}
+          </select>
+          <small>Current: ${escapeHtml(activeHallLabel)}</small>
+        </label>
+        <div class="hall-panel-body hall-centre-body app-tool-body" data-hall-scroll>
           <div class="hall-tabs app-tool-tabs" role="tablist" aria-label="HORIZONS Hall control centre">
             ${hallTabs.map(([id, label]) => `<button type="button" role="tab" aria-selected="${state.activeHallTab === id}" class="hall-tab ${state.activeHallTab === id ? "is-active" : ""}" data-hall-tab="${escapeHtml(id)}">${escapeHtml(label)}</button>`).join("")}
           </div>
@@ -2292,8 +2302,8 @@ function renderHallOverviewTab(location = {}) {
 function renderHallTheatreTab() {
   const theatre = hallLayoutByTitle(/Theatre Seating/i) || {};
   return `
-    <div class="hall-tab-card">
-      <div class="card-header">
+    <div class="hall-tab-card hall-reference-card">
+      <div class="card-header hall-reference-header">
         <h3>HORIZONS Hall Theatre Seating Plan</h3>
         <div class="tag-stack">${tag(theatre.status || "Available")}${tag("Reserved Seats: Needs Assignment")}</div>
       </div>
@@ -2321,8 +2331,8 @@ function renderHallTheatreTab() {
 function renderHallStageTab() {
   const stage = hallLayoutByTitle(/Stage Design|Technical/i) || {};
   return `
-    <div class="hall-tab-card">
-      <div class="card-header">
+    <div class="hall-tab-card hall-reference-card">
+      <div class="card-header hall-reference-header">
         <h3>HORIZONS Hall Stage Design / Technical Layout</h3>
         <div class="tag-stack">${tag(stage.status || "Available")}${tag("Read-only production reference")}</div>
       </div>
@@ -2364,20 +2374,30 @@ function renderHallFilesTab() {
   return `
     <div class="hall-tab-card">
       <div class="card-header"><h3>HORIZONS Hall Files</h3><div class="tag-stack">${tag(`${docs.length} files / records`)}</div></div>
-      <div class="location-schedule">
-        ${docs.map((doc) => `
-          <div class="supplier-time-block">
-            <strong>${escapeHtml(doc.title)}</strong>
-            <p>${escapeHtml(doc.description || doc.notes || doc.sourceTrace || "Related HORIZONS Hall file.")}</p>
-            <div class="meta-list compact-meta">${meta("Status", doc.status)}${meta("Category", doc.category)}${meta("Source trace", doc.sourceFile || doc.sourceTrace)}</div>
-            <div class="contact-actions">${doc.url || doc.file ? `<a href="${escapeHtml(doc.url || doc.file)}" target="_blank" rel="noreferrer">Open</a><a href="${escapeHtml(doc.url || doc.file)}" download>Download</a>` : ""}</div>
+      <div class="hall-files-grid">
+        ${docs.map((doc) => {
+          const docUrl = doc.link || doc.url || doc.file || doc.sourceAsset || "";
+          const downloadUrl = doc.download || docUrl;
+          return `
+          <article class="hall-file-card">
+            <div class="hall-file-card-head">
+              <strong>${escapeHtml(doc.title)}</strong>
+              ${tag(doc.status || "Available")}
+            </div>
+            <p>${escapeHtml(doc.description || doc.notes || "Related HORIZONS Hall file.")}</p>
+            <div class="meta-list compact-meta">${meta("Category", doc.category)}${meta("Type / capacity", doc.capacity || doc.type)}</div>
+            <div class="contact-actions">${docUrl ? `<a href="${escapeHtml(docUrl)}" target="_blank" rel="noreferrer">Open</a><a href="${escapeHtml(downloadUrl)}" download>Download</a>` : `<span class="tag tag-waiting">File Needed</span>`}</div>
+            ${detailsBlock("Source trace", [], `<div class="meta-list compact-meta">${meta("Original filename", doc.sourceFile || doc.sourceTrace)}${meta("Notes", doc.sourceTrace || doc.notes)}</div>`)}
+          </article>
+        `; }).join("")}
+        <article class="hall-file-card action-needed">
+          <div class="hall-file-card-head">
+            <strong>${escapeHtml(missing.title || "Updated Table Layout Needed from Kirsty / Clownfish")}</strong>
+            ${tag(missing.status || "Needs Confirmation")}
           </div>
-        `).join("")}
-        <div class="supplier-time-block action-needed">
-          <strong>${escapeHtml(missing.title || "Updated Table Layout Needed from Kirsty / Clownfish")}</strong>
           <p>${escapeHtml(missing.details || "Please confirm final table count, seats per table, table numbering, and whether the uploaded 80-seat layout is final.")}</p>
           <div class="meta-list compact-meta">${meta("Status", missing.status || "Needs Confirmation")}${meta("Priority", missing.priority || "High")}</div>
-        </div>
+        </article>
       </div>
     </div>
   `;
@@ -2699,13 +2719,18 @@ function bindEvents() {
     if (guestInput) {
       const slot = guestInput.closest("[data-seat-slot]");
       const guest = guestBySelectorValue(guestInput.value);
+      const clearButton = slot?.querySelector("[data-round-table-clear-seat]");
       if (guest && slot) {
         slot.querySelector("[data-seat-guest-id]").value = guest.id || "";
         slot.querySelector("[data-seat-company]").value = guest.company_display_name || guest.company || "";
         slot.querySelector("[data-seat-category]").value = guest.category && !/not provided/i.test(guest.category) ? guest.category : guest.guest_type || "";
         const status = slot.querySelector("[data-seat-status]");
         if (status && status.value === "Guest Needed") status.value = "Assigned";
+      } else if (slot) {
+        const status = slot.querySelector("[data-seat-status]");
+        if (status) status.value = text(guestInput.value) ? "Needs Confirmation" : "Guest Needed";
       }
+      if (clearButton) clearButton.disabled = !text(guestInput.value);
     }
   });
   document.addEventListener("change", (event) => {
@@ -2713,8 +2738,7 @@ function bindEvents() {
     if (hallSectionSelect) {
       state.activeHallTab = hallSectionSelect.value || "overview";
       state.hallControlCentreOpen = true;
-      renderLocations();
-      document.body.classList.add("hall-centre-open");
+      rerenderHallCentre({ preserveScroll: false });
     }
   });
   $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
@@ -2841,21 +2865,21 @@ function bindEvents() {
     if (hallTab) {
       state.activeHallTab = hallTab.dataset.hallTab || hallTab.dataset.hallTabJump || "overview";
       state.hallControlCentreOpen = true;
-      renderLocations();
-      document.body.classList.add("hall-centre-open");
+      rerenderHallCentre({ preserveScroll: false });
       return;
     }
     const roundTableSelect = event.target.closest("[data-round-table-select]");
     if (roundTableSelect) {
+      const scrollTop = hallScrollTop();
       state.activeRoundTableNumber = Number(roundTableSelect.dataset.roundTableSelect || 1);
       state.activeHallTab = "round-tables";
       state.hallControlCentreOpen = true;
-      renderLocations();
-      document.body.classList.add("hall-centre-open");
+      rerenderHallCentre({ scrollTop });
       return;
     }
     const editRoundTables = event.target.closest("[data-round-table-edit-toggle]");
     if (editRoundTables) {
+      const scrollTop = hallScrollTop();
       if (state.roundTableEditMode) {
         if (!window.confirm("Cancel editing without saving current visible changes?")) return;
         state.roundTableEditMode = false;
@@ -2865,8 +2889,7 @@ function bindEvents() {
       }
       state.activeHallTab = "round-tables";
       state.hallControlCentreOpen = true;
-      renderLocations();
-      document.body.classList.add("hall-centre-open");
+      rerenderHallCentre({ scrollTop });
       return;
     }
     const expandTables = event.target.closest("[data-round-table-expand-all]");
@@ -2883,15 +2906,17 @@ function bindEvents() {
     }
     const editSeat = event.target.closest("[data-round-table-edit-seat]");
     if (editSeat) {
+      const scrollTop = hallScrollTop();
       state.activeSeatEditor = editSeat.dataset.roundTableEditSeat || "";
       state.roundTableEditMode = true;
       state.activeHallTab = "round-tables";
       state.hallControlCentreOpen = true;
-      renderLocations();
+      rerenderHallCentre({ scrollTop });
       return;
     }
     const clearSeat = event.target.closest("[data-round-table-clear-seat]");
     if (clearSeat) {
+      const scrollTop = hallScrollTop();
       const slot = clearSeat.closest("[data-seat-slot]");
       if (slot && slot.querySelector("[data-seat-guest]")) {
         slot.querySelector("[data-seat-guest]").value = "";
@@ -2901,6 +2926,7 @@ function bindEvents() {
         slot.querySelector("[data-seat-dietary]").value = "";
         slot.querySelector("[data-seat-status]").value = "Guest Needed";
         slot.querySelector("[data-seat-notes]").value = "";
+        clearSeat.disabled = true;
       } else if (slot) {
         const tableNumber = Number(slot.dataset.tableNumber);
         const seatNumber = Number(slot.dataset.seatNumber);
@@ -2910,12 +2936,13 @@ function bindEvents() {
           : seat);
         state.roundTablePlan = normalizeRoundTablePlan({ ...plan, assignments });
         state.activeSeatEditor = "";
-        renderLocations();
+        rerenderHallCentre({ scrollTop });
       }
       return;
     }
     const clearTable = event.target.closest("[data-round-table-clear-table]");
     if (clearTable) {
+      const scrollTop = hallScrollTop();
       const tableNumber = Number(clearTable.dataset.roundTableClearTable);
       if (!window.confirm(`Clear all assignments from Table ${tableNumber}?`)) return;
       const plan = state.roundTablePlan || roundTableSeedPlan();
@@ -2924,11 +2951,12 @@ function bindEvents() {
         : seat);
       state.roundTablePlan = normalizeRoundTablePlan({ ...plan, assignments });
       state.activeSeatEditor = "";
-      renderLocations();
+      rerenderHallCentre({ scrollTop });
       return;
     }
     const saveTable = event.target.closest("[data-round-table-save-table]");
     if (saveTable) {
+      const scrollTop = hallScrollTop();
       const tableNumber = Number(saveTable.dataset.roundTableSaveTable);
       const updatedBy = window.prompt("Who is saving this table?", "Website team") || "Website team";
       let assignments = collectRoundTableAssignmentsFromDom();
@@ -2953,6 +2981,11 @@ function bindEvents() {
         window.alert(error.message);
       }
       renderAll();
+      document.body.classList.add("hall-centre-open");
+      requestAnimationFrame(() => {
+        const body = $("[data-hall-scroll]");
+        if (body) body.scrollTop = scrollTop;
+      });
       return;
     }
     const exportSeating = event.target.closest("[data-round-table-export]");

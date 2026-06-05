@@ -765,7 +765,7 @@ body.hall-centre-open .section-progress {
 .hall-centre-panel {
   position: relative;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto minmax(0, 1fr);
   width: min(1360px, calc(100vw - 48px));
   max-height: calc(100vh - 48px);
   margin: 24px auto;
@@ -778,9 +778,9 @@ body.hall-centre-open .section-progress {
 
 .hall-centre-header {
   align-items: start;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 44px;
   gap: 1rem;
-  justify-content: space-between;
   border-bottom: 1px solid var(--line);
   padding: 1.15rem 1.25rem;
 }
@@ -793,11 +793,17 @@ body.hall-centre-open .section-progress {
   max-width: 980px;
 }
 
+.hall-centre-title-block {
+  min-width: 0;
+}
+
 .hall-centre-actions {
+  align-items: start;
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
   justify-content: flex-end;
+  min-width: 0;
 }
 
 .hall-centre-actions a,
@@ -827,9 +833,7 @@ body.hall-centre-open .section-progress {
   height: 44px;
   justify-content: center;
   padding: 0;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
+  position: static;
   width: 44px;
 }
 
@@ -855,6 +859,7 @@ body.hall-centre-open .section-progress {
 
 .app-tool-more {
   position: relative;
+  z-index: 20;
 }
 
 .app-tool-more > div {
@@ -878,6 +883,8 @@ body.hall-centre-open .section-progress {
 
 .app-tool-section-select {
   display: none;
+  background: rgba(255, 253, 248, 0.98);
+  border-bottom: 1px solid var(--line);
 }
 
 .hall-centre-body {
@@ -885,7 +892,8 @@ body.hall-centre-open .section-progress {
   overflow: auto;
   overscroll-behavior: contain;
   padding: 1rem 1.25rem 1.25rem;
-  scroll-padding-top: 76px;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 1rem;
 }
 
 .app-tool-panel,
@@ -1061,6 +1069,14 @@ body.hall-centre-open .section-progress {
   opacity: 0.45;
 }
 
+.seat-edit-hint {
+  color: var(--muted);
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  margin: 0;
+}
+
 .round-table-system {
   margin-top: 0.9rem;
 }
@@ -1121,6 +1137,52 @@ body.hall-centre-open .section-progress {
 
 .round-table-controls {
   margin: 0;
+}
+
+.hall-reference-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hall-reference-header {
+  align-items: start;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.hall-reference-header .tag-stack {
+  justify-content: flex-end;
+  max-width: min(100%, 520px);
+}
+
+.hall-files-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hall-file-card {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: rgba(255, 253, 248, 0.62);
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.82rem;
+}
+
+.hall-file-card p {
+  margin: 0;
+}
+
+.hall-file-card-head {
+  align-items: start;
+  display: flex;
+  gap: 0.65rem;
+  justify-content: space-between;
+}
+
+.hall-file-card-head strong {
+  min-width: 0;
 }
 
 .round-table-board {
@@ -2733,19 +2795,21 @@ body.admin-view .admin-tool-section,
 
   .hall-centre-panel {
     width: 100vw;
-    max-height: 100vh;
-    height: 100vh;
+    max-height: 100dvh;
+    height: 100dvh;
     margin: 0;
     border-radius: 0;
-    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
   }
 
   .hall-centre-header {
     background: rgba(255, 253, 248, 0.96);
+    display: grid;
     flex: 0 0 auto;
+    grid-template-columns: minmax(0, 1fr) 44px;
     max-height: none;
     overflow: visible;
-    padding: 0.62rem 3.45rem 0.66rem 0.9rem;
+    padding: calc(0.62rem + env(safe-area-inset-top)) 0.85rem 0.66rem 0.9rem;
   }
 
   .hall-centre-header h2 {
@@ -2765,9 +2829,16 @@ body.admin-view .admin-tool-section,
     margin: 0.18rem 0 0;
   }
 
+  .hall-centre-title-block {
+    grid-column: 1;
+    min-width: 0;
+  }
+
   .app-tool-close {
-    right: 0.75rem;
-    top: 0.75rem;
+    align-self: start;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
   }
 
   .tool-status-summary {
@@ -2780,6 +2851,9 @@ body.admin-view .admin-tool-section,
   }
 
   .hall-centre-actions {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) auto;
     justify-content: stretch;
     width: 100%;
     margin-top: 0.45rem;
@@ -2793,7 +2867,7 @@ body.admin-view .admin-tool-section,
   }
 
   .hall-centre-actions > a {
-    flex: 1 1 auto;
+    flex: initial;
   }
 
   .app-tool-more {
@@ -2807,7 +2881,7 @@ body.admin-view .admin-tool-section,
 
   .hall-centre-body {
     padding: 0.75rem 0.95rem 1rem;
-    scroll-padding-top: 72px;
+    scroll-padding-top: 0.75rem;
   }
 
   .hall-centre-tab-panel,
@@ -2842,6 +2916,22 @@ body.admin-view .admin-tool-section,
     padding: 0.72rem;
   }
 
+  .hall-reference-header,
+  .hall-file-card-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hall-reference-header .tag-stack,
+  .hall-file-card-head .tag-stack {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .hall-file-card {
+    padding: 0.78rem;
+  }
+
   .single-table-seat-grid {
     gap: 0.72rem;
   }
@@ -2852,15 +2942,14 @@ body.admin-view .admin-tool-section,
 
   .app-tool-section-select {
     background: rgba(255, 253, 248, 0.98);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
+    border: 0;
+    border-bottom: 1px solid var(--line);
     display: grid;
     gap: 0.25rem;
-    margin: 0 -0.95rem;
-    padding: 0.65rem 0.95rem;
-    position: sticky;
-    top: 0;
-    z-index: 8;
+    margin: 0;
+    padding: 0.62rem 0.95rem 0.7rem;
+    position: static;
+    z-index: auto;
   }
 
   .app-tool-section-select span,
