@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "5 June 2026 — lanyard colour guide correction pass",
+    "lastUpdated": "5 June 2026 — lanyard meanings correction pass",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -29,53 +29,53 @@
     "lanyardColourMapping": [
       {
         "colour": "Black",
-        "groupMeaning": "Group Meaning Needed",
+        "groupMeaning": "Aream & Co",
         "image": "assets/swag/final/lanyard-black.png",
         "sourceStatus": "Uploaded separate final image asset",
         "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
         "sourcePage": "Merchandise reference colour card",
-        "status": "Needs Confirmation",
-        "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+        "status": "Confirmed",
+        "note": "Meaning confirmed by Samuel: Aream & Co."
       },
       {
         "colour": "Brown",
-        "groupMeaning": "Group Meaning Needed",
+        "groupMeaning": "Crew",
         "image": "assets/swag/final/lanyard-ochre.png",
         "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
         "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
         "sourcePage": "Merchandise reference colour card",
-        "status": "Needs Confirmation",
-        "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
+        "status": "Confirmed",
+        "note": "Meaning confirmed by Samuel: Crew. Live label is Brown; uploaded asset filename remains lanyard-ochre.png."
       },
       {
         "colour": "Blue",
-        "groupMeaning": "Group Meaning Needed",
+        "groupMeaning": "PC & console",
         "image": "assets/swag/final/lanyard-blue.png",
         "sourceStatus": "Uploaded separate final image asset",
         "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
         "sourcePage": "Merchandise reference colour card",
-        "status": "Needs Confirmation",
-        "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
+        "status": "Confirmed",
+        "note": "Meaning confirmed by Samuel: PC & console."
       },
       {
         "colour": "Green",
-        "groupMeaning": "Group Meaning Needed",
+        "groupMeaning": "mobile consumer",
         "image": "assets/swag/final/lanyard-sage.png",
         "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
         "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
         "sourcePage": "Merchandise reference colour card",
-        "status": "Needs Confirmation",
-        "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+        "status": "Confirmed",
+        "note": "Meaning confirmed by Samuel: mobile consumer. Live label is Green; uploaded asset filename remains lanyard-sage.png."
       },
       {
         "colour": "Oatmeal",
-        "groupMeaning": "Other / Group Meaning Needed",
+        "groupMeaning": "other",
         "image": "assets/swag/final/lanyard-oatmeal.png",
         "sourceStatus": "Uploaded separate final plain oatmeal image asset",
         "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
         "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
-        "status": "Needs Confirmation",
-        "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
+        "status": "Confirmed",
+        "note": "Meaning confirmed by Samuel: other. Uses the existing plain oatmeal image."
       }
     ]
   },
@@ -25113,8 +25113,8 @@
       "location": "Check-in / HORIZONS House",
       "owner": "B Good / Six Senses",
       "quantity": "Quantity needed",
-      "status": "Needs Confirmation",
-      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
+      "status": "Confirmed",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black (Aream & Co), Brown (Crew), Blue (PC & console), Green (mobile consumer), and Oatmeal (other).",
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Lanyard — Oatmeal",
       "imageCaption": "Lanyard — Oatmeal final uploaded image.",
@@ -25130,7 +25130,7 @@
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Lanyard - Oatmeal | Check-in / HORIZONS House | B Good / Six Senses | Needs Confirmation",
       "finalWorkbookStatus": "Approved",
-      "notes": "Group Meaning Needed. Do not invent lanyard group assignments from the website data.",
+      "notes": "Confirmed lanyard meanings: Black = Aream & Co, Brown = Crew, Blue = PC & console, Green = mobile consumer, Oatmeal = other.",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
       "updated_from_swag_delivery_brief": true,
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
@@ -25138,53 +25138,53 @@
       "lanyardColourMapping": [
         {
           "colour": "Black",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Aream & Co",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Aream & Co."
         },
         {
           "colour": "Brown",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Crew",
           "image": "assets/swag/final/lanyard-ochre.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Crew. Live label is Brown; uploaded asset filename remains lanyard-ochre.png."
         },
         {
           "colour": "Blue",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "PC & console",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: PC & console."
         },
         {
           "colour": "Green",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "mobile consumer",
           "image": "assets/swag/final/lanyard-sage.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: mobile consumer. Live label is Green; uploaded asset filename remains lanyard-sage.png."
         },
         {
           "colour": "Oatmeal",
-          "groupMeaning": "Other / Group Meaning Needed",
+          "groupMeaning": "other",
           "image": "assets/swag/final/lanyard-oatmeal.png",
           "sourceStatus": "Uploaded separate final plain oatmeal image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
-          "status": "Needs Confirmation",
-          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: other. Uses the existing plain oatmeal image."
         }
       ],
       "fileUrl": null,
@@ -25334,12 +25334,12 @@
       "location": "Check-in / HORIZONS House",
       "owner": "B Good / Aream & Co.",
       "quantity": "Final guest list driven",
-      "status": "Needs Confirmation",
+      "status": "Confirmed",
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Blank black HORIZONS namecard reference",
       "imageCaption": "Individual lanyard colour crops from official brief page 13.",
-      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
-      "notes": "Group Meaning Needed. Do not invent lanyard group assignments from the website data.",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black (Aream & Co), Brown (Crew), Blue (PC & console), Green (mobile consumer), and Oatmeal (other).",
+      "notes": "Confirmed lanyard meanings: Black = Aream & Co, Brown = Crew, Blue = PC & console, Green = mobile consumer, Oatmeal = other.",
       "updateId": "swag:namecards-lanyards-reference",
       "source_page_or_section": "Merchandise / WhatsApp references",
       "source_document": "HORIZONS_Swag_Delivery_Brief_3.pdf",
@@ -25412,53 +25412,53 @@
       "lanyardColourMapping": [
         {
           "colour": "Black",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Aream & Co",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Aream & Co."
         },
         {
           "colour": "Brown",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Crew",
           "image": "assets/swag/final/lanyard-ochre.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Crew. Live label is Brown; uploaded asset filename remains lanyard-ochre.png."
         },
         {
           "colour": "Blue",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "PC & console",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: PC & console."
         },
         {
           "colour": "Green",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "mobile consumer",
           "image": "assets/swag/final/lanyard-sage.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: mobile consumer. Live label is Green; uploaded asset filename remains lanyard-sage.png."
         },
         {
           "colour": "Oatmeal",
-          "groupMeaning": "Other / Group Meaning Needed",
+          "groupMeaning": "other",
           "image": "assets/swag/final/lanyard-oatmeal.png",
           "sourceStatus": "Uploaded separate final plain oatmeal image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
-          "status": "Needs Confirmation",
-          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: other. Uses the existing plain oatmeal image."
         }
       ],
       "sourcePage": 13,
@@ -25566,62 +25566,62 @@
       "location": "Check-in / HORIZONS House",
       "owner": "B Good / Aream & Co.",
       "quantity": "Quantity Needed",
-      "status": "Needs Confirmation",
+      "status": "Confirmed",
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Lanyard colour reference grid",
       "imageCaption": "Individual lanyard colour crops from official brief page 13.",
-      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
-      "notes": "Group Meaning Needed for each lanyard colour. Check if lanyards can also be included with HORIZONS House check-in gift.",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black (Aream & Co), Brown (Crew), Blue (PC & console), Green (mobile consumer), and Oatmeal (other).",
+      "notes": "Confirmed lanyard meanings: Black = Aream & Co, Brown = Crew, Blue = PC & console, Green = mobile consumer, Oatmeal = other.",
       "lanyardColourMapping": [
         {
           "colour": "Black",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Aream & Co",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Aream & Co."
         },
         {
           "colour": "Brown",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Crew",
           "image": "assets/swag/final/lanyard-ochre.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Crew. Live label is Brown; uploaded asset filename remains lanyard-ochre.png."
         },
         {
           "colour": "Blue",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "PC & console",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: PC & console."
         },
         {
           "colour": "Green",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "mobile consumer",
           "image": "assets/swag/final/lanyard-sage.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: mobile consumer. Live label is Green; uploaded asset filename remains lanyard-sage.png."
         },
         {
           "colour": "Oatmeal",
-          "groupMeaning": "Other / Group Meaning Needed",
+          "groupMeaning": "other",
           "image": "assets/swag/final/lanyard-oatmeal.png",
           "sourceStatus": "Uploaded separate final plain oatmeal image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
-          "status": "Needs Confirmation",
-          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: other. Uses the existing plain oatmeal image."
         }
       ],
       "id": "swag-lanyard-references",
@@ -49542,64 +49542,63 @@
     ],
     "lanyards": {
       "title": "Lanyard Colour Guide",
-      "status": "Needs Confirmation",
+      "status": "Confirmed",
       "notes": [
         "Live guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal.",
+        "Colour meanings are confirmed: Black = Aream & Co, Brown = Crew, Blue = PC & console, Green = mobile consumer, Oatmeal = other.",
         "Separate uploaded lanyard image assets are used for the live visual guide; no full PDF/deck screenshots are used as final website images.",
-        "Brown uses the uploaded ochre asset and Green uses the uploaded sage asset because those are the existing approved image files.",
-        "Group meanings are not fully confirmed in the workbook; keep Group Meaning Needed until Aream / Samuel confirms.",
-        "Merchandise reference shows a dark/navy Other example, but latest instruction says the live guide should use Oatmeal as the fifth colour. This discrepancy is flagged for confirmation."
+        "Brown uses the uploaded ochre asset and Green uses the uploaded sage asset because those are the existing approved image files."
       ],
       "colours": [
         {
           "colour": "Black",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Aream & Co",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Aream & Co."
         },
         {
           "colour": "Brown",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "Crew",
           "image": "assets/swag/final/lanyard-ochre.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: Crew. Live label is Brown; uploaded asset filename remains lanyard-ochre.png."
         },
         {
           "colour": "Blue",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "PC & console",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: PC & console."
         },
         {
           "colour": "Green",
-          "groupMeaning": "Group Meaning Needed",
+          "groupMeaning": "mobile consumer",
           "image": "assets/swag/final/lanyard-sage.png",
           "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Merchandise reference colour card",
-          "status": "Needs Confirmation",
-          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: mobile consumer. Live label is Green; uploaded asset filename remains lanyard-sage.png."
         },
         {
           "colour": "Oatmeal",
-          "groupMeaning": "Other / Group Meaning Needed",
+          "groupMeaning": "other",
           "image": "assets/swag/final/lanyard-oatmeal.png",
           "sourceStatus": "Uploaded separate final plain oatmeal image asset",
           "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
           "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
-          "status": "Needs Confirmation",
-          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
+          "status": "Confirmed",
+          "note": "Meaning confirmed by Samuel: other. Uses the existing plain oatmeal image."
         }
       ],
       "images": [
@@ -49671,7 +49670,7 @@
         "Swag & Delivery",
         "Guest Materials / Experience"
       ],
-      "discrepancy": "Merchandise reference shows dark/navy for Other; latest website instruction uses Oatmeal as the fifth live colour. Confirmation needed."
+      "discrepancy": "Resolved for live site: latest instruction confirms Oatmeal = other; no dark/navy sixth card is shown."
     },
     "executionChecklist": [
       {

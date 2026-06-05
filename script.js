@@ -1380,7 +1380,7 @@ function renderGuests() {
     ["Namecards ready", ready, "Safe display records"],
     ["Missing info", missing, "Needs follow-up"],
     ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"],
-    ["Lanyard colours", "5 refs", "Black, Brown, Blue, Green, Oatmeal. Meanings needed."]
+    ["Lanyard colours", "5 refs", "Black = Aream & Co; Brown = Crew; Blue = PC & console; Green = mobile consumer; Oatmeal = other."]
   ].map(([label, value, note]) => `
     <div class="guest-summary-card">
       <span>${escapeHtml(label)}</span>
@@ -1483,7 +1483,7 @@ function renderLanyardGuide(lanyardGuide = {}) {
     <details class="details lanyard-guide-details">
       <summary><span>Lanyard Colour Guide</span>${tag(lanyardGuide.status || "Needs Confirmation")}</summary>
       <div class="details-content">
-        <p class="section-note">Final live guide uses five colour cards linked to Guests / Namecards. Group meanings remain confirmation items until Aream / Samuel confirm.</p>
+        <p class="section-note">Final live guide uses five colour cards linked to Guests / Namecards, with confirmed group meanings.</p>
         <div class="lanyard-colour-grid">${cards}</div>
         ${list(lanyardGuide.notes)}
       </div>

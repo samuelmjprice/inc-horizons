@@ -20,11 +20,11 @@ Date: 5 June 2026
 
 | Live Label | Active Image Path | Source Note | Status |
 | --- | --- | --- | --- |
-| Black | `assets/swag/final/lanyard-black.png` | Separate uploaded image asset | Confirmed visual asset |
-| Brown | `assets/swag/final/lanyard-ochre.png` | Source file/old label was Ochre | Confirmed visual asset / label confirmation needed |
-| Blue | `assets/swag/final/lanyard-blue.png` | Separate uploaded image asset | Confirmed visual asset |
-| Green | `assets/swag/final/lanyard-sage.png` | Source file/old label was Sage | Confirmed visual asset / label confirmation needed |
-| Oatmeal | `assets/swag/final/lanyard-oatmeal.png` | Existing plain oatmeal image | Confirmed visual asset |
+| Black | Aream & Co | `assets/swag/final/lanyard-black.png` | Confirmed |
+| Brown | Crew | `assets/swag/final/lanyard-ochre.png` | Confirmed |
+| Blue | PC & console | `assets/swag/final/lanyard-blue.png` | Confirmed |
+| Green | mobile consumer | `assets/swag/final/lanyard-sage.png` | Confirmed |
+| Oatmeal | other | `assets/swag/final/lanyard-oatmeal.png` | Confirmed |
 
 ## Website Sections Updated
 
@@ -33,12 +33,17 @@ Date: 5 June 2026
 - README source notes
 - Missing confirmations tracker
 
-## Outstanding Confirmation
+## Meaning Update
 
-- Confirm operational group meanings for Black, Brown, Blue, Green, and Oatmeal.
-- Confirm that Brown should remain the team-facing label for the image file originally labelled Ochre.
-- Confirm that Green should remain the team-facing label for the image file originally labelled Sage.
-- Confirm the discrepancy where the merchandise reference shows dark/navy for Other but the latest instruction says Oatmeal is the fifth live colour.
+- Samuel confirmed the operational meanings on 5 June 2026:
+  - Black = Aream & Co
+  - Brown = Crew
+  - Blue = PC & console
+  - Green = mobile consumer
+  - Oatmeal = other
+- Brown continues to use the uploaded ochre image asset.
+- Green continues to use the uploaded sage image asset.
+- Oatmeal is confirmed as `other` for the live site.
 
 ## QA
 
