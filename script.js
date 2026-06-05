@@ -1348,6 +1348,7 @@ function renderContacts() {
 
 function renderGuests() {
   const allGuests = state.data.guests || [];
+  const lanyardGuide = state.data.swagDelivery?.lanyards || {};
   const assignmentByGuest = new Map((state.roundTablePlan?.assignments || [])
     .filter((seat) => seat.guest_name)
     .map((seat) => [seat.guest_id || slug(seat.guest_name), seat]));
@@ -1379,7 +1380,7 @@ function renderGuests() {
     ["Namecards ready", ready, "Safe display records"],
     ["Missing info", missing, "Needs follow-up"],
     ["Needs confirmation", needs, duplicateCount ? `${duplicateCount} duplicate-name records` : "No duplicate-name flags"],
-    ["Lanyard colours", "5 refs", "Oatmeal, Ochre, Black, Blue, Sage. Meanings needed."]
+    ["Lanyard colours", "5 refs", "Black, Brown, Blue, Green, Oatmeal. Meanings needed."]
   ].map(([label, value, note]) => `
     <div class="guest-summary-card">
       <span>${escapeHtml(label)}</span>
@@ -1387,6 +1388,7 @@ function renderGuests() {
       <em>${escapeHtml(note)}</em>
     </div>
   `).join(""));
+  setHtml("[data-lanyard-guide]", renderLanyardGuide(lanyardGuide));
   const quickFilters = [
     ["all", "All"],
     ["needs", "Needs Confirmation"],
@@ -1461,6 +1463,32 @@ function renderGuests() {
     ? `<div class="empty-state">Showing the first ${initialLimit} guest records. Use search or filters to narrow the full approved list.</div>`
     : "";
   setHtml("[data-guests]", cards ? `${cards}${more}` : empty("No guests match the current search or filters."));
+}
+
+function renderLanyardGuide(lanyardGuide = {}) {
+  const colours = asList(lanyardGuide.colours);
+  if (!colours.length) return "";
+  const cards = colours.map((item) => `
+    <figure class="lanyard-colour-card">
+      <div class="lanyard-colour-image">
+        ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(`Lanyard - ${item.colour}`)}" loading="lazy">` : `<div class="image-placeholder"><strong>Image Needed</strong><span>${escapeHtml(item.colour || "Lanyard colour")}</span></div>`}
+      </div>
+      <figcaption>
+        <strong>${escapeHtml(item.colour || "Colour Needed")}</strong>
+        <span>${escapeHtml(item.groupMeaning || "Group Meaning Needed")}</span>
+      </figcaption>
+    </figure>
+  `).join("");
+  return `
+    <details class="details lanyard-guide-details">
+      <summary><span>Lanyard Colour Guide</span>${tag(lanyardGuide.status || "Needs Confirmation")}</summary>
+      <div class="details-content">
+        <p class="section-note">Final live guide uses five colour cards linked to Guests / Namecards. Group meanings remain confirmation items until Aream / Samuel confirm.</p>
+        <div class="lanyard-colour-grid">${cards}</div>
+        ${list(lanyardGuide.notes)}
+      </div>
+    </details>
+  `;
 }
 
 function setGuestDetailState(card, expanded) {

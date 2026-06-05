@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "5 June 2026 — people responsibility correction pass",
+    "lastUpdated": "5 June 2026 — lanyard colour guide correction pass",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -28,49 +28,54 @@
     "updated_at": "2026-06-03T22:05:00+01:00",
     "lanyardColourMapping": [
       {
-        "colour": "Oatmeal",
-        "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/final/lanyard-oatmeal.png",
-        "sourceStatus": "Uploaded separate final image asset",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
-        "status": "Needs Confirmation"
-      },
-      {
-        "colour": "Ochre",
-        "groupMeaning": "Group Meaning Needed",
-        "image": "assets/swag/final/lanyard-ochre.png",
-        "sourceStatus": "Uploaded separate final image asset",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
-        "status": "Needs Confirmation"
-      },
-      {
         "colour": "Black",
         "groupMeaning": "Group Meaning Needed",
         "image": "assets/swag/final/lanyard-black.png",
         "sourceStatus": "Uploaded separate final image asset",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
-        "status": "Needs Confirmation"
+        "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+        "sourcePage": "Merchandise reference colour card",
+        "status": "Needs Confirmation",
+        "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+      },
+      {
+        "colour": "Brown",
+        "groupMeaning": "Group Meaning Needed",
+        "image": "assets/swag/final/lanyard-ochre.png",
+        "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+        "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+        "sourcePage": "Merchandise reference colour card",
+        "status": "Needs Confirmation",
+        "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
       },
       {
         "colour": "Blue",
         "groupMeaning": "Group Meaning Needed",
         "image": "assets/swag/final/lanyard-blue.png",
         "sourceStatus": "Uploaded separate final image asset",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
-        "status": "Needs Confirmation"
+        "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+        "sourcePage": "Merchandise reference colour card",
+        "status": "Needs Confirmation",
+        "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
       },
       {
-        "colour": "Sage",
+        "colour": "Green",
         "groupMeaning": "Group Meaning Needed",
         "image": "assets/swag/final/lanyard-sage.png",
-        "sourceStatus": "Uploaded separate final image asset",
-        "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-        "sourcePage": 13,
-        "status": "Needs Confirmation"
+        "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+        "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+        "sourcePage": "Merchandise reference colour card",
+        "status": "Needs Confirmation",
+        "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+      },
+      {
+        "colour": "Oatmeal",
+        "groupMeaning": "Other / Group Meaning Needed",
+        "image": "assets/swag/final/lanyard-oatmeal.png",
+        "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+        "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+        "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+        "status": "Needs Confirmation",
+        "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
       }
     ]
   },
@@ -25109,7 +25114,7 @@
       "owner": "B Good / Six Senses",
       "quantity": "Quantity needed",
       "status": "Needs Confirmation",
-      "deliverySetupNotes": "Official brief shows lanyard colour references: Oatmeal, Ochre, Black, Blue, and Sage. Group meaning is not confirmed. Check whether lanyards can be included with the HORIZONS House check-in gift.",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Lanyard — Oatmeal",
       "imageCaption": "Lanyard — Oatmeal final uploaded image.",
@@ -25132,58 +25137,63 @@
       "category": "Lanyard Colour Guide",
       "lanyardColourMapping": [
         {
-          "colour": "Oatmeal",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-oatmeal.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
-        {
-          "colour": "Ochre",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-ochre.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
-        {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+        },
+        {
+          "colour": "Brown",
+          "groupMeaning": "Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-ochre.png",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
         },
         {
-          "colour": "Sage",
+          "colour": "Green",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-sage.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+        },
+        {
+          "colour": "Oatmeal",
+          "groupMeaning": "Other / Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-oatmeal.png",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "status": "Needs Confirmation",
+          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
         }
       ],
       "fileUrl": null,
-      "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
+      "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
       "sourcePage": 13,
       "image_status": "Confirmed",
       "imageExtractionStatus": "Image replaced with individual crop from official Swag Delivery Brief PDF.",
-      "visualSource": "Uploaded separate final swag image files",
-      "sourceStatus": "Final uploaded asset"
+      "visualSource": "Separate uploaded lanyard assets; no full PDF page screenshots used.",
+      "sourceStatus": "Updated to latest five-colour live guide on 5 June 2026."
     },
     {
       "id": "swag-horizons-connect-chair-drop",
@@ -25328,7 +25338,7 @@
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Blank black HORIZONS namecard reference",
       "imageCaption": "Individual lanyard colour crops from official brief page 13.",
-      "deliverySetupNotes": "Official brief shows lanyard colour references: Oatmeal, Ochre, Black, Blue, and Sage. Group meaning is not confirmed. Check whether lanyards can be included with the HORIZONS House check-in gift.",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
       "notes": "Group Meaning Needed. Do not invent lanyard group assignments from the website data.",
       "updateId": "swag:namecards-lanyards-reference",
       "source_page_or_section": "Merchandise / WhatsApp references",
@@ -25339,116 +25349,122 @@
       "swag_delivery_brief_batch_id": "swag-delivery-brief-update-20260602-1445",
       "referenceImages": [
         {
-          "src": "assets/swag/final/lanyard-oatmeal.png",
-          "alt": "Lanyard — Oatmeal",
-          "caption": "Lanyard — Oatmeal final uploaded image.",
+          "src": "assets/swag/final/lanyard-black.png",
+          "alt": "Lanyard - Black",
+          "caption": "Lanyard - Black",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Oatmeal",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Black",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-ochre.png",
-          "alt": "Lanyard — Ochre",
-          "caption": "Lanyard — Ochre final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Ochre",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
-        },
-        {
-          "src": "assets/swag/final/lanyard-black.png",
-          "alt": "Lanyard — Black",
-          "caption": "Lanyard — Black final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Black",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Brown",
+          "caption": "Lanyard - Brown",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Brown",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-blue.png",
-          "alt": "Lanyard — Blue",
-          "caption": "Lanyard — Blue final uploaded image.",
+          "alt": "Lanyard - Blue",
+          "caption": "Lanyard - Blue",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Blue",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Blue",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-sage.png",
-          "alt": "Lanyard — Sage",
-          "caption": "Lanyard — Sage final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Sage",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Green",
+          "caption": "Lanyard - Green",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Green",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
+        },
+        {
+          "src": "assets/swag/final/lanyard-oatmeal.png",
+          "alt": "Lanyard - Oatmeal",
+          "caption": "Lanyard - Oatmeal",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Oatmeal",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         }
       ],
       "lanyardColourMapping": [
-        {
-          "colour": "Oatmeal",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-oatmeal.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
-        {
-          "colour": "Ochre",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-ochre.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+        },
+        {
+          "colour": "Brown",
+          "groupMeaning": "Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-ochre.png",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
         },
         {
-          "colour": "Sage",
+          "colour": "Green",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-sage.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+        },
+        {
+          "colour": "Oatmeal",
+          "groupMeaning": "Other / Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-oatmeal.png",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "status": "Needs Confirmation",
+          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
         }
       ],
       "sourcePage": 13,
-      "visualSource": "Uploaded separate final swag image files",
-      "sourceStatus": "Final uploaded asset"
+      "visualSource": "Separate uploaded lanyard assets; no full PDF page screenshots used.",
+      "sourceStatus": "Updated to latest five-colour live guide on 5 June 2026.",
+      "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf"
     },
     {
       "itemName": "Swag Shoot",
@@ -25554,53 +25570,58 @@
       "image": "assets/swag/final/lanyard-oatmeal.png",
       "alt": "Lanyard colour reference grid",
       "imageCaption": "Individual lanyard colour crops from official brief page 13.",
-      "deliverySetupNotes": "Show each lanyard once. Do not duplicate brown/ochre. Group meaning is not confirmed in the PDF.",
+      "deliverySetupNotes": "Live Lanyard Colour Guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal. Group meanings remain confirmation items. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until labels or replacement files are confirmed.",
       "notes": "Group Meaning Needed for each lanyard colour. Check if lanyards can also be included with HORIZONS House check-in gift.",
       "lanyardColourMapping": [
-        {
-          "colour": "Oatmeal",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-oatmeal.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
-        {
-          "colour": "Ochre",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-ochre.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+        },
+        {
+          "colour": "Brown",
+          "groupMeaning": "Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-ochre.png",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
         },
         {
-          "colour": "Sage",
+          "colour": "Green",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-sage.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+        },
+        {
+          "colour": "Oatmeal",
+          "groupMeaning": "Other / Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-oatmeal.png",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "status": "Needs Confirmation",
+          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
         }
       ],
       "id": "swag-lanyard-references",
@@ -25610,69 +25631,70 @@
       "swag_delivery_brief_batch_id": "swag-brief-correction-20260602-1640",
       "referenceImages": [
         {
-          "src": "assets/swag/final/lanyard-oatmeal.png",
-          "alt": "Lanyard — Oatmeal",
-          "caption": "Lanyard — Oatmeal final uploaded image.",
+          "src": "assets/swag/final/lanyard-black.png",
+          "alt": "Lanyard - Black",
+          "caption": "Lanyard - Black",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Oatmeal",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Black",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-ochre.png",
-          "alt": "Lanyard — Ochre",
-          "caption": "Lanyard — Ochre final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Ochre",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
-        },
-        {
-          "src": "assets/swag/final/lanyard-black.png",
-          "alt": "Lanyard — Black",
-          "caption": "Lanyard — Black final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Black",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Brown",
+          "caption": "Lanyard - Brown",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Brown",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-blue.png",
-          "alt": "Lanyard — Blue",
-          "caption": "Lanyard — Blue final uploaded image.",
+          "alt": "Lanyard - Blue",
+          "caption": "Lanyard - Blue",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Blue",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Blue",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-sage.png",
-          "alt": "Lanyard — Sage",
-          "caption": "Lanyard — Sage final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Sage",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Green",
+          "caption": "Lanyard - Green",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Green",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
+        },
+        {
+          "src": "assets/swag/final/lanyard-oatmeal.png",
+          "alt": "Lanyard - Oatmeal",
+          "caption": "Lanyard - Oatmeal",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Oatmeal",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         }
       ],
       "sourcePage": 13,
-      "visualSource": "Uploaded separate final swag image files",
-      "sourceStatus": "Final uploaded asset"
+      "visualSource": "Separate uploaded lanyard assets; no full PDF page screenshots used.",
+      "sourceStatus": "Updated to latest five-colour live guide on 5 June 2026.",
+      "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf"
     }
   ],
   "horizonsStudio": [
@@ -49519,121 +49541,137 @@
       }
     ],
     "lanyards": {
-      "title": "Lanyard References",
+      "title": "Lanyard Colour Guide",
       "status": "Needs Confirmation",
       "notes": [
-        "Official brief shows lanyard colours only. Group meaning is not confirmed in the PDF.",
-        "Show each lanyard once. Do not duplicate brown/ochre."
+        "Live guide uses five colours only: Black, Brown, Blue, Green, and Oatmeal.",
+        "Separate uploaded lanyard image assets are used for the live visual guide; no full PDF/deck screenshots are used as final website images.",
+        "Brown uses the uploaded ochre asset and Green uses the uploaded sage asset because those are the existing approved image files.",
+        "Group meanings are not fully confirmed in the workbook; keep Group Meaning Needed until Aream / Samuel confirms.",
+        "Merchandise reference shows a dark/navy Other example, but latest instruction says the live guide should use Oatmeal as the fifth colour. This discrepancy is flagged for confirmation."
       ],
       "colours": [
-        {
-          "colour": "Oatmeal",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-oatmeal.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
-        {
-          "colour": "Ochre",
-          "groupMeaning": "Group Meaning Needed",
-          "image": "assets/swag/final/lanyard-ochre.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
-        },
         {
           "colour": "Black",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-black.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Staff example shown in merchandise reference; final group meaning still needs confirmation."
+        },
+        {
+          "colour": "Brown",
+          "groupMeaning": "Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-ochre.png",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Brown. Source/reference asset was previously named Ochre."
         },
         {
           "colour": "Blue",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-blue.png",
           "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "PC Console example shown in merchandise reference; final group meaning still needs confirmation."
         },
         {
-          "colour": "Sage",
+          "colour": "Green",
           "groupMeaning": "Group Meaning Needed",
           "image": "assets/swag/final/lanyard-sage.png",
-          "sourceStatus": "Uploaded separate final image asset",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "status": "Needs Confirmation"
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "status": "Needs Confirmation",
+          "note": "Latest website label is Green. Source/reference asset was previously named Sage."
+        },
+        {
+          "colour": "Oatmeal",
+          "groupMeaning": "Other / Group Meaning Needed",
+          "image": "assets/swag/final/lanyard-oatmeal.png",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "status": "Needs Confirmation",
+          "note": "Latest instruction says use Oatmeal as the fifth live guide colour. Merchandise reference also shows dark/navy for Other; confirmation needed."
         }
       ],
       "images": [
         {
-          "src": "assets/swag/final/lanyard-oatmeal.png",
-          "alt": "Lanyard — Oatmeal",
-          "caption": "Lanyard — Oatmeal final uploaded image.",
+          "src": "assets/swag/final/lanyard-black.png",
+          "alt": "Lanyard - Black",
+          "caption": "Lanyard - Black",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Oatmeal",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Black",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-ochre.png",
-          "alt": "Lanyard — Ochre",
-          "caption": "Lanyard — Ochre final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Ochre",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
-        },
-        {
-          "src": "assets/swag/final/lanyard-black.png",
-          "alt": "Lanyard — Black",
-          "caption": "Lanyard — Black final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Black",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Brown",
+          "caption": "Lanyard - Brown",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Ochre",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Brown",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-blue.png",
-          "alt": "Lanyard — Blue",
-          "caption": "Lanyard — Blue final uploaded image.",
+          "alt": "Lanyard - Blue",
+          "caption": "Lanyard - Blue",
           "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Blue",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Blue",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         },
         {
           "src": "assets/swag/final/lanyard-sage.png",
-          "alt": "Lanyard — Sage",
-          "caption": "Lanyard — Sage final uploaded image.",
-          "sourceStatus": "Uploaded separate final image asset",
-          "websiteSection": "Lanyard Colour Guide",
-          "itemLabel": "Lanyard — Sage",
-          "status": "Confirmed",
-          "sourceDocument": "HORIZONS_Swag_Delivery_Brief (3).pdf",
-          "sourcePage": 13,
-          "pdfUse": "Operational text and placement only; visual uses uploaded separate asset."
+          "alt": "Lanyard - Green",
+          "caption": "Lanyard - Green",
+          "sourceStatus": "Uploaded separate final image asset; source file originally labelled Sage",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Green",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Merchandise reference colour card",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
+        },
+        {
+          "src": "assets/swag/final/lanyard-oatmeal.png",
+          "alt": "Lanyard - Oatmeal",
+          "caption": "Lanyard - Oatmeal",
+          "sourceStatus": "Uploaded separate final plain oatmeal image asset",
+          "websiteSection": "Lanyard Colour Guide / Guests & Namecards",
+          "itemLabel": "Lanyard - Oatmeal",
+          "status": "Confirmed visual asset",
+          "sourceDocument": "Lanyards and Namecards Final 9.xlsx; Horizons - Merchandise 2026 copy 3.pdf",
+          "sourcePage": "Plain oatmeal uploaded asset; merchandise reference discrepancy noted",
+          "pdfUse": "Reference only; live visual uses separate uploaded image asset."
         }
-      ]
+      ],
+      "sourceWorkbook": "Lanyards and Namecards Final 9.xlsx",
+      "sourceReference": "Horizons - Merchandise 2026 copy 3.pdf",
+      "linkedSections": [
+        "Guests / Namecards",
+        "Swag & Delivery",
+        "Guest Materials / Experience"
+      ],
+      "discrepancy": "Merchandise reference shows dark/navy for Other; latest website instruction uses Oatmeal as the fifth live colour. Confirmation needed."
     },
     "executionChecklist": [
       {

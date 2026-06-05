@@ -403,7 +403,7 @@ Image folders:
 
 Images should be practical references, not decoration.
 
-Current swag references include tote bag, HORIZONS notepad, LARQ bottle, foldable charger, Nord fragrances, silk eye mask, hand fan, caps, Pulsio massager, HORIZONS pen, and lanyards. The official Swag Delivery Brief shows Oatmeal, Ochre, Black, Blue, and Sage lanyard references, but group meanings are not confirmed. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
+Current swag references include tote bag, HORIZONS notepad, LARQ bottle, foldable charger, Nord fragrances, silk eye mask, hand fan, caps, Pulsio massager, HORIZONS pen, and lanyards. The live Lanyard Colour Guide uses the final five labels Black, Brown, Blue, Green, and Oatmeal; group meanings are not confirmed. Brown uses the uploaded ochre asset and Green uses the uploaded sage asset until replacement files are supplied or the labels are confirmed. If a replacement image is provided, keep the same filename convention or update the path in `content.json`.
 
 ## Latest Sync Notes
 
