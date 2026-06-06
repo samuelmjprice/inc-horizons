@@ -15,8 +15,6 @@ const state = {
   guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
   attendeeFilters: { query: "", category: "", company: "" },
   searchQuery: "",
-  askQuery: "",
-  askOpen: false,
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   roundTablePlan: null,
   roundTableStorageWarning: "",
@@ -31,7 +29,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260606-ask-lite1";
+const APP_VERSION = "20260605-cleanup1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -43,47 +41,6 @@ const APP_GROUPS = [
   { id: "assets", label: "Assets", target: "menus", sections: ["menus", "swag", "room-drops", "horizons-house", "artwork", "documents", "completed"] },
   { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"] }
 ];
-const ASK_SHORTCUTS = [
-  ["Who do I call", "who do i call"],
-  ["Today", "today"],
-  ["Call Sheet", "call sheet"],
-  ["Locations", "locations"],
-  ["Menus", "menus"],
-  ["Guests", "guests"],
-  ["HORIZONS Hall", "horizons hall"],
-  ["Podcast", "podcast"],
-  ["Room Drops", "room drops"],
-  ["Lanyards", "lanyards"],
-  ["Print Summary", "print summary"],
-  ["Missing Items", "what do we still need"]
-];
-const SEARCH_ALIASES = {
-  "b good": ["BeGood", "Ben Eddon-Carruthers"],
-  "be good": ["BeGood", "Ben Eddon-Carruthers"],
-  "bgood": "BeGood",
-  "begood": "BeGood",
-  "samuel": ["Samuel Price", "Samuel Hosier"],
-  "pili": "Pili Lopez",
-  "poppy": "Poppy Luck",
-  "kelechi": "Kelechi Nwanokwu",
-  "ben": "Ben Eddon-Carruthers",
-  "hall": "HORIZONS Hall",
-  "table plan": "HORIZONS Hall Round Table Plan",
-  "round table": "HORIZONS Hall Round Table Plan",
-  "seating": "HORIZONS Hall Control Centre",
-  "theatre": "HORIZONS Hall Theatre Seating",
-  "podcast house": "Cliffhanger Mansion",
-  "lanyard": "Lanyard Colour Guide",
-  "lanyards": "Lanyard Colour Guide",
-  "room drop": "Room Drops",
-  "room drops": "Room Drops",
-  "swag": "Swag & Delivery",
-  "menus": "Menus",
-  "missing": ["What We Need From Team", "Missing Files Tracker"],
-  "what do we still need": ["What We Need From Team", "Missing Files Tracker", "Visual Review"],
-  "print": ["Print Summary", "Menus", "Namecards"]
-};
-const SENSITIVE_SEARCH_KEYS = /dob|date.?of.?birth|passport|visa|pnr|booking|reference|rooming|travel.?cost|private|webhook|api.?key|supabase.?key|vercel.?token|secret/i;
 const groupBySection = APP_GROUPS.reduce((acc, group) => {
   group.sections.forEach((id) => { acc[id] = group.id; });
   return acc;
@@ -773,134 +730,23 @@ function renderFilters() {
   buildOptions($('[data-menu-filter="meal"]'), unique(menus.map((x) => x.meal_type)), "meal types");
 }
 
-const expandSearchQuery = (query = "") => {
-  const clean = displayName(query).toLowerCase().trim();
-  const values = [query, clean];
-  Object.entries(SEARCH_ALIASES).forEach(([alias, canonical]) => {
-    if (clean.includes(alias)) {
-      values.push(...(Array.isArray(canonical) ? canonical : [canonical]));
-    }
-  });
-  return unique(values).filter(Boolean);
-};
-
-const safeSearchBlob = (item = {}) => {
-  const safe = {};
-  Object.entries(item || {}).forEach(([key, value]) => {
-    if (SENSITIVE_SEARCH_KEYS.test(key)) return;
-    if (Array.isArray(value)) safe[key] = value.filter((entry) => typeof entry !== "object").slice(0, 8);
-    else if (value && typeof value === "object") return;
-    else safe[key] = value;
-  });
-  return JSON.stringify(safe).toLowerCase();
-};
-
-const searchResultGroups = () => {
+function searchResultGroups() {
   const d = state.data || {};
   return [
-    ["Overview", "#overview", [d.event || {}], () => "HORIZONS Overview", () => "Event status, countdown, quick actions and search"],
-    ["Today", "#today", [d.today || {}, ...(d.redFlags || []), ...(d.decisions || [])], (item) => item.focus || item.issue || item.decision || item.title || "Today / What Matters Now", (item) => [item.summary, item.owner, item.status, item.priority].filter(Boolean).join(" · ")],
-    ["Red Flags", "#red-flags", d.redFlags || [], (item) => item.issue || item.title, (item) => [item.owner, item.priority, item.status].filter(Boolean).join(" · ")],
-    ["Decisions", "#decisions", d.decisions || [], (item) => item.decision || item.title, (item) => [item.owner, item.status, item.due].filter(Boolean).join(" · ")],
     ["Schedule", "#schedule", d.schedule || [], (item) => [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.dayLabel || item.date, item.location, item.owner].filter(Boolean).join(" · ")],
-    ["Call Sheet", "#call-sheet", [...(d.callSheets || []), ...(d.schedule || [])], (item) => item.title || [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.day || item.dayLabel || item.date, item.location || item.mainLocation, item.department].filter(Boolean).join(" · ")],
-    ["Flights / Travel", "#flights", d.travel || [], (item) => item.person || item.name, (item) => [item.arrivalDate, item.arrivalFlight || item.flightNumber, item.route || `${item.departureAirport || ""} ${item.arrivalAirport || ""}`, item.status].filter(Boolean).join(" · ")],
+    ["Call Sheet", "#call-sheet", d.schedule || [], (item) => [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.dayLabel || item.date, item.location, item.department].filter(Boolean).join(" · ")],
+    ["Contacts", "#contacts", d.contacts || [], (item) => item.name, (item) => [item.company, item.role || item.responsibility].filter(Boolean).join(" · ")],
+    ["Who Do I Call", "#who-do-i-call", d.whoDoICall || [], (item) => item.situation, (item) => [item.primaryContact, item.notes].filter(Boolean).join(" · ")],
     ["Locations", "#locations", d.locations || [], (item) => item.locationName, (item) => [item.type, item.keyOwner, item.status].filter(Boolean).join(" · ")],
-    ["Location Schedules", "#location-schedules", d.locationSchedules || [], (item) => item.location || item.title, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
-    ["Restaurant Schedules", "#restaurants", d.restaurantSchedules || [], (item) => item.title || item.location, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
-    ["Menus", "#menus", d.menus || [], (item) => item.title || item.menu_type, (item) => [item.date, item.location, item.meal_type, item.status].filter(Boolean).join(" · ")],
-    ["Team Contacts", "#contacts", d.contacts || [], (item) => item.name, (item) => [item.company, item.role || item.responsibility].filter(Boolean).join(" · ")],
-    ["Who Do I Call", "#who-do-i-call", d.whoDoICall || [], (item) => item.situation || item.title, (item) => [item.primaryContact, item.notes].filter(Boolean).join(" · ")],
-    ["Staff Lists", "#staff", d.staff?.team || d.staff || [], (item) => item.name, (item) => [item.company, item.role, item.responsibility].filter(Boolean).join(" · ")],
-    ["Guests / Namecards", "#guests", d.guests || [], (item) => item.name || item.namecard_display_name, (item) => [item.company_display_name || item.company, item.lanyard_colour, item.status].filter(Boolean).join(" · ")],
+    ["Guests", "#guests", d.guests || [], (item) => item.name || item.namecard_display_name, (item) => [item.company_display_name || item.company, item.lanyard_colour, item.status].filter(Boolean).join(" · ")],
     ["Attendee Directory", "#attendee-directory", d.attendeeDirectory?.records || [], (item) => item.name, (item) => [item.company, item.category, item.status].filter(Boolean).join(" · ")],
+    ["Menus", "#menus", d.menus || [], (item) => item.title || item.menu_type, (item) => [item.date, item.location, item.meal_type].filter(Boolean).join(" · ")],
+    ["Podcast", "#podcast", d.podcast || [], (item) => item.session || item.title, (item) => [item.date || item.day, item.recording_time || item.time, item.guest_1 || item.guest].filter(Boolean).join(" · ")],
     ["Suppliers", "#suppliers", d.suppliers || [], (item) => item.supplierName || item.name, (item) => [item.company, item.internalOwner, item.location].filter(Boolean).join(" · ")],
-    ["Podcast", "#podcast", d.podcast || [], (item) => item.session || item.title, (item) => [item.date || item.day, item.recording_time || item.time, item.guest_1 || item.guest, item.location].filter(Boolean).join(" · ")],
-    ["Speaker Content", "#speakers", d.speakers || d.speakerContent || [], (item) => item.title || item.session || item.speaker, (item) => [item.day, item.location, item.status].filter(Boolean).join(" · ")],
-    ["Entertainment", "#entertainment", d.entertainment || [], (item) => item.title || item.performer, (item) => [item.day, item.time, item.location, item.status].filter(Boolean).join(" · ")],
-    ["Rehearsals", "#rehearsals", d.rehearsals || [], (item) => item.title, (item) => [item.date || item.day, item.time, item.location, item.status].filter(Boolean).join(" · ")],
-    ["Content Capture", "#content", d.contentCapture || [], (item) => item.title || item.moment, (item) => [item.day, item.location, item.lead, item.status].filter(Boolean).join(" · ")],
-    ["Workstreams", "#workstreams", d.workstreams || [], (item) => item.name || item.title, (item) => [item.owner, item.status].filter(Boolean).join(" · ")],
-    ["Swag & Delivery", "#swag", d.swag || [], (item) => item.itemName || item.title, (item) => [item.category, item.location, item.owner].filter(Boolean).join(" · ")],
-    ["Room Drops", "#room-drops", d.roomDrops || [], (item) => item.title || item.itemName, (item) => [item.day, item.location, item.status].filter(Boolean).join(" · ")],
-    ["HORIZONS House", "#horizons-house", d.horizonsHouse || [], (item) => item.title || item.itemName, (item) => [item.location, item.status].filter(Boolean).join(" · ")],
-    ["Lanyard Colour Guide", "#guests", d.lanyardGuide?.colours || [], (item) => item.colour || item.name, (item) => [item.groupMeaning || item.meaning, item.status].filter(Boolean).join(" · ")],
-    ["Artwork / Wayfinding", "#artwork", d.artwork || d.signage || [], (item) => item.title || item.name, (item) => [item.category, item.location, item.status].filter(Boolean).join(" · ")],
-    ["Documents / Links", "#documents", d.documents || [], (item) => item.title, (item) => [item.category, item.owner, item.status].filter(Boolean).join(" · ")],
-    ["Missing Items", "#missing-files", [...(d.missingFiles || []), ...(d.teamNeeds || [])], (item) => item.title || item.item || item.need, (item) => [item.section, item.owner, item.status, item.priority].filter(Boolean).join(" · ")],
-    ["Print Summary", "#documents", (d.documents || []).filter((item) => /print|summary|namecard|lanyard|menu/i.test(`${item.title} ${item.category} ${item.description}`)), (item) => item.title, (item) => [item.category, item.status].filter(Boolean).join(" · ")],
-    ["HORIZONS Hall Control Centre", "#locations", [
-      { title: "HORIZONS Hall Control Centre", summary: "Layouts, seating assignments, stage references, and HORIZONS Hall operating links.", status: "Available" },
-      { title: "HORIZONS Hall Round Table Plan", summary: "10 tables. Source capacity 80. Seat count needs confirmation.", status: "Needs Assignment" },
-      { title: "HORIZONS Hall Theatre Seating", summary: "Theatre seating plan, 160 seated, reserved seats pending.", status: "Available" }
-    ], (item) => item.title, (item) => item.summary]
+    ["Documents", "#documents", d.documents || [], (item) => item.title, (item) => [item.category, item.owner, item.status].filter(Boolean).join(" · ")],
+    ["Assets", "#swag", d.swag || [], (item) => item.itemName || item.title, (item) => [item.category, item.location, item.owner].filter(Boolean).join(" · ")]
   ];
-};
-
-const builtInResults = (query = "") => {
-  const q = query.toLowerCase();
-  const items = [];
-  const add = (title, section, href, summary, status = "") => items.push({ title, section, href, summary, status, actionLabel: `Open ${section}` });
-  if (/who.*call|call.*who|contact|emergency/.test(q)) add("Who Do I Call", "People", "#who-do-i-call", "Escalation guide for the right person by issue.", "Quick action");
-  if (/call sheet|callsheet|today/.test(q)) add("Today’s Call Sheet", "Call Sheet", "#call-sheet", "Daily operational call sheet and key timings.", "Quick action");
-  if (/horizons hall|round table|seating|theatre|hall/.test(q)) {
-    add("HORIZONS Hall Control Centre", "Locations", "#locations", "Round tables, theatre seating, stage references and files.", "Available");
-    add("HORIZONS Hall Round Table Plan", "Locations", "#locations", "10 tables. Source capacity 80. Seat count needs confirmation.", "Needs Assignment");
-  }
-  if (/menu|gala|dinner|lunch|breakfast/.test(q)) add("Menus", "Assets", "#menus", "Final menu cards grouped by date and collapsed by default.", "Final");
-  if (/podcast|deconstructor|mishka|cliffhanger/.test(q)) add("Podcast Schedule", "Programme", "#podcast", "HORIZONS x Deconstructor of Fun recording schedule.", "Scheduled");
-  if (/lanyard|oatmeal|black|brown|blue|green/.test(q)) add("Lanyard Colour Guide", "People", "#guests", "Colour meanings linked to guests and namecards.", "Available");
-  if (/missing|still need|needed|confirmation/.test(q)) add("What We Need From Team", "Admin", "#missing-files", "Open missing files, confirmations and team needs.", "Needs Review");
-  if (/print|namecard|name card|table number|reserved/.test(q)) add("Print Summary", "Documents", "#documents", "Print-related files, menus, namecards and source references.", "Reference");
-  return items;
-};
-
-const buildSearchResults = (query = "", limit = 24) => {
-  const expanded = expandSearchQuery(query);
-  if (!expanded.length) return [];
-  const scored = [];
-  searchResultGroups().forEach(([section, href, items, titleFn, summaryFn]) => {
-    liveItems(items).forEach((item) => {
-      const title = firstMeaningful(titleFn(item), section);
-      const summary = firstMeaningful(summaryFn(item), "Open matching section");
-      const haystack = `${displayName(title)} ${displayName(summary)} ${safeSearchBlob(item)}`.toLowerCase();
-      const matched = expanded.filter((term) => term && haystack.includes(term.toLowerCase()));
-      if (!matched.length) return;
-      const exactTitle = expanded.some((term) => displayName(title).toLowerCase().includes(term.toLowerCase()));
-      scored.push({
-        section,
-        href,
-        title,
-        summary,
-        status: item.status || item.priority || item.category || "",
-        owner: item.owner || item.person || item.internalOwner || item.lead || item.primaryContact || "",
-        location: item.location || item.locationName || item.mainLocation || "",
-        date: item.day || item.dayLabel || item.date || item.arrivalDate || "",
-        score: matched.length + (exactTitle ? 4 : 0)
-      });
-    });
-  });
-  const seeded = builtInResults(query).map((item) => ({ ...item, score: 10, owner: "", location: "", date: "" }));
-  return [...seeded, ...scored]
-    .filter((item, index, all) => all.findIndex((other) => other.href === item.href && displayName(other.title) === displayName(item.title)) === index)
-    .sort((a, b) => b.score - a.score || a.section.localeCompare(b.section))
-    .slice(0, limit);
-};
-
-const resultCard = (result, source = "search") => `
-  <button class="search-result-card" type="button" data-open-result="${escapeHtml(result.href)}" data-result-source="${escapeHtml(source)}">
-    <span>${escapeHtml(result.section)}</span>
-    <strong>${escapeHtml(displayName(result.title))}</strong>
-    <em>${escapeHtml(displayName(result.summary))}</em>
-    <span class="search-result-meta">
-      ${result.status ? tag(result.status) : ""}
-      ${result.date ? `<small>${escapeHtml(result.date)}</small>` : ""}
-      ${result.location ? `<small>${escapeHtml(result.location)}</small>` : ""}
-      ${result.owner ? `<small>${escapeHtml(result.owner)}</small>` : ""}
-    </span>
-    <span class="button button-secondary">${escapeHtml(result.actionLabel || "Open")}</span>
-  </button>
-`;
+}
 
 function renderSearchResults() {
   const panel = $("[data-search-results]");
@@ -911,48 +757,35 @@ function renderSearchResults() {
     panel.innerHTML = "";
     return;
   }
-  const results = buildSearchResults(query, 24);
+  const results = searchResultGroups().flatMap(([section, href, items, titleFn, summaryFn]) => liveItems(items)
+    .filter((item) => includes(item, query))
+    .slice(0, 4)
+    .map((item) => ({
+      section,
+      href,
+      title: firstMeaningful(titleFn(item), section),
+      summary: firstMeaningful(summaryFn(item), "Open matching section"),
+      status: item.status || item.priority || item.category || ""
+    }))).slice(0, 24);
   panel.hidden = false;
   panel.innerHTML = `
     <div class="search-results-head">
       <strong>Search results</strong>
       <span>${escapeHtml(results.length ? `${results.length} quick match${results.length === 1 ? "" : "es"}` : "No quick matches")}</span>
     </div>
-    ${results.length ? `<div class="search-results-grid">${results.map((result) => resultCard(result)).join("")}</div>` : `<div class="empty-state">No results for “${escapeHtml(query)}”. Try a person, location, menu, file, supplier, or section.</div>`}
-  `;
-}
-
-function renderAskHorizons() {
-  const chips = $("[data-ask-chips]");
-  if (chips && !chips.innerHTML) {
-    chips.innerHTML = ASK_SHORTCUTS.map(([label, query]) => `<button type="button" data-ask-chip="${escapeHtml(query)}">${escapeHtml(label)}</button>`).join("");
-  }
-  const input = $("[data-ask-input]");
-  if (input && input.value !== state.askQuery) input.value = state.askQuery;
-  const resultsPanel = $("[data-ask-results]");
-  if (!resultsPanel) return;
-  const query = text(state.askQuery);
-  const results = query ? buildSearchResults(query, 30) : builtInResults("who do i call call sheet horizons hall menus podcast lanyards missing print").slice(0, 8);
-  resultsPanel.innerHTML = `
-    <div class="search-results-head">
-      <strong>${query ? "Best matches" : "Start here"}</strong>
-      <span>${query ? `${results.length} result${results.length === 1 ? "" : "s"}` : "Common onsite shortcuts"}</span>
-    </div>
-    ${results.length ? `<div class="search-results-grid">${results.map((result) => resultCard(result, "ask")).join("")}</div>` : `
-      <div class="empty-state">
-        <strong>No results found.</strong>
-        <p>Try searching a person, location, menu, file, supplier, or section.</p>
-        <div class="ask-horizons-chips">
-          ${["Call Sheet", "Who Do I Call", "Locations", "Menus", "Documents"].map((label) => `<button type="button" data-ask-chip="${escapeHtml(label)}">${escapeHtml(label)}</button>`).join("")}
-        </div>
-      </div>
-    `}
+    ${results.length ? `<div class="search-results-grid">${results.map((result) => `
+      <a class="search-result-card" href="${escapeHtml(result.href)}">
+        <span>${escapeHtml(result.section)}</span>
+        <strong>${escapeHtml(displayName(result.title))}</strong>
+        <em>${escapeHtml(displayName(result.summary))}</em>
+        ${result.status ? tag(result.status) : ""}
+      </a>
+    `).join("")}</div>` : `<div class="empty-state">No results for “${escapeHtml(query)}”. Try a person, company, location, menu, guest, or task.</div>`}
   `;
 }
 
 function renderAll() {
   renderSearchResults();
-  renderAskHorizons();
   renderToday();
   renderRedFlags();
   renderScheduleTabs();
@@ -1003,35 +836,6 @@ function renderAll() {
   renderDocumentTabs();
   renderDocuments();
   renderCompleted();
-}
-
-function openAskHorizons(query = "") {
-  state.askOpen = true;
-  if (query) state.askQuery = query;
-  const overlay = $("[data-ask-overlay]");
-  if (overlay) overlay.hidden = false;
-  document.body.classList.add("ask-open");
-  renderAskHorizons();
-  requestAnimationFrame(() => $("[data-ask-input]")?.focus());
-}
-
-function closeAskHorizons() {
-  state.askOpen = false;
-  const overlay = $("[data-ask-overlay]");
-  if (overlay) overlay.hidden = true;
-  document.body.classList.remove("ask-open");
-}
-
-function scrollToSectionTarget(href = "#overview") {
-  const targetId = href.replace("#", "") || "overview";
-  setActiveGroupForTarget(targetId);
-  const target = document.getElementById(targetId);
-  if (!target) return;
-  const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 18;
-  const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset);
-  window.scrollTo({ top, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  history.replaceState(null, "", `#${targetId}`);
-  window.HORIZONS_UPDATE_SECTION_NAV?.();
 }
 
 function renderToday() {
@@ -3048,18 +2852,6 @@ function bindEvents() {
     $("[data-menu-toggle]").setAttribute("aria-expanded", "false");
   }));
   $("[data-global-search]").addEventListener("input", (event) => { state.searchQuery = event.target.value.trim(); renderSearchResults(); });
-  const askInput = $("[data-ask-input]");
-  if (askInput) askInput.addEventListener("input", (event) => { state.askQuery = event.target.value.trim(); renderAskHorizons(); });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && state.askOpen) {
-      closeAskHorizons();
-      return;
-    }
-    if (event.key === "/" && !event.metaKey && !event.ctrlKey && !event.altKey && !/input|textarea|select/i.test(document.activeElement?.tagName || "")) {
-      event.preventDefault();
-      openAskHorizons();
-    }
-  });
   $$("[data-filter]").forEach((select) => select.addEventListener("change", (event) => { state.filters[event.target.dataset.filter] = event.target.value; renderAll(); }));
   $$("[data-task-filter]").forEach((select) => select.addEventListener("change", (event) => { state.taskFilters[event.target.dataset.taskFilter] = event.target.value; renderTasks(); }));
   $$("[data-travel-filter]").forEach((select) => select.addEventListener("change", (event) => { state.travelFilters[event.target.dataset.travelFilter] = event.target.value; renderTravel(); }));
@@ -3137,9 +2929,7 @@ function bindEvents() {
     state.attendeeFilters = { query: "", category: "", company: "" };
     state.menuFilters = { query: "", date: "", location: "", meal: "", needs: false };
     state.searchQuery = "";
-    state.askQuery = "";
     $("[data-global-search]").value = "";
-    if (askInput) askInput.value = "";
     if (guestSearch) guestSearch.value = "";
     if (attendeeSearch) attendeeSearch.value = "";
     if (menuSearch) menuSearch.value = "";
@@ -3150,33 +2940,6 @@ function bindEvents() {
     renderAll();
   });
   document.addEventListener("click", async (event) => {
-    const askOpen = event.target.closest("[data-ask-open]");
-    if (askOpen) {
-      openAskHorizons();
-      return;
-    }
-    const askClose = event.target.closest("[data-ask-close], [data-ask-overlay]");
-    if (askClose && (!event.target.closest(".ask-horizons-panel") || event.target.closest("[data-ask-close]"))) {
-      closeAskHorizons();
-      return;
-    }
-    const askChip = event.target.closest("[data-ask-chip]");
-    if (askChip) {
-      const query = askChip.dataset.askChip || askChip.textContent || "";
-      openAskHorizons(query);
-      return;
-    }
-    const resultOpen = event.target.closest("[data-open-result]");
-    if (resultOpen) {
-      event.preventDefault();
-      closeAskHorizons();
-      state.searchQuery = "";
-      const globalInput = $("[data-global-search]");
-      if (globalInput) globalInput.value = "";
-      renderSearchResults();
-      scrollToSectionTarget(resultOpen.dataset.openResult || "#overview");
-      return;
-    }
     const scrollTop = event.target.closest("[data-scroll-top], [data-section-jump-action='top']");
     if (scrollTop) {
       window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
@@ -3201,24 +2964,12 @@ function bindEvents() {
     }
     const drawerLink = event.target.closest("[data-drawer-section]");
     if (drawerLink) {
-      event.preventDefault();
       const drawer = $("[data-section-drawer]");
       if (drawer) drawer.hidden = true;
       document.body.classList.remove("section-drawer-open");
       $("[data-section-drawer-open]")?.setAttribute("aria-expanded", "false");
-      scrollToSectionTarget(drawerLink.getAttribute("href") || "#overview");
+      setActiveGroupForTarget((drawerLink.getAttribute("href") || "#overview").replace("#", ""));
       return;
-    }
-    const internalAnchor = event.target.closest('a[href^="#"]');
-    if (internalAnchor) {
-      const href = internalAnchor.getAttribute("href");
-      if (href && href.length > 1) {
-        event.preventDefault();
-        document.body.classList.remove("nav-open");
-        $("[data-menu-toggle]")?.setAttribute("aria-expanded", "false");
-        scrollToSectionTarget(href);
-        return;
-      }
     }
     const dayTab = event.target.closest("[data-day-tab]");
     if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
