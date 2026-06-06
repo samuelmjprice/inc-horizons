@@ -37,7 +37,7 @@ const APP_GROUPS = [
   { id: "people", label: "People", target: "contacts", sections: ["contacts", "who-do-i-call", "staff", "guests", "suppliers"] },
   { id: "programme", label: "Programme", target: "podcast", sections: ["podcast", "speakers", "entertainment", "playlists", "rehearsals", "content", "workstreams"] },
   { id: "assets", label: "Assets", target: "menus", sections: ["menus", "swag", "room-drops", "horizons-house", "artwork", "documents", "completed"] },
-  { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"] }
+  { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"] }
 ];
 const groupBySection = APP_GROUPS.reduce((acc, group) => {
   group.sections.forEach((id) => { acc[id] = group.id; });
@@ -647,7 +647,7 @@ function setupAppGroups() {
 function setActiveGroupForTarget(targetId = "overview") {
   const targetGroup = groupBySection[targetId] || APP_GROUPS.find((group) => group.id === targetId)?.id || "overview";
   document.body.dataset.activeGroup = targetGroup;
-  document.body.classList.toggle("admin-view", targetGroup === "admin" || ["cvent", "missing-files", "slack", "data-health", "duplicate-review", "site-audit"].includes(targetId));
+  document.body.classList.toggle("admin-view", targetGroup === "admin" || ["cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"].includes(targetId));
   $$("[data-app-nav]").forEach((link) => link.classList.toggle("is-active", link.dataset.appNav === targetGroup));
   $$("[data-app-subnav] a").forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${targetId}`));
 }
