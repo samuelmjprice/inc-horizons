@@ -28,12 +28,10 @@ const state = {
   captureSuggestions: [],
   captureLog: [],
   dismissedCaptureSuggestions: [],
-  localRedFlags: [],
-  localDecisions: [],
   updates: {}
 };
 
-const APP_VERSION = "20260606-samuel-recovery1";
+const APP_VERSION = "20260606-ask-lite1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -120,8 +118,6 @@ const normalizeLabel = (value = "") => {
   if (normalized.includes("at risk")) return "Watch";
   return raw;
 };
-const activeStatus = (item = {}) => normalizeLabel(latestUpdate(item.updateId)?.status || item.status || item.priority || "");
-const isActiveOperationalItem = (item = {}) => !/resolved|archived|complete|confirmed|not needed/i.test(activeStatus(item));
 const normalizePriority = (value = "") => {
   const raw = text(value);
   const normalized = raw.toLowerCase();
@@ -188,28 +184,6 @@ const dismissedSuggestionStore = {
 
 const captureLogStore = {
   key: "horizons-capture-log-v1",
-  load() {
-    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
-    catch { return []; }
-  },
-  save(value) {
-    localStorage.setItem(this.key, JSON.stringify(value));
-  }
-};
-
-const localRedFlagStore = {
-  key: "horizons-local-red-flags-v1",
-  load() {
-    try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
-    catch { return []; }
-  },
-  save(value) {
-    localStorage.setItem(this.key, JSON.stringify(value));
-  }
-};
-
-const localDecisionStore = {
-  key: "horizons-local-decisions-v1",
   load() {
     try { return JSON.parse(localStorage.getItem(this.key) || "[]"); }
     catch { return []; }
@@ -588,7 +562,7 @@ const updateModule = (id, topics = []) => {
       </div>
       <p>${escapeHtml(item.comment)}</p>
       ${item.id ? `<div class="contact-actions update-actions">
-        ${archived ? `<button type="button" data-update-action="reopen" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Reopen</button><button type="button" data-update-action="delete" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Delete archived update</button>` : `<button type="button" data-update-action="confirm" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Mark Confirmed</button><button type="button" data-update-action="resolve" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Mark Resolved</button><button type="button" data-update-action="archive" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Archive</button>`}
+        ${archived ? `<button type="button" data-update-action="reopen" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Reopen</button>` : `<button type="button" data-update-action="resolve" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Mark Resolved</button><button type="button" data-update-action="archive" data-update-id="${escapeHtml(item.id)}" data-parent-id="${escapeHtml(id)}">Archive</button>`}
       </div>` : ""}
     </article>
   `;
@@ -607,7 +581,7 @@ const updateModule = (id, topics = []) => {
         <label><span>Visibility</span><select name="visibility"><option>Team</option><option>Leadership</option><option>Private</option><option>Admin</option></select></label>
         <label><span>Comment/update</span><textarea required name="comment" placeholder="Add a concise update"></textarea></label>
         <label><span>Notify Slack channel</span><select name="slackChannel">${channelOptions}</select></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>Suggested channel: ${escapeHtml(suggestedChannel)}. You can change this before sending.</em></span></label>
+        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack <em>${state.data?.meta?.slackTestMode ? `Send to ${escapeHtml(suggestedChannel)}. Production Slack channels remain pending setup.` : `Suggested channel: ${escapeHtml(suggestedChannel)}. You can change this before sending.`}</em></span></label>
         <button class="button button-secondary" type="submit">Save Team Update</button>
       </form>
     </details>
@@ -658,8 +632,6 @@ async function init() {
   state.captureSuggestions = suggestionStore.load();
   state.captureLog = [...(state.data.captureLog || []), ...captureLogStore.load()];
   state.dismissedCaptureSuggestions = dismissedSuggestionStore.load();
-  state.localRedFlags = localRedFlagStore.load();
-  state.localDecisions = localDecisionStore.load();
   state.activeDay = state.data.today.date || state.data.dailyRunSheets?.[0]?.day || "";
   state.activeCallSheetDay = state.activeDay;
   state.activeContentDay = state.activeDay;
@@ -1096,29 +1068,15 @@ function renderToday() {
 }
 
 function renderRedFlags() {
-  const items = [...liveItems(state.data.redFlags), ...(state.localRedFlags || [])]
-    .filter(isActiveOperationalItem)
-    .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
-  const addForm = `
-    <details class="add-card-panel">
-      <summary><span>Add Red Flag</span>${tag("Local until backend connected")}</summary>
-      <form class="quick-add-form" data-add-red-flag>
-        <label><span>Issue</span><input required name="issue" placeholder="What needs attention?"></label>
-        <label><span>Why it matters</span><textarea name="whyItMatters" placeholder="Add the operational impact"></textarea></label>
-        <label><span>Owner</span><input name="owner" placeholder="Owner or team"></label>
-        <label><span>Priority</span><select name="priority"><option>Watch</option><option>Critical</option><option>Needs Confirmation</option></select></label>
-        <button class="button button-secondary" type="submit">Add Red Flag</button>
-      </form>
-    </details>
-  `;
-  setHtml("[data-red-flags]", addForm + (items.map((item) => card({
+  const items = liveItems(state.data.redFlags).filter((item) => passesGlobal(item, { status: item.status, owner: item.owner, updateId: item.updateId }));
+  setHtml("[data-red-flags]", items.map((item) => card({
     title: item.issue,
-    status: activeStatus(item) || item.status || item.priority,
+    status: item.status || item.priority,
     body: `<p>${escapeHtml(item.whyItMatters)}</p>`,
     metadata: meta("Priority", item.priority) + meta("Owner", item.owner) + meta("Decision needed", item.decisionNeeded) + meta("Notes", item.notes),
     footer: `<div class="contact-actions"><button type="button" data-copy-slack-summary="${escapeHtml(item.updateId || item.issue)}">Copy Slack Update</button><a href="#slack">Slack setup</a></div>`,
     updateId: item.updateId
-  })).join("") || empty("No active red flags match the current filters.")));
+  })).join("") || empty("No red flags match the current filters."));
 }
 
 function renderScheduleTabs() {
@@ -2011,7 +1969,6 @@ function renderCaptureLog() {
     department: item.mediaType || "Capture Log",
     body: `<p>${escapeHtml([item.day, item.manualTime || item.timestamp].filter(Boolean).join(" · "))}</p>`,
     metadata: meta("Logged by", item.loggedBy) + meta("Camera", item.camera) + meta("Location", item.location) + meta("Tags", item.tags) + meta("File/card", item.fileReference) + meta("Priority", item.priority) + meta("Notes", item.notes),
-    footer: item.source === "local-capture-log" ? `<div class="contact-actions"><button type="button" data-capture-log-delete="${escapeHtml(item.id)}">Delete log</button></div>` : "",
     updateId: item.updateId || `capture-log:${slug(item.id || item.subject)}`
   })).join("") : empty("No capture log entries yet. Add moments as footage is captured onsite."));
 }
@@ -2770,7 +2727,6 @@ function renderHallRehearsalsTab() {
 function renderHallFilesTab() {
   const docs = hallRelatedDocuments();
   const missing = state.data.roundTableSeatingPlan?.missingAction || {};
-  const missingActive = isActiveOperationalItem({ ...missing, updateId: "hall:table-layout-final-confirmation" });
   return `
     <div class="hall-tab-card">
       <div class="card-header"><h3>HORIZONS Hall Files</h3><div class="tag-stack">${tag(`${docs.length} files / records`)}</div></div>
@@ -2790,14 +2746,14 @@ function renderHallFilesTab() {
             ${detailsBlock("Source trace", [], `<div class="meta-list compact-meta">${meta("Original filename", doc.sourceFile || doc.sourceTrace)}${meta("Notes", doc.sourceTrace || doc.notes)}</div>`)}
           </article>
         `; }).join("")}
-        ${missingActive ? `<article class="hall-file-card action-needed">
+        <article class="hall-file-card action-needed">
           <div class="hall-file-card-head">
             <strong>${escapeHtml(missing.title || "Updated Table Layout Needed from Kirsty / Clownfish")}</strong>
             ${tag(missing.status || "Needs Confirmation")}
           </div>
           <p>${escapeHtml(missing.details || "Please confirm final table count, seats per table, table numbering, and whether the uploaded 80-seat layout is final.")}</p>
           <div class="meta-list compact-meta">${meta("Status", missing.status || "Needs Confirmation")}${meta("Priority", missing.priority || "High")}</div>
-        </article>` : ""}
+        </article>
       </div>
     </div>
   `;
@@ -2862,15 +2818,14 @@ function renderCventComparison() {
 }
 
 function renderMissingFiles() {
-  const items = (state.data.missingFiles || []).filter(isActiveOperationalItem);
-  setHtml("[data-missing-files]", items.map((item) => card({
+  setHtml("[data-missing-files]", (state.data.missingFiles || []).map((item) => card({
     title: item.fileNeeded,
-    status: activeStatus(item) || item.status,
+    status: item.status,
     department: item.category,
     body: `<p>${escapeHtml(item.neededFor)}</p>`,
     metadata: meta("Owner", item.owner) + meta("Category", item.category) + meta("Notes", item.notes),
     updateId: item.updateId
-  })).join("") || empty("No active missing file records available."));
+  })).join("") || empty("No missing file records available yet."));
 }
 
 function renderSlackIntegration() {
@@ -2936,28 +2891,13 @@ function renderSiteAudit() {
 }
 
 function renderDecisions() {
-  const items = [...liveItems(state.data.decisions), ...(state.localDecisions || [])]
-    .filter(isActiveOperationalItem)
-    .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
-  const addForm = `
-    <details class="add-card-panel">
-      <summary><span>Add Decision Needed</span>${tag("Local until backend connected")}</summary>
-      <form class="quick-add-form" data-add-decision>
-        <label><span>Decision needed</span><input required name="decisionNeeded" placeholder="What needs deciding?"></label>
-        <label><span>Why it matters</span><textarea name="whyItMatters" placeholder="Operational impact"></textarea></label>
-        <label><span>Owner</span><input name="owner" placeholder="Owner or approver"></label>
-        <label><span>Deadline</span><input name="deadline" placeholder="When is it needed?"></label>
-        <button class="button button-secondary" type="submit">Add Decision</button>
-      </form>
-    </details>
-  `;
-  setHtml("[data-decisions]", addForm + (items.map((item) => card({
+  setHtml("[data-decisions]", liveItems(state.data.decisions).map((item) => card({
     title: firstMeaningful(item.decisionNeeded, item.decision, item.issue, "Decision needed"),
-    status: activeStatus(item) || item.status,
+    status: item.status,
     body: `<p>${escapeHtml(firstMeaningful(item.whyItMatters, item.notes, "Awaiting final detail."))}</p>${asList(item.options).length ? `<h3>Options</h3>${list(item.options)}` : ""}${text(item.recommendation) ? `<h3>Recommendation</h3><p>${escapeHtml(item.recommendation)}</p>` : ""}`,
     metadata: meta("Owner", item.owner) + meta("Approver", item.approver) + meta("Deadline", item.deadline) + meta("Latest update", item.latestUpdate) + meta("Workstream", item.relatedWorkstream || item.workstream || item.section),
     updateId: item.updateId
-  })).join("") || empty("No active decisions match the current filters.")));
+  })).join(""));
 }
 
 function renderDocumentTabs() {
@@ -2966,7 +2906,7 @@ function renderDocumentTabs() {
 }
 
 function renderDocuments() {
-  const docs = liveItems(state.data.documents).filter((doc) => state.activeDocumentCategory === "All" || doc.category === state.activeDocumentCategory);
+  const docs = state.data.documents.filter((doc) => state.activeDocumentCategory === "All" || doc.category === state.activeDocumentCategory);
   setHtml("[data-site-maps]", state.activeDocumentCategory === "All" || ["Maps", "Seating Plans", "Room Layouts"].includes(state.activeDocumentCategory)
     ? state.data.siteMaps.map((item) => card({ title: item.title, status: item.status, body: `<p>${escapeHtml(item.description)}</p>`, metadata: meta("Category", item.category) + meta("Owner", item.owner), updateId: item.updateId })).join("")
     : "");
@@ -3578,28 +3518,12 @@ function bindEvents() {
       renderCaptureSuggestions();
       return;
     }
-    const deleteCapture = event.target.closest("[data-capture-log-delete]");
-    if (deleteCapture) {
-      const id = deleteCapture.dataset.captureLogDelete;
-      if (!window.confirm("Delete this local capture log entry? Source capture records are not deleted.")) return;
-      state.captureLog = (state.captureLog || []).filter((entry) => entry.id !== id);
-      captureLogStore.save(state.captureLog.filter((entry) => entry.source === "local-capture-log"));
-      renderCaptureLog();
-      return;
-    }
     const updateAction = event.target.closest("[data-update-action]");
     if (updateAction) {
       const updateId = updateAction.dataset.updateId;
       const parentId = updateAction.dataset.parentId;
       const action = updateAction.dataset.updateAction;
-      if (action === "delete") {
-        if (!window.confirm("Delete this archived local update? Source records are not deleted.")) return;
-        state.updates[parentId] = getUpdates(parentId).filter((item) => item.id !== updateId);
-        updateStore.save(state.updates);
-        renderAll();
-        return;
-      }
-      const actionLabel = action === "confirm" ? "Confirmed" : action === "resolve" ? "Resolved" : action === "archive" ? "Archived" : "Still To Be Resolved";
+      const actionLabel = action === "resolve" ? "Resolved" : action === "archive" ? "Archived" : "Still To Be Resolved";
       try {
         const base = backendApiBase();
         if (!base) throw new Error("Shared backend pending setup");
@@ -3627,54 +3551,6 @@ function bindEvents() {
     }
   }, true);
   document.addEventListener("submit", async (event) => {
-    const redFlagForm = event.target.closest("[data-add-red-flag]");
-    if (redFlagForm) {
-      event.preventDefault();
-      const data = new FormData(redFlagForm);
-      const id = `local-red-flag-${Date.now()}`;
-      const item = {
-        id,
-        issue: text(data.get("issue")),
-        whyItMatters: text(data.get("whyItMatters"), "Impact needs adding."),
-        owner: text(data.get("owner"), "Owner needed"),
-        priority: text(data.get("priority"), "Watch"),
-        status: text(data.get("priority"), "Watch"),
-        decisionNeeded: "Review onsite and mark resolved when complete.",
-        notes: "Added locally on this device. Shared backend storage needs setup for cross-device visibility.",
-        updateId: `redflag:${id}`,
-        source: "local-red-flag"
-      };
-      if (!item.issue) return;
-      state.localRedFlags = [...(state.localRedFlags || []), item];
-      localRedFlagStore.save(state.localRedFlags);
-      redFlagForm.reset();
-      renderRedFlags();
-      return;
-    }
-    const decisionForm = event.target.closest("[data-add-decision]");
-    if (decisionForm) {
-      event.preventDefault();
-      const data = new FormData(decisionForm);
-      const id = `local-decision-${Date.now()}`;
-      const item = {
-        id,
-        decisionNeeded: text(data.get("decisionNeeded")),
-        whyItMatters: text(data.get("whyItMatters"), "Reason needs adding."),
-        owner: text(data.get("owner"), "Owner needed"),
-        deadline: text(data.get("deadline"), "Deadline needed"),
-        status: "Decision Needed",
-        relatedWorkstream: "Local team update",
-        updateId: `decision:${id}`,
-        notes: "Added locally on this device. Shared backend storage needs setup for cross-device visibility.",
-        source: "local-decision"
-      };
-      if (!item.decisionNeeded) return;
-      state.localDecisions = [...(state.localDecisions || []), item];
-      localDecisionStore.save(state.localDecisions);
-      decisionForm.reset();
-      renderDecisions();
-      return;
-    }
     const captureLogForm = event.target.closest("[data-capture-log-form]");
     if (captureLogForm) {
       event.preventDefault();

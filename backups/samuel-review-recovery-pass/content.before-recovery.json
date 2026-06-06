@@ -130,9 +130,9 @@
       "owner": "Samuel Price",
       "decisionNeeded": "Approve final podcast slots, guests, presenter wording, and production timing.",
       "deadline": "Before schedule lock",
-      "status": "Archived",
-      "priority": "Archived",
-      "notes": "Archived from active red flags after Samuel review; source history retained.",
+      "status": "At Risk",
+      "priority": "Critical",
+      "notes": "Presenter Michail Katkoff appears where sourced; guests remain TBC unless confirmed.",
       "relatedSection": "Podcast",
       "updateId": "redflag:podcast-final-confirmation"
     },
@@ -142,9 +142,9 @@
       "owner": "Dawn Ramsden / BeGood / Mobile Casino",
       "decisionNeeded": "Confirm final setup window, delivery access, and chair count.",
       "deadline": "Before supplier arrival",
-      "status": "Archived",
-      "priority": "Archived",
-      "notes": "Archived from active red flags after Samuel review; source history retained.",
+      "status": "Resolved",
+      "priority": "Resolved",
+      "notes": "Keep visible until timing and 33 chairs are confirmed.",
       "relatedSection": "Suppliers",
       "updateId": "redflag:poker-casino-setup",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -189,9 +189,9 @@
       "owner": "Samuel Price",
       "decisionNeeded": "Confirm remaining names marked “Name confirmation needed.”",
       "deadline": "Before team-wide share",
-      "status": "Archived",
-      "priority": "Archived",
-      "notes": "Archived from active red flags after Samuel review; source history retained.",
+      "status": "Needs Confirmation",
+      "priority": "Watch",
+      "notes": "Known initials have been expanded; unknowns are flagged rather than guessed.",
       "relatedSection": "Contacts",
       "updateId": "redflag:name-confirmations",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -235,11 +235,11 @@
       "issue": "Emergency/welfare reference: nearest hospital/medical route to be included; Dawn Ramsden is staff welfare contact, Six Senses handles guest issues. Use HORIZONS 2026 International Collective Onsite Team Agreement & Site Protocol and Onsite Personnel Information & Welfare Form.",
       "area": "Emergency / Medical",
       "owner": "Dawn Ramsden / Kelechi Nwanokwu",
-      "status": "Archived",
-      "priority": "Archived",
+      "status": "Needs Confirmation",
+      "priority": "Critical",
       "whyItMatters": "Emergency/welfare reference: nearest hospital/medical route to be included; Dawn Ramsden is staff welfare contact, Six Senses handles guest issues. Use HORIZONS 2026 International Collective Onsite Team Agreement & Site Protocol and Onsite Personnel Information & Welfare Form.",
       "decisionNeeded": "Confirm the exact hospital/medical location, route, venue medical contact, and protocol.",
-      "notes": "Moved out of active red flags. Exact hospital / emergency route remains tracked in What We Need From Team.",
+      "notes": "Temporary Google Maps search link is shown until confirmed. Ownership handover from Pili Lopez to Kelechi Nwanokwu needs confirmation.",
       "updateId": "redflag:emergency-medical-route",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -5988,7 +5988,7 @@
       "owner": "Dawn Ramsden",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Watch",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -5996,13 +5996,12 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Wed 10 June row 41",
-      "notes": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality.",
       "workstream": "Podcast",
       "updateId": "schedule:155",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-156",
@@ -6158,7 +6157,7 @@
       "owner": "Dawn Ramsden / Ramsden / I.N.C",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -6166,7 +6165,7 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Wed 10 June row 46",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
       "updateId": "schedule:160",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -6182,8 +6181,7 @@
       "finalWorkbookStatus": "Approved",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-161",
@@ -6305,7 +6303,7 @@
       "owner": "I.N.C",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -6313,7 +6311,7 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Wed 10 June row 50",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Refreshments replenished.",
       "workstream": "Podcast",
       "updateId": "schedule:164",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -6329,8 +6327,7 @@
       "finalWorkbookStatus": "Approved",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-165",
@@ -9024,7 +9021,7 @@
       "owner": "Dawn Ramsden / I.N.C",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -9032,7 +9029,7 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Thu 11 June row 37",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
       "updateId": "schedule:238",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -9048,8 +9045,7 @@
       "finalWorkbookStatus": "Approved",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-239",
@@ -9205,7 +9201,7 @@
       "owner": "Dawn Ramsden / Ramsden / I.N.C",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -9213,13 +9209,12 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Thu 11 June row 42",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
       "updateId": "schedule:243",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-244",
@@ -9304,7 +9299,7 @@
       "owner": "I.N.C",
       "support": "I.N.C / Clownfish",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "Archived / replaced by final podcast workbook",
       "priority": "Green - Ready",
       "category": "Flights / Travel",
       "department": "Podcast",
@@ -9312,7 +9307,7 @@
       "relatedContentCapture": "",
       "publicPrivate": "Team",
       "source": "Thu 11 June row 45",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Refreshments replenished.",
       "workstream": "Podcast",
       "updateId": "schedule:246",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
@@ -9328,8 +9323,7 @@
       "finalWorkbookStatus": "Approved",
       "hiddenFromLive": true,
       "archived": true,
-      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026.",
-      "needsConfirmation": true
+      "archiveNote": "Replaced by HORIZONS x DoF Podcast Outreach Schedule import on 5 June 2026."
     },
     {
       "id": "schedule-247",
@@ -12541,11 +12535,11 @@
       "category": "Leadership",
       "name": "Samuel Price",
       "role": "Group Director of Business Development and Technology",
-      "responsibility": "Podcast Lead. Technology, website, Codex, Slack and infrastructure escalation.",
+      "responsibility": "Podcast Lead. Technology and website support.",
       "phone": "+1 9493103655",
       "whatsappLink": "https://wa.me/19493103655",
       "email": "connect@international-collective.com",
-      "notes": "Podcast Lead. Technology escalation.",
+      "notes": "Podcast Lead. Technology support.",
       "visibility": "Team",
       "updateId": "contact:samuel-price",
       "slackHandle": "",
@@ -12564,13 +12558,12 @@
       "emailStatus": "Confirmed",
       "company": "International Collective / I.N.C",
       "updated_at": "2026-06-05T18:45:00+01:00",
-      "aliases": [],
-      "title": "Group Director of Business Development and Technology"
+      "aliases": []
     },
     {
       "id": "contact-dawn-ramsden",
       "group": "Production / Content",
-      "category": "Leadership",
+      "category": "Production / Content",
       "name": "Dawn Ramsden",
       "role": "Entertainment Coordinator / Operational Oversight / Crew Coordinator",
       "responsibility": "Entertainment Coordinator / Operational Oversight / Crew Coordinator",
@@ -12596,8 +12589,7 @@
       "finalWorkbookStatus": "Approved",
       "emailStatus": "Confirmed",
       "updated_at": "2026-06-01T17:28:00+01:00",
-      "aliases": [],
-      "status": "Active"
+      "aliases": []
     },
     {
       "id": "contact-pili-lopez",
@@ -12935,7 +12927,7 @@
     {
       "id": "contact-eve-dusek",
       "group": "Aream & Co.",
-      "category": "Leadership",
+      "category": "Aream & Co.",
       "name": "Eve Dusek",
       "role": "COO",
       "responsibility": "COO of Aream & Co.",
@@ -12963,8 +12955,7 @@
       "updated_at": "2026-06-01T17:28:00+01:00",
       "aliases": [
         "Eve Dusek"
-      ],
-      "status": "Active"
+      ]
     },
     {
       "id": "contact-ben-eddon-carruthers",
@@ -13335,7 +13326,7 @@
       "email": "",
       "emailStatus": "Email Needed",
       "company": "Company Needed",
-      "notes": "Company/team and email needed. Safe travel added from Kelechi Nwanokwu Update.pdf; sensitive booking/private fields excluded. Email/contact and exact company/team label need confirmation if not already supplied.",
+      "notes": "Company/team and email needed. Safe travel added from Kelechi Nwanokwu Update.pdf; sensitive booking/private fields excluded.",
       "visibility": "Team",
       "status": "Needs Confirmation",
       "updateId": "contact:kelechi-nwanokwu",
@@ -15821,12 +15812,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Watch",
-      "notes": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Dawn Ramsden responsible for meeting all podcast guests, escort to/from Cliffhanger, guest holding & hospitality.",
       "workstream": "Podcast",
-      "updateId": "task:schedule-155",
-      "needsConfirmation": true
+      "updateId": "task:schedule-155"
     },
     {
       "id": "task-schedule-156",
@@ -15902,12 +15892,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Green - Ready",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
-      "updateId": "task:schedule-160",
-      "needsConfirmation": true
+      "updateId": "task:schedule-160"
     },
     {
       "id": "task-schedule-161",
@@ -15967,12 +15956,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Green - Ready",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Refreshments replenished.",
       "workstream": "Podcast",
-      "updateId": "task:schedule-164",
-      "needsConfirmation": true
+      "updateId": "task:schedule-164"
     },
     {
       "id": "task-schedule-165",
@@ -17152,12 +17140,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Green - Ready",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
-      "updateId": "task:schedule-238",
-      "needsConfirmation": true
+      "updateId": "task:schedule-238"
     },
     {
       "id": "task-schedule-239",
@@ -17233,12 +17220,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Green - Ready",
-      "notes": " Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "",
       "workstream": "Podcast",
-      "updateId": "task:schedule-243",
-      "needsConfirmation": true
+      "updateId": "task:schedule-243"
     },
     {
       "id": "task-schedule-244",
@@ -17282,12 +17268,11 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
+      "status": "On Track",
       "priority": "Green - Ready",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "notes": "Refreshments replenished.",
       "workstream": "Podcast",
-      "updateId": "task:schedule-246",
-      "needsConfirmation": true
+      "updateId": "task:schedule-246"
     },
     {
       "id": "task-schedule-247",
@@ -23711,8 +23696,8 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "status": "On Track",
+      "notes": "Refreshments replenished.",
       "relatedSchedule": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload",
       "suggestedShots": "",
       "updateId": "content:schedule-164",
@@ -23726,8 +23711,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Wednesday 10 June | 4:45 PM-5:15 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | I.N.C | Cliffhanger Mansion | On Track",
-      "finalWorkbookStatus": "Approved",
-      "needsConfirmation": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "content-schedule-175",
@@ -24160,8 +24144,8 @@
       "support": "I.N.C / Clownfish",
       "department": "Podcast",
       "location": "Cliffhanger Mansion",
-      "status": "Needs Clarification",
-      "notes": "Refreshments replenished. Samuel review: generic Subject 2/3/4 label needs Chris/Samuel confirmation before treating as final.",
+      "status": "On Track",
+      "notes": "Refreshments replenished.",
       "relatedSchedule": "Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload",
       "suggestedShots": "",
       "updateId": "content:schedule-246",
@@ -24175,8 +24159,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Thursday 11 June | 4:45 PM | Subject 4 arrival · crew & presenter break (15 mins) · technical reset · DIT media offload | Podcast | I.N.C | Cliffhanger Mansion | On Track",
-      "finalWorkbookStatus": "Approved",
-      "needsConfirmation": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "content-schedule-255",
@@ -26760,11 +26743,11 @@
         "Approve four email-note slots across 10 and 11 June"
       ],
       "recommendation": "Confirm slot count and guest list in writing before publishing.",
-      "status": "Confirmed",
+      "status": "Decision Needed",
       "relatedWorkstream": "Podcast",
       "updateId": "decision:decision-podcast",
       "approver": "Chris Manoe / Leadership",
-      "latestUpdate": "Final podcast schedule imported from the podcast workbook; no active decision needed."
+      "latestUpdate": "Needs final leadership confirmation."
     },
     {
       "id": "decision-poker-setup",
@@ -26849,10 +26832,9 @@
       "deadline": "Before event operations lock",
       "options": "Approve / revise / mark not needed",
       "recommendation": "Confirm owner and mark status before publishing as final.",
-      "status": "Confirmed",
+      "status": "Decision Needed",
       "workstream": "Operations",
-      "updateId": "decision:confirm-slack-integration-owner-and-backend-approach",
-      "latestUpdate": "Slack wording cleaned up; production routing remains a backend setup item, not an active decision card."
+      "updateId": "decision:confirm-slack-integration-owner-and-backend-approach"
     },
     {
       "id": "decision-confirm-cvent-export-owner-and-comparison-timing",
@@ -26862,10 +26844,9 @@
       "deadline": "Before event operations lock",
       "options": "Approve / revise / mark not needed",
       "recommendation": "Confirm owner and mark status before publishing as final.",
-      "status": "Archived",
+      "status": "Decision Needed",
       "workstream": "Operations",
-      "updateId": "decision:confirm-cvent-export-owner-and-comparison-timing",
-      "latestUpdate": "Archived from active decisions per Samuel review; Cvent export remains in Missing Files if needed."
+      "updateId": "decision:confirm-cvent-export-owner-and-comparison-timing"
     },
     {
       "id": "decision-confirm-final-speaker-deck-content-owner",
@@ -27121,15 +27102,14 @@
     {
       "id": "doc-menu-menu-6",
       "title": "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30",
-      "description": "Breakfast menu; coffee break 150 pax; lunch 170 pax; rolling refreshments Cliffhanger Mansion 14:15–18:15 for 10 pax Archived from Documents because Samuel review identified it as a non-file operational/person record.",
+      "description": "Breakfast menu; coffee break 150 pax; lunch 170 pax; rolling refreshments Cliffhanger Mansion 14:15–18:15 for 10 pax",
       "category": "Menus",
       "day": "Wednesday 10 June",
       "type": "Menu reference",
       "owner": "BeGood / Six Senses",
-      "status": "Archived",
+      "status": "On Track",
       "link": "",
-      "updateId": "doc:menu:menu-6",
-      "hiddenFromLive": true
+      "updateId": "doc:menu:menu-6"
     },
     {
       "id": "doc-menu-menu-7",
@@ -27146,28 +27126,26 @@
     {
       "id": "doc-menu-menu-8",
       "title": "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/Cinema 11:00–11:15; lunch Pool Deck 12:00–13:30",
-      "description": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu Archived from Documents because Samuel review identified it as a non-file operational/person record.",
+      "description": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu",
       "category": "Menus",
       "day": "Thursday 11 June",
       "type": "Menu reference",
       "owner": "BeGood / Six Senses",
-      "status": "Archived",
+      "status": "On Track",
       "link": "",
-      "updateId": "doc:menu:menu-8",
-      "hiddenFromLive": true
+      "updateId": "doc:menu:menu-8"
     },
     {
       "id": "doc-menu-menu-9",
       "title": "Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30",
-      "description": "Gala dinner 170 pax; extra drinks 75 pax after 22:00; afterparty snacks 75 pax Archived from Documents because Samuel review identified it as a non-file operational/person record.",
+      "description": "Gala dinner 170 pax; extra drinks 75 pax after 22:00; afterparty snacks 75 pax",
       "category": "Menus",
       "day": "Thursday 11 June",
       "type": "Menu reference",
       "owner": "BeGood / Six Senses",
-      "status": "Archived",
+      "status": "On Track",
       "link": "",
-      "updateId": "doc:menu:menu-9",
-      "hiddenFromLive": true
+      "updateId": "doc:menu:menu-9"
     },
     {
       "id": "doc-menu-menu-10",
@@ -27244,15 +27222,14 @@
     {
       "id": "doc-menu-menu-16",
       "title": "Pili Lopez",
-      "description": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026 Archived from Documents because Samuel review identified it as a non-file operational/person record.",
+      "description": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
       "category": "Menus",
       "day": "All event",
       "type": "Menu reference",
       "owner": "BeGood / Six Senses",
-      "status": "Archived",
+      "status": "On Track",
       "link": "",
-      "updateId": "doc:menu:menu-16",
-      "hiddenFromLive": true
+      "updateId": "doc:menu:menu-16"
     },
     {
       "id": "doc-menu-menu-17",
@@ -27413,93 +27390,86 @@
     {
       "id": "doc-placeholder-studiobinder-call-sheet-example",
       "title": "StudioBinder call sheet example",
-      "description": "Call sheet layout reference Resolved or no longer active after Samuel review.",
+      "description": "Call sheet layout reference",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-studiobinder-call-sheet-example",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-studiobinder-call-sheet-example"
     },
     {
       "id": "doc-placeholder-current-production-call-sheet",
       "title": "Current production call sheet",
-      "description": "Production operations Resolved or no longer active after Samuel review.",
+      "description": "Production operations",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-current-production-call-sheet",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-current-production-call-sheet"
     },
     {
       "id": "doc-placeholder-weather-call-sheet-reference",
       "title": "Weather call sheet reference",
-      "description": "Weather module Resolved or no longer active after Samuel review.",
+      "description": "Weather module",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-weather-call-sheet-reference",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-weather-call-sheet-reference"
     },
     {
       "id": "doc-placeholder-final-master-schedule",
       "title": "Final master schedule",
-      "description": "Schedule approval Resolved or no longer active after Samuel review.",
+      "description": "Schedule approval",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-final-master-schedule",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-final-master-schedule"
     },
     {
       "id": "doc-placeholder-ben-s-document",
       "title": "Ben’s document",
-      "description": "Operations detail Resolved or no longer active after Samuel review.",
+      "description": "Operations detail",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Ben Eddon-Carruthers",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-ben-s-document",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-ben-s-document"
     },
     {
       "id": "doc-placeholder-production-contact-hierarchy",
       "title": "Production contact hierarchy",
-      "description": "Who Do I Call Resolved or no longer active after Samuel review.",
+      "description": "Who Do I Call",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-production-contact-hierarchy",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-production-contact-hierarchy"
     },
     {
       "id": "doc-placeholder-crew-call-sheet-layout",
       "title": "Crew call sheet layout",
-      "description": "Printable call sheet Resolved or no longer active after Samuel review.",
+      "description": "Printable call sheet",
       "category": "Call Sheet / Production",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-crew-call-sheet-layout",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-crew-call-sheet-layout"
     },
     {
       "id": "doc-placeholder-cvent-agenda-export",
@@ -27516,80 +27486,74 @@
     {
       "id": "doc-placeholder-cvent-speaker-session-export",
       "title": "Cvent speaker/session export",
-      "description": "Cvent comparison Resolved or no longer active after Samuel review.",
+      "description": "Cvent comparison",
       "category": "Cvent / Event App",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-cvent-speaker-session-export",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-cvent-speaker-session-export"
     },
     {
       "id": "doc-placeholder-cvent-venue-location-list",
       "title": "Cvent venue/location list",
-      "description": "Cvent comparison Resolved or no longer active after Samuel review.",
+      "description": "Cvent comparison",
       "category": "Cvent / Event App",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-cvent-venue-location-list",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-cvent-venue-location-list"
     },
     {
       "id": "doc-placeholder-cvent-meal-restaurant-schedule",
       "title": "Cvent meal/restaurant schedule",
-      "description": "Cvent comparison Resolved or no longer active after Samuel review.",
+      "description": "Cvent comparison",
       "category": "Cvent / Event App",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-cvent-meal-restaurant-schedule",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-cvent-meal-restaurant-schedule"
     },
     {
       "id": "doc-placeholder-cvent-attendee-facing-copy",
       "title": "Cvent attendee-facing copy",
-      "description": "Cvent comparison Resolved or no longer active after Samuel review.",
+      "description": "Cvent comparison",
       "category": "Cvent / Event App",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-cvent-attendee-facing-copy",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-cvent-attendee-facing-copy"
     },
     {
       "id": "doc-placeholder-speaker-list",
       "title": "Speaker list",
-      "description": "Speaker content Resolved or no longer active after Samuel review.",
+      "description": "Speaker content",
       "category": "Speaker / Deck Content",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-speaker-list",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-speaker-list"
     },
     {
       "id": "doc-placeholder-speaker-bios",
       "title": "Speaker bios",
-      "description": "Deck creation Resolved or no longer active after Samuel review.",
+      "description": "Deck creation",
       "category": "Speaker / Deck Content",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-speaker-bios",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-speaker-bios"
     },
     {
       "id": "doc-placeholder-speaker-session-titles",
@@ -27606,15 +27570,14 @@
     {
       "id": "doc-placeholder-speaker-session-descriptions",
       "title": "Speaker session descriptions",
-      "description": "Deck creation Resolved or no longer active after Samuel review.",
+      "description": "Deck creation",
       "category": "Speaker / Deck Content",
       "day": "All",
       "type": "Placeholder",
       "owner": "Samuel Price",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-speaker-session-descriptions",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-speaker-session-descriptions"
     },
     {
       "id": "doc-placeholder-speaker-deck-copy",
@@ -27643,28 +27606,26 @@
     {
       "id": "doc-placeholder-speaker-rehearsal-schedule",
       "title": "Speaker rehearsal schedule",
-      "description": "Rehearsals Resolved or no longer active after Samuel review.",
+      "description": "Rehearsals",
       "category": "Speaker / Deck Content",
       "day": "All",
       "type": "Placeholder",
       "owner": "Dawn Ramsden",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-speaker-rehearsal-schedule",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-speaker-rehearsal-schedule"
     },
     {
       "id": "doc-placeholder-horizons-hall-rehearsal-schedule",
       "title": "Horizons Hall rehearsal schedule",
-      "description": "Rehearsals Resolved or no longer active after Samuel review.",
+      "description": "Rehearsals",
       "category": "Speaker / Deck Content",
       "day": "All",
       "type": "Placeholder",
       "owner": "Dawn Ramsden",
-      "status": "Resolved",
+      "status": "File Needed",
       "link": "",
-      "updateId": "doc:doc-placeholder-horizons-hall-rehearsal-schedule",
-      "hiddenFromLive": true
+      "updateId": "doc:doc-placeholder-horizons-hall-rehearsal-schedule"
     },
     {
       "title": "Horizons Swag Delivery Brief.pdf",
@@ -27761,20 +27722,19 @@
     {
       "id": "doc-updated-horizons-hall-round-table-layout-needed",
       "title": "Updated Table Layout Needed",
-      "description": "Need final confirmed layout from Kirsty / Clownfish showing final table count and seat count per table. Resolved or no longer active after Samuel review.",
+      "description": "Need final confirmed layout from Kirsty / Clownfish showing final table count and seat count per table.",
       "category": "HORIZONS Hall Layouts",
       "day": "10 June",
       "type": "Placeholder",
       "owner": "Samuel / Chris / Kirsty / Clownfish",
-      "status": "Resolved",
+      "status": "Needed",
       "relatedLocation": "HORIZONS Hall",
       "relatedSections": [
         "HORIZONS Hall Round Table Plan",
         "Documents",
         "Missing Files Tracker"
       ],
-      "updateId": "document:updated-table-layout-needed",
-      "hiddenFromLive": true
+      "updateId": "document:updated-table-layout-needed"
     },
     {
       "id": "doc_horizons_attendee_directory_june_2026",
@@ -28144,12 +28104,11 @@
     "guestSourceWorkbook": "Lanyards and Namecards Final 9.xlsx",
     "guestSourceSheet": "MASTER LIST",
     "guestImportLastUpdated": "2026-06-02",
-    "lastUpdated": "6 June 2026, recovery pass",
+    "lastUpdated": "2026-06-03T22:45:00+01:00",
     "last_updated": "2026-06-02T14:45:00+01:00",
     "lastUpdateSummary": "Swag, guest materials, room drops, HORIZONS House display, chair drops, cap allocations, and swag reference visuals updated from the Swag Delivery Brief.",
     "roundTableSeatingPlan": "Shared editable seating tool for HORIZONS Hall round-table assignments.",
-    "updatedBy": "Codex round-table seating system update",
-    "lastUpdatedIso": "2026-06-06T00:00:00+01:00"
+    "updatedBy": "Codex round-table seating system update"
   },
   "travel": [
     {
@@ -28783,8 +28742,8 @@
       "departureFlight": "Flight info needed",
       "hotelTransferNotes": "Missing responsible owner",
       "transportOwner": "I.N.C",
-      "status": "Needs Clarification",
-      "notes": "On site arrival - Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier, Pili Lopez, Joshua Gavin, Fede Tamburini Samuel review: On site is not a person; needs cleanup.",
+      "status": "Needs Confirmation",
+      "notes": "On site arrival - Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier, Pili Lopez, Joshua Gavin, Fede Tamburini",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 767,
@@ -29044,8 +29003,8 @@
       "departureFlight": "Flight info needed",
       "hotelTransferNotes": "Drone activation all day | Missing responsible owner",
       "transportOwner": "I.N.C",
-      "status": "Needs Clarification",
-      "notes": "On site arrival - Chris Manoe, Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier Samuel review: On site is not a person; needs cleanup.",
+      "status": "Needs Confirmation",
+      "notes": "On site arrival - Chris Manoe, Dean Whitehead, Dawn Ramsden, Samuel Hosier, Tamy Hosier",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 776,
@@ -29073,8 +29032,8 @@
       "departureFlight": "Flight info needed",
       "hotelTransferNotes": "Transfer notes needed",
       "transportOwner": "Pili Lopez",
-      "status": "Needs Clarification",
-      "notes": "On site arrival - Pili Lopez Samuel review: On site is not a person; needs cleanup.",
+      "status": "On Track",
+      "notes": "On site arrival - Pili Lopez",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 777,
@@ -29102,8 +29061,8 @@
       "departureFlight": "Flight info needed",
       "hotelTransferNotes": "Christina Hizon",
       "transportOwner": "Joshua Gavin, Fede Tamburini",
-      "status": "Needs Clarification",
-      "notes": "On site arrival - Joshua Gavin, Fede Tamburini Samuel review: On site is not a person; needs cleanup.",
+      "status": "On Track",
+      "notes": "On site arrival - Joshua Gavin, Fede Tamburini",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 778,
@@ -29276,8 +29235,8 @@
       "departureFlight": "Flight info needed",
       "hotelTransferNotes": "Transfer notes needed",
       "transportOwner": "Chris Manoe, Tamy Hosier, Dean Whitehead",
-      "status": "Needs Clarification",
-      "notes": "On site arrival - Tamy Hosier, Dean Whitehead / D.I.T Samuel review: On site is not a person; needs cleanup.",
+      "status": "On Track",
+      "notes": "On site arrival - Tamy Hosier, Dean Whitehead / D.I.T",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
       "source_row": 784,
@@ -40984,8 +40943,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Aream & Co. Team Dinner; Italian/Orchard à la carte; guarantee 20 guests; note: ADD IN CREW DINNER HERE IN HORIZON HOUSE Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "Needs Confirmation",
+      "notes": "Aream & Co. Team Dinner; Italian/Orchard à la carte; guarantee 20 guests; note: ADD IN CREW DINNER HERE IN HORIZON HOUSE",
       "updateId": "artwork:material-menu-3",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -40997,8 +40956,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall Terrace · 19:30–21:00 | Menus | HORIZONS Hall Terrace | BeGood / Six Senses | Needs Confirmation",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-4",
@@ -41035,8 +40993,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "First evening drinks reception 170 pax; BBQ dinner 150 pax; late snacks Speakeasy/Arcade/Tournament 23:30–01:00 for 70 pax Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "First evening drinks reception 170 pax; BBQ dinner 150 pax; late snacks Speakeasy/Arcade/Tournament 23:30–01:00 for 70 pax",
       "updateId": "artwork:material-menu-5",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41048,8 +41006,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Pool Deck & Beach · drinks 19:00–20:00; BBQ dinner 20:00–22:00 | Menus | Pool Deck & Beach | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-6",
@@ -41061,8 +41018,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Breakfast menu; coffee break 150 pax; lunch 170 pax; rolling refreshments Cliffhanger Mansion 14:15–18:15 for 10 pax Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Breakfast menu; coffee break 150 pax; lunch 170 pax; rolling refreshments Cliffhanger Mansion 14:15–18:15 for 10 pax",
       "updateId": "artwork:material-menu-6",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41074,8 +41031,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Breakfast Partel & Pharmacy 07:00–09:30; coffee break HORIZONS Hall/Orchard 11:30–12:00; lunch Partel & Pharmacy 13:00–14:30 | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-7",
@@ -41087,8 +41043,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Mobile Consumer dinner Beach Caves 100 pax; PC Console + Aream Internal Orchard/Market Terrace 50+20 pax; Speakeasy/Arcade/Poker late snacks 75 pax Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Mobile Consumer dinner Beach Caves 100 pax; PC Console + Aream Internal Orchard/Market Terrace 50+20 pax; Speakeasy/Arcade/Poker late snacks 75 pax",
       "updateId": "artwork:material-menu-7",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41100,8 +41056,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Dinner drinks 19:30–22:30; Beach Caves/Orchard/HORIZONS Hall Terrace; late snacks 23:30–01:00 | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-8",
@@ -41113,8 +41068,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Breakfast menu; coffee break 90/50 pax; Pool Deck lunch 170 pax; entertainment line included in menu",
       "updateId": "artwork:material-menu-8",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41126,8 +41081,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Breakfast HORIZONS Hall & Orchard 07:00–09:30; coffee break Orchard/HORIZONS Studio 11:00–11:15; lunch Pool Deck 12:00–13:30 | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-9",
@@ -41139,8 +41093,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Gala dinner 170 pax; extra drinks 75 pax after 22:00; afterparty snacks 75 pax Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Gala dinner 170 pax; extra drinks 75 pax after 22:00; afterparty snacks 75 pax",
       "updateId": "artwork:material-menu-9",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41152,8 +41106,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Gala dinner drinks Partel and Pharmacy 19:00–22:00; pre-dinner canapés 19:30–20:00; Gala Dinner Partel & Sun Deck 20:00–22:00; afterparty snacks HORIZONS House 23:30–01:30 | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-10",
@@ -41165,8 +41118,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Breakfast menu similar to Thursday; final morning F&B Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Breakfast menu similar to Thursday; final morning F&B",
       "updateId": "artwork:material-menu-10",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41178,8 +41131,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "HORIZONS Hall & Orchard · 07:00–09:30 | Menus | HORIZONS Hall & Orchard | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-11",
@@ -41191,8 +41143,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026 Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
       "updateId": "artwork:material-menu-11",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41204,8 +41156,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Ben Eddon-Carruthers | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-material-menu-12",
@@ -41217,8 +41168,8 @@
       "positioningNotes": "No pork. Confirm chicken sausages for breakfast and midnight snacks where relevant.",
       "owner": "BeGood / Six Senses",
       "supplierSetupTeam": "Clownfish / BeGood as relevant",
-      "status": "Archived",
-      "notes": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026 Archived from Artwork / Wayfinding after Samuel review because this is not an artwork/signage file.",
+      "status": "On Track",
+      "notes": "Agency: BeGood; Dietaries: None listed; Arrival: 07 Jun 2026; Departure: 13 Jun 2026",
       "updateId": "artwork:material-menu-12",
       "source_workbook": "HORIZONS_Master_Website_Data_Review_FINAL.xlsx",
       "source_tab": "MASTER REVIEW",
@@ -41230,8 +41181,7 @@
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
       "finalWorkbookDisplayText": "Cheryl Leno | Menus | Location needed | BeGood / Six Senses | On Track",
-      "finalWorkbookStatus": "Approved",
-      "hiddenFromLive": true
+      "finalWorkbookStatus": "Approved"
     },
     {
       "id": "artwork-swag-tote-bag",
@@ -42497,8 +42447,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Call sheet layout reference",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:studiobinder-call-sheet-example"
     },
     {
@@ -42507,8 +42457,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Production operations",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:current-production-call-sheet"
     },
     {
@@ -42517,8 +42467,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Weather module",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:weather-call-sheet-reference"
     },
     {
@@ -42527,8 +42477,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Schedule approval",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:final-master-schedule"
     },
     {
@@ -42537,8 +42487,8 @@
       "category": "Call Sheet / Production",
       "owner": "Ben Eddon-Carruthers",
       "neededFor": "Operations detail",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:ben’s-document"
     },
     {
@@ -42547,8 +42497,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Who Do I Call",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:production-contact-hierarchy"
     },
     {
@@ -42557,8 +42507,8 @@
       "category": "Call Sheet / Production",
       "owner": "Samuel Price",
       "neededFor": "Printable call sheet",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:crew-call-sheet-layout"
     },
     {
@@ -42568,7 +42518,7 @@
       "owner": "Samuel Price",
       "neededFor": "Cvent comparison",
       "status": "File Needed",
-      "notes": "Keep active only if the final Cvent export is still required.",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:cvent-agenda-export"
     },
     {
@@ -42577,8 +42527,8 @@
       "category": "Cvent / Event App",
       "owner": "Samuel Price",
       "neededFor": "Cvent comparison",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:cvent-speaker/session-export"
     },
     {
@@ -42587,8 +42537,8 @@
       "category": "Cvent / Event App",
       "owner": "Samuel Price",
       "neededFor": "Cvent comparison",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:cvent-venue/location-list"
     },
     {
@@ -42597,8 +42547,8 @@
       "category": "Cvent / Event App",
       "owner": "Samuel Price",
       "neededFor": "Cvent comparison",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:cvent-meal/restaurant-schedule"
     },
     {
@@ -42607,8 +42557,8 @@
       "category": "Cvent / Event App",
       "owner": "Samuel Price",
       "neededFor": "Cvent comparison",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:cvent-attendee-facing-copy"
     },
     {
@@ -42617,8 +42567,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Samuel Price",
       "neededFor": "Speaker content",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:speaker-list"
     },
     {
@@ -42627,8 +42577,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Samuel Price",
       "neededFor": "Deck creation",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:speaker-bios"
     },
     {
@@ -42647,8 +42597,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Samuel Price",
       "neededFor": "Deck creation",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "File Needed",
+      "notes": "Add file/link when available. Keep unresolved until confirmed.",
       "updateId": "missing-file:speaker-session-descriptions"
     },
     {
@@ -42677,8 +42627,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:speaker-rehearsal-schedule"
     },
     {
@@ -42687,8 +42637,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:horizons-hall-rehearsal-schedule"
     },
     {
@@ -42697,8 +42647,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Dawn Ramsden",
       "neededFor": "Rehearsals",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:horizons-studio-rehearsal-schedule"
     },
     {
@@ -42707,8 +42657,8 @@
       "category": "Speaker / Deck Content",
       "owner": "Clownfish",
       "neededFor": "Technical production",
-      "status": "Resolved",
-      "notes": "Marked resolved / no longer needed after Samuel review recovery pass; source history retained.",
+      "status": "Partially Added",
+      "notes": "Detailed Monday 8 June and Tuesday 9 June rehearsal records added from Samuel note. Final TBC HORIZONS Hall timing/location still needs confirmation.",
       "updateId": "missing-file:technical-rehearsal-schedule"
     },
     {
@@ -54435,29 +54385,5 @@
       }
     ],
     "ambiguousCount": 7
-  },
-  "teamNeeds": [
-    {
-      "id": "team-need-nearby-pharmacy-location",
-      "priority": "High",
-      "category": "Locations / Emergency",
-      "item": "Nearby pharmacy location needed",
-      "why": "Onsite team need a quick pharmacy reference near Six Senses / HORIZONS House.",
-      "section": "Locations / Call Sheet",
-      "owner": "Chris Manoe / venue team",
-      "status": "Needs Samuel/Chris Confirmation",
-      "nextAction": "Confirm pharmacy name, address, opening hours, and Google Maps link."
-    },
-    {
-      "id": "team-need-confirm-exact-hospital-emergency-route",
-      "priority": "Critical",
-      "category": "Locations / Emergency",
-      "item": "Confirm exact hospital / emergency route",
-      "why": "Call sheet should show one canonical emergency medical location instead of repeated warnings.",
-      "section": "Call Sheet / Locations",
-      "owner": "Dawn Ramsden / venue team",
-      "status": "Needs Samuel/Chris Confirmation",
-      "nextAction": "Confirm the exact hospital/clinic, route, phone number and venue protocol."
-    }
-  ]
+  }
 }
