@@ -1348,34 +1348,6 @@ body.hall-centre-open .section-progress {
   max-width: 100%;
 }
 
-.card-title-group,
-.card-status-row,
-.card-actions,
-.button-row,
-.section-actions,
-.mobile-card-stack {
-  min-width: 0;
-}
-
-.card-status-row,
-.card-actions,
-.button-row,
-.section-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  align-items: center;
-}
-
-.card-actions,
-.section-actions {
-  margin-top: 1rem;
-}
-
-.bottom-nav-safe-area {
-  padding-bottom: calc(110px + env(safe-area-inset-bottom));
-}
-
 .search-results-panel {
   grid-column: 1 / -1;
   border: 1px solid var(--line);
@@ -2939,28 +2911,6 @@ body.admin-view .admin-tool-section,
     max-width: 100%;
     white-space: normal;
     text-align: left;
-  }
-
-  .card,
-  .timeline-card,
-  .guest-card,
-  .hall-file-card,
-  .hall-reference-card {
-    overflow-wrap: anywhere;
-  }
-
-  .card-actions,
-  .button-row,
-  .section-actions,
-  .contact-actions {
-    align-items: stretch;
-  }
-
-  .card-actions > *,
-  .button-row > *,
-  .section-actions > *,
-  .contact-actions > * {
-    min-height: 44px;
   }
 
   .search-results-grid {

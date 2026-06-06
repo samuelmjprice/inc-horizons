@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
+    <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
+    <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
+    <link rel="stylesheet" href="style.css?v=20260606-ask-lite1">
+  </head>
+  <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="brand-mark" href="#overview" aria-label="HORIZONS overview">
+          <img data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+        </a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="menu-label">Menu</span>
+        </button>
+        <nav id="site-nav" class="site-nav" data-nav>
+          <a href="#overview" data-app-nav="overview">Overview</a>
+          <a href="#today" data-app-nav="today">Today</a>
+          <a href="#call-sheet" data-app-nav="call-sheet">Call Sheet</a>
+          <a href="#schedule" data-app-nav="schedule">Schedule</a>
+          <a href="#locations" data-app-nav="locations">Locations</a>
+          <a href="#contacts" data-app-nav="people">People</a>
+          <a href="#podcast" data-app-nav="programme">Programme</a>
+          <a href="#menus" data-app-nav="assets">Assets</a>
+          <a href="#admin-data" data-app-nav="admin">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="overview" class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <img class="hero-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+            <p class="eyebrow">Internal live event hub</p>
+            <p class="hero-subtitle" data-event-subtitle>Event Command Centre</p>
+            <p class="hero-description" data-event-description></p>
+            <div class="meta-strip" aria-label="Event information">
+              <span data-event-location></span>
+              <span data-event-dates></span>
+              <span>Last updated: <time data-event-updated></time></span>
+            </div>
+            <div class="countdown" data-countdown aria-label="Countdown to HORIZONS arrival">
+              <p class="eyebrow">Countdown to HORIZONS arrival</p>
+              <div class="countdown-grid" data-countdown-grid hidden>
+                <span><strong data-countdown-days>0</strong>Days</span>
+                <span><strong data-countdown-hours>00</strong>Hours</span>
+                <span><strong data-countdown-minutes>00</strong>Minutes</span>
+                <span><strong data-countdown-seconds>00</strong>Seconds</span>
+              </div>
+              <p class="countdown-fallback" data-countdown-fallback>Countdown loading...</p>
+            </div>
+            <div class="quick-actions" data-quick-actions></div>
+          </div>
+          <aside class="start-panel" aria-labelledby="start-title">
+            <p class="eyebrow">Start here</p>
+            <h2 id="start-title">Find the live answer fast.</h2>
+            <div class="start-grid" data-start-grid></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="app-search" class="utility-band" aria-label="Search and filters">
+        <div class="container utility-grid">
+          <label class="search-control">
+            <span>Search the hub</span>
+            <input type="search" data-global-search placeholder="Search tasks, contacts, suppliers, locations">
+          </label>
+          <label>
+            <span>Status</span>
+            <select data-filter="status"></select>
+          </label>
+          <label>
+            <span>Day</span>
+            <select data-filter="day"></select>
+          </label>
+          <label>
+            <span>Owner</span>
+            <select data-filter="owner"></select>
+          </label>
+          <label>
+            <span>Location</span>
+            <select data-filter="location"></select>
+          </label>
+          <label>
+            <span>Department</span>
+            <select data-filter="department"></select>
+          </label>
+          <button class="button button-secondary" type="button" data-reset-filters>Reset filters</button>
+          <div class="search-results-panel" data-search-results hidden></div>
+        </div>
+      </section>
+
+      <section id="today" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Today at a glance</p>
+            <h2>What matters now...</h2>
+            <p>Key focus, urgent items, and priority movements for the current event day.</p>
+          </div>
+          <div class="cards-grid priority-grid" data-today></div>
+          <div class="contact-actions section-actions">
+            <a href="#call-sheet">Open Today’s Call Sheet</a>
+            <a href="#who-do-i-call">Who Do I Call</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="red-flags" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">High priority</p>
+              <h2>Red Flags</h2>
+              <p>Visible leadership issues, unresolved confirmations, and timing conflicts.</p>
+            </div>
+            <a class="button button-primary" href="#decisions">Open decisions</a>
+          </div>
+          <div class="cards-grid" data-red-flags></div>
+        </div>
+      </section>
+
+      <section id="decisions" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Leadership</p>
+            <h2>Decisions Needed</h2>
+            <p>Unresolved decisions surfaced clearly without turning the page into a stress board.</p>
+          </div>
+          <div class="cards-grid" data-decisions></div>
+        </div>
+      </section>
+
+      <section id="schedule" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Timeline</p>
+            <h2>Schedule / Run Sheet</h2>
+            <p>Use day tabs to keep the timeline focused. Details stay tucked away until needed.</p>
+          </div>
+          <div class="tabs" data-schedule-tabs role="tablist" aria-label="Schedule days"></div>
+          <div class="now-next" data-now-next></div>
+          <div class="timeline" data-schedule></div>
+          <div class="contact-actions section-actions">
+            <a href="#call-sheet">Open Today’s Call Sheet</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="flights" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Arrivals + departures</p>
+              <h2>Flights / Travel</h2>
+              <p>Team travel, transfer notes, missing flight information, and transport ownership.</p>
+            </div>
+            <p class="result-count" data-travel-count></p>
+          </div>
+          <div class="section-controls">
+            <label><span>Person</span><select data-travel-filter="person"></select></label>
+            <label><span>Arrival day</span><select data-travel-filter="arrivalDay"></select></label>
+            <label><span>Departure day</span><select data-travel-filter="departureDay"></select></label>
+            <label><span>Team/company</span><select data-travel-filter="team"></select></label>
+            <label><span>Status</span><select data-travel-filter="status"></select></label>
+          </div>
+          <div class="cards-grid compact-grid" data-travel></div>
+        </div>
+      </section>
+
+      <section id="daily" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Daily run sheets</p>
+            <h2>Day-specific focus</h2>
+            <p>Each day has a compact operating view for focus, locations, watch-outs, and owner moments.</p>
+          </div>
+          <div class="tabs department-tabs" data-department-tabs role="tablist" aria-label="Department focus"></div>
+          <div class="cards-grid" data-department-focus></div>
+          <div class="daily-actions">
+            <button class="button button-secondary" type="button" data-open-today>Open today</button>
+            <button class="button button-secondary" type="button" data-collapse-days>Collapse all</button>
+          </div>
+          <div class="accordion-list" data-daily-runs></div>
+        </div>
+      </section>
+
+      <section id="call-sheet" class="section">
+        <div class="container">
+          <div class="brand-logo-wrapper call-sheet-brand">
+            <img class="brand-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+          </div>
+          <div class="section-heading centered-heading">
+            <p class="eyebrow">Daily call sheets</p>
+            <h2>Call Sheet</h2>
+            <p>Day-specific production view for weather, crew call, key contacts, schedule, emergency information, notes, files, and red flags.</p>
+          </div>
+          <div class="tabs" data-call-sheet-tabs role="tablist" aria-label="Call sheet days"></div>
+          <div class="now-next" data-call-sheet-now-next></div>
+          <div class="call-sheet-top-grid">
+            <div class="weather-card" data-weather></div>
+            <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
+          </div>
+          <div class="cards-grid call-sheet-summary" data-call-sheet-summary></div>
+          <div class="cards-grid compact-grid call-sheet-notes" data-call-sheet-notes></div>
+          <div class="call-sheet-list" data-call-sheet></div>
+          <div class="cards-grid compact-grid call-sheet-links" data-call-sheet-links></div>
+        </div>
+      </section>
+
+      <section id="location-schedules" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Where is it happening?</p>
+            <h2>Location Schedules</h2>
+            <p>Open a location to see only the activity, people, setup notes, and status for that space.</p>
+          </div>
+          <div class="cards-grid" data-location-schedules></div>
+        </div>
+      </section>
+
+      <section id="restaurants" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Meals + hospitality</p>
+            <h2>Restaurant Schedules</h2>
+            <p>Restaurant and meal-space views for menus, groups, entertainment, content capture, and owner notes.</p>
+          </div>
+          <div class="cards-grid" data-restaurants></div>
+        </div>
+      </section>
+
+      <section id="menus" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Final food + beverage source</p>
+              <h2>Menus</h2>
+              <p>Final menu cards from HORIZONS_MENUS_WIP5, grouped by date and collapsed by default.</p>
+            </div>
+            <p class="result-count" data-menu-count></p>
+          </div>
+          <div class="section-controls menu-controls">
+            <label>
+              <span>Search menu</span>
+              <input type="search" data-menu-search placeholder="Search dish, drink, location...">
+            </label>
+            <label>
+              <span>Date</span>
+              <select data-menu-filter="date"></select>
+            </label>
+            <label>
+              <span>Location</span>
+              <select data-menu-filter="location"></select>
+            </label>
+            <label>
+              <span>Meal type</span>
+              <select data-menu-filter="meal"></select>
+            </label>
+            <label class="checkbox-control">
+              <input type="checkbox" data-menu-filter="needs">
+              <span>Needs location/link confirmation</span>
+            </label>
+            <button type="button" data-menu-expand-all>Expand all</button>
+            <button type="button" data-menu-collapse-all>Collapse all</button>
+          </div>
+          <div class="menu-date-groups" data-menus></div>
+        </div>
+      </section>
+
+      <section id="tasks" class="section">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Owner view</p>
+              <h2>My Tasks</h2>
+              <p>Filter by owner, day, status, priority, location, or workstream to answer: what am I responsible for?</p>
+            </div>
+            <p class="result-count" data-task-count></p>
+          </div>
+          <div class="section-controls" data-task-local-filters>
+            <label>
+              <span>Department</span>
+              <select data-task-filter="department"></select>
+            </label>
+            <label>
+              <span>Name</span>
+              <select data-task-filter="owner"></select>
+            </label>
+            <label>
+              <span>Day</span>
+              <select data-task-filter="day"></select>
+            </label>
+            <label>
+              <span>Status</span>
+              <select data-task-filter="status"></select>
+            </label>
+            <label>
+              <span>Location</span>
+              <select data-task-filter="location"></select>
+            </label>
+          </div>
+          <div class="cards-grid compact-grid" data-tasks></div>
+        </div>
+      </section>
+
+      <section id="contacts" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Phone-ready</p>
+            <h2>Team Contacts</h2>
+            <p>Fast call, WhatsApp, and email actions for on-site use.</p>
+          </div>
+          <div class="tabs contact-tabs" data-contact-tabs role="tablist" aria-label="Contact categories"></div>
+          <div class="cards-grid contacts-grid" data-contacts></div>
+        </div>
+      </section>
+
+      <section id="guests" class="section">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Final lanyards source</p>
+              <h2>Guests / Namecards</h2>
+              <p>Safe team-facing guest and namecard list from the approved lanyards workbook. Sensitive identity, rooming, travel cost, and private fields are excluded.</p>
+            </div>
+            <p class="result-count" data-guest-count></p>
+          </div>
+          <div class="guest-summary-grid" data-guest-summary></div>
+          <div class="lanyard-guide-panel" data-lanyard-guide></div>
+          <div class="section-controls guest-controls">
+            <label class="search-control"><span>Search guests</span><input type="search" data-guest-search placeholder="Search by name or company"></label>
+            <label><span>Company</span><select data-guest-filter="company"></select></label>
+            <label><span>Status</span><select data-guest-filter="status"></select></label>
+            <label><span>Missing info</span><select data-guest-filter="missing"></select></label>
+            <button class="button button-secondary" type="button" data-guest-reset>Reset guests</button>
+          </div>
+          <div class="quick-filter-row" data-guest-quick-filters></div>
+          <div class="guest-detail-controls">
+            <button class="button button-secondary" type="button" data-guest-expand-all>Expand all</button>
+            <button class="button button-secondary" type="button" data-guest-collapse-all>Collapse all</button>
+          </div>
+          <div class="cards-grid guest-grid" data-guests></div>
+        </div>
+      </section>
+
+      <section id="attendee-directory" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Confidential / internal only</p>
+              <h2>Attendee Directory</h2>
+              <p>Safe searchable directory imported from the confidential HORIZONS attendee PDF. Private contact, identity, rooming, and travel fields are excluded.</p>
+            </div>
+            <p class="result-count" data-attendee-count></p>
+          </div>
+          <div class="confidential-note">
+            Internal attendee directory. Do not share externally.
+          </div>
+          <div class="section-controls guest-controls">
+            <label class="search-control"><span>Search attendees</span><input type="search" data-attendee-search placeholder="Search by name or company"></label>
+            <label><span>Category</span><select data-attendee-filter="category"></select></label>
+            <label><span>Company</span><select data-attendee-filter="company"></select></label>
+            <button class="button button-secondary" type="button" data-attendee-reset>Reset attendees</button>
+          </div>
+          <div class="cards-grid guest-grid" data-attendee-directory></div>
+        </div>
+      </section>
+
+      <section id="who-do-i-call" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Escalation guide</p>
+            <h2>Who Do I Call?</h2>
+            <p>Problem-first contact guide for decisions, operations, website, podcast, content, technical support, and client approvals.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-who-do-i-call></div>
+        </div>
+      </section>
+
+      <section id="locations" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Venue map</p>
+            <h2>Locations</h2>
+            <p>What happens here, when it matters, who owns it, and what needs attention.</p>
+          </div>
+          <div class="cards-grid" data-locations></div>
+        </div>
+      </section>
+
+      <section id="suppliers" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">External teams</p>
+              <h2>Suppliers</h2>
+              <p>Supplier cards show the summary first. Open details for day-by-day timing, setup notes, and open items.</p>
+            </div>
+            <p class="result-count" data-supplier-count></p>
+          </div>
+          <div class="cards-grid compact-grid" data-suppliers></div>
+        </div>
+      </section>
+
+      <section id="podcast" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Needs confirmation</p>
+            <h2>Podcast</h2>
+            <p>Recording slots, guests, crew, location, and unresolved schedule conflicts.</p>
+          </div>
+          <div class="section-controls">
+            <label><span>Podcast day</span><select data-podcast-filter="day"></select></label>
+            <label><span>Guest</span><select data-podcast-filter="guest"></select></label>
+            <label><span>Status</span><select data-podcast-filter="status"></select></label>
+            <label><span>Location</span><select data-podcast-filter="location"></select></label>
+          </div>
+          <div class="cards-grid" data-podcast></div>
+        </div>
+      </section>
+
+      <section id="entertainment" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Performers</p>
+            <h2>Entertainment</h2>
+            <p>Performer arrivals, sound checks, performance windows, technical needs, hospitality notes, and status.</p>
+          </div>
+          <div class="cards-grid" data-entertainment></div>
+        </div>
+      </section>
+
+      <section id="playlists" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Music moments</p>
+            <h2>Curated Playlists</h2>
+            <p>Known schedule points where curated music, background music, or ambient playlists may be needed.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-playlists></div>
+        </div>
+      </section>
+
+      <section id="content" class="section section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Production</p>
+              <h2>Content Capture</h2>
+              <p>Must-capture and nice-to-capture moments for photo, video, drone, interviews, and social.</p>
+            </div>
+            <p class="result-count" data-content-count></p>
+          </div>
+          <div class="section-controls">
+            <label><span>Person</span><select data-content-filter="owner"></select></label>
+            <label><span>Day</span><select data-content-filter="day"></select></label>
+            <label><span>Department</span><select data-content-filter="department"></select></label>
+            <label><span>Location</span><select data-content-filter="location"></select></label>
+            <label><span>Priority</span><select data-content-filter="priority"></select></label>
+            <label><span>Status</span><select data-content-filter="status"></select></label>
+          </div>
+          <div class="tabs" data-content-day-tabs role="tablist" aria-label="Content capture days"></div>
+          <div class="capture-suggestions">
+            <div class="section-heading">
+              <p class="eyebrow">Live notes</p>
+              <h2>Capture Suggestions</h2>
+              <p data-capture-storage-copy>Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.</p>
+            </div>
+            <div class="cards-grid compact-grid" data-capture-suggestions></div>
+            <details class="details form-detail">
+              <summary><span>Add capture suggestion</span><span class="summary-hint">Open form</span></summary>
+              <form class="suggestion-form" data-capture-suggestion-form>
+                <label><span>Name</span><input name="name" required placeholder="Your name"></label>
+                <label><span>Capture idea / moment</span><textarea name="idea" required placeholder="What should the team capture?"></textarea></label>
+                <label><span>Suggested day/time</span><input name="time" placeholder="Wednesday, 14:30"></label>
+                <label><span>Location</span><input name="location" placeholder="HORIZONS House"></label>
+                <label><span>Priority</span><select name="priority"><option>Suggested</option><option>Needs Review</option><option>Approved to Capture</option><option>Captured</option><option>Not Captured</option><option>Not Needed</option></select></label>
+                <label><span>Assigned to</span><input name="assignedTo" placeholder="Content lead"></label>
+                <label><span>Notes</span><textarea name="notes" placeholder="Any useful context"></textarea></label>
+                <button class="button button-secondary" type="submit">Add capture suggestion</button>
+              </form>
+            </details>
+          </div>
+          <div class="capture-log-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Footage finder</p>
+              <h2>Capture Log</h2>
+              <p>Fast internal log for photo, video, drone, BTS, audio, and social moments captured onsite.</p>
+            </div>
+            <div class="cards-grid compact-grid" data-capture-log></div>
+            <details class="details form-detail">
+              <summary><span>Log capture moment</span><span class="summary-hint">Open form</span></summary>
+              <form class="suggestion-form" data-capture-log-form>
+                <label><span>Logged by</span><input name="loggedBy" required placeholder="Your name"></label>
+                <label><span>Manual time override</span><input name="manualTime" placeholder="14:35 or leave blank"></label>
+                <label><span>Day/date</span><input name="day" placeholder="Wednesday 10 June"></label>
+                <label><span>Location</span><input name="location" placeholder="HORIZONS Hall"></label>
+                <label><span>Camera</span><input name="camera" placeholder="A Cam / Drone / iPhone"></label>
+                <label><span>Media type</span><select name="mediaType"><option>Photo</option><option>Video</option><option>Drone</option><option>Audio</option><option>BTS</option><option>Social</option></select></label>
+                <label><span>Subject / moment</span><textarea name="subject" required placeholder="What was captured?"></textarea></label>
+                <label><span>Tags</span><input name="tags" placeholder="awards, Chris, hallway"></label>
+                <label><span>File/card reference</span><input name="fileReference" placeholder="Card A / clip range / filename"></label>
+                <label><span>Priority</span><select name="priority"><option>Normal</option><option>Important</option><option>Urgent</option></select></label>
+                <label><span>Status</span><select name="status"><option>Logged</option><option>Needs Review</option><option>Selected</option><option>Used</option><option>Archived</option></select></label>
+                <label><span>Notes</span><textarea name="notes" placeholder="Useful context for edit team"></textarea></label>
+                <button class="button button-secondary" type="submit">Log capture moment</button>
+              </form>
+            </details>
+          </div>
+          <div class="cards-grid compact-grid" data-content-capture></div>
+        </div>
+      </section>
+
+      <section id="workstreams" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Operating groups</p>
+            <h2>Workstreams</h2>
+            <p>Grouped responsibilities prevent the site from feeling like one giant task list.</p>
+          </div>
+          <div class="cards-grid" data-workstreams></div>
+        </div>
+      </section>
+
+      <section id="horizons-house" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Visual setup</p>
+            <h2>HORIZONS House / Reception Display</h2>
+            <p>Reception display, display cabinet, and swag display notes in one clear operational view.</p>
+          </div>
+          <div data-horizons-house></div>
+        </div>
+      </section>
+
+      <section id="room-drops" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Guest rooms</p>
+            <h2>Room Drops</h2>
+            <p>Hotel room-drop responsibilities, handling instructions, and quality control.</p>
+          </div>
+          <div data-room-drops></div>
+        </div>
+      </section>
+
+      <section id="swag" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Guest experience</p>
+            <h2>Swag & Delivery</h2>
+            <p>Official Swag Delivery Brief timeline, check-in gifts, chair drops, allocations, and remaining handover actions.</p>
+          </div>
+          <div data-swag-delivery></div>
+          <div class="cards-grid" data-swag></div>
+        </div>
+      </section>
+
+      <section id="speakers" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Session content</p>
+            <h2>Speaker Content</h2>
+            <p>Speaker/session content for deck creation, rehearsals, Cvent checks, and production notes.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-speakers></div>
+        </div>
+      </section>
+
+      <section id="rehearsals" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Run-throughs</p>
+            <h2>Rehearsals</h2>
+            <p>Speaker, HORIZONS Hall, HORIZONS Studio, show running, technical, screen/deck, and podcast rehearsal records.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-rehearsals></div>
+        </div>
+      </section>
+
+      <section id="artwork" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Artwork + wayfinding</p>
+            <h2>Artwork / Wayfinding / Signage</h2>
+            <p>Placement, file, print, and installation records so Clownfish and the onsite team know what goes where.</p>
+          </div>
+          <div class="cards-grid" data-artwork></div>
+        </div>
+      </section>
+
+      <section id="staff" class="section section-tint">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Who is onsite?</p>
+            <h2>Staff Lists</h2>
+            <p>Staff and support lists grouped by company/team, connected back to contacts and the call sheet.</p>
+          </div>
+          <div class="cards-grid" data-staff></div>
+        </div>
+      </section>
+
+      <section id="admin-data" class="section admin-gateway">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Samuel / developer tools</p>
+            <h2>Backend / Developer Data</h2>
+            <p>Admin-only review area for source health, missing files, Slack setup, Cvent comparison, duplicate review, and site audit records.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="#cvent">Cvent</a>
+            <a href="#missing-files">Missing Files</a>
+            <a href="#asset-review">Have / Need Review</a>
+            <a href="#slack">Slack</a>
+            <a href="#data-health">Data Health</a>
+            <a href="#duplicate-review">Duplicate Review</a>
+            <a href="#site-audit">Site Audit</a>
+          </div>
+          <div class="contact-actions admin-report-links">
+            <a href="HORIZONS_FINAL_SITE_AUDIT_SUMMARY.md">Final Audit Summary</a>
+            <a href="WHAT_WE_STILL_NEED_FROM_TEAM.md">Team Needs List</a>
+            <a href="WHAT_WE_HAVE_STILL_NEED_VISUAL.html">Visual Have / Need Review</a>
+            <a href="FULL_SITE_FUNCTIONALITY_AUDIT.md">Functionality Audit</a>
+            <a href="MOBILE_UX_AUDIT.md">Mobile UX Audit</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cvent" class="section admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Event app audit</p>
+            <h2>Cvent Comparison</h2>
+            <p>Compare Cvent exports against the website source of truth. Conflicts are flagged for review, not auto-applied.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-cvent></div>
+        </div>
+      </section>
+
+      <section id="missing-files" class="section section-tint admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Files still needed</p>
+            <h2>Missing Files Tracker</h2>
+            <p>Critical file, asset, export, and reference needs that must be supplied before the website can show final information.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-missing-files></div>
+        </div>
+      </section>
+
+      <section id="asset-review" class="section admin-tool-section visual-review-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / Samuel + Chris review</p>
+            <h2>What We Have / What We Still Need</h2>
+            <p>Visual review pack showing approved image/file assets alongside missing items still needing upload, confirmation, or ownership.</p>
+          </div>
+          <div class="visual-review-actions contact-actions">
+            <a href="WHAT_WE_HAVE_STILL_NEED_VISUAL.html">Open full visual review</a>
+            <a href="WHAT_WE_HAVE_STILL_NEED_VISUAL.md">Open Markdown table</a>
+            <a href="WHAT_WE_HAVE_STILL_NEED_DOCUMENT_REPORT.md">Open generation report</a>
+          </div>
+          <div class="visual-review-frame-card">
+            <div class="visual-review-frame-header">
+              <strong>Embedded preview</strong>
+              <span>38 have cards · 213 missing asks</span>
+            </div>
+            <iframe
+              class="visual-review-frame"
+              title="What We Have / What We Still Need visual review"
+              src="WHAT_WE_HAVE_STILL_NEED_VISUAL.html"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="slack" class="section admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Communication layer</p>
+            <h2>Slack Integration</h2>
+            <p>Website remains the source of truth. Slack is used for alerts, updates, threads, and urgent team communication.</p>
+          </div>
+          <div class="cards-grid" data-slack></div>
+        </div>
+      </section>
+
+      <section id="data-health" class="section section-tint admin-section admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / source health</p>
+            <h2>Data Health Dashboard</h2>
+            <p>Internal review of missing owners, TBCs, red flags, missing files, duplicate candidates, and source readiness.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-data-health></div>
+        </div>
+      </section>
+
+      <section id="duplicate-review" class="section admin-section admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / duplicate review</p>
+            <h2>Duplicate Review</h2>
+            <p>Possible duplicate records are preserved here for human review instead of silently deleting operational information.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-duplicate-review></div>
+        </div>
+      </section>
+
+      <section id="site-audit" class="section section-tint admin-section admin-tool-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin / UX audit</p>
+            <h2>Site Data & UX Audit</h2>
+            <p>Structured audit notes from the developer, event producer, and creative team user perspectives.</p>
+          </div>
+          <div class="cards-grid compact-grid" data-site-audit></div>
+        </div>
+      </section>
+
+      <section id="documents" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Reference</p>
+            <h2>Documents / Links</h2>
+            <p>Runbook, brand files, source documents, supplier documents, artwork links, and shared folders.</p>
+          </div>
+          <div class="tabs" data-document-tabs role="tablist" aria-label="Document categories"></div>
+          <div class="cards-grid" data-site-maps></div>
+          <div class="cards-grid" data-documents></div>
+        </div>
+      </section>
+
+      <section id="completed" class="section section-tint">
+        <div class="container">
+          <details class="archive-block">
+            <summary>
+              <span>
+                <span class="eyebrow">Archive</span>
+                <strong>Completed / Sent</strong>
+              </span>
+              <span class="summary-hint">Open archive</span>
+            </summary>
+            <div class="cards-grid compact-grid" data-completed></div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <nav class="section-progress" data-section-progress aria-label="Section progress"></nav>
+    <nav class="section-jump" data-section-jump aria-label="Section navigation">
+      <button type="button" data-section-jump-action="top">↑ Top</button>
+      <button type="button" data-section-drawer-open aria-expanded="false" aria-controls="section-drawer">Sections</button>
+      <span data-section-current>Overview</span>
+      <a href="#today" data-section-next>Next ›</a>
+    </nav>
+    <div class="section-drawer" id="section-drawer" data-section-drawer hidden>
+      <div class="section-drawer-panel" role="dialog" aria-modal="false" aria-labelledby="section-drawer-title">
+        <div class="section-drawer-header">
+          <h2 id="section-drawer-title">Sections</h2>
+          <button type="button" data-section-drawer-close>Close</button>
+        </div>
+        <div class="section-drawer-links" data-section-drawer-links></div>
+      </div>
+    </div>
+
+    <button class="ask-horizons-button" type="button" data-ask-open aria-haspopup="dialog" aria-controls="ask-horizons-drawer">
+      Ask HORIZONS
+    </button>
+    <div class="ask-horizons-overlay" id="ask-horizons-drawer" data-ask-overlay hidden>
+      <section class="ask-horizons-panel" role="dialog" aria-modal="true" aria-labelledby="ask-horizons-title">
+        <header class="ask-horizons-header">
+          <div>
+            <p class="eyebrow">Event guide</p>
+            <h2 id="ask-horizons-title">Ask HORIZONS</h2>
+            <p>Search people, places, schedules, menus, files and live event notes.</p>
+          </div>
+          <button class="ask-horizons-close" type="button" data-ask-close aria-label="Close Ask HORIZONS">×</button>
+        </header>
+        <div class="ask-horizons-search">
+          <label class="search-control">
+            <span>Ask or search anything</span>
+            <input type="search" data-ask-input placeholder="Ask or search anything..." autocomplete="off">
+          </label>
+          <div class="ask-horizons-examples">
+            <span>Try:</span>
+            <button type="button" data-ask-chip="Who do I call">Who do I call?</button>
+            <button type="button" data-ask-chip="HORIZONS Hall">HORIZONS Hall</button>
+            <button type="button" data-ask-chip="What needs confirmation">What needs confirmation?</button>
+          </div>
+          <div class="ask-horizons-chips" data-ask-chips></div>
+        </div>
+        <div class="ask-horizons-results" data-ask-results></div>
+      </section>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <img class="footer-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
+        <p>Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, and live team updates.</p>
+        <p>Last updated <time data-footer-updated></time></p>
+        <p><a href="#admin-data">Admin Data</a></p>
+      </div>
+    </footer>
+
+    <script src="script.js?v=20260606-ask-lite1"></script>
+  </body>
+</html>
