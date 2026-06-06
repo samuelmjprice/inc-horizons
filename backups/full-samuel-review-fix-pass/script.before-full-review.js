@@ -13,8 +13,6 @@ const state = {
   podcastFilters: { day: "", guest: "", status: "", location: "" },
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
-  attendeeFilters: { query: "", category: "", company: "" },
-  searchQuery: "",
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   roundTablePlan: null,
   roundTableStorageWarning: "",
@@ -36,7 +34,7 @@ const APP_GROUPS = [
   { id: "call-sheet", label: "Call Sheet", target: "call-sheet", sections: ["call-sheet"] },
   { id: "schedule", label: "Schedule", target: "schedule", sections: ["schedule", "flights", "daily", "tasks"] },
   { id: "locations", label: "Locations", target: "locations", sections: ["locations", "location-schedules", "restaurants", "menus"] },
-  { id: "people", label: "People", target: "contacts", sections: ["contacts", "who-do-i-call", "staff", "guests", "attendee-directory", "suppliers"] },
+  { id: "people", label: "People", target: "contacts", sections: ["contacts", "who-do-i-call", "staff", "guests", "suppliers"] },
   { id: "programme", label: "Programme", target: "podcast", sections: ["podcast", "speakers", "entertainment", "playlists", "rehearsals", "content", "workstreams"] },
   { id: "assets", label: "Assets", target: "menus", sections: ["menus", "swag", "room-drops", "horizons-house", "artwork", "documents", "completed"] },
   { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"] }
@@ -230,11 +228,12 @@ const ownerMatches = (candidate, selected) => {
 
 const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
 const slackChannelFor = (id = "") => {
+  if (state.data?.meta?.slackTestMode) return "#horizons-test";
   const routing = state.data?.meta?.slackCommentRouting || {};
   const prefix = text(id).split(":")[0] || "default";
   return routing[prefix] || routing.default || "#horizons-main";
 };
-const slackChannelsForSelect = (suggested = "#horizons-main") => unique([suggested, ...(state.data?.meta?.slackChannels || []).map((item) => item.channel)]).filter(Boolean);
+const slackChannelsForSelect = (suggested = "#horizons-main") => unique([suggested, ...(state.data?.meta?.slackChannels || []).map((item) => item.channel), "#horizons-test"]).filter(Boolean);
 const slackUrgencyLabel = (update = {}) => /urgent|critical|at risk|problem|decision/i.test(`${update.priority} ${update.status}`) ? "URGENT / AT RISK" : "Normal update";
 
 const backendApiBase = () => text(state.data?.meta?.backendApiBase || window.HORIZONS_API_BASE || "").replace(/\/$/, "");
@@ -563,7 +562,8 @@ const card = ({ title, status, department, body = "", metadata = "", footer = ""
 };
 
 const passesGlobal = (item, fields = {}) => {
-  const { status, day, owner, location, department } = state.filters;
+  const { query, status, day, owner, location, department } = state.filters;
+  if (query && !includes(item, query) && !includes(getUpdates(fields.updateId || item.updateId || item.id), query)) return false;
   if (status && !text(fields.status || item.status).toLowerCase().includes(status.toLowerCase())) return false;
   if (day && !text(fields.day || item.day || item.date || item.dayLabel).toLowerCase().includes(day.toLowerCase())) return false;
   if (owner && !ownerMatches(fields.owner || item.owner || item.person || item.internalOwner || item.lead, owner)) return false;
@@ -721,9 +721,6 @@ function renderFilters() {
   buildOptions($('[data-guest-filter="company"]'), unique(guests.map((x) => x.company_display_name || x.company)), "companies");
   buildOptions($('[data-guest-filter="status"]'), unique(guests.map((x) => x.status)), "statuses");
   buildOptions($('[data-guest-filter="missing"]'), unique(guests.flatMap((x) => x.missing_fields || [])), "missing fields");
-  const attendees = d.attendeeDirectory?.records || [];
-  buildOptions($('[data-attendee-filter="category"]'), unique(attendees.map((x) => x.category)), "categories");
-  buildOptions($('[data-attendee-filter="company"]'), unique(attendees.map((x) => x.company)), "companies");
   const menus = d.menus || [];
   buildOptions($('[data-menu-filter="date"]'), unique(menus.map((x) => x.date)), "dates");
   buildOptions($('[data-menu-filter="location"]'), unique(menus.map((x) => x.location)), "locations");
@@ -739,7 +736,6 @@ function searchResultGroups() {
     ["Who Do I Call", "#who-do-i-call", d.whoDoICall || [], (item) => item.situation, (item) => [item.primaryContact, item.notes].filter(Boolean).join(" · ")],
     ["Locations", "#locations", d.locations || [], (item) => item.locationName, (item) => [item.type, item.keyOwner, item.status].filter(Boolean).join(" · ")],
     ["Guests", "#guests", d.guests || [], (item) => item.name || item.namecard_display_name, (item) => [item.company_display_name || item.company, item.lanyard_colour, item.status].filter(Boolean).join(" · ")],
-    ["Attendee Directory", "#attendee-directory", d.attendeeDirectory?.records || [], (item) => item.name, (item) => [item.company, item.category, item.status].filter(Boolean).join(" · ")],
     ["Menus", "#menus", d.menus || [], (item) => item.title || item.menu_type, (item) => [item.date, item.location, item.meal_type].filter(Boolean).join(" · ")],
     ["Podcast", "#podcast", d.podcast || [], (item) => item.session || item.title, (item) => [item.date || item.day, item.recording_time || item.time, item.guest_1 || item.guest].filter(Boolean).join(" · ")],
     ["Suppliers", "#suppliers", d.suppliers || [], (item) => item.supplierName || item.name, (item) => [item.company, item.internalOwner, item.location].filter(Boolean).join(" · ")],
@@ -751,7 +747,7 @@ function searchResultGroups() {
 function renderSearchResults() {
   const panel = $("[data-search-results]");
   if (!panel) return;
-  const query = text(state.searchQuery);
+  const query = text(state.filters.query);
   if (!query) {
     panel.hidden = true;
     panel.innerHTML = "";
@@ -805,7 +801,6 @@ function renderAll() {
   renderContactTabs();
   renderContacts();
   renderGuests();
-  renderAttendeeDirectory();
   renderWhoDoICall();
   renderLocations();
   renderSuppliers();
@@ -1549,46 +1544,6 @@ function renderGuests() {
     ? `<div class="empty-state">Showing the first ${initialLimit} guest records. Use search or filters to narrow the full approved list.</div>`
     : "";
   setHtml("[data-guests]", cards ? `${cards}${more}` : empty("No guests match the current search or filters."));
-}
-
-function renderAttendeeDirectory() {
-  const directory = state.data.attendeeDirectory || {};
-  const filters = state.attendeeFilters;
-  const query = text(filters.query).toLowerCase();
-  const records = liveItems(directory.records || [])
-    .filter((item) => !query || `${item.name} ${item.company} ${item.category}`.toLowerCase().includes(query))
-    .filter((item) => !filters.category || item.category === filters.category)
-    .filter((item) => !filters.company || item.company === filters.company)
-    .sort((a, b) => `${a.category} ${a.name}`.localeCompare(`${b.category} ${b.name}`));
-  setHtml("[data-attendee-count]", `${records.length} of ${(directory.records || []).length} safe attendee records`);
-  const limit = query || filters.category || filters.company ? 80 : 36;
-  const cards = records.slice(0, limit).map((item) => {
-    const panelId = `attendee-${escapeHtml(item.id || slug(item.name))}`;
-    return `
-      <article class="card attendee-card">
-        <div class="card-header">
-          <h3 class="card-title">${escapeHtml(item.name || "Attendee Name Needed")}</h3>
-          <div class="tag-stack">${tag(item.category)}${tag("Internal only")}</div>
-        </div>
-        <p class="guest-card-company">${escapeHtml(item.company || "Company Needed")}</p>
-        <button class="guest-detail-toggle" type="button" data-attendee-toggle aria-expanded="false" aria-controls="${panelId}">View profile</button>
-        <div class="guest-detail-panel" id="${panelId}" hidden>
-          <div class="meta-list">
-            ${meta("Category", item.category)}
-            ${meta("Source page", item.source_page)}
-            ${meta("Directory page", item.directory_page)}
-            ${meta("Status", item.status)}
-            ${meta("Visibility", item.visibility)}
-          </div>
-          ${item.profile_summary ? `<p>${escapeHtml(item.profile_summary)}</p>` : `<p>Profile summary needs review from source page ${escapeHtml(item.source_page)}.</p>`}
-          <div class="contact-actions"><a href="${escapeHtml(directory.sourceFile || item.source_file)}" target="_blank" rel="noopener noreferrer">Open confidential source PDF</a></div>
-        </div>
-      </article>
-    `;
-  }).join("");
-  const more = records.length > limit ? `<div class="empty-state">Showing ${limit} records. Use search, category, or company filters to narrow the confidential directory.</div>` : "";
-  const ambiguous = directory.ambiguousCount ? `<div class="empty-state">Source import note: ${escapeHtml(directory.ambiguousCount)} profile pages need manual review and are listed in the import report.</div>` : "";
-  setHtml("[data-attendee-directory]", cards ? `${ambiguous}${cards}${more}` : empty("No attendee directory records match the current filters."));
 }
 
 function renderLanyardGuide(lanyardGuide = {}) {
@@ -2719,7 +2674,7 @@ function renderDocuments() {
     status: item.status,
     body: `<p>${escapeHtml(item.description)}</p>`,
     metadata: meta("Category", item.category) + meta("Day", item.day) + meta("Type", item.type) + meta("Owner", item.owner),
-    footer: (item.link || item.url) ? `<a class="button button-secondary" href="${escapeHtml(item.link || item.url)}" target="_blank" rel="noopener noreferrer">Open reference</a>` : `<span class="tag tag-waiting">File needed</span>`,
+    footer: item.link ? `<a class="button button-secondary" href="${item.link}">Open reference</a>` : `<span class="tag tag-waiting">File needed</span>`,
     updateId: item.updateId
   })).join("") || empty("No documents in this category yet."));
 }
@@ -2851,7 +2806,7 @@ function bindEvents() {
     document.body.classList.remove("nav-open");
     $("[data-menu-toggle]").setAttribute("aria-expanded", "false");
   }));
-  $("[data-global-search]").addEventListener("input", (event) => { state.searchQuery = event.target.value.trim(); renderSearchResults(); });
+  $("[data-global-search]").addEventListener("input", (event) => { state.filters.query = event.target.value.trim(); renderAll(); });
   $$("[data-filter]").forEach((select) => select.addEventListener("change", (event) => { state.filters[event.target.dataset.filter] = event.target.value; renderAll(); }));
   $$("[data-task-filter]").forEach((select) => select.addEventListener("change", (event) => { state.taskFilters[event.target.dataset.taskFilter] = event.target.value; renderTasks(); }));
   $$("[data-travel-filter]").forEach((select) => select.addEventListener("change", (event) => { state.travelFilters[event.target.dataset.travelFilter] = event.target.value; renderTravel(); }));
@@ -2866,16 +2821,6 @@ function bindEvents() {
   }));
   const guestSearch = $("[data-guest-search]");
   if (guestSearch) guestSearch.addEventListener("input", (event) => { state.guestFilters.query = event.target.value.trim(); renderGuests(); });
-  const attendeeSearch = $("[data-attendee-search]");
-  if (attendeeSearch) attendeeSearch.addEventListener("input", (event) => { state.attendeeFilters.query = event.target.value.trim(); renderAttendeeDirectory(); });
-  $$("[data-attendee-filter]").forEach((select) => select.addEventListener("change", (event) => { state.attendeeFilters[event.target.dataset.attendeeFilter] = event.target.value; renderAttendeeDirectory(); }));
-  const attendeeReset = $("[data-attendee-reset]");
-  if (attendeeReset) attendeeReset.addEventListener("click", () => {
-    state.attendeeFilters = { query: "", category: "", company: "" };
-    if (attendeeSearch) attendeeSearch.value = "";
-    $$("[data-attendee-filter]").forEach((select) => select.value = "");
-    renderAttendeeDirectory();
-  });
   document.addEventListener("input", (event) => {
     const assignedSearch = event.target.closest("[data-round-table-search]");
     if (assignedSearch) {
@@ -2926,14 +2871,11 @@ function bindEvents() {
     state.podcastFilters = { day: "", guest: "", status: "", location: "" };
     state.contentFilters = { owner: "", day: "", department: "", location: "", priority: "", status: "" };
     state.guestFilters = { query: "", company: "", status: "", missing: "", quick: "all" };
-    state.attendeeFilters = { query: "", category: "", company: "" };
     state.menuFilters = { query: "", date: "", location: "", meal: "", needs: false };
-    state.searchQuery = "";
     $("[data-global-search]").value = "";
     if (guestSearch) guestSearch.value = "";
-    if (attendeeSearch) attendeeSearch.value = "";
     if (menuSearch) menuSearch.value = "";
-    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter], [data-attendee-filter], [data-menu-filter]").forEach((select) => {
+    $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter], [data-menu-filter]").forEach((select) => {
       if (select.type === "checkbox") select.checked = false;
       else select.value = "";
     });
@@ -3004,14 +2946,6 @@ function bindEvents() {
     if (guestToggle) {
       const card = guestToggle.closest("[data-guest-card]");
       setGuestDetailState(card, guestToggle.getAttribute("aria-expanded") !== "true");
-      return;
-    }
-    const attendeeToggle = event.target.closest("[data-attendee-toggle]");
-    if (attendeeToggle) {
-      const panel = document.getElementById(attendeeToggle.getAttribute("aria-controls"));
-      const open = attendeeToggle.getAttribute("aria-expanded") !== "true";
-      attendeeToggle.setAttribute("aria-expanded", String(open));
-      if (panel) panel.hidden = !open;
       return;
     }
     const expandGuests = event.target.closest("[data-guest-expand-all]");

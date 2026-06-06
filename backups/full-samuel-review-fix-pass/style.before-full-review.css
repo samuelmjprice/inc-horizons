@@ -2251,21 +2251,6 @@ body.admin-view .admin-tool-section,
   background: var(--cream);
 }
 
-.confidential-note {
-  display: inline-flex;
-  width: fit-content;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--gold-soft);
-  color: var(--gold);
-  padding: 0.55rem 0.8rem;
-  font-family: "Soleil", Arial, sans-serif;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-
 .contact-actions a,
 .contact-actions button {
   border: 1px solid var(--line);
