@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260606-samuel-recovery1">
+    <link rel="stylesheet" href="style.css?v=20260607-brand-mobile-search-pass2">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -61,16 +61,18 @@
           </div>
           <aside class="start-panel" aria-labelledby="start-title">
             <p class="eyebrow">Start here</p>
-            <h2 id="start-title">Find the live answer fast.</h2>
+            <h2 id="start-title">Find answers fast.</h2>
             <div class="home-personal-search" data-home-personal-search>
               <label class="search-control">
                 <span>Search or personalise your view</span>
-                <input type="search" data-home-personal-input placeholder="Search a name, team, location, menu or task..." autocomplete="off">
+                <input type="search" data-home-personal-input placeholder="Search your name, team, location, menu, file or task..." autocomplete="off">
               </label>
               <div class="home-search-actions">
-                <button class="button button-primary" type="button" data-home-search-submit>Search</button>
+                <button class="button button-primary" type="button" data-home-search-submit onclick="window.runHorizonsHomepageSearch && window.runHorizonsHomepageSearch(event)">Search</button>
                 <button class="button button-secondary" type="button" data-home-view-as>View as person/team</button>
+                <button class="button button-secondary" type="button" data-ask-open>Ask HORIZONS</button>
               </div>
+              <p class="summary-hint">Try: Samuel Price, Chris Manoe, Production, HORIZONS Hall, menus, call sheet.</p>
               <div class="personalized-banner" data-personalized-banner hidden></div>
             </div>
             <div class="start-grid" data-start-grid></div>
@@ -227,6 +229,10 @@
           </div>
           <div class="tabs" data-call-sheet-tabs role="tablist" aria-label="Call sheet days"></div>
           <div class="call-sheet-toolbar">
+            <div class="segmented-control" role="group" aria-label="Call sheet view">
+              <button class="button button-secondary" type="button" data-call-sheet-view="condensed">Condensed</button>
+              <button class="button button-secondary" type="button" data-call-sheet-view="full">Full</button>
+            </div>
             <label class="search-control">
               <span>Call sheet person view</span>
               <input type="search" data-call-sheet-person-input placeholder="Filter by name, team or department">
@@ -234,15 +240,20 @@
             <button class="button button-secondary" type="button" data-call-sheet-person-apply>Apply person view</button>
             <button class="button button-secondary" type="button" data-call-sheet-person-clear>Clear person view</button>
           </div>
-          <div class="now-next" data-call-sheet-now-next></div>
-          <div class="call-sheet-top-grid">
-            <div class="weather-card" data-weather></div>
-            <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
-          </div>
+          <details class="details daily-brief" data-call-sheet-brief>
+            <summary><span>Daily Brief</span><span class="summary-hint">Ibiza time, weather, emergency, notes</span></summary>
+            <div class="details-content">
+              <div class="now-next" data-call-sheet-now-next></div>
+              <div class="call-sheet-top-grid">
+                <div class="weather-card" data-weather></div>
+                <div class="cards-grid call-sheet-emergency" data-call-sheet-emergency></div>
+              </div>
+              <div class="cards-grid compact-grid call-sheet-notes" data-call-sheet-notes></div>
+              <div class="cards-grid compact-grid call-sheet-links" data-call-sheet-links></div>
+            </div>
+          </details>
           <div class="cards-grid call-sheet-summary" data-call-sheet-summary></div>
-          <div class="cards-grid compact-grid call-sheet-notes" data-call-sheet-notes></div>
           <div class="call-sheet-list" data-call-sheet></div>
-          <div class="cards-grid compact-grid call-sheet-links" data-call-sheet-links></div>
         </div>
       </section>
 
@@ -348,6 +359,13 @@
             <p class="eyebrow">Phone-ready</p>
             <h2>Team Contacts</h2>
             <p>Fast call, WhatsApp, and email actions for on-site use.</p>
+          </div>
+          <div class="section-controls people-search-controls">
+            <label class="search-control">
+              <span>Search people</span>
+              <input type="search" data-people-search placeholder="Search people, teams, roles or responsibilities...">
+            </label>
+            <button class="button button-secondary" type="button" data-people-search-ask>Ask who is in charge</button>
           </div>
           <div class="tabs contact-tabs" data-contact-tabs role="tablist" aria-label="Contact categories"></div>
           <div class="cards-grid contacts-grid" data-contacts></div>
@@ -833,6 +851,30 @@
         <div class="ask-horizons-results" data-ask-results></div>
       </section>
     </div>
+    <div class="slack-modal-overlay" data-slack-modal hidden>
+      <section class="slack-modal" role="dialog" aria-modal="true" aria-labelledby="slack-modal-title">
+        <header class="slack-modal-header">
+          <div>
+            <p class="eyebrow">Slack preview</p>
+            <h2 id="slack-modal-title">Send Call Sheet Summary</h2>
+          </div>
+          <button type="button" data-slack-modal-close aria-label="Close Slack preview">×</button>
+        </header>
+        <label>
+          <span>Channel</span>
+          <select data-slack-modal-channel></select>
+        </label>
+        <label>
+          <span>Message preview</span>
+          <textarea data-slack-modal-preview readonly rows="14"></textarea>
+        </label>
+        <div class="contact-actions">
+          <button class="button button-secondary" type="button" data-slack-modal-copy>Copy Summary</button>
+          <button class="button button-primary" type="button" data-slack-modal-send>Confirm Send</button>
+        </div>
+        <p class="summary-hint" data-slack-modal-status></p>
+      </section>
+    </div>
 
     <footer class="site-footer">
       <div class="container footer-grid">
@@ -843,6 +885,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260606-samuel-recovery1"></script>
+    <script src="script.js?v=20260607-brand-mobile-search-pass2"></script>
   </body>
 </html>

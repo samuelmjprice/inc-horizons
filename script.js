@@ -14,14 +14,17 @@ const state = {
   contentFilters: { owner: "", day: "", department: "", location: "", priority: "", status: "" },
   guestFilters: { query: "", company: "", status: "", missing: "", quick: "all" },
   attendeeFilters: { query: "", category: "", company: "" },
+  peopleSearch: "",
   searchQuery: "",
   askQuery: "",
   askOpen: false,
   personalizedView: "",
   callSheetPerson: "",
+  callSheetView: "condensed",
   scheduleView: "full",
   schedulePerson: "",
   printMode: "full",
+  slackModal: null,
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   roundTablePlan: null,
   roundTableStorageWarning: "",
@@ -250,17 +253,26 @@ const statusClass = (value = "") => {
 };
 
 const statusOverrides = () => state.statusOverrides || {};
-const statusFor = (id = "", fallback = "") => normalizeLabel((id && statusOverrides()[id]) || fallback || "");
+const statusFor = (id = "", fallback = "") => {
+  const override = normalizeLabel(id && statusOverrides()[id]);
+  const base = normalizeLabel(fallback || "");
+  if (/^archived$/i.test(override) && !/^archived$/i.test(base) && /^(who|contact|guest|attendee|swag|swag-delivery|location)/i.test(id)) {
+    return base || "Confirmed";
+  }
+  return normalizeLabel(override || base || "");
+};
 const statusControl = (id = "", fallback = "") => {
   if (!id) return tag(fallback);
   const value = statusFor(id, fallback);
   const choices = options();
-  const current = choices.includes(value) ? value : value || "Needs Confirmation";
+  let current = choices.includes(value) ? value : value || "Needs Confirmation";
+  if (/^#/.test(current)) current = "Confirmed";
+  const selectChoices = choices.includes(current) ? choices : [current, ...choices];
   return `
-    <label class="status-control" title="Saved locally on this device unless shared backend sync is connected.">
+    <label class="status-control" title="Status can be updated here. Shared sync is used when the backend is available.">
       <span>Status</span>
       <select class="status-select ${statusClass(current)}" data-status-control="${escapeHtml(id)}">
-        ${choices.map((option) => `<option value="${escapeHtml(option)}" ${option === current ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
+        ${selectChoices.map((option) => `<option value="${escapeHtml(option)}" ${option === current ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
       </select>
     </label>
   `;
@@ -677,8 +689,8 @@ const card = ({ title, status, department, body = "", metadata = "", footer = ""
   return `
     <article class="card ${className}">
       <div class="card-header">
-        <div class="card-title-group"><h3 class="card-title">${escapeHtml(title)}</h3></div>
         <div class="tag-stack">${departmentTag(department)}${updateId ? statusControl(updateId, currentStatus) : tag(currentStatus)}</div>
+        <div class="card-title-group"><h3 class="card-title">${escapeHtml(title)}</h3></div>
       </div>
       ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
       ${body}
@@ -1031,7 +1043,7 @@ function renderAskHorizons() {
   const resultsPanel = $("[data-ask-results]");
   if (!resultsPanel) return;
   const query = text(state.askQuery);
-  const results = query ? buildSearchResults(query, 30) : builtInResults("who do i call call sheet horizons hall menus podcast lanyards missing print").slice(0, 8);
+  const results = query ? buildSearchResults(query, 30) : builtInResults("my view today who do i call call sheet horizons hall menus people podcast room drops lanyards missing print report issue").slice(0, 8);
   resultsPanel.innerHTML = `
     <div class="search-results-head">
       <strong>${query ? "Best matches" : "Start here"}</strong>
@@ -1144,6 +1156,24 @@ function scrollToUsefulPart(selector = "#call-sheet") {
   });
 }
 
+function runHomepageSearch(query = "") {
+  const clean = text(query);
+  if (!clean) {
+    openAskHorizons("who do i call");
+    return;
+  }
+  state.searchQuery = clean;
+  const globalInput = $("[data-global-search]");
+  if (globalInput) globalInput.value = clean;
+  renderSearchResults();
+  scrollToSectionTarget("#app-search");
+}
+window.runHorizonsHomepageSearch = (event) => {
+  event?.preventDefault?.();
+  event?.stopPropagation?.();
+  runHomepageSearch($("[data-home-personal-input]")?.value);
+};
+
 function renderToday() {
   const { today } = state.data;
   const eventDay = getCurrentEventDay();
@@ -1183,7 +1213,7 @@ function renderRedFlags() {
     .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
   const addForm = `
     <details class="add-card-panel">
-      <summary><span>Add Red Flag</span>${tag("Local until backend connected")}</summary>
+      <summary><span>Add Red Flag</span>${tag("Team Update")}</summary>
       <form class="quick-add-form" data-add-red-flag>
         <label><span>Red flag title</span><input required name="issue" placeholder="What needs attention?"></label>
         <label><span>Severity</span><select name="severity"><option>High</option><option>Critical</option><option>Medium</option><option>Low</option></select></label>
@@ -1414,7 +1444,7 @@ function renderSchedule() {
     <article class="timeline-item ${item.updateId === schedulePosition(state.activeDay).current?.updateId ? "is-now" : ""} ${item.updateId === schedulePosition(state.activeDay).next?.updateId ? "is-next" : ""}">
       <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
       <div>
-        <div class="card-header"><div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div><div class="tag-stack">${statusControl(item.updateId, latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
+        <div class="card-header"><div class="tag-stack">${statusControl(item.updateId, latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div><div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div></div>
         ${latestUpdate(item.updateId) ? `<p><strong>Latest update:</strong> ${escapeHtml(latestUpdate(item.updateId).comment)}</p>` : ""}
         ${condensed ? "" : `<p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>`}
         <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}${meta("Seating layout", item.seatingLayout)}${meta("Layout status", item.layoutStatus)}</div>
@@ -1457,12 +1487,14 @@ function renderCallSheet() {
     .slice(0, 120);
   const personInput = $("[data-call-sheet-person-input]");
   if (personInput && personInput.value !== state.callSheetPerson) personInput.value = state.callSheetPerson;
+  $$("[data-call-sheet-view]").forEach((button) => button.classList.toggle("is-active", button.dataset.callSheetView === state.callSheetView));
+  const condensed = state.callSheetView === "condensed";
   setHtml("[data-call-sheet-summary]", card({
     title: sheet.title || `${state.activeCallSheetDay} Call Sheet`,
     status: sheet.status || "Needs Confirmation",
     body: `<p>${escapeHtml(sheet.dailyFocus || "Daily focus needed")}</p>`,
     metadata: meta("Crew call", sheet.crewCallTime) + meta("Main location", sheet.mainLocation) + meta("Key contacts", sheet.keyContacts),
-    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet="full">Print Full Call Sheet</button><button type="button" data-print-call-sheet="condensed">Print Condensed Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button><button type="button" data-send-call-sheet-slack>Send Slack Summary</button>${sheet.roundTableSeatingPlanId ? `<a href="#locations">Open round table seating plan</a><button type="button" data-round-table-print>Print seating plan</button>` : ""}<a href="#who-do-i-call">Who Do I Call</a></div>`,
+    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet="full">Print Full Call Sheet</button><button type="button" data-print-call-sheet="condensed">Print Condensed Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button><button type="button" data-send-call-sheet-slack>Send Slack Summary</button>${sheet.roundTableSeatingPlanId ? `<a href="#locations">Open round table seating plan</a><button type="button" data-round-table-print>Print seating plan</button>` : ""}<a href="#who-do-i-call">Who Do I Call</a><button type="button" data-ask-chip="report issue call sheet">Report Issue</button></div>`,
     updateId: sheet.id || `call-sheet:${slug(state.activeCallSheetDay)}`
   }));
   setHtml("[data-call-sheet-emergency]", card({
@@ -1500,12 +1532,12 @@ function renderCallSheet() {
         <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
         <div>
           <div class="card-header">
-            <div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div>
             <div class="tag-stack">${current ? tag("Now") : ""}${next ? tag("Next") : ""}${statusControl(item.updateId, item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div>
+            <div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div>
           </div>
           <div class="meta-list compact-meta">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Department", item.department || item.category)}</div>
-          ${detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]], `${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
-          ${updateModule(item.updateId)}
+          ${condensed ? "" : detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]], `${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
+          ${condensed ? "" : updateModule(item.updateId)}
         </div>
       </article>
     `;
@@ -1520,22 +1552,44 @@ function callSheetSlackSummary(day = state.activeCallSheetDay) {
     .sort((a, b) => (parseTimeMinutes(a.timeStart || a.timeDisplay) ?? 9999) - (parseTimeMinutes(b.timeStart || b.timeDisplay) ?? 9999));
   const focus = sheet.dailyFocus || "Focus TBC";
   const needs = items.filter((item) => /needs|tbc|file|location/i.test(statusFor(item.updateId, item.status))).slice(0, 6);
-  const topItems = items.slice(0, 10).map((item) => `${item.timeDisplay || item.timeStart || "TBC"} - ${item.title} - ${item.location || "Location TBC"} - ${item.owner || "Owner TBC"}`);
+  const topItems = items.slice(0, 12).map((item) => `- ${item.timeDisplay || item.timeStart || "TBC"} - ${item.title} - ${item.location || "Location TBC"} - ${item.owner || "Owner TBC"} - ${statusFor(item.updateId, item.status) || "Status TBC"}`);
   return [
     `HORIZONS Call Sheet - ${day}`,
-    `Key focus: ${focus}`,
-    `Crew call: ${sheet.crewCallTime || "TBC"}`,
-    `Main location: ${sheet.mainLocation || "TBC"}`,
-    `Key contacts: ${sheet.keyContacts || "TBC"}`,
     "",
-    "Top timed items:",
+    "Overview:",
+    `- Main focus: ${focus}`,
+    `- Crew call: ${sheet.crewCallTime || "TBC"}`,
+    `- Main location: ${sheet.mainLocation || "TBC"}`,
+    `- Key contacts: ${sheet.keyContacts || "TBC"}`,
+    "",
+    "Key items:",
     ...(topItems.length ? topItems : ["No timed items listed."]),
     "",
     "Needs confirmation:",
     ...(needs.length ? needs.map((item) => `- ${item.title} (${statusFor(item.updateId, item.status)})`) : ["- No flagged confirmations in this view."]),
     "",
-    `Open site: ${location.origin}${location.pathname}#call-sheet`
+    "Links:",
+    `- Call Sheet: ${location.origin}${location.pathname}#call-sheet`
   ].join("\n");
+}
+
+function openSlackModal() {
+  const channels = slackChannelsForSelect(slackChannelFor("callSheet:summary") || "#horizons-schedule");
+  state.slackModal = { message: callSheetSlackSummary(), channel: channels[0] || "#horizons-schedule" };
+  const channelSelect = $("[data-slack-modal-channel]");
+  const preview = $("[data-slack-modal-preview]");
+  const status = $("[data-slack-modal-status]");
+  if (channelSelect) channelSelect.innerHTML = channels.map((channel) => `<option value="${escapeHtml(channel)}">${escapeHtml(channel)}</option>`).join("");
+  if (preview) preview.value = state.slackModal.message;
+  if (status) status.textContent = "Review the channel and message before sending.";
+  const modal = $("[data-slack-modal]");
+  if (modal) modal.hidden = false;
+}
+
+function closeSlackModal() {
+  state.slackModal = null;
+  const modal = $("[data-slack-modal]");
+  if (modal) modal.hidden = true;
 }
 
 function renderLocationSchedules() {
@@ -1781,6 +1835,7 @@ function renderContactTabs() {
 
 function renderContacts() {
   const items = state.data.contacts
+    .filter((item) => !state.peopleSearch || includes(item, state.peopleSearch))
     .filter((item) => state.activeContactCategory === "All" || item.category === state.activeContactCategory || item.group === state.activeContactCategory || item.company === state.activeContactCategory || (state.activeContactCategory === "International Collective / I.N.C" && /I\\.N\\.C|International Collective/.test(`${item.company} ${item.category} ${item.group}`)))
     .filter((item) => passesGlobal(item, { owner: item.name, department: item.category, updateId: item.updateId }));
   setHtml("[data-contacts]", items.map((item) => {
@@ -1995,7 +2050,8 @@ function renderWhoDoICall() {
   const items = state.data.whoDoICall || [];
   setHtml("[data-who-do-i-call]", items.map((item) => card({
     title: item.situation,
-    status: item.slackChannel,
+    status: "Confirmed",
+    department: item.slackChannel,
     body: `<p>${escapeHtml(item.notes)}</p>`,
     metadata: meta("Primary", item.primaryContact) + meta("Backup", item.backupContact) + meta("Phone", item.phone),
     footer: `<div class="contact-actions">${item.phone ? `<a href="tel:${escapeHtml(item.phone.replace(/[^+0-9]/g, ""))}">Call</a>` : ""}${item.whatsapp ? `<a href="${escapeHtml(item.whatsapp)}" target="_blank" rel="noreferrer">WhatsApp</a>` : ""}<a href="#slack">${escapeHtml(item.slackChannel || "Slack")}</a></div>`,
@@ -2250,13 +2306,13 @@ function renderSwagDelivery() {
     <div class="official-brief-dashboard">
       ${card({
         title: "Official Swag & Delivery Timeline",
-        status: data.status || "Reference",
+        status: /^archived$/i.test(data.status || "") ? "Confirmed" : data.status || "Confirmed",
         body: `<div class="timeline-list compact-timeline">${timeline.map((item) => `
           <div class="timeline-row">
             <strong>${escapeHtml([item.date, item.time].filter(Boolean).join(" | "))}</strong>
             <span>${escapeHtml(item.title)}</span>
             <em>${escapeHtml(item.location || item.details || "")}</em>
-            ${tag(item.status)}
+            ${tag(/^archived$/i.test(item.status || "") ? "Confirmed" : item.status)}
           </div>
         `).join("")}</div>${detailsBlock("Open source details", [["Source PDF", data.sourceDocument], ["Last updated", data.lastUpdated]], "")}`,
         updateId: "swag-delivery:timeline"
@@ -2285,7 +2341,7 @@ function renderSwagDelivery() {
         }) : ""}
       </div>
       <details class="details brief-detail-group">
-        <summary><span>Swag Allocation</span>${tag("Reference")}</summary>
+        <summary><span>Swag Allocation</span>${tag("On Track")}</summary>
         <div class="details-content cards-grid">${allocationCards}</div>
       </details>
       <details class="details brief-detail-group">
@@ -3067,7 +3123,7 @@ function renderDecisions() {
     .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
   const addForm = `
     <details class="add-card-panel">
-      <summary><span>Add Decision Needed</span>${tag("Local until backend connected")}</summary>
+      <summary><span>Add Decision Needed</span>${tag("Team Update")}</summary>
       <form class="quick-add-form" data-add-decision>
         <label><span>Decision title</span><input required name="decisionNeeded" placeholder="What needs deciding?"></label>
         <label><span>Decision needed</span><textarea name="whyItMatters" placeholder="Operational impact"></textarea></label>
@@ -3276,6 +3332,8 @@ function bindEvents() {
   if (guestSearch) guestSearch.addEventListener("input", (event) => { state.guestFilters.query = event.target.value.trim(); renderGuests(); });
   const attendeeSearch = $("[data-attendee-search]");
   if (attendeeSearch) attendeeSearch.addEventListener("input", (event) => { state.attendeeFilters.query = event.target.value.trim(); renderAttendeeDirectory(); });
+  const peopleSearch = $("[data-people-search]");
+  if (peopleSearch) peopleSearch.addEventListener("input", (event) => { state.peopleSearch = event.target.value.trim(); renderContacts(); });
   $$("[data-attendee-filter]").forEach((select) => select.addEventListener("change", (event) => { state.attendeeFilters[event.target.dataset.attendeeFilter] = event.target.value; renderAttendeeDirectory(); }));
   const attendeeReset = $("[data-attendee-reset]");
   if (attendeeReset) attendeeReset.addEventListener("click", () => {
@@ -3343,6 +3401,7 @@ function bindEvents() {
     state.contentFilters = { owner: "", day: "", department: "", location: "", priority: "", status: "" };
     state.guestFilters = { query: "", company: "", status: "", missing: "", quick: "all" };
     state.attendeeFilters = { query: "", category: "", company: "" };
+    state.peopleSearch = "";
     state.menuFilters = { query: "", date: "", location: "", meal: "", needs: false };
     state.searchQuery = "";
     state.askQuery = "";
@@ -3356,12 +3415,25 @@ function bindEvents() {
     if (askInput) askInput.value = "";
     if (guestSearch) guestSearch.value = "";
     if (attendeeSearch) attendeeSearch.value = "";
+    if ($("[data-people-search]")) $("[data-people-search]").value = "";
     if (menuSearch) menuSearch.value = "";
     $$("[data-filter], [data-task-filter], [data-travel-filter], [data-podcast-filter], [data-content-filter], [data-guest-filter], [data-attendee-filter], [data-menu-filter]").forEach((select) => {
       if (select.type === "checkbox") select.checked = false;
       else select.value = "";
     });
     renderAll();
+  });
+  const homeSearchSubmit = $("[data-home-search-submit]");
+  const homeSearchInput = $("[data-home-personal-input]");
+  homeSearchSubmit?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    runHomepageSearch(text(homeSearchInput?.value));
+  });
+  homeSearchInput?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    runHomepageSearch(text(homeSearchInput.value));
   });
   document.addEventListener("click", async (event) => {
     const askOpen = event.target.closest("[data-ask-open]");
@@ -3372,7 +3444,7 @@ function bindEvents() {
     const homeSearch = event.target.closest("[data-home-search-submit]");
     if (homeSearch) {
       const query = text($("[data-home-personal-input]")?.value);
-      openAskHorizons(query);
+      runHomepageSearch(query);
       return;
     }
     const homeViewAs = event.target.closest("[data-home-view-as]");
@@ -3401,6 +3473,11 @@ function bindEvents() {
     const askClose = event.target.closest("[data-ask-close], [data-ask-overlay]");
     if (askClose && (!event.target.closest(".ask-horizons-panel") || event.target.closest("[data-ask-close]"))) {
       closeAskHorizons();
+      return;
+    }
+    const slackClose = event.target.closest("[data-slack-modal-close], [data-slack-modal]");
+    if (slackClose && (!event.target.closest(".slack-modal") || event.target.closest("[data-slack-modal-close]"))) {
+      closeSlackModal();
       return;
     }
     const askChip = event.target.closest("[data-ask-chip]");
@@ -3469,6 +3546,8 @@ function bindEvents() {
     if (callSheetTab) { state.activeCallSheetDay = callSheetTab.dataset.callSheetTab; renderCallSheetTabs(); renderNowNext(); renderCallSheet(); scrollToUsefulPart("[data-call-sheet]"); return; }
     const scheduleView = event.target.closest("[data-schedule-view]");
     if (scheduleView) { state.scheduleView = scheduleView.dataset.scheduleView || "full"; renderSchedule(); return; }
+    const callSheetView = event.target.closest("[data-call-sheet-view]");
+    if (callSheetView) { state.callSheetView = callSheetView.dataset.callSheetView || "condensed"; renderCallSheet(); return; }
     const schedulePersonApply = event.target.closest("[data-schedule-person-apply]");
     if (schedulePersonApply) { state.schedulePerson = text($("[data-schedule-person-input]")?.value); renderSchedule(); return; }
     const schedulePersonClear = event.target.closest("[data-schedule-person-clear]");
@@ -3500,6 +3579,8 @@ function bindEvents() {
     if (departmentTab) { state.activeDepartment = departmentTab.dataset.departmentTab; renderDepartmentTabs(); renderDepartmentFocus(); return; }
     const contactTab = event.target.closest("[data-contact-tab]");
     if (contactTab) { state.activeContactCategory = contactTab.dataset.contactTab; renderContactTabs(); renderContacts(); return; }
+    const peopleSearchAsk = event.target.closest("[data-people-search-ask]");
+    if (peopleSearchAsk) { openAskHorizons(text($("[data-people-search]")?.value) || "who is in charge"); return; }
     const guestQuick = event.target.closest("[data-guest-quick]");
     if (guestQuick) { state.guestFilters.quick = guestQuick.dataset.guestQuick; renderGuests(); return; }
     const guestToggle = event.target.closest("[data-guest-toggle]");
@@ -3751,27 +3832,37 @@ function bindEvents() {
     }
     const sendCallSheetSlack = event.target.closest("[data-send-call-sheet-slack]");
     if (sendCallSheetSlack) {
-      const channel = window.prompt("Send call sheet summary to which Slack channel?", slackChannelFor("callSheet:summary") || "#horizons-schedule");
-      if (!channel) return;
+      openSlackModal();
+      return;
+    }
+    const slackModalCopy = event.target.closest("[data-slack-modal-copy]");
+    if (slackModalCopy) {
+      navigator.clipboard?.writeText($("[data-slack-modal-preview]")?.value || callSheetSlackSummary());
+      slackModalCopy.textContent = "Copied";
+      setTimeout(() => { slackModalCopy.textContent = "Copy Summary"; }, 1600);
+      return;
+    }
+    const slackModalSend = event.target.closest("[data-slack-modal-send]");
+    if (slackModalSend) {
+      const channel = text($("[data-slack-modal-channel]")?.value, slackChannelFor("callSheet:summary") || "#horizons-schedule");
       const update = {
         name: "Website",
         topic: "Call Sheet Summary",
         status: "Confirmed",
         priority: "Important",
         visibility: "Team",
-        comment: callSheetSlackSummary(),
+        comment: $("[data-slack-modal-preview]")?.value || callSheetSlackSummary(),
         notifySlack: true,
         slackChannel: channel,
         timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
       };
       try {
         await saveSharedUpdate(`callSheet:${slug(state.activeCallSheetDay)}:summary`, update);
-        sendCallSheetSlack.textContent = "Sent";
+        $("[data-slack-modal-status]").textContent = `Sent to ${channel}.`;
       } catch (error) {
         slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: `callSheet:${slug(state.activeCallSheetDay)}:summary`, channel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        sendCallSheetSlack.textContent = "Queued";
+        $("[data-slack-modal-status]").textContent = `Queued for ${channel}. Shared backend unavailable.`;
       }
-      setTimeout(() => { sendCallSheetSlack.textContent = "Send Slack Summary"; }, 1800);
       return;
     }
     const dismissSuggestion = event.target.closest("[data-capture-dismiss]");

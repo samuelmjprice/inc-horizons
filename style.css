@@ -35,6 +35,19 @@
 }
 
 :root {
+  --horizons-gold: #C28952;
+  --horizons-cream: #F3EAE1;
+  --horizons-blush: #E1C4AF;
+  --horizons-black: #111111;
+  --horizons-white: #FFFFFF;
+  --horizons-sage: #A8C1B0;
+  --horizons-forest: #5E7D6A;
+  --horizons-mint: #DCE6DE;
+  --horizons-soft-blue: #C7D7E6;
+  --horizons-blue: #B7CBDC;
+  --horizons-teal: #88B2AD;
+  --horizons-deep-blue: #6D8BAA;
+  --horizons-sand: #EBD9B7;
   --color-bg: #f3eae1;
   --color-surface: #fffdf8;
   --color-surface-alt: rgba(225, 196, 175, 0.28);
@@ -69,7 +82,13 @@
   --grey-text: #45515b;
   --shadow: 0 18px 54px rgba(93, 67, 39, 0.055);
   --radius: 10px;
+  --radius-soft: 14px;
   --container: 1160px;
+  --cream: var(--horizons-cream);
+  --gold: var(--horizons-gold);
+  --ink: var(--horizons-black);
+  --font-heading: "Soleil", "Gill Sans Nova", "Gill Sans", "Avenir Next", Arial, sans-serif;
+  --font-body: "Gill Sans Nova", "Gill Sans", "Avenir Next", Arial, sans-serif;
 }
 
 * {
@@ -90,9 +109,33 @@ body {
     radial-gradient(circle at 18% 0%, rgba(225, 196, 175, 0.26), transparent 34rem),
     linear-gradient(180deg, #f6efe6 0%, var(--bg) 48%, #fbf7ef 100%);
   color: var(--text);
-  font-family: "Gill Sans Nova", "Soleil", Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.62;
+}
+
+.hz-card,
+.hz-card--compact,
+.hz-panel,
+.hz-accordion {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-soft);
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.hz-button,
+.hz-button--primary,
+.hz-button--secondary,
+.hz-button--ghost,
+.hz-pill,
+.hz-chip,
+.hz-status-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--font-heading);
 }
 
 body.nav-open {
@@ -469,6 +512,33 @@ h3 {
   color: var(--text);
 }
 
+button:not(.menu-toggle):not(.ask-horizons-close):not(.app-tool-close):not(.hall-centre-backdrop),
+.contact-actions a,
+.section-end-nav a,
+.section-end-nav button,
+.guest-detail-toggle,
+.tab-button,
+.menu-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: 999px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.menu-controls button,
+.guest-detail-toggle,
+.add-card-panel summary {
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.86);
+  color: var(--bronze-dark);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 0.68rem 0.95rem;
+}
+
 .start-panel {
   width: min(100%, 860px);
   border: 1px solid var(--line);
@@ -679,7 +749,7 @@ select {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1.1rem;
 }
 
@@ -739,7 +809,7 @@ select {
 }
 
 .compact-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
 }
 
 .contacts-grid {
@@ -751,7 +821,7 @@ select {
 .call-sheet-item,
 .archive-block {
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-soft);
   background: rgba(255, 253, 248, 0.76);
   box-shadow: 0 10px 34px rgba(93, 67, 39, 0.04);
 }
@@ -760,7 +830,7 @@ select {
   display: flex;
   flex-direction: column;
   gap: 0.95rem;
-  padding: 1.1rem;
+  padding: 1.05rem;
   min-width: 0;
 }
 
@@ -1345,10 +1415,10 @@ body.hall-centre-open .section-progress {
 }
 
 .card-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.56rem;
 }
 
 .card-title {
@@ -1356,6 +1426,7 @@ body.hall-centre-open .section-progress {
   overflow-wrap: break-word;
   word-break: normal;
   hyphens: none;
+  line-height: 1.12;
 }
 
 .card p,
@@ -1379,7 +1450,7 @@ body.hall-centre-open .section-progress {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: max-content;
+  width: auto;
   max-width: 100%;
   border-radius: 999px;
   padding: 0.32rem 0.52rem;
@@ -1391,7 +1462,7 @@ body.hall-centre-open .section-progress {
   font-weight: 700;
   letter-spacing: 0.035em;
   line-height: 1.15;
-  white-space: nowrap;
+  white-space: normal;
   overflow-wrap: normal;
   flex: 0 0 auto;
 }
@@ -1399,10 +1470,11 @@ body.hall-centre-open .section-progress {
 .tag-stack {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.35rem;
   min-width: 0;
-  max-width: min(100%, 18rem);
+  max-width: 100%;
+  order: -1;
 }
 
 .card-title-group,
@@ -1446,6 +1518,7 @@ body.hall-centre-open .section-progress {
   min-height: 30px;
   width: auto;
   max-width: 100%;
+  min-width: min(100%, 9.8rem);
   border-radius: 999px;
   padding: 0.28rem 1.7rem 0.28rem 0.58rem;
   font: 800 0.72rem/1.15 "Soleil", Arial, sans-serif;
@@ -1677,6 +1750,67 @@ body.ask-open .ask-horizons-button {
   display: none;
 }
 
+.slack-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 170;
+  display: grid;
+  place-items: center;
+  background: rgba(34, 29, 24, 0.48);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.slack-modal-overlay[hidden] {
+  display: none;
+}
+
+.slack-modal {
+  display: grid;
+  gap: 0.9rem;
+  width: min(680px, 100%);
+  max-height: min(760px, calc(100dvh - 2rem));
+  overflow: auto;
+  border: 1px solid rgba(190, 140, 88, 0.34);
+  border-radius: var(--radius-soft);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(243, 234, 225, 0.96));
+  box-shadow: 0 26px 90px rgba(33, 27, 21, 0.3);
+  padding: 1.2rem;
+}
+
+.slack-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.slack-modal-header h2 {
+  margin: 0.1rem 0 0;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+}
+
+.slack-modal-header button {
+  width: 44px;
+  min-width: 44px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--bronze-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.slack-modal textarea {
+  width: 100%;
+  min-height: 260px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--text);
+  padding: 0.85rem;
+  font: 0.9rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
 .tag-critical,
 .tag-at-risk,
 .tag-red {
@@ -1802,6 +1936,31 @@ body.ask-open .ask-horizons-button {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   margin: 0.35rem 0 0.75rem;
+}
+
+.daily-brief {
+  margin: 0.75rem 0 1rem;
+  border: 1px solid rgba(190, 140, 88, 0.24);
+  border-radius: var(--radius-soft);
+  background: rgba(255, 253, 248, 0.66);
+  overflow: hidden;
+}
+
+.daily-brief > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.85rem 1rem;
+  color: var(--bronze-dark);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.daily-brief .details-content {
+  padding: 0 1rem 1rem;
 }
 
 .call-sheet-top-grid .weather-card,
@@ -3043,9 +3202,17 @@ body.admin-view .admin-tool-section,
 }
 
 @media (max-width: 760px) {
+  .container {
+    width: min(100% - 1.25rem, var(--container));
+  }
+
+  .section {
+    padding: 42px 0;
+  }
+
   .ask-horizons-button {
     right: 16px;
-    bottom: calc(86px + env(safe-area-inset-bottom));
+    bottom: calc(92px + env(safe-area-inset-bottom));
     padding: 0.78rem 0.92rem;
   }
 
@@ -3068,23 +3235,6 @@ body.admin-view .admin-tool-section,
     min-height: 42px;
   }
 
-  .card-header,
-  .hall-reference-header,
-  .hall-file-card-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    justify-content: stretch;
-    gap: 0.55rem;
-  }
-
-  .card-header .tag-stack,
-  .hall-reference-header .tag-stack,
-  .hall-file-card-head .tag-stack {
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 100%;
-  }
-
   .tag {
     width: auto;
     max-width: 100%;
@@ -3099,6 +3249,7 @@ body.admin-view .admin-tool-section,
   .hall-reference-card {
     overflow-wrap: break-word;
     word-break: normal;
+    padding: 0.95rem;
   }
 
   .home-search-actions,
@@ -3236,7 +3387,6 @@ body.admin-view .admin-tool-section,
   }
 
   .section {
-    padding: 56px 0;
     scroll-margin-top: 78px;
   }
 
@@ -3390,7 +3540,7 @@ body.admin-view .admin-tool-section,
   }
 
   .hall-centre-header h2 {
-    font-size: clamp(1.32rem, 6.6vw, 1.82rem);
+    font-size: clamp(1.08rem, 5.1vw, 1.44rem);
     letter-spacing: 0.038em;
     line-height: 1.03;
     max-width: 19rem;
@@ -3401,7 +3551,7 @@ body.admin-view .admin-tool-section,
   }
 
   .hall-centre-header p:not(.eyebrow) {
-    font-size: 0.84rem;
+    font-size: 0.78rem;
     line-height: 1.28;
     margin: 0.18rem 0 0;
   }
@@ -3434,6 +3584,10 @@ body.admin-view .admin-tool-section,
     justify-content: stretch;
     width: 100%;
     margin-top: 0.45rem;
+  }
+
+  .tool-status-summary {
+    display: none;
   }
 
   .hall-centre-actions a,
@@ -3550,7 +3704,8 @@ body.admin-view .admin-tool-section,
   .timeline-item,
   .call-sheet-item {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    gap: 0.45rem;
+    padding: 0.88rem;
   }
 
   .now-next,
@@ -3567,6 +3722,14 @@ body.admin-view .admin-tool-section,
   .section-jump {
     grid-template-columns: auto auto minmax(78px, 1fr) auto;
     width: min(calc(100% - 0.7rem), 560px);
+  }
+
+  .daily-brief .details-content {
+    padding: 0 0.72rem 0.78rem;
+  }
+
+  .slack-modal {
+    padding: 1rem;
   }
 
   .section-jump a,
