@@ -1,15 +1,5 @@
 # Search And Filter Behavior Fix Report
 
-## Fixed
+Fixed. Homepage search opens the shared result/Ask flow rather than destructively hiding the site. Personalised view is explicit, labelled, and clearable. Reset filters also clears personalised, call sheet, and schedule person views.
 
-Homepage search now uses `state.searchQuery` for the search results panel instead of `state.filters.query`.
-
-## Effect
-
-- Typing into homepage search shows quick results.
-- It no longer silently filters/hides all site sections.
-- Reset filters clears the search query and the panel.
-
-## Still Recommended
-
-A future pass should add richer result deep links to specific cards rather than only section anchors.
+Checked: 7 June 2026.

@@ -17,11 +17,6 @@ const state = {
   searchQuery: "",
   askQuery: "",
   askOpen: false,
-  personalizedView: "",
-  callSheetPerson: "",
-  scheduleView: "full",
-  schedulePerson: "",
-  printMode: "full",
   menuFilters: { query: "", date: "", location: "", meal: "", needs: false },
   roundTablePlan: null,
   roundTableStorageWarning: "",
@@ -35,11 +30,10 @@ const state = {
   dismissedCaptureSuggestions: [],
   localRedFlags: [],
   localDecisions: [],
-  statusOverrides: {},
   updates: {}
 };
 
-const APP_VERSION = "20260607-current-samuel-review1";
+const APP_VERSION = "20260606-samuel-recovery1";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -75,9 +69,6 @@ const SEARCH_ALIASES = {
   "poppy": "Poppy Luck",
   "kelechi": "Kelechi Nwanokwu",
   "ben": "Ben Eddon-Carruthers",
-  "fedi": "Federico Tambourini",
-  "fede": "Federico Tambourini",
-  "federico": "Federico Tambourini",
   "hall": "HORIZONS Hall",
   "table plan": "HORIZONS Hall Round Table Plan",
   "round table": "HORIZONS Hall Round Table Plan",
@@ -129,7 +120,7 @@ const normalizeLabel = (value = "") => {
   if (normalized.includes("at risk")) return "Watch";
   return raw;
 };
-const activeStatus = (item = {}) => statusFor(item.updateId, latestUpdate(item.updateId)?.status || item.status || item.priority || "");
+const activeStatus = (item = {}) => normalizeLabel(latestUpdate(item.updateId)?.status || item.status || item.priority || "");
 const isActiveOperationalItem = (item = {}) => !/resolved|archived|complete|confirmed|not needed/i.test(activeStatus(item));
 const normalizePriority = (value = "") => {
   const raw = text(value);
@@ -228,17 +219,6 @@ const localDecisionStore = {
   }
 };
 
-const statusOverrideStore = {
-  key: "horizons-status-overrides-v1",
-  load() {
-    try { return JSON.parse(localStorage.getItem(this.key) || "{}"); }
-    catch { return {}; }
-  },
-  save(value) {
-    localStorage.setItem(this.key, JSON.stringify(value));
-  }
-};
-
 const statusClass = (value = "") => {
   const normalized = slug(normalizeLabel(value));
   if (normalized.includes("problem") || normalized.includes("urgent") || normalized.includes("risk") || normalized.includes("critical")) return "tag-critical";
@@ -249,22 +229,6 @@ const statusClass = (value = "") => {
   return "";
 };
 
-const statusOverrides = () => state.statusOverrides || {};
-const statusFor = (id = "", fallback = "") => normalizeLabel((id && statusOverrides()[id]) || fallback || "");
-const statusControl = (id = "", fallback = "") => {
-  if (!id) return tag(fallback);
-  const value = statusFor(id, fallback);
-  const choices = options();
-  const current = choices.includes(value) ? value : value || "Needs Confirmation";
-  return `
-    <label class="status-control" title="Saved locally on this device unless shared backend sync is connected.">
-      <span>Status</span>
-      <select class="status-select ${statusClass(current)}" data-status-control="${escapeHtml(id)}">
-        ${choices.map((option) => `<option value="${escapeHtml(option)}" ${option === current ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
-      </select>
-    </label>
-  `;
-};
 const tag = (value, extraClass = "") => value ? `<span class="tag ${statusClass(value)} ${extraClass}">${escapeHtml(normalizeLabel(value))}</span>` : "";
 const departmentTag = (value) => value ? tag(value, `department-tag department-${slug(value)}`) : "";
 const meta = (label, value) => value ? `<div><span>${escapeHtml(label)}:</span> ${escapeHtml(value)}</div>` : "";
@@ -332,29 +296,8 @@ const ownerMatches = (candidate, selected) => {
   const choice = displayName(selected).toLowerCase();
   return tokens.some((token) => token.toLowerCase() === choice) || normalized.includes(choice);
 };
-const relevanceMatches = (item = {}, query = "") => {
-  const q = displayName(query).toLowerCase().trim();
-  if (!q) return true;
-  return expandSearchQuery(q).some((term) => safeSearchBlob(item).includes(term.toLowerCase()) || displayName(JSON.stringify(item)).toLowerCase().includes(term.toLowerCase()));
-};
-const activePersonalQuery = () => text(state.callSheetPerson || state.schedulePerson || state.personalizedView);
 
-const options = () => unique([
-  "Needs Confirmation",
-  "Confirmed",
-  "TBC",
-  "Watch",
-  "Resolved",
-  "Archived",
-  "Decision Needed",
-  "File Needed",
-  "Location Needed",
-  "On Track",
-  "Problem",
-  "Still To Be Resolved",
-  "Waiting",
-  ...(state.data?.meta?.statusOptions || [])
-]);
+const options = () => state.data?.meta?.statusOptions || ["Still To Be Resolved", "Resolved", "Problem", "Needs Confirmation", "Waiting", "On Track"];
 const slackChannelFor = (id = "") => {
   const routing = state.data?.meta?.slackCommentRouting || {};
   const prefix = text(id).split(":")[0] || "default";
@@ -429,7 +372,7 @@ async function loadSharedUpdates() {
 
 async function saveSharedUpdate(parentId, update) {
   const base = backendApiBase();
-  if (!base) throw new Error("Shared backend unavailable");
+  if (!base) throw new Error("Shared backend pending setup");
   const payload = {
     parent_type: parentTypeFor(parentId),
     parent_id: parentId,
@@ -673,12 +616,11 @@ const updateModule = (id, topics = []) => {
 
 const card = ({ title, status, department, body = "", metadata = "", footer = "", className = "", updateId = "", updateTopics = [] }) => {
   const latest = latestUpdate(updateId);
-  const currentStatus = statusFor(updateId, latest?.status || status);
   return `
     <article class="card ${className}">
       <div class="card-header">
-        <div class="card-title-group"><h3 class="card-title">${escapeHtml(title)}</h3></div>
-        <div class="tag-stack">${departmentTag(department)}${updateId ? statusControl(updateId, currentStatus) : tag(currentStatus)}</div>
+        <h3 class="card-title">${escapeHtml(title)}</h3>
+        <div class="tag-stack">${departmentTag(department)}${tag(latest?.status || status)}</div>
       </div>
       ${latest ? `<p><strong>Latest update:</strong> ${escapeHtml(latest.comment)}</p>` : ""}
       ${body}
@@ -711,7 +653,6 @@ async function init() {
   const response = await fetch(`content.json?v=${APP_VERSION}`);
   state.data = await response.json();
   state.updates = updateStore.load();
-  state.statusOverrides = statusOverrideStore.load();
   await loadSharedUpdates();
   await loadSharedSeatingPlan();
   state.captureSuggestions = suggestionStore.load();
@@ -1009,18 +950,6 @@ function renderSearchResults() {
   `;
 }
 
-function renderPersonalizedBanner() {
-  const banner = $("[data-personalized-banner]");
-  if (!banner) return;
-  const query = text(state.personalizedView);
-  banner.hidden = !query;
-  banner.innerHTML = query ? `
-    <strong>Viewing relevant items for ${escapeHtml(displayName(query))}</strong>
-    <span>Call sheet and schedule views are focused, but the full site remains available.</span>
-    <button class="button button-secondary" type="button" data-clear-personalized-view>Clear personalised view</button>
-  ` : "";
-}
-
 function renderAskHorizons() {
   const chips = $("[data-ask-chips]");
   if (chips && !chips.innerHTML) {
@@ -1051,7 +980,6 @@ function renderAskHorizons() {
 
 function renderAll() {
   renderSearchResults();
-  renderPersonalizedBanner();
   renderAskHorizons();
   renderToday();
   renderRedFlags();
@@ -1134,16 +1062,6 @@ function scrollToSectionTarget(href = "#overview") {
   window.HORIZONS_UPDATE_SECTION_NAV?.();
 }
 
-function scrollToUsefulPart(selector = "#call-sheet") {
-  requestAnimationFrame(() => {
-    const target = $(selector) || document.getElementById("call-sheet");
-    if (!target) return;
-    const headerOffset = ($("[data-header]")?.offsetHeight || 72) + 100;
-    const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset);
-    window.scrollTo({ top, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  });
-}
-
 function renderToday() {
   const { today } = state.data;
   const eventDay = getCurrentEventDay();
@@ -1185,18 +1103,11 @@ function renderRedFlags() {
     <details class="add-card-panel">
       <summary><span>Add Red Flag</span>${tag("Local until backend connected")}</summary>
       <form class="quick-add-form" data-add-red-flag>
-        <label><span>Red flag title</span><input required name="issue" placeholder="What needs attention?"></label>
-        <label><span>Severity</span><select name="severity"><option>High</option><option>Critical</option><option>Medium</option><option>Low</option></select></label>
+        <label><span>Issue</span><input required name="issue" placeholder="What needs attention?"></label>
+        <label><span>Why it matters</span><textarea name="whyItMatters" placeholder="Add the operational impact"></textarea></label>
         <label><span>Owner</span><input name="owner" placeholder="Owner or team"></label>
-        <label><span>Department</span><input name="department" placeholder="Department or supplier"></label>
-        <label><span>Location</span><input name="location" placeholder="Location if relevant"></label>
-        <label><span>Decision needed</span><input name="decisionNeeded" placeholder="Decision or action needed"></label>
-        <label><span>Due by / sensitivity</span><input name="dueBy" placeholder="Today, before rehearsal, etc."></label>
-        <label><span>Status</span><select name="status">${["Needs Confirmation", "Watch", "Confirmed", "Resolved"].map((status) => `<option>${escapeHtml(status)}</option>`).join("")}</select></label>
-        <label><span>Notes</span><textarea name="whyItMatters" placeholder="Add the operational impact and notes"></textarea></label>
-        <label><span>Slack channel</span><select name="slackChannel">${slackChannelsForSelect("#horizons-red-flags").map((channel) => `<option value="${escapeHtml(channel)}">${escapeHtml(channel)}</option>`).join("")}</select></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack</span></label>
-        <div class="action-row"><button class="button button-secondary" type="submit" name="submitMode" value="save">Save only</button><button class="button button-primary" type="submit" name="submitMode" value="notify">Save + Notify Slack</button></div>
+        <label><span>Priority</span><select name="priority"><option>Watch</option><option>Critical</option><option>Needs Confirmation</option></select></label>
+        <button class="button button-secondary" type="submit">Add Red Flag</button>
       </form>
     </details>
   `;
@@ -1402,28 +1313,20 @@ function renderSchedule() {
   const items = liveItems(state.data.schedule)
     .filter((item) => (item.dayLabel || item.date) === state.activeDay)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
-    .filter((item) => relevanceMatches(item, state.schedulePerson || state.personalizedView))
     .slice(0, 80);
-  $$("[data-schedule-view]").forEach((button) => button.classList.toggle("is-active", button.dataset.scheduleView === state.scheduleView));
-  const personInput = $("[data-schedule-person-input]");
-  if (personInput && personInput.value !== state.schedulePerson) personInput.value = state.schedulePerson;
-  const condensed = state.scheduleView === "condensed";
-  setHtml("[data-schedule]", `
-    ${state.schedulePerson || state.personalizedView ? `<div class="personalized-inline-banner">Viewing schedule for ${escapeHtml(displayName(state.schedulePerson || state.personalizedView))}</div>` : ""}
-    ${items.map((item) => `
+  setHtml("[data-schedule]", items.map((item) => `
     <article class="timeline-item ${item.updateId === schedulePosition(state.activeDay).current?.updateId ? "is-now" : ""} ${item.updateId === schedulePosition(state.activeDay).next?.updateId ? "is-next" : ""}">
       <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
       <div>
-        <div class="card-header"><div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div><div class="tag-stack">${statusControl(item.updateId, latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
+        <div class="card-header"><h3>${escapeHtml(item.title)}</h3><div class="tag-stack">${tag(latestUpdate(item.updateId)?.status || item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div></div>
         ${latestUpdate(item.updateId) ? `<p><strong>Latest update:</strong> ${escapeHtml(latestUpdate(item.updateId).comment)}</p>` : ""}
-        ${condensed ? "" : `<p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>`}
+        <p>${escapeHtml(firstMeaningful(item.shortDescription, item.notes, item.category))}</p>
         <div class="meta-list">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Person involved", item.personInvolved)}${meta("Seating layout", item.seatingLayout)}${meta("Layout status", item.layoutStatus)}</div>
-        ${condensed ? "" : detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], `${item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : ""}${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
-        ${condensed ? "" : updateModule(item.updateId)}
+        ${detailsBlock("More details", [["Category", item.category], ["Support", item.support], ["Department", item.department], ["Priority", normalizePriority(item.priority)], ["Workstream", item.workstream], ["Source", item.source]], `${item.notes && item.notes !== item.shortDescription ? `<p>${escapeHtml(item.notes)}</p>` : ""}${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
+        ${updateModule(item.updateId)}
       </div>
     </article>
-  `).join("") || empty("No schedule items match the current filters for this day.")}
-  `);
+  `).join("") || empty("No schedule items match the current filters for this day."));
 }
 
 function renderCallSheetTabs() {
@@ -1451,18 +1354,15 @@ function renderCallSheet() {
   const items = liveItems(state.data.schedule)
     .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
     .filter((item) => passesGlobal(item, { status: item.status, day: item.dayLabel || item.date, owner: item.owner, location: item.location, department: item.department, updateId: item.updateId }))
-    .filter((item) => relevanceMatches(item, state.callSheetPerson || state.personalizedView))
     .map((item) => ({ ...item, startMinutes: parseTimeMinutes(item.timeStart || item.timeDisplay) }))
     .sort((a, b) => (a.startMinutes ?? 9999) - (b.startMinutes ?? 9999))
     .slice(0, 120);
-  const personInput = $("[data-call-sheet-person-input]");
-  if (personInput && personInput.value !== state.callSheetPerson) personInput.value = state.callSheetPerson;
   setHtml("[data-call-sheet-summary]", card({
     title: sheet.title || `${state.activeCallSheetDay} Call Sheet`,
     status: sheet.status || "Needs Confirmation",
     body: `<p>${escapeHtml(sheet.dailyFocus || "Daily focus needed")}</p>`,
     metadata: meta("Crew call", sheet.crewCallTime) + meta("Main location", sheet.mainLocation) + meta("Key contacts", sheet.keyContacts),
-    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet="full">Print Full Call Sheet</button><button type="button" data-print-call-sheet="condensed">Print Condensed Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button><button type="button" data-send-call-sheet-slack>Send Slack Summary</button>${sheet.roundTableSeatingPlanId ? `<a href="#locations">Open round table seating plan</a><button type="button" data-round-table-print>Print seating plan</button>` : ""}<a href="#who-do-i-call">Who Do I Call</a></div>`,
+    footer: `<div class="contact-actions"><button type="button" data-print-call-sheet>Print Call Sheet</button><button type="button" data-copy-call-sheet>Copy Slack Summary</button>${sheet.roundTableSeatingPlanId ? `<a href="#locations">Open round table seating plan</a><button type="button" data-round-table-print>Print seating plan</button>` : ""}<a href="#who-do-i-call">Who Do I Call</a></div>`,
     updateId: sheet.id || `call-sheet:${slug(state.activeCallSheetDay)}`
   }));
   setHtml("[data-call-sheet-emergency]", card({
@@ -1489,7 +1389,7 @@ function renderCallSheet() {
     card({ title: "Missing files for this day", status: sheet.missingFiles?.length ? "File Needed" : "On Track", body: list(sheet.missingFiles) || "<p>No day-specific missing files listed.</p>", updateId: `call-sheet-missing:${slug(state.activeCallSheetDay)}` })
   ].join(""));
   let nowLineRendered = false;
-  setHtml("[data-call-sheet]", `${state.callSheetPerson || state.personalizedView ? `<div class="personalized-inline-banner">Viewing call sheet for ${escapeHtml(displayName(state.callSheetPerson || state.personalizedView))}</div>` : ""}${items.map((item) => {
+  setHtml("[data-call-sheet]", `${items.map((item) => {
     const past = isToday && item.startMinutes !== null && item.startMinutes < nowMinutes && item.updateId !== position.current?.updateId;
     const current = item.updateId === position.current?.updateId;
     const next = item.updateId === position.next?.updateId;
@@ -1500,8 +1400,8 @@ function renderCallSheet() {
         <div class="timeline-time">${escapeHtml(item.timeDisplay || item.timeStart || "TBC")}</div>
         <div>
           <div class="card-header">
-            <div class="card-title-group"><h3>${escapeHtml(item.title)}</h3></div>
-            <div class="tag-stack">${current ? tag("Now") : ""}${next ? tag("Next") : ""}${statusControl(item.updateId, item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <div class="tag-stack">${current ? tag("Now") : ""}${next ? tag("Next") : ""}${tag(item.status)}${item.priority ? tag(normalizePriority(item.priority), "priority-tag") : ""}</div>
           </div>
           <div class="meta-list compact-meta">${meta("Location", item.location)}${meta("Owner", item.owner)}${meta("Department", item.department || item.category)}</div>
           ${detailsBlock("Call sheet details", [["Support/team", item.support], ["Category", item.category], ["Supplier", item.relatedSupplier], ["Content capture", item.relatedContentCapture], ["Status", normalizeLabel(item.status)], ["Notes", item.notes]], `${layoutLinks(item.relatedLayoutIds)}${item.roundTableSeatingPlanId ? `<div class="contact-actions"><a href="#locations">Open round table seating plan</a></div>` : ""}`)}
@@ -1510,32 +1410,6 @@ function renderCallSheet() {
       </article>
     `;
   }).join("") || empty("No call sheet items match the current filters for this day.")}`);
-}
-
-function callSheetSlackSummary(day = state.activeCallSheetDay) {
-  const sheet = (state.data.callSheets || []).find((item) => item.day === day) || {};
-  const items = liveItems(state.data.schedule)
-    .filter((item) => (item.dayLabel || item.date) === day)
-    .filter((item) => relevanceMatches(item, state.callSheetPerson || state.personalizedView))
-    .sort((a, b) => (parseTimeMinutes(a.timeStart || a.timeDisplay) ?? 9999) - (parseTimeMinutes(b.timeStart || b.timeDisplay) ?? 9999));
-  const focus = sheet.dailyFocus || "Focus TBC";
-  const needs = items.filter((item) => /needs|tbc|file|location/i.test(statusFor(item.updateId, item.status))).slice(0, 6);
-  const topItems = items.slice(0, 10).map((item) => `${item.timeDisplay || item.timeStart || "TBC"} - ${item.title} - ${item.location || "Location TBC"} - ${item.owner || "Owner TBC"}`);
-  return [
-    `HORIZONS Call Sheet - ${day}`,
-    `Key focus: ${focus}`,
-    `Crew call: ${sheet.crewCallTime || "TBC"}`,
-    `Main location: ${sheet.mainLocation || "TBC"}`,
-    `Key contacts: ${sheet.keyContacts || "TBC"}`,
-    "",
-    "Top timed items:",
-    ...(topItems.length ? topItems : ["No timed items listed."]),
-    "",
-    "Needs confirmation:",
-    ...(needs.length ? needs.map((item) => `- ${item.title} (${statusFor(item.updateId, item.status)})`) : ["- No flagged confirmations in this view."]),
-    "",
-    `Open site: ${location.origin}${location.pathname}#call-sheet`
-  ].join("\n");
 }
 
 function renderLocationSchedules() {
@@ -1630,12 +1504,12 @@ function renderMenus() {
   setHtml("[data-menu-count]", `${menus.length} menu${menus.length === 1 ? "" : "s"}`);
   const grouped = groupBy(menus, (item) => item.date || "Date Needs Confirmation");
   const html = Object.entries(grouped).map(([date, rows]) => `
-    <details class="menu-date-group details" aria-label="Menus for ${escapeHtml(date)}">
-      <summary class="subsection-heading">
+    <section class="menu-date-group" aria-label="Menus for ${escapeHtml(date)}">
+      <div class="subsection-heading">
         <h3>${escapeHtml(date)}</h3>
-        <span class="summary-hint">${rows.length} menu${rows.length === 1 ? "" : "s"}</span>
-      </summary>
-      <div class="cards-grid menu-card-grid details-content">
+        <span>${rows.length} menu${rows.length === 1 ? "" : "s"}</span>
+      </div>
+      <div class="cards-grid menu-card-grid">
         ${rows.map((item) => {
           const relatedRestaurantCount = (item.related_restaurant_schedule_ids || []).length;
           const relatedCallSheetCount = (item.related_call_sheet_ids || []).length;
@@ -1681,7 +1555,7 @@ function renderMenus() {
           `;
         }).join("")}
       </div>
-    </details>
+    </section>
   `).join("");
   setHtml("[data-menus]", html || empty("No menus match the current filters."));
 }
@@ -3069,18 +2943,11 @@ function renderDecisions() {
     <details class="add-card-panel">
       <summary><span>Add Decision Needed</span>${tag("Local until backend connected")}</summary>
       <form class="quick-add-form" data-add-decision>
-        <label><span>Decision title</span><input required name="decisionNeeded" placeholder="What needs deciding?"></label>
-        <label><span>Decision needed</span><textarea name="whyItMatters" placeholder="Operational impact"></textarea></label>
+        <label><span>Decision needed</span><input required name="decisionNeeded" placeholder="What needs deciding?"></label>
+        <label><span>Why it matters</span><textarea name="whyItMatters" placeholder="Operational impact"></textarea></label>
         <label><span>Owner</span><input name="owner" placeholder="Owner or approver"></label>
-        <label><span>Department</span><input name="department" placeholder="Department or supplier"></label>
-        <label><span>Options / choices</span><textarea name="options" placeholder="Option A, Option B, implications"></textarea></label>
-        <label><span>Impact if not decided</span><textarea name="impact" placeholder="What happens if this remains open?"></textarea></label>
-        <label><span>Due by</span><input name="deadline" placeholder="When is it needed?"></label>
-        <label><span>Status</span><select name="status">${["Decision Needed", "Needs Confirmation", "Confirmed", "Resolved"].map((status) => `<option>${escapeHtml(status)}</option>`).join("")}</select></label>
-        <label><span>Notes</span><textarea name="notes" placeholder="Extra notes"></textarea></label>
-        <label><span>Slack channel</span><select name="slackChannel">${slackChannelsForSelect("#horizons-decisions").map((channel) => `<option value="${escapeHtml(channel)}">${escapeHtml(channel)}</option>`).join("")}</select></label>
-        <label class="checkbox-row"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack</span></label>
-        <div class="action-row"><button class="button button-secondary" type="submit" name="submitMode" value="save">Save only</button><button class="button button-primary" type="submit" name="submitMode" value="notify">Save + Notify Slack</button></div>
+        <label><span>Deadline</span><input name="deadline" placeholder="When is it needed?"></label>
+        <button class="button button-secondary" type="submit">Add Decision</button>
       </form>
     </details>
   `;
@@ -3243,13 +3110,6 @@ function bindEvents() {
   $("[data-global-search]").addEventListener("input", (event) => { state.searchQuery = event.target.value.trim(); renderSearchResults(); });
   const askInput = $("[data-ask-input]");
   if (askInput) askInput.addEventListener("input", (event) => { state.askQuery = event.target.value.trim(); renderAskHorizons(); });
-  const homePersonalInput = $("[data-home-personal-input]");
-  if (homePersonalInput) homePersonalInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      openAskHorizons(homePersonalInput.value.trim());
-    }
-  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && state.askOpen) {
       closeAskHorizons();
@@ -3312,14 +3172,6 @@ function bindEvents() {
     }
   });
   document.addEventListener("change", (event) => {
-    const statusSelect = event.target.closest("[data-status-control]");
-    if (statusSelect) {
-      const id = statusSelect.dataset.statusControl;
-      state.statusOverrides = { ...statusOverrides(), [id]: statusSelect.value };
-      statusOverrideStore.save(state.statusOverrides);
-      renderAll();
-      return;
-    }
     const hallSectionSelect = event.target.closest("[data-hall-section-select]");
     if (hallSectionSelect) {
       state.activeHallTab = hallSectionSelect.value || "overview";
@@ -3346,13 +3198,7 @@ function bindEvents() {
     state.menuFilters = { query: "", date: "", location: "", meal: "", needs: false };
     state.searchQuery = "";
     state.askQuery = "";
-    state.personalizedView = "";
-    state.callSheetPerson = "";
-    state.schedulePerson = "";
     $("[data-global-search]").value = "";
-    if ($("[data-home-personal-input]")) $("[data-home-personal-input]").value = "";
-    if ($("[data-call-sheet-person-input]")) $("[data-call-sheet-person-input]").value = "";
-    if ($("[data-schedule-person-input]")) $("[data-schedule-person-input]").value = "";
     if (askInput) askInput.value = "";
     if (guestSearch) guestSearch.value = "";
     if (attendeeSearch) attendeeSearch.value = "";
@@ -3367,35 +3213,6 @@ function bindEvents() {
     const askOpen = event.target.closest("[data-ask-open]");
     if (askOpen) {
       openAskHorizons();
-      return;
-    }
-    const homeSearch = event.target.closest("[data-home-search-submit]");
-    if (homeSearch) {
-      const query = text($("[data-home-personal-input]")?.value);
-      openAskHorizons(query);
-      return;
-    }
-    const homeViewAs = event.target.closest("[data-home-view-as]");
-    if (homeViewAs) {
-      const query = text($("[data-home-personal-input]")?.value);
-      if (!query) {
-        openAskHorizons("who do i call");
-        return;
-      }
-      state.personalizedView = query;
-      state.callSheetPerson = query;
-      state.schedulePerson = query;
-      renderAll();
-      scrollToSectionTarget("#call-sheet");
-      return;
-    }
-    const clearPersonalized = event.target.closest("[data-clear-personalized-view]");
-    if (clearPersonalized) {
-      state.personalizedView = "";
-      state.callSheetPerson = "";
-      state.schedulePerson = "";
-      if ($("[data-home-personal-input]")) $("[data-home-personal-input]").value = "";
-      renderAll();
       return;
     }
     const askClose = event.target.closest("[data-ask-close], [data-ask-overlay]");
@@ -3464,19 +3281,9 @@ function bindEvents() {
       }
     }
     const dayTab = event.target.closest("[data-day-tab]");
-    if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); scrollToUsefulPart("[data-schedule]"); return; }
+    if (dayTab) { state.activeDay = dayTab.dataset.dayTab; renderScheduleTabs(); renderNowNext(); renderSchedule(); renderDepartmentFocus(); renderDailyRuns(); return; }
     const callSheetTab = event.target.closest("[data-call-sheet-tab]");
-    if (callSheetTab) { state.activeCallSheetDay = callSheetTab.dataset.callSheetTab; renderCallSheetTabs(); renderNowNext(); renderCallSheet(); scrollToUsefulPart("[data-call-sheet]"); return; }
-    const scheduleView = event.target.closest("[data-schedule-view]");
-    if (scheduleView) { state.scheduleView = scheduleView.dataset.scheduleView || "full"; renderSchedule(); return; }
-    const schedulePersonApply = event.target.closest("[data-schedule-person-apply]");
-    if (schedulePersonApply) { state.schedulePerson = text($("[data-schedule-person-input]")?.value); renderSchedule(); return; }
-    const schedulePersonClear = event.target.closest("[data-schedule-person-clear]");
-    if (schedulePersonClear) { state.schedulePerson = ""; if ($("[data-schedule-person-input]")) $("[data-schedule-person-input]").value = ""; renderSchedule(); return; }
-    const callSheetPersonApply = event.target.closest("[data-call-sheet-person-apply]");
-    if (callSheetPersonApply) { state.callSheetPerson = text($("[data-call-sheet-person-input]")?.value); renderCallSheet(); return; }
-    const callSheetPersonClear = event.target.closest("[data-call-sheet-person-clear]");
-    if (callSheetPersonClear) { state.callSheetPerson = ""; if ($("[data-call-sheet-person-input]")) $("[data-call-sheet-person-input]").value = ""; renderCallSheet(); return; }
+    if (callSheetTab) { state.activeCallSheetDay = callSheetTab.dataset.callSheetTab; renderCallSheetTabs(); renderNowNext(); renderCallSheet(); return; }
     const contentDayTab = event.target.closest("[data-content-day-tab]");
     if (contentDayTab) { state.activeContentDay = contentDayTab.dataset.contentDayTab; renderContentDayTabs(); renderContentCapture(); return; }
     const openToday = event.target.closest("[data-open-today]");
@@ -3705,9 +3512,9 @@ function bindEvents() {
     const documentTab = event.target.closest("[data-document-tab]");
     if (documentTab) { state.activeDocumentCategory = documentTab.dataset.documentTab; renderDocumentTabs(); renderDocuments(); return; }
     const expandMenus = event.target.closest("[data-menu-expand-all]");
-    if (expandMenus) { $$("[data-menus] details.menu-date-group, [data-menus] details.menu-details").forEach((detail) => { detail.open = true; updateMenuDetailLabel(detail); }); return; }
+    if (expandMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = true; updateMenuDetailLabel(detail); }); return; }
     const collapseMenus = event.target.closest("[data-menu-collapse-all]");
-    if (collapseMenus) { $$("[data-menus] details.menu-date-group, [data-menus] details.menu-details").forEach((detail) => { detail.open = false; updateMenuDetailLabel(detail); }); return; }
+    if (collapseMenus) { $$("[data-menus] details.menu-details").forEach((detail) => { detail.open = false; updateMenuDetailLabel(detail); }); return; }
     const openMenu = event.target.closest("[data-menu-open]");
     if (openMenu) {
       event.preventDefault();
@@ -3735,43 +3542,19 @@ function bindEvents() {
       return;
     }
     const printCallSheet = event.target.closest("[data-print-call-sheet]");
-    if (printCallSheet) {
-      state.printMode = printCallSheet.dataset.printCallSheet || "full";
-      document.body.dataset.printMode = state.printMode;
-      window.print();
-      setTimeout(() => { delete document.body.dataset.printMode; }, 1000);
-      return;
-    }
+    if (printCallSheet) { window.print(); return; }
     const copyCallSheet = event.target.closest("[data-copy-call-sheet]");
     if (copyCallSheet) {
-      navigator.clipboard?.writeText(callSheetSlackSummary());
+      const sheet = (state.data.callSheets || []).find((item) => item.day === state.activeCallSheetDay) || {};
+      const items = state.data.schedule
+        .filter((item) => (item.dayLabel || item.date) === state.activeCallSheetDay)
+        .slice(0, 8)
+        .map((item) => `${item.timeDisplay || item.timeStart || "TBC"} - ${item.title} (${item.location || "Location TBC"})`)
+        .join("\n");
+      const message = `CALL SHEET: ${sheet.title || state.activeCallSheetDay}\nCrew call: ${sheet.crewCallTime || "TBC"}\nMain location: ${sheet.mainLocation || "TBC"}\nFocus: ${sheet.dailyFocus || "TBC"}\n\nSchedule:\n${items}\n\nOpen: ${location.origin}${location.pathname}#call-sheet`;
+      navigator.clipboard?.writeText(message);
       copyCallSheet.textContent = "Copied";
       setTimeout(() => { copyCallSheet.textContent = "Copy Slack Summary"; }, 1600);
-      return;
-    }
-    const sendCallSheetSlack = event.target.closest("[data-send-call-sheet-slack]");
-    if (sendCallSheetSlack) {
-      const channel = window.prompt("Send call sheet summary to which Slack channel?", slackChannelFor("callSheet:summary") || "#horizons-schedule");
-      if (!channel) return;
-      const update = {
-        name: "Website",
-        topic: "Call Sheet Summary",
-        status: "Confirmed",
-        priority: "Important",
-        visibility: "Team",
-        comment: callSheetSlackSummary(),
-        notifySlack: true,
-        slackChannel: channel,
-        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
-      };
-      try {
-        await saveSharedUpdate(`callSheet:${slug(state.activeCallSheetDay)}:summary`, update);
-        sendCallSheetSlack.textContent = "Sent";
-      } catch (error) {
-        slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: `callSheet:${slug(state.activeCallSheetDay)}:summary`, channel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        sendCallSheetSlack.textContent = "Queued";
-      }
-      setTimeout(() => { sendCallSheetSlack.textContent = "Send Slack Summary"; }, 1800);
       return;
     }
     const dismissSuggestion = event.target.closest("[data-capture-dismiss]");
@@ -3819,7 +3602,7 @@ function bindEvents() {
       const actionLabel = action === "confirm" ? "Confirmed" : action === "resolve" ? "Resolved" : action === "archive" ? "Archived" : "Still To Be Resolved";
       try {
         const base = backendApiBase();
-        if (!base) throw new Error("Shared backend unavailable");
+        if (!base) throw new Error("Shared backend pending setup");
         const response = await fetch(`${base}/api/updates/${encodeURIComponent(updateId)}`, {
           method: "PATCH",
           headers: { "content-type": "application/json" },
@@ -3849,20 +3632,14 @@ function bindEvents() {
       event.preventDefault();
       const data = new FormData(redFlagForm);
       const id = `local-red-flag-${Date.now()}`;
-      const submitter = event.submitter?.value || "save";
-      const notifySlack = data.get("notifySlack") === "true" || submitter === "notify";
       const item = {
         id,
         issue: text(data.get("issue")),
         whyItMatters: text(data.get("whyItMatters"), "Impact needs adding."),
         owner: text(data.get("owner"), "Owner needed"),
-        priority: text(data.get("severity"), "High"),
-        status: text(data.get("status"), "Needs Confirmation"),
-        department: text(data.get("department")),
-        location: text(data.get("location")),
-        decisionNeeded: text(data.get("decisionNeeded"), "Review onsite and mark resolved when complete."),
-        dueBy: text(data.get("dueBy")),
-        slackChannel: text(data.get("slackChannel"), "#horizons-red-flags"),
+        priority: text(data.get("priority"), "Watch"),
+        status: text(data.get("priority"), "Watch"),
+        decisionNeeded: "Review onsite and mark resolved when complete.",
         notes: "Added locally on this device. Shared backend storage needs setup for cross-device visibility.",
         updateId: `redflag:${id}`,
         source: "local-red-flag"
@@ -3870,23 +3647,6 @@ function bindEvents() {
       if (!item.issue) return;
       state.localRedFlags = [...(state.localRedFlags || []), item];
       localRedFlagStore.save(state.localRedFlags);
-      if (notifySlack) {
-        const update = {
-          name: "Website",
-          topic: "Red Flag",
-          status: item.status,
-          priority: item.priority,
-          visibility: "Team",
-          comment: `RED FLAG: ${item.issue}\nOwner: ${item.owner}\nDecision needed: ${item.decisionNeeded}\nNotes: ${item.whyItMatters}`,
-          notifySlack: true,
-          slackChannel: item.slackChannel,
-          timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
-        };
-        try { await saveSharedUpdate(item.updateId, update); }
-        catch (error) {
-          slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: item.updateId, channel: item.slackChannel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        }
-      }
       redFlagForm.reset();
       renderRedFlags();
       return;
@@ -3896,44 +3656,21 @@ function bindEvents() {
       event.preventDefault();
       const data = new FormData(decisionForm);
       const id = `local-decision-${Date.now()}`;
-      const submitter = event.submitter?.value || "save";
-      const notifySlack = data.get("notifySlack") === "true" || submitter === "notify";
       const item = {
         id,
         decisionNeeded: text(data.get("decisionNeeded")),
         whyItMatters: text(data.get("whyItMatters"), "Reason needs adding."),
         owner: text(data.get("owner"), "Owner needed"),
-        department: text(data.get("department")),
-        options: text(data.get("options")),
-        impact: text(data.get("impact")),
         deadline: text(data.get("deadline"), "Deadline needed"),
-        status: text(data.get("status"), "Decision Needed"),
+        status: "Decision Needed",
         relatedWorkstream: "Local team update",
         updateId: `decision:${id}`,
-        slackChannel: text(data.get("slackChannel"), "#horizons-decisions"),
-        notes: text(data.get("notes"), "Added locally on this device. Shared backend storage needs setup for cross-device visibility."),
+        notes: "Added locally on this device. Shared backend storage needs setup for cross-device visibility.",
         source: "local-decision"
       };
       if (!item.decisionNeeded) return;
       state.localDecisions = [...(state.localDecisions || []), item];
       localDecisionStore.save(state.localDecisions);
-      if (notifySlack) {
-        const update = {
-          name: "Website",
-          topic: "Decision",
-          status: item.status,
-          priority: "Important",
-          visibility: "Team",
-          comment: `DECISION NEEDED: ${item.decisionNeeded}\nOwner: ${item.owner}\nDue: ${item.deadline}\nImpact: ${item.impact || item.whyItMatters}`,
-          notifySlack: true,
-          slackChannel: item.slackChannel,
-          timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
-        };
-        try { await saveSharedUpdate(item.updateId, update); }
-        catch (error) {
-          slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: item.updateId, channel: item.slackChannel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        }
-      }
       decisionForm.reset();
       renderDecisions();
       return;
