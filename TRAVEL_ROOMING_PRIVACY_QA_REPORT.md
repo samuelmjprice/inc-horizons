@@ -1,0 +1,1 @@
+The import excluded workbook columns for private identity, commercial values, totals, rates, and booking references from active flight/accommodation records. Source workbook fields remain only in the original Excel file and are not copied into rendered travel cards.

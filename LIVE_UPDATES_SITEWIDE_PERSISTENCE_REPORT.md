@@ -1,0 +1,1 @@
+Report Issue, Add Team Update, Slack-style updates, red flags, decisions, and status controls continue to use the shared updates path. Status controls now also attempt the shared backend directly and record a clear fallback if sync is unavailable.

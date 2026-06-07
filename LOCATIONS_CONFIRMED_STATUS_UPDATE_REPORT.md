@@ -1,0 +1,1 @@
+Approved event locations were marked `Confirmed`. Emergency, medical, pharmacy, address-needed, or missing/admin location records remain unconfirmed where source confirmation is still required. Barcelo Portinatx was added as confirmed accommodation with address still needed.

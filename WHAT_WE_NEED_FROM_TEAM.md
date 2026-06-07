@@ -16,7 +16,7 @@
 | Final HORIZONS Hall table seat count | Round table tool currently notes 80 source capacity vs 90 working slots | HORIZONS Hall Control Centre | Kirsty / Clownfish / Samuel | Needs Confirmation |
 | Reserved seat assignments | Theatre seating still has placeholders | HORIZONS Hall / Call Sheet | Samuel / Chris | Needs Assignment |
 | Final speaker deck files and speaker notes | Remaining speaker content readiness | Programme / Speaker Content | Chris / Samuel | Needs Confirmation |
-| Kelechi contact and final team label | Kelechi inherits Pili's old responsibilities but email/team are not fully confirmed | People / Who Do I Call / Responsibilities | Samuel / Pili | Needs Confirmation |
+| Barcelo Portinatx address | Accommodation is confirmed from the workbook, but the address was not in the safe imported fields | Locations / Accommodation | Samuel / Six Senses / BeGood | Address Needed |
 | Confirm final spelling: Federico Tambourini vs Federico Tamburini | Latest review requested Federico Tambourini, while older source data used Federico Tamburini and the email appears to use tamburini | Schedule / Programme / Contacts / Content Capture | Samuel / Chris / Federico | Needs Confirmation |
 
 ## Medium

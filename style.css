@@ -1776,6 +1776,14 @@ button.search-result-card,
   margin-bottom: 1rem;
 }
 
+.ask-scope-control {
+  max-width: 18rem;
+}
+
+.section-heading-compact {
+  margin-top: 2rem;
+}
+
 .ask-horizons-examples,
 .ask-horizons-chips {
   display: flex;

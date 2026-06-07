@@ -1,0 +1,1 @@
+Search result cards now show section, category/department/team, and status as separate chips above the title. Long people lists stay in metadata, while the result title is the action or item name where available.

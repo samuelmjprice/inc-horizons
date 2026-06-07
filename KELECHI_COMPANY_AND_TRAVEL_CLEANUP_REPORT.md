@@ -1,0 +1,1 @@
+Kelechi Nwanokwu is now assigned to `International Collective / I.N.C` across safe team-facing contact, travel, accommodation, and staff records touched by this pass. Email is confirmed as `kelej1@hotmail.com`.

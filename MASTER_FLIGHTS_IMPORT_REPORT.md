@@ -1,0 +1,1 @@
+Imported 22 safe master flight records from `Crew_Staff Rooming, Flight & Catering List (1).xlsx` tab `Flights`. Active travel now comes from that master sheet, with private identity, commercial, and booking fields excluded.

@@ -1,0 +1,1 @@
+Status controls now build a canonical status update and attempt to save it through the shared updates backend. If the backend is unavailable, the user-facing fallback is recorded as `Could not sync. Try again.` and the local override remains visible rather than pretending cross-device sync succeeded.

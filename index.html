@@ -87,6 +87,10 @@
             <input type="search" data-global-search placeholder="Search tasks, contacts, suppliers, locations">
           </label>
           <label>
+            <span>Scope</span>
+            <select data-search-scope></select>
+          </label>
+          <label>
             <span>Status</span>
             <select data-filter="status"></select>
           </label>
@@ -197,6 +201,14 @@
             <label><span>Status</span><select data-travel-filter="status"></select></label>
           </div>
           <div class="cards-grid compact-grid" data-travel></div>
+          <div class="section-heading section-heading-compact">
+            <div>
+              <p class="eyebrow">Accommodation / Rooming</p>
+              <h3>Offsite First-Night Accommodation</h3>
+              <p>Safe hotel and rooming overview from the master workbook. Private travel and commercial workbook fields are excluded.</p>
+            </div>
+          </div>
+          <div class="cards-grid compact-grid" data-accommodation></div>
         </div>
       </section>
 
@@ -839,6 +851,10 @@
           <label class="search-control">
             <span>Ask or search anything</span>
             <input type="search" data-ask-input placeholder="Ask or search anything..." autocomplete="off">
+          </label>
+          <label class="search-control ask-scope-control">
+            <span>Search scope</span>
+            <select data-ask-scope></select>
           </label>
           <div class="ask-horizons-examples">
             <span>Try:</span>

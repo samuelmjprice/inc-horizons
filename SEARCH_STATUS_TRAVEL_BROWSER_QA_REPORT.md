@@ -1,0 +1,1 @@
+Local validation completed with `node --check script.js` and `python3 -m json.tool content.json`. Local browser QA passed at 390px for Search Hub full-name search, Flights / Travel scope, Accommodation scope, no horizontal overflow, 22 travel cards, and 21 accommodation cards. Live desktop/tablet smoke should be repeated after deploy.

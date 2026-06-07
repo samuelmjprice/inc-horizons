@@ -1,0 +1,1 @@
+Search Hub and Ask HORIZONS now index imported flights and accommodation. Searching a person can surface their person record, call sheet/schedule items, master flight record, and hotel/accommodation record where available.

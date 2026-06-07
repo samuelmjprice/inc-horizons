@@ -1,0 +1,1 @@
+Added a shared category scope selector to Search Hub and Ask HORIZONS. Available scopes are All, People, Call Sheet, Schedule, Locations, Menus, Flights / Travel, Accommodation, Assets, Documents, HORIZONS Hall, and Missing Items.

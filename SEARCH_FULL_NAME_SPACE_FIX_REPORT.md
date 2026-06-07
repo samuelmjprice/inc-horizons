@@ -1,0 +1,1 @@
+Search now preserves the raw input value while typing. Matching uses a normalized copy with case folded and repeated whitespace collapsed, so full-name queries such as `Samuel Price`, `Chris Manoe`, `Pili Lopez`, `Federico Tamburini`, and `Kelechi Nwanokwu` work without joining names together.

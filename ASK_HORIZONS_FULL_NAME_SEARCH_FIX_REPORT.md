@@ -1,0 +1,1 @@
+Ask HORIZONS now uses the same full-name-safe search path as Search Hub. The drawer input no longer strips spaces while typing, and results are generated through the shared `buildSearchResults(query, limit, { scope })` function.

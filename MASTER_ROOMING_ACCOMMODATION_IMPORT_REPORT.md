@@ -1,0 +1,1 @@
+Imported 21 safe accommodation records from workbook tab `Hizon`. Display fields are person, team/company, hotel, check-in, check-out, nights, and status. Private commercial workbook fields are not included.

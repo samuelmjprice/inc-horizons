@@ -1,0 +1,1 @@
+Search now covers flight numbers, traveler names, airport codes, hotel names, dates, and team/company fields from the safe imported travel/accommodation data. Barcelo Portinatx and Six Senses accommodation records are searchable.

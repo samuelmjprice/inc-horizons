@@ -16,7 +16,9 @@ const state = {
   attendeeFilters: { query: "", category: "", company: "" },
   peopleSearch: "",
   searchQuery: "",
+  searchScope: "All",
   askQuery: "",
+  askScope: "All",
   askOpen: false,
   personalizedView: "",
   callSheetPerson: "",
@@ -68,6 +70,7 @@ const ASK_SHORTCUTS = [
   ["Print Summary", "print summary"],
   ["Missing Items", "what do we still need"]
 ];
+const SEARCH_SCOPE_OPTIONS = ["All", "People", "Call Sheet", "Schedule", "Locations", "Menus", "Flights / Travel", "Accommodation", "Assets", "Documents", "HORIZONS Hall", "Missing Items"];
 const SEARCH_ALIASES = {
   "b good": ["BeGood", "Ben Eddon-Carruthers"],
   "be good": ["BeGood", "Ben Eddon-Carruthers"],
@@ -97,7 +100,7 @@ const SEARCH_ALIASES = {
   "what do we still need": ["What We Need From Team", "Missing Files Tracker", "Visual Review"],
   "print": ["Print Summary", "Menus", "Namecards"]
 };
-const SENSITIVE_SEARCH_KEYS = /dob|date.?of.?birth|passport|visa|pnr|booking|reference|rooming|travel.?cost|private|webhook|api.?key|supabase.?key|vercel.?token|secret/i;
+const SENSITIVE_SEARCH_KEYS = /dob|date.?of.?birth|passport|visa|pnr|booking|reference|room.?rate|room.?cost|cost|price|total|travel.?cost|private|webhook|api.?key|supabase.?key|vercel.?token|secret/i;
 const groupBySection = APP_GROUPS.reduce((acc, group) => {
   group.sections.forEach((id) => { acc[id] = group.id; });
   return acc;
@@ -255,11 +258,12 @@ const statusClass = (value = "") => {
 const statusOverrides = () => state.statusOverrides || {};
 const statusFor = (id = "", fallback = "") => {
   const override = normalizeLabel(id && statusOverrides()[id]);
+  const shared = normalizeLabel(id && latestUpdate(id)?.status);
   const base = normalizeLabel(fallback || "");
   if (/^archived$/i.test(override) && !/^archived$/i.test(base) && /^(who|contact|guest|attendee|swag|swag-delivery|location)/i.test(id)) {
     return base || "Confirmed";
   }
-  return normalizeLabel(override || base || "");
+  return normalizeLabel(override || shared || base || "");
 };
 const statusControl = (id = "", fallback = "") => {
   if (!id) return tag(fallback);
@@ -853,8 +857,8 @@ function renderFilters() {
   buildOptions($('[data-task-filter="status"]'), statusValues, "statuses");
   buildOptions($('[data-task-filter="location"]'), locationValues, "locations");
   buildOptions($('[data-travel-filter="person"]'), unique((d.travel || []).map((x) => x.person)), "people");
-  buildOptions($('[data-travel-filter="arrivalDay"]'), unique((d.travel || []).map((x) => x.arrivalDate)), "arrival days");
-  buildOptions($('[data-travel-filter="departureDay"]'), unique((d.travel || []).map((x) => x.departureDate)), "departure days");
+  buildOptions($('[data-travel-filter="arrivalDay"]'), unique((d.travel || []).map((x) => x.outboundDate || x.arrivalDate)), "arrival days");
+  buildOptions($('[data-travel-filter="departureDay"]'), unique((d.travel || []).map((x) => x.returnDate || x.departureDate)), "departure days");
   buildOptions($('[data-travel-filter="team"]'), unique((d.travel || []).map((x) => x.team)), "teams");
   buildOptions($('[data-travel-filter="status"]'), unique((d.travel || []).map((x) => x.status)), "statuses");
   const podcastFilterItems = liveItems(d.podcast || []);
@@ -882,7 +886,7 @@ function renderFilters() {
 }
 
 const expandSearchQuery = (query = "") => {
-  const clean = displayName(query).toLowerCase().trim();
+  const clean = displayName(query).toLowerCase().trim().replace(/\s+/g, " ");
   const values = [query, clean];
   Object.entries(SEARCH_ALIASES).forEach(([alias, canonical]) => {
     if (clean.includes(alias)) {
@@ -890,6 +894,29 @@ const expandSearchQuery = (query = "") => {
     }
   });
   return unique(values).filter(Boolean);
+};
+
+const renderScopeOptions = (active = "All") => SEARCH_SCOPE_OPTIONS.map((scope) => `<option value="${escapeHtml(scope)}" ${scope === active ? "selected" : ""}>${escapeHtml(scope)}</option>`).join("");
+
+const scopeMatchesResult = (result = {}, scope = "All") => {
+  if (!scope || scope === "All") return true;
+  const section = text(result.section).toLowerCase();
+  const category = text(result.category).toLowerCase();
+  const combined = `${section} ${category} ${text(result.title)}`.toLowerCase();
+  const map = {
+    "people": /people|contact|staff|guest|attendee|supplier|who do i call/,
+    "call sheet": /call sheet/,
+    "schedule": /schedule|rehearsal|programme|content capture/,
+    "locations": /location|restaurant/,
+    "menus": /menu|restaurant/,
+    "flights / travel": /flight|travel/,
+    "accommodation": /accommodation|hotel|rooming|barcelo|six senses/,
+    "assets": /asset|swag|room drop|artwork|lanyard|horizons house/,
+    "documents": /document|link|print/,
+    "horizons hall": /horizons hall|round table|theatre seating/,
+    "missing items": /missing|team need|what we need/
+  };
+  return (map[scope.toLowerCase()] || new RegExp(scope.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))).test(combined);
 };
 
 const safeSearchBlob = (item = {}) => {
@@ -912,7 +939,8 @@ const searchResultGroups = () => {
     ["Decisions", "#decisions", d.decisions || [], (item) => item.decision || item.title, (item) => [item.owner, item.status, item.due].filter(Boolean).join(" · ")],
     ["Schedule", "#schedule", d.schedule || [], (item) => cleanSearchTitle(item.title || item.summary || item.timeDisplay || item.timeStart, item), (item) => [item.timeDisplay || item.timeStart, peopleMeta(item), item.dayLabel || item.date, item.location, item.owner].filter(Boolean).join(" · ")],
     ["Call Sheet", "#call-sheet", [...(d.callSheets || []), ...(d.schedule || [])], (item) => cleanSearchTitle(item.title || item.summary || item.focus || "Call Sheet Item", item), (item) => [item.timeDisplay || item.timeStart, peopleMeta(item), item.day || item.dayLabel || item.date, item.location || item.mainLocation, item.department].filter(Boolean).join(" · ")],
-    ["Flights / Travel", "#flights", d.travel || [], (item) => cleanSearchTitle(item.title || item.summary || item.arrivalLocation || item.departureLocation || "Travel Movement", item), (item) => [peopleMeta(item), item.arrivalDate, item.arrivalFlight || item.flightNumber, item.route || `${item.departureAirport || ""} ${item.arrivalAirport || ""}`, item.status].filter(Boolean).join(" · ")],
+    ["Flights / Travel", "#flights", d.travel || [], (item) => cleanSearchTitle(item.title || item.summary || item.arrivalLocation || item.departureLocation || "Travel Movement", item), (item) => [peopleMeta(item), item.outboundDate || item.arrivalDate, item.outboundFlightNumber || item.arrivalFlight || item.flightNumber, item.route || `${item.outboundDepartureAirport || item.departureAirport || ""} ${item.outboundArrivalAirport || item.arrivalAirport || ""}`, item.status].filter(Boolean).join(" · ")],
+    ["Accommodation", "#flights", d.accommodation || [], (item) => item.title || `${item.person || "Guest"} — Accommodation`, (item) => [item.hotel, item.checkIn, item.checkOut, item.team, item.status].filter(Boolean).join(" · ")],
     ["Locations", "#locations", d.locations || [], (item) => item.locationName, (item) => [item.type, item.keyOwner, item.status].filter(Boolean).join(" · ")],
     ["Location Schedules", "#location-schedules", d.locationSchedules || [], (item) => item.location || item.title, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
     ["Restaurant Schedules", "#restaurants", d.restaurantSchedules || [], (item) => item.title || item.location, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
@@ -981,9 +1009,10 @@ const builtInResults = (query = "") => {
   return items;
 };
 
-const buildSearchResults = (query = "", limit = 24) => {
+const buildSearchResults = (query = "", limit = 24, options = {}) => {
   const expanded = expandSearchQuery(query);
   if (!expanded.length) return [];
+  const scope = options.scope || "All";
   const scored = [];
   searchResultGroups().forEach(([section, href, items, titleFn, summaryFn]) => {
     liveItems(items).forEach((item) => {
@@ -995,6 +1024,7 @@ const buildSearchResults = (query = "", limit = 24) => {
       const exactTitle = expanded.some((term) => displayName(title).toLowerCase().includes(term.toLowerCase()));
       scored.push({
         section,
+        category: item.category || item.department || item.team || item.group || item.locationType || "",
         href,
         title,
         summary,
@@ -1007,8 +1037,9 @@ const buildSearchResults = (query = "", limit = 24) => {
       });
     });
   });
-  const seeded = builtInResults(query).map((item) => ({ ...item, score: 10, owner: "", location: "", date: "" }));
+  const seeded = builtInResults(query).map((item) => ({ ...item, category: item.category || "", score: 10, owner: "", location: "", date: "" }));
   return [...seeded, ...scored]
+    .filter((item) => scopeMatchesResult(item, scope))
     .filter((item, index, all) => all.findIndex((other) => other.href === item.href && displayName(other.title) === displayName(item.title)) === index)
     .sort((a, b) => b.score - a.score || a.section.localeCompare(b.section))
     .slice(0, limit);
@@ -1016,7 +1047,7 @@ const buildSearchResults = (query = "", limit = 24) => {
 
 const resultCard = (result, source = "search") => `
   <button class="search-result-card mobile-result-card" type="button" data-open-result="${escapeHtml(result.href)}" data-result-source="${escapeHtml(source)}">
-    <span class="mobile-result-meta-row"><span class="tag">${escapeHtml(result.section)}</span>${result.status ? tag(result.status) : ""}</span>
+    <span class="mobile-result-meta-row"><span class="tag">${escapeHtml(result.section)}</span>${result.category ? tag(result.category, "department-tag") : ""}${result.status ? tag(result.status) : ""}</span>
     <strong class="mobile-result-title">${escapeHtml(displayName(result.title))}</strong>
     <em class="mobile-result-snippet">${escapeHtml(displayName(result.summary))}</em>
     <span class="search-result-meta mobile-result-details">
@@ -1038,7 +1069,7 @@ function renderSearchResults() {
     panel.innerHTML = "";
     return;
   }
-  const results = buildSearchResults(query, 24);
+  const results = buildSearchResults(query, 24, { scope: state.searchScope });
   panel.hidden = false;
   panel.innerHTML = `
     <div class="search-results-head">
@@ -1062,6 +1093,9 @@ function renderPersonalizedBanner() {
 }
 
 function renderAskHorizons() {
+  const askScope = $("[data-ask-scope]");
+  if (askScope && askScope.innerHTML === "") askScope.innerHTML = renderScopeOptions(state.askScope);
+  if (askScope && askScope.value !== state.askScope) askScope.value = state.askScope;
   const chips = $("[data-ask-chips]");
   if (chips && !chips.innerHTML) {
     chips.innerHTML = ASK_SHORTCUTS.map(([label, query]) => `<button type="button" data-ask-chip="${escapeHtml(query)}">${escapeHtml(label)}</button>`).join("");
@@ -1071,7 +1105,7 @@ function renderAskHorizons() {
   const resultsPanel = $("[data-ask-results]");
   if (!resultsPanel) return;
   const query = text(state.askQuery);
-  const results = query ? buildSearchResults(query, 30) : builtInResults("my view today who do i call call sheet horizons hall menus people podcast room drops lanyards missing print report issue").slice(0, 8);
+  const results = query ? buildSearchResults(query, 30, { scope: state.askScope }) : builtInResults("my view today who do i call call sheet horizons hall menus people podcast room drops lanyards missing print report issue").filter((item) => scopeMatchesResult(item, state.askScope)).slice(0, 8);
   resultsPanel.innerHTML = `
     <div class="search-results-head">
       <strong>${query ? "Best matches" : "Start here"}</strong>
@@ -1833,13 +1867,12 @@ function renderTasks() {
 }
 
 function renderTravel() {
-  const unclearTravel = /test check|check in$|on site$|subject\s*(to|\d)|\?|needed|tbc|missing|unclear/i;
   const items = (state.data.travel || [])
-    .filter((item) => passesGlobal(item, { status: item.status, day: item.arrivalDate || item.departureDate, owner: item.person, location: item.arrivalAirport || item.departureAirport, updateId: item.updateId }))
+    .filter((item) => passesGlobal(item, { status: item.status, day: item.outboundDate || item.arrivalDate || item.returnDate || item.departureDate, owner: item.person, location: item.outboundArrivalAirport || item.arrivalAirport || item.outboundDepartureAirport || item.departureAirport, updateId: item.updateId }))
     .filter((item) => passesLocal(item, state.travelFilters, {
       person: "person",
-      arrivalDay: "arrivalDate",
-      departureDay: "departureDate",
+      arrivalDay: "outboundDate",
+      departureDay: "returnDate",
       team: "team",
       status: "status"
     }))
@@ -1848,13 +1881,28 @@ function renderTravel() {
   if (count) count.textContent = `${items.length} showing`;
   setHtml("[data-travel]", items.map((item) => card({
     title: item.person || "Person Needed",
-    status: unclearTravel.test(`${item.person} ${item.arrivalAirport} ${item.arrivalFlight} ${item.departureAirport} ${item.departureFlight} ${item.hotelTransferNotes} ${item.notes}`) ? "Needs Confirmation" : item.status,
+    status: item.status || "Confirmed",
     department: item.team,
-    body: `<p>${escapeHtml(firstMeaningful(item.arrivalDate, item.departureDate, "Travel date needed"))} · ${escapeHtml(firstMeaningful(item.arrivalAirport, item.departureAirport, "Airport needed"))}</p>
-      ${detailsBlock("Travel details", [["Team/company", item.team], ["Arrival date", item.arrivalDate || "Arrival date needed"], ["Arrival time", item.arrivalTime || "Arrival time needed"], ["Arrival airport", item.arrivalAirport || "Arrival airport needed"], ["Arrival flight", item.arrivalFlight || "Flight info needed"], ["Departure date", item.departureDate || "Departure date needed"], ["Departure time", item.departureTime || "Departure time needed"], ["Departure airport", item.departureAirport || "Departure airport needed"], ["Departure flight", item.departureFlight || "Flight info needed"], ["Transfer notes", item.hotelTransferNotes], ["Transport owner", item.transportOwner], ["Notes", item.notes]])}`,
+    body: `<div class="travel-grid">
+        <div><strong>Outbound</strong><p>${escapeHtml(firstMeaningful(item.outboundDate, item.arrivalDate, "Outbound date needed"))}</p><p>${escapeHtml(firstMeaningful(item.outboundRoute, item.route, "Route needed"))}</p><p>${escapeHtml([item.outboundFlightNumber, item.outboundTimeRange].filter(Boolean).join(" · "))}</p></div>
+        <div><strong>Return</strong><p>${escapeHtml(firstMeaningful(item.returnDate, item.departureDate, "Return date needed"))}</p><p>${escapeHtml(firstMeaningful(item.returnRoute, "Route needed"))}</p><p>${escapeHtml([item.returnFlightNumber, item.returnTimeRange].filter(Boolean).join(" · "))}</p></div>
+      </div>
+      ${detailsBlock("Travel details", [["Team/company", item.team], ["Outbound date", item.outboundDate], ["Outbound route", item.outboundRoute], ["Outbound flight", item.outboundFlightNumber], ["Outbound time", item.outboundTimeRange], ["Return date", item.returnDate], ["Return route", item.returnRoute], ["Return flight", item.returnFlightNumber], ["Return time", item.returnTimeRange], ["Baggage", item.baggage], ["Notes", item.notes]])}`,
     metadata: meta("Team/company", item.team),
     updateId: item.updateId
   })).join("") || empty("No travel items match the filters."));
+  const accommodation = (state.data.accommodation || [])
+    .filter((item) => passesGlobal(item, { status: item.status, day: item.checkIn || item.checkOut, owner: item.person, location: item.hotel, updateId: item.updateId }))
+    .slice(0, 60);
+  setHtml("[data-accommodation]", accommodation.map((item) => card({
+    title: item.title || `${item.person || "Guest"} — Accommodation`,
+    status: item.status || "Confirmed",
+    department: item.team,
+    body: `<p>${escapeHtml(item.hotel || "Hotel needed")} · ${escapeHtml([item.checkIn, item.checkOut].filter(Boolean).join(" to "))}</p>
+      ${detailsBlock("Accommodation details", [["Person", item.person], ["Team/company", item.team], ["Hotel", item.hotel], ["Check-in", item.checkIn], ["Check-out", item.checkOut], ["Nights", item.nights], ["Note", item.note]])}`,
+    metadata: meta("Hotel", item.hotel) + meta("Team/company", item.team),
+    updateId: item.updateId
+  })).join("") || empty("No accommodation records imported yet."));
 }
 
 function renderContactTabs() {
@@ -3325,9 +3373,16 @@ function bindEvents() {
     document.body.classList.remove("nav-open");
     $("[data-menu-toggle]").setAttribute("aria-expanded", "false");
   }));
-  $("[data-global-search]").addEventListener("input", (event) => { state.searchQuery = event.target.value.trim(); renderSearchResults(); });
+  const searchScope = $("[data-search-scope]");
+  if (searchScope) {
+    searchScope.innerHTML = renderScopeOptions(state.searchScope);
+    searchScope.addEventListener("change", (event) => { state.searchScope = event.target.value || "All"; renderSearchResults(); });
+  }
+  $("[data-global-search]").addEventListener("input", (event) => { state.searchQuery = event.target.value; renderSearchResults(); });
   const askInput = $("[data-ask-input]");
-  if (askInput) askInput.addEventListener("input", (event) => { state.askQuery = event.target.value.trim(); renderAskHorizons(); });
+  if (askInput) askInput.addEventListener("input", (event) => { state.askQuery = event.target.value; renderAskHorizons(); });
+  const askScope = $("[data-ask-scope]");
+  if (askScope) askScope.addEventListener("change", (event) => { state.askScope = event.target.value || "All"; renderAskHorizons(); });
   const homePersonalInput = $("[data-home-personal-input]");
   if (homePersonalInput) homePersonalInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -3398,12 +3453,36 @@ function bindEvents() {
       if (clearButton) clearButton.disabled = !text(guestInput.value);
     }
   });
-  document.addEventListener("change", (event) => {
+  document.addEventListener("change", async (event) => {
     const statusSelect = event.target.closest("[data-status-control]");
     if (statusSelect) {
       const id = statusSelect.dataset.statusControl;
-      state.statusOverrides = { ...statusOverrides(), [id]: statusSelect.value };
+      const status = statusSelect.value;
+      const update = {
+        name: "Website status control",
+        topic: "Status updated",
+        comment: `Status changed to ${status}.`,
+        status,
+        priority: "Normal",
+        visibility: "Team",
+        notifySlack: false,
+        slackChannel: "#horizons-production",
+        timestamp: new Date().toISOString(),
+        source: "website-status-control"
+      };
+      try {
+        const result = await saveSharedUpdate(id, update);
+        const savedUpdate = result?.update ? frontendUpdateFromRecord(result.update) : update;
+        state.updates[id] = [...getUpdates(id), savedUpdate];
+      } catch (error) {
+        update.comment = `Could not sync. Try again. ${update.comment}`;
+        update.source = "local-fallback";
+        state.updates[id] = [...getUpdates(id), update];
+        console.warn(`Could not sync status for ${id}.`, error);
+      }
+      state.statusOverrides = { ...statusOverrides(), [id]: status };
       statusOverrideStore.save(state.statusOverrides);
+      updateStore.save(state.updates);
       renderAll();
       return;
     }

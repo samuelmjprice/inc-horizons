@@ -1,0 +1,1 @@
+Existing stable `updateId` values remain the canonical item IDs for status controls. Imported flight IDs use `travel:master-flight:{person}` and accommodation IDs use `accommodation:{person}:{hotel}`, so search, travel cards, and updates reference stable IDs.
