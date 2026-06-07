@@ -811,16 +811,25 @@ function renderEvent() {
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
   setHtml("[data-quick-actions]", quickActions.map((action, index) => `<a class="button ${index === 0 ? "button-primary" : "button-secondary"}" href="${action.target}">${escapeHtml(action.label)}</a>`).join(""));
   const startCards = [
-    ["Open Today", state.data.today?.focus || "Current event-day priorities", "#today"],
-    ["Open Call Sheet", state.activeCallSheetDay || "Daily production view", "#call-sheet"],
-    ["Who Do I Call", "Escalation guide by problem", "#who-do-i-call"],
-    ["Locations", "Open maps and venue pins", "#locations"],
-    ["Red Flags", state.data.redFlags?.[0]?.issue || "No critical red flag listed", "#red-flags"],
-    ["Guests", `${(state.data.guests || []).length} safe guest records`, "#guests"],
-    ["Menus", `${(state.data.menus || []).length} final menu cards`, "#menus"],
-    ["Assets", "Swag, room drops, signage, documents", "#menus"]
+    { section: "People", title: "Who Do I Call", detail: "Escalation guide for the right person by issue.", href: "#who-do-i-call", status: "Quick action", action: "Open People" },
+    { section: "Call Sheet", title: "Today’s Call Sheet", detail: "Daily operational call sheet and key timings.", href: "#call-sheet", status: "Quick action", action: "Open Call Sheet" },
+    { section: "Locations", title: "HORIZONS Hall Control Centre", detail: "Round tables, theatre seating, stage references and files.", href: "#locations", status: "Available", action: "Open Locations" },
+    { section: "Locations", title: "HORIZONS Hall Round Table Plan", detail: "10 tables. Source capacity 80. Seat count needs confirmation.", href: "#locations", status: "Needs Assignment", action: "Open Locations" },
+    { section: "Assets", title: "Menus", detail: `${(state.data.menus || []).length} final menu cards grouped by date.`, href: "#menus", status: "Final", action: "Open Menus" },
+    { section: "Programme", title: "Podcast", detail: "HORIZONS x Deconstructor of Fun recording schedule.", href: "#podcast", status: "Scheduled", action: "Open Programme" },
+    { section: "Assets", title: "Room Drops", detail: "Guest room drop items, timing and confirmations.", href: "#room-drops", status: "On Track", action: "Open Assets" },
+    { section: "People", title: "Lanyards", detail: "Colour guide linked to guests and namecards.", href: "#guests", status: "Confirmed", action: "Open People" },
+    { section: "Documents", title: "Print Summary", detail: "Print-related files, menus, namecards and source references.", href: "#documents", status: "Reference", action: "Open Documents" },
+    { section: "Admin", title: "Missing Items", detail: "Open missing files, confirmations and team needs.", href: "#missing-files", status: "Needs Review", action: "Open Admin" }
   ];
-  setHtml("[data-start-grid]", startCards.map(([title, detail, href]) => `<a class="start-card" href="${href}"><strong>${title}</strong><span>${detail}</span></a>`).join(""));
+  setHtml("[data-start-grid]", startCards.map((item) => `
+    <a class="start-card mobile-result-card" href="${escapeHtml(item.href)}">
+      <span class="mobile-result-meta-row"><span class="tag">${escapeHtml(item.section)}</span>${tag(item.status)}</span>
+      <strong class="mobile-result-title">${escapeHtml(item.title)}</strong>
+      <span class="mobile-result-snippet">${escapeHtml(item.detail)}</span>
+      <span class="mobile-result-actions"><span class="button button-secondary">${escapeHtml(item.action)}</span></span>
+    </a>
+  `).join(""));
   $("[data-capture-storage-copy]") && ($("[data-capture-storage-copy]").textContent = backendApiBase()
     ? "Quick live ideas for the content team. Capture suggestions are saved to the shared event system."
     : "Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.");
@@ -901,9 +910,9 @@ const searchResultGroups = () => {
     ["Today", "#today", [d.today || {}, ...(d.redFlags || []), ...(d.decisions || [])], (item) => item.focus || item.issue || item.decision || item.title || "Today / What Matters Now", (item) => [item.summary, item.owner, item.status, item.priority].filter(Boolean).join(" · ")],
     ["Red Flags", "#red-flags", d.redFlags || [], (item) => item.issue || item.title, (item) => [item.owner, item.priority, item.status].filter(Boolean).join(" · ")],
     ["Decisions", "#decisions", d.decisions || [], (item) => item.decision || item.title, (item) => [item.owner, item.status, item.due].filter(Boolean).join(" · ")],
-    ["Schedule", "#schedule", d.schedule || [], (item) => [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.dayLabel || item.date, item.location, item.owner].filter(Boolean).join(" · ")],
-    ["Call Sheet", "#call-sheet", [...(d.callSheets || []), ...(d.schedule || [])], (item) => item.title || [item.timeDisplay || item.timeStart, item.title].filter(Boolean).join(" · "), (item) => [item.day || item.dayLabel || item.date, item.location || item.mainLocation, item.department].filter(Boolean).join(" · ")],
-    ["Flights / Travel", "#flights", d.travel || [], (item) => item.person || item.name, (item) => [item.arrivalDate, item.arrivalFlight || item.flightNumber, item.route || `${item.departureAirport || ""} ${item.arrivalAirport || ""}`, item.status].filter(Boolean).join(" · ")],
+    ["Schedule", "#schedule", d.schedule || [], (item) => cleanSearchTitle(item.title || item.summary || item.timeDisplay || item.timeStart, item), (item) => [item.timeDisplay || item.timeStart, peopleMeta(item), item.dayLabel || item.date, item.location, item.owner].filter(Boolean).join(" · ")],
+    ["Call Sheet", "#call-sheet", [...(d.callSheets || []), ...(d.schedule || [])], (item) => cleanSearchTitle(item.title || item.summary || item.focus || "Call Sheet Item", item), (item) => [item.timeDisplay || item.timeStart, peopleMeta(item), item.day || item.dayLabel || item.date, item.location || item.mainLocation, item.department].filter(Boolean).join(" · ")],
+    ["Flights / Travel", "#flights", d.travel || [], (item) => cleanSearchTitle(item.title || item.summary || item.arrivalLocation || item.departureLocation || "Travel Movement", item), (item) => [peopleMeta(item), item.arrivalDate, item.arrivalFlight || item.flightNumber, item.route || `${item.departureAirport || ""} ${item.arrivalAirport || ""}`, item.status].filter(Boolean).join(" · ")],
     ["Locations", "#locations", d.locations || [], (item) => item.locationName, (item) => [item.type, item.keyOwner, item.status].filter(Boolean).join(" · ")],
     ["Location Schedules", "#location-schedules", d.locationSchedules || [], (item) => item.location || item.title, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
     ["Restaurant Schedules", "#restaurants", d.restaurantSchedules || [], (item) => item.title || item.location, (item) => [item.day, item.time, item.status].filter(Boolean).join(" · ")],
@@ -936,6 +945,24 @@ const searchResultGroups = () => {
   ];
 };
 
+const peopleMeta = (item = {}) => firstMeaningful(item.people, item.personInvolved, item.person, item.name, item.guests, item.owner, "");
+
+const cleanSearchTitle = (value = "", item = {}) => {
+  let title = displayName(value || "");
+  const people = peopleMeta(item);
+  if (people && title.toLowerCase().startsWith(people.toLowerCase())) {
+    const rest = title.slice(people.length);
+    if (/^[\s—–-]+/.test(rest)) title = rest.replace(/^[\s—–-]+/, "");
+  }
+  if (/\s[—–-]\s/.test(title)) {
+    const parts = title.split(/\s[—–-]\s/).map((part) => part.trim()).filter(Boolean);
+    const nonPeople = parts.find((part) => !/[,&]/.test(part) && part.split(/\s+/).length <= 8);
+    title = nonPeople || parts[parts.length - 1] || title;
+  }
+  title = title.replace(/^arrival\s+(?!at\b)/i, "Arrival at ").replace(/^(Arrival at\s+)+(at\s+)+/i, "Arrival at ");
+  return firstMeaningful(title, item.title, item.summary, "Open item");
+};
+
 const builtInResults = (query = "") => {
   const q = query.toLowerCase();
   const items = [];
@@ -960,7 +987,7 @@ const buildSearchResults = (query = "", limit = 24) => {
   const scored = [];
   searchResultGroups().forEach(([section, href, items, titleFn, summaryFn]) => {
     liveItems(items).forEach((item) => {
-      const title = firstMeaningful(titleFn(item), section);
+      const title = cleanSearchTitle(firstMeaningful(titleFn(item), section), item);
       const summary = firstMeaningful(summaryFn(item), "Open matching section");
       const haystack = `${displayName(title)} ${displayName(summary)} ${safeSearchBlob(item)}`.toLowerCase();
       const matched = expanded.filter((term) => term && haystack.includes(term.toLowerCase()));
@@ -975,6 +1002,7 @@ const buildSearchResults = (query = "", limit = 24) => {
         owner: item.owner || item.person || item.internalOwner || item.lead || item.primaryContact || "",
         location: item.location || item.locationName || item.mainLocation || "",
         date: item.day || item.dayLabel || item.date || item.arrivalDate || "",
+        people: peopleMeta(item),
         score: matched.length + (exactTitle ? 4 : 0)
       });
     });
@@ -987,17 +1015,17 @@ const buildSearchResults = (query = "", limit = 24) => {
 };
 
 const resultCard = (result, source = "search") => `
-  <button class="search-result-card" type="button" data-open-result="${escapeHtml(result.href)}" data-result-source="${escapeHtml(source)}">
-    <span>${escapeHtml(result.section)}</span>
-    <strong>${escapeHtml(displayName(result.title))}</strong>
-    <em>${escapeHtml(displayName(result.summary))}</em>
-    <span class="search-result-meta">
-      ${result.status ? tag(result.status) : ""}
-      ${result.date ? `<small>${escapeHtml(result.date)}</small>` : ""}
-      ${result.location ? `<small>${escapeHtml(result.location)}</small>` : ""}
-      ${result.owner ? `<small>${escapeHtml(result.owner)}</small>` : ""}
+  <button class="search-result-card mobile-result-card" type="button" data-open-result="${escapeHtml(result.href)}" data-result-source="${escapeHtml(source)}">
+    <span class="mobile-result-meta-row"><span class="tag">${escapeHtml(result.section)}</span>${result.status ? tag(result.status) : ""}</span>
+    <strong class="mobile-result-title">${escapeHtml(displayName(result.title))}</strong>
+    <em class="mobile-result-snippet">${escapeHtml(displayName(result.summary))}</em>
+    <span class="search-result-meta mobile-result-details">
+      ${result.people ? `<small><strong>People:</strong> ${escapeHtml(result.people)}</small>` : ""}
+      ${result.date ? `<small><strong>Date:</strong> ${escapeHtml(result.date)}</small>` : ""}
+      ${result.location ? `<small><strong>Location:</strong> ${escapeHtml(result.location)}</small>` : ""}
+      ${result.owner ? `<small><strong>Owner:</strong> ${escapeHtml(result.owner)}</small>` : ""}
     </span>
-    <span class="button button-secondary">${escapeHtml(result.actionLabel || "Open")}</span>
+    <span class="mobile-result-actions"><span class="button button-secondary">${escapeHtml(result.actionLabel || "Open")}</span></span>
   </button>
 `;
 
@@ -1173,6 +1201,7 @@ window.runHorizonsHomepageSearch = (event) => {
   event?.stopPropagation?.();
   runHomepageSearch($("[data-home-personal-input]")?.value);
 };
+window.runHorizonsSiteSearch = runHomepageSearch;
 
 function renderToday() {
   const { today } = state.data;

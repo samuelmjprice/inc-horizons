@@ -555,16 +555,18 @@ button:not(.menu-toggle):not(.ask-horizons-close):not(.app-tool-close):not(.hall
 
 .start-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 0.7rem;
 }
 
 .start-card {
-  display: grid;
-  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
   min-height: 104px;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 24px;
   background: rgba(255, 253, 248, 0.62);
   padding: 0.9rem;
   text-decoration: none;
@@ -575,6 +577,7 @@ button:not(.menu-toggle):not(.ask-horizons-close):not(.app-tool-close):not(.hall
   font-family: "Soleil", Arial, sans-serif;
   font-size: 0.98rem;
   letter-spacing: 0.04em;
+  line-height: 1.22;
 }
 
 .start-card span {
@@ -1556,10 +1559,16 @@ body.hall-centre-open .section-progress {
   padding-bottom: calc(110px + env(safe-area-inset-bottom));
 }
 
+.main-content,
+.search-results-panel,
+.ask-horizons-results {
+  padding-bottom: calc(7.5rem + env(safe-area-inset-bottom));
+}
+
 .search-results-panel {
   grid-column: 1 / -1;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 24px;
   background: rgba(255, 253, 248, 0.76);
   padding: 0.9rem;
 }
@@ -1584,13 +1593,15 @@ body.hall-centre-open .section-progress {
 }
 
 .search-result-card {
-  display: grid;
-  gap: 0.28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 24px;
   background: var(--panel);
   color: var(--text);
-  padding: 0.72rem;
+  padding: 0.95rem;
   text-decoration: none;
   width: 100%;
   text-align: left;
@@ -1598,27 +1609,81 @@ body.hall-centre-open .section-progress {
   cursor: pointer;
 }
 
+button.search-result-card,
+.search-result-card.mobile-result-card {
+  border-radius: 24px !important;
+}
+
 .search-result-card span,
 .search-result-card em {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-style: normal;
 }
 
 .search-result-card strong {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.mobile-result-card,
+.mobile-result-card > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mobile-result-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.mobile-result-title {
+  display: block;
+  width: 100%;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.04rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.mobile-result-snippet {
+  display: block;
+  width: 100%;
+  line-height: 1.42;
+}
+
+.mobile-result-details {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.mobile-result-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.1rem;
 }
 
 .search-result-meta {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 0.35rem;
-  align-items: center;
 }
 
 .search-result-meta small {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.search-result-meta small strong {
+  color: var(--text);
+  font-size: inherit;
 }
 
 .ask-horizons-button {
@@ -3290,6 +3355,85 @@ body.admin-view .admin-tool-section,
 
   .search-results-grid {
     grid-template-columns: 1fr;
+  }
+
+  .result-card,
+  .search-result-card,
+  .ask-result-card,
+  .start-card,
+  .shortcut-card,
+  .mobile-result-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.72rem;
+    width: 100%;
+    min-width: 0;
+    border-radius: 24px;
+    padding: 1rem;
+  }
+
+  button.search-result-card,
+  .search-result-card.mobile-result-card {
+    border-radius: 24px !important;
+  }
+
+  .result-card > *,
+  .search-result-card > *,
+  .ask-result-card > *,
+  .start-card > *,
+  .shortcut-card > *,
+  .mobile-result-card > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .result-title,
+  .search-result-title,
+  .start-card-title,
+  .mobile-result-title,
+  .card-title,
+  .person-name,
+  .company-name {
+    width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .mobile-result-meta-row,
+  .tag-stack {
+    justify-content: flex-start;
+  }
+
+  .result-actions,
+  .search-result-actions,
+  .start-card-actions,
+  .mobile-result-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .result-actions .button,
+  .search-result-actions .button,
+  .start-card-actions .button,
+  .mobile-result-actions .button,
+  .search-result-card .button,
+  .start-card .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-results-panel,
+  .ask-horizons-results {
+    padding-bottom: calc(10rem + env(safe-area-inset-bottom));
+  }
+
+  .ask-horizons-drawer[hidden] + .ask-horizons-button,
+  .ask-horizons-button {
+    bottom: max(132px, calc(124px + env(safe-area-inset-bottom)));
+    transform: scale(0.9);
+    transform-origin: right bottom;
   }
 
   .search-results-head {
