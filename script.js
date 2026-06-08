@@ -41,10 +41,11 @@ const state = {
   localRedFlags: [],
   localDecisions: [],
   statusOverrides: {},
+  reportFilters: { status: "", type: "" },
   updates: {}
 };
 
-const APP_VERSION = "20260608-homepage-wave-video";
+const APP_VERSION = "20260608-report-issue-sitewide-updates";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -54,7 +55,7 @@ const APP_GROUPS = [
   { id: "people", label: "People", target: "contacts", sections: ["contacts", "who-do-i-call", "staff", "guests", "attendee-directory", "suppliers"] },
   { id: "programme", label: "Programme", target: "podcast", sections: ["podcast", "speakers", "entertainment", "playlists", "rehearsals", "content", "workstreams"] },
   { id: "assets", label: "Assets", target: "menus", sections: ["menus", "swag", "room-drops", "horizons-house", "artwork", "documents", "completed"] },
-  { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"] }
+  { id: "admin", label: "Admin", target: "admin-data", sections: ["admin-data", "cvent", "missing-files", "asset-review", "report-inbox", "slack", "data-health", "duplicate-review", "site-audit"] }
 ];
 const ASK_SHORTCUTS = [
   ["Who do I call", "who do i call"],
@@ -68,7 +69,8 @@ const ASK_SHORTCUTS = [
   ["Room Drops", "room drops"],
   ["Lanyards", "lanyards"],
   ["Print Summary", "print summary"],
-  ["Missing Items", "what do we still need"]
+  ["Missing Items", "what do we still need"],
+  ["Report Issue", "report issue"]
 ];
 const SEARCH_SCOPE_OPTIONS = ["All", "People", "Call Sheet", "Schedule", "Locations", "Menus", "Flights / Travel", "Accommodation", "Assets", "Documents", "HORIZONS Hall", "Missing Items"];
 const SEARCH_ALIASES = {
@@ -378,6 +380,21 @@ const slackChannelFor = (id = "") => {
 };
 const slackChannelsForSelect = (suggested = "#horizons-main") => unique([suggested, ...(state.data?.meta?.slackChannels || []).map((item) => item.channel)]).filter(Boolean);
 const slackUrgencyLabel = (update = {}) => /urgent|critical|at risk|problem|decision/i.test(`${update.priority} ${update.status}`) ? "URGENT / AT RISK" : "Normal update";
+const REPORT_ROUTING = {
+  "Red Flag": { siteSection: "Red Flags", recordType: "red_flag", parentType: "red_flag", slack: "#horizons-red-flags", priorityDefault: "High" },
+  "Decision Needed": { siteSection: "Decisions Needed", recordType: "decision", parentType: "decision", slack: "#horizons-main", priorityDefault: "Medium" },
+  "Website Issue": { siteSection: "Website Issues", recordType: "website_issue", parentType: "website_issue", slack: "#horizons-web-hub", priorityDefault: "Medium" },
+  "Schedule / Call Sheet Correction": { siteSection: "Schedule / Call Sheet Updates", recordType: "schedule_call_sheet_update", parentType: "schedule_item", slack: "#horizons-schedule", priorityDefault: "High" },
+  "Location Issue": { siteSection: "Location Updates", recordType: "location_issue", parentType: "location", slack: "#horizons-locations", priorityDefault: "Medium" },
+  "Production Issue": { siteSection: "Production Updates", recordType: "production_issue", parentType: "content_capture", slack: "#horizons-production", priorityDefault: "High" },
+  "Content / Asset Issue": { siteSection: "Content / Assets Updates", recordType: "content_asset_issue", parentType: "document", slack: "#horizons-content", priorityDefault: "Medium" },
+  "Podcast Issue": { siteSection: "Podcast Updates", recordType: "podcast_issue", parentType: "podcast", slack: "#horizons-podcast", priorityDefault: "Medium" },
+  "Guest / People Issue": { siteSection: "People Updates", recordType: "people_issue", parentType: "contact", slack: "#horizons-main", priorityDefault: "Medium" },
+  "Missing Information": { siteSection: "What We Need From Team", recordType: "missing_information", parentType: "missing_file", slack: "#horizons-main", priorityDefault: "Medium" },
+  "General Update": { siteSection: "Team Updates", recordType: "team_update", parentType: "section_update", slack: "#horizons-main", priorityDefault: "Low" }
+};
+const REPORT_STATUS_OPTIONS = ["New", "Acknowledged", "Accepted", "In Progress", "Resolved", "Dismissed", "Archived", "Deleted"];
+const SENSITIVE_REPORT_PATTERN = /\b(DOB|date of birth|PNR|passport|visa|room rate|total cost|additional cost|original total|new total|booking reference|private reference|service role|webhook|api key)\b/i;
 
 const backendApiBase = () => text(state.data?.meta?.backendApiBase || window.HORIZONS_API_BASE || "").replace(/\/$/, "");
 const parentTypeFor = (id = "") => {
@@ -401,22 +418,37 @@ const parentTypeFor = (id = "") => {
     rehearsal: "rehearsal",
     signage: "signage",
     material: "guest_material",
-    cvent: "cvent_comparison"
+    cvent: "cvent_comparison",
+    report: "section_update",
+    website: "website_issue"
   }[prefix] || prefix || "default";
 };
 
 const frontendUpdateFromRecord = (record = {}) => ({
   id: record.id,
+  parentId: record.parent_id || "",
+  parentType: record.parent_type || "",
+  recordType: record.record_type || record.parent_type || "team_update",
   name: record.author_name || "Team update",
   topic: record.title || "",
   status: record.status || "Still To Be Resolved",
   priority: record.priority || "Normal",
   visibility: record.visibility || "Team",
   comment: record.body || "",
+  section: record.section || record.metadata?.section || "",
+  relatedItemId: record.related_item_id || record.parent_id || "",
+  relatedItemTitle: record.related_item_title || record.metadata?.relatedItemTitle || "",
+  relatedPerson: record.related_person || record.metadata?.relatedPerson || "",
+  relatedLocation: record.related_location || record.metadata?.relatedLocation || "",
+  relatedDate: record.related_date || record.metadata?.relatedDate || "",
+  owner: record.owner || record.metadata?.owner || "",
+  suggestedFix: record.suggested_fix || record.metadata?.suggestedFix || "",
   notifySlack: Boolean(record.notify_slack),
   slackChannel: record.slack_channel || (record.notify_slack ? slackChannelFor(record.parent_id) : ""),
   slackStatus: record.slack_sent_at ? "Sent" : record.slack_error ? "Slack failed" : record.notify_slack ? "Queued" : "",
   timestamp: record.created_at ? new Date(record.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "",
+  sourceUrl: record.source_url || "",
+  deletedAt: record.deleted_at || "",
   source: "backend"
 });
 
@@ -430,7 +462,7 @@ async function loadSharedUpdates() {
     if (!result.ok || !Array.isArray(result.updates)) return false;
     const grouped = result.updates.reduce((acc, record) => {
       const id = record.parent_id;
-      if (!id) return acc;
+      if (!id || record.deleted_at || /deleted/i.test(record.status || "")) return acc;
       acc[id] = [...(acc[id] || []), frontendUpdateFromRecord(record)];
       return acc;
     }, {});
@@ -447,18 +479,29 @@ async function saveSharedUpdate(parentId, update) {
   const base = backendApiBase();
   if (!base) throw new Error("Shared backend unavailable");
   const payload = {
-    parent_type: parentTypeFor(parentId),
+    parent_type: update.parentType || parentTypeFor(parentId),
     parent_id: parentId,
+    record_type: update.recordType || update.parentType || parentTypeFor(parentId),
     title: update.topic,
     body: update.comment,
+    section: update.section || "",
+    related_item_id: update.relatedItemId || parentId,
+    related_item_title: update.relatedItemTitle || "",
+    related_person: update.relatedPerson || "",
+    related_location: update.relatedLocation || "",
+    related_date: update.relatedDate || "",
     author_name: update.name,
+    owner: update.owner || "",
+    suggested_fix: update.suggestedFix || "",
     status: update.status,
     visibility: update.visibility,
     priority: update.priority,
     notify_slack: update.notifySlack,
     slack_channel: update.slackChannel,
-    force_test_channel: Boolean(state.data?.meta?.slackTestMode),
-    website_link: `${location.origin}${location.pathname}#${parentId}`
+    force_test_channel: false,
+    website_link: `${location.origin}${location.pathname}#${parentId}`,
+    source_url: update.sourceUrl || `${location.origin}${location.pathname}${location.hash || ""}`,
+    metadata: update.metadata || {}
   };
   const response = await fetch(`${base}/api/updates`, {
     method: "POST",
@@ -468,6 +511,175 @@ async function saveSharedUpdate(parentId, update) {
   const result = await response.json().catch(() => ({}));
   if (!response.ok || !result.ok) throw new Error(result.error || `Updates API returned ${response.status}`);
   return result;
+}
+
+async function patchSharedUpdate(updateId, action, patch = {}) {
+  const base = backendApiBase();
+  if (!base) throw new Error("Shared backend unavailable");
+  const response = await fetch(`${base}/api/updates/${encodeURIComponent(updateId)}`, {
+    method: "PATCH",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ id: updateId, action, ...patch })
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || !result.ok) throw new Error(result.error || `Updates API returned ${response.status}`);
+  return result;
+}
+
+function showToast(message = "", tone = "success") {
+  const toast = $("[data-app-toast]");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.dataset.tone = tone;
+  toast.hidden = false;
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => { toast.hidden = true; }, 3600);
+}
+
+function savedUpdateFeedback(result = {}, update = {}) {
+  if (!update.notifySlack) return { message: "Report saved sitewide.", tone: "success" };
+  if (result.slack?.sent) return { message: `Report saved and sent to ${update.slackChannel}.`, tone: "success" };
+  return { message: "Report saved, but Slack notification failed.", tone: "warning" };
+}
+
+function openConfirmModal({ eyebrow = "Confirm", title = "Confirm action", message = "", preview = "", confirmLabel = "Confirm", tone = "normal" } = {}) {
+  return new Promise((resolve) => {
+    const modal = $("[data-confirm-modal]");
+    if (!modal) {
+      resolve(false);
+      return;
+    }
+    $("[data-confirm-eyebrow]", modal).textContent = eyebrow;
+    $("[data-confirm-title]", modal).textContent = title;
+    $("[data-confirm-message]", modal).textContent = message;
+    const previewEl = $("[data-confirm-preview]", modal);
+    if (previewEl) {
+      previewEl.textContent = preview;
+      previewEl.hidden = !preview;
+    }
+    const accept = $("[data-confirm-accept]", modal);
+    if (accept) {
+      accept.textContent = confirmLabel;
+      accept.dataset.tone = tone;
+    }
+    const close = (value) => {
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      modal.removeEventListener("click", onClick);
+      document.removeEventListener("keydown", onKeydown);
+      resolve(value);
+    };
+    const onClick = (event) => {
+      if (event.target.closest("[data-confirm-accept]")) close(true);
+      if (event.target.closest("[data-confirm-cancel]") || event.target === modal) close(false);
+    };
+    const onKeydown = (event) => {
+      if (event.key === "Escape") close(false);
+    };
+    modal.addEventListener("click", onClick);
+    document.addEventListener("keydown", onKeydown);
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    requestAnimationFrame(() => accept?.focus());
+  });
+}
+
+const reportRouteFor = (type = "General Update") => REPORT_ROUTING[type] || REPORT_ROUTING["General Update"];
+
+function buildReportSlackPreview(values = {}) {
+  const route = reportRouteFor(values.reportType);
+  const isRedFlag = values.reportType === "Red Flag";
+  const isWebsite = values.reportType === "Website Issue";
+  const icon = isRedFlag ? "HORIZONS Report - Red Flag" : isWebsite ? "HORIZONS Website Issue" : `HORIZONS Report - ${values.reportType || "General Update"}`;
+  return `${icon}
+
+Priority: ${values.priority || route.priorityDefault}
+Section: ${values.section || route.siteSection}
+Reported by: ${values.reportedBy || "Name needed"}
+Status: New
+
+Issue:
+${values.title || "Title needed"}
+${values.description ? `\n${values.description}` : ""}
+
+${values.suggestedFix ? `Suggested fix:\n${values.suggestedFix}\n\n` : ""}Open site:
+${location.origin}${location.pathname}${location.hash || ""}`;
+}
+
+function reportFormValues(form) {
+  const data = new FormData(form);
+  return {
+    reportType: text(data.get("reportType"), "General Update"),
+    priority: text(data.get("priority")),
+    section: text(data.get("section")),
+    reportedBy: text(data.get("reportedBy")),
+    title: text(data.get("title")),
+    description: text(data.get("description")),
+    relatedPerson: text(data.get("relatedPerson")),
+    relatedLocation: text(data.get("relatedLocation")),
+    relatedDate: text(data.get("relatedDate")),
+    owner: text(data.get("owner")),
+    suggestedFix: text(data.get("suggestedFix")),
+    slackChannel: text(data.get("slackChannel")),
+    notifySlack: data.get("notifySlack") === "true"
+  };
+}
+
+function syncReportPreview() {
+  const form = $("[data-report-form]");
+  if (!form) return;
+  const values = reportFormValues(form);
+  const route = reportRouteFor(values.reportType);
+  const channel = $("[data-report-slack-channel]", form);
+  if (channel && (!channel.value || !channel.dataset.userChanged)) channel.value = route.slack;
+  const priority = form.elements.priority;
+  if (priority && !priority.dataset.userChanged) priority.value = route.priorityDefault;
+  const section = $("[data-report-section-input]", form);
+  if (section && !section.value) section.value = route.siteSection;
+  const preview = $("[data-report-slack-preview]", form);
+  if (preview) preview.value = buildReportSlackPreview({ ...values, slackChannel: channel?.value || route.slack });
+}
+
+function openReportModal({ section = "", reportType = "General Update", title = "", relatedItemId = "" } = {}) {
+  const modal = $("[data-report-modal]");
+  const form = $("[data-report-form]", modal || document);
+  if (!modal || !form) return;
+  const typeSelect = $("[data-report-type-select]", form);
+  if (typeSelect && !typeSelect.innerHTML) {
+    typeSelect.innerHTML = Object.keys(REPORT_ROUTING).map((type) => `<option>${escapeHtml(type)}</option>`).join("");
+  }
+  const route = reportRouteFor(reportType);
+  if (typeSelect) typeSelect.value = reportType;
+  const channelSelect = $("[data-report-slack-channel]", form);
+  if (channelSelect) {
+    channelSelect.innerHTML = slackChannelsForSelect(route.slack).map((channel) => `<option value="${escapeHtml(channel)}">${escapeHtml(channel.replace(/^#/, ""))}</option>`).join("");
+    channelSelect.value = route.slack;
+    channelSelect.dataset.userChanged = "";
+  }
+  form.elements.priority.value = route.priorityDefault;
+  form.elements.section.value = section || route.siteSection;
+  form.elements.title.value = title || "";
+  form.elements.description.value = "";
+  form.elements.reportedBy.value = "";
+  form.elements.relatedPerson.value = "";
+  form.elements.relatedLocation.value = "";
+  form.elements.relatedDate.value = "";
+  form.elements.owner.value = "";
+  form.elements.suggestedFix.value = "";
+  form.elements.notifySlack.checked = false;
+  form.dataset.relatedItemId = relatedItemId || "";
+  const status = $("[data-report-status]", form);
+  if (status) status.textContent = "";
+  syncReportPreview();
+  modal.hidden = false;
+  document.body.classList.add("modal-open", "report-modal-open");
+  requestAnimationFrame(() => form.elements.title?.focus());
+}
+
+function closeReportModal() {
+  const modal = $("[data-report-modal]");
+  if (modal) modal.hidden = true;
+  document.body.classList.remove("modal-open", "report-modal-open");
 }
 
 const roundTableConfig = () => state.data?.roundTableSeatingPlan || {};
@@ -837,7 +1049,7 @@ function renderEvent() {
   `).join(""));
   $("[data-capture-storage-copy]") && ($("[data-capture-storage-copy]").textContent = backendApiBase()
     ? "Quick live ideas for the content team. Capture suggestions are saved to the shared event system."
-    : "Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.");
+    : "Quick live ideas for the content team. For team-wide issues or action items, use Report Issue so the update syncs across the site.");
 }
 
 function renderFilters() {
@@ -1124,6 +1336,76 @@ function renderAskHorizons() {
   `;
 }
 
+function reportRecords() {
+  return Object.entries(state.updates || {}).flatMap(([parentId, updates]) => (updates || [])
+    .filter((update) => update.recordType && /report|issue|decision|red_flag|section_update|team_update|missing_information|schedule_call_sheet_update|content_asset_issue|website/i.test(`${update.recordType} ${update.parentType}`))
+    .map((update) => ({ ...update, parentId: update.parentId || parentId })))
+    .filter((update) => !update.deletedAt && !/deleted/i.test(update.status || ""));
+}
+
+function renderReportInbox() {
+  const statusSelect = $("[data-report-filter='status']");
+  if (statusSelect && !statusSelect.innerHTML) {
+    statusSelect.innerHTML = `<option value="">All statuses</option>${REPORT_STATUS_OPTIONS.map((status) => `<option>${escapeHtml(status)}</option>`).join("")}`;
+  }
+  if (statusSelect && statusSelect.value !== state.reportFilters.status) statusSelect.value = state.reportFilters.status;
+  const typeSelect = $("[data-report-filter='type']");
+  const types = Object.keys(REPORT_ROUTING);
+  if (typeSelect && !typeSelect.innerHTML) {
+    typeSelect.innerHTML = `<option value="">All types</option>${types.map((type) => `<option>${escapeHtml(type)}</option>`).join("")}`;
+  }
+  if (typeSelect && typeSelect.value !== state.reportFilters.type) typeSelect.value = state.reportFilters.type;
+  const container = $("[data-report-inbox]");
+  if (!container) return;
+  const reports = reportRecords().filter((report) => {
+    if (state.reportFilters.status && report.status !== state.reportFilters.status) return false;
+    if (state.reportFilters.type && report.topic !== state.reportFilters.type && report.recordType !== reportRouteFor(state.reportFilters.type).recordType) return false;
+    return true;
+  }).sort((a, b) => (b.id || "").localeCompare(a.id || ""));
+  container.innerHTML = reports.length ? `
+    <div class="cards-grid compact-grid report-inbox-grid">
+      ${reports.map((report) => `
+        <article class="card report-inbox-card">
+          <div class="card-header">
+            <div class="tag-stack">
+              <span class="tag">${escapeHtml(report.topic || report.recordType || "Report")}</span>
+              ${tag(report.status || "New")}
+              ${report.priority ? tag(report.priority) : ""}
+            </div>
+            <div class="card-title-group"><h3 class="card-title">${escapeHtml(report.comment?.split("\n")[0] || report.topic || "Live update")}</h3></div>
+          </div>
+          <p>${escapeHtml(report.comment || "No description supplied.")}</p>
+          <div class="meta-list">
+            ${report.section ? `<p><strong>Section:</strong> ${escapeHtml(report.section)}</p>` : ""}
+            ${report.name ? `<p><strong>Reported by:</strong> ${escapeHtml(report.name)}</p>` : ""}
+            ${report.relatedPerson ? `<p><strong>Person:</strong> ${escapeHtml(report.relatedPerson)}</p>` : ""}
+            ${report.relatedLocation ? `<p><strong>Location:</strong> ${escapeHtml(report.relatedLocation)}</p>` : ""}
+            ${report.slackChannel ? `<p><strong>Slack:</strong> ${escapeHtml(report.slackStatus || "Pending")} ${escapeHtml(report.slackChannel)}</p>` : ""}
+          </div>
+          <div class="contact-actions update-actions">
+            <button type="button" data-update-action="acknowledge" data-update-id="${escapeHtml(report.id)}" data-parent-id="${escapeHtml(report.parentId)}">Acknowledge</button>
+            <button type="button" data-update-action="accept" data-update-id="${escapeHtml(report.id)}" data-parent-id="${escapeHtml(report.parentId)}">Accept</button>
+            <button type="button" data-update-action="in-progress" data-update-id="${escapeHtml(report.id)}" data-parent-id="${escapeHtml(report.parentId)}">In Progress</button>
+            <button type="button" data-update-action="resolve" data-update-id="${escapeHtml(report.id)}" data-parent-id="${escapeHtml(report.parentId)}">Resolve</button>
+            <button type="button" data-update-action="archive" data-update-id="${escapeHtml(report.id)}" data-parent-id="${escapeHtml(report.parentId)}">Archive</button>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  ` : `<div class="empty-state"><strong>No shared reports found.</strong><p>Use Report Issue from Ask HORIZONS or any major section.</p></div>`;
+}
+
+function addSectionReportButtons() {
+  $$("main .section").forEach((section) => {
+    if (["overview", "app-search", "report-inbox"].includes(section.id)) return;
+    const heading = section.querySelector(".section-heading");
+    if (!heading || heading.querySelector("[data-report-open]")) return;
+    const title = heading.querySelector("h2")?.textContent || section.id;
+    heading.classList.add("section-heading-row");
+    heading.insertAdjacentHTML("beforeend", `<button class="button button-secondary section-report-button" type="button" data-report-open data-report-section="${escapeHtml(title)}">Report issue in this section</button>`);
+  });
+}
+
 function renderAll() {
   renderSearchResults();
   renderPersonalizedBanner();
@@ -1171,6 +1453,7 @@ function renderAll() {
   renderCventComparison();
   renderMissingFiles();
   renderSlackIntegration();
+  renderReportInbox();
   renderDataHealth();
   renderDuplicateReview();
   renderSiteAudit();
@@ -1178,6 +1461,7 @@ function renderAll() {
   renderDocumentTabs();
   renderDocuments();
   renderCompleted();
+  addSectionReportButtons();
 }
 
 function openAskHorizons(query = "") {
@@ -1272,7 +1556,19 @@ function renderToday() {
 }
 
 function renderRedFlags() {
-  const items = [...liveItems(state.data.redFlags), ...(state.localRedFlags || [])]
+  const sharedRedFlags = reportRecords()
+    .filter((report) => report.recordType === "red_flag")
+    .map((report) => ({
+      issue: report.comment?.split("\n")[0] || report.topic || "Red Flag",
+      whyItMatters: report.comment,
+      owner: report.owner || report.name,
+      priority: report.priority,
+      status: report.status,
+      decisionNeeded: report.suggestedFix,
+      notes: report.section,
+      updateId: report.parentId
+    }));
+  const items = [...liveItems(state.data.redFlags), ...(state.localRedFlags || []), ...sharedRedFlags]
     .filter(isActiveOperationalItem)
     .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
   const addForm = `
@@ -3196,7 +3492,19 @@ function renderSiteAudit() {
 }
 
 function renderDecisions() {
-  const items = [...liveItems(state.data.decisions), ...(state.localDecisions || [])]
+  const sharedDecisions = reportRecords()
+    .filter((report) => report.recordType === "decision")
+    .map((report) => ({
+      decisionNeeded: report.comment?.split("\n")[0] || report.topic || "Decision Needed",
+      whyItMatters: report.comment,
+      owner: report.owner || report.name,
+      deadline: report.relatedDate,
+      status: report.status,
+      latestUpdate: report.suggestedFix,
+      relatedWorkstream: report.section,
+      updateId: report.parentId
+    }));
+  const items = [...liveItems(state.data.decisions), ...(state.localDecisions || []), ...sharedDecisions]
     .filter(isActiveOperationalItem)
     .filter((item) => passesGlobal(item, { status: activeStatus(item), owner: item.owner, updateId: item.updateId }));
   const addForm = `
@@ -3472,10 +3780,22 @@ function bindEvents() {
     }
   });
   document.addEventListener("change", async (event) => {
+    const reportFilter = event.target.closest("[data-report-filter]");
+    if (reportFilter) {
+      state.reportFilters[reportFilter.dataset.reportFilter] = reportFilter.value;
+      renderReportInbox();
+      return;
+    }
+    if (event.target.closest("[data-report-form]")) {
+      if (event.target.matches("[name='priority'], [data-report-slack-channel]")) event.target.dataset.userChanged = "true";
+      syncReportPreview();
+      return;
+    }
     const statusSelect = event.target.closest("[data-status-control]");
     if (statusSelect) {
       const id = statusSelect.dataset.statusControl;
       const status = statusSelect.value;
+      const previous = statusFor(id);
       const update = {
         name: "Website status control",
         topic: "Status updated",
@@ -3493,14 +3813,15 @@ function bindEvents() {
         const savedUpdate = result?.update ? frontendUpdateFromRecord(result.update) : update;
         state.updates[id] = [...getUpdates(id), savedUpdate];
       } catch (error) {
-        update.comment = `Could not sync. Try again. ${update.comment}`;
-        update.source = "local-fallback";
-        state.updates[id] = [...getUpdates(id), update];
         console.warn(`Could not sync status for ${id}.`, error);
+        statusSelect.value = previous || "";
+        showToast("Could not sync. Try again.", "error");
+        return;
       }
       state.statusOverrides = { ...statusOverrides(), [id]: status };
       statusOverrideStore.save(state.statusOverrides);
       updateStore.save(state.updates);
+      showToast("Status saved sitewide.");
       renderAll();
       return;
     }
@@ -3510,6 +3831,9 @@ function bindEvents() {
       state.hallControlCentreOpen = true;
       rerenderHallCentre({ preserveScroll: false });
     }
+  });
+  document.addEventListener("input", (event) => {
+    if (event.target.closest("[data-report-form]")) syncReportPreview();
   });
   $$("[data-guest-filter]").forEach((select) => select.addEventListener("change", (event) => { state.guestFilters[event.target.dataset.guestFilter] = event.target.value; renderGuests(); }));
   const guestReset = $("[data-guest-reset]");
@@ -3562,6 +3886,22 @@ function bindEvents() {
     runHomepageSearch(text(homeSearchInput.value));
   });
   document.addEventListener("click", async (event) => {
+    const reportOpen = event.target.closest("[data-report-open]");
+    if (reportOpen) {
+      event.preventDefault();
+      openReportModal({
+        section: reportOpen.dataset.reportSection || reportOpen.closest(".section")?.querySelector("h2")?.textContent || "",
+        reportType: reportOpen.dataset.reportType || "General Update",
+        title: reportOpen.dataset.reportTitle || "",
+        relatedItemId: reportOpen.dataset.reportItem || reportOpen.closest("[data-update-module]")?.dataset.updateModule || ""
+      });
+      return;
+    }
+    const reportClose = event.target.closest("[data-report-close], [data-report-modal]");
+    if (reportClose && (!event.target.closest(".report-modal") || event.target.closest("[data-report-close]"))) {
+      closeReportModal();
+      return;
+    }
     const askOpen = event.target.closest("[data-ask-open]");
     if (askOpen) {
       openAskHorizons();
@@ -3609,6 +3949,10 @@ function bindEvents() {
     const askChip = event.target.closest("[data-ask-chip]");
     if (askChip) {
       const query = askChip.dataset.askChip || askChip.textContent || "";
+      if (/report issue/i.test(query)) {
+        openReportModal({ section: "Ask HORIZONS", reportType: "General Update" });
+        return;
+      }
       openAskHorizons(query);
       return;
     }
@@ -4026,30 +4370,59 @@ function bindEvents() {
       const updateId = updateAction.dataset.updateId;
       const parentId = updateAction.dataset.parentId;
       const action = updateAction.dataset.updateAction;
+      const currentUpdate = getUpdates(parentId).find((item) => item.id === updateId);
       if (action === "delete") {
-        if (!window.confirm("Delete this archived local update? Source records are not deleted.")) return;
-        state.updates[parentId] = getUpdates(parentId).filter((item) => item.id !== updateId);
-        updateStore.save(state.updates);
-        renderAll();
+        const confirmed = await openConfirmModal({
+          eyebrow: "Delete",
+          title: "Delete archived update?",
+          message: "This will remove the archived update for everyone using the site. Source event records are not deleted.",
+          confirmLabel: "Delete sitewide",
+          tone: "danger"
+        });
+        if (!confirmed) return;
+        try {
+          await patchSharedUpdate(updateId, "delete");
+          state.updates[parentId] = getUpdates(parentId).filter((item) => item.id !== updateId);
+          updateStore.save(state.updates);
+          showToast("Archived update deleted sitewide.");
+          renderAll();
+        } catch (error) {
+          console.warn("Could not delete archived update sitewide.", error);
+          showToast("Could not delete sitewide. Try again.", "error");
+        }
         return;
       }
-      const actionLabel = action === "confirm" ? "Confirmed" : action === "resolve" ? "Resolved" : action === "archive" ? "Archived" : "Still To Be Resolved";
-      try {
-        const base = backendApiBase();
-        if (!base) throw new Error("Shared backend unavailable");
-        const response = await fetch(`${base}/api/updates/${encodeURIComponent(updateId)}`, {
-          method: "PATCH",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ id: updateId, action, resolved_by: "Website" })
+      const actionLabel = {
+        confirm: "Confirmed",
+        acknowledge: "Acknowledged",
+        accept: "Accepted",
+        "in-progress": "In Progress",
+        resolve: "Resolved",
+        archive: "Archived",
+        reopen: "New",
+        dismiss: "Dismissed"
+      }[action] || "New";
+      if (["resolve", "archive", "reopen"].includes(action)) {
+        const confirmed = await openConfirmModal({
+          eyebrow: "Update status",
+          title: `${actionLabel} update?`,
+          message: `This will mark the update as ${actionLabel} for everyone using the site.`,
+          preview: currentUpdate?.comment || "",
+          confirmLabel: `Mark ${actionLabel}`
         });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.ok) throw new Error(result.error || `Updates API returned ${response.status}`);
-      } catch (error) {
-        console.warn("Could not update shared status; applying local fallback.", error);
+        if (!confirmed) return;
       }
-      state.updates[parentId] = getUpdates(parentId).map((item) => item.id === updateId ? { ...item, status: actionLabel } : item);
-      updateStore.save(state.updates);
-      renderAll();
+      try {
+        const result = await patchSharedUpdate(updateId, action, { resolved_by: "Website" });
+        const updated = result?.update ? frontendUpdateFromRecord(result.update) : null;
+        state.updates[parentId] = getUpdates(parentId).map((item) => item.id === updateId ? { ...item, ...(updated || {}), status: updated?.status || actionLabel } : item);
+        updateStore.save(state.updates);
+        showToast(`Update marked ${actionLabel} sitewide.`);
+        renderAll();
+      } catch (error) {
+        console.warn("Could not update shared status.", error);
+        showToast("Could not sync. Try again.", "error");
+      }
       return;
     }
   });
@@ -4065,44 +4438,39 @@ function bindEvents() {
     if (redFlagForm) {
       event.preventDefault();
       const data = new FormData(redFlagForm);
-      const id = `local-red-flag-${Date.now()}`;
+      const id = `report:red-flag:${Date.now()}`;
       const submitter = event.submitter?.value || "save";
       const notifySlack = data.get("notifySlack") === "true" || submitter === "notify";
-      const item = {
-        id,
-        issue: text(data.get("issue")),
-        whyItMatters: text(data.get("whyItMatters"), "Impact needs adding."),
-        owner: text(data.get("owner"), "Owner needed"),
+      const issue = text(data.get("issue"));
+      if (!issue) return;
+      const update = {
+        name: "Website",
+        topic: "Red Flag",
+        status: text(data.get("status"), "New"),
         priority: text(data.get("severity"), "High"),
-        status: text(data.get("status"), "Needs Confirmation"),
-        department: text(data.get("department")),
-        location: text(data.get("location")),
-        decisionNeeded: text(data.get("decisionNeeded"), "Review onsite and mark resolved when complete."),
-        dueBy: text(data.get("dueBy")),
+        visibility: "Team",
+        comment: `${issue}\n\n${text(data.get("whyItMatters"), "Impact needs adding.")}`,
+        notifySlack,
         slackChannel: text(data.get("slackChannel"), "#horizons-red-flags"),
-        notes: "Added locally on this device. Shared backend storage needs setup for cross-device visibility.",
-        updateId: `redflag:${id}`,
-        source: "local-red-flag"
+        recordType: "red_flag",
+        parentType: "red_flag",
+        section: "Red Flags",
+        relatedLocation: text(data.get("location")),
+        owner: text(data.get("owner"), "Owner needed"),
+        suggestedFix: text(data.get("decisionNeeded"), "Review onsite and mark resolved when complete."),
+        metadata: { dueBy: text(data.get("dueBy")), department: text(data.get("department")) },
+        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
       };
-      if (!item.issue) return;
-      state.localRedFlags = [...(state.localRedFlags || []), item];
-      localRedFlagStore.save(state.localRedFlags);
-      if (notifySlack) {
-        const update = {
-          name: "Website",
-          topic: "Red Flag",
-          status: item.status,
-          priority: item.priority,
-          visibility: "Team",
-          comment: `RED FLAG: ${item.issue}\nOwner: ${item.owner}\nDecision needed: ${item.decisionNeeded}\nNotes: ${item.whyItMatters}`,
-          notifySlack: true,
-          slackChannel: item.slackChannel,
-          timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
-        };
-        try { await saveSharedUpdate(item.updateId, update); }
-        catch (error) {
-          slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: item.updateId, channel: item.slackChannel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        }
+      try {
+        const result = await saveSharedUpdate(id, update);
+        state.updates[id] = [result?.update ? frontendUpdateFromRecord(result.update) : { ...update, id, parentId: id }];
+        updateStore.save(state.updates);
+        const feedback = savedUpdateFeedback(result, update);
+        showToast(feedback.message, feedback.tone);
+      } catch (error) {
+        console.warn("Could not save red flag report.", error);
+        showToast("Could not save report. Copy details and try again.", "error");
+        return;
       }
       redFlagForm.reset();
       renderRedFlags();
@@ -4112,44 +4480,39 @@ function bindEvents() {
     if (decisionForm) {
       event.preventDefault();
       const data = new FormData(decisionForm);
-      const id = `local-decision-${Date.now()}`;
+      const id = `report:decision:${Date.now()}`;
       const submitter = event.submitter?.value || "save";
       const notifySlack = data.get("notifySlack") === "true" || submitter === "notify";
-      const item = {
-        id,
-        decisionNeeded: text(data.get("decisionNeeded")),
-        whyItMatters: text(data.get("whyItMatters"), "Reason needs adding."),
-        owner: text(data.get("owner"), "Owner needed"),
-        department: text(data.get("department")),
-        options: text(data.get("options")),
-        impact: text(data.get("impact")),
-        deadline: text(data.get("deadline"), "Deadline needed"),
+      const decisionNeeded = text(data.get("decisionNeeded"));
+      if (!decisionNeeded) return;
+      const update = {
+        name: "Website",
+        topic: "Decision Needed",
         status: text(data.get("status"), "Decision Needed"),
-        relatedWorkstream: "Local team update",
-        updateId: `decision:${id}`,
+        priority: "Important",
+        visibility: "Team",
+        comment: `${decisionNeeded}\n\n${text(data.get("whyItMatters"), "Reason needs adding.")}`,
+        notifySlack,
         slackChannel: text(data.get("slackChannel"), "#horizons-decisions"),
-        notes: text(data.get("notes"), "Added locally on this device. Shared backend storage needs setup for cross-device visibility."),
-        source: "local-decision"
+        recordType: "decision",
+        parentType: "decision",
+        section: "Decisions Needed",
+        owner: text(data.get("owner"), "Owner needed"),
+        relatedDate: text(data.get("deadline"), "Deadline needed"),
+        suggestedFix: text(data.get("options")) || text(data.get("impact")) || text(data.get("notes")),
+        metadata: { department: text(data.get("department")), impact: text(data.get("impact")) },
+        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
       };
-      if (!item.decisionNeeded) return;
-      state.localDecisions = [...(state.localDecisions || []), item];
-      localDecisionStore.save(state.localDecisions);
-      if (notifySlack) {
-        const update = {
-          name: "Website",
-          topic: "Decision",
-          status: item.status,
-          priority: "Important",
-          visibility: "Team",
-          comment: `DECISION NEEDED: ${item.decisionNeeded}\nOwner: ${item.owner}\nDue: ${item.deadline}\nImpact: ${item.impact || item.whyItMatters}`,
-          notifySlack: true,
-          slackChannel: item.slackChannel,
-          timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
-        };
-        try { await saveSharedUpdate(item.updateId, update); }
-        catch (error) {
-          slackActivityStore.save([...slackActivityStore.load(), { id: `slack-local-${Date.now()}`, updateId: item.updateId, channel: item.slackChannel, messagePreview: update.comment.slice(0, 180), sentBy: "Website", sentAt: update.timestamp, status: "Queued", errorMessage: `Shared backend unavailable: ${error.message}` }]);
-        }
+      try {
+        const result = await saveSharedUpdate(id, update);
+        state.updates[id] = [result?.update ? frontendUpdateFromRecord(result.update) : { ...update, id, parentId: id }];
+        updateStore.save(state.updates);
+        const feedback = savedUpdateFeedback(result, update);
+        showToast(feedback.message, feedback.tone);
+      } catch (error) {
+        console.warn("Could not save decision report.", error);
+        showToast("Could not save report. Copy details and try again.", "error");
+        return;
       }
       decisionForm.reset();
       renderDecisions();
@@ -4209,6 +4572,81 @@ function bindEvents() {
       renderCaptureSuggestions();
       return;
     }
+    const reportForm = event.target.closest("[data-report-form]");
+    if (reportForm) {
+      event.preventDefault();
+      const submitMode = event.submitter?.value || "save";
+      const values = reportFormValues(reportForm);
+      const route = reportRouteFor(values.reportType);
+      const notifySlack = values.notifySlack || submitMode === "notify";
+      const combinedText = `${values.title}\n${values.description}\n${values.suggestedFix}`;
+      const status = $("[data-report-status]", reportForm);
+      if (!values.title || !values.description || !values.reportedBy) {
+        if (status) status.textContent = "Add a title, description, and reporter name.";
+        return;
+      }
+      if (notifySlack && SENSITIVE_REPORT_PATTERN.test(combinedText)) {
+        const ok = await openConfirmModal({
+          eyebrow: "Privacy",
+          title: "Sensitive information warning",
+          message: "This report may contain sensitive information. Confirm before sending to Slack.",
+          preview: combinedText.slice(0, 800),
+          confirmLabel: "Send anyway"
+        });
+        if (!ok) return;
+      }
+      if (notifySlack) {
+        const ok = await openConfirmModal({
+          eyebrow: "Slack preview",
+          title: `Send to ${values.slackChannel || route.slack}?`,
+          message: "The report will be saved sitewide before the Slack notification is sent.",
+          preview: buildReportSlackPreview({ ...values, priority: values.priority || route.priorityDefault, section: values.section || route.siteSection }),
+          confirmLabel: "Save + Notify Slack"
+        });
+        if (!ok) return;
+      }
+      const parentId = `report:${slug(route.recordType)}:${Date.now()}`;
+      const update = {
+        name: values.reportedBy,
+        topic: values.reportType,
+        status: "New",
+        priority: values.priority || route.priorityDefault,
+        visibility: "Team",
+        comment: `${values.title}\n\n${values.description}`,
+        notifySlack,
+        slackChannel: values.slackChannel || route.slack,
+        recordType: route.recordType,
+        parentType: route.parentType,
+        section: values.section || route.siteSection,
+        relatedItemId: reportForm.dataset.relatedItemId || parentId,
+        relatedItemTitle: values.title,
+        relatedPerson: values.relatedPerson,
+        relatedLocation: values.relatedLocation,
+        relatedDate: values.relatedDate,
+        owner: values.owner,
+        suggestedFix: values.suggestedFix,
+        sourceUrl: `${location.origin}${location.pathname}${location.hash || ""}`,
+        metadata: { reportType: values.reportType, routedSection: route.siteSection },
+        timestamp: new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
+      };
+      try {
+        const result = await saveSharedUpdate(parentId, update);
+        const savedUpdate = result?.update ? frontendUpdateFromRecord(result.update) : { ...update, id: parentId, parentId };
+        const slack = result.slack || {};
+        savedUpdate.slackStatus = slack.sent ? "Sent" : slack.error ? "Slack failed" : notifySlack ? "Queued" : "";
+        state.updates[parentId] = [savedUpdate];
+        updateStore.save(state.updates);
+        closeReportModal();
+        const feedback = savedUpdateFeedback(result, update);
+        showToast(feedback.message, feedback.tone);
+        renderAll();
+      } catch (error) {
+        console.warn("Could not save report.", error);
+        if (status) status.textContent = "Could not save report. Copy details and try again.";
+        showToast("Could not save report. Copy details and try again.", "error");
+      }
+      return;
+    }
     const form = event.target.closest("[data-update-form]");
     if (!form) return;
     event.preventDefault();
@@ -4229,7 +4667,14 @@ function bindEvents() {
     if (!update.comment) return;
     if (update.notifySlack) {
       const preview = `Send this update to ${update.slackChannel}?\n\n${slackUrgencyLabel(update)}\nStatus: ${update.status}\nPriority: ${update.priority}\n\n${update.comment}`;
-      if (!window.confirm(preview)) update.notifySlack = false;
+      const ok = await openConfirmModal({
+        eyebrow: "Slack preview",
+        title: `Send to ${update.slackChannel}?`,
+        message: "The update will be saved sitewide before Slack notification is sent.",
+        preview,
+        confirmLabel: "Save + Notify Slack"
+      });
+      if (!ok) update.notifySlack = false;
     }
     const shouldNotify = update.notifySlack || shouldAutoNotifySlack(update, id);
     if (shouldNotify && /private|admin/i.test(update.visibility)) {
@@ -4247,26 +4692,13 @@ function bindEvents() {
         state.updates[id] = [...getUpdates(id), update];
       }
     } catch (error) {
-      if (shouldNotify && !update.slackStatus) update.slackStatus = "Pending backend setup";
-      const log = slackActivityStore.load();
-      if (shouldNotify) {
-        slackActivityStore.save([...log, {
-          id: `slack-local-${Date.now()}`,
-          updateId: id,
-          parentType: parentTypeFor(id),
-          parentId: id,
-          channel: update.slackChannel,
-          messagePreview: update.comment.slice(0, 180),
-          sentBy: update.name,
-          sentAt: update.timestamp,
-          status: "Queued",
-          errorMessage: `Shared backend unavailable: ${error.message}`
-        }]);
-      }
-      update.source = "local-fallback";
-      state.updates[id] = [...getUpdates(id), update];
+      console.warn("Could not save shared update.", error);
+      showToast("Could not save report. Copy details and try again.", "error");
+      return;
     }
     updateStore.save(state.updates);
+    const feedback = savedUpdateFeedback(result, update);
+    showToast(feedback.message, feedback.tone);
     renderAll();
   });
 }

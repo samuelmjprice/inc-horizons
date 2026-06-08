@@ -33,3 +33,9 @@ Excluded private/sensitive fields:
 
 ## Active Search Terms
 Active `content.json` no longer contains the explicit sensitive booking labels or values for Kelechi. Historical reports may name sensitive categories only to document that they were excluded.
+
+## Report Issue / Slack Privacy
+
+- Report Issue now checks for sensitive-looking content before Slack send.
+- Sensitive patterns include DOB, date of birth, PNR, passport, visa, pricing, room rates, booking references, API keys, service role keys, and webhooks.
+- If detected, the user must confirm through a branded privacy warning before Slack notification can proceed.

@@ -29,8 +29,9 @@ Date: 3 June 2026
 
 ## Slack / Backend
 
-- Confirm production Slack channels before enabling live alerts.
-- Confirm whether website capture suggestions should use shared backend storage.
+- Apply the updated Supabase `record_updates` schema so Report Issue metadata and `deleted_at` soft-delete are available live.
+- Confirm production Slack report channels before enabling live alerts.
+- Confirm whether website capture suggestions should also move into the shared report/update backend.
 
 ## Documents / Assets
 

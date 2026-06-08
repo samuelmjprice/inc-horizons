@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260608-homepage-wave-video">
+    <link rel="stylesheet" href="style.css?v=20260608-report-issue-sitewide-updates">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -545,7 +545,7 @@
             <div class="section-heading">
               <p class="eyebrow">Live notes</p>
               <h2>Capture Suggestions</h2>
-              <p data-capture-storage-copy>Quick live ideas for the content team. Capture suggestions are saved on this device until shared capture storage is enabled.</p>
+              <p data-capture-storage-copy>Quick live ideas for the content team. For team-wide issues or action items, use Report Issue so the update syncs across the site.</p>
             </div>
             <div class="cards-grid compact-grid" data-capture-suggestions></div>
             <details class="details form-detail">
@@ -692,6 +692,7 @@
             <a href="#cvent">Cvent</a>
             <a href="#missing-files">Missing Files</a>
             <a href="#asset-review">Have / Need Review</a>
+            <a href="#report-inbox">Report Inbox</a>
             <a href="#slack">Slack</a>
             <a href="#data-health">Data Health</a>
             <a href="#duplicate-review">Duplicate Review</a>
@@ -753,6 +754,24 @@
               loading="lazy"
             ></iframe>
           </div>
+        </div>
+      </section>
+
+      <section id="report-inbox" class="section section-tint admin-tool-section">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="eyebrow">Live updates</p>
+              <h2>Report Inbox</h2>
+              <p>Shared report, issue, decision, red flag, and section update records from the live site.</p>
+            </div>
+            <button class="button button-primary" type="button" data-report-open data-report-section="Admin" data-report-type="Website Issue">Report Issue</button>
+          </div>
+          <div class="section-controls">
+            <label><span>Status</span><select data-report-filter="status"></select></label>
+            <label><span>Type</span><select data-report-filter="type"></select></label>
+          </div>
+          <div data-report-inbox></div>
         </div>
       </section>
 
@@ -873,6 +892,7 @@
             <button type="button" data-ask-chip="Who do I call">Who do I call?</button>
             <button type="button" data-ask-chip="HORIZONS Hall">HORIZONS Hall</button>
             <button type="button" data-ask-chip="What needs confirmation">What needs confirmation?</button>
+            <button type="button" data-report-open data-report-section="Ask HORIZONS" data-report-type="General Update">Report Issue</button>
           </div>
           <div class="ask-horizons-chips" data-ask-chips></div>
         </div>
@@ -904,6 +924,65 @@
       </section>
     </div>
 
+    <div class="confirm-modal-overlay" data-confirm-modal hidden>
+      <section class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+        <header class="slack-modal-header">
+          <div>
+            <p class="eyebrow" data-confirm-eyebrow>Confirm</p>
+            <h2 id="confirm-modal-title" data-confirm-title>Confirm action</h2>
+          </div>
+          <button type="button" data-confirm-cancel aria-label="Close confirmation">×</button>
+        </header>
+        <p data-confirm-message></p>
+        <pre class="modal-preview" data-confirm-preview hidden></pre>
+        <div class="contact-actions">
+          <button class="button button-secondary" type="button" data-confirm-cancel>Cancel</button>
+          <button class="button button-primary" type="button" data-confirm-accept>Confirm</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="report-modal-overlay" data-report-modal hidden>
+      <section class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
+        <header class="slack-modal-header">
+          <div>
+            <p class="eyebrow">Live update</p>
+            <h2 id="report-modal-title">Report Issue</h2>
+            <p>Report something the team should know about.</p>
+          </div>
+          <button type="button" data-report-close aria-label="Close Report Issue">×</button>
+        </header>
+        <form class="report-form" data-report-form>
+          <div class="report-form-grid">
+            <label><span>Report type</span><select name="reportType" data-report-type-select></select></label>
+            <label><span>Priority</span><select name="priority"><option>Critical</option><option>High</option><option selected>Medium</option><option>Low</option></select></label>
+            <label><span>Section / area</span><input name="section" data-report-section-input placeholder="Call Sheet"></label>
+            <label><span>Reporter name</span><input name="reportedBy" required placeholder="Your name"></label>
+            <label class="report-wide"><span>Issue title</span><input name="title" required placeholder="Short summary"></label>
+            <label class="report-wide"><span>Description / what is wrong</span><textarea name="description" required rows="5" placeholder="What needs to change or what should the team know?"></textarea></label>
+            <label><span>Related person</span><input name="relatedPerson" placeholder="Optional"></label>
+            <label><span>Related location</span><input name="relatedLocation" placeholder="Optional"></label>
+            <label><span>Related date/time</span><input name="relatedDate" placeholder="Optional"></label>
+            <label><span>Owner</span><input name="owner" placeholder="Optional"></label>
+            <label class="report-wide"><span>Suggested fix</span><textarea name="suggestedFix" rows="3" placeholder="Optional"></textarea></label>
+            <label><span>Slack channel</span><select name="slackChannel" data-report-slack-channel></select></label>
+            <label class="checkbox-row report-checkbox"><input type="checkbox" name="notifySlack" value="true"><span>Notify Slack after saving</span></label>
+          </div>
+          <label>
+            <span>Slack preview</span>
+            <textarea data-report-slack-preview readonly rows="9"></textarea>
+          </label>
+          <p class="summary-hint" data-report-status></p>
+          <div class="report-modal-actions">
+            <button class="button button-secondary" type="submit" name="submitMode" value="save">Save only</button>
+            <button class="button button-primary" type="submit" name="submitMode" value="notify">Save + Notify Slack</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="app-toast" data-app-toast hidden></div>
+
     <footer class="site-footer">
       <div class="container footer-grid">
         <img class="footer-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
@@ -913,6 +992,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260608-homepage-wave-video"></script>
+    <script src="script.js?v=20260608-report-issue-sitewide-updates"></script>
   </body>
 </html>

@@ -29,6 +29,7 @@ Current setup status:
 - `#horizons-web-hub` was created as a private HORIZONS website/data/admin channel.
 - Required HORIZONS channels were converted to private/invite-only.
 - `#horizons-test` has been moved to `TESTING / ADMIN` and verified with backend website-to-Slack test messages after private-channel conversion.
+- Report Issue now uses a channel selector and preview before sending. Production report notifications should use the selected HORIZONS channel only after Samuel/Chris approve the live webhook routing.
 
 ## Why Slack Pro
 

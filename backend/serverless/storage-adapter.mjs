@@ -38,15 +38,34 @@ export function queryParams(params = {}) {
 
 function buildUpdateRecord(payload) {
   const timestamp = now();
+  const reportTypes = new Set([
+    "report",
+    "report_issue",
+    "website_issue",
+    "red_flag",
+    "decision",
+    "section_update",
+    "team_update"
+  ]);
+  const defaultStatus = reportTypes.has(payload.record_type) || reportTypes.has(payload.parent_type) ? "New" : "Still To Be Resolved";
   return {
     id: payload.id || makeId("update"),
     parent_type: payload.parent_type,
     parent_id: payload.parent_id,
+    record_type: payload.record_type || payload.parent_type || "team_update",
     title: payload.title || "",
     body: payload.body || "",
+    section: payload.section || "",
+    related_item_id: payload.related_item_id || payload.parent_id || "",
+    related_item_title: payload.related_item_title || "",
+    related_person: payload.related_person || "",
+    related_location: payload.related_location || "",
+    related_date: payload.related_date || "",
     author_name: payload.author_name || "Team update",
     author_email: payload.author_email || "",
-    status: payload.status || "Still To Be Resolved",
+    owner: payload.owner || "",
+    suggested_fix: payload.suggested_fix || "",
+    status: payload.status || defaultStatus,
     visibility: payload.visibility || "Team",
     priority: payload.priority || "Normal",
     notify_slack: Boolean(payload.notify_slack),
@@ -59,8 +78,46 @@ function buildUpdateRecord(payload) {
     resolved_by: "",
     resolved_at: null,
     archived_at: null,
+    deleted_at: null,
+    source_url: payload.source_url || payload.website_link || "",
+    device_context: payload.device_context || {},
+    metadata: payload.metadata || {},
     source: payload.source || "website"
   };
+}
+
+const legacyUpdateKeys = new Set([
+  "id",
+  "parent_type",
+  "parent_id",
+  "title",
+  "body",
+  "author_name",
+  "author_email",
+  "status",
+  "visibility",
+  "priority",
+  "notify_slack",
+  "slack_channel",
+  "slack_sent_at",
+  "slack_message_ts",
+  "slack_error",
+  "created_at",
+  "updated_at",
+  "resolved_by",
+  "resolved_at",
+  "archived_at",
+  "source"
+]);
+
+function legacyUpdateRecord(record = {}) {
+  return Object.fromEntries(Object.entries(record).filter(([key]) => legacyUpdateKeys.has(key)));
+}
+
+const isMissingColumnError = (error = {}) => /column|schema cache|record_updates/i.test(error.message || "");
+
+function isDeletedRecord(update = {}) {
+  return Boolean(update.deleted_at) || /deleted/i.test(update.status || "");
 }
 
 export async function listUpdates({ parent_type, parent_id } = {}) {
@@ -68,10 +125,12 @@ export async function listUpdates({ parent_type, parent_id } = {}) {
     const filters = { select: "*", order: "created_at.asc" };
     if (parent_type) filters.parent_type = `eq.${parent_type}`;
     if (parent_id) filters.parent_id = `eq.${parent_id}`;
-    return supabaseRequest(`record_updates?${queryParams(filters)}`);
+    const rows = await supabaseRequest(`record_updates?${queryParams(filters)}`);
+    return rows.filter((update) => !isDeletedRecord(update));
   }
 
   return memory.updates.filter((update) => {
+    if (isDeletedRecord(update)) return false;
     if (parent_type && update.parent_type !== parent_type) return false;
     if (parent_id && update.parent_id !== parent_id) return false;
     return true;
@@ -81,12 +140,22 @@ export async function listUpdates({ parent_type, parent_id } = {}) {
 export async function createUpdate(payload) {
   const record = buildUpdateRecord(payload);
   if (hasSupabase()) {
-    const rows = await supabaseRequest("record_updates", {
-      method: "POST",
-      headers: { Prefer: "return=representation" },
-      body: JSON.stringify(record)
-    });
-    return rows?.[0] || record;
+    try {
+      const rows = await supabaseRequest("record_updates", {
+        method: "POST",
+        headers: { Prefer: "return=representation" },
+        body: JSON.stringify(record)
+      });
+      return rows?.[0] || record;
+    } catch (error) {
+      if (!isMissingColumnError(error)) throw error;
+      const rows = await supabaseRequest("record_updates", {
+        method: "POST",
+        headers: { Prefer: "return=representation" },
+        body: JSON.stringify(legacyUpdateRecord(record))
+      });
+      return { ...record, ...(rows?.[0] || {}) };
+    }
   }
 
   memory.updates.push(record);
@@ -94,31 +163,37 @@ export async function createUpdate(payload) {
 }
 
 export async function patchUpdate(id, patch) {
+  const payload = { ...patch, updated_at: now() };
   if (hasSupabase()) {
-    const rows = await supabaseRequest(`record_updates?id=eq.${encodeURIComponent(id)}`, {
-      method: "PATCH",
-      headers: { Prefer: "return=representation" },
-      body: JSON.stringify({ ...patch, updated_at: now() })
-    });
-    return rows?.[0] || null;
+    try {
+      const rows = await supabaseRequest(`record_updates?id=eq.${encodeURIComponent(id)}`, {
+        method: "PATCH",
+        headers: { Prefer: "return=representation" },
+        body: JSON.stringify(payload)
+      });
+      return rows?.[0] || null;
+    } catch (error) {
+      if (!isMissingColumnError(error)) throw error;
+      const rows = await supabaseRequest(`record_updates?id=eq.${encodeURIComponent(id)}`, {
+        method: "PATCH",
+        headers: { Prefer: "return=representation" },
+        body: JSON.stringify(legacyUpdateRecord(payload))
+      });
+      return rows?.[0] || null;
+    }
   }
 
   const index = memory.updates.findIndex((update) => update.id === id);
   if (index === -1) return null;
-  memory.updates[index] = { ...memory.updates[index], ...patch, updated_at: now() };
+  memory.updates[index] = { ...memory.updates[index], ...payload };
   return memory.updates[index];
 }
 
 export async function deleteUpdate(id) {
-  if (hasSupabase()) {
-    await supabaseRequest(`record_updates?id=eq.${encodeURIComponent(id)}`, { method: "DELETE" });
-    return true;
-  }
-
-  const index = memory.updates.findIndex((update) => update.id === id);
-  if (index === -1) return false;
-  memory.updates.splice(index, 1);
-  return true;
+  return patchUpdate(id, {
+    status: "Deleted",
+    deleted_at: now()
+  });
 }
 
 export async function createSlackActivity(payload) {

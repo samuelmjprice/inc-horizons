@@ -86,7 +86,7 @@ export async function handlePatchUpdate(id, patch) {
 export async function handleDeleteUpdate(id) {
   const deleted = await deleteUpdate(id);
   if (!deleted) return { ok: false, status: 404, error: "Update not found." };
-  return { ok: true, deleted: true };
+  return { ok: true, deleted: true, update: deleted };
 }
 
 export async function handleResolveUpdate(id, resolvedBy = "") {
@@ -100,10 +100,11 @@ export async function handleResolveUpdate(id, resolvedBy = "") {
 
 export async function handleReopenUpdate(id) {
   return handlePatchUpdate(id, {
-    status: "Still To Be Resolved",
+    status: "New",
     resolved_by: "",
     resolved_at: null,
-    archived_at: null
+    archived_at: null,
+    deleted_at: null
   });
 }
 
@@ -112,6 +113,41 @@ export async function handleArchiveUpdate(id) {
     status: "Archived",
     archived_at: new Date().toISOString()
   });
+}
+
+export async function handleLifecycleUpdate(id, action, body = {}) {
+  const timestamp = new Date().toISOString();
+  const patchByAction = {
+    confirm: { status: "Confirmed" },
+    acknowledge: { status: "Acknowledged" },
+    accept: { status: "Accepted" },
+    "in-progress": { status: "In Progress" },
+    dismiss: { status: "Dismissed" },
+    resolve: {
+      status: "Resolved",
+      resolved_by: body.resolved_by || "Website",
+      resolved_at: timestamp,
+      archived_at: null
+    },
+    archive: {
+      status: "Archived",
+      archived_at: timestamp
+    },
+    reopen: {
+      status: body.status || "New",
+      resolved_by: "",
+      resolved_at: null,
+      archived_at: null,
+      deleted_at: null
+    },
+    delete: {
+      status: "Deleted",
+      deleted_at: timestamp
+    }
+  };
+  const patch = patchByAction[action];
+  if (!patch) return handlePatchUpdate(id, body || {});
+  return handlePatchUpdate(id, patch);
 }
 
 export async function handleSendUpdateToSlack(id, env = process.env) {

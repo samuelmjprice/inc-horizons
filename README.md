@@ -328,7 +328,7 @@ Do not treat comments as official display data until a project lead approves the
 
 - `index.html`: page structure.
 - `style.css`: visual design.
-- `script.js`: rendering, filters, countdown, tabs, accordions, and local update UI.
+- `script.js`: rendering, filters, countdown, tabs, accordions, shared report/update UI, and backend sync.
 - `content.json`: official website display data.
 - `HORIZONS_Website_Update_Tracker.xlsx`: team update intake tracker.
 - `WEBSITE_UPDATE_WORKFLOW.md`: update process.

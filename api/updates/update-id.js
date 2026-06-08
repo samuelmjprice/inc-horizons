@@ -1,6 +1,7 @@
 import {
   handleArchiveUpdate,
   handleDeleteUpdate,
+  handleLifecycleUpdate,
   handlePatchUpdate,
   handleReopenUpdate,
   handleResolveUpdate,
@@ -25,6 +26,8 @@ export default async function handler(request, response) {
     if (action === "resolve") result = await handleResolveUpdate(id, request.body?.resolved_by);
     else if (action === "reopen") result = await handleReopenUpdate(id);
     else if (action === "archive") result = await handleArchiveUpdate(id);
+    else if (action === "delete") result = await handleDeleteUpdate(id);
+    else if (["confirm", "acknowledge", "accept", "in-progress", "dismiss"].includes(action)) result = await handleLifecycleUpdate(id, action, request.body || {});
     else if (action === "send-to-slack") result = await handleSendUpdateToSlack(id, process.env);
     else result = await handlePatchUpdate(id, request.body || {});
     response.status(result.status || (result.ok ? 200 : 500)).json(result);
