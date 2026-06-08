@@ -26975,6 +26975,32 @@
   ],
   "documents": [
     {
+      "id": "asset-horizons-homepage-wave-background-video",
+      "title": "HORIZONS Homepage Wave Background Video",
+      "description": "Approved ampersand / sea wave loop selected for the homepage hero. Smaller web MP4 used for the active 1080 source; original MOV is not served.",
+      "category": "Homepage Video",
+      "day": "Homepage",
+      "type": "Video",
+      "owner": "Chris Manoe / Brand",
+      "status": "Active",
+      "link": "assets/video/horizons-wave-hero-1080.mp4",
+      "sourceFile": "web UPDATED WAVE LOOP 2.1-.mp4",
+      "alternateSourceFile": "web 2 UPDATED WAVE LOOP 2.1-.mp4",
+      "websiteFiles": [
+        "assets/video/horizons-wave-hero-1080.mp4",
+        "assets/video/horizons-wave-hero-720.mp4",
+        "assets/video/horizons-wave-hero-1080.webm",
+        "assets/video/horizons-wave-hero-poster.jpg"
+      ],
+      "notes": "Chris approved the ampersand / sea wave loop for the homepage hero. The older 1.4GB MOV is not linked or served.",
+      "updateId": "asset:horizons-homepage-wave-background-video",
+      "relatedSections": [
+        "Overview",
+        "Assets",
+        "Brand"
+      ]
+    },
+    {
       "id": "doc-horizons-dof-podcast-outreach",
       "title": "HORIZONS x DoF Podcast Outreach / Schedule",
       "description": "Source-of-truth workbook for the final HORIZONS x Deconstructor of Fun podcast schedule, confirmed speakers, and outreach source trace.",
@@ -43477,6 +43503,16 @@
     }
   ],
   "sourceArchive": [
+    {
+      "sourceFile": "web UPDATED WAVE LOOP 2.1-.mp4",
+      "type": "MP4",
+      "dateAdded": "2026-06-08",
+      "keyInformationCaptured": "Approved optimized homepage ampersand / sea wave loop source.",
+      "relatedMasterTabs": "Brand / Homepage Video",
+      "relatedWebsiteSections": "Overview",
+      "status": "Active source",
+      "notes": "Used for assets/video/horizons-wave-hero-1080.mp4. Larger web 2 UPDATED WAVE LOOP 2.1-.mp4 retained as alternate source only. Old MOV is not served."
+    },
     {
       "sourceFile": "content.json",
       "type": "JSON",

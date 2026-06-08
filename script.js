@@ -44,7 +44,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260607-current-samuel-review1";
+const APP_VERSION = "20260608-homepage-wave-video";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -806,10 +806,11 @@ function renderEvent() {
   $("[data-event-description]").textContent = event.description;
   $("[data-event-location]").textContent = event.location;
   $("[data-event-dates]").textContent = event.dates;
-  $("[data-event-updated]").textContent = event.lastUpdated;
+  const eventUpdated = $("[data-event-updated]");
+  if (eventUpdated) eventUpdated.textContent = event.lastUpdated;
   $("[data-footer-updated]").textContent = event.lastUpdated;
   if (event.updatedBy) {
-    $("[data-event-updated]").setAttribute("title", `Updated by ${event.updatedBy}`);
+    if (eventUpdated) eventUpdated.setAttribute("title", `Updated by ${event.updatedBy}`);
     $("[data-footer-updated]").setAttribute("title", `Updated by ${event.updatedBy}`);
   }
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
@@ -3256,27 +3257,44 @@ function renderCompleted() {
 }
 
 function startCountdown() {
-  const target = new Date(state.data.event.countdownTarget || "2026-06-08T00:00:00+02:00").getTime();
-  const grid = $("[data-countdown-grid]");
+  const grid = $("[data-event-time-grid]");
   const fallback = $("[data-countdown-fallback]");
+  const ibizaTime = $("[data-ibiza-time]");
+  const eventDay = $("[data-event-current-day]");
+  const eventClose = $("[data-event-close]");
+  const ibizaTimeFormatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Madrid",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
+  const ibizaDayFormatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Madrid",
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  });
   const update = () => {
-    const diff = Math.max(0, target - Date.now());
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const minutes = Math.floor((diff % 3600000) / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
-    $("[data-countdown-days]").textContent = days;
-    $("[data-countdown-hours]").textContent = String(hours).padStart(2, "0");
-    $("[data-countdown-minutes]").textContent = String(minutes).padStart(2, "0");
-    $("[data-countdown-seconds]").textContent = String(seconds).padStart(2, "0");
-    if (grid) grid.hidden = false;
-    if (fallback) {
-      fallback.hidden = true;
-      fallback.textContent = "";
+    try {
+      const now = new Date();
+      if (ibizaTime) ibizaTime.textContent = ibizaTimeFormatter.format(now);
+      if (eventDay) eventDay.textContent = ibizaDayFormatter.format(now);
+      if (eventClose) eventClose.textContent = "Friday 12 June";
+      if (grid) grid.hidden = false;
+      if (fallback) {
+        fallback.hidden = true;
+        fallback.textContent = "Ibiza time unavailable";
+      }
+    } catch (error) {
+      if (grid) grid.hidden = true;
+      if (fallback) {
+        fallback.hidden = false;
+        fallback.textContent = "Ibiza time unavailable";
+      }
     }
   };
   update();
-  setInterval(update, 1000);
+  setInterval(update, 60000);
 }
 
 function startNowNext() {

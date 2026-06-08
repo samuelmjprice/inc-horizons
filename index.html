@@ -6,7 +6,7 @@
     <meta name="description" content="HORIZONS Ibiza 2026 internal event command centre.">
     <title>HORIZONS Ibiza 2026 | Event Command Centre</title>
     <link rel="icon" href="assets/logos/horizons-main-logo-black.png">
-    <link rel="stylesheet" href="style.css?v=20260607-mobile-card-layout-fix2">
+    <link rel="stylesheet" href="style.css?v=20260608-homepage-wave-video">
   </head>
   <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -36,6 +36,20 @@
 
     <main id="main">
       <section id="overview" class="hero section">
+        <video
+          class="home-hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/video/horizons-wave-hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="assets/video/horizons-wave-hero-1080.webm" type="video/webm">
+          <source src="assets/video/horizons-wave-hero-1080.mp4" type="video/mp4">
+        </video>
+        <div class="home-hero-overlay" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-copy">
             <img class="hero-logo" data-event-logo src="assets/logos/horizons-main-logo-black.png" alt="Official HORIZONS logo">
@@ -45,17 +59,15 @@
             <div class="meta-strip" aria-label="Event information">
               <span data-event-location></span>
               <span data-event-dates></span>
-              <span>Last updated: <time data-event-updated></time></span>
             </div>
-            <div class="countdown" data-countdown aria-label="Countdown to HORIZONS arrival">
-              <p class="eyebrow">Countdown to HORIZONS arrival</p>
-              <div class="countdown-grid" data-countdown-grid hidden>
-                <span><strong data-countdown-days>0</strong>Days</span>
-                <span><strong data-countdown-hours>00</strong>Hours</span>
-                <span><strong data-countdown-minutes>00</strong>Minutes</span>
-                <span><strong data-countdown-seconds>00</strong>Seconds</span>
+            <div class="countdown event-time-panel" data-countdown aria-label="Ibiza event time">
+              <p class="eyebrow">Live event time</p>
+              <div class="event-time-grid" data-event-time-grid>
+                <span><strong data-ibiza-time>--:--</strong>Ibiza time</span>
+                <span><strong data-event-current-day>Monday 8 June</strong>Event day</span>
+                <span><strong data-event-close>Friday 12 June</strong>Event closes</span>
               </div>
-              <p class="countdown-fallback" data-countdown-fallback>Countdown loading...</p>
+              <p class="countdown-fallback" data-countdown-fallback hidden>Ibiza time unavailable</p>
             </div>
             <div class="quick-actions" data-quick-actions></div>
           </div>
@@ -901,6 +913,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260607-mobile-card-layout-fix2"></script>
+    <script src="script.js?v=20260608-homepage-wave-video"></script>
   </body>
 </html>
