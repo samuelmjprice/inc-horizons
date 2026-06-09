@@ -4,7 +4,7 @@
     "subtitle": "Event Command Centre",
     "location": "Six Senses Ibiza",
     "dates": "6-12 June 2026",
-    "lastUpdated": "6 June 2026 — full review pass and attendee directory import",
+    "lastUpdated": "9 June 2026, final QA bug-fix pass",
     "description": "Internal HORIZONS event command centre for schedules, priorities, contacts, suppliers, documents, materials, and live team updates.",
     "logo": "assets/logos/horizons-main-logo-black.png",
     "countdownTarget": "2026-06-08T00:00:00+02:00",
@@ -22,7 +22,7 @@
       "Final call sheet owner/support confirmations"
     ],
     "studioLogo": "assets/logos/horizons-studio-main-logo-black.png",
-    "updatedBy": "Samuel source review / Codex safe import",
+    "updatedBy": "Codex final QA pass",
     "swagBrief": "assets/documents/horizons-swag-delivery-brief.pdf",
     "last_updated": "2026-06-03T22:05:00+01:00",
     "updated_at": "2026-06-03T22:05:00+01:00",
@@ -44704,10 +44704,10 @@
     {
       "area": "Comments / Updates",
       "issueType": "Source Conflict",
-      "whatWasFound": "Updates are local-only and Slack notification behavior was not explicit.",
-      "impact": "Team may expect comments to notify Slack automatically.",
-      "recommendedFix": "Add Slack notify fields and local activity log stub; backend/webhooks still needed for real posting.",
-      "status": "Partially Implemented"
+      "whatWasFound": "Updates now use the shared report/update flow with explicit Slack preview and routing.",
+      "impact": "Team updates are clearer and no longer presented as device-only records.",
+      "recommendedFix": "Keep production Supabase schema and Slack channel routing configured before live event use.",
+      "status": "Implemented"
     },
     {
       "area": "Duplicate Records",

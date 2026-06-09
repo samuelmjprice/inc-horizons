@@ -45,7 +45,7 @@ const state = {
   updates: {}
 };
 
-const APP_VERSION = "20260608-report-issue-sitewide-updates";
+const APP_VERSION = "20260609-full-site-final-qa";
 const APP_GROUPS = [
   { id: "overview", label: "Overview", target: "overview", sections: ["overview", "app-search"] },
   { id: "today", label: "Today", target: "today", sections: ["today", "red-flags", "decisions"] },
@@ -963,9 +963,7 @@ async function init() {
   setupBackToTopAndAdmin();
   const restoreHashTarget = () => {
     const targetId = (location.hash || "").replace("#", "");
-    setActiveGroupForTarget(targetId || "overview");
-    const target = document.getElementById(targetId);
-    if (target) target.scrollIntoView();
+    if (!targetId || !openInternalTarget(targetId, { behavior: "auto" })) setActiveGroupForTarget("overview");
     window.HORIZONS_UPDATE_SECTION_NAV?.();
   };
   requestAnimationFrame(restoreHashTarget);
@@ -1005,9 +1003,23 @@ function setupAppGroups() {
 function setActiveGroupForTarget(targetId = "overview") {
   const targetGroup = groupBySection[targetId] || APP_GROUPS.find((group) => group.id === targetId)?.id || "overview";
   document.body.dataset.activeGroup = targetGroup;
-  document.body.classList.toggle("admin-view", targetGroup === "admin" || ["cvent", "missing-files", "asset-review", "slack", "data-health", "duplicate-review", "site-audit"].includes(targetId));
+  document.body.classList.toggle("admin-view", targetGroup === "admin" || ["cvent", "missing-files", "asset-review", "report-inbox", "slack", "data-health", "duplicate-review", "site-audit"].includes(targetId));
+  $$("main .section[data-app-group]").forEach((section) => {
+    section.hidden = section.dataset.appGroup !== targetGroup;
+  });
   $$("[data-app-nav]").forEach((link) => link.classList.toggle("is-active", link.dataset.appNav === targetGroup));
   $$("[data-app-subnav] a").forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${targetId}`));
+}
+
+function openInternalTarget(targetId = "", options = {}) {
+  const target = document.getElementById(targetId);
+  if (!target) return false;
+  setActiveGroupForTarget(targetId);
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior: options.behavior || "smooth", block: options.block || "start" });
+    window.HORIZONS_UPDATE_SECTION_NAV?.();
+  });
+  return true;
 }
 
 function renderEvent() {
@@ -1019,11 +1031,19 @@ function renderEvent() {
   $("[data-event-location]").textContent = event.location;
   $("[data-event-dates]").textContent = event.dates;
   const eventUpdated = $("[data-event-updated]");
-  if (eventUpdated) eventUpdated.textContent = event.lastUpdated;
-  $("[data-footer-updated]").textContent = event.lastUpdated;
+  const lastUpdated = event.lastUpdated || event.updated_at || event.last_updated || "";
+  if (eventUpdated) {
+    eventUpdated.textContent = lastUpdated;
+    eventUpdated.closest("[data-event-updated-row]")?.toggleAttribute("hidden", !lastUpdated);
+  }
+  const footerUpdated = $("[data-footer-updated]");
+  if (footerUpdated) {
+    footerUpdated.textContent = lastUpdated;
+    footerUpdated.closest("p")?.toggleAttribute("hidden", !lastUpdated);
+  }
   if (event.updatedBy) {
     if (eventUpdated) eventUpdated.setAttribute("title", `Updated by ${event.updatedBy}`);
-    $("[data-footer-updated]").setAttribute("title", `Updated by ${event.updatedBy}`);
+    footerUpdated?.setAttribute("title", `Updated by ${event.updatedBy}`);
   }
   $$("[data-event-logo]").forEach((img) => img.src = event.logo);
   setHtml("[data-quick-actions]", quickActions.map((action, index) => `<a class="button ${index === 0 ? "button-primary" : "button-secondary"}" href="${action.target}">${escapeHtml(action.label)}</a>`).join(""));
@@ -3591,9 +3611,11 @@ function startCountdown() {
       if (grid) grid.hidden = false;
       if (fallback) {
         fallback.hidden = true;
-        fallback.textContent = "Ibiza time unavailable";
+        fallback.textContent = "";
       }
     } catch (error) {
+      if (ibizaTime) ibizaTime.textContent = "";
+      if (eventDay) eventDay.textContent = "";
       if (grid) grid.hidden = true;
       if (fallback) {
         fallback.hidden = false;
@@ -3665,7 +3687,8 @@ function setupSectionNavigation() {
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate);
   window.addEventListener("hashchange", () => {
-    setActiveGroupForTarget((location.hash || "#overview").replace("#", ""));
+    const targetId = (location.hash || "#overview").replace("#", "");
+    if (!openInternalTarget(targetId, { behavior: "auto" })) setActiveGroupForTarget(targetId || "overview");
     requestUpdate();
   });
   window.HORIZONS_UPDATE_SECTION_NAV = requestUpdate;
@@ -3886,6 +3909,16 @@ function bindEvents() {
     runHomepageSearch(text(homeSearchInput.value));
   });
   document.addEventListener("click", async (event) => {
+    const internalLink = event.target.closest("a[href^='#']");
+    if (internalLink && !event.defaultPrevented) {
+      const targetId = decodeURIComponent(internalLink.getAttribute("href").slice(1));
+      if (targetId && document.getElementById(targetId)) {
+        event.preventDefault();
+        history.pushState(null, "", `#${targetId}`);
+        openInternalTarget(targetId);
+        return;
+      }
+    }
     const reportOpen = event.target.closest("[data-report-open]");
     if (reportOpen) {
       event.preventDefault();

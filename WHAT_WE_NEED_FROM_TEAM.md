@@ -6,6 +6,7 @@
 | --- | --- | --- | --- | --- |
 | Apply updated Supabase `record_updates` schema | Report Issue, archived delete, and richer update metadata need the new soft-delete/report columns on the live backend | Backend / Report Inbox / Updates | Samuel / technical admin | Needed |
 | Confirm live Slack report channels and webhooks | Report Issue can save sitewide now; Slack send should only go live once the production channels/webhooks are approved | Slack / Report Issue | Samuel / Chris | Needs Confirmation |
+| Run production-domain backend QA after deploy | Localhost is blocked by production CORS, so update/status/seating saves must be verified from `https://inc-horizons.com` | Backend / Report Inbox / HORIZONS Hall | Samuel / technical admin | Needed |
 | Confirm 7 ambiguous attendee directory profile pages | Avoid wrong attendee/company/category records | People / Attendee Directory | Samuel / Chris | Needs Review |
 | Confirm nearest hospital and emergency route | Onsite safety and call sheet accuracy | Call Sheet / Locations | Samuel / Chris / Six Senses | Needed |
 | Confirm nearby pharmacy location | Onsite welfare and emergency reference | Locations / Call Sheet | Samuel / Chris / Six Senses | Needed |
