@@ -142,7 +142,7 @@ Generated visual review companion for Samuel / Chris. The HTML file contains ima
 | Venue maps | Documents / Missing Files | Needed to complete source-of-truth records and remove placeholders | Missing — Please Provide / Needed | High Samuel / Chris / relevant owner |
 | Christina Hizon details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
 | Conner Reeves details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
-| DJ Lindsey Evans details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
+| DJ Lyndsay Evans details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
 | DJ Parris Taylor details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
 | Dan the Man details | Entertainment | Entertainment | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
 | Hospitality requirements | Entertainment | Hospitality | Missing — Please Provide / File Needed | Medium Dawn Ramsden |
@@ -255,8 +255,8 @@ Generated visual review companion for Samuel / Chris. The HTML file contains ima
 | Cvent meal/restaurant schedule | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Samuel Price |
 | Cvent speaker/session export | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Samuel Price |
 | Cvent venue/location list | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Samuel Price |
-| DJ Lindsay Evans details | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Dawn Ramsden |
-| DJ Paris Taylor details | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Dawn Ramsden |
+| DJ Lyndsay Evans details | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Dawn Ramsden |
+| DJ Parris Taylor details | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Dawn Ramsden |
 | Dan the Man details | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Dawn Ramsden |
 | Dietary notes | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  BeGood |
 | Easel board artwork | Website | Add file/link when available. Keep unresolved until confirmed. | Missing — Please Provide / File Needed |  Chris Manoe |

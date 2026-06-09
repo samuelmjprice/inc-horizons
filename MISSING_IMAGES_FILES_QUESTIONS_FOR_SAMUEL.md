@@ -76,7 +76,7 @@ Use this as the forwardable missing-assets and questions list. Do not mark an it
 | Existing Missing Files | BeGood staff/contact details | Supplier contacts | Staff / Suppliers | BeGood | Medium | File Needed |
 | Existing Missing Files | Hotel key contacts | Venue contacts | Staff / Suppliers | Six Senses | Medium | File Needed |
 | Existing Missing Files | Supplier contact list | Suppliers | Staff / Suppliers | Dawn Ramsden | Medium | File Needed |
-| Existing Missing Files | DJ Lindsey Evans details | Entertainment | Entertainment | Dawn Ramsden | Medium | File Needed |
+| Existing Missing Files | DJ Lyndsay Evans details | Entertainment | Entertainment | Dawn Ramsden | Medium | File Needed |
 | Existing Missing Files | DJ Parris Taylor details | Entertainment | Entertainment | Dawn Ramsden | Medium | File Needed |
 | Existing Missing Files | Conner Reeves details | Entertainment | Entertainment | Dawn Ramsden | Medium | File Needed |
 | Existing Missing Files | Christina Hizon details | Entertainment | Entertainment | Dawn Ramsden | Medium | File Needed |

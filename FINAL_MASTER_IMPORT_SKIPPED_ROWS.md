@@ -161,7 +161,7 @@ Rows below were not imported as final website data.
 | 698 | REV-0697 | DOC-078 | Needs Confirmation | Status not approved/final | BeGood staff/contact details \| Staff / Suppliers \| BeGood \| File Needed |
 | 699 | REV-0698 | DOC-079 | Needs Confirmation | Status not approved/final | Hotel key contacts \| Staff / Suppliers \| Six Senses \| File Needed |
 | 700 | REV-0699 | DOC-080 | Needs Confirmation | Status not approved/final | Supplier contact list \| Staff / Suppliers \| Dawn Ramsden \| File Needed |
-| 701 | REV-0700 | DOC-081 | Needs Confirmation | Status not approved/final | DJ Lindsey Evans details \| Entertainment \| Dawn Ramsden \| File Needed |
+| 701 | REV-0700 | DOC-081 | Needs Confirmation | Status not approved/final | DJ Lyndsay Evans details \| Entertainment \| Dawn Ramsden \| File Needed |
 | 702 | REV-0701 | DOC-082 | Needs Confirmation | Status not approved/final | DJ Parris Taylor details \| Entertainment \| Dawn Ramsden \| File Needed |
 | 703 | REV-0702 | DOC-083 | Needs Confirmation | Status not approved/final | Conner Reeves details \| Entertainment \| Dawn Ramsden \| File Needed |
 | 704 | REV-0703 | DOC-084 | Needs Confirmation | Status not approved/final | Christina Hizon details \| Entertainment \| Dawn Ramsden \| File Needed |

@@ -12,7 +12,7 @@ This pass corrects the HORIZONS website staff, contact, performer, hotel, and Cl
 - Clownfish: Alex Humphreys, Kirsty Davison, Nathan Fox, Ryan Lowe, Andrew Howes, Brendan Davies, Ollie Hooper, Joachim Ridley-Barker, Joshua Millar, Nathan Rushmer, George Winning, Alex Hudson.
 - Aream & Co.: Eve Dusek, Poppy Luck.
 - B Good: Liz Morris, Ben Eden-Carruthers, Cheryl Leno.
-- Performers: DJ Lindsay Evans, DJ Paris Taylor, Christina Hizon, Connor Reeves, Dan the Man.
+- Performers: DJ Lyndsay Evans, DJ Parris Taylor, Christina Hizon, Connor Reeves, Dan the Man.
 - Hotel / Venue: David Mulin, Noelia Badelamanti Martinez.
 
 ## Names Corrected
@@ -26,7 +26,7 @@ This pass corrects the HORIZONS website staff, contact, performer, hotel, and Cl
 - Kirsty Davison.
 - Nathan Rushmer.
 - Joshua Millar / Josh Millar kept separate from Joshua Gavin.
-- DJ Paris Taylor.
+- DJ Parris Taylor.
 - Connor Reeves.
 - David Mulin.
 - Noelia Badelamanti Martinez.

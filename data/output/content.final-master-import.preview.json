@@ -35051,7 +35051,7 @@
   "entertainment": [
     {
       "id": "entertainment-dj-lindsey-evans",
-      "performerName": "DJ Lindsey Evans",
+      "performerName": "DJ Lyndsay Evans",
       "type": "DJ / Performer",
       "day": "Thursday 11 June, Tuesday 9 June, Wednesday 10 June",
       "arrivalTime": "5:00 PM",
@@ -35145,7 +35145,7 @@
       "last_updated": "2026-05-31T19:18:50",
       "updated_from_final_workbook": true,
       "final_import_batch_id": "final-master-import-20260531-1918",
-      "finalWorkbookDisplayText": "DJ Lindsey Evans | DJ / Performer | Thursday 11 June, Tuesday 9 June, Wednesday 10 June | 5:00 PM | Beach Caves, HORIZONS House, Pool Deck, Secret Bar, Six Senses, Rocky Beach | Needs Confirmation",
+      "finalWorkbookDisplayText": "DJ Lyndsay Evans | DJ / Performer | Thursday 11 June, Tuesday 9 June, Wednesday 10 June | 5:00 PM | Beach Caves, HORIZONS House, Pool Deck, Secret Bar, Six Senses, Rocky Beach | Needs Confirmation",
       "finalWorkbookStatus": "Approved"
     },
     {
@@ -38102,7 +38102,7 @@
     },
     {
       "id": "missing-dj-lindsey-evans-details",
-      "fileNeeded": "DJ Lindsey Evans details",
+      "fileNeeded": "DJ Lyndsay Evans details",
       "category": "Entertainment",
       "owner": "Dawn Ramsden",
       "neededFor": "Entertainment",
