@@ -4,6 +4,7 @@
 
 | Need | Why it matters | Section affected | Owner / who can provide | Status |
 | --- | --- | --- | --- | --- |
+| Complete archive hosting migration to Vercel / provide Vercel, GoDaddy DNS, and GitHub Pages admin access | GitHub Pages cannot run the password middleware/API gate; the archived site is only truly protected once Vercel env vars, Vercel domains, DNS records, and GitHub Pages settings are completed | Archive protection / Domain / Deployment | Samuel / technical admin | Critical Blocker |
 | Apply updated Supabase `record_updates` schema | Report Issue, archived delete, and richer update metadata need the new soft-delete/report columns on the live backend | Backend / Report Inbox / Updates | Samuel / technical admin | Needed |
 | Confirm live Slack report channels and webhooks | Report Issue can save sitewide now; Slack send should only go live once the production channels/webhooks are approved | Slack / Report Issue | Samuel / Chris | Needs Confirmation |
 | Run production-domain backend QA after deploy | Localhost is blocked by production CORS, so update/status/seating saves must be verified from `https://inc-horizons.com` | Backend / Report Inbox / HORIZONS Hall | Samuel / technical admin | Needed |

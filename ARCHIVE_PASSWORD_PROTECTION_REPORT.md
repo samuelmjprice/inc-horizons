@@ -21,6 +21,11 @@ GitHub Pages cannot enforce password protection with environment variables becau
 - `archive-lock.html`
 - `robots.txt`
 
+## Files Updated
+
+- `index.html` now includes `noindex, nofollow, noarchive`.
+- `CNAME` was removed from the repository to stop GitHub Pages claiming `inc-horizons.com` after rebuild.
+
 ## How It Works
 
 1. `middleware.js` checks every request.
@@ -52,6 +57,8 @@ To protect the live site, do one of the following:
 3. Disable GitHub Pages for this repository so the current public static site is no longer served.
 
 Until GitHub Pages is disabled or the domain is moved to Vercel, GitHub Pages cannot enforce this password gate.
+
+On 18 June 2026, Vercel deployment and DNS migration were attempted from this environment but blocked because no Vercel CLI/session/token, DNS provider access, or GitHub Pages admin access was available.
 
 ## Password Safety
 
