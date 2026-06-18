@@ -58,4 +58,4 @@ The full live migration could not be completed from this environment because:
 
 At the start of this migration pass, `inc-horizons.com` was still served by GitHub Pages.
 
-After this commit deploys through GitHub Pages, the removed `CNAME` should stop GitHub Pages from serving the custom domain, but that does not replace the need for Vercel deployment and DNS migration.
+After commit `74a14fe`, `https://inc-horizons.com` returns GitHub Pages 404 instead of the event app. This removes public access to the event hub through the custom domain, but it does not replace the need for Vercel env var setup and DNS migration to show the branded archive password screen on the custom domain.

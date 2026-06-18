@@ -52,6 +52,17 @@ These nameservers indicate the DNS provider is likely GoDaddy / DomainControl.
 - `www` redirects to apex through GitHub Pages.
 - The committed archive middleware/API gate is not active on the live domain because GitHub Pages cannot run middleware or environment variables.
 
+## Update After CNAME Removal
+
+After removing the repository `CNAME`, the custom domain no longer serves the event app:
+
+```txt
+https://inc-horizons.com -> HTTP/2 404
+server: GitHub.com
+```
+
+DNS still points to GitHub Pages records, so the domain has not yet been migrated to Vercel.
+
 ## Required Change
 
 Move the domain away from GitHub Pages to Vercel or another server-capable host.

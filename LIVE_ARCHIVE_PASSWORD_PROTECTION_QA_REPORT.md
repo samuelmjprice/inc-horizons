@@ -16,6 +16,7 @@ The Vercel URL is protected by middleware, but login returns `503` until Vercel 
 - `CNAME` file removed from repo to stop GitHub Pages custom-domain claim.
 - `robots.txt` blocks crawling.
 - `index.html` includes `noindex, nofollow, noarchive`.
+- `https://inc-horizons.com` now returns GitHub Pages 404 instead of the event app after CNAME removal.
 
 ## Pending Live QA
 
