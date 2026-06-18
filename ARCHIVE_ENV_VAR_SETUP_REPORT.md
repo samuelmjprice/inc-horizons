@@ -27,3 +27,15 @@ Recommended:
 - Preview: set both variables if preview deployments should also be protected.
 
 After setting or changing Vercel environment variables, redeploy the production deployment.
+
+## Fresh Verification - 18 June 2026 13:16 UTC
+
+`POST https://inc-horizons.vercel.app/api/archive-login` currently returns:
+
+```txt
+503 Archive protection environment variables are not configured.
+```
+
+This confirms the production Vercel deployment still does not have the required archive environment variables available to the API route.
+
+No secret values were tested in a way that prints them, committed to files, or added to reports.

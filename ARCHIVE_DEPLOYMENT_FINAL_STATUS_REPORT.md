@@ -59,3 +59,16 @@ The full live migration could not be completed from this environment because:
 At the start of this migration pass, `inc-horizons.com` was still served by GitHub Pages.
 
 After commit `74a14fe`, `https://inc-horizons.com` returns GitHub Pages 404 instead of the event app. This removes public access to the event hub through the custom domain, but it does not replace the need for Vercel env var setup and DNS migration to show the branded archive password screen on the custom domain.
+
+## Fresh Verification - 18 June 2026 13:16 UTC
+
+- `https://inc-horizons.com` still resolves to GitHub Pages and returns `404` with `server: GitHub.com`.
+- `inc-horizons.com` still has GitHub Pages apex A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+- `www.inc-horizons.com` still points to `samuelmjprice.github.io`.
+- Nameservers remain `ns07.domaincontrol.com` and `ns08.domaincontrol.com`.
+- `https://inc-horizons.vercel.app` redirects unauthenticated visitors to `/archive-lock.html?next=%2F`.
+- `https://inc-horizons.vercel.app/content.json` redirects unauthenticated visitors to `/archive-lock.html?next=%2Fcontent.json`.
+- `POST https://inc-horizons.vercel.app/api/archive-login` returns `503` with `Archive protection environment variables are not configured.`
+- No Vercel CLI, npm/npx, GitHub CLI, Vercel token, or local `.vercel/project.json` is available in this environment.
+
+Conclusion: repository-side protection is complete and the Vercel deployment is enforcing the middleware gate, but the final live-domain migration is blocked by external Vercel and DNS access.

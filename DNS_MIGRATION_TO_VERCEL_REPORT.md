@@ -60,3 +60,17 @@ Add the exact Vercel-provided apex and `www` records.
 ## TTL
 
 Current observed TTL: 3600 seconds.
+
+## Fresh Verification - 18 June 2026 13:16 UTC
+
+Current DNS still points to GitHub Pages:
+
+```txt
+inc-horizons.com A 185.199.108.153
+inc-horizons.com A 185.199.109.153
+inc-horizons.com A 185.199.110.153
+inc-horizons.com A 185.199.111.153
+www.inc-horizons.com CNAME samuelmjprice.github.io
+```
+
+`https://inc-horizons.com` returns a GitHub Pages `404`, so the event hub is not publicly exposed on the custom domain, but the branded Vercel archive gate is not yet serving the custom domain.
