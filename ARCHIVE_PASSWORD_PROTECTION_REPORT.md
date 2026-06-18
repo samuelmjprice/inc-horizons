@@ -4,74 +4,91 @@ Date: 18 June 2026
 
 ## Status
 
-Implemented a server-side archive access gate for Vercel-style hosting.
+Complete.
 
-The current live site at `https://inc-horizons.com/` is served by GitHub Pages, confirmed by the live response header:
+The live site is now served by Vercel and protected by the server-side archive gate:
 
 ```txt
-server: GitHub.com
+https://inc-horizons.com
+https://www.inc-horizons.com
 ```
 
-GitHub Pages cannot enforce password protection with environment variables because it only serves static files. The committed archive gate will work when the domain is served through a host that supports middleware/API environment variables, such as Vercel.
+Logged-out visitors are redirected to the branded archive lock page. Direct data URLs such as `/content.json` are also protected.
 
-## Files Added
+## Hosting
+
+Current production hosting:
+
+```txt
+Vercel project: inc-horizons
+Production deployment: https://inc-horizons-seven.vercel.app
+Live domain: https://inc-horizons.com
+```
+
+GitHub Pages is no longer the live custom-domain host.
+
+## Files
+
+Archive gate files:
 
 - `middleware.js`
 - `api/archive-login.js`
 - `archive-lock.html`
 - `robots.txt`
 
-## Files Updated
+Updated:
 
-- `index.html` now includes `noindex, nofollow, noarchive`.
-- `CNAME` was removed from the repository to stop GitHub Pages claiming `inc-horizons.com` after rebuild.
+- `index.html` includes `noindex, nofollow, noarchive`.
+- Repository `CNAME` file was removed previously.
 
 ## How It Works
 
-1. `middleware.js` checks every request.
+1. `middleware.js` checks incoming requests.
 2. If the request has a valid `horizons_archive_session` cookie, the request continues.
 3. If not, the visitor is redirected to `/archive-lock.html`.
 4. The branded archive lock page posts to `/api/archive-login`.
 5. The API route compares the submitted password with `HORIZONS_ARCHIVE_PASSWORD`.
 6. If the password matches, the API sets an HttpOnly secure archive session cookie using `HORIZONS_ARCHIVE_ACCESS_TOKEN`.
 
-## Environment Variables Required
+## Environment Variables
 
-Set these in the production hosting environment. Do not commit them.
+These are set in Vercel and must not be committed:
 
 ```txt
 HORIZONS_ARCHIVE_PASSWORD
 HORIZONS_ARCHIVE_ACCESS_TOKEN
 ```
 
-Use the agreed archive password for `HORIZONS_ARCHIVE_PASSWORD`.
+To rotate archive access:
 
-Use a long random value for `HORIZONS_ARCHIVE_ACCESS_TOKEN`, for example a UUID or generated secret token.
+1. Change one or both variables in Vercel Project Settings.
+2. Redeploy production.
+3. Test in a private browser window.
 
-## Important Hosting Note
+## DNS
 
-To protect the live site, do one of the following:
+GoDaddy now points the domain to Vercel.
 
-1. Move `inc-horizons.com` to Vercel and set the two environment variables above.
-2. Enable Vercel password protection / deployment protection if available on the project plan.
-3. Disable GitHub Pages for this repository so the current public static site is no longer served.
+Active relevant records:
 
-Until GitHub Pages is disabled or the domain is moved to Vercel, GitHub Pages cannot enforce this password gate.
+```txt
+A     @    216.198.79.1
+A     @    76.76.21.21
+CNAME www  ee2308c7a6b33f98.vercel-dns-017.com.
+```
 
-On 18 June 2026, Vercel deployment and DNS migration were attempted from this environment but blocked because no Vercel CLI/session/token, DNS provider access, or GitHub Pages admin access was available.
-
-## Password Safety
-
-The archive password is not hard-coded in the repository.
-
-The login cookie stores only the configured archive access token, not the password.
+Old GitHub Pages records are no longer present.
 
 ## QA
 
-Pending after deployment:
+Passed:
 
-- Confirm unauthenticated users are redirected to `/archive-lock.html`.
-- Confirm wrong password returns to branded lock page.
-- Confirm correct password sets an HttpOnly cookie and opens the archive.
-- Confirm `/content.json`, `/script.js`, `/assets/*`, and `/api/*` are not accessible without the cookie.
-- Confirm GitHub Pages has been disabled or DNS no longer points to GitHub Pages.
+- `https://inc-horizons.com` serves from Vercel.
+- `https://www.inc-horizons.com` serves from Vercel.
+- Logged-out root requests redirect to `/archive-lock.html`.
+- Logged-out `/content.json` redirects to `/archive-lock.html`.
+- Wrong password fails.
+- Correct password unlocks.
+- Refresh remains unlocked via secure cookie.
+- `robots.txt` blocks indexing.
+- Archive lock page has `noindex,nofollow,noarchive`.

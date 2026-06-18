@@ -29,9 +29,9 @@ HORIZONS_ARCHIVE_ACCESS_TOKEN
 
 Do not commit the archive password or access token. Set them in the production host.
 
-Important: GitHub Pages cannot enforce this password gate because it does not support server-side environment variables or middleware. If `inc-horizons.com` is still served by GitHub Pages, disable GitHub Pages or move the domain to Vercel before treating the archive as protected.
+The live domain is now served by Vercel and protected by the archive gate. GitHub Pages should no longer be treated as the production host because it cannot enforce the password gate.
 
-The repository `CNAME` file has been removed so GitHub Pages should stop claiming `inc-horizons.com` after rebuild. The final live archive still requires Vercel project access, production environment variables, Vercel domain setup, DNS migration, and GitHub Pages settings confirmation.
+The repository `CNAME` file has been removed so GitHub Pages no longer claims `inc-horizons.com`.
 
 Historical GitHub Pages URL:
 
@@ -540,7 +540,7 @@ Latest emergency/call-sheet backup:
 4. Deploy to Vercel production with the archive environment variables configured.
 5. Confirm the live domain shows the archive password gate.
 
-Old GitHub Pages DNS records for `inc-horizons.com` that should be removed during archive migration:
+The archive migration has been completed. Old GitHub Pages DNS records for `inc-horizons.com` were removed:
 
 - `A @ 185.199.108.153`
 - `A @ 185.199.109.153`
@@ -548,7 +548,11 @@ Old GitHub Pages DNS records for `inc-horizons.com` that should be removed durin
 - `A @ 185.199.111.153`
 - `CNAME www samuelmjprice.github.io`
 
-Replace these with the exact records Vercel provides after the domains are added to the Vercel project.
+Current Vercel DNS records:
+
+- `A @ 216.198.79.1`
+- `A @ 76.76.21.21`
+- `CNAME www ee2308c7a6b33f98.vercel-dns-017.com.`
 
 Do not delete nameserver, SOA, DMARC, or DomainConnect records.
 
