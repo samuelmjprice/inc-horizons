@@ -10,6 +10,27 @@ Live site:
 https://inc-horizons.com/
 ```
 
+## Archived Site Access
+
+The HORIZONS event is over and the site should now be treated as an internal archive.
+
+Archive access is implemented for Vercel-style hosting with:
+
+- `middleware.js`
+- `api/archive-login.js`
+- `archive-lock.html`
+
+Required production environment variables:
+
+```txt
+HORIZONS_ARCHIVE_PASSWORD
+HORIZONS_ARCHIVE_ACCESS_TOKEN
+```
+
+Do not commit the archive password or access token. Set them in the production host.
+
+Important: GitHub Pages cannot enforce this password gate because it does not support server-side environment variables or middleware. If `inc-horizons.com` is still served by GitHub Pages, disable GitHub Pages or move the domain to Vercel before treating the archive as protected.
+
 GitHub Pages URL:
 
 ```txt

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <title>HORIZONS Archive Access</title>
+    <style>
+      :root {
+        --horizons-gold: #c28952;
+        --horizons-cream: #f3eae1;
+        --horizons-blush: #e1c4af;
+        --horizons-black: #111111;
+        --horizons-white: #ffffff;
+        --horizons-ink-soft: #6b6259;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background:
+          linear-gradient(rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.46)),
+          radial-gradient(circle at 20% 20%, rgba(194, 137, 82, 0.22), transparent 34%),
+          linear-gradient(135deg, #f3eae1 0%, #d9c5b4 48%, #887462 100%);
+        color: var(--horizons-black);
+        font-family: "Gill Sans", "Avenir Next", Arial, sans-serif;
+        padding: 1.5rem;
+      }
+
+      main {
+        width: min(100%, 520px);
+        border: 1px solid rgba(194, 137, 82, 0.28);
+        border-radius: 28px;
+        background: rgba(255, 253, 248, 0.92);
+        box-shadow: 0 28px 80px rgba(17, 17, 17, 0.22);
+        padding: clamp(1.5rem, 5vw, 2.4rem);
+      }
+
+      .brand {
+        display: grid;
+        gap: 0.2rem;
+        justify-items: center;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .ampersand {
+        color: rgba(17, 17, 17, 0.08);
+        font-family: Georgia, serif;
+        font-size: 4.8rem;
+        line-height: 0.7;
+      }
+
+      .wordmark {
+        margin-top: -1.6rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.52em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        color: var(--horizons-gold);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0 0 0.8rem;
+        font-size: clamp(2rem, 9vw, 3.35rem);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        line-height: 1.02;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 0 0 1.5rem;
+        color: var(--horizons-ink-soft);
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.55rem;
+        color: var(--horizons-ink-soft);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      input,
+      button {
+        width: 100%;
+        min-height: 54px;
+        border-radius: 999px;
+        font: inherit;
+      }
+
+      input {
+        border: 1px solid rgba(194, 137, 82, 0.34);
+        background: var(--horizons-white);
+        color: var(--horizons-black);
+        padding: 0 1.1rem;
+      }
+
+      input:focus {
+        border-color: var(--horizons-gold);
+        outline: 3px solid rgba(194, 137, 82, 0.18);
+      }
+
+      button {
+        margin-top: 0.9rem;
+        border: 1px solid var(--horizons-gold);
+        background: var(--horizons-gold);
+        color: var(--horizons-white);
+        cursor: pointer;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+
+      .notice {
+        display: none;
+        margin: 0 0 1rem;
+        border: 1px solid rgba(146, 46, 34, 0.2);
+        border-radius: 18px;
+        background: rgba(146, 46, 34, 0.08);
+        color: #6d271f;
+        padding: 0.8rem 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .meta {
+        margin-top: 1.4rem;
+        border-top: 1px solid rgba(194, 137, 82, 0.2);
+        padding-top: 1rem;
+        font-size: 0.92rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand" aria-label="HORIZONS">
+        <div class="ampersand" aria-hidden="true">&amp;</div>
+        <div class="wordmark">Horizons</div>
+      </div>
+
+      <div class="eyebrow">Archived Internal Hub</div>
+      <h1>Archive Access</h1>
+      <p>
+        The HORIZONS Ibiza 2026 event hub is now closed to public access.
+        Please enter the archive password to continue.
+      </p>
+
+      <p class="notice" id="error-notice">That password did not match. Please try again.</p>
+
+      <form action="/api/archive-login" method="post">
+        <input type="hidden" name="next" id="next-path" value="/">
+        <label for="archive-password">Archive password</label>
+        <input id="archive-password" name="password" type="password" autocomplete="current-password" required autofocus>
+        <button type="submit">Enter HORIZONS Archive</button>
+      </form>
+
+      <p class="meta">For internal HORIZONS event team use only.</p>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const next = params.get("next");
+      if (next && next.startsWith("/") && !next.startsWith("//")) {
+        document.getElementById("next-path").value = next;
+      }
+      if (params.get("error") === "1") {
+        document.getElementById("error-notice").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
